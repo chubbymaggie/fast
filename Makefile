@@ -1,3 +1,5 @@
+target+=fast_generated.h _fast/Element.py
+target+=fast.pb.h fast.pb.cc
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
@@ -15,9 +17,6 @@ OPT=-O3
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
-
-target+=fast_generated.h _fast/Element.py
-target+=fast.pb.h fast.pb.cc
 
 all: $(target)
 
