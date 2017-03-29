@@ -1,0 +1,10 @@
+enum LanguageType {
+ALL = __COUNTER__;
+OO = __COUNTER__;
+CXX = __COUNTER__;
+C = __COUNTER__;
+C_FAMILY = __COUNTER__;
+JAVA = __COUNTER__;
+CSHARP = __COUNTER__;
+OBJECTIVE_C = __COUNTER__;
+}

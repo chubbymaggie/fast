@@ -1,0 +1,7 @@
+enum LiteralType {
+number_type = __COUNTER__;
+char_type = __COUNTER__;
+string_type = __COUNTER__;
+boolean_type = __COUNTER__;
+null_type = __COUNTER__;
+}

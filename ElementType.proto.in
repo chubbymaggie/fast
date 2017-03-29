@@ -1,0 +1,599 @@
+enum Kind {
+UNIT_KIND = __COUNTER__;
+DECL = __COUNTER__;
+DECL_STMT = __COUNTER__;
+INIT = __COUNTER__;
+EXPR = __COUNTER__;
+EXPR_STMT = __COUNTER__;
+COMMENT = __COUNTER__;
+CALL = __COUNTER__;
+CONTROL =  __COUNTER__;
+INCR =  __COUNTER__;
+
+    NONE = __COUNTER__;
+ VARIABLE = __COUNTER__;
+ FUNCTION = __COUNTER__;
+ FUNCTION_DECL = __COUNTER__;
+ CONSTRUCTOR = __COUNTER__;
+ CONSTRUCTOR_DECL = __COUNTER__;
+ DESTRUCTOR = __COUNTER__;
+ DESTRUCTOR_DECL = __COUNTER__;
+
+    MACRO = __COUNTER__;
+    SINGLE_MACRO = __COUNTER__;
+ NULLOPERATOR = __COUNTER__;
+ ENUM_DEFN = __COUNTER__;
+ ENUM_DECL = __COUNTER__;
+ GLOBAL_ATTRIBUTE = __COUNTER__;
+ PROPERTY_ACCESSOR = __COUNTER__;
+ PROPERTY_ACCESSOR_DECL = __COUNTER__;
+
+    EXPRESSION = __COUNTER__;
+ CLASS_DEFN = __COUNTER__;
+ CLASS_DECL = __COUNTER__;
+ UNION_DEFN = __COUNTER__;
+ UNION_DECL = __COUNTER__;
+ STRUCT_DEFN = __COUNTER__;
+ STRUCT_DECL = __COUNTER__;
+ INTERFACE_DEFN = __COUNTER__;
+ INTERFACE_DECL = __COUNTER__;
+ ACCESS_REGION = __COUNTER__;
+    USING = __COUNTER__;
+ OPERATOR_FUNCTION = __COUNTER__;
+ OPERATOR_FUNCTION_DECL = __COUNTER__;
+ EVENT = __COUNTER__;
+ PROPERTY = __COUNTER__;
+ ANNOTATION_DEFN = __COUNTER__;
+ GLOBAL_TEMPLATE = __COUNTER__;
+
+/*
+enum CALL_TYPE { NOCALL, CALL, MACRO };
+*/
+
+    // entire source file
+     UNIT = __COUNTER__;
+
+    // First token used for boundary
+     TART_ELEMENT_TOKEN = __COUNTER__;
+
+    // No output at all.  Only a placeholder
+     NOP = __COUNTER__;
+
+    // literal types
+     STRING = __COUNTER__;        // string marked by double quotes
+     CHAR = __COUNTER__;          // string or char marked by single quotes
+     LITERAL = __COUNTER__;       // literal number, constant
+     BOOLEAN = __COUNTER__;       // boolean literal, i.e., true, false
+     NULL = __COUNTER__;          // null types null, nullptr
+     COMPLEX = __COUNTER__;       // complex numbers
+
+    // operators
+     OPERATOR = __COUNTER__;
+
+    // type modifiers
+     MODIFIER = __COUNTER__;
+
+    // internal statement elements used in multiple statements
+     NAME = __COUNTER__;
+     ONAME = __COUNTER__;
+     CNAME = __COUNTER__;
+     TYPE = __COUNTER__;
+     TYPEPREV = __COUNTER__;
+	 CONDITION = __COUNTER__;
+	 BLOCK = __COUNTER__;
+     PSEUDO_BLOCK = __COUNTER__;
+     INDEX = __COUNTER__;
+
+    // statements
+	 ENUM = __COUNTER__;
+     ENUM_DECLARATION = __COUNTER__;
+
+	 IF_STATEMENT = __COUNTER__;
+     TERNARY = __COUNTER__;
+	 THEN = __COUNTER__;
+	 ELSE = __COUNTER__;
+	 ELSEIF = __COUNTER__;
+
+     WHILE_STATEMENT = __COUNTER__;
+	 DO_STATEMENT = __COUNTER__;
+
+	 FOR_STATEMENT = __COUNTER__;
+	 FOREACH_STATEMENT = __COUNTER__;
+     FOR_CONTROL = __COUNTER__;
+	 FOR_INITIALIZATION = __COUNTER__;
+	 FOR_CONDITION = __COUNTER__;
+	 FOR_INCREMENT = __COUNTER__;
+     FOR_LIKE_CONTROL = __COUNTER__;
+
+	 EXPRESSION_STATEMENT = __COUNTER__;
+	 // EXPRESSION = __COUNTER__;
+	 FUNCTION_CALL = __COUNTER__;
+
+	 DECLARATION_STATEMENT = __COUNTER__;
+	 DECLARATION = __COUNTER__;
+	 DECLARATION_INITIALIZATION = __COUNTER__;
+	 DECLARATION_RANGE = __COUNTER__;
+
+	 RANGE = __COUNTER__;
+
+	 GOTO_STATEMENT = __COUNTER__;
+	 CONTINUE_STATEMENT = __COUNTER__;
+	 BREAK_STATEMENT = __COUNTER__;
+	 LABEL_STATEMENT = __COUNTER__;
+	 LABEL = __COUNTER__;
+
+	 SWITCH = __COUNTER__;
+	 CASE = __COUNTER__;
+	 DEFAULT = __COUNTER__;
+
+    // functions
+     FUNCTION_DEFINITION = __COUNTER__;
+	 FUNCTION_DECLARATION = __COUNTER__;
+     LAMBDA = __COUNTER__;
+     FUNCTION_LAMBDA = __COUNTER__;
+	 FUNCTION_SPECIFIER = __COUNTER__;
+	 RETURN_STATEMENT = __COUNTER__;
+	 PARAMETER_LIST = __COUNTER__;
+	 PARAMETER = __COUNTER__;
+	 KRPARAMETER_LIST = __COUNTER__;
+	 KRPARAMETER = __COUNTER__;
+	 ARGUMENT_LIST = __COUNTER__;
+	 ARGUMENT = __COUNTER__;
+     PSEUDO_PARAMETER_LIST = __COUNTER__;
+     INDEXER_PARAMETER_LIST = __COUNTER__;
+
+    // class, struct, union
+	 CLASS = __COUNTER__;
+	 CLASS_DECLARATION = __COUNTER__;
+	 STRUCT = __COUNTER__;
+	 STRUCT_DECLARATION = __COUNTER__;
+	 UNION = __COUNTER__;
+	 UNION_DECLARATION = __COUNTER__;
+	 DERIVATION_LIST = __COUNTER__;
+	 PUBLIC_ACCESS = __COUNTER__;
+	 PUBLIC_ACCESS_DEFAULT = __COUNTER__;
+	 PRIVATE_ACCESS = __COUNTER__;
+	 PRIVATE_ACCESS_DEFAULT = __COUNTER__;
+	 PROTECTED_ACCESS = __COUNTER__;
+     PROTECTED_ACCESS_DEFAULT = __COUNTER__;
+     MEMBER_INIT_LIST = __COUNTER__;
+     MEMBER_INITIALIZATION_LIST = __COUNTER__;
+     MEMBER_INITIALIZATION = __COUNTER__;
+	 CONSTRUCTOR_DEFINITION = __COUNTER__;
+	 CONSTRUCTOR_DECLARATION = __COUNTER__;
+	 DESTRUCTOR_DEFINITION = __COUNTER__;
+	 DESTRUCTOR_DECLARATION = __COUNTER__;
+	 FRIEND = __COUNTER__;
+	 CLASS_SPECIFIER = __COUNTER__;
+
+    // exception handling
+	 TRY_BLOCK = __COUNTER__;
+	 CATCH_BLOCK = __COUNTER__;
+	 FINALLY_BLOCK = __COUNTER__;
+	 THROW_STATEMENT = __COUNTER__;
+	 THROW_SPECIFIER = __COUNTER__;
+	 THROW_SPECIFIER_JAVA = __COUNTER__;
+
+	 TEMPLATE = __COUNTER__;
+     GENERIC_ARGUMENT = __COUNTER__;
+     GENERIC_ARGUMENT_LIST = __COUNTER__;
+     TEMPLATE_PARAMETER = __COUNTER__;
+     TEMPLATE_PARAMETER_LIST = __COUNTER__;
+     GENERIC_PARAMETER = __COUNTER__;
+     GENERIC_PARAMETER_LIST = __COUNTER__;
+
+    // C Family elements
+	 TYPEDEF = __COUNTER__;
+	 ASM = __COUNTER__;
+	 MACRO_CALL = __COUNTER__;
+	 SIZEOF_CALL = __COUNTER__;
+     EXTERN = __COUNTER__;
+	 NAMESPACE = __COUNTER__;
+	 USING_DIRECTIVE = __COUNTER__;
+
+	 DIRECTIVE = __COUNTER__;
+
+    // C
+     ATOMIC = __COUNTER__;
+     STATIC_ASSERT_STATEMENT = __COUNTER__;
+     GENERIC_SELECTION = __COUNTER__;
+     GENERIC_SELECTOR = __COUNTER__;
+     GENERIC_ASSOCIATION_LIST = __COUNTER__;
+     GENERIC_ASSOCIATION = __COUNTER__;
+
+    // C++
+     ALIGNAS = __COUNTER__;
+     DECLTYPE = __COUNTER__;
+     CAPTURE = __COUNTER__;
+     LAMBDA_CAPTURE = __COUNTER__;
+     NOEXCEPT = __COUNTER__;
+     TYPENAME = __COUNTER__;
+     ALIGNOF = __COUNTER__;
+     TYPEID = __COUNTER__;
+     SIZEOF_PACK = __COUNTER__;
+     ENUM_CLASS = __COUNTER__;
+     ENUM_CLASS_DECLARATION = __COUNTER__;
+     // OPERATOR_FUNCTION = __COUNTER__;
+     // OPERATOR_FUNCTION_DECL = __COUNTER__;
+     REF_QUALIFIER = __COUNTER__;
+
+    // Qt
+	 SIGNAL_ACCESS = __COUNTER__;
+     FOREVER_STATEMENT = __COUNTER__;
+     EMIT_STATEMENT = __COUNTER__;
+
+    // cpp directive internal elements
+	 CPP_DIRECTIVE = __COUNTER__;
+     CPP_FILENAME = __COUNTER__;
+     FILE = __COUNTER__;
+     NUMBER = __COUNTER__;
+     CPP_NUMBER = __COUNTER__;
+     CPP_LITERAL = __COUNTER__;
+	 CPP_MACRO_DEFN = __COUNTER__;
+	 CPP_MACRO_VALUE = __COUNTER__;
+
+    // cpp directives
+	 ERROR = __COUNTER__;
+	 CPP_ERROR = __COUNTER__;
+     CPP_WARNING = __COUNTER__;
+	 CPP_PRAGMA = __COUNTER__;
+	 CPP_INCLUDE = __COUNTER__;
+	 CPP_DEFINE = __COUNTER__;
+	 CPP_UNDEF = __COUNTER__;
+	 CPP_LINE = __COUNTER__;
+	 CPP_IF = __COUNTER__;
+	 CPP_IFDEF = __COUNTER__;
+	 CPP_IFNDEF = __COUNTER__;
+	 CPP_THEN = __COUNTER__;
+	 CPP_ELSE = __COUNTER__;
+	 CPP_ELIF = __COUNTER__;
+     CPP_EMPTY = __COUNTER__;
+
+    // C# cpp directives
+     CPP_REGION = __COUNTER__;
+     CPP_ENDREGION = __COUNTER__;
+     USING_STMT = __COUNTER__;
+     ESCAPE = __COUNTER__;
+    // Objective-C cpp directives
+     VALUE = __COUNTER__;
+     CPP_IMPORT = __COUNTER__;
+
+    // This HAS to mark the end of the CPP directives
+	 CPP_ENDIF = __COUNTER__;
+
+    // Debug elements
+     MARKER = __COUNTER__;
+     ERROR_PARSE = __COUNTER__;
+     ERROR_MODE = __COUNTER__;
+
+    // Java elements
+     IMPLEMENTS = __COUNTER__;
+     EXTENDS = __COUNTER__;
+     IMPORT = __COUNTER__;
+     PACKAGE = __COUNTER__;
+     ASSERT_STATEMENT = __COUNTER__;
+     INTERFACE = __COUNTER__;
+     INTERFACE_DECLARATION = __COUNTER__;
+     SYNCHRONIZED_STATEMENT = __COUNTER__;
+     ANNOTATION = __COUNTER__;
+     // ANNOTATION_DEFN = __COUNTER__;
+     STATIC_BLOCK = __COUNTER__;
+
+    // C#
+     CHECKED_STATEMENT = __COUNTER__;
+     UNCHECKED_STATEMENT = __COUNTER__;
+     ATTRIBUTE = __COUNTER__;
+     TARGET = __COUNTER__;
+     UNSAFE_STATEMENT = __COUNTER__;
+     LOCK_STATEMENT = __COUNTER__;
+     FIXED_STATEMENT = __COUNTER__;
+     TYPEOF = __COUNTER__;
+     USING_STATEMENT = __COUNTER__;
+     FUNCTION_DELEGATE = __COUNTER__;
+     // EVENT = __COUNTER__;
+     CONSTRAINT = __COUNTER__;
+
+    // linq
+     LINQ = __COUNTER__;
+     FROM = __COUNTER__;
+     WHERE = __COUNTER__;
+     SELECT = __COUNTER__;
+     LET = __COUNTER__;
+     ORDERBY = __COUNTER__;
+     JOIN = __COUNTER__;
+     GROUP = __COUNTER__;
+     IN = __COUNTER__;
+     ON = __COUNTER__;
+     EQUALS = __COUNTER__;
+     BY = __COUNTER__;
+     INTO = __COUNTER__;
+
+    // misc
+     EMPTY = __COUNTER__;  // empty statement
+     EMPTY_STMT = __COUNTER__;  // empty statement
+
+    // Objective-C
+     RECEIVER = __COUNTER__;
+     MESSAGE = __COUNTER__;
+     SELECTOR = __COUNTER__;
+     PROTOCOL_LIST = __COUNTER__;
+     CATEGORY = __COUNTER__;
+     PROTOCOL = __COUNTER__;
+     REQUIRED_DEFAULT = __COUNTER__;
+     REQUIRED = __COUNTER__;
+     OPTIONAL = __COUNTER__;
+     // PROPERTY = __COUNTER__;
+     ATTRIBUTE_LIST = __COUNTER__;
+     SYNTHESIZE = __COUNTER__;
+     DYNAMIC = __COUNTER__;
+     ENCODE = __COUNTER__;
+     AUTORELEASEPOOL = __COUNTER__;
+     COMPATIBILITY_ALIAS = __COUNTER__;
+     NIL = __COUNTER__;
+     CLASS_INTERFACE = __COUNTER__;
+     CLASS_IMPLEMENTATION = __COUNTER__;
+     PROTOCOL_DECLARATION = __COUNTER__;
+
+    // casting
+     CAST = __COUNTER__;
+     CONST_CAST = __COUNTER__;
+     DYNAMIC_CAST = __COUNTER__;
+     REINTERPRET_CAST = __COUNTER__;
+     STATIC_CAST = __COUNTER__;
+
+    // srcMLOutput used only
+     POSITION = __COUNTER__;
+
+    // Other
+     CUDA_ARGUMENT_LIST = __COUNTER__;
+
+    // OpenMP
+     OMP_DIRECTIVE = __COUNTER__;
+     OMP_NAME = __COUNTER__;
+     OMP_CLAUSE = __COUNTER__;
+     OMP_ARGUMENT_LIST = __COUNTER__;
+     OMP_ARGUMENT = __COUNTER__;
+     OMP_EXPRESSION = __COUNTER__;
+
+    // Last token used for boundary
+    END_ELEMENT_TOKEN = __COUNTER__;
+
+    // special identifier
+    MAIN = __COUNTER__;
+
+    // statements
+    BREAK = __COUNTER__;
+	CONTINUE = __COUNTER__;
+
+    WHILE = __COUNTER__;
+	DO = __COUNTER__;
+	FOR = __COUNTER__;
+
+    IF = __COUNTER__;
+    // ELSE = __COUNTER__;
+
+	// SWITCH = __COUNTER__;
+	// CASE = __COUNTER__;
+	// DEFAULT = __COUNTER__;
+
+	// ENUM = __COUNTER__;
+
+    // C Family
+	// TYPEDEF = __COUNTER__;
+	GOTO = __COUNTER__;
+    // ASM = __COUNTER__;
+    VISUAL_CXX_ASM = __COUNTER__;
+    SIZEOF = __COUNTER__;
+    // EXTERN = __COUNTER__;
+    AUTO = __COUNTER__;
+
+    // C
+    REGISTER = __COUNTER__;
+    RESTRICT = __COUNTER__;
+    // ATOMIC = __COUNTER__;
+    // COMPLEX = __COUNTER__;
+    // GENERIC_SELECTION = __COUNTER__;
+    IMAGINARY = __COUNTER__;
+    NORETURN = __COUNTER__;
+    STATIC_ASSERT = __COUNTER__;
+
+    // Combined C/C++
+    CRESTRICT = __COUNTER__;
+    CXX_TRY = __COUNTER__;
+    CXX_CATCH = __COUNTER__;
+    CXX_CLASS = __COUNTER__;
+
+    // C++
+    CONSTEXPR = __COUNTER__;
+    // NOEXCEPT = __COUNTER__;
+    THREAD_LOCAL = __COUNTER__;
+    NULLPTR = __COUNTER__;
+    // DECLTYPE = __COUNTER__;
+    // ALIGNAS = __COUNTER__;
+    // TYPENAME = __COUNTER__;
+    // ALIGNOF = __COUNTER__;
+    // TYPEID = __COUNTER__;
+    // CONST_CAST = __COUNTER__;
+    // DYNAMIC_CAST = __COUNTER__;
+    // REINTERPRET_CAST = __COUNTER__;
+    // STATIC_CAST = __COUNTER__;
+
+    // aggregate types
+    // UNION = __COUNTER__;
+	// STRUCT = __COUNTER__;
+
+    // types
+    VOID = __COUNTER__;
+
+    // functions
+	RETURN = __COUNTER__;
+
+    // cpp
+    INCLUDE = __COUNTER__;
+	DEFINE = __COUNTER__;
+	ELIF = __COUNTER__;
+    ENDIF = __COUNTER__;
+    ERRORPREC = __COUNTER__;
+    WARNING = __COUNTER__;
+	IFDEF = __COUNTER__;
+	IFNDEF = __COUNTER__;
+    LINE = __COUNTER__;
+	PRAGMA = __COUNTER__;
+	UNDEF = __COUNTER__;
+
+	INLINE = __COUNTER__;
+
+    // macro
+    MACRO_TYPE_NAME = __COUNTER__;
+    MACRO_CASE = __COUNTER__;
+    MACRO_LABEL = __COUNTER__;
+    // MACRO_SPECIFIER = __COUNTER__;
+    SPECIFIER = __COUNTER__;
+
+    // specifiers that are not needed for parsing
+    /*
+    REGISTER = "register" = __COUNTER__;
+    MUTABLE = "mutable" = __COUNTER__;
+    VOLATILE = "volatile" = __COUNTER__;
+
+    // Standard type keywords do not need to be identified
+	BOOL = "bool" = __COUNTER__;
+	CHAR = "char" = __COUNTER__;
+    INT = "int" = __COUNTER__;
+    SHORT = "short" = __COUNTER__;
+    LONG = "long" = __COUNTER__;
+    DOUBLE = "double" = __COUNTER__;
+    FLOAT = "float" = __COUNTER__;
+    */
+
+    // exception handling
+	TRY = __COUNTER__;
+	CATCH = __COUNTER__;
+	THROW = __COUNTER__;
+    THROWS = __COUNTER__;
+
+    // class
+    // CLASS = __COUNTER__;
+	PUBLIC = __COUNTER__;
+	PRIVATE = __COUNTER__;
+	PROTECTED = __COUNTER__;
+    VIRTUAL = __COUNTER__;
+	// FRIEND = __COUNTER__;
+	// OPERATOR = __COUNTER__;
+    EXPLICIT = __COUNTER__;
+
+    // Qt
+    FOREVER = __COUNTER__;
+    SIGNAL = __COUNTER__;
+    EMIT = __COUNTER__;
+
+    // namespaces
+	// NAMESPACE = __COUNTER__;
+	// USING = __COUNTER__;
+
+    // templates
+	// TEMPLATE = __COUNTER__;
+
+    NEW = __COUNTER__;
+    DELETE = __COUNTER__;
+
+    // specifiers
+    STATIC = __COUNTER__;
+    CONST = __COUNTER__;
+    MUTABLE = __COUNTER__;
+    VOLATILE = __COUNTER__;
+    TRANSIENT = __COUNTER__;
+
+    // Java tokens
+    // IMPORT = __COUNTER__;
+    // PACKAGE = __COUNTER__;
+    FINALLY = __COUNTER__;
+    // EXTENDS = __COUNTER__;
+    // IMPLEMENTS = __COUNTER__;
+    // INTERFACE = __COUNTER__;
+    FINAL = __COUNTER__;
+    ABSTRACT = __COUNTER__;
+    SUPER = __COUNTER__;
+    SYNCHRONIZED = __COUNTER__;
+    NATIVE = __COUNTER__;
+    STRICTFP = __COUNTER__;
+    NULLLITERAL = __COUNTER__;
+    ASSERT = __COUNTER__;
+
+    // C# tokens
+    FOREACH = __COUNTER__;
+    REF = __COUNTER__;
+    OUT = __COUNTER__;
+    // IN = __COUNTER__;
+    LOCK = __COUNTER__;
+    IS = __COUNTER__;
+    INTERNAL = __COUNTER__;
+    SEALED = __COUNTER__;
+    OVERRIDE = __COUNTER__;
+    IMPLICIT = __COUNTER__;
+    STACKALLOC = __COUNTER__;
+    AS = __COUNTER__;
+    DELEGATE = __COUNTER__;
+    FIXED = __COUNTER__;
+    CHECKED = __COUNTER__;
+    UNCHECKED = __COUNTER__;
+    REGION = __COUNTER__;
+    ENDREGION = __COUNTER__;
+    UNSAFE = __COUNTER__;
+    READONLY = __COUNTER__;
+    GET = __COUNTER__;
+    SET = __COUNTER__;
+    ADD = __COUNTER__;
+    REMOVE = __COUNTER__;
+    YIELD = __COUNTER__;
+    PARTIAL = __COUNTER__;
+    AWAIT = __COUNTER__;
+    // EVENT = __COUNTER__;
+    ASYNC = __COUNTER__;
+    THIS = __COUNTER__;
+    PARAMS = __COUNTER__;
+    // TYPEOF = __COUNTER__;
+    ALIAS = __COUNTER__;
+
+    // linq
+    // FROM = __COUNTER__;
+    // WHERE = __COUNTER__;
+    // SELECT = __COUNTER__;
+    // LET = __COUNTER__;
+    // ORDERBY = __COUNTER__;
+    ASCENDING = __COUNTER__;
+    DESCENDING = __COUNTER__;
+    // GROUP = __COUNTER__;
+    // BY = __COUNTER__;
+    // JOIN = __COUNTER__;
+    // ON = __COUNTER__;
+    // EQUALS = __COUNTER__;
+    // INTO = __COUNTER__;
+
+    // Objective-C
+    ATINTERFACE = __COUNTER__;
+    ATIMPLEMENTATION = __COUNTER__;
+    ATEND = __COUNTER__;
+    ATPROTOCOL = __COUNTER__;
+    ATREQUIRED = __COUNTER__;
+    ATOPTIONAL = __COUNTER__;
+    // PROPERTY = __COUNTER__;
+    // SYNTHESIZE = __COUNTER__;
+    // DYNAMIC = __COUNTER__;
+    // ENCODE = __COUNTER__;
+    // SELECTOR = __COUNTER__;
+    ATCLASS = __COUNTER__;
+
+    // Apple
+    // BLOCK = __COUNTER__;
+    WEAK = __COUNTER__;
+    STRONG = __COUNTER__;
+    // AUTORELEASEPOOL = __COUNTER__;
+    // COMPATIBILITY_ALIAS = __COUNTER__;
+    // NIL = __COUNTER__;
+
+    // OpenMp
+    OMP_OMP = __COUNTER__;
+
+    SPECIAL_CHARS = __COUNTER__;
+}

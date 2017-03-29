@@ -1,0 +1,20 @@
+syntax="proto3";
+package fast;
+message Element {
+#include "ElementType.proto"
+__COUNTER__
+   Kind kind = __COUNTER__;
+   string text = __COUNTER__;
+   string tail = __COUNTER__;
+   repeated Element child = __COUNTER__;
+   oneof extra {
+     Unit unit = __COUNTER__;
+     Literal literal = __COUNTER__;
+   }
+   message Unit {
+#include "Unit.proto"
+   }
+   message Literal {
+#include "Literal.proto"
+   }
+}

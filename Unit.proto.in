@@ -1,0 +1,6 @@
+#include "LanguageType.proto"
+__COUNTER__
+   	string filename = __COUNTER__;
+   	string revision = __COUNTER__;
+	LanguageType language = __COUNTER__;
+	int32 item = __COUNTER__;
