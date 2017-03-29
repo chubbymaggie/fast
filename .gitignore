@@ -1,1 +1,7 @@
 *.gz
+test/*.fbs 
+test/*.pb 
+test/*.xml 
+*.proto 
+*.dSYM	
+_fast/
