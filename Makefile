@@ -20,9 +20,18 @@ PB_LIB=$(shell pkg-config --libs protobuf)
 
 all: $(target)
 
+fast.cc: ./rapidxml/rapidxml.hpp
+	touch $@
+
+./rapidxml/rapidxml.hpp:
+	git submodule init
+	git submodule update
+
 ifeq ($(UNAME_S),Linux)
 fast.cc: fast.pb.h fast.pb.cc
+	touch $@
 fast.cc: fast_generated.h
+	touch $@
 fast_pb: fast.cc
 	$(CXX) $(OPT) -DPB_fast -I/usr/local/include -Irapidxml $^ /usr/local/lib/libprotobuf.a -o $@
 
@@ -48,26 +57,17 @@ install: fast
 endif
 
 ./protobuf-3.2.0/src/protoc: protobuf-3.2.0
-	cd protobuf-3.2.0
-	./configure CXXFLAGS=-std=c++11
-	make
-	sudo make install
+	cd protobuf-3.2.0 && ./configure CXXFLAGS=-std=c++11 && make && sudo make install
 
 protobuf-3.2.0:
 	wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz
 	tar xvfz protobuf-cpp-3.2.0.tar.gz
 
 ./googletest/googlemock/gtest/libgtest.a: googletest
-	cd googletest
-	cmake .
-	make CXXFLAGS=-std=c++11
-	sudo make install
+	cd googletest && cmake . && make CXXFLAGS=-std=c++11 && sudo make install
 
 ./googletest/googlemock/libgmock.a: ./googletest/googlemock/gtest/libgtest.a
-	cd googletest/googlemock
-	cmake .
-	make CXXFLAGS=-std=c++11
-	sudo make install
+	cd googletest/googlemock && cmake . && make CXXFLAGS=-std=c++11 && sudo make install
 
 srcML-src.tar.gz: 
 	wget http://131.123.42.38/lmcrs/beta/srcML-src.tar.gz
