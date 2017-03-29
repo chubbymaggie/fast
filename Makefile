@@ -160,4 +160,4 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 	cat $^ $^ > $@
 
 clean:
-	rm -f $(target) test/*.fbs test/*.pb test/*.xml
+	rm -rf $(target) test/*.fbs test/*.pb test/*.xml *.proto *.dSYM	_fast/
