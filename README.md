@@ -75,7 +75,7 @@ In the benchmarks folder if you check out from the `git` repository, you will se
 A report on the performance evaluation is placed in the `doc/` subfolder.
 
 Cheers,
-Yijun
+[http://mcs.open.ac.uk/yy66](Yijun Yu)
 
 ```
 Dr. Yijun YU
@@ -85,5 +85,4 @@ Faculty of Science, Technology, Engineering & Maths
 The Open University, UK
 2nd floor, Janie Lee Building, Walton Hall
 Milton Keynes MK7 6AA
-URL: http://mcs.open.ac.uk/yy66
 ```
