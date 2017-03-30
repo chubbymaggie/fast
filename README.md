@@ -1,10 +1,10 @@
-= fast -- Flattening Abstract Syntax Trees =
+# fast -- Flattening Abstract Syntax Trees
 
 This software produces a binary representation of code structures in fasts so
 that it is more efficient to load them to and save them from memory, avoiding
 re-parsing altogether.
 
-== Dependencies == 
+## Dependencies
 
 The current implementation is based on protobuf and flatbuffers, as well as
 srcML, which parses code to XML.
@@ -27,7 +27,7 @@ folder such as /usr/local/bin/fast.
  
 $ sudo make install
 
-== Usage ==
+## Usage
 
 The use the tool is fairly simple. It accept two file arguments on the command line.
 Assuming that you have set /usr/local/bin in the PATH, then just enter
@@ -74,7 +74,7 @@ $ fast Hello.fbs Hello.java
 
 These commands will translate the binary representations into the corresponding Java code files.
 
-== Performance ==
+## Performance
 
 In the benchmarks folder if you check out from the Git repository, you will see
 much larger examples where fast has been used to speed up the parsing process
@@ -86,7 +86,7 @@ Cheers,
 
 Yijun
 ==
-<address>
+```
 Dr. Yijun YU
 Senior Lecturer in Computing
 School of Computing & Communications
@@ -98,4 +98,4 @@ Email: y.yu@open.ac.uk
 URL: http://mcs.open.ac.uk/yy66
 Mobile: +44 (0) 784 2917987
 Tel: +44 (0) 1908 655562
-</address>
+```
