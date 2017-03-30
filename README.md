@@ -1,13 +1,11 @@
 # fast -- Flattening Abstract Syntax Trees
 
-This software produces a binary representation of code structures in fasts so
-that it is more efficient to load them to and save them from memory, avoiding
-re-parsing altogether.
+This tool produces a binary representation of code structures in abstract syntax trees (ASTs) so
+that it is more efficient to load them to and save them from memory, avoiding re-parsing altogether.
 
 ## Dependencies
 
-The current implementation is based on protobuf and flatbuffers, as well as
-srcML, which parses code to XML.
+The current implementation is based on protobuf and flatbuffers, as well as srcML, which parses code to XML.
 
 To get it working, you will need to have the following installed:
 
