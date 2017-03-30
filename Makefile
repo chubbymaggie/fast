@@ -1,15 +1,18 @@
 target+=fast_generated.h _fast/Element.py
 target+=fast.pb.h fast.pb.cc
+V=0.0.2
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
 	target+=fast_pb fast_fbs
 	CXX=g++
+	sudo pip install git-archive-all
 endif
 ifeq ($(UNAME_S),Darwin)
 	gtime=gtime
 	target+=fast fast-debug
 	CXX=c++
+	brew install git-archive-all
 endif
 
 OPT_DEBUG=-g
@@ -24,8 +27,7 @@ fast.cc: ./rapidxml/rapidxml.hpp
 	touch $@
 
 ./rapidxml/rapidxml.hpp:
-	git submodule init
-	git submodule update
+	git archive-all fast-$V.tar.gz
 
 ifeq ($(UNAME_S),Linux)
 fast.cc: fast.pb.h fast.pb.cc
@@ -57,17 +59,17 @@ install: fast
 endif
 
 ./protobuf-3.2.0/src/protoc: protobuf-3.2.0
-	cd protobuf-3.2.0 && ./configure CXXFLAGS=-std=c++11 && make && sudo make install
+	cd protobuf-3.2.0; ./configure CXXFLAGS=-std=c++11; make; sudo make install
 
 protobuf-3.2.0:
 	wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz
 	tar xvfz protobuf-cpp-3.2.0.tar.gz
 
 ./googletest/googlemock/gtest/libgtest.a: googletest
-	cd googletest && cmake . && make CXXFLAGS=-std=c++11 && sudo make install
+	cd googletest; cmake .; make CXXFLAGS=-std=c++11; sudo make install
 
 ./googletest/googlemock/libgmock.a: ./googletest/googlemock/gtest/libgtest.a
-	cd googletest/googlemock && cmake . && make CXXFLAGS=-std=c++11 && sudo make install
+	cd googletest/googlemock; cmake .; make CXXFLAGS=-std=c++11; sudo make install
 
 srcML-src.tar.gz: 
 	wget http://131.123.42.38/lmcrs/beta/srcML-src.tar.gz
@@ -76,10 +78,7 @@ srcML-src: srcML-src.tar.gz
 	tar xvfz $^
 
 ./srcML-src/build/bin/srcml: srcML-src/
-	cd srcML-src
-	cmake .
-	make
-	sudo make install
+	cd srcML-src; cmake .; make; sudo make install
 
 %.json: __main__.py %.pb
 	python $^ $@
