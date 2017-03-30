@@ -19,19 +19,21 @@ OPT=-O3
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 
+target+=fast-$V.tar.gz
+
 all: $(target)
 
 fast.cc: ./rapidxml/rapidxml.hpp
 	touch $@
 
-./rapidxml/rapidxml.hpp:
+fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
 	sudo pip install git-archive-all
 endif
 ifeq ($(UNAME_S),Darwin)
 	brew install git-archive-all
 endif
-	git archive-all fast-$V.tar.gz
+	git archive-all $@
 
 ifeq ($(UNAME_S),Linux)
 fast.cc: fast.pb.h fast.pb.cc
