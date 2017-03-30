@@ -85,8 +85,5 @@ Faculty of Science, Technology, Engineering & Maths
 The Open University, UK
 2nd floor, Janie Lee Building, Walton Hall
 Milton Keynes MK7 6AA
-Email: y.yu@open.ac.uk
 URL: http://mcs.open.ac.uk/yy66
-Mobile: +44 (0) 784 2917987
-Tel: +44 (0) 1908 655562
 ```
