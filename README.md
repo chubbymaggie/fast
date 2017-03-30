@@ -74,11 +74,8 @@ In the benchmarks folder if you check out from the `git` repository, you will se
 
 A report on the performance evaluation is placed in the `doc/` subfolder.
 
-Cheers,
-[http://mcs.open.ac.uk/yy66](Yijun Yu)
-
 ```
-Dr. Yijun YU
+[http://mcs.open.ac.uk/yy66](Dr Yijun Yu)
 Senior Lecturer in Computing
 School of Computing & Communications
 Faculty of Science, Technology, Engineering & Maths
