@@ -73,13 +73,3 @@ These commands will translate the binary representations into the corresponding 
 In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where fast has been used to speed up the parsing process by several times. That's why we call it "fast".
 
 A report on the performance evaluation is placed in the `doc/` subfolder.
-
-```
-[http://mcs.open.ac.uk/yy66](Dr Yijun Yu)
-Senior Lecturer in Computing
-School of Computing & Communications
-Faculty of Science, Technology, Engineering & Maths
-The Open University, UK
-2nd floor, Janie Lee Building, Walton Hall
-Milton Keynes MK7 6AA
-```
