@@ -6,13 +6,11 @@ ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
 	target+=fast_pb fast_fbs
 	CXX=g++
-	sudo pip install git-archive-all
 endif
 ifeq ($(UNAME_S),Darwin)
 	gtime=gtime
 	target+=fast fast-debug
 	CXX=c++
-	brew install git-archive-all
 endif
 
 OPT_DEBUG=-g
@@ -27,6 +25,12 @@ fast.cc: ./rapidxml/rapidxml.hpp
 	touch $@
 
 ./rapidxml/rapidxml.hpp:
+ifeq ($(UNAME_S),Linux)
+	sudo pip install git-archive-all
+endif
+ifeq ($(UNAME_S),Darwin)
+	brew install git-archive-all
+endif
 	git archive-all fast-$V.tar.gz
 
 ifeq ($(UNAME_S),Linux)
