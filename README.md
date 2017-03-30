@@ -86,6 +86,7 @@ Cheers,
 
 Yijun
 ==
+<address>
 Dr. Yijun YU
 Senior Lecturer in Computing
 School of Computing & Communications
@@ -97,4 +98,4 @@ Email: y.yu@open.ac.uk
 URL: http://mcs.open.ac.uk/yy66
 Mobile: +44 (0) 784 2917987
 Tel: +44 (0) 1908 655562
-
+</address>
