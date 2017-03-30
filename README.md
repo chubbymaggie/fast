@@ -63,4 +63,4 @@ These commands will translate the binary representations into the corresponding 
 
 In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by several times. That's part of the reasons why we call it "fast".
 
-A report on performance evaluation is placed under the `doc/` subfolder.
+A report on performance evaluation will be placed under the `doc/` subfolder.
