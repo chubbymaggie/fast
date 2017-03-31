@@ -1,9 +1,0 @@
-[submodule "flatbuffers"]
-	path = flatbuffers
-	url = https://github.com/google/flatbuffers
-[submodule "googletest"]
-	path = googletest
-	url = https://github.com/google/googletest
-[submodule "doc"]
-	path = doc
-	url = https://git.overleaf.com/8756284svvgjtxktsmv
