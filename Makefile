@@ -62,7 +62,7 @@ fast-debug: fast.cc
 	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
 
 install: fast
-	install -m 0755 fast $(prefix)/bin
+	sudo install -m 0755 fast $(prefix)/bin
 endif
 .PHONY: install
 
