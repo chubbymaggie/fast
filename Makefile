@@ -35,6 +35,8 @@ ifeq ($(UNAME_S),Darwin)
 endif
 	git archive-all $@
 
+prefix=/usr/local
+
 ifeq ($(UNAME_S),Linux)
 fast.cc: fast.pb.h fast.pb.cc
 	touch $@
@@ -47,9 +49,11 @@ fast_fbs: fast.cc
 	$(CXX) $(OPT) -std=c++11 -DFBS_fast -I/usr/local/include -Irapidxml $(FBS_LIB) $^ -o $@
 
 install: fast_pb fast_fbs
-	cp fast_pb /usr/local/bin/
-	cp fast_fbs /usr/local/bin/
-	cp fast.sh /usr/local/bin/fast
+	install -m 0755 fast_pb $(prefix)/bin
+	install -m 0755 fast_fbs $(prefix)/bin
+	install -m 0755 fast.sh $(prefix)/bin/fast
+	
+.PHONY: install
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -59,9 +63,11 @@ fast: fast.cc
 fast-debug: fast.cc
 	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
 
-install: fast
-	cp fast /usr/local/bin/
-
+install: fast_pb fast_fbs
+	install -m 0755 fast_pb $(prefix)/bin
+	install -m 0755 fast_fbs $(prefix)/bin
+	install -m 0755 fast.sh $(prefix)/bin/fast
+.PHONY: install
 endif
 
 ./protobuf-3.2.0/src/protoc: protobuf-3.2.0
