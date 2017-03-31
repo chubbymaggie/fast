@@ -1,4 +1,12 @@
-459c459
-<                 if(archive->language != 0) {
----
->                 if(archive->language) {
+diff -r -u a/src/libsrcml/srcml_reader_handler.hpp b/src/libsrcml/srcml_reader_handler.hpp
+--- a/src/libsrcml/srcml_reader_handler.hpp	2015-05-20 02:36:48.000000000 +0100
++++ b/src/libsrcml/srcml_reader_handler.hpp	2017-03-31 15:13:23.000000000 +0100
+@@ -456,7 +456,7 @@
+ 
+             if(uri == SRCML_CPP_NS_URI) {
+ 
+-                if(archive->language != 0) {
++                if(archive->language) {
+ 
+                     if(*archive->language == "C++" || *archive->language == "C" || *archive->language == "Objective-C")
+                         archive->options |= SRCML_OPTION_CPP | SRCML_OPTION_CPP_NOMACRO;
