@@ -38,7 +38,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 void saveXMLfromFBS(fstream &out, const struct Element *element);
 #endif
 
-int main(int argc, char* argv[]);
+int mainRoutine(int argc, char* argv[]);
 
 int loadXML(bool load_only, int argc, char**argv) {
   char *input_filename = argv[1];
@@ -46,7 +46,7 @@ int loadXML(bool load_only, int argc, char**argv) {
   bool is_protobuf = argc > 2 && strcmp(output_filename+strlen(output_filename)-3, ".pb")==0;
   bool is_flatbuffers = argc > 2 && strcmp(output_filename+strlen(output_filename)-4, ".fbs")==0;
   bool is_xml = argc > 2 && strcmp(output_filename+strlen(output_filename)-4, ".xml")==0;
-  if (is_xml) { // just copy the input to the output
+  if (! load_only && is_xml) { // just copy the input to the output
 	  string cmd = "cp ";
 	  cmd = cmd + input_filename + " " + output_filename;
 	  return system(cmd.c_str());
@@ -410,7 +410,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 #endif
 
 int loadSrcML(bool load_only, int argc, char **argv) {
-	if (argc != 2 && argc != 3) // we only accept one or two command line arguments
+	if (!load_only && argc != 2 && argc != 3) // we only accept one or two command line arguments
 		return 1;
 	if (argc == 3) {
 		string xml_filename = tmpnam(NULL);
@@ -420,7 +420,7 @@ int loadSrcML(bool load_only, int argc, char **argv) {
 		system(srcmlCommand.c_str());
 		// call the command again, using the generated temporary XML file
 		argv[1] = (char *)xml_filename.c_str();
-		main(argc, argv);
+		mainRoutine(argc, argv);
 		return remove(xml_filename.c_str());
 	}
 	if (argc == 2) {
@@ -428,11 +428,11 @@ int loadSrcML(bool load_only, int argc, char **argv) {
 		string srcmlCommand = "srcml ";
 		srcmlCommand = srcmlCommand + argv[1];
 		system(srcmlCommand.c_str());
-		return 0;
 	}
+	return 0;
 }
 
-int main(int argc, char* argv[]) {
+int mainRoutine(int argc, char* argv[]) {
    bool load_only = strcmp(argv[1], "-c") == 0;
    if (load_only) {
 	   argv++;
@@ -457,4 +457,8 @@ int main(int argc, char* argv[]) {
    if (strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0)
 	   return loadXML(load_only, argc, argv);
    return loadSrcML(load_only, argc, argv);
+}
+
+int main(int argc, char* argv[]) {
+	return mainRoutine(argc, argv);
 }
