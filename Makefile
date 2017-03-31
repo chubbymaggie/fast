@@ -19,7 +19,7 @@ OPT=-O3
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 
-target+=fast-$V.tar.gz
+#target+=fast-$V.tar.gz
 
 all: $(target)
 
