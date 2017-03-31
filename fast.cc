@@ -442,6 +442,10 @@ int main(int argc, char* argv[]) {
 	   cerr << "Warning: input and output file name are the same, no change is needed" << endl;
 	   return 1;
    }
+   if (argc < 2) {
+	   cerr << "Usage: fast input_file output_file" << endl;
+	   return 1;
+   }
 #ifdef PB_fast
    if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0)
 	   return loadPB(load_only, argc, argv);
