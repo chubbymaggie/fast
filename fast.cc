@@ -119,7 +119,7 @@ int loadFBS(bool load_only, int argc, char **argv) {
 			return system(catCommand.c_str());
 		}
 		argv[1] = (char*) xml_filename.c_str();
-		main(argc, argv);
+		mainRoutine(argc, argv);
 		return remove(xml_filename.c_str());
 	}
  	return 0;
@@ -156,7 +156,7 @@ int loadPB(bool load_only, int argc, char **argv) {
 			return system(catCommand.c_str());
 		}
 		argv[1] = (char*) xml_filename.c_str();
-		main(argc, argv);
+		mainRoutine(argc, argv);
 		return remove(xml_filename.c_str());
     }
   }
