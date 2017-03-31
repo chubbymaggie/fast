@@ -52,8 +52,6 @@ install: fast_pb fast_fbs
 	install -m 0755 fast_pb $(prefix)/bin
 	install -m 0755 fast_fbs $(prefix)/bin
 	install -m 0755 fast.sh $(prefix)/bin/fast
-	
-.PHONY: install
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -63,12 +61,10 @@ fast: fast.cc
 fast-debug: fast.cc
 	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
 
-install: fast_pb fast_fbs
-	install -m 0755 fast_pb $(prefix)/bin
-	install -m 0755 fast_fbs $(prefix)/bin
-	install -m 0755 fast.sh $(prefix)/bin/fast
-.PHONY: install
+install: fast
+	install -m 0755 fast $(prefix)/bin
 endif
+.PHONY: install
 
 ./protobuf-3.2.0/src/protoc: protobuf-3.2.0
 	cd protobuf-3.2.0; ./configure CXXFLAGS=-std=c++11; make; sudo make install
