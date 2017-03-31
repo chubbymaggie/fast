@@ -1,5 +1,5 @@
-target+=fast_generated.h _fast/Element.py
-target+=fast.pb.h fast.pb.cc
+#target+=fast_generated.h _fast/Element.py
+#target+=fast.pb.h fast.pb.cc
 V=0.0.1
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
