@@ -169,5 +169,4 @@ clean:
 
 release:
 	git tag -f v$V
-	git commit -am "release v$V"
 	git push -f origin v$V
