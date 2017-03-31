@@ -1,6 +1,6 @@
 target+=fast_generated.h _fast/Element.py
 target+=fast.pb.h fast.pb.cc
-V=0.0.2
+V=0.0.1
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
@@ -166,3 +166,8 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 
 clean:
 	rm -rf $(target) test/*.fbs test/*.pb test/*.xml *.proto *.dSYM	_fast/
+
+release:
+	git tag -f v$V
+	git commit -am "release v$V"
+	git push -f origin v$V
