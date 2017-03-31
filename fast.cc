@@ -433,6 +433,10 @@ int loadSrcML(bool load_only, int argc, char **argv) {
 }
 
 int mainRoutine(int argc, char* argv[]) {
+   if (argc < 2) {
+	   cerr << "Usage: fast input_file output_file" << endl;
+	   return 1;
+   }
    bool load_only = strcmp(argv[1], "-c") == 0;
    if (load_only) {
 	   argv++;
@@ -440,10 +444,6 @@ int mainRoutine(int argc, char* argv[]) {
    }
    if (argc == 3 && strcmp(argv[1], argv[2])==0) {
 	   cerr << "Warning: input and output file name are the same, no change is needed" << endl;
-	   return 1;
-   }
-   if (argc < 2) {
-	   cerr << "Usage: fast input_file output_file" << endl;
 	   return 1;
    }
 #ifdef PB_fast
