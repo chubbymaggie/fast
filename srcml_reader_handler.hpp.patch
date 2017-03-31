@@ -1,0 +1,4 @@
+459c459
+<                 if(archive->language != 0) {
+---
+>                 if(archive->language) {
