@@ -11,13 +11,9 @@ To get it working, you will need to have the following installed:
 
 * [flatbuffers](https://github.com/google/flatbuffers)
 
-If they aren't installed, the following command could fetch and install them in one go:
+If they aren't installed, the following commands will install them on MacOSX:
 ```
-	$ make
-```
-You can then install the tool using the following single command to a destination folder such as `/usr/local/bin/fast`.  
-```
-	$ sudo make install
+	$ brew install fast
 ```
 ## Usage
 The use the tool is fairly simple. It accepts two file arguments on the command line.
