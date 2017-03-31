@@ -9,7 +9,7 @@ ifeq ($(UNAME_S),Linux)
 endif
 ifeq ($(UNAME_S),Darwin)
 	gtime=gtime
-	target+=fast fast-debug
+	target+=fast #fast-debug
 	CXX=c++
 endif
 
