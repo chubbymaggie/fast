@@ -172,3 +172,5 @@ clean:
 release:
 	git tag -f v$V
 	git push -f origin v$V
+	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
+	brew install fast
