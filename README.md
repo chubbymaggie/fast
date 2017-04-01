@@ -15,11 +15,12 @@ To get it working, we have already included `rapidxml` code in the sources, but 
 
 If they aren't installed, the following [Homebrew](https://brew.sh/) commands will get them installed on MacOSX:
 ```
-	$/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	$ brew tap yijunyu/fast
-	$ brew install srcml
 	$ brew install fast
 ```
+The 1st line is optional, it will install Homebrew if you hadn't got it.
+
 ## Usage
 The use the tool is fairly simple. It accepts two file arguments on the command line.
 Assuming that you have set `/usr/local/bin` in the `$PATH` variable, just enter
