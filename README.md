@@ -2,14 +2,16 @@
 This tool flattens code structures of abstract syntax trees (ASTs) as binary so that it is more efficient to load and save them between memory and disk, avoiding re-parsing altogether.
 
 ## Dependencies
-The current implementation is based on `protobuf` and `flatbuffers`, as well as `srcml` which parses code to XML.
-To get it working, you will need to have the following installed:
+The current implementation is based on `protobuf` and `flatbuffers`, as well as `srcml` which parses code to XML, and [`rapidxml`](https://github.com/dwd/rapidxml) which parses XML documents.
+
+To get it working, we have already included `rapidxml` code in the sources, but you will still need to have the following installed:
 
 * [srcML](http://www.srcml.org/)
 
 * [protobuf](https://github.com/google/protobuf)
 
 * [flatbuffers](https://github.com/google/flatbuffers)
+
 
 If they aren't installed, the following commands will install them on MacOSX:
 ```
