@@ -10,19 +10,15 @@ class Srcml < Formula
   sha256 "55dd2115548e270724af4251187343656d2dfda0e7d372fee15ae27262e3fa8e"
 
   depends_on "cmake" => :build
-  depends_on "LibArchive"
+  depends_on "LibArchive" => :build
+  depends_on "antlr2" => :build
+  depends_on "libantlr3c" => :build
+  depends_on "Boost" => :build
   depends_on "libxml2"
 
-#  env do
-#    unless HOMEBREW_PREFIX.to_s == "/usr/local"
-#      ENV.append_path "HOMEBREW_LIBRARY_PATHS", "/usr/local/lib"
-#    end
-#  end
-
   def install
-    #system "cmake", "-DINSTALL_PREFIX=/usr/local/Cellar/srcml/0.9.5", "-G", "Unix Makefiles", *std_cmake_args
-    system "cmake", *std_cmake_args
-    system "make", "install", "prefix=#{prefix}"
+   system "cmake", "-G", "Unix Makefiles", "-DCMAKE_C_FLAGS_RELEASE=-DNDEBUG", "-DCMAKE_CXX_FLAGS_RELEASE=-DNDEBUG", "-DCMAKE_INSTALL_PREFIX=#{prefix}", "-DCMAKE_BUILD_TYPE=Release", "-DCMAKE_FIND_FRAMEWORK=LAST", "-DCMAKE_VERBOSE_MAKEFILE=ON", "-Wno-dev"
+   system "make", "install"
   end
 
   patch :DATA 
@@ -34,7 +30,7 @@ end
 __END__
 diff -r -u a/CMake/config.cmake b/CMake/config.cmake
 --- a/CMake/config.cmake	2015-05-20 02:36:48.000000000 +0100
-+++ b/CMake/config.cmake	2017-03-31 20:07:37.000000000 +0100
++++ b/CMake/config.cmake	2017-04-01 16:23:05.000000000 +0100
 @@ -44,7 +44,7 @@
  
  # Dynamic Load libraries (Unix only)
@@ -61,8 +57,12 @@ diff -r -u a/CMake/config.cmake b/CMake/config.cmake
  
      if(DYNAMIC_LOAD_ENABLED)
          find_package(LibXslt)
-@@ -119,13 +120,16 @@
- find_library(ANTLR_LIBRARY NAMES libantlr-pic.a libantlr.a libantlr2-0.dll antlr.lib PATHS /usr/lib /usr/local/lib ${WINDOWS_DEP_PATH}/lib)
+@@ -116,16 +117,19 @@
+ endif()
+ 
+ # Locating the antlr library.
+-find_library(ANTLR_LIBRARY NAMES libantlr-pic.a libantlr.a libantlr2-0.dll antlr.lib PATHS /usr/lib /usr/local/lib ${WINDOWS_DEP_PATH}/lib)
++find_library(ANTLR_LIBRARY NAMES libantlr-pic.a libantlr.a libantlr2-0.dll libantlr3c.a antlr.lib PATHS /usr/lib /usr/local/lib ${WINDOWS_DEP_PATH}/lib)
  
  if(DYNAMIC_LOAD_ENABLED)
 -    set(LIBSRCML_LIBRARIES ${LIBXML2_LIBRARIES} ${Boost_LIBRARIES} ${ANTLR_LIBRARY} dl crypto pthread
@@ -81,7 +81,7 @@ diff -r -u a/CMake/config.cmake b/CMake/config.cmake
                  CACHE INTERNAL "Libraries needed to build libsrcml")
  else()
      set(LIBSRCML_LIBRARIES ${LIBXML2_LIBRARIES} ${LIBXSLT_LIBRARIES} ${LIBXSLT_EXSLT_LIBRARY} ${Boost_LIBRARIES} ${ANTLR_LIBRARY}
-@@ -138,9 +142,12 @@
+@@ -138,16 +142,19 @@
  endif()
  
  if(NOT WIN32)
@@ -96,6 +96,14 @@ diff -r -u a/CMake/config.cmake b/CMake/config.cmake
  else()
      set(SRCML_LIBRARIES ${LibArchive_LIBRARIES} ${Boost_LIBRARIES} ${CURL_LIBRARIES} ws2_32 ${LIBSRCML_LIBRARIES} CACHE INTERNAL "Libraries needed to build srcml")
  endif()
+ 
+ 
+ # Finding antlr library.
+-find_program(ANTLR_EXE NAMES antlr runantlr cantlr antlr2 antlr.bat PATHS /usr/bin /opt/local/bin /usr/local/bin C:/antlr/277/bin)
++find_program(ANTLR_EXE NAMES antlr3 antlr runantlr cantlr antlr2 antlr.bat PATHS /usr/bin /opt/local/bin /usr/local/bin C:/antlr/277/bin)
+ 
+ # Finding SED
+ find_program(SED_EXE NAMES gsed sed PATHS /opt/local/bin /usr/local /bin ${WINDOWS_DEP_PATH}/bin)
 @@ -174,7 +181,7 @@
  # The default configuration is to compile in DEBUG mode. These flags can be directly
  # overridden by setting the property of a target you wish to change them for.
@@ -107,10 +115,19 @@ diff -r -u a/CMake/config.cmake b/CMake/config.cmake
  if(${CMAKE_COMPILER_IS_GNUCXX})
 diff -r -u a/CMakeLists.txt b/CMakeLists.txt
 --- a/CMakeLists.txt	2015-05-20 02:36:48.000000000 +0100
-+++ b/CMakeLists.txt	2017-03-31 19:03:11.000000000 +0100
-@@ -31,7 +31,7 @@
- set(CMAKE_MACOSX_RPATH 1)
++++ b/CMakeLists.txt	2017-04-01 16:22:51.000000000 +0100
+@@ -24,14 +24,14 @@
  
+ enable_testing()
+ 
++set(CMAKE_MACOSX_RPATH 1)
++
+ # Setting up Project includes.
+ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake)
+ include (srcml)
+ 
+-set(CMAKE_MACOSX_RPATH 1)
+-
  # Setting up source include directories.
 -include_directories(BEFORE src/srcml src/libsrcml src/parser src/srcSAX)
 +include_directories(BEFORE /usr/local/include /usr/local/opt/libxml2/include/libxml2 src/srcml src/libsrcml src/parser src/srcSAX)
@@ -119,7 +136,7 @@ diff -r -u a/CMakeLists.txt b/CMakeLists.txt
  # more correct that being input from within the build system).
 diff -r -u a/src/CMakeLists.txt b/src/CMakeLists.txt
 --- a/src/CMakeLists.txt	2015-05-20 02:36:48.000000000 +0100
-+++ b/src/CMakeLists.txt	2017-03-31 20:20:05.000000000 +0100
++++ b/src/CMakeLists.txt	2017-04-01 16:22:42.000000000 +0100
 @@ -36,7 +36,7 @@
  # 
  macro(buildLib LIB_NAME LIB_TYPE)
@@ -129,7 +146,24 @@ diff -r -u a/src/CMakeLists.txt b/src/CMakeLists.txt
  
  if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
      set_target_properties(${LIB_NAME} PROPERTIES OUTPUT_NAME libsrcml LINK_FLAGS_DEBUG "/SAFESEH:NO")
+@@ -68,6 +68,6 @@
+ elseif(OS_NAME STREQUAL "openSUSE" AND CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64")
+ 	install(TARGETS srcml_shared srcml_static RUNTIME DESTINATION bin LIBRARY DESTINATION lib64 ARCHIVE DESTINATION lib64)
+ else()
+-	install(TARGETS srcml_shared srcml_static RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++	install(TARGETS srcml_shared srcml_static RUNTIME DESTINATION /usr/local/Cellar/srcml/0.9.5/bin LIBRARY DESTINATION /usr/local/Cellar/srcml/0.9.5/lib ARCHIVE DESTINATION /usr/local/Cellar/srcml/0.9.5/lib)
+ endif()
+ 
 Only in a/src: build_hack.cpp
+diff -r -u a/src/libsrcml/CMakeLists.txt b/src/libsrcml/CMakeLists.txt
+--- a/src/libsrcml/CMakeLists.txt	2015-05-20 02:36:48.000000000 +0100
++++ b/src/libsrcml/CMakeLists.txt	2017-04-01 16:28:35.000000000 +0100
+@@ -23,4 +23,4 @@
+ add_library(libsrcml OBJECT ${LIBSRCML_HEADERS} ${LIBSRCML_SOURCE})
+ add_dependencies(libsrcml parser)
+ 
+-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/srcml.h DESTINATION include)
++install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/srcml.h DESTINATION /usr/local/Cellar/srcml/0.9.5/include)
 diff -r -u a/src/libsrcml/srcml_reader_handler.hpp b/src/libsrcml/srcml_reader_handler.hpp
 --- a/src/libsrcml/srcml_reader_handler.hpp	2015-05-20 02:36:48.000000000 +0100
 +++ b/src/libsrcml/srcml_reader_handler.hpp	2017-03-31 18:27:04.000000000 +0100
@@ -142,3 +176,12 @@ diff -r -u a/src/libsrcml/srcml_reader_handler.hpp b/src/libsrcml/srcml_reader_h
  
                      if(*archive->language == "C++" || *archive->language == "C" || *archive->language == "Objective-C")
                          archive->options |= SRCML_OPTION_CPP | SRCML_OPTION_CPP_NOMACRO;
+diff -r -u a/src/srcml/CMakeLists.txt b/src/srcml/CMakeLists.txt
+--- a/src/srcml/CMakeLists.txt	2015-05-20 02:36:48.000000000 +0100
++++ b/src/srcml/CMakeLists.txt	2017-04-01 16:32:13.000000000 +0100
+@@ -30,4 +30,4 @@
+     install(CODE "execute_process(COMMAND \"/usr/bin/strip\" \"${CMAKE_BINARY_DIR}/bin/srcml\")")
+ endif()
+ 
+-install(TARGETS srcml RUNTIME DESTINATION bin LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
++install(TARGETS srcml RUNTIME DESTINATION /usr/local/Cellar/srcml/0.9.5/bin LIBRARY DESTINATION /usr/local/Cellar/srcml/0.9.5/lib ARCHIVE DESTINATION /usr/local/Cellar/srcml/0.9.5/lib)
