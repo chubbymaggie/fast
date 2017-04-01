@@ -13,8 +13,9 @@ To get it working, we have already included `rapidxml` code in the sources, but 
 * [flatbuffers](https://github.com/google/flatbuffers)
 
 
-If they aren't installed, the following commands will install them on MacOSX:
+If they aren't installed, the following [Homebrew](https://brew.sh/) commands will get them installed on MacOSX:
 ```
+	$/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	$ brew tap yijunyu/fast
 	$ brew install srcml
 	$ brew install fast
