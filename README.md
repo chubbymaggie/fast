@@ -13,6 +13,7 @@ To get it working, you will need to have the following installed:
 
 If they aren't installed, the following commands will install them on MacOSX:
 ```
+	$ brew tap yijunyu/fast
 	$ brew install fast
 ```
 ## Usage
