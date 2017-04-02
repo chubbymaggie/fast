@@ -49,7 +49,7 @@ fast_fbs: fast.cc
 	$(CXX) $(OPT) -std=c++11 -DFBS_fast -I/usr/local/include -Irapidxml $(FBS_LIB) $^ -o $@
 
 install: fast_pb fast_fbs
-	mkdir -p $(DESTDIR)$(prefix)
+	mkdir -p $(DESTDIR)$(prefix)/bin
 	install -m 0755 fast_pb $(DESTDIR)$(prefix)/bin/fast_pb
 	install -m 0755 fast_fbs $(DESTDIR)$(prefix)/bin/fast_fbs
 	install -m 0755 fast.sh $(DESTDIR)$(prefix)/bin/fast
