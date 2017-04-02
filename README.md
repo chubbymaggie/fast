@@ -26,7 +26,6 @@ The 1st line is optional, it will install Homebrew if you hadn't got it.
 	$ sudo apt-get install apt-transport-https
 	$ sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list
 	$ sudo apt-get update
-	$ sudo apt-get install srcml
 	$ sudo apt-get install fast
 ```
 Specifically, the 1st line is to support HTTPS transport protocol for the repository on github.io; 
