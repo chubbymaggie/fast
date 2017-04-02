@@ -38,6 +38,8 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 void saveXMLfromFBS(fstream &out, const struct Element *element);
 #endif
 
+int loadSrcML(bool load_only, int argc, char **argv);
+
 int mainRoutine(int argc, char* argv[]);
 
 int loadXML(bool load_only, int argc, char**argv) {
