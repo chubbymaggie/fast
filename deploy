@@ -1,1 +1,7 @@
 git push && make -f Makefile.in release clean debian
+cp fast_0.0.1-1_amd64.deb ../yijun.github.com/ubuntu
+cd !$
+dpkg-scanpackages . | gzip -9c > Packages.gz
+git commit -am "update the fast package" && git push
+sudo apt-get remove fast
+sudo apt-get install fast
