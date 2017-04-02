@@ -174,4 +174,31 @@ release::
 	git tag -f v$V
 	git push -f origin v$V
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
+	brew uninstall fast
 	brew install fast
+
+v$V.tar.gz:
+	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
+
+debian: fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
+	
+fast_$V.orig.tar.gz: v$V.tar.gz
+	mv $^ $@
+
+fast-$V: fast_$V.orig.tar.gz
+	tar xf $^
+
+fast-$V/debian: fast-$V
+	mkdir -p $@
+
+fast-$V/debian/changelog: # fast-$V/debian
+	cd fast-$V && dch --create -v $V-1 --package fast
+
+fast-$V/debian/compat: fast-$V/debian
+	echo 9 > $@
+
+fast-$V/debian/control: control
+	cp $^ $@
+
+fast-$Vdebian/copyright: copyright
+	cp $^ $@
