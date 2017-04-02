@@ -7,6 +7,6 @@ Build-Depends: debhelper (>= 9)
 
 Package: fast
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${srcml:Depends}
 Description: flatten abstract syntax tree
  To be fast, don't need to parse again with fast!
