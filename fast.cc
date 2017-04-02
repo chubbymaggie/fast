@@ -142,8 +142,8 @@ int loadPB(bool load_only, int argc, char **argv) {
     if (!load_only) {
 		string xml_filename = tmpnam(NULL);
 		xml_filename +=	".xml";
-#if defined(PB_fast) && !defined(FBS_fast)
-		fstream out(xml_filename.c_str());
+#if !defined(FBS_fast)
+		fstream out(xml_filename.c_str(), ios::out | ios::trunc);
 #else
 		fstream out(xml_filename, ios::out | ios::trunc);
 #endif

@@ -1,0 +1,1 @@
+git push && make -f Makefile.in release clean debian
