@@ -2,4 +2,12 @@ git push && make -f Makefile.in release clean debian
 cp fast_0.0.1-1_amd64.deb ../yijunyu.github.io/ubuntu
 cd ../yijunyu.github.io/ubuntu
 dpkg-scanpackages . | gzip -9c > Packages.gz
-git commit -am "update the fast package" && git push
+git commit -am "update fast's debian package"
+git push
+cd -
+a=$(shasum -a 256 fast_0.0.1.orig.tar.gz)
+cd ../homebrew-fast/Formula
+sed -i -e 's/sha256 "[0-9a-f]*"/sha256 "'$a'"/g' fast.rb
+git commit -am "update fast's homebrew package"
+git push
+cd -
