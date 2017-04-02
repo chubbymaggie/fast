@@ -180,7 +180,8 @@ release::
 v$V.tar.gz:
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
-debian: fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
+debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
+	cd fast-$V && debuild -us -uc
 	
 fast_$V.orig.tar.gz: v$V.tar.gz
 	mv $^ $@
@@ -200,5 +201,13 @@ fast-$V/debian/compat: fast-$V/debian
 fast-$V/debian/control: control
 	cp $^ $@
 
-fast-$Vdebian/copyright: copyright
+fast-$V/debian/copyright: copyright
 	cp $^ $@
+
+fast-$V/debian/source/format: format
+	mkdir -p fast-$V/debian/source
+	cp $^ $@
+
+fast-$V/debian/rules: rules
+	cp $^ $@
+
