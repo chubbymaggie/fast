@@ -83,9 +83,7 @@ int loadXML(bool load_only, int argc, char**argv) {
         std::cout << "Validation error: " << e.what() << std::endl;
     }
   } else { // invoke srcml
-	string srcmlCommand = "srcml ";
-	srcmlCommand = srcmlCommand + argv[1];
-	system(srcmlCommand.c_str());
+    loadSrcML(load_only, argc, argv);
   }
   return 0;
 }
@@ -427,6 +425,7 @@ int loadSrcML(bool load_only, int argc, char **argv) {
 		} else {
 			string srcmlCommand = "srcml ";
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
+			cout << srcmlCommand << endl;
 			system(srcmlCommand.c_str());
 		}
 	}
