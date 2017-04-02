@@ -176,9 +176,11 @@ clean:
 release::
 	git tag -f v$V
 	git push -f origin v$V
+ifeq ($(UNAME_S),Darwin)
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
 	brew uninstall fast
 	brew install fast
+endif
 
 v$V.tar.gz:
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
