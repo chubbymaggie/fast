@@ -169,7 +169,7 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 
 clean:
 	rm -rf $(target) test/*.fbs test/*.pb test/*.xml *.proto *.dSYM	_fast/
-	rm -rf Makefile Release config.h config.log config.status configure.scan
+	rm -rf Makefile Release autom4te.cache config.h config.log config.status configure.scan
 	rm -rf protobuf-3.2.0 protobuf-cpp-3.2.0.tar.gz
 	rm -rf fast_$V-1* fast-$V
 

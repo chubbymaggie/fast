@@ -413,15 +413,22 @@ int loadSrcML(bool load_only, int argc, char **argv) {
 	if (load_only && argc != 2 && argc != 3) // we only accept one or two command line arguments
 		return 1;
 	if (argc == 3) {
-		string xml_filename = tmpnam(NULL);
-		xml_filename +=	".xml";
-		string srcmlCommand = "srcml ";
-		srcmlCommand = srcmlCommand + argv[1] + " -o " + xml_filename;
-		system(srcmlCommand.c_str());
-		// call the command again, using the generated temporary XML file
-		argv[1] = (char *)xml_filename.c_str();
-		mainRoutine(argc, argv);
-		return remove(xml_filename.c_str());
+  		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
+		if (!is_xml) {
+			string xml_filename = tmpnam(NULL);
+			xml_filename +=	".xml";
+			string srcmlCommand = "srcml ";
+			srcmlCommand = srcmlCommand + argv[1] + " -o " + xml_filename;
+			system(srcmlCommand.c_str());
+			// call the command again, using the generated temporary XML file
+			argv[1] = (char *)xml_filename.c_str();
+			mainRoutine(argc, argv);
+			return remove(xml_filename.c_str());
+		} else {
+			string srcmlCommand = "srcml ";
+			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
+			system(srcmlCommand.c_str());
+		}
 	}
 	if (argc == 2) {
 		// invoke srcml and print to standard output
