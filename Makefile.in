@@ -40,10 +40,7 @@ endif
 prefix=/usr/local
 
 ifeq ($(UNAME_S),Linux)
-fast.cc: fast.pb.h fast.pb.cc
-	touch $@
-fast.cc: fast_generated.h
-	touch $@
+
 fast_pb: fast.cc
 	$(CXX) $(OPT) -DPB_fast -I/usr/local/include -Irapidxml $^ /usr/local/lib/libprotobuf.a -o $@
 
@@ -170,6 +167,7 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 
 clean:
 	rm -rf $(target) test/*.fbs test/*.pb test/*.xml *.proto *.dSYM	_fast/
+	rm -rf Makefile Release config.h config.log config.status
 
 release:
 	git tag -f v$V

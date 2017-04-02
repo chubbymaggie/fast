@@ -410,7 +410,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 #endif
 
 int loadSrcML(bool load_only, int argc, char **argv) {
-	if (!load_only && argc != 2 && argc != 3) // we only accept one or two command line arguments
+	if (load_only && argc != 2 && argc != 3) // we only accept one or two command line arguments
 		return 1;
 	if (argc == 3) {
 		string xml_filename = tmpnam(NULL);
