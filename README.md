@@ -13,14 +13,24 @@ To get it working, we have already included `rapidxml` code in the sources, but 
 * [flatbuffers](https://github.com/google/flatbuffers)
 
 
-If they aren't installed, the following [Homebrew](https://brew.sh/) commands will get them installed on MacOSX:
+If they aren't installed, the following commands will get them installed:
+### MacOSX using [Homebrew](https://brew.sh/) 
 ```
 	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	$ brew tap yijunyu/fast
 	$ brew install fast
 ```
 The 1st line is optional, it will install Homebrew if you hadn't got it.
-
+### Ubuntu Linux using Debian packages:
+```
+	$ sudo apt-get install apt-transport-https
+	$ sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list
+	$ sudo apt-get update
+	$ sudo apt-get install srcml
+	$ sudo apt-get install fast
+```
+Specifically, the 1st line is to support HTTPS transport protocol for the repository on github.io; 
+the 2nd line is to update the list of repositories on your machine.
 ## Usage
 The use the tool is fairly simple. It accepts two file arguments on the command line.
 Assuming that you have set `/usr/local/bin` in the `$PATH` variable, just enter
