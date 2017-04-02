@@ -50,9 +50,9 @@ fast_fbs: fast.cc
 
 install: fast_pb fast_fbs
 	mkdir -p $(DESTDIR)
-	install -m 0755 fast_pb $(DESTDIR)/$(prefix)/bin/fast_pb
-	install -m 0755 fast_fbs $(DESTDIR)/$(prefix)/bin/fast_fbs
-	install -m 0755 fast.sh $(DESTDIR)/$(prefix)/bin/fast
+	install -m 0755 fast_pb $(DESTDIR)$(prefix)/bin/fast_pb
+	install -m 0755 fast_fbs $(DESTDIR)$(prefix)/bin/fast_fbs
+	install -m 0755 fast.sh $(DESTDIR)$(prefix)/bin/fast
 endif
 
 ifeq ($(UNAME_S),Darwin)
