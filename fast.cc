@@ -427,7 +427,7 @@ int loadSrcML(bool load_only, int argc, char **argv) {
 		} else {
 			string srcmlCommand = "srcml ";
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
-			cout << srcmlCommand << endl;
+			// cout << srcmlCommand << endl;
 			system(srcmlCommand.c_str());
 		}
 	}
