@@ -49,7 +49,7 @@ fast_fbs: fast.cc
 	$(CXX) $(OPT) -std=c++11 -DFBS_fast -I/usr/local/include -Irapidxml $(FBS_LIB) $^ -o $@
 
 install: fast_pb fast_fbs
-	mkdir -p $(DESTDIR)
+	mkdir -p $(DESTDIR)$(prefix)
 	install -m 0755 fast_pb $(DESTDIR)$(prefix)/bin/fast_pb
 	install -m 0755 fast_fbs $(DESTDIR)$(prefix)/bin/fast_fbs
 	install -m 0755 fast.sh $(DESTDIR)$(prefix)/bin/fast
@@ -171,7 +171,7 @@ clean:
 	rm -rf $(target) test/*.fbs test/*.pb test/*.xml *.proto *.dSYM	_fast/
 	rm -rf Makefile Release config.h config.log config.status configure.scan
 	rm -rf protobuf-3.2.0 protobuf-cpp-3.2.0.tar.gz
-	rm -rf fast_0.0.1-1*
+	rm -rf fast_$V-1* fast-$V
 
 release::
 	git tag -f v$V
