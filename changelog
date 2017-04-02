@@ -1,4 +1,4 @@
-fast (0.0.1-1) UNRELEASED; urgency=medium
+fast (0.0.1-1) xenial; urgency=medium
 
   * Initial release. (Closes: #XXXXXX)
 

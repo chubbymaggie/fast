@@ -186,7 +186,8 @@ v$V.tar.gz:
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
-	cd fast-$V && debuild -us -uc
+	cd fast-$V && debuild -S
+#	cd fast-$V && debuild -us -uc
 	
 fast_$V.orig.tar.gz: v$V.tar.gz
 	mv $^ $@
