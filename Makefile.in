@@ -170,7 +170,7 @@ clean:
 	rm -rf Makefile Release config.h config.log config.status configure.scan
 	rm -rf protobuf-3.2.0 protobuf-cpp-3.2.0.tar.gz
 
-release:
+release::
 	git tag -f v$V
 	git push -f origin v$V
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
