@@ -72,7 +72,7 @@ These commands will translate the binary representations into the corresponding 
 
 ## Performance
 
-In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by multiple times. 
+In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by up to 100 times. 
 
 ![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected form those with the most stars on GitHub.")
 
