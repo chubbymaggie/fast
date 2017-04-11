@@ -1,15 +1,6 @@
 #!/bin/sh
-#testEquality()
-#{
-#	    assertEquals 1 1
-#}
-#
-#testPartyLikeItIs1999()
-#{
-#    year=`date '+%Y'`
-#    assertNotEquals "It's not 1999 :-(" \
-#        '1999' "${year}"
-#}
+fast=$(which fast)
+fast=${fast:=../fast}
 testJava() 
 {
 	cat > Hello.java <<EOF
@@ -20,22 +11,17 @@ public class Hello {
 	}
 }
 EOF
-	cat > Hello.xml-expected <<EOF
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5" language="Java" filename="Hello.java">
-<class><specifier>public</specifier> class <name>Hello</name> <block>{
-	<function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>main</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name><name>args</name><index>[]</index></name></decl></parameter>)</parameter_list> <block>{
-		<expr_stmt><expr><call><name><name>System</name><operator>.</operator><name>out</name><operator>.</operator><name>println</name></name><argument_list>(<argument><expr><literal type="string">"Hello, world!"</literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
-	}</block></function>
-}</block></class>
-</unit>
-EOF
-../fast Hello.java Hello.xml
-d=$(diff Hello.xml Hello.xml-expected)
-assertSame "$d" ""
+assertSame a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e $(shasum -a 256 Hello.java | awk '{print $1}')
+$fast Hello.java Hello.xml
+assertSame 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 $(shasum -a 256 Hello.xml | awk '{print $1}')
+$fast Hello.java Hello.pb
+$fast Hello.pb Hello.pb.java
+assertSame 5d9fe22e71e435f55d4d20125065869055b1018b6c40dae0cf03e2d3df571a42 $(shasum -a 256 Hello.pb.java | awk '{print $1}')
 rm -f Hello.java
 rm -f Hello.xml
 rm -f Hello.xml-expected
+rm -f Hello.pb
+rm -f Hello.pb.java
 }
 testCC() 
 {
@@ -45,20 +31,16 @@ int f(int x) {
 	    return result;
 }
 EOF
-	cat > example.xml-expected <<EOF
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.srcML.org/srcML/src" xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C++" filename="example.cc"><function><type><name>int</name></type> <name>f</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>x</name></decl></parameter>)</parameter_list> <block>{
-	  <decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><operator>(</operator><name>x</name> <operator>/</operator> <literal type="number">42</literal><operator>)</operator></expr></init></decl>;</decl_stmt>
-	    <return>return <expr><name>result</name></expr>;</return>
-}</block></function>
-</unit>
-EOF
-../fast example.cc example.xml
-d=$(diff example.xml example.xml-expected)
-assertSame "$d" ""
+assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.cc | awk '{print $1}')
+$fast example.cc example.xml
+assertSame 2368362bbad04bf0f9d0b9d010de277f1d6932636dc64756bc23a9abc61a784e $(shasum -a 256 example.xml | awk '{print $1}')
 rm -f example.cc
+$fast example.xml example.pb
+$fast example.pb example.pb.cc
+assertSame 56f311553b51c8c7cb44b91a8a9f579d2de629009540bcdf0fa94875843f5409 $(shasum -a 256 example.pb.cc | awk '{print $1}')
 rm -f example.xml
-rm -f example.xml-expected
+rm -f example.pb
+rm -f example.pb.cc
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
