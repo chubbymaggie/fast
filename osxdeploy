@@ -21,3 +21,5 @@ sed -i -e 's/sha256 "[0-9a-f]*" => :sierra/sha256 "'$b'" => :sierra/' fast.rb
 git commit -am "update fast's homebrew package"
 git push
 cd -
+mv fast-0.0.1.sierra.bottle.1.tar.gz fast-0.0.1.sierra.bottle.tar.gz
+echo Now you can upload the file fast-0.0.1.sierra.bottle.tar.gz to releases on https://github.com
