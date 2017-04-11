@@ -179,7 +179,8 @@ release::
 ifeq ($(UNAME_S),Darwin)
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
 	brew uninstall fast
-	brew install fast
+	brew install --build-bottle fast
+	brew bottle fast
 endif
 
 v$V.tar.gz:

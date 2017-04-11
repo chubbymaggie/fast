@@ -17,6 +17,12 @@
 #ifdef PB_fast
 #include "fast.pb.cc" 
 #endif
+#define GET_OPT
+#ifdef GET_OPT
+#include <ctype.h>
+#include <stdio.h>
+#include <stdlib.h>
+#endif
 
 using namespace std;
 using namespace rapidxml;
@@ -38,11 +44,30 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 void saveXMLfromFBS(fstream &out, const struct Element *element);
 #endif
 
-int loadSrcML(bool load_only, int argc, char **argv);
+#ifdef GET_OPT
+int load_only = 0; 
+int diff_calc = 0;
+#endif
+
+int loadSrcML(int load_only, int argc, char **argv);
 
 int mainRoutine(int argc, char* argv[]);
 
-int loadXML(bool load_only, int argc, char**argv) {
+inline bool exists_test (const std::string& name) {
+	struct stat buffer;   
+	return (stat (name.c_str(), &buffer) == 0); 
+}
+
+bool check_exists(const std::string& name) {
+	if (!exists_test(name)) {
+		cerr << "Please check the input file " << name << " exists" << endl;
+		return false;
+	}
+	return true;
+}
+
+int loadXML(int load_only, int argc, char**argv) {
+  if (!check_exists(argv[1])) return 1;
   char *input_filename = argv[1];
   char *output_filename = argv[2]; 
   bool is_protobuf = argc > 2 && strcmp(output_filename+strlen(output_filename)-3, ".pb")==0;
@@ -91,7 +116,8 @@ int loadXML(bool load_only, int argc, char**argv) {
 }
 
 #ifdef FBS_fast
-int loadFBS(bool load_only, int argc, char **argv) {
+int loadFBS(int load_only, int argc, char **argv) {
+	if (!check_exists(argv[1])) return 1;
 	char *filename = argv[1]; // the input file, which is assumed to be a binary flatbuffers
 	FILE* file = fopen(filename, "rb");
 	if (file == NULL) {
@@ -106,7 +132,11 @@ int loadFBS(bool load_only, int argc, char **argv) {
 	fclose(file);
 	const struct _fast::Element *element = flatbuffers::GetRoot<Element>(data);
 	if (!load_only) {
-		string xml_filename = tmpnam(NULL);
+		//string xml_filename = tmpnam(NULL);
+		char buf[100];
+		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+		mkstemp(buf);
+		string xml_filename = buf;
 		remove(xml_filename.c_str());
 		xml_filename +=	".xml";
 		fstream out(xml_filename, ios::out | ios::trunc);
@@ -127,7 +157,8 @@ int loadFBS(bool load_only, int argc, char **argv) {
 #endif
 
 #ifdef PB_fast
-int loadPB(bool load_only, int argc, char **argv) {
+int loadPB(int load_only, int argc, char **argv) {
+	if (!check_exists(argv[1])) return 1;
 	char *input_filename = argv[1];
   // Verify that the version of the library that we linked against is
   // compatible with the version of the headers we compiled against.
@@ -140,24 +171,28 @@ int loadPB(bool load_only, int argc, char **argv) {
       return -1;
     }
     if (!load_only) {
-		string xml_filename = tmpnam(NULL);
-		xml_filename +=	".xml";
+	// string xml_filename = tmpnam(NULL);
+	char buf[100];
+	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+	mkstemp(buf);
+	string xml_filename = buf;
+	xml_filename +=	".xml";
 #if !defined(FBS_fast)
-		fstream out(xml_filename.c_str(), ios::out | ios::trunc);
+	fstream out(xml_filename.c_str(), ios::out | ios::trunc);
 #else
-		fstream out(xml_filename, ios::out | ios::trunc);
+	fstream out(xml_filename, ios::out | ios::trunc);
 #endif
-		out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
-		saveXMLfromPB(out, &unit);
-		out << endl;
-		if (argc == 2) {
-			string catCommand = "cat ";
-			catCommand = catCommand + xml_filename;
-			return system(catCommand.c_str());
-		}
-		argv[1] = (char*) xml_filename.c_str();
-		mainRoutine(argc, argv);
-		return remove(xml_filename.c_str());
+	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	saveXMLfromPB(out, &unit);
+	out << endl;
+	if (argc == 2) {
+		string catCommand = "cat ";
+		catCommand = catCommand + xml_filename;
+		return system(catCommand.c_str());
+	}
+	argv[1] = (char*) xml_filename.c_str();
+	mainRoutine(argc, argv);
+	return remove(xml_filename.c_str());
     }
   }
   // Optional:  Delete all global objects allocated by libprotobuf.
@@ -409,13 +444,18 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 }
 #endif
 
-int loadSrcML(bool load_only, int argc, char **argv) {
+int loadSrcML(int load_only, int argc, char **argv) {
 	if (load_only && argc != 2 && argc != 3) // we only accept one or two command line arguments
 		return 1;
 	if (argc == 3) {
+		if (!check_exists(argv[1])) return 1;
   		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
 		if (!is_xml) {
-			string xml_filename = tmpnam(NULL);
+			// string xml_filename = tmpnam(NULL);
+			char buf[100];
+			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+			mkstemp(buf);
+			string xml_filename = buf;
 			xml_filename +=	".xml";
 			string srcmlCommand = "srcml ";
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + xml_filename;
@@ -445,15 +485,16 @@ int mainRoutine(int argc, char* argv[]) {
 	   cerr << "Usage: fast input_file output_file" << endl;
 	   return 1;
    }
-   bool load_only = strcmp(argv[1], "-c") == 0;
-   if (load_only) {
-	   argv++;
-	   argc--;
-   }
    if (argc == 3 && strcmp(argv[1], argv[2])==0) {
 	   cerr << "Warning: input and output file name are the same, no change is needed" << endl;
 	   return 1;
    }
+   if (argc == 3 && strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0
+	&& strcmp(argv[2]+strlen(argv[2])-4, ".xml")==0) {
+	   cerr << "Warning: input and output file extension names are the same, trying to detct differences" << endl;
+	   return 1;
+   }
+
 #ifdef PB_fast
    if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0)
 	   return loadPB(load_only, argc, argv);
@@ -468,5 +509,37 @@ int mainRoutine(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-	return mainRoutine(argc, argv);
+	/*
+  char *cvalue = NULL;
+  	*/
+  int c;
+
+  opterr = 0;
+  while ((c = getopt (argc, argv, "cd")) != -1)
+    switch (c) {
+      case 'c':
+        load_only = 1;
+        break;
+      case 'd':
+        diff_calc = 1;
+        break;
+      /* case 'c':
+        cvalue = optarg;
+        break; */
+      case '?':
+	/*
+        if (optopt == 'c')
+          fprintf (stderr, "Option -%c requires an argument.\n", optopt);
+        else */
+	if (isprint (optopt))
+          fprintf (stderr, "Unknown option `-%c'.\n", optopt);
+        else
+          fprintf (stderr,
+                   "Unknown option character `\\x%x'.\n",
+                   optopt);
+        return 1;
+      default:
+        abort ();
+    }
+    return mainRoutine(argc - optind + 1, argv + optind - 1);
 }
