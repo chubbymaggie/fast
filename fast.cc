@@ -15,7 +15,7 @@
 #include "fast_generated.h"
 #endif
 #ifdef PB_fast
-#include "fast.pb.cc" 
+#include "fast.pb.h" 
 #endif
 #define GET_OPT
 #ifdef GET_OPT
