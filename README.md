@@ -31,7 +31,7 @@ The 1st line is optional, it will install Homebrew if you hadn't got it.
 Specifically, the 1st line is to support HTTPS transport protocol for the repository on github.io; 
 the 2nd line is to update the list of repositories on your machine.
 ## Usage
-The use the tool is fairly simple. It accepts two file arguments on the command line.
+The use of the tool is fairly simple. It accepts two file arguments on the command line.
 Assuming that you have set `/usr/local/bin` in the `$PATH` variable, just enter
 ```
 	$ fast $input_file_name1.$ext1 $output_file_name2.$ext2
@@ -74,9 +74,9 @@ These commands will translate the binary representations into the corresponding 
 
 In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by up to 100 times. 
 
-![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected form those with the most stars on GitHub.")
+![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.")
 
-![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks2.png "The projects are selected form academic studies on bug localization problems.")
+![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
 
 That's part of the reasons why we call it "fast".
 
