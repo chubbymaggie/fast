@@ -490,12 +490,6 @@ int mainRoutine(int argc, char* argv[]) {
 	   cerr << "Warning: input and output file name are the same, no change is needed" << endl;
 	   return 1;
    }
-   if (argc == 3 && strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0
-	&& strcmp(argv[2]+strlen(argv[2])-4, ".xml")==0) {
-	   cerr << "Warning: input and output file extension names are the same, trying to detct differences" << endl;
-	   return 1;
-   }
-
 #ifdef PB_fast
    if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0)
 	   return loadPB(load_only, argc, argv);
