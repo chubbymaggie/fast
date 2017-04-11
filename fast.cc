@@ -23,6 +23,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #endif
+#include <sys/stat.h> 
 
 using namespace std;
 using namespace rapidxml;
