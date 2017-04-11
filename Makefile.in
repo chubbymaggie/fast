@@ -179,9 +179,6 @@ release::
 ifeq ($(UNAME_S),Darwin)
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.sierra.bottle.tar.gz
-	if [ -f /usr/local/bin/fast ]; then brew uninstall fast; fi
-	brew install --build-bottle fast
-	brew bottle fast
 endif
 
 v$V.tar.gz:
