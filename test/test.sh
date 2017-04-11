@@ -1,6 +1,14 @@
 #!/bin/sh
 fast=$(which fast)
+if [ "$fast" != "/usr/local/bin/fast" ]; then
+	if [ ! -f ../fast ]; then
+		cd .. 
+		make -f Makefile.in
+		cd -
+	fi
+fi
 fast=${fast:=../fast}
+
 testJava() 
 {
 	cat > Hello.java <<EOF
@@ -17,7 +25,7 @@ assertSame 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 $(sh
 $fast Hello.java Hello.pb
 $fast Hello.pb Hello.pb.java
 assertSame 5d9fe22e71e435f55d4d20125065869055b1018b6c40dae0cf03e2d3df571a42 $(shasum -a 256 Hello.pb.java | awk '{print $1}')
-#rm -f Hello.java
+rm -f Hello.java
 rm -f Hello.xml
 rm -f Hello.xml-expected
 rm -f Hello.pb
@@ -45,12 +53,6 @@ rm -f example.pb.cc
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
 	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
-fi
-
-if [ ! -f ../fast ]; then
-	cd .. 
-	make -f Makefile.in
-	cd -
 fi
 
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
