@@ -20,6 +20,7 @@ public class Hello {
 	}
 }
 EOF
+rm -f Hello.java
 }
 testCC() 
 {
@@ -29,6 +30,11 @@ int f(int x) {
 	    return result;
 }
 EOF
+rm -f example.cc
 }
+
+if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
+	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
+fi
 
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
