@@ -4,6 +4,7 @@ project(fast)
 
 option(FAST_INSTALL "Enable the installation of targets." ON)
 option(FAST_BUILD_FAST "Enable the build of the fast compiler" ON)
+add_definitions(-DPB_fast -DFBS_fast)
 
 set(FAST_SRCS
   fast.cc
