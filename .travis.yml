@@ -11,9 +11,12 @@ before_install:
     brew install flatbuffers;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
+    sudo apt-get install apt-transport-https;
+    sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list;
     sudo apt-get update;
     sudo apt-get install protobuf;
-    sudo apt-get install flatbuffers;
+    git clone https://github.com/google/flatbuffers.git;
+    cd flatbuffers; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
     fi
 script:
   - cd test && ./test.sh
