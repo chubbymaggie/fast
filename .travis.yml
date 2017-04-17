@@ -13,9 +13,11 @@ before_install:
     sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list;
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test
     sudo apt-get install gcc-5 g++-5
+    sudo ln -s -v -f $(which g++-5) /usr/bin/g++; 
+    sudo ln -s -v -f $(which gcc-5) /usr/bin/gcc; 
     sudo apt-get update;
     sudo apt-get install srcML;
-    git clone https://github.com/google/flatbuffers.git; cd flatbuffers; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
+    git clone https://github.com/google/flatbuffers.git; cd flatbuffers; cmake .; make; sudo make install; cd -;
     wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz; tar xvfz protobuf-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; ./configure; make; sudo make install; cd -;
     fi
 script:
