@@ -1,13 +1,17 @@
 #!/bin/sh
 fast=$(which fast)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
-	if [ ! -f ../fast ]; then
+	if [ ! -f ../fast -o ! -f ../fast_pb ]; then
 		cd .. 
 		make -f Makefile.in
 		cd -
 	fi
 fi
-fast=${fast:=../fast}
+if [ "$(uname -s)" == "Linux" ]; then
+	fast=${fast:=../fast_pb}
+else
+	fast=${fast:=../fast}
+fi
 
 testJava() 
 {
