@@ -16,7 +16,7 @@ before_install:
     sudo apt-get update;
     sudo apt-get install srcML;
     wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz;
-    tar xvfz protobuf-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
+    tar xvfz protobuf-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; configure; make; sudo make install; cd -;
     git clone https://github.com/google/flatbuffers.git; cd flatbuffers; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
     fi
 script:
