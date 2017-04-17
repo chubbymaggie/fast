@@ -7,8 +7,7 @@ compiler:
 before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
-    brew install "protobuf;version=3.2.0";
-    brew install flatbuffers;
+    brew install protobuf;version=3.2.0 && brew install flatbuffers;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;
