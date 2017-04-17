@@ -42,7 +42,7 @@ prefix=/usr/local
 
 ifeq ($(UNAME_S),Linux)
 
-fast_pb: fast.cc
+fast_pb: fast.cc fast.pb.cc
 	$(CXX) $(OPT) -DPB_fast -I/usr/local/include -Irapidxml $^ /usr/local/lib/libprotobuf.a -o $@
 
 fast_fbs: fast.cc
