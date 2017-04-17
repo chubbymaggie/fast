@@ -22,4 +22,3 @@ git commit -am "update fast's homebrew package"
 git push
 cd -
 mv fast-0.0.1.sierra.bottle.1.tar.gz fast-0.0.1.sierra.bottle.tar.gz
-echo Now you can edit https://github.com/yijunyu/fast/releases/tag/v0.0.1 by uploading the file fast-0.0.1.sierra.bottle.tar.gz
