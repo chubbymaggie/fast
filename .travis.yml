@@ -8,14 +8,15 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
     brew install protobuf;version=3.2.0 && brew install flatbuffers;
+    brew tap yijunyu/fast; brew install srcml;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;
     sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list;
     sudo apt-get update;
-    sudo apt-get install protobuf;
-    git clone https://github.com/google/flatbuffers.git;
-    cd flatbuffers; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
+    sudo apt-get install srcML;
+    wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz; tar xvfz protoc-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
+    git clone https://github.com/google/flatbuffers.git; cd flatbuffers; cmake -G "Unix Makefiles"; make; sudo make install; cd -;
     fi
 script:
   - cd test && ./test.sh
