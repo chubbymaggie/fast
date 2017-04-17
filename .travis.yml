@@ -2,8 +2,6 @@ language: cpp
 os:
   - osx
   - linux
-compiler: 
-  - clang
 before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
