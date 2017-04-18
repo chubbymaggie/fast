@@ -10,13 +10,12 @@ before_install:
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;
-    sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list;
+    sudo echo deb https://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list;
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
     sudo apt-get update;
     sudo apt-get install gcc-4.9 g++-4.9;
     sudo ln -s -v -f $(which g++-4.9) /usr/bin/g++; 
     sudo ln -s -v -f $(which gcc-4.9) /usr/bin/gcc; 
-    gcc -v;
     sudo apt-get install srcml;
     wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -;
     wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz; tar xvfz protobuf-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; ./configure; make; sudo make install; cd -;
