@@ -20,6 +20,8 @@ before_install:
     sudo apt-get install srcml;
     wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -;
     wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz; tar xvfz protobuf-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; ./configure; make; sudo make install; cd -;
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     fi
 script:
+  - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
   - cd test && ./test.sh
