@@ -7,7 +7,7 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 		cd -
 	fi
 fi
-if [ "$(uname -s)" == "Linux" ]; then
+if [ "$(uname -s)" = "Linux" ]; then
 	fast=${fast:=../fast_pb}
 else
 	fast=${fast:=../fast}
