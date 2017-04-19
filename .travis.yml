@@ -16,9 +16,9 @@ before_install:
     sudo apt-get install gcc-4.9 g++-4.9;
     sudo ln -s -v -f $(which g++-4.9) /usr/bin/g++; 
     sudo ln -s -v -f $(which gcc-4.9) /usr/bin/gcc; 
-    sudo apt-get install srcml;
+    sudo apt-get install srcml -y;
     wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -;
-    wget https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip; sudo unzip protoc-3.2.0-linux-x86_64.zip -d /usr/local;
+    wget https://github.com/google/protobuf/releases/download/v3.2.0/protoc-3.2.0-linux-x86_64.zip; sudo unzip protoc-3.2.0-linux-x86_64.zip -d /usr/local; sudo chmod +x /usr/local/bin/protoc;
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     fi
     #wget https://github.com/google/protobuf/releases/download/v3.2.0/protobuf-cpp-3.2.0.tar.gz; tar xvfz protobuf-cpp-3.2.0.tar.gz; cd protobuf-3.2.0; ./configure; make; sudo make install; cd -;
