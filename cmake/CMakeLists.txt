@@ -7,14 +7,14 @@ option(FAST_BUILD_FAST "Enable the build of the fast compiler" ON)
 add_definitions(-DPB_fast -DFBS_fast)
 
 set(FAST_SRCS
-  src/fast.cc
-  src/fast.pb.cc
-  src/fast.pb.h
-  src/fast_generated.h
-  rapidxml/rapidxml.hpp
-  rapidxml/rapidxml_iterators.hpp
-  rapidxml/rapidxml_print.hpp
-  rapidxml/rapidxml_utils.hpp
+  ../src/fast.cc
+  ../src/fast.pb.cc
+  ../src/fast.pb.h
+  ../src/fast_generated.h
+  ../rapidxml/rapidxml.hpp
+  ../rapidxml/rapidxml_iterators.hpp
+  ../rapidxml/rapidxml_print.hpp
+  ../rapidxml/rapidxml_utils.hpp
 )
 
 if(EXISTS "${CMAKE_TOOLCHAIN_FILE}")
@@ -68,7 +68,7 @@ elseif(MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /WX")
 endif()
 
-include_directories(rapidxml)
+include_directories(../rapidxml)
 find_package(Protobuf REQUIRED)
 include_directories(${PROTOBUF_INCLUDE_DIRS})
 link_libraries(${PROTOBUF_LIBRARIES})
