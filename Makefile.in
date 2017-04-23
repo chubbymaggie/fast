@@ -34,10 +34,10 @@ endif
 	git archive-all $@
 
 DESTDIR=
-prefix=/usr/local
 
 ifeq ($(UNAME_S),Linux)
 
+prefix=/usr/local
 fast_pb: src/fast.cc src/fast.pb.cc
 	$(CXX) $(OPT) -DPB_fast -I/usr/local/include -Irapidxml $^ /usr/local/lib/libprotobuf.a -o $@
 
@@ -52,6 +52,10 @@ install: fast_pb fast_fbs
 endif
 
 ifeq ($(UNAME_S),Darwin)
+prefix=$(HOMEBREW_FORMULA_PREFIX)
+ifeq ($(prefix),)
+prefix=/usr/local
+endif
 fast: src/fast.cc src/fast.pb.cc
 	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
 
