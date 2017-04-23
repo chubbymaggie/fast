@@ -3,7 +3,7 @@
 
 AC_PREREQ([2.69])
 AC_INIT([fast], [0.0.1], [y.yu@open.ac.uk])
-AC_CONFIG_SRCDIR([fast.cc])
+AC_CONFIG_SRCDIR([src/fast.cc])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
