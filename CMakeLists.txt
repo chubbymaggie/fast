@@ -7,10 +7,10 @@ option(FAST_BUILD_FAST "Enable the build of the fast compiler" ON)
 add_definitions(-DPB_fast -DFBS_fast)
 
 set(FAST_SRCS
-  fast.cc
-  fast.pb.cc
-  fast.pb.h
-  fast_generated.h
+  src/fast.cc
+  src/fast.pb.cc
+  src/fast.pb.h
+  src/fast_generated.h
   rapidxml/rapidxml.hpp
   rapidxml/rapidxml_iterators.hpp
   rapidxml/rapidxml_print.hpp
