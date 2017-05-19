@@ -46,6 +46,7 @@ void saveXMLfromFBS(fstream &out, const struct Element *element);
 #endif
 
 #ifdef GET_OPT
+int debug = 0; 
 int load_only = 0; 
 int diff_calc = 0;
 #endif
@@ -66,6 +67,8 @@ bool check_exists(const std::string& name) {
 	}
 	return true;
 }
+
+void saveTxtFromPB(char *input_file);
 
 int loadXML(int load_only, int argc, char**argv) {
   if (!check_exists(argv[1])) return 1;
@@ -295,6 +298,12 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 }
 #endif
 
+void saveTxtFromPB(char *input_file) {
+	char buf[100];
+	sprintf(buf, "cat %s | protoc -I. --decode=fast.Element fast.proto", input_file);
+	system(buf);
+}
+
 #ifdef PB_fast
 fast::Element* savePBfromXML(xml_node<> *node)
 {
@@ -492,7 +501,11 @@ int mainRoutine(int argc, char* argv[]) {
    }
 #ifdef PB_fast
    if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0)
-	   return loadPB(load_only, argc, argv);
+	  if (debug) {
+	    saveTxtFromPB(argv[1]);
+	    return 0;
+	  }
+	  return loadPB(load_only, argc, argv);
 #endif
 #ifdef FBS_fast
    if (strcmp(argv[1]+strlen(argv[1])-4, ".fbs")==0)
@@ -510,8 +523,12 @@ int main(int argc, char* argv[]) {
   int c;
 
   opterr = 0;
-  while ((c = getopt (argc, argv, "cd")) != -1)
+  debug = 0;
+  while ((c = getopt (argc, argv, "cdt")) != -1)
     switch (c) {
+      case 't':
+	    debug = 1;
+	    break;
       case 'c':
         load_only = 1;
         break;

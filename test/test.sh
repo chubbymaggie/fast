@@ -50,7 +50,7 @@ rm -f example.cc
 $fast example.xml example.pb
 $fast example.pb example.pb.cc
 assertSame 56f311553b51c8c7cb44b91a8a9f579d2de629009540bcdf0fa94875843f5409 $(shasum -a 256 example.pb.cc | awk '{print $1}')
-rm -f example.xml
+#rm -f example.xml
 rm -f example.pb
 rm -f example.pb.cc
 }
