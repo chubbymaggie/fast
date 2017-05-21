@@ -64,7 +64,9 @@ fast-debug: src/fast.cc src/fast.pb.cc
 
 install: fast
 	mkdir -p $(DESTDIR)$(prefix)/bin
+	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
+	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast
 endif
 .PHONY: install
 

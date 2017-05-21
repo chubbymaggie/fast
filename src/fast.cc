@@ -300,7 +300,7 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 
 void saveTxtFromPB(char *input_file) {
 	char buf[100];
-	sprintf(buf, "cat %s | protoc -I. --decode=fast.Element fast.proto", input_file);
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto", input_file);
 	system(buf);
 }
 
