@@ -500,12 +500,13 @@ int mainRoutine(int argc, char* argv[]) {
 	   return 1;
    }
 #ifdef PB_fast
-   if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0)
+   if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0) {
 	  if (debug) {
 	    saveTxtFromPB(argv[1]);
 	    return 0;
 	  }
 	  return loadPB(load_only, argc, argv);
+   }
 #endif
 #ifdef FBS_fast
    if (strcmp(argv[1]+strlen(argv[1])-4, ".fbs")==0)
