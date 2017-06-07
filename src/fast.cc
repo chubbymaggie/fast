@@ -47,6 +47,7 @@ void saveXMLfromFBS(fstream &out, const struct Element *element);
 
 #ifdef GET_OPT
 int debug = 0; 
+int position = 0; 
 int load_only = 0; 
 int diff_calc = 0;
 #endif
@@ -227,6 +228,8 @@ void saveXMLfromFBS(fstream &out, const struct Element *element) {
 				lang = "C#";
 			}
 			attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\" xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
+			if (position)
+				attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
 			attr = attr + " revision=\"" + element->extra()->unit()->revision()->c_str() + "\"";
 			attr = attr + " language=\"" + lang + "\"";
 			attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
@@ -235,8 +238,12 @@ void saveXMLfromFBS(fstream &out, const struct Element *element) {
 			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
 			type = type.substr(0, type.length() - 5);
 			attr = attr + " type=\"" + type + "\"";
+			if (position)
+				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		} else {
 			tag = EnumNamesKind()[element->kind()];
+			if (position)
+				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		}
 	} else {
 		tag = EnumNamesKind()[element->kind()];
@@ -275,7 +282,10 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 			str = "cpp";
 			lang = "C#";
 		}
-		attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\" xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
+		attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\"";
+		if (position)
+			attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
+	        attr = attr + " xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
 		attr = attr + " revision=\"" + element->unit().revision().c_str() + "\"";
 		attr = attr + " language=\"" + lang + "\"";
 		attr = attr + " filename=\"" + element->unit().filename().c_str() + "\"";
@@ -284,8 +294,12 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 		string type = fast::Element_Literal_LiteralType_Name(element->literal().type());
 		type = type.substr(0, type.length() - 5);
 		attr = attr + " type=\"" + type + "\"";
+		if (position)
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	} else {
 		tag = fast::Element_Kind_Name(element->kind());
+		if (position)
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	}
 	text = element->text();
 	transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
@@ -340,13 +354,20 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				if (attr->name() == string("item")) {
 					unit->set_item(atoi(attr->value()));
 				}
-			}
-			if (is_literal) {
+			} else { 
+			    if (is_literal) {
 				if (attr->name() == string("type")) {
 					fast::Element_Literal_LiteralType type;
 					fast::Element_Literal_LiteralType_Parse(attr->name(), &type);
 					literal->set_type(type);
 				}
+			    }
+			    if (attr->name() == string("pos:line")) {
+				element->set_line(atoi(attr->value()));
+			    }
+			    if (attr->name() == string("pos:column")) {
+				element->set_column(atoi(attr->value()));
+			    }
 			}
 		}
 		if (is_unit) element->set_allocated_unit(unit);
@@ -469,6 +490,8 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			xml_filename +=	".xml";
 			string srcmlCommand = "srcml ";
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + xml_filename;
+			if (position)
+				srcmlCommand = srcmlCommand + " --position";
 			system(srcmlCommand.c_str());
 			// call the command again, using the generated temporary XML file
 			argv[1] = (char *)xml_filename.c_str();
@@ -485,6 +508,8 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		// invoke srcml and print to standard output
 		string srcmlCommand = "srcml ";
 		srcmlCommand = srcmlCommand + argv[1];
+		if (position)
+			srcmlCommand = srcmlCommand + " --position";
 		system(srcmlCommand.c_str());
 	}
 	return 0;
@@ -518,15 +543,16 @@ int mainRoutine(int argc, char* argv[]) {
 }
 
 int main(int argc, char* argv[]) {
-	/*
-  char *cvalue = NULL;
-  	*/
   int c;
 
   opterr = 0;
   debug = 0;
-  while ((c = getopt (argc, argv, "cdt")) != -1)
+  position = 0;
+  while ((c = getopt (argc, argv, "cdpt")) != -1)
     switch (c) {
+      case 'p':
+	    position = 1;
+	    break;
       case 't':
 	    debug = 1;
 	    break;
@@ -536,14 +562,7 @@ int main(int argc, char* argv[]) {
       case 'd':
         diff_calc = 1;
         break;
-      /* case 'c':
-        cvalue = optarg;
-        break; */
       case '?':
-	/*
-        if (optopt == 'c')
-          fprintf (stderr, "Option -%c requires an argument.\n", optopt);
-        else */
 	if (isprint (optopt))
           fprintf (stderr, "Unknown option `-%c'.\n", optopt);
         else

@@ -1697,6 +1697,18 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::fast::Element_Kind kind() const;
   void set_kind(::fast::Element_Kind value);
 
+  // int32 line = 7;
+  void clear_line();
+  static const int kLineFieldNumber = 7;
+  ::google::protobuf::int32 line() const;
+  void set_line(::google::protobuf::int32 value);
+
+  // int32 column = 8;
+  void clear_column();
+  static const int kColumnFieldNumber = 8;
+  ::google::protobuf::int32 column() const;
+  void set_column(::google::protobuf::int32 value);
+
   // .fast.Element.Unit unit = 5;
   bool has_unit() const;
   void clear_unit();
@@ -1730,6 +1742,8 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::internal::ArenaStringPtr text_;
   ::google::protobuf::internal::ArenaStringPtr tail_;
   int kind_;
+  ::google::protobuf::int32 line_;
+  ::google::protobuf::int32 column_;
   union ExtraUnion {
     ExtraUnion() {}
     ::fast::Element_Unit* unit_;
@@ -2148,6 +2162,34 @@ inline void Element::set_allocated_literal(::fast::Element_Literal* literal) {
     extra_.literal_ = literal;
   }
   // @@protoc_insertion_point(field_set_allocated:fast.Element.literal)
+}
+
+// int32 line = 7;
+inline void Element::clear_line() {
+  line_ = 0;
+}
+inline ::google::protobuf::int32 Element::line() const {
+  // @@protoc_insertion_point(field_get:fast.Element.line)
+  return line_;
+}
+inline void Element::set_line(::google::protobuf::int32 value) {
+  
+  line_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.line)
+}
+
+// int32 column = 8;
+inline void Element::clear_column() {
+  column_ = 0;
+}
+inline ::google::protobuf::int32 Element::column() const {
+  // @@protoc_insertion_point(field_get:fast.Element.column)
+  return column_;
+}
+inline void Element::set_column(::google::protobuf::int32 value) {
+  
+  column_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.column)
 }
 
 inline bool Element::has_extra() const {

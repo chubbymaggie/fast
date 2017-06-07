@@ -46,9 +46,11 @@ fast_fbs: src/fast.cc
 
 install: fast_pb fast_fbs
 	mkdir -p $(DESTDIR)$(prefix)/bin
+	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast_pb $(DESTDIR)$(prefix)/bin/fast_pb
 	install -m 0755 fast_fbs $(DESTDIR)$(prefix)/bin/fast_fbs
 	install -m 0755 src/fast.sh $(DESTDIR)$(prefix)/bin/fast
+	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -66,7 +68,7 @@ install: fast fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
-	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast
+	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 endif
 .PHONY: install
 
