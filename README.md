@@ -80,3 +80,16 @@ These commands will translate the binary representations into the corresponding 
 	$ fast test.fbs test.cc
 ```
 These commands will translate the binary representations into the corresponding code files.
+```
+	$ fast -t Hello.pb
+```
+This command will print the textual representation of the protocol buffer using the generated fAST schema.
+```
+	$ fast -p Hello.java Hello.pb
+	$ fast -p Hello.pb Hello.xml
+```
+These commands will keep the line/column positions of the code elements in the
+corresponding binary and XML documents.  Note that if "-p" option is not
+provided, even if the protobuf document has the code elements' position
+information, they will not be skipped in the XML document.
+
