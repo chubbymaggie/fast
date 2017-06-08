@@ -1,0 +1,15 @@
+To run srcSlice:
+
+First get a srcML version of your code using srcml with position mark up turned on:
+
+srcml [input file] -o [output file] --position
+
+example: srcml file.cpp -o file.cpp.xml
+
+Then take the file you've stored output in and give it to srcSlice:
+
+./srcSlice [input file]
+
+example: ./srcSlice file.cpp.xml
+
+
