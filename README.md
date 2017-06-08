@@ -5,13 +5,41 @@ This tool flattens code structures of abstract syntax trees (ASTs) as binary so 
 ## Performance
 In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by up to 100 times. 
 
-![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.")
-
-![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
+![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.") ![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
 
 That's part of the reasons why we call it "fast".
 
 A report on performance evaluation will be placed under the `doc/` subfolder.
+
+## Synopsis
+
+```
+$ fast [-cdpst] $input_file_name.$ext1 [$output_file_name.$ext2]
+```
+
+## Description
+The use of the tool is fairly simple. It accepts two file arguments on the command line.
+Assuming that you have set `/usr/local/bin` in the `$PATH` variable, just enter
+
+Here `$name` is the base name of a file. If `$ext1` is not one of the extensions such as
+```
+	.pb, .fbs
+```
+SrcML will be called first to turn them into XML format. If the `$ext1` or
+`$ext2` is one of these formats, the corresponding load / save functions of
+`fast` will be invoked to save them into the corresponding binary form.
+
+If the `output_file_name` is unspecified, the output will be directed to the standard output.
+
+The following options are available:
+
+     `-c`      Load the file only, without printing an output.
+
+     `-p`      Position (line, column) information is added to source code elements.
+
+     `-s`      srcSlice is invoked to create the slicing information (it will turn on `-p` option).
+
+     `-t`      If the binary format is protobuf, it prints the textual representation of binary AST following the PB schema.
 
 ## Dependencies
 The current implementation is based on `protobuf` and `flatbuffers`, as well as `srcml` which parses code to XML, and [`rapidxml`](https://github.com/dwd/rapidxml) which parses XML documents.
@@ -42,17 +70,6 @@ The 1st line is optional, it will install Homebrew if you hadn't got it.
 Specifically, the 1st line is to support HTTPS transport protocol for the repository on github.io; 
 the 2nd line is to update the list of repositories on your machine.
 ## Usage
-The use of the tool is fairly simple. It accepts two file arguments on the command line.
-Assuming that you have set `/usr/local/bin` in the `$PATH` variable, just enter
-```
-	$ fast $input_file_name1.$ext1 $output_file_name2.$ext2
-```
-Here `$name` is the base name of a file. If `$ext1` is not one of the extensions such as
-```
-	.pb, .fbs
-```
-SrcML will be called first to turn them into XML format. If the `$ext1` or `$ext2` is one of these formats, the corresponding load / save functions of `fast` will be invoked to save them into the corresponding binary form.
-
 Here are a few examples:
 ```
 	$ fast test/Hello.java Hello.xml

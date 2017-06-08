@@ -50,7 +50,6 @@ int debug = 0;
 int position = 0; 
 int slice = 0; 
 int load_only = 0; 
-int diff_calc = 0;
 #endif
 
 int loadSrcML(int load_only, int argc, char **argv);
@@ -600,7 +599,7 @@ int main(int argc, char* argv[]) {
   debug = 0;
   position = 0;
   slice = 0;
-  while ((c = getopt (argc, argv, "cdpst")) != -1)
+  while ((c = getopt (argc, argv, "cpst")) != -1)
     switch (c) {
       case 's':
 	    slice = 1;
@@ -614,9 +613,6 @@ int main(int argc, char* argv[]) {
 	    break;
       case 'c':
         load_only = 1;
-        break;
-      case 'd':
-        diff_calc = 1;
         break;
       case '?':
 	if (isprint (optopt))
