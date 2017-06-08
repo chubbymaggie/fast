@@ -92,4 +92,10 @@ These commands will keep the line/column positions of the code elements in the
 corresponding binary and XML documents.  Note that if "-p" option is not
 provided, even if the protobuf document has the code elements' position
 information, they will not be skipped in the XML document.
-
+```
+	$ fast -p test.cc test.pb
+	$ fast -s test.pb
+	$ fast -s Hello.java
+```
+These commands perform forward program slicing on the source code using the srcSlice tool. Current implementation makes use of srcML as intermediate format,
+even though the PB binary AST equivalent can be more efficient. TODO: we are going to replace the XML parser in srcSlice to enable more efficient slicing.
