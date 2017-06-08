@@ -91,7 +91,7 @@ This command will print the textual representation of the protocol buffer using 
 These commands will keep the line/column positions of the code elements in the
 corresponding binary and XML documents.  Note that if "-p" option is not
 provided, even if the protobuf document has the code elements' position
-information, they will not be skipped in the XML document.
+information, they will be omitted in the XML document.
 ```
 	$ fast -p test.cc test.pb
 	$ fast -s test.pb
