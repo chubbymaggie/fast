@@ -150,9 +150,20 @@ int loadFBS(int load_only, int argc, char **argv) {
 		saveXMLfromFBS(out, element);
 		out << endl;
 		if (argc == 2) {
-			string catCommand = "cat ";
-			catCommand = catCommand + xml_filename;
-			return system(catCommand.c_str());
+			if (slice) {
+				string sliceCommand = "srcSlice ";
+				sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
+				system(sliceCommand.c_str());
+				string catCommand = "cat ";
+				catCommand = catCommand + xml_filename + ".slice";
+				system(catCommand.c_str());
+				remove((xml_filename + ".slice").c_str());
+			} else {
+				string catCommand = "cat ";
+				catCommand = catCommand + xml_filename;
+				system(catCommand.c_str());
+			}
+			return remove(xml_filename.c_str());
 		}
 		argv[1] = (char*) xml_filename.c_str();
 		mainRoutine(argc, argv);
@@ -259,6 +270,8 @@ void saveXMLfromFBS(fstream &out, const struct Element *element) {
 		}
 	} else {
 		tag = EnumNamesKind()[element->kind()];
+		if (position && (element->line()!=0 || element->column()!=0))
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	}
 	if (element->text())
 		text = element->text()->c_str();
@@ -424,6 +437,8 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 	int language = -1;
 	int item = -1;
 	int type = -1;
+	int line = 0;
+	int column = 0;
 	if (tag != "") {
 		for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
 		{
@@ -455,6 +470,12 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 					type = flatbuffers::LookupEnum(EnumNamesLiteralType(), t.c_str());
 				}
 			}
+			if (attr->name() == string("pos:line")) {
+				line = atoi(attr->value());
+			}
+			if (attr->name() == string("pos:column")) {
+				column = atoi(attr->value());
+			}
 		}
 		string str = tag;
 		transform(str.begin(), str.end(),str.begin(), ::toupper);
@@ -480,7 +501,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 		if (node->next_sibling() != 0 && string(node->next_sibling()->name()) == "") { // sibling text node
 			tail = builder.CreateString(string(node->next_sibling()->value()));
 		}
-		auto element = _fast::CreateElement(builder, kind, text, tail, child, extra);
+		auto element = _fast::CreateElement(builder, kind, text, tail, child, extra, line, column);
 		return element;
 	} 
 	return 0;

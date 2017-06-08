@@ -95,6 +95,9 @@ information, they will not be skipped in the XML document.
 ```
 	$ fast -p test.cc test.pb
 	$ fast -s test.pb
+	$ fast -p test.cc test.fbs
+	$ fast -s test.fbs
+	$ fast -s test.cc
 	$ fast -s Hello.java
 ```
 These commands perform forward program slicing on the source code using the srcSlice tool. Current implementation makes use of srcML as intermediate format,
