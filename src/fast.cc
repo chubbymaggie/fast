@@ -48,6 +48,7 @@ void saveXMLfromFBS(fstream &out, const struct Element *element);
 #ifdef GET_OPT
 int debug = 0; 
 int position = 0; 
+int slice = 0; 
 int load_only = 0; 
 int diff_calc = 0;
 #endif
@@ -87,7 +88,7 @@ int loadXML(int load_only, int argc, char**argv) {
     xml_document<> doc;
     try {
 	file<> xmlFile(input_filename);
-        doc.parse<0>(xmlFile.data());
+        doc.parse<rapidxml::parse_no_entity_translation>(xmlFile.data());
 #ifdef PB_fast
 	if (is_protobuf) {
 		fstream output(output_filename, ios::out | ios::trunc | ios::binary);
@@ -191,9 +192,20 @@ int loadPB(int load_only, int argc, char **argv) {
 	saveXMLfromPB(out, &unit);
 	out << endl;
 	if (argc == 2) {
-		string catCommand = "cat ";
-		catCommand = catCommand + xml_filename;
-		return system(catCommand.c_str());
+		if (slice) {
+			string sliceCommand = "srcSlice ";
+			sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
+			system(sliceCommand.c_str());
+			string catCommand = "cat ";
+			catCommand = catCommand + xml_filename + ".slice";
+			system(catCommand.c_str());
+			remove((xml_filename + ".slice").c_str());
+		} else {
+			string catCommand = "cat ";
+			catCommand = catCommand + xml_filename;
+			system(catCommand.c_str());
+		}
+		return remove(xml_filename.c_str());
 	}
 	argv[1] = (char*) xml_filename.c_str();
 	mainRoutine(argc, argv);
@@ -238,11 +250,11 @@ void saveXMLfromFBS(fstream &out, const struct Element *element) {
 			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
 			type = type.substr(0, type.length() - 5);
 			attr = attr + " type=\"" + type + "\"";
-			if (position)
+			if (position && (element->line()!=0 || element->column()!=0))
 				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		} else {
 			tag = EnumNamesKind()[element->kind()];
-			if (position)
+			if (position && (element->line()!=0 || element->column()!=0))
 				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		}
 	} else {
@@ -294,11 +306,11 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 		string type = fast::Element_Literal_LiteralType_Name(element->literal().type());
 		type = type.substr(0, type.length() - 5);
 		attr = attr + " type=\"" + type + "\"";
-		if (position)
+		if (position && (element->line()!=0 || element->column()!=0))
 			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	} else {
 		tag = fast::Element_Kind_Name(element->kind());
-		if (position)
+		if (position && (element->line()!=0 || element->column()!=0))
 			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	}
 	text = element->text();
@@ -508,9 +520,27 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		// invoke srcml and print to standard output
 		string srcmlCommand = "srcml ";
 		srcmlCommand = srcmlCommand + argv[1];
-		if (position)
-			srcmlCommand = srcmlCommand + " --position";
-		system(srcmlCommand.c_str());
+		if (slice) {
+			char buf[100];
+			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+			mkstemp(buf);
+			string xml_filename = buf;
+			xml_filename +=	".xml";
+			srcmlCommand = srcmlCommand + " --position" + " -o " + xml_filename;
+			system(srcmlCommand.c_str());
+			string sliceCommand = "srcSlice ";
+			sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
+			system(sliceCommand.c_str());
+			string catCommand = "cat ";
+			catCommand = catCommand + xml_filename + ".slice";
+			system(catCommand.c_str());
+			remove((xml_filename + ".slice").c_str());
+			remove(xml_filename.c_str());
+		} else {
+			if (position)
+				srcmlCommand = srcmlCommand + " --position";
+			system(srcmlCommand.c_str());
+		}
 	}
 	return 0;
 }
@@ -548,8 +578,13 @@ int main(int argc, char* argv[]) {
   opterr = 0;
   debug = 0;
   position = 0;
-  while ((c = getopt (argc, argv, "cdpt")) != -1)
+  slice = 0;
+  while ((c = getopt (argc, argv, "cdpst")) != -1)
     switch (c) {
+      case 's':
+	    slice = 1;
+	    position = 1; // slicing requires positions
+	    break;
       case 'p':
 	    position = 1;
 	    break;
