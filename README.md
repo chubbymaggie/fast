@@ -33,13 +33,13 @@ If the `output_file_name` is unspecified, the output will be directed to the sta
 
 The following options are available:
 
-     `-c`      Load the file only, without printing an output.
+     -c      Load the file only, no output.
 
-     `-p`      Position (line, column) information is added to source code elements.
+     -p      Position (line, column) is added to source code elements.
 
-     `-s`      srcSlice is invoked to create the slicing information (it will turn on `-p` option).
+     -s      Invoke srcSlice. This option turns on the -p option.
 
-     `-t`      If the binary format is protobuf, it prints the textual representation of binary AST following the PB schema.
+     -t      Print the textual representation of binary AST if the input is protobuf.
 
 ## Dependencies
 The current implementation is based on `protobuf` and `flatbuffers`, as well as `srcml` which parses code to XML, and [`rapidxml`](https://github.com/dwd/rapidxml) which parses XML documents.
