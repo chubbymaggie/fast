@@ -101,4 +101,4 @@ information, they will not be skipped in the XML document.
 	$ fast -s Hello.java
 ```
 These commands perform forward program slicing on the source code using the srcSlice tool. Current implementation makes use of srcML as intermediate format,
-even though the PB binary AST equivalent can be more efficient. TODO: we are going to replace the XML parser in srcSlice to enable more efficient slicing.
+even though the binary AST equivalent can be more efficient. TODO: we are going to replace the XML parser in srcSlice to enable more efficient slicing.
