@@ -385,7 +385,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			if (string(child->name()) != "") { // not text node
 				fast::Element *child_element = savePBfromXML(child);
 				element->add_child()->CopyFrom(*child_element);
-			}
+			} 
 			child = child->next_sibling();
 		}
 		if (node->next_sibling() != 0 && string(node->next_sibling()->name()) == "") { // sibling text node
