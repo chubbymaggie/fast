@@ -74,10 +74,10 @@ install: fast fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
-	install -m 0755 osx/srcml $(DESTDIR)$(prefix)/bin/srcml
-	install -m 0755 osx/libsrcml.dylib $(DESTDIR)$(prefix)/lib/libsrcml.dylib
 	install -m 0755 osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
+#	install -m 0755 osx/srcml $(DESTDIR)$(prefix)/bin/srcml
+#	install -m 0755 osx/libsrcml.dylib $(DESTDIR)$(prefix)/lib/libsrcml.dylib
 endif
 .PHONY: install
 
