@@ -49,6 +49,7 @@ install: fast_pb fast_fbs
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast_pb $(DESTDIR)$(prefix)/bin/fast_pb
 	install -m 0755 fast_fbs $(DESTDIR)$(prefix)/bin/fast_fbs
+	install -m 0755 debian/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0755 src/fast.sh $(DESTDIR)$(prefix)/bin/fast
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 endif
@@ -69,8 +70,12 @@ src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 
 install: fast fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
+	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
+	install -m 0755 osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
+	install -m 0755 osx/srcml $(DESTDIR)$(prefix)/bin/srcml
+	install -m 0755 osx/libsrcml.dylib $(DESTDIR)$(prefix)/lib/libsrcml.dylib
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 endif
 .PHONY: install
