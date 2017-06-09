@@ -762,7 +762,6 @@ public:
         if(num_attributes){
             lineNum = strtoul(attributes[0].value, NULL, 0);
             name = attributes[0].value;
-	    fileName = attributes[1].value;
         }
         std::string lname(localname);
         std::string lnspace;

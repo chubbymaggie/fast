@@ -14,7 +14,7 @@ A report on performance evaluation will be placed under the `doc/` subfolder.
 ## Synopsis
 
 ```
-$ fast [-cdpst] $input_file_name.$ext1 [$output_file_name.$ext2]
+$ fast [-cdpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
 ```
 
 ## Description
@@ -38,6 +38,8 @@ The following options are available:
      -p      Position (line, column) is added to source code elements.
 
      -s      Invoke srcSlice. This option turns on the -p option.
+
+     -S      Invoke modified srcSlice to use the binary AST directly.
 
      -t      Print the textual representation of binary AST if the input is protobuf.
 
@@ -114,8 +116,8 @@ information, they will be omitted in the XML document.
 	$ fast -s test.pb
 	$ fast -p test.cc test.fbs
 	$ fast -s test.fbs
+	$ fast -S test.fbs
 	$ fast -s test.cc
 	$ fast -s Hello.java
 ```
-These commands perform forward program slicing on the source code using the srcSlice tool. Current implementation makes use of srcML as intermediate format,
-even though the binary AST equivalent can be more efficient. TODO: we are going to replace the XML parser in srcSlice to enable more efficient slicing.
+These commands perform forward program slicing on the source code using the srcSlice tool. 
