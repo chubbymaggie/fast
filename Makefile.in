@@ -58,11 +58,14 @@ prefix=$(HOMEBREW_FORMULA_PREFIX)
 ifeq ($(prefix),)
 prefix=/usr/local
 endif
-fast: src/fast.cc src/fast.pb.cc
-	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
+fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
+	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml -Isrc -Isrc/headers -Isrc/cpp -I/usr/local/Cellar/libxml2/2.9.4_2/include/libxml2 $(PB_LIB) $(FBS_LIB) -lxml2 ../../srcML/srcSlice/build/bin/libsrcsax.a $^ -o $@
 
-fast-debug: src/fast.cc src/fast.pb.cc
-	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
+fast-debug: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
+	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml -Isrc -Isrc/headers -Isrc/cpp -I/usr/local/Cellar/libxml2/2.9.4_2/include/libxml2 $(PB_LIB) $(FBS_LIB) -lxml2 ../../srcML/srcSlice/build/bin/libsrcsax.a $^ -o $@
+
+src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
+	touch $@
 
 install: fast fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin

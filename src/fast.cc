@@ -24,6 +24,8 @@
 #include <stdlib.h>
 #endif
 #include <sys/stat.h> 
+#include <srcSliceHandler.hpp>
+#include <srcSlice.hpp>
 
 using namespace std;
 using namespace rapidxml;
@@ -49,6 +51,7 @@ void saveXMLfromFBS(fstream &out, const struct Element *element);
 int debug = 0; 
 int position = 0; 
 int slice = 0; 
+int Slice = 0; 
 int load_only = 0; 
 #endif
 
@@ -121,6 +124,9 @@ int loadXML(int load_only, int argc, char**argv) {
 }
 
 #ifdef FBS_fast
+void sliceFBS(srcSliceHandler& handler, const struct Element *element);
+void srcSliceToCsv(const srcSlice& handler);
+
 int loadFBS(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
 	char *filename = argv[1]; // the input file, which is assumed to be a binary flatbuffers
@@ -136,7 +142,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 	fread(data, sizeof(char), length, file);
 	fclose(file);
 	const struct _fast::Element *element = flatbuffers::GetRoot<Element>(data);
-	if (!load_only) {
+	if (!load_only && !Slice) {
 		//string xml_filename = tmpnam(NULL);
 		char buf[100];
 		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -167,6 +173,14 @@ int loadFBS(int load_only, int argc, char **argv) {
 		argv[1] = (char*) xml_filename.c_str();
 		mainRoutine(argc, argv);
 		return remove(xml_filename.c_str());
+	} else if (!load_only && Slice) {
+		srcSlice sslice;
+		srcSliceHandler handler(&sslice.dictionary);
+		handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
+		sliceFBS(handler, element);
+		handler.endRoot(NULL, NULL, NULL);
+		DoComputation(handler, handler.sysDict->ffvMap);
+		srcSliceToCsv(sslice);
 	}
  	return 0;
 }
@@ -229,6 +243,91 @@ int loadPB(int load_only, int argc, char **argv) {
 #endif
 
 #ifdef FBS_fast
+void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
+	string tag;
+	string attr;
+	string text = "";
+	string tail = "";
+	if (element->extra()) {
+		if (element->kind() == 0) {
+			tag = "unit";
+			string str = string(EnumNamesLanguageType()[element->extra()->unit()->language()]);
+			string lang = str;
+			transform(str.begin(), str.end(),str.begin(), ::tolower);
+			if (str == "cxx") {
+				str = "cpp";
+				lang = "C++";
+			}
+			if (str == "csharp") {
+				str = "cpp";
+				lang = "C#";
+			}
+			attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\" xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
+			if (position)
+				attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
+			attr = attr + " revision=\"" + element->extra()->unit()->revision()->c_str() + "\"";
+			attr = attr + " language=\"" + lang + "\"";
+			attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
+			struct srcsax_attribute attrs[3];
+			attrs[2].value = element->extra()->unit()->filename()->c_str();
+			handler.startUnit(NULL, NULL, NULL, 0, NULL, 2, attrs);
+		} else if (element->kind() == 47) {
+			tag = "literal";
+			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
+			type = type.substr(0, type.length() - 5);
+			attr = attr + " type=\"" + type + "\"";
+			if (position && (element->line()!=0 || element->column()!=0))
+				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
+			transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
+		} else {
+			tag = EnumNamesKind()[element->kind()];
+			if (position && (element->line()!=0 || element->column()!=0))
+				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
+			transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
+		}
+	} else {
+		tag = EnumNamesKind()[element->kind()];
+		if (position && (element->line()!=0 || element->column()!=0))
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
+		transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
+	}
+	if (element->text())
+		text = element->text()->c_str();
+	transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
+        if (!element->extra() && attr != "") {
+		struct srcsax_attribute attrs[1];
+		attrs[0].value = std::to_string(element->line()).c_str();
+		handler.startElement(tag.c_str(), NULL, NULL, 0, NULL, 1, attrs);
+	} else if (element->extra() && element->kind()!=0) {
+		struct srcsax_attribute attrs[1];
+		attrs[0].value = std::to_string(element->line()).c_str();
+		handler.startElement(tag.c_str(), NULL, NULL, 0, NULL, 1, attrs);
+	}
+	if (element->text()) {
+		handler.charactersUnit(text.c_str(), strlen(text.c_str()));
+	}
+	// out << "<" <<  tag <<  attr << ">" << text;
+	for (int i=0; i<element->child()->size(); i++) {
+		sliceFBS(handler, element->child()->Get(i));
+	}
+	if (element->tail()) {
+		tail = element->tail()->c_str();
+	} else 
+		tail = "";
+	if (element->extra()) {
+		if (element->kind() == 0) {
+			handler.endUnit(tag.c_str(), NULL, NULL);
+		} else {
+			handler.endElement(tag.c_str(), NULL, NULL);
+		}
+	} else {
+		handler.endElement(tag.c_str(), NULL, NULL);
+	}
+	if (element->tail()) {
+		handler.charactersUnit(tail.c_str(), strlen(tail.c_str()));
+	}
+}
+
 void saveXMLfromFBS(fstream &out, const struct Element *element) {
 	string tag;
 	string attr;
@@ -599,8 +698,13 @@ int main(int argc, char* argv[]) {
   debug = 0;
   position = 0;
   slice = 0;
-  while ((c = getopt (argc, argv, "cpst")) != -1)
+  Slice = 0;
+  while ((c = getopt (argc, argv, "cpsSt")) != -1)
     switch (c) {
+      case 'S':
+	    Slice = 1;
+	    position = 1; // slicing requires positions
+	    break;
       case 's':
 	    slice = 1;
 	    position = 1; // slicing requires positions
