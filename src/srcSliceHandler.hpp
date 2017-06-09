@@ -31,6 +31,10 @@
 #include <algorithm>
 #include <sstream>
 #include <stack>
+#ifdef FBS_fast
+#include <fast_generated.h>
+#endif
+
 class srcSliceHandler : public srcSAXHandler {
 private:
     /*ParserState is a set of enums corresponding to srcML tags. Primarily, they're for addressing into the 
@@ -43,8 +47,8 @@ private:
         preproc, whileloop, forloop, ifcond, nonterminal, macro, classblock, functionblock,
         specifier, empty, MAXENUMVALUE = empty};
 
-    std::unordered_map<std::string, std::function<void()>> process_map;
-    std::unordered_map<std::string, std::function<void()>> process_map3;
+    std::function<void()> process_map[_fast::_Element::Kind_MAX];
+    std::function<void()> process_map3[_fast::_Element::Kind_MAX];
 
     unsigned int numArgs;
     unsigned int declIndex;
@@ -180,16 +184,17 @@ public:
         isConstructor = false;
         inGlobalScope = true;
         triggerField = std::vector<unsigned short int>(MAXENUMVALUE, 0);
-        process_map = {
-            {"decl_stmt", [this](){
+        process_map[_fast::_Element::Kind_DECL_STMT] = 
+	    [this](){
                 ++declIndex; //to keep track of index of declarations
                 ++triggerField[decl_stmt];
-            } }, 
-
-            { "expr_stmt", [this](){
+            };
+        process_map[_fast::_Element::Kind_EXPR_STMT] = 
+            [this](){
                 ++triggerField[expr_stmt];
-            } },
-            { "parameter_list", [this](){
+            };
+        process_map[_fast::_Element::Kind_PARAMETER_LIST] = 
+            [this](){
                 if((triggerField[function] || triggerField[functiondecl] || triggerField[constructor]) && !(triggerField[functionblock] || triggerField[parameter_list] || triggerField[macro])){
                     GetFunctionData();
                 }
@@ -208,32 +213,37 @@ public:
                     }
                 }
                 ++triggerField[parameter_list];
-            } },
+            };
 
-            { "if", [this](){
+        process_map[_fast::_Element::Kind_IF] = 
+            [this](){
                 ++triggerField[ifcond];
                 //controlFlowLineNum.push(lineNum);
-            } },
+            };
 
-            { "for", [this](){
+        process_map[_fast::_Element::Kind_FOR] = 
+            [this](){
                 ++triggerField[forloop];
                 inFor = true;
                 //controlFlowLineNum.push(lineNum);
-            } },
+            };
 
-            { "while", [this](){
+        process_map[_fast::_Element::Kind_WHILE] = 
+            [this](){
                 ++triggerField[whileloop];
                 //controlFlowLineNum.push(lineNum);
-            } },
+            };
             
-            { "condition", [this](){
+        process_map[_fast::_Element::Kind_CONDITION] = 
+            [this](){
                 //This gets used with expr_stmts since conditionals can basically contain everything an expr_stmt can contain
                 //This means that rules for expr_stmt usually have || condition next to them to re-use those same functions for
                 //things like while loops. If this becomes too big of a deal, might just write separate functions for conditions
                 ++triggerField[condition];
-            } },
+            };
 
-            { "argument_list", [this](){
+        process_map[_fast::_Element::Kind_ARGUMENT_LIST] = 
+            [this](){
                 ++triggerField[argument_list];
                 if(triggerField[call]){
                     if(isACallName){
@@ -242,69 +252,83 @@ public:
                         calledFunctionName.clear();
                     }
                 }
-            } },
+            };
 
-            { "call", [this](){
+        process_map[_fast::_Element::Kind_CALL] = 
+            [this](){
                 if(triggerField[call]){//for nested calls
                     --numArgs; //already in some sort of a call. Decrement counter to make up for the argument slot the function call took up.
                 }
                 isACallName = true;
                 ++triggerField[call];
-            } },
+            };
 
-            { "function", [this](){
+        process_map[_fast::_Element::Kind_FUNCTION] = 
+            [this](){
                 inGlobalScope = false;
                 functionTmplt.fileName = fileName;
                 ++triggerField[function];
-            } },
-            { "constructor", [this](){
+            };
+        process_map[_fast::_Element::Kind_CONSTRUCTOR] = 
+            [this](){
                 ++constructorNum;//constructors have numbers appended to them since they all have the same name.
                 
                 isConstructor = true;
                 inGlobalScope = false;
 
                 ++triggerField[function];
-            } },
-            { "function_decl", [this](){
+            };
+        process_map[_fast::_Element::Kind_FUNCTION_DECL] = 
+            [this](){
                 currentFunctionDecl.first.clear();
                 ++triggerField[functiondecl];
-            } },
-            { "destructor_decl", [this](){
+            };
+        process_map[_fast::_Element::Kind_DESTRUCTOR_DECL] = 
+            [this](){
                 currentFunctionDecl.first.clear();
                 ++triggerField[destructordecl];
-            } },
-            { "constructor_decl", [this](){
+            };
+        process_map[_fast::_Element::Kind_CONSTRUCTOR_DECL] = 
+            [this](){
                 currentFunctionDecl.first.clear();
                 ++triggerField[constructordecl];
-            } },
-            { "template", [this](){
+            };
+        process_map[_fast::_Element::Kind_TEMPLATE] = 
+            [this](){
                 ++triggerField[templates];
-            } },
-            { "class", [this](){
+            };
+        process_map[_fast::_Element::Kind_CLASS] = 
+            [this](){
                 ++triggerField[classn];
-            } },
-
-            { "destructor", [this](){
+            };
+        process_map[_fast::_Element::Kind_DESTRUCTOR] = 
+            [this](){
                 inGlobalScope = false;
                 ++triggerField[function];
-            } },
-            { "parameter", [this](){
+            };
+        process_map[_fast::_Element::Kind_PARAMETER] = 
+            [this](){
                     ++triggerField[param];
                     ++declIndex;
-            } },    
-            { "member_list", [this](){
+            };    
+        process_map[_fast::_Element::Kind_MEMBER_INIT_LIST] = 
+            [this](){
                 ++triggerField[member_list];
-            } },
-            { "return", [this](){
+            };
+        process_map[_fast::_Element::Kind_RETURN] = 
+            [this](){
                 ++triggerField[return_stmt];
-            } },
-            { "control", [this](){
+            };
+        process_map[_fast::_Element::Kind_CONTROL] = 
+            [this](){
                 ++triggerField[control];
-            } },
-            { "index", [this](){
+            };
+        process_map[_fast::_Element::Kind_INDEX] = 
+            [this](){
                 ++triggerField[index];
-            } },    
-            { "operator", [this](){
+            };    
+        process_map[_fast::_Element::Kind_OPERATOR] = 
+            [this](){
                 ++triggerField[op];
                 if(triggerField[expr_stmt]){
                     exprop = true; //assume we're not seeing =
@@ -318,8 +342,9 @@ public:
                     lhsExprStmt.first.clear();
                 }
 
-            } },    
-            { "block", [this](){     
+            };    
+        process_map[_fast::_Element::Kind_BLOCK] = 
+            [this](){     
                 if((triggerField[function] || triggerField[constructor])){
                     ++triggerField[functionblock];
                 }
@@ -327,8 +352,9 @@ public:
                     ++triggerField[classblock];
                 }
                 ++triggerField[block];
-            } },
-            { "init", [this](){
+            };
+        process_map[_fast::_Element::Kind_INIT] = 
+            [this](){
                 //This one is only called if we see init. If there's no init, it's safely ignored.
                 if(triggerField[decl_stmt] && (triggerField[constructor] || triggerField[function])){
                     GetDeclStmtData();
@@ -337,43 +363,51 @@ public:
                 memberAccess = false;
                 currentDecl.first.clear();
                 ++triggerField[init];
-            } },    
-            { "argument", [this](){
+            };    
+        process_map[_fast::_Element::Kind_ARGUMENT] = 
+            [this](){
                 ++numArgs;
                 currentCallArgData.first.clear();
                 calledFunctionName.clear();
                 ++triggerField[argument];
-            } },    
-            { "literal", [this](){
+            };    
+        process_map[_fast::_Element::Kind_LITERAL] = 
+            [this](){
                 ++triggerField[literal];
-            } },    
-            { "modifier", [this](){
+            };    
+        process_map[_fast::_Element::Kind_MODIFIER] = 
+            [this](){
                 ++triggerField[modifier];
-            } },    
-            { "decl", [this](){
+            };    
+        process_map[_fast::_Element::Kind_DECL] = 
+            [this](){
                 ++triggerField[decl]; 
-            } },    
-            { "type", [this](){
+            };    
+        process_map[_fast::_Element::Kind_TYPE] = 
+            [this](){
                 ++triggerField[type]; 
-            } },    
-            { "expr", [this](){
+            };    
+        process_map[_fast::_Element::Kind_EXPR] = 
+            [this](){
                 ++triggerField[expr];
-            } },    
-            { "name", [this](){
+            };    
+        process_map[_fast::_Element::Kind_NAME] = 
+            [this](){
                 ++triggerField[name];
                 functionTmplt.functionLineNumber = useExprStmt.second = lhsExprStmt.second = currentCallArgData.second = currentParam.second = currentParamType.second = 
                 currentFunctionBody.second = currentDecl.second =  currentExprStmt.second = currentFunctionDecl.second = currentDeclInit.second = lineNum;
-            } },
-            { "macro", [this](){
+            };
+        process_map[_fast::_Element::Kind_MACRO] = 
+            [this](){
                 ++triggerField[macro];
-            } },
-            { "specifier", [this](){
+            };
+        process_map[_fast::_Element::Kind_SPECIFIER] = 
+            [this](){
                 ++triggerField[specifier];
-            } }
-        };
-        process_map3 = {
+            };
 
-            {"decl_stmt", [this](){
+        process_map3[_fast::_Element::Kind_DECL_STMT] = 
+            [this](){
                 currentCallArgData.first.clear();
                 currentDeclArg.first.clear();
                 currentDeclCtor.first.clear();
@@ -381,9 +415,10 @@ public:
                 sawinit = false;
                 currentDeclInit.first.clear();
                 --triggerField[decl_stmt];
-            } }, 
+            }; 
 
-            { "expr_stmt", [this](){
+        process_map3[_fast::_Element::Kind_EXPR_STMT] = 
+            [this](){
                 --triggerField[expr_stmt];
                 
                 //for decl_stmts
@@ -406,25 +441,30 @@ public:
                 useExprStmt.first.clear();
 
                 currentCallArgData.first.clear();
-            } },
+            };
 
-            { "parameter_list", [this](){
+        process_map3[_fast::_Element::Kind_PARAMETER_LIST] = 
+            [this](){
                 --triggerField[parameter_list];
-            } },
+            };
 
-            { "if", [this](){
+        process_map3[_fast::_Element::Kind_IF] = 
+            [this](){
                 --triggerField[ifcond];
-            } },
+            };
 
-            { "for", [this](){
+        process_map3[_fast::_Element::Kind_FOR] = 
+            [this](){
                 --triggerField[forloop];
-            } },
+            };
 
-            { "while", [this](){
+        process_map3[_fast::_Element::Kind_WHILE] = 
+            [this](){
                 --triggerField[whileloop];
-            } },
+            };
 
-            { "condition", [this](){
+        process_map3[_fast::_Element::Kind_CONDITION] = 
+            [this](){
                 --triggerField[condition];
                 //for expr_stmts
                 foundexprlhs = false;
@@ -441,9 +481,10 @@ public:
                 lhsExprStmt.first.clear();
 
                 useExprStmt.first.clear();
-            } },
+            };
 
-            { "argument_list", [this](){
+        process_map3[_fast::_Element::Kind_ARGUMENT_LIST] = 
+            [this](){
                 if(triggerField[decl] && triggerField[decl_stmt] && (!triggerField[init] || triggerField[argument] || triggerField[macro])){
                     GetDeclStmtData();
                 }
@@ -451,9 +492,10 @@ public:
                 sawgeneric = false;
                 calledFunctionName.clear();
                 --triggerField[argument_list];
-            } },
+            };
 
-            { "call", [this](){
+        process_map3[_fast::_Element::Kind_CALL] = 
+            [this](){
                 if(!nameOfCurrentClldFcn.empty()){
                     nameOfCurrentClldFcn.pop();
                 }
@@ -461,9 +503,10 @@ public:
                 if(triggerField[call]){
                     ++numArgs; //we exited a call but we're still in another call. Increment to make up for decrementing when we entered the second call.
                 }
-            } },
+            };
 
-            { "function", [this](){
+        process_map3[_fast::_Element::Kind_FUNCTION] = 
+            [this](){
                 declIndex = 0;
                 inGlobalScope = true;
                 
@@ -476,62 +519,74 @@ public:
                 }
                 
                 --triggerField[function];
-            } },
-            { "constructor", [this](){
+            };
+        process_map3[_fast::_Element::Kind_CONSTRUCTOR] = 
+            [this](){
                 isConstructor = false;
                 declIndex = 0;
 
                 inGlobalScope = true;
                 functionTmplt.clear();
                 --triggerField[function];
-            } },
+            };
 
-            { "destructor", [this](){
+        process_map3[_fast::_Element::Kind_DESTRUCTOR] = 
+            [this](){
                 declIndex = 0;
 
                 inGlobalScope = true;
                 functionTmplt.clear();
                 --triggerField[function];
-            } },
-            { "function_decl", [this](){
+            };
+        process_map3[_fast::_Element::Kind_FUNCTION_DECL] = 
+            [this](){
                 currentFunctionDecl.first.clear();
                 --triggerField[functiondecl];
-            } },
-            { "constructor_decl", [this](){
+            };
+        process_map3[_fast::_Element::Kind_CONSTRUCTOR_DECL] = 
+            [this](){
                 currentFunctionDecl.first.clear();
                 --triggerField[functiondecl];
-            } },
-            { "destructor_decl", [this](){
+            };
+        process_map3[_fast::_Element::Kind_DESTRUCTOR_DECL] = 
+            [this](){
                 currentFunctionDecl.first.clear();
                 --triggerField[functiondecl];
-            } },            
-            { "class", [this](){
+            };            
+        process_map3[_fast::_Element::Kind_CLASS] = 
+            [this](){
                 currentClassName.first.clear();
                 --triggerField[classn];
-            } },
-            { "parameter", [this](){
+            };
+        process_map3[_fast::_Element::Kind_PARAMETER] = 
+            [this](){
                     if(triggerField[parameter_list] && triggerField[param] && !(triggerField[type] || triggerField[functionblock] || triggerField[templates])){
                         GetParamName();
                     }
                     potentialAlias = false;
                     --triggerField[param];
-            } },    
-            { "member_list", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_MEMBER_INIT_LIST] = 
+            [this](){
                 --triggerField[member_list];
-            } },
-            { "return", [this](){
+            };
+        process_map3[_fast::_Element::Kind_RETURN] = 
+            [this](){
                 ProcessExprStmtNoAssign();
                 useExprStack.clear();//to catch expressions in return statements
                 --triggerField[return_stmt];
-            } },
-            { "control", [this](){
+            };
+        process_map3[_fast::_Element::Kind_CONTROL] = 
+            [this](){
                 inFor = false;
                 --triggerField[control];
-            } },
-            { "index", [this](){
+            };
+        process_map3[_fast::_Element::Kind_INDEX] = 
+            [this](){
                 --triggerField[index];
-            } },    
-            { "operator", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_OPERATOR] = 
+            [this](){
                 calledFunctionName.clear();
                 if(triggerField[decl_stmt] && (currentOperator == "." || currentOperator == "->")){
                     memberAccess = true;
@@ -569,8 +624,9 @@ public:
                 currentOperator.clear();
 
                 --triggerField[op];
-            } },
-            { "block", [this](){ 
+            };
+        process_map3[_fast::_Element::Kind_BLOCK] = 
+            [this](){ 
                 if((triggerField[function] || triggerField[constructor])){
                     --triggerField[functionblock];
                 }
@@ -578,11 +634,13 @@ public:
                     --triggerField[classblock];
                 }
                 --triggerField[block];
-            } },
-            { "init", [this](){//so that we can get more stuff after the decl's name 
+            };
+        process_map3[_fast::_Element::Kind_INIT] = 
+            [this](){//so that we can get more stuff after the decl's name 
                 --triggerField[init];
-            } },    
-            { "argument", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_ARGUMENT] = 
+            [this](){
                 currentDeclArg.first.clear(); //get rid of the name of the var that came before it for ctor calls like: object(InitVarable)
                 currentCallArgData.first.clear();
                 calledFunctionName.clear();
@@ -594,30 +652,35 @@ public:
                     currentDeclCtor.first.clear();
                 }
                 --triggerField[argument];
-            } },    
-            { "literal", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_LITERAL] = 
+            [this](){
                 --triggerField[literal];
-            } },    
-            { "modifier", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_MODIFIER] = 
+            [this](){
                 if(triggerField[decl_stmt] && triggerField[decl]){ //only care about modifiers in decls
                     potentialAlias = true;
                 }else if(triggerField[function] && triggerField[parameter_list] && triggerField[param] && triggerField[decl]){
                     potentialAlias = true;
                 }
                 --triggerField[modifier];
-            } },
-            { "template", [this](){
+            };
+        process_map3[_fast::_Element::Kind_TEMPLATE] = 
+            [this](){
                 --triggerField[templates];
-            } },    
-            { "decl", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_DECL] = 
+            [this](){
                 if(!sawinit && triggerField[decl_stmt] && (triggerField[constructor] || triggerField[function])){
                     //only run if we didn't run it during init
                     GetDeclStmtData();
                 }
                 currentDecl.first.clear();
                 --triggerField[decl]; 
-            } },    
-            { "type", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_TYPE] = 
+            [this](){
                 if((triggerField[type] && triggerField[decl_stmt] && (triggerField[function] || triggerField[constructor]) && !(triggerField[modifier] || triggerField[argument_list]))){
                     //Get the type -- news
                     currentSliceProfile.variableType = currentDeclType.first;
@@ -636,11 +699,13 @@ public:
                     functionTmplt.returnType = currentFunctionDecl.first;
                 }
                 --triggerField[type];
-            } },    
-            { "expr", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_EXPR] = 
+            [this](){
                 --triggerField[expr];
-            } },    
-            { "name", [this](){
+            };    
+        process_map3[_fast::_Element::Kind_NAME] = 
+            [this](){
                 if(triggerField[call] && triggerField[argument]){
                     callArgData.push(currentCallArgData);
                 }
@@ -675,18 +740,18 @@ public:
                 memberAccess = false;
                 exprop = false; //reset expr after each name so that the next name will be read unless there's another op in front of it
                 --triggerField[name];
-            } },
-            { "macro", [this](){
+            };
+        process_map3[_fast::_Element::Kind_MACRO] = 
+            [this](){
                 currentDeclType.first.clear();
                 currentDecl.first.clear();
                 --triggerField[macro];
-            } },
-            { "specifier", [this](){
+            };
+        process_map3[_fast::_Element::Kind_SPECIFIER] = 
+            [this](){
                 --triggerField[specifier];
-            } },
+            };
         };
-
-    }
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-parameter"
 
@@ -755,7 +820,7 @@ public:
      * SAX handler function for start of an element.
      * Overide for desired behaviour.
     */
-    virtual void startElement(const char * localname, const char * prefix, const char * URI,
+    virtual void startElement(int kind, const char * prefix, const char * URI,
                                 int num_namespaces, const struct srcsax_namespace * namespaces, int num_attributes,
                                 const struct srcsax_attribute * attributes) {
         std::string name;
@@ -763,7 +828,6 @@ public:
             lineNum = strtoul(attributes[0].value, NULL, 0);
             name = attributes[0].value;
         }
-        std::string lname(localname);
         std::string lnspace;
         if(prefix){
             lnspace.append(prefix);
@@ -774,10 +838,9 @@ public:
         if(name == "generic"){
             sawgeneric = true;
         }
-        std::unordered_map<std::string, std::function<void()>>::const_iterator process = process_map.find(lname);
-        if (process != process_map.end()) {
-            process->second();
-        }
+	std::function<void()> func = process_map[kind];
+	if (func)
+		func();
     }
     /**
      * charactersUnit
@@ -903,8 +966,7 @@ public:
     virtual void endUnit(const char * localname, const char * prefix, const char * URI) {
         fileName.clear();
     }
-    virtual void endElement(const char * localname, const char * prefix, const char * URI) {
-        std::string lname(localname);
+    virtual void endElement(int kind, const char * prefix, const char * URI) {
         std::string lnspace;
         lineNum = 0;
         if(prefix){
@@ -915,10 +977,9 @@ public:
             currentDecl.first.clear();
             --triggerField[preproc];
         }
-        std::unordered_map<std::string, std::function<void()>>::const_iterator process3 = process_map3.find(lname);
-        if (process3 != process_map3.end()) {
-            process3->second();
-        }
+	std::function<void()> func = process_map3[kind];
+	if (func)
+		func();
 #pragma GCC diagnostic pop
     }
 };

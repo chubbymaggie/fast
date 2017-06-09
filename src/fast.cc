@@ -244,88 +244,43 @@ int loadPB(int load_only, int argc, char **argv) {
 
 #ifdef FBS_fast
 void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
-	string tag;
-	string attr;
 	string text = "";
 	string tail = "";
+	int k = element->kind();
 	if (element->extra()) {
 		if (element->kind() == 0) {
-			tag = "unit";
-			string str = string(EnumNamesLanguageType()[element->extra()->unit()->language()]);
-			string lang = str;
-			transform(str.begin(), str.end(),str.begin(), ::tolower);
-			if (str == "cxx") {
-				str = "cpp";
-				lang = "C++";
-			}
-			if (str == "csharp") {
-				str = "cpp";
-				lang = "C#";
-			}
-			attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\" xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
-			if (position)
-				attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
-			attr = attr + " revision=\"" + element->extra()->unit()->revision()->c_str() + "\"";
-			attr = attr + " language=\"" + lang + "\"";
-			attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
 			struct srcsax_attribute attrs[3];
 			attrs[2].value = element->extra()->unit()->filename()->c_str();
 			handler.startUnit(NULL, NULL, NULL, 0, NULL, 2, attrs);
 		} else if (element->kind() == 47) {
-			tag = "literal";
 			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
 			type = type.substr(0, type.length() - 5);
-			attr = attr + " type=\"" + type + "\"";
-			if (position && (element->line()!=0 || element->column()!=0))
-				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
-			transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
-		} else {
-			tag = EnumNamesKind()[element->kind()];
-			if (position && (element->line()!=0 || element->column()!=0))
-				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
-			transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
 		}
-	} else {
-		tag = EnumNamesKind()[element->kind()];
-		if (position && (element->line()!=0 || element->column()!=0))
-			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
-		transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
 	}
 	if (element->text())
 		text = element->text()->c_str();
-	transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
-        if (!element->extra() && attr != "") {
+        if ((!element->extra() && position && (element->line()!=0 || element->column()!=0)) || (element->extra() && element->kind()!=0)) {
 		struct srcsax_attribute attrs[1];
 		attrs[0].value = std::to_string(element->line()).c_str();
-		handler.startElement(tag.c_str(), NULL, NULL, 0, NULL, 1, attrs);
-	} else if (element->extra() && element->kind()!=0) {
-		struct srcsax_attribute attrs[1];
-		attrs[0].value = std::to_string(element->line()).c_str();
-		handler.startElement(tag.c_str(), NULL, NULL, 0, NULL, 1, attrs);
+		handler.startElement(k, NULL, NULL, 0, NULL, 1, attrs);
 	}
-	if (element->text()) {
+	if (element->text())
 		handler.charactersUnit(text.c_str(), strlen(text.c_str()));
-	}
-	// out << "<" <<  tag <<  attr << ">" << text;
-	for (int i=0; i<element->child()->size(); i++) {
+	for (int i=0; i<element->child()->size(); i++)
 		sliceFBS(handler, element->child()->Get(i));
-	}
-	if (element->tail()) {
+	if (element->tail())
 		tail = element->tail()->c_str();
-	} else 
+	else 
 		tail = "";
-	if (element->extra()) {
-		if (element->kind() == 0) {
-			handler.endUnit(tag.c_str(), NULL, NULL);
-		} else {
-			handler.endElement(tag.c_str(), NULL, NULL);
-		}
-	} else {
-		handler.endElement(tag.c_str(), NULL, NULL);
-	}
-	if (element->tail()) {
+	if (element->extra())
+		if (element->kind() == 0) 
+			handler.endUnit(NULL, NULL, NULL);
+		else 
+			handler.endElement(k, NULL, NULL);
+	else 
+		handler.endElement(k, NULL, NULL);
+	if (element->tail())
 		handler.charactersUnit(tail.c_str(), strlen(tail.c_str()));
-	}
 }
 
 void saveXMLfromFBS(fstream &out, const struct Element *element) {
