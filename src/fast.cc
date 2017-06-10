@@ -48,7 +48,8 @@ void saveXMLfromFBS(fstream &out, const struct Element *element);
 #endif
 
 #ifdef GET_OPT
-int debug = 0; 
+int decode = 0; 
+int encode = 0; 
 int position = 0; 
 int slice = 0; 
 int Slice = 0; 
@@ -395,6 +396,21 @@ void saveTxtFromPB(char *input_file) {
 	sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto", input_file);
 	system(buf);
 }
+void saveTxtFromPB(char *input_file, char *output_file) {
+	char buf[100];
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
+	system(buf);
+}
+void savePBfromTxt(char *input_file) {
+	char buf[100];
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Element /usr/local/share/fast.proto", input_file);
+	system(buf);
+}
+void savePBfromTxt(char *input_file, char *output_file) {
+	char buf[1000];
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
+	system(buf);
+}
 
 #ifdef PB_fast
 fast::Element* savePBfromXML(xml_node<> *node)
@@ -621,7 +637,14 @@ int loadSrcML(int load_only, int argc, char **argv) {
 
 int mainRoutine(int argc, char* argv[]) {
    if (argc < 2) {
-	   cerr << "Usage: fast input_file output_file" << endl;
+	   cerr << "Usage: fast [-cehpsSt] input_file output_file"  << endl
+		 << "-c\tLoad only" << endl
+		 << "-d\tDecode protobuf into text format" << endl
+		 << "-e\tEncode text format into protobuf" << endl
+		 << "-h\tPrint this help message" << endl
+		 << "-p\tPreserve the position (line, column) numbers" << endl
+		 << "-s\tSlice programs on the srcML format" << endl
+		 << "-S\tSlice programs on the binary format" << endl;
 	   return 1;
    }
    if (argc == 3 && strcmp(argv[1], argv[2])==0) {
@@ -630,11 +653,22 @@ int mainRoutine(int argc, char* argv[]) {
    }
 #ifdef PB_fast
    if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0) {
-	  if (debug) {
+	  if (decode && argc == 2) {
 	    saveTxtFromPB(argv[1]);
+	    return 0;
+	  } else if (decode && argc == 3) {
+	    saveTxtFromPB(argv[1], argv[2]);
 	    return 0;
 	  }
 	  return loadPB(load_only, argc, argv);
+   }
+   if (strcmp(argv[1]+strlen(argv[1])-4, ".txt")==0) {
+	  if (encode && argc == 3) {
+	    savePBfromTxt(argv[1], argv[2]);
+	  } else if (encode && argc == 2) {
+	    savePBfromTxt(argv[1]);
+	  }
+	  return 0;
    }
 #endif
 #ifdef FBS_fast
@@ -650,12 +684,26 @@ int main(int argc, char* argv[]) {
   int c;
 
   opterr = 0;
-  debug = 0;
+  decode = 0;
   position = 0;
   slice = 0;
   Slice = 0;
-  while ((c = getopt (argc, argv, "cpsSt")) != -1)
+  encode = 0;
+  while ((c = getopt (argc, argv, "cdehpsS")) != -1)
     switch (c) {
+      case 'h':
+	    cerr << "Usage: fast [-cehpsSt] input_file output_file"  << endl
+		 << "-c\tLoad only" << endl
+		 << "-d\tDecode protobuf into text format" << endl
+		 << "-e\tEncode text format into protobuf" << endl
+		 << "-h\tPrint this help message" << endl
+		 << "-p\tPreserve the position (line, column) numbers" << endl
+		 << "-s\tSlice programs on the srcML format" << endl
+		 << "-S\tSlice programs on the binary format" << endl;
+	    return 0;
+      case 'e':
+	    encode = 1;
+	    break;
       case 'S':
 	    Slice = 1;
 	    position = 1; // slicing requires positions
@@ -667,8 +715,8 @@ int main(int argc, char* argv[]) {
       case 'p':
 	    position = 1;
 	    break;
-      case 't':
-	    debug = 1;
+      case 'd':
+	    decode = 1;
 	    break;
       case 'c':
         load_only = 1;

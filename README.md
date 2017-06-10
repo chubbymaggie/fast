@@ -14,7 +14,7 @@ A report on performance evaluation will be placed under the `doc/` subfolder.
 ## Synopsis
 
 ```
-$ fast [-cdpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
+$ fast [-cehpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
 ```
 
 ## Description
@@ -25,9 +25,11 @@ Here `$name` is the base name of a file. If `$ext1` is not one of the extensions
 ```
 	.pb, .fbs
 ```
-SrcML will be called first to turn them into XML format. If the `$ext1` or
-`$ext2` is one of these formats, the corresponding load / save functions of
-`fast` will be invoked to save them into the corresponding binary form.
+SrcML will be called first to turn them into XML format. If the `$ext` 
+is one of these formats, the corresponding load / save functions of
+`fast` will be invoked to convert them from / to the corresponding binary form.
+
+If `$ext` is `.txt`, then `protoc` will be called to convert it between `.pb` and textual format.
 
 If the `output_file_name` is unspecified, the output will be directed to the standard output.
 
@@ -35,13 +37,18 @@ The following options are available:
 
      -c      Load the file only, no output.
 
+     -d      Decode the textual representation from protobuf AST input.
+
+     -e      Encode the protobuf binary AST from the textual input.
+
+     -h      Print this help message.
+
      -p      Position (line, column) is added to source code elements.
 
      -s      Invoke srcSlice. This option turns on the -p option.
 
      -S      Invoke modified srcSlice to use the binary AST directly.
 
-     -t      Print the textual representation of binary AST if the input is protobuf.
 
 ## Dependencies
 The current implementation is based on `protobuf` and `flatbuffers`, as well as `srcml` which parses code to XML, and [`rapidxml`](https://github.com/dwd/rapidxml) which parses XML documents.
@@ -98,11 +105,17 @@ These commands will translate the binary representations into the corresponding 
 	$ fast Hello.pb Hello.java
 	$ fast test.fbs test.cc
 ```
-These commands will translate the binary representations into the corresponding code files.
+These commands will translate the binary representations into the corresponding code files. 
 ```
-	$ fast -t Hello.pb
+	$ fast -d Hello.pb
+	$ fast -d Hello.pb Hello.txt
 ```
-This command will print the textual representation of the protocol buffer using the generated fAST schema.
+These commands will print the textual representation of the protocol buffer using the generated fAST schema.
+The first one prints it to the standard output, while the second one save it into a textual file.
+```
+	$ fast -e Hello.txt Hello.pb
+```
+This commands will translate the textual representations into the corresponding protobuf file. 
 ```
 	$ fast -p Hello.java Hello.pb
 	$ fast -p Hello.pb Hello.xml
