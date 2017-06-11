@@ -31,6 +31,9 @@
 #include <algorithm>
 #include <sstream>
 #include <stack>
+#ifdef PB_fast
+#include <fast.pb.h>
+#endif
 #ifdef FBS_fast
 #include <fast_generated.h>
 #endif
@@ -184,16 +187,16 @@ public:
         isConstructor = false;
         inGlobalScope = true;
         triggerField = std::vector<unsigned short int>(MAXENUMVALUE, 0);
-        process_map[_fast::_Element::Kind_DECL_STMT] = 
+        process_map[fast::Element_Kind_DECL_STMT] = 
 	    [this](){
                 ++declIndex; //to keep track of index of declarations
                 ++triggerField[decl_stmt];
             };
-        process_map[_fast::_Element::Kind_EXPR_STMT] = 
+        process_map[fast::Element_Kind_EXPR_STMT] = 
             [this](){
                 ++triggerField[expr_stmt];
             };
-        process_map[_fast::_Element::Kind_PARAMETER_LIST] = 
+        process_map[fast::Element_Kind_PARAMETER_LIST] = 
             [this](){
                 if((triggerField[function] || triggerField[functiondecl] || triggerField[constructor]) && !(triggerField[functionblock] || triggerField[parameter_list] || triggerField[macro])){
                     GetFunctionData();
@@ -215,26 +218,26 @@ public:
                 ++triggerField[parameter_list];
             };
 
-        process_map[_fast::_Element::Kind_IF] = 
+        process_map[fast::Element_Kind_IF] = 
             [this](){
                 ++triggerField[ifcond];
                 //controlFlowLineNum.push(lineNum);
             };
 
-        process_map[_fast::_Element::Kind_FOR] = 
+        process_map[fast::Element_Kind_FOR] = 
             [this](){
                 ++triggerField[forloop];
                 inFor = true;
                 //controlFlowLineNum.push(lineNum);
             };
 
-        process_map[_fast::_Element::Kind_WHILE] = 
+        process_map[fast::Element_Kind_WHILE] = 
             [this](){
                 ++triggerField[whileloop];
                 //controlFlowLineNum.push(lineNum);
             };
             
-        process_map[_fast::_Element::Kind_CONDITION] = 
+        process_map[fast::Element_Kind_CONDITION] = 
             [this](){
                 //This gets used with expr_stmts since conditionals can basically contain everything an expr_stmt can contain
                 //This means that rules for expr_stmt usually have || condition next to them to re-use those same functions for
@@ -242,7 +245,7 @@ public:
                 ++triggerField[condition];
             };
 
-        process_map[_fast::_Element::Kind_ARGUMENT_LIST] = 
+        process_map[fast::Element_Kind_ARGUMENT_LIST] = 
             [this](){
                 ++triggerField[argument_list];
                 if(triggerField[call]){
@@ -254,7 +257,7 @@ public:
                 }
             };
 
-        process_map[_fast::_Element::Kind_CALL] = 
+        process_map[fast::Element_Kind_CALL] = 
             [this](){
                 if(triggerField[call]){//for nested calls
                     --numArgs; //already in some sort of a call. Decrement counter to make up for the argument slot the function call took up.
@@ -263,13 +266,13 @@ public:
                 ++triggerField[call];
             };
 
-        process_map[_fast::_Element::Kind_FUNCTION] = 
+        process_map[fast::Element_Kind_FUNCTION] = 
             [this](){
                 inGlobalScope = false;
                 functionTmplt.fileName = fileName;
                 ++triggerField[function];
             };
-        process_map[_fast::_Element::Kind_CONSTRUCTOR] = 
+        process_map[fast::Element_Kind_CONSTRUCTOR] = 
             [this](){
                 ++constructorNum;//constructors have numbers appended to them since they all have the same name.
                 
@@ -278,56 +281,56 @@ public:
 
                 ++triggerField[function];
             };
-        process_map[_fast::_Element::Kind_FUNCTION_DECL] = 
+        process_map[fast::Element_Kind_FUNCTION_DECL] = 
             [this](){
                 currentFunctionDecl.first.clear();
                 ++triggerField[functiondecl];
             };
-        process_map[_fast::_Element::Kind_DESTRUCTOR_DECL] = 
+        process_map[fast::Element_Kind_DESTRUCTOR_DECL] = 
             [this](){
                 currentFunctionDecl.first.clear();
                 ++triggerField[destructordecl];
             };
-        process_map[_fast::_Element::Kind_CONSTRUCTOR_DECL] = 
+        process_map[fast::Element_Kind_CONSTRUCTOR_DECL] = 
             [this](){
                 currentFunctionDecl.first.clear();
                 ++triggerField[constructordecl];
             };
-        process_map[_fast::_Element::Kind_TEMPLATE] = 
+        process_map[fast::Element_Kind_TEMPLATE] = 
             [this](){
                 ++triggerField[templates];
             };
-        process_map[_fast::_Element::Kind_CLASS] = 
+        process_map[fast::Element_Kind_CLASS] = 
             [this](){
                 ++triggerField[classn];
             };
-        process_map[_fast::_Element::Kind_DESTRUCTOR] = 
+        process_map[fast::Element_Kind_DESTRUCTOR] = 
             [this](){
                 inGlobalScope = false;
                 ++triggerField[function];
             };
-        process_map[_fast::_Element::Kind_PARAMETER] = 
+        process_map[fast::Element_Kind_PARAMETER] = 
             [this](){
                     ++triggerField[param];
                     ++declIndex;
             };    
-        process_map[_fast::_Element::Kind_MEMBER_INIT_LIST] = 
+        process_map[fast::Element_Kind_MEMBER_INIT_LIST] = 
             [this](){
                 ++triggerField[member_list];
             };
-        process_map[_fast::_Element::Kind_RETURN] = 
+        process_map[fast::Element_Kind_RETURN] = 
             [this](){
                 ++triggerField[return_stmt];
             };
-        process_map[_fast::_Element::Kind_CONTROL] = 
+        process_map[fast::Element_Kind_CONTROL] = 
             [this](){
                 ++triggerField[control];
             };
-        process_map[_fast::_Element::Kind_INDEX] = 
+        process_map[fast::Element_Kind_INDEX] = 
             [this](){
                 ++triggerField[index];
             };    
-        process_map[_fast::_Element::Kind_OPERATOR] = 
+        process_map[fast::Element_Kind_OPERATOR] = 
             [this](){
                 ++triggerField[op];
                 if(triggerField[expr_stmt]){
@@ -343,7 +346,7 @@ public:
                 }
 
             };    
-        process_map[_fast::_Element::Kind_BLOCK] = 
+        process_map[fast::Element_Kind_BLOCK] = 
             [this](){     
                 if((triggerField[function] || triggerField[constructor])){
                     ++triggerField[functionblock];
@@ -353,7 +356,7 @@ public:
                 }
                 ++triggerField[block];
             };
-        process_map[_fast::_Element::Kind_INIT] = 
+        process_map[fast::Element_Kind_INIT] = 
             [this](){
                 //This one is only called if we see init. If there's no init, it's safely ignored.
                 if(triggerField[decl_stmt] && (triggerField[constructor] || triggerField[function])){
@@ -364,49 +367,49 @@ public:
                 currentDecl.first.clear();
                 ++triggerField[init];
             };    
-        process_map[_fast::_Element::Kind_ARGUMENT] = 
+        process_map[fast::Element_Kind_ARGUMENT] = 
             [this](){
                 ++numArgs;
                 currentCallArgData.first.clear();
                 calledFunctionName.clear();
                 ++triggerField[argument];
             };    
-        process_map[_fast::_Element::Kind_LITERAL] = 
+        process_map[fast::Element_Kind_LITERAL] = 
             [this](){
                 ++triggerField[literal];
             };    
-        process_map[_fast::_Element::Kind_MODIFIER] = 
+        process_map[fast::Element_Kind_MODIFIER] = 
             [this](){
                 ++triggerField[modifier];
             };    
-        process_map[_fast::_Element::Kind_DECL] = 
+        process_map[fast::Element_Kind_DECL] = 
             [this](){
                 ++triggerField[decl]; 
             };    
-        process_map[_fast::_Element::Kind_TYPE] = 
+        process_map[fast::Element_Kind_TYPE] = 
             [this](){
                 ++triggerField[type]; 
             };    
-        process_map[_fast::_Element::Kind_EXPR] = 
+        process_map[fast::Element_Kind_EXPR] = 
             [this](){
                 ++triggerField[expr];
             };    
-        process_map[_fast::_Element::Kind_NAME] = 
+        process_map[fast::Element_Kind_NAME] = 
             [this](){
                 ++triggerField[name];
                 functionTmplt.functionLineNumber = useExprStmt.second = lhsExprStmt.second = currentCallArgData.second = currentParam.second = currentParamType.second = 
                 currentFunctionBody.second = currentDecl.second =  currentExprStmt.second = currentFunctionDecl.second = currentDeclInit.second = lineNum;
             };
-        process_map[_fast::_Element::Kind_MACRO] = 
+        process_map[fast::Element_Kind_MACRO] = 
             [this](){
                 ++triggerField[macro];
             };
-        process_map[_fast::_Element::Kind_SPECIFIER] = 
+        process_map[fast::Element_Kind_SPECIFIER] = 
             [this](){
                 ++triggerField[specifier];
             };
 
-        process_map3[_fast::_Element::Kind_DECL_STMT] = 
+        process_map3[fast::Element_Kind_DECL_STMT] = 
             [this](){
                 currentCallArgData.first.clear();
                 currentDeclArg.first.clear();
@@ -417,7 +420,7 @@ public:
                 --triggerField[decl_stmt];
             }; 
 
-        process_map3[_fast::_Element::Kind_EXPR_STMT] = 
+        process_map3[fast::Element_Kind_EXPR_STMT] = 
             [this](){
                 --triggerField[expr_stmt];
                 
@@ -443,27 +446,27 @@ public:
                 currentCallArgData.first.clear();
             };
 
-        process_map3[_fast::_Element::Kind_PARAMETER_LIST] = 
+        process_map3[fast::Element_Kind_PARAMETER_LIST] = 
             [this](){
                 --triggerField[parameter_list];
             };
 
-        process_map3[_fast::_Element::Kind_IF] = 
+        process_map3[fast::Element_Kind_IF] = 
             [this](){
                 --triggerField[ifcond];
             };
 
-        process_map3[_fast::_Element::Kind_FOR] = 
+        process_map3[fast::Element_Kind_FOR] = 
             [this](){
                 --triggerField[forloop];
             };
 
-        process_map3[_fast::_Element::Kind_WHILE] = 
+        process_map3[fast::Element_Kind_WHILE] = 
             [this](){
                 --triggerField[whileloop];
             };
 
-        process_map3[_fast::_Element::Kind_CONDITION] = 
+        process_map3[fast::Element_Kind_CONDITION] = 
             [this](){
                 --triggerField[condition];
                 //for expr_stmts
@@ -483,7 +486,7 @@ public:
                 useExprStmt.first.clear();
             };
 
-        process_map3[_fast::_Element::Kind_ARGUMENT_LIST] = 
+        process_map3[fast::Element_Kind_ARGUMENT_LIST] = 
             [this](){
                 if(triggerField[decl] && triggerField[decl_stmt] && (!triggerField[init] || triggerField[argument] || triggerField[macro])){
                     GetDeclStmtData();
@@ -494,7 +497,7 @@ public:
                 --triggerField[argument_list];
             };
 
-        process_map3[_fast::_Element::Kind_CALL] = 
+        process_map3[fast::Element_Kind_CALL] = 
             [this](){
                 if(!nameOfCurrentClldFcn.empty()){
                     nameOfCurrentClldFcn.pop();
@@ -505,7 +508,7 @@ public:
                 }
             };
 
-        process_map3[_fast::_Element::Kind_FUNCTION] = 
+        process_map3[fast::Element_Kind_FUNCTION] = 
             [this](){
                 declIndex = 0;
                 inGlobalScope = true;
@@ -520,7 +523,7 @@ public:
                 
                 --triggerField[function];
             };
-        process_map3[_fast::_Element::Kind_CONSTRUCTOR] = 
+        process_map3[fast::Element_Kind_CONSTRUCTOR] = 
             [this](){
                 isConstructor = false;
                 declIndex = 0;
@@ -530,7 +533,7 @@ public:
                 --triggerField[function];
             };
 
-        process_map3[_fast::_Element::Kind_DESTRUCTOR] = 
+        process_map3[fast::Element_Kind_DESTRUCTOR] = 
             [this](){
                 declIndex = 0;
 
@@ -538,27 +541,27 @@ public:
                 functionTmplt.clear();
                 --triggerField[function];
             };
-        process_map3[_fast::_Element::Kind_FUNCTION_DECL] = 
+        process_map3[fast::Element_Kind_FUNCTION_DECL] = 
             [this](){
                 currentFunctionDecl.first.clear();
                 --triggerField[functiondecl];
             };
-        process_map3[_fast::_Element::Kind_CONSTRUCTOR_DECL] = 
+        process_map3[fast::Element_Kind_CONSTRUCTOR_DECL] = 
             [this](){
                 currentFunctionDecl.first.clear();
                 --triggerField[functiondecl];
             };
-        process_map3[_fast::_Element::Kind_DESTRUCTOR_DECL] = 
+        process_map3[fast::Element_Kind_DESTRUCTOR_DECL] = 
             [this](){
                 currentFunctionDecl.first.clear();
                 --triggerField[functiondecl];
             };            
-        process_map3[_fast::_Element::Kind_CLASS] = 
+        process_map3[fast::Element_Kind_CLASS] = 
             [this](){
                 currentClassName.first.clear();
                 --triggerField[classn];
             };
-        process_map3[_fast::_Element::Kind_PARAMETER] = 
+        process_map3[fast::Element_Kind_PARAMETER] = 
             [this](){
                     if(triggerField[parameter_list] && triggerField[param] && !(triggerField[type] || triggerField[functionblock] || triggerField[templates])){
                         GetParamName();
@@ -566,26 +569,26 @@ public:
                     potentialAlias = false;
                     --triggerField[param];
             };    
-        process_map3[_fast::_Element::Kind_MEMBER_INIT_LIST] = 
+        process_map3[fast::Element_Kind_MEMBER_INIT_LIST] = 
             [this](){
                 --triggerField[member_list];
             };
-        process_map3[_fast::_Element::Kind_RETURN] = 
+        process_map3[fast::Element_Kind_RETURN] = 
             [this](){
                 ProcessExprStmtNoAssign();
                 useExprStack.clear();//to catch expressions in return statements
                 --triggerField[return_stmt];
             };
-        process_map3[_fast::_Element::Kind_CONTROL] = 
+        process_map3[fast::Element_Kind_CONTROL] = 
             [this](){
                 inFor = false;
                 --triggerField[control];
             };
-        process_map3[_fast::_Element::Kind_INDEX] = 
+        process_map3[fast::Element_Kind_INDEX] = 
             [this](){
                 --triggerField[index];
             };    
-        process_map3[_fast::_Element::Kind_OPERATOR] = 
+        process_map3[fast::Element_Kind_OPERATOR] = 
             [this](){
                 calledFunctionName.clear();
                 if(triggerField[decl_stmt] && (currentOperator == "." || currentOperator == "->")){
@@ -625,7 +628,7 @@ public:
 
                 --triggerField[op];
             };
-        process_map3[_fast::_Element::Kind_BLOCK] = 
+        process_map3[fast::Element_Kind_BLOCK] = 
             [this](){ 
                 if((triggerField[function] || triggerField[constructor])){
                     --triggerField[functionblock];
@@ -635,11 +638,11 @@ public:
                 }
                 --triggerField[block];
             };
-        process_map3[_fast::_Element::Kind_INIT] = 
+        process_map3[fast::Element_Kind_INIT] = 
             [this](){//so that we can get more stuff after the decl's name 
                 --triggerField[init];
             };    
-        process_map3[_fast::_Element::Kind_ARGUMENT] = 
+        process_map3[fast::Element_Kind_ARGUMENT] = 
             [this](){
                 currentDeclArg.first.clear(); //get rid of the name of the var that came before it for ctor calls like: object(InitVarable)
                 currentCallArgData.first.clear();
@@ -653,11 +656,11 @@ public:
                 }
                 --triggerField[argument];
             };    
-        process_map3[_fast::_Element::Kind_LITERAL] = 
+        process_map3[fast::Element_Kind_LITERAL] = 
             [this](){
                 --triggerField[literal];
             };    
-        process_map3[_fast::_Element::Kind_MODIFIER] = 
+        process_map3[fast::Element_Kind_MODIFIER] = 
             [this](){
                 if(triggerField[decl_stmt] && triggerField[decl]){ //only care about modifiers in decls
                     potentialAlias = true;
@@ -666,11 +669,11 @@ public:
                 }
                 --triggerField[modifier];
             };
-        process_map3[_fast::_Element::Kind_TEMPLATE] = 
+        process_map3[fast::Element_Kind_TEMPLATE] = 
             [this](){
                 --triggerField[templates];
             };    
-        process_map3[_fast::_Element::Kind_DECL] = 
+        process_map3[fast::Element_Kind_DECL] = 
             [this](){
                 if(!sawinit && triggerField[decl_stmt] && (triggerField[constructor] || triggerField[function])){
                     //only run if we didn't run it during init
@@ -679,7 +682,7 @@ public:
                 currentDecl.first.clear();
                 --triggerField[decl]; 
             };    
-        process_map3[_fast::_Element::Kind_TYPE] = 
+        process_map3[fast::Element_Kind_TYPE] = 
             [this](){
                 if((triggerField[type] && triggerField[decl_stmt] && (triggerField[function] || triggerField[constructor]) && !(triggerField[modifier] || triggerField[argument_list]))){
                     //Get the type -- news
@@ -700,11 +703,11 @@ public:
                 }
                 --triggerField[type];
             };    
-        process_map3[_fast::_Element::Kind_EXPR] = 
+        process_map3[fast::Element_Kind_EXPR] = 
             [this](){
                 --triggerField[expr];
             };    
-        process_map3[_fast::_Element::Kind_NAME] = 
+        process_map3[fast::Element_Kind_NAME] = 
             [this](){
                 if(triggerField[call] && triggerField[argument]){
                     callArgData.push(currentCallArgData);
@@ -741,13 +744,13 @@ public:
                 exprop = false; //reset expr after each name so that the next name will be read unless there's another op in front of it
                 --triggerField[name];
             };
-        process_map3[_fast::_Element::Kind_MACRO] = 
+        process_map3[fast::Element_Kind_MACRO] = 
             [this](){
                 currentDeclType.first.clear();
                 currentDecl.first.clear();
                 --triggerField[macro];
             };
-        process_map3[_fast::_Element::Kind_SPECIFIER] = 
+        process_map3[fast::Element_Kind_SPECIFIER] = 
             [this](){
                 --triggerField[specifier];
             };

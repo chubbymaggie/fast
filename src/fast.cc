@@ -188,6 +188,8 @@ int loadFBS(int load_only, int argc, char **argv) {
 #endif
 
 #ifdef PB_fast
+void slicePB(srcSliceHandler& handler, fast::Element *element);
+
 int loadPB(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
 	char *input_filename = argv[1];
@@ -201,7 +203,7 @@ int loadPB(int load_only, int argc, char **argv) {
       cerr << "Failed to parse compilation unit." << endl;
       return -1;
     }
-    if (!load_only) {
+    if (!load_only && !Slice) {
 	// string xml_filename = tmpnam(NULL);
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -235,11 +237,48 @@ int loadPB(int load_only, int argc, char **argv) {
 	argv[1] = (char*) xml_filename.c_str();
 	mainRoutine(argc, argv);
 	return remove(xml_filename.c_str());
-    }
+    } else if (!load_only && Slice) {
+	srcSlice sslice;
+	srcSliceHandler handler(&sslice.dictionary);
+	handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
+	slicePB(handler, &unit);
+	handler.endRoot(NULL, NULL, NULL);
+	DoComputation(handler, handler.sysDict->ffvMap);
+	srcSliceToCsv(sslice);
+    } 
   }
   // Optional:  Delete all global objects allocated by libprotobuf.
   google::protobuf::ShutdownProtobufLibrary();
   return 0;
+}
+
+void slicePB(srcSliceHandler& handler, fast::Element *element) {
+	string text = "";
+	string tail = "";
+	int k = element->kind();
+	if (k == fast::Element_Kind_UNIT_KIND) {
+		struct srcsax_attribute attrs[3];
+		attrs[2].value = element->unit().filename().c_str();
+		handler.startUnit(NULL, NULL, NULL, 0, NULL, 3, attrs);
+	} else {
+		struct srcsax_attribute attrs[1];
+		attrs[0].value = std::to_string(element->line()).c_str();
+		handler.startElement(k, NULL, NULL, 0, NULL, 1, attrs);
+	}
+	text = element->text();
+	if (text!="") {
+		handler.charactersUnit(text.c_str(), strlen(text.c_str()));
+	}
+	for (int i=0; i<element->child().size(); i++)
+		slicePB(handler, element->mutable_child(i));
+	if (k == fast::Element_Kind_UNIT_KIND) 
+		handler.endUnit(NULL, NULL, NULL);
+	else 
+		handler.endElement(k, NULL, NULL);
+	tail = element->tail();
+	if (tail!="") {
+		handler.charactersUnit(tail.c_str(), strlen(tail.c_str()));
+	}
 }
 #endif
 
@@ -252,11 +291,8 @@ void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 		if (element->kind() == 0) {
 			struct srcsax_attribute attrs[3];
 			attrs[2].value = element->extra()->unit()->filename()->c_str();
-			handler.startUnit(NULL, NULL, NULL, 0, NULL, 2, attrs);
-		} else if (element->kind() == 47) {
-			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
-			type = type.substr(0, type.length() - 5);
-		}
+			handler.startUnit(NULL, NULL, NULL, 0, NULL, 3, attrs);
+		} 
 	}
 	if (element->text())
 		text = element->text()->c_str();
@@ -292,7 +328,6 @@ void saveXMLfromFBS(fstream &out, const struct Element *element) {
 	if (element->extra()) {
 		if (element->kind() == 0) {
 			tag = "unit";
-			// cout << element->extra()->unit()->language() << endl;
 			string str = string(EnumNamesLanguageType()[element->extra()->unit()->language()]);
 			string lang = str;
 			transform(str.begin(), str.end(),str.begin(), ::tolower);
@@ -525,7 +560,6 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 						lan = "CSHARP";
 					if (lan == string("OBJECTIVE-C"))
 						lan = "OBJECTIVE_C";
-					// cout << lan << endl;
 					language = flatbuffers::LookupEnum(EnumNamesLanguageType(), lan.c_str());
 				}
 				if (attr->name() == string("item")) {
@@ -602,7 +636,6 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		} else {
 			string srcmlCommand = "srcml ";
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
-			// cout << srcmlCommand << endl;
 			system(srcmlCommand.c_str());
 		}
 	}
