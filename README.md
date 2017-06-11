@@ -127,6 +127,7 @@ information, they will be omitted in the XML document.
 ```
 	$ fast -p test.cc test.pb
 	$ fast -s test.pb
+	$ fast -S test.pb
 	$ fast -p test.cc test.fbs
 	$ fast -s test.fbs
 	$ fast -S test.fbs
@@ -134,3 +135,4 @@ information, they will be omitted in the XML document.
 	$ fast -s Hello.java
 ```
 These commands perform forward program slicing on the source code using the srcSlice tool. 
+The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
