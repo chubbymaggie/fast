@@ -11,6 +11,10 @@ That's part of the reasons why we call it "fast".
 
 A report on performance evaluation will be placed under the `doc/` subfolder.
 
+## License
+
+`fast` is distributed under GPL. See license.txt for details.
+
 ## Synopsis
 
 ```
