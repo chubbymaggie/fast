@@ -112,6 +112,15 @@ fast_pb2.py: fast.proto
 fast.pb.h fast.pb.cc: fast.proto
 	$(protoc) -I=. --cpp_out=. fast.proto
 
+src/fast/Fast.java: fast.proto
+	$(protoc) -I=. --java_out=src fast.proto
+
+src/PB.class: src/PB.java
+	javac -cp src:/usr/local/lib/protobuf-java-3.3.1.jar src/PB.java
+
+run: src/PB.class
+	java -cp src:/usr/local/lib/protobuf-java-3.3.1.jar PB example.pb
+
 fast.fbs: fast.proto
 	flatc --proto fast.proto
 
