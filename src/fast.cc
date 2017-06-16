@@ -514,7 +514,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			if (string(child->name()) != "") { // not text node
 				fast::Element *child_element = savePBfromXML(child);
 				element->add_child()->CopyFrom(*child_element);
-			} 
+			}
 			child = child->next_sibling();
 		}
 		if (node->next_sibling() != 0 && string(node->next_sibling()->name()) == "") { // sibling text node
@@ -622,6 +622,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			char buf[100];
 			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 			mkstemp(buf);
+			remove(buf);
 			string xml_filename = buf;
 			xml_filename +=	".xml";
 			string srcmlCommand = "srcml ";

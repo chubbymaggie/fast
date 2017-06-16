@@ -9,7 +9,7 @@ before_install:
     brew update;
     brew tap yijunyu/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers;
-    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice; mkdir build; cd build; cmake ..; make; sudo make install; cd ../..;
+    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;
@@ -24,7 +24,7 @@ before_install:
     sudo apt-get install libxml2;
     wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -;
     wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -;
-    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice; mkdir build; cd build; cmake ..; make; sudo make install; cd ../..;
+    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     fi
 script:
