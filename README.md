@@ -178,6 +178,9 @@ The modified srcSlice tool can replace parsing the srcML with loading the binary
 ```
 	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
 	$ fast -d DuplicateVirtualMethods.pb
+	$ fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
 ```
-These commands convert between Android's smali representation and our protobuf representations.
+These commands convert between Android's smali representation and our protobuf representations. The first command converts SMALI code into a binary AST of
+the structural information; the second command decodes the binary AST into textual form; the third command marks up the original SMALI code with XML tags
+taken from the binary AST, hence making it similar to SrcML structures (albeit following the underlying ANTLR3 schema). 
 

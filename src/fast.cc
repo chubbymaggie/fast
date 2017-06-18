@@ -8,6 +8,7 @@
 #include "rapidxml_print.hpp"
 #include <locale>
 #include <unistd.h>
+#include <map>
 #ifdef FBS_fast
 #include "flatbuffers/flatbuffers.h"
 #include "flatbuffers/idl.h"
@@ -75,6 +76,10 @@ bool check_exists(const std::string& name) {
 }
 
 void saveTxtFromPB(char *input_file);
+void saveTxtFromPB(char *input_file, char *output_file);
+
+void saveMarkupFromPB(char *input_file);
+void saveMarkupFromPB(char *input_file, char *output_file);
 
 int loadXML(int load_only, int argc, char**argv) {
   if (!check_exists(argv[1])) return 1;
@@ -484,6 +489,158 @@ void savePBfromTxt(char *input_file, char *output_file) {
 	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
 	system(buf);
 }
+void markupElementBegin(map<int, string> *map, fast::Element *node);
+void markupElementEnd(map<int, string> *map, fast::Element *node);
+
+void markupElementBegin(map<int, string> *map, fast::Element *node) {
+	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
+	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
+	if (node->kind() == 0) { // override the 0 case
+		kind = "unit filename=\"" + node->unit().filename() + "\"";
+	}
+	int p = node->pos();
+	if (!(p == 0 && node->length() == 0)) {
+		if (map->find(p) == map->end()) {
+			(*map) [p] = "<" + kind + ">";
+		} else {
+			(*map) [p] = (*map) [p] + "<" + kind + ">";
+		}
+	}
+	for (int i=0; i< node->child().size(); i++) {
+		markupElementBegin(map, node->mutable_child(i));
+	}
+}
+
+void markupElementEnd(map<int, string> *map, fast::Element *node) {
+	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
+	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
+	if (node->kind() == 0) { // override the 0 case
+		kind = "unit";
+	}
+	int p = node->pos() + node->length() - 1;
+	if (map->find(p) == map->end()) {
+		(*map) [p] = "</" + kind + ">";
+	} else {
+		(*map) [p] = "</" + kind + ">" + (*map) [p];
+	}
+	for (int i=node->child().size()-1; i>=0; i--) {
+		markupElementEnd(map, node->mutable_child(i));
+	}
+}
+
+void printMarkups(FILE *file, fast::Element *unit) {
+	map<int, string> map_begin;
+	map<int, string> map_end;
+	markupElementBegin(&map_begin, unit);
+	markupElementEnd(&map_end, unit);
+
+	unsigned int c;
+	int pos = 0;
+	cout << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	int n_end = map_end.size();
+	while ((c = fgetc(file))!= EOF) {
+		if (map_begin.find(pos) != map_begin.end()) {
+			cout << map_begin[pos]; 
+		}
+		cout << (unsigned char) c;
+		if (map_end.find(pos) != map_end.end()) {
+			cout << map_end[pos]; 
+			n_end --;
+		} 
+		pos++;
+	}
+	while (n_end >1) {
+		pos++;
+		if (map_end.find(pos) != map_end.end()) {
+			cout << map_end[pos]; 
+			n_end--;
+		} 
+	}
+	cout << "</unit>";
+}
+
+void printMarkups(ofstream *output, FILE *file, fast::Element *unit) {
+	map<int, string> map_begin;
+	map<int, string> map_end;
+	markupElementBegin(&map_begin, unit);
+	markupElementEnd(&map_end, unit);
+
+	unsigned int c;
+	int pos = 0;
+	*output << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	int n_end = map_end.size();
+	while ((c = fgetc(file))!= EOF) {
+		if (map_begin.find(pos) != map_begin.end()) {
+			*output << map_begin[pos]; 
+		}
+		*output << (unsigned char) c;
+		if (map_end.find(pos) != map_end.end()) {
+			*output << map_end[pos]; 
+			n_end --;
+		} 
+		pos++;
+	}
+	while (n_end > 1) {
+		pos++;
+		if (map_end.find(pos) != map_end.end()) {
+			*output << map_end[pos]; 
+			n_end--;
+		} 
+	}
+	*output << "</unit>";
+}
+
+void saveMarkupFromPB(char *input_file) {
+	char buf[100];
+	fast::Element unit;
+	{
+	    ifstream input(input_file, ios::in | ios::binary);
+	    if (!unit.ParseFromIstream(&input)) {
+	      cerr << "Failed to parse compilation unit." << endl;
+	      return;
+	    }
+	    input.close();
+	}
+	const char *filename = unit.unit().filename().c_str(); // this is the original filename
+	FILE *file = fopen(filename, "r"); 
+	if (!file) { 
+		cerr << "Couldn't locate the original file " << filename  << endl;
+		return;
+	}
+   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
+		printMarkups(file, &unit);
+	} else {
+		cerr << "Currently we don't support this ANTLR3 schema yet, please email y.yu@open.ac.uk for help on \n" << strstr(filename, ".") << endl;
+	}
+	fclose(file);
+}
+
+void saveMarkupFromPB(char *input_file, char *output_file) {
+	char buf[100];
+	fast::Element unit;
+	{
+	    ifstream input(input_file, ios::in | ios::binary);
+	    if (!unit.ParseFromIstream(&input)) {
+	      cerr << "Failed to parse compilation unit." << endl;
+	      return;
+	    }
+	    input.close();
+	}
+	const char *filename = unit.unit().filename().c_str(); // this is the original filename
+	FILE *file = fopen(filename, "r"); 
+	if (!file) { 
+		cerr << "Couldn't locate the original file " << filename  << endl;
+		return;
+	}
+   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
+		ofstream output(output_file, ios::out | ios::trunc);
+		printMarkups(&output, file, &unit);
+		output.close();
+	} else {
+		cerr << "Currently we don't support this ANTLR3 schema yet, please email y.yu@open.ac.uk for help on \n" << strstr(filename, ".") << endl;
+	}
+	fclose(file);
+}
 
 #ifdef PB_fast
 fast::Element* savePBfromXML(xml_node<> *node)
@@ -563,8 +720,8 @@ fast::Element* savePBfromXML(xml_node<> *node)
 }
 #endif
 
-#ifdef FBS_fast
 static int pos = 0;
+#ifdef FBS_fast
 flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilder & builder, xml_node<> *node) {
 	string tag = node->name();
 	bool is_unit = tag == string("unit");
@@ -746,6 +903,12 @@ int mainRoutine(int argc, char* argv[]) {
 	    return 0;
 	  } else if (decode && argc == 3) {
 	    saveTxtFromPB(argv[1], argv[2]);
+	    return 0;
+	  } else if (antlr && argc == 2) {
+	    saveMarkupFromPB(argv[1]);
+	    return 0;
+	  } else if (antlr && argc == 3) {
+	    saveMarkupFromPB(argv[1], argv[2]);
 	    return 0;
 	  }
 	  return loadPB(load_only, argc, argv);
