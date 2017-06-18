@@ -114,6 +114,7 @@ dist/smali.jar: bin/Smali.class
 	jar cvf $@ -C bin/ .
 
 bin/Smali.class: src/Smali.java
+	mkdir -p bin
 	javac -cp src:lib/protobuf-java-3.3.1.jar:lib/core-2.1.0-SNAPSHOT.jar:lib/reflections-0.9.10.jar:lib/smali-2.2.1-93a43730-dirty-fat.jar src/Smali.java -d bin
 
 src/PB.class: src/PB.java
