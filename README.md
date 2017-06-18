@@ -23,12 +23,12 @@ $ fast [-acdehpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
 
 ## Description
 The use of the tool is fairly simple. It accepts two file arguments on the command line.
-Assuming that you have set `/usr/local/bin` in the `$PATH` variable, just enter
-
 Here `$name` is the base name of a file. If `$ext1` is not one of the extensions such as
 ```
 	.pb, .fbs
 ```
+Assuming that you have set `/usr/local/bin` in the `$PATH` variable.
+
 SrcML will be called first to turn them into XML format. If the `$ext` 
 is one of these formats, the corresponding load / save functions of
 `fast` will be invoked to convert them from / to the corresponding binary form.
