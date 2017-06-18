@@ -44,7 +44,7 @@ void saveXMLfromPB(fstream &out, fast::Element *node);
 
 #ifdef FBS_fast
 flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilder & builder, xml_node<> *node);
-void saveXMLfromFBS(fstream &out, const struct Element *element);
+void saveXMLfromFBS(ofstream &out, const struct Element *element);
 #endif
 
 #ifdef GET_OPT
@@ -54,6 +54,7 @@ int position = 0;
 int slice = 0; 
 int Slice = 0; 
 int load_only = 0; 
+int antlr = 0; 
 #endif
 
 int loadSrcML(int load_only, int argc, char **argv);
@@ -151,7 +152,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 		string xml_filename = buf;
 		remove(xml_filename.c_str());
 		xml_filename +=	".xml";
-		fstream out(xml_filename, ios::out | ios::trunc);
+		ofstream out(xml_filename, ios::out | ios::trunc);
 		out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
 		saveXMLfromFBS(out, element);
 		out << endl;
@@ -163,12 +164,14 @@ int loadFBS(int load_only, int argc, char **argv) {
 				string catCommand = "cat ";
 				catCommand = catCommand + xml_filename + ".slice";
 				system(catCommand.c_str());
+				out.close();
 				remove((xml_filename + ".slice").c_str());
 			} else {
 				string catCommand = "cat ";
 				catCommand = catCommand + xml_filename;
 				system(catCommand.c_str());
 			}
+			out.close();
 			return remove(xml_filename.c_str());
 		}
 		argv[1] = (char*) xml_filename.c_str();
@@ -198,11 +201,12 @@ int loadPB(int load_only, int argc, char **argv) {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
   fast::Element unit;
   {
-    fstream input(input_filename, ios::in | ios::binary);
+    ifstream input(input_filename, ios::in | ios::binary);
     if (!unit.ParseFromIstream(&input)) {
       cerr << "Failed to parse compilation unit." << endl;
       return -1;
     }
+    input.close();
     if (!load_only && !Slice) {
 	// string xml_filename = tmpnam(NULL);
 	char buf[100];
@@ -320,7 +324,7 @@ void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 		handler.charactersUnit(tail.c_str(), strlen(tail.c_str()));
 }
 
-void saveXMLfromFBS(fstream &out, const struct Element *element) {
+void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 	string tag;
 	string attr;
 	string text = "";
@@ -428,13 +432,47 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 
 void saveTxtFromPB(char *input_file) {
 	char buf[100];
-	sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto", input_file);
-	system(buf);
+	fast::Element unit;
+	{
+	    ifstream input(input_file, ios::in | ios::binary);
+	    if (!unit.ParseFromIstream(&input)) {
+	      cerr << "Failed to parse compilation unit." << endl;
+	      return;
+	    }
+	    input.close();
+	}
+	const char *filename = unit.unit().filename().c_str();
+   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
+		sprintf(buf, "cat /usr/local/share/fast.proto | sed -e 's/Kind kind = 1;/SmaliKind kind = 1;/' > /tmp/smali.proto");
+		system(buf);
+		sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Element /tmp/smali.proto", input_file);
+		system(buf);
+	} else {
+		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto", input_file);
+		system(buf);
+	}
 }
 void saveTxtFromPB(char *input_file, char *output_file) {
 	char buf[100];
-	sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
-	system(buf);
+	fast::Element unit;
+	{
+	    ifstream input(input_file, ios::in | ios::binary);
+	    if (!unit.ParseFromIstream(&input)) {
+	      cerr << "Failed to parse compilation unit." << endl;
+	      return;
+	    }
+	    input.close();
+	}
+	const char *filename = unit.unit().filename().c_str();
+   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
+		sprintf(buf, "cat /usr/local/share/fast.proto | sed -e 's/Kind kind = 1;/SmaliKind kind = 1;/' > /tmp/smali.proto");
+		system(buf);
+		sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Element /tmp/smali.proto > %s", input_file, output_file);
+		system(buf);
+	} else {
+		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
+		system(buf);
+	}
 }
 void savePBfromTxt(char *input_file) {
 	char buf[100];
@@ -526,6 +564,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 #endif
 
 #ifdef FBS_fast
+static int pos = 0;
 flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilder & builder, xml_node<> *node) {
 	string tag = node->name();
 	bool is_unit = tag == string("unit");
@@ -543,6 +582,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 	int type = -1;
 	int line = 0;
 	int column = 0;
+	int length = 0;
 	if (tag != "") {
 		for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
 		{
@@ -590,7 +630,9 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 			CreateLiteral(builder, type));
 		xml_node<> *child_node = node->first_node();
 		if (child_node != 0 && string(child_node->name()) == "") { // first text node
-			text = builder.CreateString(string(child_node->value()));
+			string str = string(child_node->value());
+			text = builder.CreateString(str);
+			length += str.length();
 		}
 		vector<flatbuffers::Offset<_fast::Element>> vec; 
 		while (child_node != 0){
@@ -602,9 +644,12 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 		}
 		auto child = builder.CreateVector(vec);
 		if (node->next_sibling() != 0 && string(node->next_sibling()->name()) == "") { // sibling text node
-			tail = builder.CreateString(string(node->next_sibling()->value()));
+			string str = string(node->next_sibling()->value());
+			length += str.length();
+			tail = builder.CreateString(str);
 		}
-		auto element = _fast::CreateElement(builder, kind, text, tail, child, extra, line, column);
+		auto element = _fast::CreateElement(builder, kind, text, tail, pos, length, child, extra, line, column);
+		pos += length;
 		return element;
 	} 
 	return 0;
@@ -617,7 +662,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	if (argc == 3) {
 		if (!check_exists(argv[1])) return 1;
   		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
-		if (!is_xml) {
+		if (!is_xml && !antlr) {
 			// string xml_filename = tmpnam(NULL);
 			char buf[100];
 			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -634,6 +679,15 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			argv[1] = (char *)xml_filename.c_str();
 			mainRoutine(argc, argv);
 			return remove(xml_filename.c_str());
+		} else if (!is_xml && antlr) {
+			if (strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0) {
+				string cmd = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar Smali";
+				cmd = cmd + " " + argv[1] + " " + argv[2];
+				system(cmd.c_str());
+			} else {
+				cerr << "Please add the ANTLR3 grammar support for the language " << (strstr(argv[1], ".smali")+1) << endl;
+				exit(1);
+			}
 		} else {
 			string srcmlCommand = "srcml ";
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
@@ -723,10 +777,12 @@ int main(int argc, char* argv[]) {
   slice = 0;
   Slice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdehpsS")) != -1)
+  antlr = 0;
+  while ((c = getopt (argc, argv, "acdehpsS")) != -1)
     switch (c) {
       case 'h':
-	    cerr << "Usage: fast [-cehpsSt] input_file output_file"  << endl
+	    cerr << "Usage: fast [-acehpsSt] input_file output_file"  << endl
+		 << "-a\tuse Antlr's AST instead of srcML's" << endl
 		 << "-c\tLoad only" << endl
 		 << "-d\tDecode protobuf into text format" << endl
 		 << "-e\tEncode text format into protobuf" << endl
@@ -735,6 +791,9 @@ int main(int argc, char* argv[]) {
 		 << "-s\tSlice programs on the srcML format" << endl
 		 << "-S\tSlice programs on the binary format" << endl;
 	    return 0;
+      case 'a':
+	    antlr = 1;
+	    break;
       case 'e':
 	    encode = 1;
 	    break;

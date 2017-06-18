@@ -39,12 +39,14 @@ prefix=/usr/local
 fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
 	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Irapidxml -Isrc -Isrc/headers -Isrc/cpp $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
 
-install: fast fast.proto
+install: fast fast.proto dist/smali.jar
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 debian/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
+	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/
+	install -m 0644 dist/smali.jar $(DESTDIR)$(prefix)/lib/smali.jar
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -61,7 +63,7 @@ fast-debug: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHand
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@
 
-install: fast fast.proto
+install: fast fast.proto dist/smali.jar
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
@@ -71,8 +73,8 @@ install: fast fast.proto
 	install -m 0755 osx/srcml $(DESTDIR)$(prefix)/bin/srcml
 	install -m 0755 osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
-#	install -m 0755 osx/srcml $(DESTDIR)$(prefix)/bin/srcml
-#	install -m 0755 osx/libsrcml.dylib $(DESTDIR)$(prefix)/lib/libsrcml.dylib
+	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/
+	install -m 0644 dist/smali.jar $(DESTDIR)$(prefix)/lib/smali.jar
 endif
 .PHONY: install
 
@@ -108,6 +110,12 @@ fast.pb.h fast.pb.cc: fast.proto
 src/fast/Fast.java: fast.proto
 	$(protoc) -I=. --java_out=src fast.proto
 
+dist/smali.jar: bin/Smali.class
+	jar cvf $@ -C bin/ .
+
+bin/Smali.class: src/Smali.java
+	javac -cp src:lib/protobuf-java-3.3.1.jar:lib/core-2.1.0-SNAPSHOT.jar:lib/reflections-0.9.10.jar:lib/smali-2.2.1-93a43730-dirty-fat.jar src/Smali.java -d bin
+
 src/PB.class: src/PB.java
 	javac -cp src:/usr/local/lib/protobuf-java-3.3.1.jar src/PB.java
 
@@ -123,7 +131,7 @@ _fast/Element.py: fast.fbs
 fast_generated.h: fast.fbs
 	flatc --cpp -o . fast.fbs
 
-src/fast.proto.in: ElementType.proto \
+src/fast.proto.in: ElementType.proto SmaliType.proto \
 	Unit.proto Literal.proto
 	touch $@
 

@@ -515,6 +515,226 @@ inline bool Element_Kind_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<Element_Kind>(
     Element_Kind_descriptor(), name, value);
 }
+enum Element_SmaliKind {
+  Element_SmaliKind_INVALID = 0,
+  Element_SmaliKind_EOR = 1,
+  Element_SmaliKind_DOWN = 2,
+  Element_SmaliKind_UP = 3,
+  Element_SmaliKind_ACCESS_SPEC = 4,
+  Element_SmaliKind_ANNOTATION_DIRECTIVE = 5,
+  Element_SmaliKind_ANNOTATION_VISIBILITY = 6,
+  Element_SmaliKind_ARRAY_DATA_DIRECTIVE = 7,
+  Element_SmaliKind_ARRAY_TYPE_PREFIX = 8,
+  Element_SmaliKind_ARROW = 9,
+  Element_SmaliKind_BOOL_LITERAL = 10,
+  Element_SmaliKind_BYTE_LITERAL = 11,
+  Element_SmaliKind_CATCHALL_DIRECTIVE = 12,
+  Element_SmaliKind_CATCH_DIRECTIVE = 13,
+  Element_SmaliKind_CHAR_LITERAL = 14,
+  Element_SmaliKind_CLASS_DESCRIPTOR = 15,
+  Element_SmaliKind_CLASS_DIRECTIVE = 16,
+  Element_SmaliKind_CLOSE_BRACE = 17,
+  Element_SmaliKind_CLOSE_PAREN = 18,
+  Element_SmaliKind_COLON = 19,
+  Element_SmaliKind_COMMA = 20,
+  Element_SmaliKind_DOTDOT = 21,
+  Element_SmaliKind_DOUBLE_LITERAL = 22,
+  Element_SmaliKind_DOUBLE_LITERAL_OR_ID = 23,
+  Element_SmaliKind_END_ANNOTATION_DIRECTIVE = 24,
+  Element_SmaliKind_END_ARRAY_DATA_DIRECTIVE = 25,
+  Element_SmaliKind_END_FIELD_DIRECTIVE = 26,
+  Element_SmaliKind_END_LOCAL_DIRECTIVE = 27,
+  Element_SmaliKind_END_METHOD_DIRECTIVE = 28,
+  Element_SmaliKind_END_PACKED_SWITCH_DIRECTIVE = 29,
+  Element_SmaliKind_END_PARAMETER_DIRECTIVE = 30,
+  Element_SmaliKind_END_SPARSE_SWITCH_DIRECTIVE = 31,
+  Element_SmaliKind_END_SUBANNOTATION_DIRECTIVE = 32,
+  Element_SmaliKind_ENUM_DIRECTIVE = 33,
+  Element_SmaliKind_EPILOGUE_DIRECTIVE = 34,
+  Element_SmaliKind_EQUAL = 35,
+  Element_SmaliKind_FIELD_DIRECTIVE = 36,
+  Element_SmaliKind_FIELD_OFFSET = 37,
+  Element_SmaliKind_FLOAT_LITERAL = 38,
+  Element_SmaliKind_FLOAT_LITERAL_OR_ID = 39,
+  Element_SmaliKind_IMPLEMENTS_DIRECTIVE = 40,
+  Element_SmaliKind_INLINE_INDEX = 41,
+  Element_SmaliKind_INSTRUCTION_FORMAT10t = 42,
+  Element_SmaliKind_INSTRUCTION_FORMAT10x = 43,
+  Element_SmaliKind_INSTRUCTION_FORMAT10x_ODEX = 44,
+  Element_SmaliKind_INSTRUCTION_FORMAT11n = 45,
+  Element_SmaliKind_INSTRUCTION_FORMAT11x = 46,
+  Element_SmaliKind_INSTRUCTION_FORMAT12x = 47,
+  Element_SmaliKind_INSTRUCTION_FORMAT12x_OR_ID = 48,
+  Element_SmaliKind_INSTRUCTION_FORMAT20bc = 49,
+  Element_SmaliKind_INSTRUCTION_FORMAT20t = 50,
+  Element_SmaliKind_INSTRUCTION_FORMAT21c_FIELD = 51,
+  Element_SmaliKind_INSTRUCTION_FORMAT21c_FIELD_ODEX = 52,
+  Element_SmaliKind_INSTRUCTION_FORMAT21c_STRING = 53,
+  Element_SmaliKind_INSTRUCTION_FORMAT21c_TYPE = 54,
+  Element_SmaliKind_INSTRUCTION_FORMAT21ih = 55,
+  Element_SmaliKind_INSTRUCTION_FORMAT21lh = 56,
+  Element_SmaliKind_INSTRUCTION_FORMAT21s = 57,
+  Element_SmaliKind_INSTRUCTION_FORMAT21t = 58,
+  Element_SmaliKind_INSTRUCTION_FORMAT22b = 59,
+  Element_SmaliKind_INSTRUCTION_FORMAT22c_FIELD = 60,
+  Element_SmaliKind_INSTRUCTION_FORMAT22c_FIELD_ODEX = 61,
+  Element_SmaliKind_INSTRUCTION_FORMAT22c_TYPE = 62,
+  Element_SmaliKind_INSTRUCTION_FORMAT22cs_FIELD = 63,
+  Element_SmaliKind_INSTRUCTION_FORMAT22s = 64,
+  Element_SmaliKind_INSTRUCTION_FORMAT22s_OR_ID = 65,
+  Element_SmaliKind_INSTRUCTION_FORMAT22t = 66,
+  Element_SmaliKind_INSTRUCTION_FORMAT22x = 67,
+  Element_SmaliKind_INSTRUCTION_FORMAT23x = 68,
+  Element_SmaliKind_INSTRUCTION_FORMAT30t = 69,
+  Element_SmaliKind_INSTRUCTION_FORMAT31c = 70,
+  Element_SmaliKind_INSTRUCTION_FORMAT31i = 71,
+  Element_SmaliKind_INSTRUCTION_FORMAT31i_OR_ID = 72,
+  Element_SmaliKind_INSTRUCTION_FORMAT31t = 73,
+  Element_SmaliKind_INSTRUCTION_FORMAT32x = 74,
+  Element_SmaliKind_INSTRUCTION_FORMAT35c_METHOD = 75,
+  Element_SmaliKind_INSTRUCTION_FORMAT35c_METHOD_ODEX = 76,
+  Element_SmaliKind_INSTRUCTION_FORMAT35c_TYPE = 77,
+  Element_SmaliKind_INSTRUCTION_FORMAT35mi_METHOD = 78,
+  Element_SmaliKind_INSTRUCTION_FORMAT35ms_METHOD = 79,
+  Element_SmaliKind_INSTRUCTION_FORMAT3rc_METHOD = 80,
+  Element_SmaliKind_INSTRUCTION_FORMAT3rc_METHOD_ODEX = 81,
+  Element_SmaliKind_INSTRUCTION_FORMAT3rc_TYPE = 82,
+  Element_SmaliKind_INSTRUCTION_FORMAT3rmi_METHOD = 83,
+  Element_SmaliKind_INSTRUCTION_FORMAT3rms_METHOD = 84,
+  Element_SmaliKind_INSTRUCTION_FORMAT45cc_METHOD = 85,
+  Element_SmaliKind_INSTRUCTION_FORMAT4rcc_METHOD = 86,
+  Element_SmaliKind_INSTRUCTION_FORMAT51l = 87,
+  Element_SmaliKind_INTEGER_LITERAL = 88,
+  Element_SmaliKind_INVALID_TOKEN = 89,
+  Element_SmaliKind_I_ACCESS_LIST = 90,
+  Element_SmaliKind_I_ANNOTATION = 91,
+  Element_SmaliKind_I_ANNOTATIONS = 92,
+  Element_SmaliKind_I_ANNOTATION_ELEMENT = 93,
+  Element_SmaliKind_I_ARRAY_ELEMENTS = 94,
+  Element_SmaliKind_I_ARRAY_ELEMENT_SIZE = 95,
+  Element_SmaliKind_I_CATCH = 96,
+  Element_SmaliKind_I_CATCHALL = 97,
+  Element_SmaliKind_I_CATCHES = 98,
+  Element_SmaliKind_I_CLASS_DEF = 99,
+  Element_SmaliKind_I_ENCODED_ARRAY = 100,
+  Element_SmaliKind_I_ENCODED_ENUM = 101,
+  Element_SmaliKind_I_ENCODED_FIELD = 102,
+  Element_SmaliKind_I_ENCODED_METHOD = 103,
+  Element_SmaliKind_I_END_LOCAL = 104,
+  Element_SmaliKind_I_EPILOGUE = 105,
+  Element_SmaliKind_I_FIELD = 106,
+  Element_SmaliKind_I_FIELDS = 107,
+  Element_SmaliKind_I_FIELD_INITIAL_VALUE = 108,
+  Element_SmaliKind_I_FIELD_TYPE = 109,
+  Element_SmaliKind_I_IMPLEMENTS = 110,
+  Element_SmaliKind_I_LABEL = 111,
+  Element_SmaliKind_I_LINE = 112,
+  Element_SmaliKind_I_LOCAL = 113,
+  Element_SmaliKind_I_LOCALS = 114,
+  Element_SmaliKind_I_METHOD = 115,
+  Element_SmaliKind_I_METHODS = 116,
+  Element_SmaliKind_I_METHOD_PROTOTYPE = 117,
+  Element_SmaliKind_I_METHOD_RETURN_TYPE = 118,
+  Element_SmaliKind_I_ORDERED_METHOD_ITEMS = 119,
+  Element_SmaliKind_I_PACKED_SWITCH_ELEMENTS = 120,
+  Element_SmaliKind_I_PACKED_SWITCH_START_KEY = 121,
+  Element_SmaliKind_I_PARAMETER = 122,
+  Element_SmaliKind_I_PARAMETERS = 123,
+  Element_SmaliKind_I_PARAMETER_NOT_SPECIFIED = 124,
+  Element_SmaliKind_I_PROLOGUE = 125,
+  Element_SmaliKind_I_REGISTERS = 126,
+  Element_SmaliKind_I_REGISTER_LIST = 127,
+  Element_SmaliKind_I_REGISTER_RANGE = 128,
+  Element_SmaliKind_I_RESTART_LOCAL = 129,
+  Element_SmaliKind_I_SOURCE = 130,
+  Element_SmaliKind_I_SPARSE_SWITCH_ELEMENTS = 131,
+  Element_SmaliKind_I_STATEMENT_ARRAY_DATA = 132,
+  Element_SmaliKind_I_STATEMENT_FORMAT10t = 133,
+  Element_SmaliKind_I_STATEMENT_FORMAT10x = 134,
+  Element_SmaliKind_I_STATEMENT_FORMAT11n = 135,
+  Element_SmaliKind_I_STATEMENT_FORMAT11x = 136,
+  Element_SmaliKind_I_STATEMENT_FORMAT12x = 137,
+  Element_SmaliKind_I_STATEMENT_FORMAT20bc = 138,
+  Element_SmaliKind_I_STATEMENT_FORMAT20t = 139,
+  Element_SmaliKind_I_STATEMENT_FORMAT21c_FIELD = 140,
+  Element_SmaliKind_I_STATEMENT_FORMAT21c_STRING = 141,
+  Element_SmaliKind_I_STATEMENT_FORMAT21c_TYPE = 142,
+  Element_SmaliKind_I_STATEMENT_FORMAT21ih = 143,
+  Element_SmaliKind_I_STATEMENT_FORMAT21lh = 144,
+  Element_SmaliKind_I_STATEMENT_FORMAT21s = 145,
+  Element_SmaliKind_I_STATEMENT_FORMAT21t = 146,
+  Element_SmaliKind_I_STATEMENT_FORMAT22b = 147,
+  Element_SmaliKind_I_STATEMENT_FORMAT22c_FIELD = 148,
+  Element_SmaliKind_I_STATEMENT_FORMAT22c_TYPE = 149,
+  Element_SmaliKind_I_STATEMENT_FORMAT22s = 150,
+  Element_SmaliKind_I_STATEMENT_FORMAT22t = 151,
+  Element_SmaliKind_I_STATEMENT_FORMAT22x = 152,
+  Element_SmaliKind_I_STATEMENT_FORMAT23x = 153,
+  Element_SmaliKind_I_STATEMENT_FORMAT30t = 154,
+  Element_SmaliKind_I_STATEMENT_FORMAT31c = 155,
+  Element_SmaliKind_I_STATEMENT_FORMAT31i = 156,
+  Element_SmaliKind_I_STATEMENT_FORMAT31t = 157,
+  Element_SmaliKind_I_STATEMENT_FORMAT32x = 158,
+  Element_SmaliKind_I_STATEMENT_FORMAT35c_METHOD = 159,
+  Element_SmaliKind_I_STATEMENT_FORMAT35c_TYPE = 160,
+  Element_SmaliKind_I_STATEMENT_FORMAT3rc_METHOD = 161,
+  Element_SmaliKind_I_STATEMENT_FORMAT3rc_TYPE = 162,
+  Element_SmaliKind_I_STATEMENT_FORMAT45cc_METHOD = 163,
+  Element_SmaliKind_I_STATEMENT_FORMAT4rcc_METHOD = 164,
+  Element_SmaliKind_I_STATEMENT_FORMAT51l = 165,
+  Element_SmaliKind_I_STATEMENT_PACKED_SWITCH = 166,
+  Element_SmaliKind_I_STATEMENT_SPARSE_SWITCH = 167,
+  Element_SmaliKind_I_SUBANNOTATION = 168,
+  Element_SmaliKind_I_SUPER = 169,
+  Element_SmaliKind_LINE_COMMENT = 170,
+  Element_SmaliKind_LINE_DIRECTIVE = 171,
+  Element_SmaliKind_LOCALS_DIRECTIVE = 172,
+  Element_SmaliKind_LOCAL_DIRECTIVE = 173,
+  Element_SmaliKind_LONG_LITERAL = 174,
+  Element_SmaliKind_MEMBER_NAME = 175,
+  Element_SmaliKind_METHOD_DIRECTIVE = 176,
+  Element_SmaliKind_NEGATIVE_INTEGER_LITERAL = 177,
+  Element_SmaliKind_NULL_LITERAL = 178,
+  Element_SmaliKind_OPEN_BRACE = 179,
+  Element_SmaliKind_OPEN_PAREN = 180,
+  Element_SmaliKind_PACKED_SWITCH_DIRECTIVE = 181,
+  Element_SmaliKind_PARAMETER_DIRECTIVE = 182,
+  Element_SmaliKind_PARAM_LIST_OR_ID_PRIMITIVE_TYPE = 183,
+  Element_SmaliKind_POSITIVE_INTEGER_LITERAL = 184,
+  Element_SmaliKind_PRIMITIVE_TYPE = 185,
+  Element_SmaliKind_PROLOGUE_DIRECTIVE = 186,
+  Element_SmaliKind_SMALI_REGISTER = 187,
+  Element_SmaliKind_REGISTERS_DIRECTIVE = 188,
+  Element_SmaliKind_RESTART_LOCAL_DIRECTIVE = 189,
+  Element_SmaliKind_SHORT_LITERAL = 190,
+  Element_SmaliKind_SIMPLE_NAME = 191,
+  Element_SmaliKind_SOURCE_DIRECTIVE = 192,
+  Element_SmaliKind_SPARSE_SWITCH_DIRECTIVE = 193,
+  Element_SmaliKind_STRING_LITERAL = 194,
+  Element_SmaliKind_SUBANNOTATION_DIRECTIVE = 195,
+  Element_SmaliKind_SUPER_DIRECTIVE = 196,
+  Element_SmaliKind_VERIFICATION_ERROR_TYPE = 197,
+  Element_SmaliKind_VOID_TYPE = 198,
+  Element_SmaliKind_VTABLE_INDEX = 199,
+  Element_SmaliKind_WHITE_SPACE = 200,
+  Element_SmaliKind_Element_SmaliKind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  Element_SmaliKind_Element_SmaliKind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool Element_SmaliKind_IsValid(int value);
+const Element_SmaliKind Element_SmaliKind_SmaliKind_MIN = Element_SmaliKind_INVALID;
+const Element_SmaliKind Element_SmaliKind_SmaliKind_MAX = Element_SmaliKind_WHITE_SPACE;
+const int Element_SmaliKind_SmaliKind_ARRAYSIZE = Element_SmaliKind_SmaliKind_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Element_SmaliKind_descriptor();
+inline const ::std::string& Element_SmaliKind_Name(Element_SmaliKind value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Element_SmaliKind_descriptor(), value);
+}
+inline bool Element_SmaliKind_Parse(
+    const ::std::string& name, Element_SmaliKind* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Element_SmaliKind>(
+    Element_SmaliKind_descriptor(), name, value);
+}
 // ===================================================================
 
 class Element_Unit : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Element.Unit) */ {
@@ -800,8 +1020,8 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   static const Element& default_instance();
 
   enum ExtraCase {
-    kUnit = 5,
-    kLiteral = 6,
+    kUnit = 7,
+    kLiteral = 8,
     EXTRA_NOT_SET = 0,
   };
 
@@ -1649,12 +1869,436 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     return Element_Kind_Parse(name, value);
   }
 
+  typedef Element_SmaliKind SmaliKind;
+  static const SmaliKind INVALID =
+    Element_SmaliKind_INVALID;
+  static const SmaliKind EOR =
+    Element_SmaliKind_EOR;
+  static const SmaliKind DOWN =
+    Element_SmaliKind_DOWN;
+  static const SmaliKind UP =
+    Element_SmaliKind_UP;
+  static const SmaliKind ACCESS_SPEC =
+    Element_SmaliKind_ACCESS_SPEC;
+  static const SmaliKind ANNOTATION_DIRECTIVE =
+    Element_SmaliKind_ANNOTATION_DIRECTIVE;
+  static const SmaliKind ANNOTATION_VISIBILITY =
+    Element_SmaliKind_ANNOTATION_VISIBILITY;
+  static const SmaliKind ARRAY_DATA_DIRECTIVE =
+    Element_SmaliKind_ARRAY_DATA_DIRECTIVE;
+  static const SmaliKind ARRAY_TYPE_PREFIX =
+    Element_SmaliKind_ARRAY_TYPE_PREFIX;
+  static const SmaliKind ARROW =
+    Element_SmaliKind_ARROW;
+  static const SmaliKind BOOL_LITERAL =
+    Element_SmaliKind_BOOL_LITERAL;
+  static const SmaliKind BYTE_LITERAL =
+    Element_SmaliKind_BYTE_LITERAL;
+  static const SmaliKind CATCHALL_DIRECTIVE =
+    Element_SmaliKind_CATCHALL_DIRECTIVE;
+  static const SmaliKind CATCH_DIRECTIVE =
+    Element_SmaliKind_CATCH_DIRECTIVE;
+  static const SmaliKind CHAR_LITERAL =
+    Element_SmaliKind_CHAR_LITERAL;
+  static const SmaliKind CLASS_DESCRIPTOR =
+    Element_SmaliKind_CLASS_DESCRIPTOR;
+  static const SmaliKind CLASS_DIRECTIVE =
+    Element_SmaliKind_CLASS_DIRECTIVE;
+  static const SmaliKind CLOSE_BRACE =
+    Element_SmaliKind_CLOSE_BRACE;
+  static const SmaliKind CLOSE_PAREN =
+    Element_SmaliKind_CLOSE_PAREN;
+  static const SmaliKind COLON =
+    Element_SmaliKind_COLON;
+  static const SmaliKind COMMA =
+    Element_SmaliKind_COMMA;
+  static const SmaliKind DOTDOT =
+    Element_SmaliKind_DOTDOT;
+  static const SmaliKind DOUBLE_LITERAL =
+    Element_SmaliKind_DOUBLE_LITERAL;
+  static const SmaliKind DOUBLE_LITERAL_OR_ID =
+    Element_SmaliKind_DOUBLE_LITERAL_OR_ID;
+  static const SmaliKind END_ANNOTATION_DIRECTIVE =
+    Element_SmaliKind_END_ANNOTATION_DIRECTIVE;
+  static const SmaliKind END_ARRAY_DATA_DIRECTIVE =
+    Element_SmaliKind_END_ARRAY_DATA_DIRECTIVE;
+  static const SmaliKind END_FIELD_DIRECTIVE =
+    Element_SmaliKind_END_FIELD_DIRECTIVE;
+  static const SmaliKind END_LOCAL_DIRECTIVE =
+    Element_SmaliKind_END_LOCAL_DIRECTIVE;
+  static const SmaliKind END_METHOD_DIRECTIVE =
+    Element_SmaliKind_END_METHOD_DIRECTIVE;
+  static const SmaliKind END_PACKED_SWITCH_DIRECTIVE =
+    Element_SmaliKind_END_PACKED_SWITCH_DIRECTIVE;
+  static const SmaliKind END_PARAMETER_DIRECTIVE =
+    Element_SmaliKind_END_PARAMETER_DIRECTIVE;
+  static const SmaliKind END_SPARSE_SWITCH_DIRECTIVE =
+    Element_SmaliKind_END_SPARSE_SWITCH_DIRECTIVE;
+  static const SmaliKind END_SUBANNOTATION_DIRECTIVE =
+    Element_SmaliKind_END_SUBANNOTATION_DIRECTIVE;
+  static const SmaliKind ENUM_DIRECTIVE =
+    Element_SmaliKind_ENUM_DIRECTIVE;
+  static const SmaliKind EPILOGUE_DIRECTIVE =
+    Element_SmaliKind_EPILOGUE_DIRECTIVE;
+  static const SmaliKind EQUAL =
+    Element_SmaliKind_EQUAL;
+  static const SmaliKind FIELD_DIRECTIVE =
+    Element_SmaliKind_FIELD_DIRECTIVE;
+  static const SmaliKind FIELD_OFFSET =
+    Element_SmaliKind_FIELD_OFFSET;
+  static const SmaliKind FLOAT_LITERAL =
+    Element_SmaliKind_FLOAT_LITERAL;
+  static const SmaliKind FLOAT_LITERAL_OR_ID =
+    Element_SmaliKind_FLOAT_LITERAL_OR_ID;
+  static const SmaliKind IMPLEMENTS_DIRECTIVE =
+    Element_SmaliKind_IMPLEMENTS_DIRECTIVE;
+  static const SmaliKind INLINE_INDEX =
+    Element_SmaliKind_INLINE_INDEX;
+  static const SmaliKind INSTRUCTION_FORMAT10t =
+    Element_SmaliKind_INSTRUCTION_FORMAT10t;
+  static const SmaliKind INSTRUCTION_FORMAT10x =
+    Element_SmaliKind_INSTRUCTION_FORMAT10x;
+  static const SmaliKind INSTRUCTION_FORMAT10x_ODEX =
+    Element_SmaliKind_INSTRUCTION_FORMAT10x_ODEX;
+  static const SmaliKind INSTRUCTION_FORMAT11n =
+    Element_SmaliKind_INSTRUCTION_FORMAT11n;
+  static const SmaliKind INSTRUCTION_FORMAT11x =
+    Element_SmaliKind_INSTRUCTION_FORMAT11x;
+  static const SmaliKind INSTRUCTION_FORMAT12x =
+    Element_SmaliKind_INSTRUCTION_FORMAT12x;
+  static const SmaliKind INSTRUCTION_FORMAT12x_OR_ID =
+    Element_SmaliKind_INSTRUCTION_FORMAT12x_OR_ID;
+  static const SmaliKind INSTRUCTION_FORMAT20bc =
+    Element_SmaliKind_INSTRUCTION_FORMAT20bc;
+  static const SmaliKind INSTRUCTION_FORMAT20t =
+    Element_SmaliKind_INSTRUCTION_FORMAT20t;
+  static const SmaliKind INSTRUCTION_FORMAT21c_FIELD =
+    Element_SmaliKind_INSTRUCTION_FORMAT21c_FIELD;
+  static const SmaliKind INSTRUCTION_FORMAT21c_FIELD_ODEX =
+    Element_SmaliKind_INSTRUCTION_FORMAT21c_FIELD_ODEX;
+  static const SmaliKind INSTRUCTION_FORMAT21c_STRING =
+    Element_SmaliKind_INSTRUCTION_FORMAT21c_STRING;
+  static const SmaliKind INSTRUCTION_FORMAT21c_TYPE =
+    Element_SmaliKind_INSTRUCTION_FORMAT21c_TYPE;
+  static const SmaliKind INSTRUCTION_FORMAT21ih =
+    Element_SmaliKind_INSTRUCTION_FORMAT21ih;
+  static const SmaliKind INSTRUCTION_FORMAT21lh =
+    Element_SmaliKind_INSTRUCTION_FORMAT21lh;
+  static const SmaliKind INSTRUCTION_FORMAT21s =
+    Element_SmaliKind_INSTRUCTION_FORMAT21s;
+  static const SmaliKind INSTRUCTION_FORMAT21t =
+    Element_SmaliKind_INSTRUCTION_FORMAT21t;
+  static const SmaliKind INSTRUCTION_FORMAT22b =
+    Element_SmaliKind_INSTRUCTION_FORMAT22b;
+  static const SmaliKind INSTRUCTION_FORMAT22c_FIELD =
+    Element_SmaliKind_INSTRUCTION_FORMAT22c_FIELD;
+  static const SmaliKind INSTRUCTION_FORMAT22c_FIELD_ODEX =
+    Element_SmaliKind_INSTRUCTION_FORMAT22c_FIELD_ODEX;
+  static const SmaliKind INSTRUCTION_FORMAT22c_TYPE =
+    Element_SmaliKind_INSTRUCTION_FORMAT22c_TYPE;
+  static const SmaliKind INSTRUCTION_FORMAT22cs_FIELD =
+    Element_SmaliKind_INSTRUCTION_FORMAT22cs_FIELD;
+  static const SmaliKind INSTRUCTION_FORMAT22s =
+    Element_SmaliKind_INSTRUCTION_FORMAT22s;
+  static const SmaliKind INSTRUCTION_FORMAT22s_OR_ID =
+    Element_SmaliKind_INSTRUCTION_FORMAT22s_OR_ID;
+  static const SmaliKind INSTRUCTION_FORMAT22t =
+    Element_SmaliKind_INSTRUCTION_FORMAT22t;
+  static const SmaliKind INSTRUCTION_FORMAT22x =
+    Element_SmaliKind_INSTRUCTION_FORMAT22x;
+  static const SmaliKind INSTRUCTION_FORMAT23x =
+    Element_SmaliKind_INSTRUCTION_FORMAT23x;
+  static const SmaliKind INSTRUCTION_FORMAT30t =
+    Element_SmaliKind_INSTRUCTION_FORMAT30t;
+  static const SmaliKind INSTRUCTION_FORMAT31c =
+    Element_SmaliKind_INSTRUCTION_FORMAT31c;
+  static const SmaliKind INSTRUCTION_FORMAT31i =
+    Element_SmaliKind_INSTRUCTION_FORMAT31i;
+  static const SmaliKind INSTRUCTION_FORMAT31i_OR_ID =
+    Element_SmaliKind_INSTRUCTION_FORMAT31i_OR_ID;
+  static const SmaliKind INSTRUCTION_FORMAT31t =
+    Element_SmaliKind_INSTRUCTION_FORMAT31t;
+  static const SmaliKind INSTRUCTION_FORMAT32x =
+    Element_SmaliKind_INSTRUCTION_FORMAT32x;
+  static const SmaliKind INSTRUCTION_FORMAT35c_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT35c_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT35c_METHOD_ODEX =
+    Element_SmaliKind_INSTRUCTION_FORMAT35c_METHOD_ODEX;
+  static const SmaliKind INSTRUCTION_FORMAT35c_TYPE =
+    Element_SmaliKind_INSTRUCTION_FORMAT35c_TYPE;
+  static const SmaliKind INSTRUCTION_FORMAT35mi_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT35mi_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT35ms_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT35ms_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT3rc_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT3rc_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT3rc_METHOD_ODEX =
+    Element_SmaliKind_INSTRUCTION_FORMAT3rc_METHOD_ODEX;
+  static const SmaliKind INSTRUCTION_FORMAT3rc_TYPE =
+    Element_SmaliKind_INSTRUCTION_FORMAT3rc_TYPE;
+  static const SmaliKind INSTRUCTION_FORMAT3rmi_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT3rmi_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT3rms_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT3rms_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT45cc_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT45cc_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT4rcc_METHOD =
+    Element_SmaliKind_INSTRUCTION_FORMAT4rcc_METHOD;
+  static const SmaliKind INSTRUCTION_FORMAT51l =
+    Element_SmaliKind_INSTRUCTION_FORMAT51l;
+  static const SmaliKind INTEGER_LITERAL =
+    Element_SmaliKind_INTEGER_LITERAL;
+  static const SmaliKind INVALID_TOKEN =
+    Element_SmaliKind_INVALID_TOKEN;
+  static const SmaliKind I_ACCESS_LIST =
+    Element_SmaliKind_I_ACCESS_LIST;
+  static const SmaliKind I_ANNOTATION =
+    Element_SmaliKind_I_ANNOTATION;
+  static const SmaliKind I_ANNOTATIONS =
+    Element_SmaliKind_I_ANNOTATIONS;
+  static const SmaliKind I_ANNOTATION_ELEMENT =
+    Element_SmaliKind_I_ANNOTATION_ELEMENT;
+  static const SmaliKind I_ARRAY_ELEMENTS =
+    Element_SmaliKind_I_ARRAY_ELEMENTS;
+  static const SmaliKind I_ARRAY_ELEMENT_SIZE =
+    Element_SmaliKind_I_ARRAY_ELEMENT_SIZE;
+  static const SmaliKind I_CATCH =
+    Element_SmaliKind_I_CATCH;
+  static const SmaliKind I_CATCHALL =
+    Element_SmaliKind_I_CATCHALL;
+  static const SmaliKind I_CATCHES =
+    Element_SmaliKind_I_CATCHES;
+  static const SmaliKind I_CLASS_DEF =
+    Element_SmaliKind_I_CLASS_DEF;
+  static const SmaliKind I_ENCODED_ARRAY =
+    Element_SmaliKind_I_ENCODED_ARRAY;
+  static const SmaliKind I_ENCODED_ENUM =
+    Element_SmaliKind_I_ENCODED_ENUM;
+  static const SmaliKind I_ENCODED_FIELD =
+    Element_SmaliKind_I_ENCODED_FIELD;
+  static const SmaliKind I_ENCODED_METHOD =
+    Element_SmaliKind_I_ENCODED_METHOD;
+  static const SmaliKind I_END_LOCAL =
+    Element_SmaliKind_I_END_LOCAL;
+  static const SmaliKind I_EPILOGUE =
+    Element_SmaliKind_I_EPILOGUE;
+  static const SmaliKind I_FIELD =
+    Element_SmaliKind_I_FIELD;
+  static const SmaliKind I_FIELDS =
+    Element_SmaliKind_I_FIELDS;
+  static const SmaliKind I_FIELD_INITIAL_VALUE =
+    Element_SmaliKind_I_FIELD_INITIAL_VALUE;
+  static const SmaliKind I_FIELD_TYPE =
+    Element_SmaliKind_I_FIELD_TYPE;
+  static const SmaliKind I_IMPLEMENTS =
+    Element_SmaliKind_I_IMPLEMENTS;
+  static const SmaliKind I_LABEL =
+    Element_SmaliKind_I_LABEL;
+  static const SmaliKind I_LINE =
+    Element_SmaliKind_I_LINE;
+  static const SmaliKind I_LOCAL =
+    Element_SmaliKind_I_LOCAL;
+  static const SmaliKind I_LOCALS =
+    Element_SmaliKind_I_LOCALS;
+  static const SmaliKind I_METHOD =
+    Element_SmaliKind_I_METHOD;
+  static const SmaliKind I_METHODS =
+    Element_SmaliKind_I_METHODS;
+  static const SmaliKind I_METHOD_PROTOTYPE =
+    Element_SmaliKind_I_METHOD_PROTOTYPE;
+  static const SmaliKind I_METHOD_RETURN_TYPE =
+    Element_SmaliKind_I_METHOD_RETURN_TYPE;
+  static const SmaliKind I_ORDERED_METHOD_ITEMS =
+    Element_SmaliKind_I_ORDERED_METHOD_ITEMS;
+  static const SmaliKind I_PACKED_SWITCH_ELEMENTS =
+    Element_SmaliKind_I_PACKED_SWITCH_ELEMENTS;
+  static const SmaliKind I_PACKED_SWITCH_START_KEY =
+    Element_SmaliKind_I_PACKED_SWITCH_START_KEY;
+  static const SmaliKind I_PARAMETER =
+    Element_SmaliKind_I_PARAMETER;
+  static const SmaliKind I_PARAMETERS =
+    Element_SmaliKind_I_PARAMETERS;
+  static const SmaliKind I_PARAMETER_NOT_SPECIFIED =
+    Element_SmaliKind_I_PARAMETER_NOT_SPECIFIED;
+  static const SmaliKind I_PROLOGUE =
+    Element_SmaliKind_I_PROLOGUE;
+  static const SmaliKind I_REGISTERS =
+    Element_SmaliKind_I_REGISTERS;
+  static const SmaliKind I_REGISTER_LIST =
+    Element_SmaliKind_I_REGISTER_LIST;
+  static const SmaliKind I_REGISTER_RANGE =
+    Element_SmaliKind_I_REGISTER_RANGE;
+  static const SmaliKind I_RESTART_LOCAL =
+    Element_SmaliKind_I_RESTART_LOCAL;
+  static const SmaliKind I_SOURCE =
+    Element_SmaliKind_I_SOURCE;
+  static const SmaliKind I_SPARSE_SWITCH_ELEMENTS =
+    Element_SmaliKind_I_SPARSE_SWITCH_ELEMENTS;
+  static const SmaliKind I_STATEMENT_ARRAY_DATA =
+    Element_SmaliKind_I_STATEMENT_ARRAY_DATA;
+  static const SmaliKind I_STATEMENT_FORMAT10t =
+    Element_SmaliKind_I_STATEMENT_FORMAT10t;
+  static const SmaliKind I_STATEMENT_FORMAT10x =
+    Element_SmaliKind_I_STATEMENT_FORMAT10x;
+  static const SmaliKind I_STATEMENT_FORMAT11n =
+    Element_SmaliKind_I_STATEMENT_FORMAT11n;
+  static const SmaliKind I_STATEMENT_FORMAT11x =
+    Element_SmaliKind_I_STATEMENT_FORMAT11x;
+  static const SmaliKind I_STATEMENT_FORMAT12x =
+    Element_SmaliKind_I_STATEMENT_FORMAT12x;
+  static const SmaliKind I_STATEMENT_FORMAT20bc =
+    Element_SmaliKind_I_STATEMENT_FORMAT20bc;
+  static const SmaliKind I_STATEMENT_FORMAT20t =
+    Element_SmaliKind_I_STATEMENT_FORMAT20t;
+  static const SmaliKind I_STATEMENT_FORMAT21c_FIELD =
+    Element_SmaliKind_I_STATEMENT_FORMAT21c_FIELD;
+  static const SmaliKind I_STATEMENT_FORMAT21c_STRING =
+    Element_SmaliKind_I_STATEMENT_FORMAT21c_STRING;
+  static const SmaliKind I_STATEMENT_FORMAT21c_TYPE =
+    Element_SmaliKind_I_STATEMENT_FORMAT21c_TYPE;
+  static const SmaliKind I_STATEMENT_FORMAT21ih =
+    Element_SmaliKind_I_STATEMENT_FORMAT21ih;
+  static const SmaliKind I_STATEMENT_FORMAT21lh =
+    Element_SmaliKind_I_STATEMENT_FORMAT21lh;
+  static const SmaliKind I_STATEMENT_FORMAT21s =
+    Element_SmaliKind_I_STATEMENT_FORMAT21s;
+  static const SmaliKind I_STATEMENT_FORMAT21t =
+    Element_SmaliKind_I_STATEMENT_FORMAT21t;
+  static const SmaliKind I_STATEMENT_FORMAT22b =
+    Element_SmaliKind_I_STATEMENT_FORMAT22b;
+  static const SmaliKind I_STATEMENT_FORMAT22c_FIELD =
+    Element_SmaliKind_I_STATEMENT_FORMAT22c_FIELD;
+  static const SmaliKind I_STATEMENT_FORMAT22c_TYPE =
+    Element_SmaliKind_I_STATEMENT_FORMAT22c_TYPE;
+  static const SmaliKind I_STATEMENT_FORMAT22s =
+    Element_SmaliKind_I_STATEMENT_FORMAT22s;
+  static const SmaliKind I_STATEMENT_FORMAT22t =
+    Element_SmaliKind_I_STATEMENT_FORMAT22t;
+  static const SmaliKind I_STATEMENT_FORMAT22x =
+    Element_SmaliKind_I_STATEMENT_FORMAT22x;
+  static const SmaliKind I_STATEMENT_FORMAT23x =
+    Element_SmaliKind_I_STATEMENT_FORMAT23x;
+  static const SmaliKind I_STATEMENT_FORMAT30t =
+    Element_SmaliKind_I_STATEMENT_FORMAT30t;
+  static const SmaliKind I_STATEMENT_FORMAT31c =
+    Element_SmaliKind_I_STATEMENT_FORMAT31c;
+  static const SmaliKind I_STATEMENT_FORMAT31i =
+    Element_SmaliKind_I_STATEMENT_FORMAT31i;
+  static const SmaliKind I_STATEMENT_FORMAT31t =
+    Element_SmaliKind_I_STATEMENT_FORMAT31t;
+  static const SmaliKind I_STATEMENT_FORMAT32x =
+    Element_SmaliKind_I_STATEMENT_FORMAT32x;
+  static const SmaliKind I_STATEMENT_FORMAT35c_METHOD =
+    Element_SmaliKind_I_STATEMENT_FORMAT35c_METHOD;
+  static const SmaliKind I_STATEMENT_FORMAT35c_TYPE =
+    Element_SmaliKind_I_STATEMENT_FORMAT35c_TYPE;
+  static const SmaliKind I_STATEMENT_FORMAT3rc_METHOD =
+    Element_SmaliKind_I_STATEMENT_FORMAT3rc_METHOD;
+  static const SmaliKind I_STATEMENT_FORMAT3rc_TYPE =
+    Element_SmaliKind_I_STATEMENT_FORMAT3rc_TYPE;
+  static const SmaliKind I_STATEMENT_FORMAT45cc_METHOD =
+    Element_SmaliKind_I_STATEMENT_FORMAT45cc_METHOD;
+  static const SmaliKind I_STATEMENT_FORMAT4rcc_METHOD =
+    Element_SmaliKind_I_STATEMENT_FORMAT4rcc_METHOD;
+  static const SmaliKind I_STATEMENT_FORMAT51l =
+    Element_SmaliKind_I_STATEMENT_FORMAT51l;
+  static const SmaliKind I_STATEMENT_PACKED_SWITCH =
+    Element_SmaliKind_I_STATEMENT_PACKED_SWITCH;
+  static const SmaliKind I_STATEMENT_SPARSE_SWITCH =
+    Element_SmaliKind_I_STATEMENT_SPARSE_SWITCH;
+  static const SmaliKind I_SUBANNOTATION =
+    Element_SmaliKind_I_SUBANNOTATION;
+  static const SmaliKind I_SUPER =
+    Element_SmaliKind_I_SUPER;
+  static const SmaliKind LINE_COMMENT =
+    Element_SmaliKind_LINE_COMMENT;
+  static const SmaliKind LINE_DIRECTIVE =
+    Element_SmaliKind_LINE_DIRECTIVE;
+  static const SmaliKind LOCALS_DIRECTIVE =
+    Element_SmaliKind_LOCALS_DIRECTIVE;
+  static const SmaliKind LOCAL_DIRECTIVE =
+    Element_SmaliKind_LOCAL_DIRECTIVE;
+  static const SmaliKind LONG_LITERAL =
+    Element_SmaliKind_LONG_LITERAL;
+  static const SmaliKind MEMBER_NAME =
+    Element_SmaliKind_MEMBER_NAME;
+  static const SmaliKind METHOD_DIRECTIVE =
+    Element_SmaliKind_METHOD_DIRECTIVE;
+  static const SmaliKind NEGATIVE_INTEGER_LITERAL =
+    Element_SmaliKind_NEGATIVE_INTEGER_LITERAL;
+  static const SmaliKind NULL_LITERAL =
+    Element_SmaliKind_NULL_LITERAL;
+  static const SmaliKind OPEN_BRACE =
+    Element_SmaliKind_OPEN_BRACE;
+  static const SmaliKind OPEN_PAREN =
+    Element_SmaliKind_OPEN_PAREN;
+  static const SmaliKind PACKED_SWITCH_DIRECTIVE =
+    Element_SmaliKind_PACKED_SWITCH_DIRECTIVE;
+  static const SmaliKind PARAMETER_DIRECTIVE =
+    Element_SmaliKind_PARAMETER_DIRECTIVE;
+  static const SmaliKind PARAM_LIST_OR_ID_PRIMITIVE_TYPE =
+    Element_SmaliKind_PARAM_LIST_OR_ID_PRIMITIVE_TYPE;
+  static const SmaliKind POSITIVE_INTEGER_LITERAL =
+    Element_SmaliKind_POSITIVE_INTEGER_LITERAL;
+  static const SmaliKind PRIMITIVE_TYPE =
+    Element_SmaliKind_PRIMITIVE_TYPE;
+  static const SmaliKind PROLOGUE_DIRECTIVE =
+    Element_SmaliKind_PROLOGUE_DIRECTIVE;
+  static const SmaliKind SMALI_REGISTER =
+    Element_SmaliKind_SMALI_REGISTER;
+  static const SmaliKind REGISTERS_DIRECTIVE =
+    Element_SmaliKind_REGISTERS_DIRECTIVE;
+  static const SmaliKind RESTART_LOCAL_DIRECTIVE =
+    Element_SmaliKind_RESTART_LOCAL_DIRECTIVE;
+  static const SmaliKind SHORT_LITERAL =
+    Element_SmaliKind_SHORT_LITERAL;
+  static const SmaliKind SIMPLE_NAME =
+    Element_SmaliKind_SIMPLE_NAME;
+  static const SmaliKind SOURCE_DIRECTIVE =
+    Element_SmaliKind_SOURCE_DIRECTIVE;
+  static const SmaliKind SPARSE_SWITCH_DIRECTIVE =
+    Element_SmaliKind_SPARSE_SWITCH_DIRECTIVE;
+  static const SmaliKind STRING_LITERAL =
+    Element_SmaliKind_STRING_LITERAL;
+  static const SmaliKind SUBANNOTATION_DIRECTIVE =
+    Element_SmaliKind_SUBANNOTATION_DIRECTIVE;
+  static const SmaliKind SUPER_DIRECTIVE =
+    Element_SmaliKind_SUPER_DIRECTIVE;
+  static const SmaliKind VERIFICATION_ERROR_TYPE =
+    Element_SmaliKind_VERIFICATION_ERROR_TYPE;
+  static const SmaliKind VOID_TYPE =
+    Element_SmaliKind_VOID_TYPE;
+  static const SmaliKind VTABLE_INDEX =
+    Element_SmaliKind_VTABLE_INDEX;
+  static const SmaliKind WHITE_SPACE =
+    Element_SmaliKind_WHITE_SPACE;
+  static inline bool SmaliKind_IsValid(int value) {
+    return Element_SmaliKind_IsValid(value);
+  }
+  static const SmaliKind SmaliKind_MIN =
+    Element_SmaliKind_SmaliKind_MIN;
+  static const SmaliKind SmaliKind_MAX =
+    Element_SmaliKind_SmaliKind_MAX;
+  static const int SmaliKind_ARRAYSIZE =
+    Element_SmaliKind_SmaliKind_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  SmaliKind_descriptor() {
+    return Element_SmaliKind_descriptor();
+  }
+  static inline const ::std::string& SmaliKind_Name(SmaliKind value) {
+    return Element_SmaliKind_Name(value);
+  }
+  static inline bool SmaliKind_Parse(const ::std::string& name,
+      SmaliKind* value) {
+    return Element_SmaliKind_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
-  // repeated .fast.Element child = 4;
+  // repeated .fast.Element child = 6;
   int child_size() const;
   void clear_child();
-  static const int kChildFieldNumber = 4;
+  static const int kChildFieldNumber = 6;
   const ::fast::Element& child(int index) const;
   ::fast::Element* mutable_child(int index);
   ::fast::Element* add_child();
@@ -1697,31 +2341,43 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::fast::Element_Kind kind() const;
   void set_kind(::fast::Element_Kind value);
 
-  // int32 line = 7;
+  // int32 pos = 4;
+  void clear_pos();
+  static const int kPosFieldNumber = 4;
+  ::google::protobuf::int32 pos() const;
+  void set_pos(::google::protobuf::int32 value);
+
+  // int32 length = 5;
+  void clear_length();
+  static const int kLengthFieldNumber = 5;
+  ::google::protobuf::int32 length() const;
+  void set_length(::google::protobuf::int32 value);
+
+  // int32 line = 9;
   void clear_line();
-  static const int kLineFieldNumber = 7;
+  static const int kLineFieldNumber = 9;
   ::google::protobuf::int32 line() const;
   void set_line(::google::protobuf::int32 value);
 
-  // int32 column = 8;
+  // int32 column = 10;
   void clear_column();
-  static const int kColumnFieldNumber = 8;
+  static const int kColumnFieldNumber = 10;
   ::google::protobuf::int32 column() const;
   void set_column(::google::protobuf::int32 value);
 
-  // .fast.Element.Unit unit = 5;
+  // .fast.Element.Unit unit = 7;
   bool has_unit() const;
   void clear_unit();
-  static const int kUnitFieldNumber = 5;
+  static const int kUnitFieldNumber = 7;
   const ::fast::Element_Unit& unit() const;
   ::fast::Element_Unit* mutable_unit();
   ::fast::Element_Unit* release_unit();
   void set_allocated_unit(::fast::Element_Unit* unit);
 
-  // .fast.Element.Literal literal = 6;
+  // .fast.Element.Literal literal = 8;
   bool has_literal() const;
   void clear_literal();
-  static const int kLiteralFieldNumber = 6;
+  static const int kLiteralFieldNumber = 8;
   const ::fast::Element_Literal& literal() const;
   ::fast::Element_Literal* mutable_literal();
   ::fast::Element_Literal* release_literal();
@@ -1742,6 +2398,8 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::google::protobuf::internal::ArenaStringPtr text_;
   ::google::protobuf::internal::ArenaStringPtr tail_;
   int kind_;
+  ::google::protobuf::int32 pos_;
+  ::google::protobuf::int32 length_;
   ::google::protobuf::int32 line_;
   ::google::protobuf::int32 column_;
   union ExtraUnion {
@@ -2038,7 +2696,35 @@ inline void Element::set_allocated_tail(::std::string* tail) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.tail)
 }
 
-// repeated .fast.Element child = 4;
+// int32 pos = 4;
+inline void Element::clear_pos() {
+  pos_ = 0;
+}
+inline ::google::protobuf::int32 Element::pos() const {
+  // @@protoc_insertion_point(field_get:fast.Element.pos)
+  return pos_;
+}
+inline void Element::set_pos(::google::protobuf::int32 value) {
+  
+  pos_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.pos)
+}
+
+// int32 length = 5;
+inline void Element::clear_length() {
+  length_ = 0;
+}
+inline ::google::protobuf::int32 Element::length() const {
+  // @@protoc_insertion_point(field_get:fast.Element.length)
+  return length_;
+}
+inline void Element::set_length(::google::protobuf::int32 value) {
+  
+  length_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.length)
+}
+
+// repeated .fast.Element child = 6;
 inline int Element::child_size() const {
   return child_.size();
 }
@@ -2068,7 +2754,7 @@ Element::child() const {
   return child_;
 }
 
-// .fast.Element.Unit unit = 5;
+// .fast.Element.Unit unit = 7;
 inline bool Element::has_unit() const {
   return extra_case() == kUnit;
 }
@@ -2116,7 +2802,7 @@ inline void Element::set_allocated_unit(::fast::Element_Unit* unit) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.unit)
 }
 
-// .fast.Element.Literal literal = 6;
+// .fast.Element.Literal literal = 8;
 inline bool Element::has_literal() const {
   return extra_case() == kLiteral;
 }
@@ -2164,7 +2850,7 @@ inline void Element::set_allocated_literal(::fast::Element_Literal* literal) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.literal)
 }
 
-// int32 line = 7;
+// int32 line = 9;
 inline void Element::clear_line() {
   line_ = 0;
 }
@@ -2178,7 +2864,7 @@ inline void Element::set_line(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Element.line)
 }
 
-// int32 column = 8;
+// int32 column = 10;
 inline void Element::clear_column() {
   column_ = 0;
 }
@@ -2230,6 +2916,11 @@ template <> struct is_proto_enum< ::fast::Element_Kind> : ::google::protobuf::in
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fast::Element_Kind>() {
   return ::fast::Element_Kind_descriptor();
+}
+template <> struct is_proto_enum< ::fast::Element_SmaliKind> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::fast::Element_SmaliKind>() {
+  return ::fast::Element_SmaliKind_descriptor();
 }
 
 }  // namespace protobuf

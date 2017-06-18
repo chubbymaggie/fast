@@ -1,11 +1,14 @@
 syntax="proto3";
 package fast;
 message Element {
-#include "ElementType.proto"
 __COUNTER__
+#include "ElementType.proto"
+#include "SmaliType.proto"
    Kind kind = __COUNTER__;
    string text = __COUNTER__;
    string tail = __COUNTER__;
+   int32 pos = __COUNTER__;
+   int32 length = __COUNTER__;
    repeated Element child = __COUNTER__;
    oneof extra {
      Unit unit = __COUNTER__;

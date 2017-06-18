@@ -18,7 +18,7 @@ A report on performance evaluation will be placed under the `doc/` subfolder.
 ## Synopsis
 
 ```
-$ fast [-cehpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
+$ fast [-acdehpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
 ```
 
 ## Description
@@ -39,6 +39,9 @@ If the `output_file_name` is unspecified, the output will be directed to the sta
 
 The following options are available:
 
+     -a      Use Antlr's AST instead of srcML's 
+	     Currently we support .smali for Android assembler.
+
      -c      Load the file only, no output.
 
      -d      Decode the textual representation from protobuf AST input.
@@ -55,15 +58,33 @@ The following options are available:
 
 
 ## Dependencies
-The current implementation is based on `protobuf` and `flatbuffers`, as well as `srcml` which parses code to XML, and [`rapidxml`](https://github.com/dwd/rapidxml) which parses XML documents.
+The current binary implementation is based on `protobuf` and `flatbuffers`. 
 
-To get it working, we have already included `rapidxml` code in the source, but it has dependencies on the following software:
+If the source code is one of the five programming languages: Java, C, C++, C#,
+Objective C, we use `srcml` to parse code to XML and
+[`rapidxml`](https://github.com/dwd/rapidxml) which parses XML documents.
+In these cases, the binary AST is standalone, which has all the concrete text 
+of the original code.
+
+Otherwise, if the source code is based on ANTLR or other tools such as JDT to
+create AST, we use `gumtree` to parse code into its ITree structure, then
+translates them into the binary form. Note that in these cases, the binary form
+stores primarily the AST that can trace back to concrete syntax of the original
+source code. 
+
+To get it working, it has dependencies on the following software:
 
 * [srcML](http://www.srcml.org/)
 
 * [protobuf](https://github.com/google/protobuf)
 
 * [flatbuffers](https://github.com/google/flatbuffers)
+
+* [gumtreediff](https://github.com/GumTreeDiff/gumtree)
+
+* [smali](https://github.com/JesusFreke/smali)
+
+* [ANTLR3](https://github.com/antlr/antlr3)
 
 If they aren't installed, the following commands will get them installed:
 ### MacOSX using [Homebrew](https://brew.sh/) 
@@ -153,4 +174,10 @@ information, they will be omitted in the XML document.
 ```
 These commands perform forward program slicing on the source code using the srcSlice tool. 
 The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
+
+```
+	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
+	$ fast -d DuplicateVirtualMethods.pb
+```
+These commands convert between Android's smali representation and our protobuf representations.
 
