@@ -492,6 +492,45 @@ void savePBfromTxt(char *input_file, char *output_file) {
 void markupElementBegin(map<int, string> *map, fast::Element *node);
 void markupElementEnd(map<int, string> *map, fast::Element *node);
 
+void expandElement(int level, fast::Element *node) {
+	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
+	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
+	if (node->kind() == 0) { // override the 0 case
+		kind = "unit filename=\"" + node->unit().filename() + "\"";
+	}
+	// cout << endl; for (int j=0; j<level; j++) cout << " ";
+	// cout << "old =" << node->pos() << ":" << node->length();
+	int p = node->pos();
+	int l = node->length();
+	int n = node->child().size();
+	for (int i=0; i< n; i++) {
+		expandElement(level + 1, node->mutable_child(i));
+	}
+	if (n > 0 && level > 0 && p == 0 && l == 1) {
+		int k = 0;
+		while (node->mutable_child(k)->pos() == 0 && k <= n-1) {
+			k++;
+		}
+		if (k < n) {
+			p = node->mutable_child(k)->pos();
+			int j = n - 1;
+			while (node->mutable_child(j)->pos() == 0 && j>=k) {
+				j--;
+			}
+			if (j >= k) {
+				int e = node->mutable_child(j)->pos() + node->mutable_child(j)->length() - 1;
+				l =  e - p + 1;
+				node->set_pos(p);
+				node->set_length(l);
+				for (int i=j; j<n-1; j++) { // the pending elements
+					node->mutable_child(i)->set_pos(e);
+					node->mutable_child(i)->set_length(1);
+				}
+			}
+		}
+	}
+}
+
 void markupElementBegin(map<int, string> *map, fast::Element *node) {
 	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
 	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
@@ -499,7 +538,7 @@ void markupElementBegin(map<int, string> *map, fast::Element *node) {
 		kind = "unit filename=\"" + node->unit().filename() + "\"";
 	}
 	int p = node->pos();
-	if (!(p == 0 && node->length() == 0)) {
+	if (node->pos() > 0 || node->length() > 1) {
 		if (map->find(p) == map->end()) {
 			(*map) [p] = "<" + kind + ">";
 		} else {
@@ -518,12 +557,14 @@ void markupElementEnd(map<int, string> *map, fast::Element *node) {
 		kind = "unit";
 	}
 	int p = node->pos() + node->length() - 1;
-	if (map->find(p) == map->end()) {
-		(*map) [p] = "</" + kind + ">";
-	} else {
-		(*map) [p] = "</" + kind + ">" + (*map) [p];
+	if (node->pos() > 0 || node->length() > 1) {
+		if (map->find(p) == map->end()) {
+			(*map) [p] = "</" + kind + ">";
+		} else {
+			(*map) [p] = "</" + kind + ">" + (*map) [p];
+		}
 	}
-	for (int i=node->child().size()-1; i>=0; i--) {
+	for (int i=0; i< node->child().size(); i++) {
 		markupElementEnd(map, node->mutable_child(i));
 	}
 }
@@ -531,12 +572,14 @@ void markupElementEnd(map<int, string> *map, fast::Element *node) {
 void printMarkups(FILE *file, fast::Element *unit) {
 	map<int, string> map_begin;
 	map<int, string> map_end;
+	expandElement(0, unit);
 	markupElementBegin(&map_begin, unit);
 	markupElementEnd(&map_end, unit);
 
 	unsigned int c;
 	int pos = 0;
 	cout << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	cout << "<unit>";
 	int n_end = map_end.size();
 	while ((c = fgetc(file))!= EOF) {
 		if (map_begin.find(pos) != map_begin.end()) {
@@ -549,7 +592,7 @@ void printMarkups(FILE *file, fast::Element *unit) {
 		} 
 		pos++;
 	}
-	while (n_end >1) {
+	while (n_end > 0) {
 		pos++;
 		if (map_end.find(pos) != map_end.end()) {
 			cout << map_end[pos]; 
@@ -568,6 +611,7 @@ void printMarkups(ofstream *output, FILE *file, fast::Element *unit) {
 	unsigned int c;
 	int pos = 0;
 	*output << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	*output << "<unit>";
 	int n_end = map_end.size();
 	while ((c = fgetc(file))!= EOF) {
 		if (map_begin.find(pos) != map_begin.end()) {
@@ -580,7 +624,7 @@ void printMarkups(ofstream *output, FILE *file, fast::Element *unit) {
 		} 
 		pos++;
 	}
-	while (n_end > 1) {
+	while (n_end > 0) {
 		pos++;
 		if (map_end.find(pos) != map_end.end()) {
 			*output << map_end[pos]; 
