@@ -858,9 +858,10 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 #endif
 
 int loadSrcML(int load_only, int argc, char **argv) {
-	if (load_only && argc != 2 && argc != 3) // we only accept one or two command line arguments
+	if (load_only && argc != 2 && argc != 3 && argc != 4) 
+		// we only accept maximally three command line arguments
 		return 1;
-	if (argc == 3) {
+	if (argc == 3 || argc == 4) {
 		if (!check_exists(argv[1])) return 1;
   		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
 		if (!is_xml && !antlr) {
@@ -882,8 +883,11 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			return remove(xml_filename.c_str());
 		} else if (!is_xml && antlr) {
 			if (strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0) {
-				string cmd = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar Smali";
-				cmd = cmd + " " + argv[1] + " " + argv[2];
+				string cmd = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar:/usr/local/lib/client-2.1.0-SNAPSHOT.jar:/usr/local/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/local/lib/rendersnake-1.9.0.jar:/usr/local/lib/trove4j-3.0.3.jar:/usr/local/lib/simmetrics-core-3.2.3.jar Smali";
+				if (argc == 3)
+					cmd = cmd + " " + argv[1] + " " + argv[2];
+				else if (argc == 4)
+					cmd = cmd + " " + argv[1] + " " + argv[2] + " " + argv[3];
 				system(cmd.c_str());
 			} else {
 				cerr << "Please add the ANTLR3 grammar support for the language " << (strstr(argv[1], ".smali")+1) << endl;

@@ -23,3 +23,47 @@ __COUNTER__
    int32 line = __COUNTER__;
    int32 column = __COUNTER__;
 }
+
+message Delta {
+   string src = 1;
+   string dst = 2;
+   repeated Diff diff = 3;
+   message Diff {
+	enum DeltaType {
+	    MATCH = 0;
+	    ADD = 1;
+	    DEL = 2;
+	    MOVE = 3;
+	    UPDATE = 4;
+        }
+	DeltaType type = 1;
+   	oneof delta {
+		Match match = 2;
+		Add add = 3;
+		Del del = 4;
+		Move move = 5;
+		Update update = 6;
+	}
+	message Match {
+		int32 src = 1;
+		int32 dst = 2;
+	}
+	message Add {
+		int32 src = 1;
+		int32 dst = 2;
+		int32 position = 3;
+	}
+	message Del {
+		int32 src = 1;
+	}
+	message Move {
+		int32 src = 1;
+		int32 dst = 2;
+		int32 position = 3;
+	}
+	message Update {
+		int32 src = 1;
+		string label = 2;
+	}
+   }
+}

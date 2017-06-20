@@ -1,3 +1,14 @@
+// import com.github.gumtreediff.client.diff.PBDiff;
+// import com.github.gumtreediff.client.Run;
+
+import com.github.gumtreediff.actions.ActionGenerator;
+import com.github.gumtreediff.actions.model.Action;
+import com.github.gumtreediff.io.ActionsIoPB;
+import com.github.gumtreediff.matchers.Matcher;
+import com.github.gumtreediff.matchers.Matchers;
+import com.github.gumtreediff.matchers.MappingStore;
+import com.github.gumtreediff.io.TreeIoUtils.AbstractSerializer;
+
 import com.github.gumtreediff.gen.Generators;
 import com.github.gumtreediff.gen.Registry;
 import com.github.gumtreediff.gen.TreeGenerator;
@@ -84,30 +95,57 @@ public class Smali {
 	return t;
     }
 
-    public static void main(String args[]) throws IOException {
+    /**
+     * Two file arguments expected:
+     *    Smali file1.smali file2.smali file3.pb
+     *  - Output the differences between file1 and file2 into protobuf form
+     *    Smali file1.smali file2.pb
+     *  - Output the smali file1 into protobuf file2
+     */
+    public static void main(String args[]) throws Exception {
 
-        TreeContext src = Generators.getInstance().getTree(args[0]); // System.out.println(src);
-	ITree t = src.getRoot();
+	if (args.length == 2 && args[1].endsWith(".pb")) {
+		TreeContext src = Generators.getInstance().getTree(args[0]); // System.out.println(src);
+		ITree t = src.getRoot();
 
-	fast.Fast.Element.Builder root_element = fast.Fast.Element.newBuilder();
+		fast.Fast.Element.Builder root_element = fast.Fast.Element.newBuilder();
 
-	fast.Fast.Element.Unit.Builder unit = root_element.getUnitBuilder();
-	unit.setFilename(args[0]);
+		fast.Fast.Element.Unit.Builder unit = root_element.getUnitBuilder();
+		unit.setFilename(args[0]);
 
-	fast.Fast.Element.Builder element = fast.Fast.Element.newBuilder();
-	savePBfromITree(element, src.getRoot());
-	root_element.addChild(element);
+		fast.Fast.Element.Builder element = fast.Fast.Element.newBuilder();
+		savePBfromITree(element, src.getRoot());
+		root_element.addChild(element);
 
-	FileOutputStream output = new FileOutputStream(args[1]);
-	root_element.build().writeTo(output);
-	output.close();
+		FileOutputStream output = new FileOutputStream(args[1]);
+		root_element.build().writeTo(output);
+		output.close();
+	}
+	if (args.length == 3 && args[1].endsWith(".smali")) {
+		TreeContext src = Generators.getInstance().getTree(args[0]); // System.out.println(src);
+		TreeContext dst = Generators.getInstance().getTree(args[1]); // System.out.println(dst);
 
-	FileInputStream input = new FileInputStream(args[1]);
-	fast.Fast.Element e = fast.Fast.Element.parseFrom(input);
-	input.close();
-	t = saveITreeFromPB(e, src);
-	src.setRoot(t);
-	System.out.println(src);
+		System.out.println(Matchers.getInstance().getClass().getName());
+		// Matcher matcher = Matchers.getInstance().getMatcher("xy", src.getRoot(), dst.getRoot());
+		// Matcher matcher = Matchers.getInstance().getMatcher("change-distiller", src.getRoot(), dst.getRoot());
+		Matcher matcher = Matchers.getInstance().getMatcher("gumtree", src.getRoot(), dst.getRoot());
+
+		matcher.match();
+		ActionGenerator g = new ActionGenerator(src.getRoot(), dst.getRoot(), matcher.getMappings());
+	        g.generate();
+	        List<Action> actions = g.getActions();
+		try {
+		    fast.Fast.Delta.Builder delta = fast.Fast.Delta.newBuilder();
+		    delta.setSrc(args[0]);
+		    delta.setDst(args[1]);
+		    ActionsIoPB.toPB(src, actions, matcher.getMappings(), delta).writeTo(args[2]);
+		    FileOutputStream output = new FileOutputStream(args[2]);
+		    delta.build().writeTo(output);
+		    output.close();
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
+	}
     }
 
 }

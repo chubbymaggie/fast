@@ -32,6 +32,27 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 namespace fast {
+class Delta;
+class DeltaDefaultTypeInternal;
+extern DeltaDefaultTypeInternal _Delta_default_instance_;
+class Delta_Diff;
+class Delta_DiffDefaultTypeInternal;
+extern Delta_DiffDefaultTypeInternal _Delta_Diff_default_instance_;
+class Delta_Diff_Add;
+class Delta_Diff_AddDefaultTypeInternal;
+extern Delta_Diff_AddDefaultTypeInternal _Delta_Diff_Add_default_instance_;
+class Delta_Diff_Del;
+class Delta_Diff_DelDefaultTypeInternal;
+extern Delta_Diff_DelDefaultTypeInternal _Delta_Diff_Del_default_instance_;
+class Delta_Diff_Match;
+class Delta_Diff_MatchDefaultTypeInternal;
+extern Delta_Diff_MatchDefaultTypeInternal _Delta_Diff_Match_default_instance_;
+class Delta_Diff_Move;
+class Delta_Diff_MoveDefaultTypeInternal;
+extern Delta_Diff_MoveDefaultTypeInternal _Delta_Diff_Move_default_instance_;
+class Delta_Diff_Update;
+class Delta_Diff_UpdateDefaultTypeInternal;
+extern Delta_Diff_UpdateDefaultTypeInternal _Delta_Diff_Update_default_instance_;
 class Element;
 class ElementDefaultTypeInternal;
 extern ElementDefaultTypeInternal _Element_default_instance_;
@@ -734,6 +755,30 @@ inline bool Element_SmaliKind_Parse(
     const ::std::string& name, Element_SmaliKind* value) {
   return ::google::protobuf::internal::ParseNamedEnum<Element_SmaliKind>(
     Element_SmaliKind_descriptor(), name, value);
+}
+enum Delta_Diff_DeltaType {
+  Delta_Diff_DeltaType_MATCH = 0,
+  Delta_Diff_DeltaType_ADD = 1,
+  Delta_Diff_DeltaType_DEL = 2,
+  Delta_Diff_DeltaType_MOVE = 3,
+  Delta_Diff_DeltaType_UPDATE = 4,
+  Delta_Diff_DeltaType_Delta_Diff_DeltaType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  Delta_Diff_DeltaType_Delta_Diff_DeltaType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool Delta_Diff_DeltaType_IsValid(int value);
+const Delta_Diff_DeltaType Delta_Diff_DeltaType_DeltaType_MIN = Delta_Diff_DeltaType_MATCH;
+const Delta_Diff_DeltaType Delta_Diff_DeltaType_DeltaType_MAX = Delta_Diff_DeltaType_UPDATE;
+const int Delta_Diff_DeltaType_DeltaType_ARRAYSIZE = Delta_Diff_DeltaType_DeltaType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Delta_Diff_DeltaType_descriptor();
+inline const ::std::string& Delta_Diff_DeltaType_Name(Delta_Diff_DeltaType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Delta_Diff_DeltaType_descriptor(), value);
+}
+inline bool Delta_Diff_DeltaType_Parse(
+    const ::std::string& name, Delta_Diff_DeltaType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Delta_Diff_DeltaType>(
+    Delta_Diff_DeltaType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -2412,6 +2457,766 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   friend struct protobuf_fast_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class Delta_Diff_Match : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta.Diff.Match) */ {
+ public:
+  Delta_Diff_Match();
+  virtual ~Delta_Diff_Match();
+
+  Delta_Diff_Match(const Delta_Diff_Match& from);
+
+  inline Delta_Diff_Match& operator=(const Delta_Diff_Match& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta_Diff_Match& default_instance();
+
+  static inline const Delta_Diff_Match* internal_default_instance() {
+    return reinterpret_cast<const Delta_Diff_Match*>(
+               &_Delta_Diff_Match_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    3;
+
+  void Swap(Delta_Diff_Match* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta_Diff_Match* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta_Diff_Match* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta_Diff_Match& from);
+  void MergeFrom(const Delta_Diff_Match& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta_Diff_Match* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 src = 1;
+  void clear_src();
+  static const int kSrcFieldNumber = 1;
+  ::google::protobuf::int32 src() const;
+  void set_src(::google::protobuf::int32 value);
+
+  // int32 dst = 2;
+  void clear_dst();
+  static const int kDstFieldNumber = 2;
+  ::google::protobuf::int32 dst() const;
+  void set_dst(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Match)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 src_;
+  ::google::protobuf::int32 dst_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Delta_Diff_Add : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta.Diff.Add) */ {
+ public:
+  Delta_Diff_Add();
+  virtual ~Delta_Diff_Add();
+
+  Delta_Diff_Add(const Delta_Diff_Add& from);
+
+  inline Delta_Diff_Add& operator=(const Delta_Diff_Add& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta_Diff_Add& default_instance();
+
+  static inline const Delta_Diff_Add* internal_default_instance() {
+    return reinterpret_cast<const Delta_Diff_Add*>(
+               &_Delta_Diff_Add_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    4;
+
+  void Swap(Delta_Diff_Add* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta_Diff_Add* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta_Diff_Add* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta_Diff_Add& from);
+  void MergeFrom(const Delta_Diff_Add& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta_Diff_Add* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 src = 1;
+  void clear_src();
+  static const int kSrcFieldNumber = 1;
+  ::google::protobuf::int32 src() const;
+  void set_src(::google::protobuf::int32 value);
+
+  // int32 dst = 2;
+  void clear_dst();
+  static const int kDstFieldNumber = 2;
+  ::google::protobuf::int32 dst() const;
+  void set_dst(::google::protobuf::int32 value);
+
+  // int32 position = 3;
+  void clear_position();
+  static const int kPositionFieldNumber = 3;
+  ::google::protobuf::int32 position() const;
+  void set_position(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Add)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 src_;
+  ::google::protobuf::int32 dst_;
+  ::google::protobuf::int32 position_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Delta_Diff_Del : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta.Diff.Del) */ {
+ public:
+  Delta_Diff_Del();
+  virtual ~Delta_Diff_Del();
+
+  Delta_Diff_Del(const Delta_Diff_Del& from);
+
+  inline Delta_Diff_Del& operator=(const Delta_Diff_Del& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta_Diff_Del& default_instance();
+
+  static inline const Delta_Diff_Del* internal_default_instance() {
+    return reinterpret_cast<const Delta_Diff_Del*>(
+               &_Delta_Diff_Del_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    5;
+
+  void Swap(Delta_Diff_Del* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta_Diff_Del* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta_Diff_Del* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta_Diff_Del& from);
+  void MergeFrom(const Delta_Diff_Del& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta_Diff_Del* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 src = 1;
+  void clear_src();
+  static const int kSrcFieldNumber = 1;
+  ::google::protobuf::int32 src() const;
+  void set_src(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Del)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 src_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Delta_Diff_Move : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta.Diff.Move) */ {
+ public:
+  Delta_Diff_Move();
+  virtual ~Delta_Diff_Move();
+
+  Delta_Diff_Move(const Delta_Diff_Move& from);
+
+  inline Delta_Diff_Move& operator=(const Delta_Diff_Move& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta_Diff_Move& default_instance();
+
+  static inline const Delta_Diff_Move* internal_default_instance() {
+    return reinterpret_cast<const Delta_Diff_Move*>(
+               &_Delta_Diff_Move_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    6;
+
+  void Swap(Delta_Diff_Move* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta_Diff_Move* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta_Diff_Move* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta_Diff_Move& from);
+  void MergeFrom(const Delta_Diff_Move& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta_Diff_Move* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 src = 1;
+  void clear_src();
+  static const int kSrcFieldNumber = 1;
+  ::google::protobuf::int32 src() const;
+  void set_src(::google::protobuf::int32 value);
+
+  // int32 dst = 2;
+  void clear_dst();
+  static const int kDstFieldNumber = 2;
+  ::google::protobuf::int32 dst() const;
+  void set_dst(::google::protobuf::int32 value);
+
+  // int32 position = 3;
+  void clear_position();
+  static const int kPositionFieldNumber = 3;
+  ::google::protobuf::int32 position() const;
+  void set_position(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Move)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 src_;
+  ::google::protobuf::int32 dst_;
+  ::google::protobuf::int32 position_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Delta_Diff_Update : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta.Diff.Update) */ {
+ public:
+  Delta_Diff_Update();
+  virtual ~Delta_Diff_Update();
+
+  Delta_Diff_Update(const Delta_Diff_Update& from);
+
+  inline Delta_Diff_Update& operator=(const Delta_Diff_Update& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta_Diff_Update& default_instance();
+
+  static inline const Delta_Diff_Update* internal_default_instance() {
+    return reinterpret_cast<const Delta_Diff_Update*>(
+               &_Delta_Diff_Update_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    7;
+
+  void Swap(Delta_Diff_Update* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta_Diff_Update* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta_Diff_Update* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta_Diff_Update& from);
+  void MergeFrom(const Delta_Diff_Update& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta_Diff_Update* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string label = 2;
+  void clear_label();
+  static const int kLabelFieldNumber = 2;
+  const ::std::string& label() const;
+  void set_label(const ::std::string& value);
+  #if LANG_CXX11
+  void set_label(::std::string&& value);
+  #endif
+  void set_label(const char* value);
+  void set_label(const char* value, size_t size);
+  ::std::string* mutable_label();
+  ::std::string* release_label();
+  void set_allocated_label(::std::string* label);
+
+  // int32 src = 1;
+  void clear_src();
+  static const int kSrcFieldNumber = 1;
+  ::google::protobuf::int32 src() const;
+  void set_src(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Update)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr label_;
+  ::google::protobuf::int32 src_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Delta_Diff : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta.Diff) */ {
+ public:
+  Delta_Diff();
+  virtual ~Delta_Diff();
+
+  Delta_Diff(const Delta_Diff& from);
+
+  inline Delta_Diff& operator=(const Delta_Diff& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta_Diff& default_instance();
+
+  enum DeltaCase {
+    kMatch = 2,
+    kAdd = 3,
+    kDel = 4,
+    kMove = 5,
+    kUpdate = 6,
+    DELTA_NOT_SET = 0,
+  };
+
+  static inline const Delta_Diff* internal_default_instance() {
+    return reinterpret_cast<const Delta_Diff*>(
+               &_Delta_Diff_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    8;
+
+  void Swap(Delta_Diff* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta_Diff* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta_Diff* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta_Diff& from);
+  void MergeFrom(const Delta_Diff& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta_Diff* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Delta_Diff_Match Match;
+  typedef Delta_Diff_Add Add;
+  typedef Delta_Diff_Del Del;
+  typedef Delta_Diff_Move Move;
+  typedef Delta_Diff_Update Update;
+
+  typedef Delta_Diff_DeltaType DeltaType;
+  static const DeltaType MATCH =
+    Delta_Diff_DeltaType_MATCH;
+  static const DeltaType ADD =
+    Delta_Diff_DeltaType_ADD;
+  static const DeltaType DEL =
+    Delta_Diff_DeltaType_DEL;
+  static const DeltaType MOVE =
+    Delta_Diff_DeltaType_MOVE;
+  static const DeltaType UPDATE =
+    Delta_Diff_DeltaType_UPDATE;
+  static inline bool DeltaType_IsValid(int value) {
+    return Delta_Diff_DeltaType_IsValid(value);
+  }
+  static const DeltaType DeltaType_MIN =
+    Delta_Diff_DeltaType_DeltaType_MIN;
+  static const DeltaType DeltaType_MAX =
+    Delta_Diff_DeltaType_DeltaType_MAX;
+  static const int DeltaType_ARRAYSIZE =
+    Delta_Diff_DeltaType_DeltaType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  DeltaType_descriptor() {
+    return Delta_Diff_DeltaType_descriptor();
+  }
+  static inline const ::std::string& DeltaType_Name(DeltaType value) {
+    return Delta_Diff_DeltaType_Name(value);
+  }
+  static inline bool DeltaType_Parse(const ::std::string& name,
+      DeltaType* value) {
+    return Delta_Diff_DeltaType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // .fast.Delta.Diff.DeltaType type = 1;
+  void clear_type();
+  static const int kTypeFieldNumber = 1;
+  ::fast::Delta_Diff_DeltaType type() const;
+  void set_type(::fast::Delta_Diff_DeltaType value);
+
+  // .fast.Delta.Diff.Match match = 2;
+  bool has_match() const;
+  void clear_match();
+  static const int kMatchFieldNumber = 2;
+  const ::fast::Delta_Diff_Match& match() const;
+  ::fast::Delta_Diff_Match* mutable_match();
+  ::fast::Delta_Diff_Match* release_match();
+  void set_allocated_match(::fast::Delta_Diff_Match* match);
+
+  // .fast.Delta.Diff.Add add = 3;
+  bool has_add() const;
+  void clear_add();
+  static const int kAddFieldNumber = 3;
+  const ::fast::Delta_Diff_Add& add() const;
+  ::fast::Delta_Diff_Add* mutable_add();
+  ::fast::Delta_Diff_Add* release_add();
+  void set_allocated_add(::fast::Delta_Diff_Add* add);
+
+  // .fast.Delta.Diff.Del del = 4;
+  bool has_del() const;
+  void clear_del();
+  static const int kDelFieldNumber = 4;
+  const ::fast::Delta_Diff_Del& del() const;
+  ::fast::Delta_Diff_Del* mutable_del();
+  ::fast::Delta_Diff_Del* release_del();
+  void set_allocated_del(::fast::Delta_Diff_Del* del);
+
+  // .fast.Delta.Diff.Move move = 5;
+  bool has_move() const;
+  void clear_move();
+  static const int kMoveFieldNumber = 5;
+  const ::fast::Delta_Diff_Move& move() const;
+  ::fast::Delta_Diff_Move* mutable_move();
+  ::fast::Delta_Diff_Move* release_move();
+  void set_allocated_move(::fast::Delta_Diff_Move* move);
+
+  // .fast.Delta.Diff.Update update = 6;
+  bool has_update() const;
+  void clear_update();
+  static const int kUpdateFieldNumber = 6;
+  const ::fast::Delta_Diff_Update& update() const;
+  ::fast::Delta_Diff_Update* mutable_update();
+  ::fast::Delta_Diff_Update* release_update();
+  void set_allocated_update(::fast::Delta_Diff_Update* update);
+
+  DeltaCase delta_case() const;
+  // @@protoc_insertion_point(class_scope:fast.Delta.Diff)
+ private:
+  void set_has_match();
+  void set_has_add();
+  void set_has_del();
+  void set_has_move();
+  void set_has_update();
+
+  inline bool has_delta() const;
+  void clear_delta();
+  inline void clear_has_delta();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  int type_;
+  union DeltaUnion {
+    DeltaUnion() {}
+    ::fast::Delta_Diff_Match* match_;
+    ::fast::Delta_Diff_Add* add_;
+    ::fast::Delta_Diff_Del* del_;
+    ::fast::Delta_Diff_Move* move_;
+    ::fast::Delta_Diff_Update* update_;
+  } delta_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Delta : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Delta) */ {
+ public:
+  Delta();
+  virtual ~Delta();
+
+  Delta(const Delta& from);
+
+  inline Delta& operator=(const Delta& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Delta& default_instance();
+
+  static inline const Delta* internal_default_instance() {
+    return reinterpret_cast<const Delta*>(
+               &_Delta_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    9;
+
+  void Swap(Delta* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Delta* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Delta* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Delta& from);
+  void MergeFrom(const Delta& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Delta* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Delta_Diff Diff;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Delta.Diff diff = 3;
+  int diff_size() const;
+  void clear_diff();
+  static const int kDiffFieldNumber = 3;
+  const ::fast::Delta_Diff& diff(int index) const;
+  ::fast::Delta_Diff* mutable_diff(int index);
+  ::fast::Delta_Diff* add_diff();
+  ::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff >*
+      mutable_diff();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff >&
+      diff() const;
+
+  // string src = 1;
+  void clear_src();
+  static const int kSrcFieldNumber = 1;
+  const ::std::string& src() const;
+  void set_src(const ::std::string& value);
+  #if LANG_CXX11
+  void set_src(::std::string&& value);
+  #endif
+  void set_src(const char* value);
+  void set_src(const char* value, size_t size);
+  ::std::string* mutable_src();
+  ::std::string* release_src();
+  void set_allocated_src(::std::string* src);
+
+  // string dst = 2;
+  void clear_dst();
+  static const int kDstFieldNumber = 2;
+  const ::std::string& dst() const;
+  void set_dst(const ::std::string& value);
+  #if LANG_CXX11
+  void set_dst(::std::string&& value);
+  #endif
+  void set_dst(const char* value);
+  void set_dst(const char* value, size_t size);
+  ::std::string* mutable_dst();
+  ::std::string* release_dst();
+  void set_allocated_dst(::std::string* dst);
+
+  // @@protoc_insertion_point(class_scope:fast.Delta)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff > diff_;
+  ::google::protobuf::internal::ArenaStringPtr src_;
+  ::google::protobuf::internal::ArenaStringPtr dst_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -2887,7 +3692,641 @@ inline void Element::clear_has_extra() {
 inline Element::ExtraCase Element::extra_case() const {
   return Element::ExtraCase(_oneof_case_[0]);
 }
+// -------------------------------------------------------------------
+
+// Delta_Diff_Match
+
+// int32 src = 1;
+inline void Delta_Diff_Match::clear_src() {
+  src_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Match::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Match.src)
+  return src_;
+}
+inline void Delta_Diff_Match::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Match.src)
+}
+
+// int32 dst = 2;
+inline void Delta_Diff_Match::clear_dst() {
+  dst_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Match::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Match.dst)
+  return dst_;
+}
+inline void Delta_Diff_Match::set_dst(::google::protobuf::int32 value) {
+  
+  dst_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Match.dst)
+}
+
+// -------------------------------------------------------------------
+
+// Delta_Diff_Add
+
+// int32 src = 1;
+inline void Delta_Diff_Add::clear_src() {
+  src_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Add::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Add.src)
+  return src_;
+}
+inline void Delta_Diff_Add::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Add.src)
+}
+
+// int32 dst = 2;
+inline void Delta_Diff_Add::clear_dst() {
+  dst_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Add::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Add.dst)
+  return dst_;
+}
+inline void Delta_Diff_Add::set_dst(::google::protobuf::int32 value) {
+  
+  dst_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Add.dst)
+}
+
+// int32 position = 3;
+inline void Delta_Diff_Add::clear_position() {
+  position_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Add::position() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Add.position)
+  return position_;
+}
+inline void Delta_Diff_Add::set_position(::google::protobuf::int32 value) {
+  
+  position_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Add.position)
+}
+
+// -------------------------------------------------------------------
+
+// Delta_Diff_Del
+
+// int32 src = 1;
+inline void Delta_Diff_Del::clear_src() {
+  src_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Del::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Del.src)
+  return src_;
+}
+inline void Delta_Diff_Del::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Del.src)
+}
+
+// -------------------------------------------------------------------
+
+// Delta_Diff_Move
+
+// int32 src = 1;
+inline void Delta_Diff_Move::clear_src() {
+  src_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Move::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Move.src)
+  return src_;
+}
+inline void Delta_Diff_Move::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Move.src)
+}
+
+// int32 dst = 2;
+inline void Delta_Diff_Move::clear_dst() {
+  dst_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Move::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Move.dst)
+  return dst_;
+}
+inline void Delta_Diff_Move::set_dst(::google::protobuf::int32 value) {
+  
+  dst_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Move.dst)
+}
+
+// int32 position = 3;
+inline void Delta_Diff_Move::clear_position() {
+  position_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Move::position() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Move.position)
+  return position_;
+}
+inline void Delta_Diff_Move::set_position(::google::protobuf::int32 value) {
+  
+  position_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Move.position)
+}
+
+// -------------------------------------------------------------------
+
+// Delta_Diff_Update
+
+// int32 src = 1;
+inline void Delta_Diff_Update::clear_src() {
+  src_ = 0;
+}
+inline ::google::protobuf::int32 Delta_Diff_Update::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Update.src)
+  return src_;
+}
+inline void Delta_Diff_Update::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Update.src)
+}
+
+// string label = 2;
+inline void Delta_Diff_Update::clear_label() {
+  label_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Delta_Diff_Update::label() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Update.label)
+  return label_.GetNoArena();
+}
+inline void Delta_Diff_Update::set_label(const ::std::string& value) {
+  
+  label_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Update.label)
+}
+#if LANG_CXX11
+inline void Delta_Diff_Update::set_label(::std::string&& value) {
+  
+  label_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Delta.Diff.Update.label)
+}
+#endif
+inline void Delta_Diff_Update::set_label(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  label_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Delta.Diff.Update.label)
+}
+inline void Delta_Diff_Update::set_label(const char* value, size_t size) {
+  
+  label_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Delta.Diff.Update.label)
+}
+inline ::std::string* Delta_Diff_Update::mutable_label() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.Update.label)
+  return label_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Delta_Diff_Update::release_label() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.Update.label)
+  
+  return label_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Delta_Diff_Update::set_allocated_label(::std::string* label) {
+  if (label != NULL) {
+    
+  } else {
+    
+  }
+  label_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), label);
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.Update.label)
+}
+
+// -------------------------------------------------------------------
+
+// Delta_Diff
+
+// .fast.Delta.Diff.DeltaType type = 1;
+inline void Delta_Diff::clear_type() {
+  type_ = 0;
+}
+inline ::fast::Delta_Diff_DeltaType Delta_Diff::type() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.type)
+  return static_cast< ::fast::Delta_Diff_DeltaType >(type_);
+}
+inline void Delta_Diff::set_type(::fast::Delta_Diff_DeltaType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.type)
+}
+
+// .fast.Delta.Diff.Match match = 2;
+inline bool Delta_Diff::has_match() const {
+  return delta_case() == kMatch;
+}
+inline void Delta_Diff::set_has_match() {
+  _oneof_case_[0] = kMatch;
+}
+inline void Delta_Diff::clear_match() {
+  if (has_match()) {
+    delete delta_.match_;
+    clear_has_delta();
+  }
+}
+inline  const ::fast::Delta_Diff_Match& Delta_Diff::match() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.match)
+  return has_match()
+      ? *delta_.match_
+      : ::fast::Delta_Diff_Match::default_instance();
+}
+inline ::fast::Delta_Diff_Match* Delta_Diff::mutable_match() {
+  if (!has_match()) {
+    clear_delta();
+    set_has_match();
+    delta_.match_ = new ::fast::Delta_Diff_Match;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.match)
+  return delta_.match_;
+}
+inline ::fast::Delta_Diff_Match* Delta_Diff::release_match() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.match)
+  if (has_match()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Match* temp = delta_.match_;
+    delta_.match_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Delta_Diff::set_allocated_match(::fast::Delta_Diff_Match* match) {
+  clear_delta();
+  if (match) {
+    set_has_match();
+    delta_.match_ = match;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.match)
+}
+
+// .fast.Delta.Diff.Add add = 3;
+inline bool Delta_Diff::has_add() const {
+  return delta_case() == kAdd;
+}
+inline void Delta_Diff::set_has_add() {
+  _oneof_case_[0] = kAdd;
+}
+inline void Delta_Diff::clear_add() {
+  if (has_add()) {
+    delete delta_.add_;
+    clear_has_delta();
+  }
+}
+inline  const ::fast::Delta_Diff_Add& Delta_Diff::add() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.add)
+  return has_add()
+      ? *delta_.add_
+      : ::fast::Delta_Diff_Add::default_instance();
+}
+inline ::fast::Delta_Diff_Add* Delta_Diff::mutable_add() {
+  if (!has_add()) {
+    clear_delta();
+    set_has_add();
+    delta_.add_ = new ::fast::Delta_Diff_Add;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.add)
+  return delta_.add_;
+}
+inline ::fast::Delta_Diff_Add* Delta_Diff::release_add() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.add)
+  if (has_add()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Add* temp = delta_.add_;
+    delta_.add_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Delta_Diff::set_allocated_add(::fast::Delta_Diff_Add* add) {
+  clear_delta();
+  if (add) {
+    set_has_add();
+    delta_.add_ = add;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.add)
+}
+
+// .fast.Delta.Diff.Del del = 4;
+inline bool Delta_Diff::has_del() const {
+  return delta_case() == kDel;
+}
+inline void Delta_Diff::set_has_del() {
+  _oneof_case_[0] = kDel;
+}
+inline void Delta_Diff::clear_del() {
+  if (has_del()) {
+    delete delta_.del_;
+    clear_has_delta();
+  }
+}
+inline  const ::fast::Delta_Diff_Del& Delta_Diff::del() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.del)
+  return has_del()
+      ? *delta_.del_
+      : ::fast::Delta_Diff_Del::default_instance();
+}
+inline ::fast::Delta_Diff_Del* Delta_Diff::mutable_del() {
+  if (!has_del()) {
+    clear_delta();
+    set_has_del();
+    delta_.del_ = new ::fast::Delta_Diff_Del;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.del)
+  return delta_.del_;
+}
+inline ::fast::Delta_Diff_Del* Delta_Diff::release_del() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.del)
+  if (has_del()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Del* temp = delta_.del_;
+    delta_.del_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Delta_Diff::set_allocated_del(::fast::Delta_Diff_Del* del) {
+  clear_delta();
+  if (del) {
+    set_has_del();
+    delta_.del_ = del;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.del)
+}
+
+// .fast.Delta.Diff.Move move = 5;
+inline bool Delta_Diff::has_move() const {
+  return delta_case() == kMove;
+}
+inline void Delta_Diff::set_has_move() {
+  _oneof_case_[0] = kMove;
+}
+inline void Delta_Diff::clear_move() {
+  if (has_move()) {
+    delete delta_.move_;
+    clear_has_delta();
+  }
+}
+inline  const ::fast::Delta_Diff_Move& Delta_Diff::move() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.move)
+  return has_move()
+      ? *delta_.move_
+      : ::fast::Delta_Diff_Move::default_instance();
+}
+inline ::fast::Delta_Diff_Move* Delta_Diff::mutable_move() {
+  if (!has_move()) {
+    clear_delta();
+    set_has_move();
+    delta_.move_ = new ::fast::Delta_Diff_Move;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.move)
+  return delta_.move_;
+}
+inline ::fast::Delta_Diff_Move* Delta_Diff::release_move() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.move)
+  if (has_move()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Move* temp = delta_.move_;
+    delta_.move_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Delta_Diff::set_allocated_move(::fast::Delta_Diff_Move* move) {
+  clear_delta();
+  if (move) {
+    set_has_move();
+    delta_.move_ = move;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.move)
+}
+
+// .fast.Delta.Diff.Update update = 6;
+inline bool Delta_Diff::has_update() const {
+  return delta_case() == kUpdate;
+}
+inline void Delta_Diff::set_has_update() {
+  _oneof_case_[0] = kUpdate;
+}
+inline void Delta_Diff::clear_update() {
+  if (has_update()) {
+    delete delta_.update_;
+    clear_has_delta();
+  }
+}
+inline  const ::fast::Delta_Diff_Update& Delta_Diff::update() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.update)
+  return has_update()
+      ? *delta_.update_
+      : ::fast::Delta_Diff_Update::default_instance();
+}
+inline ::fast::Delta_Diff_Update* Delta_Diff::mutable_update() {
+  if (!has_update()) {
+    clear_delta();
+    set_has_update();
+    delta_.update_ = new ::fast::Delta_Diff_Update;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.update)
+  return delta_.update_;
+}
+inline ::fast::Delta_Diff_Update* Delta_Diff::release_update() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.update)
+  if (has_update()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Update* temp = delta_.update_;
+    delta_.update_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Delta_Diff::set_allocated_update(::fast::Delta_Diff_Update* update) {
+  clear_delta();
+  if (update) {
+    set_has_update();
+    delta_.update_ = update;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.update)
+}
+
+inline bool Delta_Diff::has_delta() const {
+  return delta_case() != DELTA_NOT_SET;
+}
+inline void Delta_Diff::clear_has_delta() {
+  _oneof_case_[0] = DELTA_NOT_SET;
+}
+inline Delta_Diff::DeltaCase Delta_Diff::delta_case() const {
+  return Delta_Diff::DeltaCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// Delta
+
+// string src = 1;
+inline void Delta::clear_src() {
+  src_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Delta::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.src)
+  return src_.GetNoArena();
+}
+inline void Delta::set_src(const ::std::string& value) {
+  
+  src_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Delta.src)
+}
+#if LANG_CXX11
+inline void Delta::set_src(::std::string&& value) {
+  
+  src_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Delta.src)
+}
+#endif
+inline void Delta::set_src(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  src_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Delta.src)
+}
+inline void Delta::set_src(const char* value, size_t size) {
+  
+  src_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Delta.src)
+}
+inline ::std::string* Delta::mutable_src() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Delta.src)
+  return src_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Delta::release_src() {
+  // @@protoc_insertion_point(field_release:fast.Delta.src)
+  
+  return src_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Delta::set_allocated_src(::std::string* src) {
+  if (src != NULL) {
+    
+  } else {
+    
+  }
+  src_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), src);
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.src)
+}
+
+// string dst = 2;
+inline void Delta::clear_dst() {
+  dst_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Delta::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.dst)
+  return dst_.GetNoArena();
+}
+inline void Delta::set_dst(const ::std::string& value) {
+  
+  dst_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Delta.dst)
+}
+#if LANG_CXX11
+inline void Delta::set_dst(::std::string&& value) {
+  
+  dst_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Delta.dst)
+}
+#endif
+inline void Delta::set_dst(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  dst_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Delta.dst)
+}
+inline void Delta::set_dst(const char* value, size_t size) {
+  
+  dst_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Delta.dst)
+}
+inline ::std::string* Delta::mutable_dst() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Delta.dst)
+  return dst_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Delta::release_dst() {
+  // @@protoc_insertion_point(field_release:fast.Delta.dst)
+  
+  return dst_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Delta::set_allocated_dst(::std::string* dst) {
+  if (dst != NULL) {
+    
+  } else {
+    
+  }
+  dst_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dst);
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.dst)
+}
+
+// repeated .fast.Delta.Diff diff = 3;
+inline int Delta::diff_size() const {
+  return diff_.size();
+}
+inline void Delta::clear_diff() {
+  diff_.Clear();
+}
+inline const ::fast::Delta_Diff& Delta::diff(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Delta.diff)
+  return diff_.Get(index);
+}
+inline ::fast::Delta_Diff* Delta::mutable_diff(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Delta.diff)
+  return diff_.Mutable(index);
+}
+inline ::fast::Delta_Diff* Delta::add_diff() {
+  // @@protoc_insertion_point(field_add:fast.Delta.diff)
+  return diff_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff >*
+Delta::mutable_diff() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Delta.diff)
+  return &diff_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff >&
+Delta::diff() const {
+  // @@protoc_insertion_point(field_list:fast.Delta.diff)
+  return diff_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -2921,6 +4360,11 @@ template <> struct is_proto_enum< ::fast::Element_SmaliKind> : ::google::protobu
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fast::Element_SmaliKind>() {
   return ::fast::Element_SmaliKind_descriptor();
+}
+template <> struct is_proto_enum< ::fast::Delta_Diff_DeltaType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::fast::Delta_Diff_DeltaType>() {
+  return ::fast::Delta_Diff_DeltaType_descriptor();
 }
 
 }  // namespace protobuf

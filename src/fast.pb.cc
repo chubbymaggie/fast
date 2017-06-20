@@ -27,14 +27,34 @@ class ElementDefaultTypeInternal : public ::google::protobuf::internal::Explicit
   const ::fast::Element_Unit* unit_;
   const ::fast::Element_Literal* literal_;
 } _Element_default_instance_;
+class Delta_Diff_MatchDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta_Diff_Match> {
+} _Delta_Diff_Match_default_instance_;
+class Delta_Diff_AddDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta_Diff_Add> {
+} _Delta_Diff_Add_default_instance_;
+class Delta_Diff_DelDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta_Diff_Del> {
+} _Delta_Diff_Del_default_instance_;
+class Delta_Diff_MoveDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta_Diff_Move> {
+} _Delta_Diff_Move_default_instance_;
+class Delta_Diff_UpdateDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta_Diff_Update> {
+} _Delta_Diff_Update_default_instance_;
+class Delta_DiffDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta_Diff> {
+  public:
+  const ::fast::Delta_Diff_Match* match_;
+  const ::fast::Delta_Diff_Add* add_;
+  const ::fast::Delta_Diff_Del* del_;
+  const ::fast::Delta_Diff_Move* move_;
+  const ::fast::Delta_Diff_Update* update_;
+} _Delta_Diff_default_instance_;
+class DeltaDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Delta> {
+} _Delta_default_instance_;
 
 namespace protobuf_fast_2eproto {
 
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[3];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[4];
+::google::protobuf::Metadata file_level_metadata[10];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[5];
 
 }  // namespace
 
@@ -49,6 +69,13 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -86,18 +113,88 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, line_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, column_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, extra_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Match, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Match, src_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Match, dst_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Add, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Add, src_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Add, dst_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Add, position_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Del, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Del, src_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Move, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Move, src_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Move, dst_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Move, position_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Update, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Update, src_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff_Update, label_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff, _internal_metadata_),
+  ~0u,  // no _extensions_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff, _oneof_case_[0]),
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff, type_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Delta_Diff_default_instance_), match_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Delta_Diff_default_instance_), add_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Delta_Diff_default_instance_), del_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Delta_Diff_default_instance_), move_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Delta_Diff_default_instance_), update_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta_Diff, delta_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta, src_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta, dst_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Delta, diff_),
 };
 
 static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 0, -1, sizeof(Element_Unit)},
   { 9, -1, sizeof(Element_Literal)},
   { 15, -1, sizeof(Element)},
+  { 31, -1, sizeof(Delta_Diff_Match)},
+  { 38, -1, sizeof(Delta_Diff_Add)},
+  { 46, -1, sizeof(Delta_Diff_Del)},
+  { 52, -1, sizeof(Delta_Diff_Move)},
+  { 60, -1, sizeof(Delta_Diff_Update)},
+  { 67, -1, sizeof(Delta_Diff)},
+  { 79, -1, sizeof(Delta)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_Element_Unit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Element_Literal_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Element_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_Diff_Match_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_Diff_Add_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_Diff_Del_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_Diff_Move_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_Diff_Update_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_Diff_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Delta_default_instance_),
 };
 
 namespace {
@@ -118,7 +215,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 3);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 10);
 }
 
 }  // namespace
@@ -130,6 +227,20 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[1].reflection;
   _Element_default_instance_.Shutdown();
   delete file_level_metadata[2].reflection;
+  _Delta_Diff_Match_default_instance_.Shutdown();
+  delete file_level_metadata[3].reflection;
+  _Delta_Diff_Add_default_instance_.Shutdown();
+  delete file_level_metadata[4].reflection;
+  _Delta_Diff_Del_default_instance_.Shutdown();
+  delete file_level_metadata[5].reflection;
+  _Delta_Diff_Move_default_instance_.Shutdown();
+  delete file_level_metadata[6].reflection;
+  _Delta_Diff_Update_default_instance_.Shutdown();
+  delete file_level_metadata[7].reflection;
+  _Delta_Diff_default_instance_.Shutdown();
+  delete file_level_metadata[8].reflection;
+  _Delta_default_instance_.Shutdown();
+  delete file_level_metadata[9].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -139,10 +250,27 @@ void TableStruct::InitDefaultsImpl() {
   _Element_Unit_default_instance_.DefaultConstruct();
   _Element_Literal_default_instance_.DefaultConstruct();
   _Element_default_instance_.DefaultConstruct();
+  _Delta_Diff_Match_default_instance_.DefaultConstruct();
+  _Delta_Diff_Add_default_instance_.DefaultConstruct();
+  _Delta_Diff_Del_default_instance_.DefaultConstruct();
+  _Delta_Diff_Move_default_instance_.DefaultConstruct();
+  _Delta_Diff_Update_default_instance_.DefaultConstruct();
+  _Delta_Diff_default_instance_.DefaultConstruct();
+  _Delta_default_instance_.DefaultConstruct();
   _Element_default_instance_.unit_ = const_cast< ::fast::Element_Unit*>(
       ::fast::Element_Unit::internal_default_instance());
   _Element_default_instance_.literal_ = const_cast< ::fast::Element_Literal*>(
       ::fast::Element_Literal::internal_default_instance());
+  _Delta_Diff_default_instance_.match_ = const_cast< ::fast::Delta_Diff_Match*>(
+      ::fast::Delta_Diff_Match::internal_default_instance());
+  _Delta_Diff_default_instance_.add_ = const_cast< ::fast::Delta_Diff_Add*>(
+      ::fast::Delta_Diff_Add::internal_default_instance());
+  _Delta_Diff_default_instance_.del_ = const_cast< ::fast::Delta_Diff_Del*>(
+      ::fast::Delta_Diff_Del::internal_default_instance());
+  _Delta_Diff_default_instance_.move_ = const_cast< ::fast::Delta_Diff_Move*>(
+      ::fast::Delta_Diff_Move::internal_default_instance());
+  _Delta_Diff_default_instance_.update_ = const_cast< ::fast::Delta_Diff_Update*>(
+      ::fast::Delta_Diff_Update::internal_default_instance());
 }
 
 void InitDefaults() {
@@ -454,11 +582,25 @@ void AddDescriptorsImpl() {
       "LITERAL\020\302\001\022\034\n\027SUBANNOTATION_DIRECTIVE\020\303\001"
       "\022\024\n\017SUPER_DIRECTIVE\020\304\001\022\034\n\027VERIFICATION_E"
       "RROR_TYPE\020\305\001\022\016\n\tVOID_TYPE\020\306\001\022\021\n\014VTABLE_I"
-      "NDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extrab\006prot"
-      "o3"
+      "NDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extra\"\306\004\n\005D"
+      "elta\022\013\n\003src\030\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003"
+      " \003(\0132\020.fast.Delta.Diff\032\202\004\n\004Diff\022(\n\004type\030"
+      "\001 \001(\0162\032.fast.Delta.Diff.DeltaType\022\'\n\005mat"
+      "ch\030\002 \001(\0132\026.fast.Delta.Diff.MatchH\000\022#\n\003ad"
+      "d\030\003 \001(\0132\024.fast.Delta.Diff.AddH\000\022#\n\003del\030\004"
+      " \001(\0132\024.fast.Delta.Diff.DelH\000\022%\n\004move\030\005 \001"
+      "(\0132\025.fast.Delta.Diff.MoveH\000\022)\n\006update\030\006 "
+      "\001(\0132\027.fast.Delta.Diff.UpdateH\000\032!\n\005Match\022"
+      "\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030"
+      "\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003"
+      "Del\022\013\n\003src\030\001 \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n"
+      "\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032$\n\006Update\022\013"
+      "\n\003src\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\">\n\tDeltaType\022"
+      "\t\n\005MATCH\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n"
+      "\n\006UPDATE\020\004B\007\n\005deltab\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 12122);
+      descriptor, 12707);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fast.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -1744,6 +1886,33 @@ const Element_SmaliKind Element::WHITE_SPACE;
 const Element_SmaliKind Element::SmaliKind_MIN;
 const Element_SmaliKind Element::SmaliKind_MAX;
 const int Element::SmaliKind_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* Delta_Diff_DeltaType_descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_enum_descriptors[4];
+}
+bool Delta_Diff_DeltaType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const Delta_Diff_DeltaType Delta_Diff::MATCH;
+const Delta_Diff_DeltaType Delta_Diff::ADD;
+const Delta_Diff_DeltaType Delta_Diff::DEL;
+const Delta_Diff_DeltaType Delta_Diff::MOVE;
+const Delta_Diff_DeltaType Delta_Diff::UPDATE;
+const Delta_Diff_DeltaType Delta_Diff::DeltaType_MIN;
+const Delta_Diff_DeltaType Delta_Diff::DeltaType_MAX;
+const int Delta_Diff::DeltaType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -3450,6 +3619,2764 @@ void Element::clear_has_extra() {
 Element::ExtraCase Element::extra_case() const {
   return Element::ExtraCase(_oneof_case_[0]);
 }
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta_Diff_Match::kSrcFieldNumber;
+const int Delta_Diff_Match::kDstFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta_Diff_Match::Delta_Diff_Match()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta.Diff.Match)
+}
+Delta_Diff_Match::Delta_Diff_Match(const Delta_Diff_Match& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&src_, &from.src_,
+    reinterpret_cast<char*>(&dst_) -
+    reinterpret_cast<char*>(&src_) + sizeof(dst_));
+  // @@protoc_insertion_point(copy_constructor:fast.Delta.Diff.Match)
+}
+
+void Delta_Diff_Match::SharedCtor() {
+  ::memset(&src_, 0, reinterpret_cast<char*>(&dst_) -
+    reinterpret_cast<char*>(&src_) + sizeof(dst_));
+  _cached_size_ = 0;
+}
+
+Delta_Diff_Match::~Delta_Diff_Match() {
+  // @@protoc_insertion_point(destructor:fast.Delta.Diff.Match)
+  SharedDtor();
+}
+
+void Delta_Diff_Match::SharedDtor() {
+}
+
+void Delta_Diff_Match::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta_Diff_Match::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta_Diff_Match& Delta_Diff_Match::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta_Diff_Match* Delta_Diff_Match::New(::google::protobuf::Arena* arena) const {
+  Delta_Diff_Match* n = new Delta_Diff_Match;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta_Diff_Match::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta.Diff.Match)
+  ::memset(&src_, 0, reinterpret_cast<char*>(&dst_) -
+    reinterpret_cast<char*>(&src_) + sizeof(dst_));
+}
+
+bool Delta_Diff_Match::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta.Diff.Match)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 src = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 dst = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &dst_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta.Diff.Match)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta.Diff.Match)
+  return false;
+#undef DO_
+}
+
+void Delta_Diff_Match::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta.Diff.Match)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->src(), output);
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->dst(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta.Diff.Match)
+}
+
+::google::protobuf::uint8* Delta_Diff_Match::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Match)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->src(), target);
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->dst(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta.Diff.Match)
+  return target;
+}
+
+size_t Delta_Diff_Match::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta.Diff.Match)
+  size_t total_size = 0;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->src());
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->dst());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta_Diff_Match::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta.Diff.Match)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta_Diff_Match* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta_Diff_Match>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta.Diff.Match)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta.Diff.Match)
+    MergeFrom(*source);
+  }
+}
+
+void Delta_Diff_Match::MergeFrom(const Delta_Diff_Match& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta.Diff.Match)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.src() != 0) {
+    set_src(from.src());
+  }
+  if (from.dst() != 0) {
+    set_dst(from.dst());
+  }
+}
+
+void Delta_Diff_Match::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta.Diff.Match)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta_Diff_Match::CopyFrom(const Delta_Diff_Match& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta.Diff.Match)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta_Diff_Match::IsInitialized() const {
+  return true;
+}
+
+void Delta_Diff_Match::Swap(Delta_Diff_Match* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta_Diff_Match::InternalSwap(Delta_Diff_Match* other) {
+  std::swap(src_, other->src_);
+  std::swap(dst_, other->dst_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta_Diff_Match::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta_Diff_Match
+
+// int32 src = 1;
+void Delta_Diff_Match::clear_src() {
+  src_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Match::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Match.src)
+  return src_;
+}
+void Delta_Diff_Match::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Match.src)
+}
+
+// int32 dst = 2;
+void Delta_Diff_Match::clear_dst() {
+  dst_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Match::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Match.dst)
+  return dst_;
+}
+void Delta_Diff_Match::set_dst(::google::protobuf::int32 value) {
+  
+  dst_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Match.dst)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta_Diff_Add::kSrcFieldNumber;
+const int Delta_Diff_Add::kDstFieldNumber;
+const int Delta_Diff_Add::kPositionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta_Diff_Add::Delta_Diff_Add()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta.Diff.Add)
+}
+Delta_Diff_Add::Delta_Diff_Add(const Delta_Diff_Add& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&src_, &from.src_,
+    reinterpret_cast<char*>(&position_) -
+    reinterpret_cast<char*>(&src_) + sizeof(position_));
+  // @@protoc_insertion_point(copy_constructor:fast.Delta.Diff.Add)
+}
+
+void Delta_Diff_Add::SharedCtor() {
+  ::memset(&src_, 0, reinterpret_cast<char*>(&position_) -
+    reinterpret_cast<char*>(&src_) + sizeof(position_));
+  _cached_size_ = 0;
+}
+
+Delta_Diff_Add::~Delta_Diff_Add() {
+  // @@protoc_insertion_point(destructor:fast.Delta.Diff.Add)
+  SharedDtor();
+}
+
+void Delta_Diff_Add::SharedDtor() {
+}
+
+void Delta_Diff_Add::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta_Diff_Add::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta_Diff_Add& Delta_Diff_Add::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta_Diff_Add* Delta_Diff_Add::New(::google::protobuf::Arena* arena) const {
+  Delta_Diff_Add* n = new Delta_Diff_Add;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta_Diff_Add::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta.Diff.Add)
+  ::memset(&src_, 0, reinterpret_cast<char*>(&position_) -
+    reinterpret_cast<char*>(&src_) + sizeof(position_));
+}
+
+bool Delta_Diff_Add::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta.Diff.Add)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 src = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 dst = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &dst_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 position = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &position_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta.Diff.Add)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta.Diff.Add)
+  return false;
+#undef DO_
+}
+
+void Delta_Diff_Add::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta.Diff.Add)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->src(), output);
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->dst(), output);
+  }
+
+  // int32 position = 3;
+  if (this->position() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->position(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta.Diff.Add)
+}
+
+::google::protobuf::uint8* Delta_Diff_Add::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Add)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->src(), target);
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->dst(), target);
+  }
+
+  // int32 position = 3;
+  if (this->position() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->position(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta.Diff.Add)
+  return target;
+}
+
+size_t Delta_Diff_Add::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta.Diff.Add)
+  size_t total_size = 0;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->src());
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->dst());
+  }
+
+  // int32 position = 3;
+  if (this->position() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->position());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta_Diff_Add::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta.Diff.Add)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta_Diff_Add* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta_Diff_Add>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta.Diff.Add)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta.Diff.Add)
+    MergeFrom(*source);
+  }
+}
+
+void Delta_Diff_Add::MergeFrom(const Delta_Diff_Add& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta.Diff.Add)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.src() != 0) {
+    set_src(from.src());
+  }
+  if (from.dst() != 0) {
+    set_dst(from.dst());
+  }
+  if (from.position() != 0) {
+    set_position(from.position());
+  }
+}
+
+void Delta_Diff_Add::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta.Diff.Add)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta_Diff_Add::CopyFrom(const Delta_Diff_Add& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta.Diff.Add)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta_Diff_Add::IsInitialized() const {
+  return true;
+}
+
+void Delta_Diff_Add::Swap(Delta_Diff_Add* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta_Diff_Add::InternalSwap(Delta_Diff_Add* other) {
+  std::swap(src_, other->src_);
+  std::swap(dst_, other->dst_);
+  std::swap(position_, other->position_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta_Diff_Add::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta_Diff_Add
+
+// int32 src = 1;
+void Delta_Diff_Add::clear_src() {
+  src_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Add::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Add.src)
+  return src_;
+}
+void Delta_Diff_Add::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Add.src)
+}
+
+// int32 dst = 2;
+void Delta_Diff_Add::clear_dst() {
+  dst_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Add::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Add.dst)
+  return dst_;
+}
+void Delta_Diff_Add::set_dst(::google::protobuf::int32 value) {
+  
+  dst_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Add.dst)
+}
+
+// int32 position = 3;
+void Delta_Diff_Add::clear_position() {
+  position_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Add::position() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Add.position)
+  return position_;
+}
+void Delta_Diff_Add::set_position(::google::protobuf::int32 value) {
+  
+  position_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Add.position)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta_Diff_Del::kSrcFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta_Diff_Del::Delta_Diff_Del()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta.Diff.Del)
+}
+Delta_Diff_Del::Delta_Diff_Del(const Delta_Diff_Del& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  src_ = from.src_;
+  // @@protoc_insertion_point(copy_constructor:fast.Delta.Diff.Del)
+}
+
+void Delta_Diff_Del::SharedCtor() {
+  src_ = 0;
+  _cached_size_ = 0;
+}
+
+Delta_Diff_Del::~Delta_Diff_Del() {
+  // @@protoc_insertion_point(destructor:fast.Delta.Diff.Del)
+  SharedDtor();
+}
+
+void Delta_Diff_Del::SharedDtor() {
+}
+
+void Delta_Diff_Del::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta_Diff_Del::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta_Diff_Del& Delta_Diff_Del::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta_Diff_Del* Delta_Diff_Del::New(::google::protobuf::Arena* arena) const {
+  Delta_Diff_Del* n = new Delta_Diff_Del;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta_Diff_Del::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta.Diff.Del)
+  src_ = 0;
+}
+
+bool Delta_Diff_Del::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta.Diff.Del)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 src = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta.Diff.Del)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta.Diff.Del)
+  return false;
+#undef DO_
+}
+
+void Delta_Diff_Del::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta.Diff.Del)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->src(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta.Diff.Del)
+}
+
+::google::protobuf::uint8* Delta_Diff_Del::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Del)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->src(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta.Diff.Del)
+  return target;
+}
+
+size_t Delta_Diff_Del::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta.Diff.Del)
+  size_t total_size = 0;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->src());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta_Diff_Del::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta.Diff.Del)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta_Diff_Del* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta_Diff_Del>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta.Diff.Del)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta.Diff.Del)
+    MergeFrom(*source);
+  }
+}
+
+void Delta_Diff_Del::MergeFrom(const Delta_Diff_Del& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta.Diff.Del)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.src() != 0) {
+    set_src(from.src());
+  }
+}
+
+void Delta_Diff_Del::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta.Diff.Del)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta_Diff_Del::CopyFrom(const Delta_Diff_Del& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta.Diff.Del)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta_Diff_Del::IsInitialized() const {
+  return true;
+}
+
+void Delta_Diff_Del::Swap(Delta_Diff_Del* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta_Diff_Del::InternalSwap(Delta_Diff_Del* other) {
+  std::swap(src_, other->src_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta_Diff_Del::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta_Diff_Del
+
+// int32 src = 1;
+void Delta_Diff_Del::clear_src() {
+  src_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Del::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Del.src)
+  return src_;
+}
+void Delta_Diff_Del::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Del.src)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta_Diff_Move::kSrcFieldNumber;
+const int Delta_Diff_Move::kDstFieldNumber;
+const int Delta_Diff_Move::kPositionFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta_Diff_Move::Delta_Diff_Move()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta.Diff.Move)
+}
+Delta_Diff_Move::Delta_Diff_Move(const Delta_Diff_Move& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&src_, &from.src_,
+    reinterpret_cast<char*>(&position_) -
+    reinterpret_cast<char*>(&src_) + sizeof(position_));
+  // @@protoc_insertion_point(copy_constructor:fast.Delta.Diff.Move)
+}
+
+void Delta_Diff_Move::SharedCtor() {
+  ::memset(&src_, 0, reinterpret_cast<char*>(&position_) -
+    reinterpret_cast<char*>(&src_) + sizeof(position_));
+  _cached_size_ = 0;
+}
+
+Delta_Diff_Move::~Delta_Diff_Move() {
+  // @@protoc_insertion_point(destructor:fast.Delta.Diff.Move)
+  SharedDtor();
+}
+
+void Delta_Diff_Move::SharedDtor() {
+}
+
+void Delta_Diff_Move::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta_Diff_Move::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta_Diff_Move& Delta_Diff_Move::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta_Diff_Move* Delta_Diff_Move::New(::google::protobuf::Arena* arena) const {
+  Delta_Diff_Move* n = new Delta_Diff_Move;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta_Diff_Move::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta.Diff.Move)
+  ::memset(&src_, 0, reinterpret_cast<char*>(&position_) -
+    reinterpret_cast<char*>(&src_) + sizeof(position_));
+}
+
+bool Delta_Diff_Move::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta.Diff.Move)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 src = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 dst = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &dst_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 position = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &position_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta.Diff.Move)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta.Diff.Move)
+  return false;
+#undef DO_
+}
+
+void Delta_Diff_Move::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta.Diff.Move)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->src(), output);
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->dst(), output);
+  }
+
+  // int32 position = 3;
+  if (this->position() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->position(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta.Diff.Move)
+}
+
+::google::protobuf::uint8* Delta_Diff_Move::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Move)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->src(), target);
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->dst(), target);
+  }
+
+  // int32 position = 3;
+  if (this->position() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->position(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta.Diff.Move)
+  return target;
+}
+
+size_t Delta_Diff_Move::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta.Diff.Move)
+  size_t total_size = 0;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->src());
+  }
+
+  // int32 dst = 2;
+  if (this->dst() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->dst());
+  }
+
+  // int32 position = 3;
+  if (this->position() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->position());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta_Diff_Move::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta.Diff.Move)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta_Diff_Move* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta_Diff_Move>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta.Diff.Move)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta.Diff.Move)
+    MergeFrom(*source);
+  }
+}
+
+void Delta_Diff_Move::MergeFrom(const Delta_Diff_Move& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta.Diff.Move)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.src() != 0) {
+    set_src(from.src());
+  }
+  if (from.dst() != 0) {
+    set_dst(from.dst());
+  }
+  if (from.position() != 0) {
+    set_position(from.position());
+  }
+}
+
+void Delta_Diff_Move::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta.Diff.Move)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta_Diff_Move::CopyFrom(const Delta_Diff_Move& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta.Diff.Move)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta_Diff_Move::IsInitialized() const {
+  return true;
+}
+
+void Delta_Diff_Move::Swap(Delta_Diff_Move* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta_Diff_Move::InternalSwap(Delta_Diff_Move* other) {
+  std::swap(src_, other->src_);
+  std::swap(dst_, other->dst_);
+  std::swap(position_, other->position_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta_Diff_Move::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta_Diff_Move
+
+// int32 src = 1;
+void Delta_Diff_Move::clear_src() {
+  src_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Move::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Move.src)
+  return src_;
+}
+void Delta_Diff_Move::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Move.src)
+}
+
+// int32 dst = 2;
+void Delta_Diff_Move::clear_dst() {
+  dst_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Move::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Move.dst)
+  return dst_;
+}
+void Delta_Diff_Move::set_dst(::google::protobuf::int32 value) {
+  
+  dst_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Move.dst)
+}
+
+// int32 position = 3;
+void Delta_Diff_Move::clear_position() {
+  position_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Move::position() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Move.position)
+  return position_;
+}
+void Delta_Diff_Move::set_position(::google::protobuf::int32 value) {
+  
+  position_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Move.position)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta_Diff_Update::kSrcFieldNumber;
+const int Delta_Diff_Update::kLabelFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta_Diff_Update::Delta_Diff_Update()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta.Diff.Update)
+}
+Delta_Diff_Update::Delta_Diff_Update(const Delta_Diff_Update& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  label_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.label().size() > 0) {
+    label_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.label_);
+  }
+  src_ = from.src_;
+  // @@protoc_insertion_point(copy_constructor:fast.Delta.Diff.Update)
+}
+
+void Delta_Diff_Update::SharedCtor() {
+  label_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  src_ = 0;
+  _cached_size_ = 0;
+}
+
+Delta_Diff_Update::~Delta_Diff_Update() {
+  // @@protoc_insertion_point(destructor:fast.Delta.Diff.Update)
+  SharedDtor();
+}
+
+void Delta_Diff_Update::SharedDtor() {
+  label_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Delta_Diff_Update::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta_Diff_Update::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta_Diff_Update& Delta_Diff_Update::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta_Diff_Update* Delta_Diff_Update::New(::google::protobuf::Arena* arena) const {
+  Delta_Diff_Update* n = new Delta_Diff_Update;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta_Diff_Update::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta.Diff.Update)
+  label_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  src_ = 0;
+}
+
+bool Delta_Diff_Update::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta.Diff.Update)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 src = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string label = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_label()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->label().data(), this->label().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Delta.Diff.Update.label"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta.Diff.Update)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta.Diff.Update)
+  return false;
+#undef DO_
+}
+
+void Delta_Diff_Update::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta.Diff.Update)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->src(), output);
+  }
+
+  // string label = 2;
+  if (this->label().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->label().data(), this->label().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Delta.Diff.Update.label");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->label(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta.Diff.Update)
+}
+
+::google::protobuf::uint8* Delta_Diff_Update::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Update)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->src(), target);
+  }
+
+  // string label = 2;
+  if (this->label().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->label().data(), this->label().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Delta.Diff.Update.label");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->label(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta.Diff.Update)
+  return target;
+}
+
+size_t Delta_Diff_Update::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta.Diff.Update)
+  size_t total_size = 0;
+
+  // string label = 2;
+  if (this->label().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->label());
+  }
+
+  // int32 src = 1;
+  if (this->src() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->src());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta_Diff_Update::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta.Diff.Update)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta_Diff_Update* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta_Diff_Update>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta.Diff.Update)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta.Diff.Update)
+    MergeFrom(*source);
+  }
+}
+
+void Delta_Diff_Update::MergeFrom(const Delta_Diff_Update& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta.Diff.Update)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.label().size() > 0) {
+
+    label_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.label_);
+  }
+  if (from.src() != 0) {
+    set_src(from.src());
+  }
+}
+
+void Delta_Diff_Update::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta.Diff.Update)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta_Diff_Update::CopyFrom(const Delta_Diff_Update& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta.Diff.Update)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta_Diff_Update::IsInitialized() const {
+  return true;
+}
+
+void Delta_Diff_Update::Swap(Delta_Diff_Update* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta_Diff_Update::InternalSwap(Delta_Diff_Update* other) {
+  label_.Swap(&other->label_);
+  std::swap(src_, other->src_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta_Diff_Update::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta_Diff_Update
+
+// int32 src = 1;
+void Delta_Diff_Update::clear_src() {
+  src_ = 0;
+}
+::google::protobuf::int32 Delta_Diff_Update::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Update.src)
+  return src_;
+}
+void Delta_Diff_Update::set_src(::google::protobuf::int32 value) {
+  
+  src_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Update.src)
+}
+
+// string label = 2;
+void Delta_Diff_Update::clear_label() {
+  label_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Delta_Diff_Update::label() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.Update.label)
+  return label_.GetNoArena();
+}
+void Delta_Diff_Update::set_label(const ::std::string& value) {
+  
+  label_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.Update.label)
+}
+#if LANG_CXX11
+void Delta_Diff_Update::set_label(::std::string&& value) {
+  
+  label_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Delta.Diff.Update.label)
+}
+#endif
+void Delta_Diff_Update::set_label(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  label_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Delta.Diff.Update.label)
+}
+void Delta_Diff_Update::set_label(const char* value, size_t size) {
+  
+  label_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Delta.Diff.Update.label)
+}
+::std::string* Delta_Diff_Update::mutable_label() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.Update.label)
+  return label_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Delta_Diff_Update::release_label() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.Update.label)
+  
+  return label_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Delta_Diff_Update::set_allocated_label(::std::string* label) {
+  if (label != NULL) {
+    
+  } else {
+    
+  }
+  label_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), label);
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.Update.label)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta_Diff::kTypeFieldNumber;
+const int Delta_Diff::kMatchFieldNumber;
+const int Delta_Diff::kAddFieldNumber;
+const int Delta_Diff::kDelFieldNumber;
+const int Delta_Diff::kMoveFieldNumber;
+const int Delta_Diff::kUpdateFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta_Diff::Delta_Diff()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta.Diff)
+}
+Delta_Diff::Delta_Diff(const Delta_Diff& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  type_ = from.type_;
+  clear_has_delta();
+  switch (from.delta_case()) {
+    case kMatch: {
+      mutable_match()->::fast::Delta_Diff_Match::MergeFrom(from.match());
+      break;
+    }
+    case kAdd: {
+      mutable_add()->::fast::Delta_Diff_Add::MergeFrom(from.add());
+      break;
+    }
+    case kDel: {
+      mutable_del()->::fast::Delta_Diff_Del::MergeFrom(from.del());
+      break;
+    }
+    case kMove: {
+      mutable_move()->::fast::Delta_Diff_Move::MergeFrom(from.move());
+      break;
+    }
+    case kUpdate: {
+      mutable_update()->::fast::Delta_Diff_Update::MergeFrom(from.update());
+      break;
+    }
+    case DELTA_NOT_SET: {
+      break;
+    }
+  }
+  // @@protoc_insertion_point(copy_constructor:fast.Delta.Diff)
+}
+
+void Delta_Diff::SharedCtor() {
+  type_ = 0;
+  clear_has_delta();
+  _cached_size_ = 0;
+}
+
+Delta_Diff::~Delta_Diff() {
+  // @@protoc_insertion_point(destructor:fast.Delta.Diff)
+  SharedDtor();
+}
+
+void Delta_Diff::SharedDtor() {
+  if (has_delta()) {
+    clear_delta();
+  }
+}
+
+void Delta_Diff::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta_Diff::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta_Diff& Delta_Diff::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta_Diff* Delta_Diff::New(::google::protobuf::Arena* arena) const {
+  Delta_Diff* n = new Delta_Diff;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta_Diff::clear_delta() {
+// @@protoc_insertion_point(one_of_clear_start:fast.Delta.Diff)
+  switch (delta_case()) {
+    case kMatch: {
+      delete delta_.match_;
+      break;
+    }
+    case kAdd: {
+      delete delta_.add_;
+      break;
+    }
+    case kDel: {
+      delete delta_.del_;
+      break;
+    }
+    case kMove: {
+      delete delta_.move_;
+      break;
+    }
+    case kUpdate: {
+      delete delta_.update_;
+      break;
+    }
+    case DELTA_NOT_SET: {
+      break;
+    }
+  }
+  _oneof_case_[0] = DELTA_NOT_SET;
+}
+
+
+void Delta_Diff::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta.Diff)
+  type_ = 0;
+  clear_delta();
+}
+
+bool Delta_Diff::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta.Diff)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // .fast.Delta.Diff.DeltaType type = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_type(static_cast< ::fast::Delta_Diff_DeltaType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Delta.Diff.Match match = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_match()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Delta.Diff.Add add = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_add()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Delta.Diff.Del del = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_del()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Delta.Diff.Move move = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_move()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Delta.Diff.Update update = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_update()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta.Diff)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta.Diff)
+  return false;
+#undef DO_
+}
+
+void Delta_Diff::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta.Diff)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .fast.Delta.Diff.DeltaType type = 1;
+  if (this->type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      1, this->type(), output);
+  }
+
+  // .fast.Delta.Diff.Match match = 2;
+  if (has_match()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *delta_.match_, output);
+  }
+
+  // .fast.Delta.Diff.Add add = 3;
+  if (has_add()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, *delta_.add_, output);
+  }
+
+  // .fast.Delta.Diff.Del del = 4;
+  if (has_del()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, *delta_.del_, output);
+  }
+
+  // .fast.Delta.Diff.Move move = 5;
+  if (has_move()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *delta_.move_, output);
+  }
+
+  // .fast.Delta.Diff.Update update = 6;
+  if (has_update()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      6, *delta_.update_, output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta.Diff)
+}
+
+::google::protobuf::uint8* Delta_Diff::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // .fast.Delta.Diff.DeltaType type = 1;
+  if (this->type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      1, this->type(), target);
+  }
+
+  // .fast.Delta.Diff.Match match = 2;
+  if (has_match()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *delta_.match_, deterministic, target);
+  }
+
+  // .fast.Delta.Diff.Add add = 3;
+  if (has_add()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, *delta_.add_, deterministic, target);
+  }
+
+  // .fast.Delta.Diff.Del del = 4;
+  if (has_del()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, *delta_.del_, deterministic, target);
+  }
+
+  // .fast.Delta.Diff.Move move = 5;
+  if (has_move()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, *delta_.move_, deterministic, target);
+  }
+
+  // .fast.Delta.Diff.Update update = 6;
+  if (has_update()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        6, *delta_.update_, deterministic, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta.Diff)
+  return target;
+}
+
+size_t Delta_Diff::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta.Diff)
+  size_t total_size = 0;
+
+  // .fast.Delta.Diff.DeltaType type = 1;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  switch (delta_case()) {
+    // .fast.Delta.Diff.Match match = 2;
+    case kMatch: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *delta_.match_);
+      break;
+    }
+    // .fast.Delta.Diff.Add add = 3;
+    case kAdd: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *delta_.add_);
+      break;
+    }
+    // .fast.Delta.Diff.Del del = 4;
+    case kDel: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *delta_.del_);
+      break;
+    }
+    // .fast.Delta.Diff.Move move = 5;
+    case kMove: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *delta_.move_);
+      break;
+    }
+    // .fast.Delta.Diff.Update update = 6;
+    case kUpdate: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *delta_.update_);
+      break;
+    }
+    case DELTA_NOT_SET: {
+      break;
+    }
+  }
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta_Diff::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta.Diff)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta_Diff* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta_Diff>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta.Diff)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta.Diff)
+    MergeFrom(*source);
+  }
+}
+
+void Delta_Diff::MergeFrom(const Delta_Diff& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta.Diff)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.type() != 0) {
+    set_type(from.type());
+  }
+  switch (from.delta_case()) {
+    case kMatch: {
+      mutable_match()->::fast::Delta_Diff_Match::MergeFrom(from.match());
+      break;
+    }
+    case kAdd: {
+      mutable_add()->::fast::Delta_Diff_Add::MergeFrom(from.add());
+      break;
+    }
+    case kDel: {
+      mutable_del()->::fast::Delta_Diff_Del::MergeFrom(from.del());
+      break;
+    }
+    case kMove: {
+      mutable_move()->::fast::Delta_Diff_Move::MergeFrom(from.move());
+      break;
+    }
+    case kUpdate: {
+      mutable_update()->::fast::Delta_Diff_Update::MergeFrom(from.update());
+      break;
+    }
+    case DELTA_NOT_SET: {
+      break;
+    }
+  }
+}
+
+void Delta_Diff::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta.Diff)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta_Diff::CopyFrom(const Delta_Diff& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta.Diff)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta_Diff::IsInitialized() const {
+  return true;
+}
+
+void Delta_Diff::Swap(Delta_Diff* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta_Diff::InternalSwap(Delta_Diff* other) {
+  std::swap(type_, other->type_);
+  std::swap(delta_, other->delta_);
+  std::swap(_oneof_case_[0], other->_oneof_case_[0]);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta_Diff::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta_Diff
+
+// .fast.Delta.Diff.DeltaType type = 1;
+void Delta_Diff::clear_type() {
+  type_ = 0;
+}
+::fast::Delta_Diff_DeltaType Delta_Diff::type() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.type)
+  return static_cast< ::fast::Delta_Diff_DeltaType >(type_);
+}
+void Delta_Diff::set_type(::fast::Delta_Diff_DeltaType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Delta.Diff.type)
+}
+
+// .fast.Delta.Diff.Match match = 2;
+bool Delta_Diff::has_match() const {
+  return delta_case() == kMatch;
+}
+void Delta_Diff::set_has_match() {
+  _oneof_case_[0] = kMatch;
+}
+void Delta_Diff::clear_match() {
+  if (has_match()) {
+    delete delta_.match_;
+    clear_has_delta();
+  }
+}
+ const ::fast::Delta_Diff_Match& Delta_Diff::match() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.match)
+  return has_match()
+      ? *delta_.match_
+      : ::fast::Delta_Diff_Match::default_instance();
+}
+::fast::Delta_Diff_Match* Delta_Diff::mutable_match() {
+  if (!has_match()) {
+    clear_delta();
+    set_has_match();
+    delta_.match_ = new ::fast::Delta_Diff_Match;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.match)
+  return delta_.match_;
+}
+::fast::Delta_Diff_Match* Delta_Diff::release_match() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.match)
+  if (has_match()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Match* temp = delta_.match_;
+    delta_.match_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Delta_Diff::set_allocated_match(::fast::Delta_Diff_Match* match) {
+  clear_delta();
+  if (match) {
+    set_has_match();
+    delta_.match_ = match;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.match)
+}
+
+// .fast.Delta.Diff.Add add = 3;
+bool Delta_Diff::has_add() const {
+  return delta_case() == kAdd;
+}
+void Delta_Diff::set_has_add() {
+  _oneof_case_[0] = kAdd;
+}
+void Delta_Diff::clear_add() {
+  if (has_add()) {
+    delete delta_.add_;
+    clear_has_delta();
+  }
+}
+ const ::fast::Delta_Diff_Add& Delta_Diff::add() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.add)
+  return has_add()
+      ? *delta_.add_
+      : ::fast::Delta_Diff_Add::default_instance();
+}
+::fast::Delta_Diff_Add* Delta_Diff::mutable_add() {
+  if (!has_add()) {
+    clear_delta();
+    set_has_add();
+    delta_.add_ = new ::fast::Delta_Diff_Add;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.add)
+  return delta_.add_;
+}
+::fast::Delta_Diff_Add* Delta_Diff::release_add() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.add)
+  if (has_add()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Add* temp = delta_.add_;
+    delta_.add_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Delta_Diff::set_allocated_add(::fast::Delta_Diff_Add* add) {
+  clear_delta();
+  if (add) {
+    set_has_add();
+    delta_.add_ = add;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.add)
+}
+
+// .fast.Delta.Diff.Del del = 4;
+bool Delta_Diff::has_del() const {
+  return delta_case() == kDel;
+}
+void Delta_Diff::set_has_del() {
+  _oneof_case_[0] = kDel;
+}
+void Delta_Diff::clear_del() {
+  if (has_del()) {
+    delete delta_.del_;
+    clear_has_delta();
+  }
+}
+ const ::fast::Delta_Diff_Del& Delta_Diff::del() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.del)
+  return has_del()
+      ? *delta_.del_
+      : ::fast::Delta_Diff_Del::default_instance();
+}
+::fast::Delta_Diff_Del* Delta_Diff::mutable_del() {
+  if (!has_del()) {
+    clear_delta();
+    set_has_del();
+    delta_.del_ = new ::fast::Delta_Diff_Del;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.del)
+  return delta_.del_;
+}
+::fast::Delta_Diff_Del* Delta_Diff::release_del() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.del)
+  if (has_del()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Del* temp = delta_.del_;
+    delta_.del_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Delta_Diff::set_allocated_del(::fast::Delta_Diff_Del* del) {
+  clear_delta();
+  if (del) {
+    set_has_del();
+    delta_.del_ = del;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.del)
+}
+
+// .fast.Delta.Diff.Move move = 5;
+bool Delta_Diff::has_move() const {
+  return delta_case() == kMove;
+}
+void Delta_Diff::set_has_move() {
+  _oneof_case_[0] = kMove;
+}
+void Delta_Diff::clear_move() {
+  if (has_move()) {
+    delete delta_.move_;
+    clear_has_delta();
+  }
+}
+ const ::fast::Delta_Diff_Move& Delta_Diff::move() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.move)
+  return has_move()
+      ? *delta_.move_
+      : ::fast::Delta_Diff_Move::default_instance();
+}
+::fast::Delta_Diff_Move* Delta_Diff::mutable_move() {
+  if (!has_move()) {
+    clear_delta();
+    set_has_move();
+    delta_.move_ = new ::fast::Delta_Diff_Move;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.move)
+  return delta_.move_;
+}
+::fast::Delta_Diff_Move* Delta_Diff::release_move() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.move)
+  if (has_move()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Move* temp = delta_.move_;
+    delta_.move_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Delta_Diff::set_allocated_move(::fast::Delta_Diff_Move* move) {
+  clear_delta();
+  if (move) {
+    set_has_move();
+    delta_.move_ = move;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.move)
+}
+
+// .fast.Delta.Diff.Update update = 6;
+bool Delta_Diff::has_update() const {
+  return delta_case() == kUpdate;
+}
+void Delta_Diff::set_has_update() {
+  _oneof_case_[0] = kUpdate;
+}
+void Delta_Diff::clear_update() {
+  if (has_update()) {
+    delete delta_.update_;
+    clear_has_delta();
+  }
+}
+ const ::fast::Delta_Diff_Update& Delta_Diff::update() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.Diff.update)
+  return has_update()
+      ? *delta_.update_
+      : ::fast::Delta_Diff_Update::default_instance();
+}
+::fast::Delta_Diff_Update* Delta_Diff::mutable_update() {
+  if (!has_update()) {
+    clear_delta();
+    set_has_update();
+    delta_.update_ = new ::fast::Delta_Diff_Update;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Delta.Diff.update)
+  return delta_.update_;
+}
+::fast::Delta_Diff_Update* Delta_Diff::release_update() {
+  // @@protoc_insertion_point(field_release:fast.Delta.Diff.update)
+  if (has_update()) {
+    clear_has_delta();
+    ::fast::Delta_Diff_Update* temp = delta_.update_;
+    delta_.update_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Delta_Diff::set_allocated_update(::fast::Delta_Diff_Update* update) {
+  clear_delta();
+  if (update) {
+    set_has_update();
+    delta_.update_ = update;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.Diff.update)
+}
+
+bool Delta_Diff::has_delta() const {
+  return delta_case() != DELTA_NOT_SET;
+}
+void Delta_Diff::clear_has_delta() {
+  _oneof_case_[0] = DELTA_NOT_SET;
+}
+Delta_Diff::DeltaCase Delta_Diff::delta_case() const {
+  return Delta_Diff::DeltaCase(_oneof_case_[0]);
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Delta::kSrcFieldNumber;
+const int Delta::kDstFieldNumber;
+const int Delta::kDiffFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Delta::Delta()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Delta)
+}
+Delta::Delta(const Delta& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      diff_(from.diff_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  src_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.src().size() > 0) {
+    src_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.src_);
+  }
+  dst_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.dst().size() > 0) {
+    dst_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dst_);
+  }
+  // @@protoc_insertion_point(copy_constructor:fast.Delta)
+}
+
+void Delta::SharedCtor() {
+  src_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  dst_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+Delta::~Delta() {
+  // @@protoc_insertion_point(destructor:fast.Delta)
+  SharedDtor();
+}
+
+void Delta::SharedDtor() {
+  src_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  dst_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Delta::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Delta::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Delta& Delta::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Delta* Delta::New(::google::protobuf::Arena* arena) const {
+  Delta* n = new Delta;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Delta::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Delta)
+  diff_.Clear();
+  src_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  dst_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool Delta::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Delta)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string src = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_src()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->src().data(), this->src().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Delta.src"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string dst = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_dst()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->dst().data(), this->dst().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Delta.dst"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fast.Delta.Diff diff = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(26u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_diff()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Delta)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Delta)
+  return false;
+#undef DO_
+}
+
+void Delta::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Delta)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string src = 1;
+  if (this->src().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->src().data(), this->src().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Delta.src");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->src(), output);
+  }
+
+  // string dst = 2;
+  if (this->dst().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->dst().data(), this->dst().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Delta.dst");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->dst(), output);
+  }
+
+  // repeated .fast.Delta.Diff diff = 3;
+  for (unsigned int i = 0, n = this->diff_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->diff(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Delta)
+}
+
+::google::protobuf::uint8* Delta::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Delta)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string src = 1;
+  if (this->src().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->src().data(), this->src().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Delta.src");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->src(), target);
+  }
+
+  // string dst = 2;
+  if (this->dst().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->dst().data(), this->dst().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Delta.dst");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->dst(), target);
+  }
+
+  // repeated .fast.Delta.Diff diff = 3;
+  for (unsigned int i = 0, n = this->diff_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        3, this->diff(i), deterministic, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Delta)
+  return target;
+}
+
+size_t Delta::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Delta)
+  size_t total_size = 0;
+
+  // repeated .fast.Delta.Diff diff = 3;
+  {
+    unsigned int count = this->diff_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->diff(i));
+    }
+  }
+
+  // string src = 1;
+  if (this->src().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->src());
+  }
+
+  // string dst = 2;
+  if (this->dst().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->dst());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Delta::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Delta)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Delta* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Delta>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Delta)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Delta)
+    MergeFrom(*source);
+  }
+}
+
+void Delta::MergeFrom(const Delta& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Delta)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  diff_.MergeFrom(from.diff_);
+  if (from.src().size() > 0) {
+
+    src_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.src_);
+  }
+  if (from.dst().size() > 0) {
+
+    dst_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dst_);
+  }
+}
+
+void Delta::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Delta)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Delta::CopyFrom(const Delta& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Delta)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Delta::IsInitialized() const {
+  return true;
+}
+
+void Delta::Swap(Delta* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Delta::InternalSwap(Delta* other) {
+  diff_.InternalSwap(&other->diff_);
+  src_.Swap(&other->src_);
+  dst_.Swap(&other->dst_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Delta::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Delta
+
+// string src = 1;
+void Delta::clear_src() {
+  src_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Delta::src() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.src)
+  return src_.GetNoArena();
+}
+void Delta::set_src(const ::std::string& value) {
+  
+  src_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Delta.src)
+}
+#if LANG_CXX11
+void Delta::set_src(::std::string&& value) {
+  
+  src_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Delta.src)
+}
+#endif
+void Delta::set_src(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  src_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Delta.src)
+}
+void Delta::set_src(const char* value, size_t size) {
+  
+  src_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Delta.src)
+}
+::std::string* Delta::mutable_src() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Delta.src)
+  return src_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Delta::release_src() {
+  // @@protoc_insertion_point(field_release:fast.Delta.src)
+  
+  return src_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Delta::set_allocated_src(::std::string* src) {
+  if (src != NULL) {
+    
+  } else {
+    
+  }
+  src_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), src);
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.src)
+}
+
+// string dst = 2;
+void Delta::clear_dst() {
+  dst_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Delta::dst() const {
+  // @@protoc_insertion_point(field_get:fast.Delta.dst)
+  return dst_.GetNoArena();
+}
+void Delta::set_dst(const ::std::string& value) {
+  
+  dst_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Delta.dst)
+}
+#if LANG_CXX11
+void Delta::set_dst(::std::string&& value) {
+  
+  dst_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Delta.dst)
+}
+#endif
+void Delta::set_dst(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  dst_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Delta.dst)
+}
+void Delta::set_dst(const char* value, size_t size) {
+  
+  dst_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Delta.dst)
+}
+::std::string* Delta::mutable_dst() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Delta.dst)
+  return dst_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Delta::release_dst() {
+  // @@protoc_insertion_point(field_release:fast.Delta.dst)
+  
+  return dst_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Delta::set_allocated_dst(::std::string* dst) {
+  if (dst != NULL) {
+    
+  } else {
+    
+  }
+  dst_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dst);
+  // @@protoc_insertion_point(field_set_allocated:fast.Delta.dst)
+}
+
+// repeated .fast.Delta.Diff diff = 3;
+int Delta::diff_size() const {
+  return diff_.size();
+}
+void Delta::clear_diff() {
+  diff_.Clear();
+}
+const ::fast::Delta_Diff& Delta::diff(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Delta.diff)
+  return diff_.Get(index);
+}
+::fast::Delta_Diff* Delta::mutable_diff(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Delta.diff)
+  return diff_.Mutable(index);
+}
+::fast::Delta_Diff* Delta::add_diff() {
+  // @@protoc_insertion_point(field_add:fast.Delta.diff)
+  return diff_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff >*
+Delta::mutable_diff() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Delta.diff)
+  return &diff_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Delta_Diff >&
+Delta::diff() const {
+  // @@protoc_insertion_point(field_list:fast.Delta.diff)
+  return diff_;
+}
+
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 
 // @@protoc_insertion_point(namespace_scope)

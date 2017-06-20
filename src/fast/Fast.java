@@ -9542,6 +9542,5350 @@ public final class Fast {
 
   }
 
+  public interface DeltaOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fast.Delta)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string src = 1;</code>
+     */
+    java.lang.String getSrc();
+    /**
+     * <code>string src = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getSrcBytes();
+
+    /**
+     * <code>string dst = 2;</code>
+     */
+    java.lang.String getDst();
+    /**
+     * <code>string dst = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getDstBytes();
+
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    java.util.List<fast.Fast.Delta.Diff> 
+        getDiffList();
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    fast.Fast.Delta.Diff getDiff(int index);
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    int getDiffCount();
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    java.util.List<? extends fast.Fast.Delta.DiffOrBuilder> 
+        getDiffOrBuilderList();
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    fast.Fast.Delta.DiffOrBuilder getDiffOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code fast.Delta}
+   */
+  public  static final class Delta extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:fast.Delta)
+      DeltaOrBuilder {
+    // Use Delta.newBuilder() to construct.
+    private Delta(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Delta() {
+      src_ = "";
+      dst_ = "";
+      diff_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Delta(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              src_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              dst_ = s;
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                diff_ = new java.util.ArrayList<fast.Fast.Delta.Diff>();
+                mutable_bitField0_ |= 0x00000004;
+              }
+              diff_.add(
+                  input.readMessage(fast.Fast.Delta.Diff.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          diff_ = java.util.Collections.unmodifiableList(diff_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return fast.Fast.internal_static_fast_Delta_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return fast.Fast.internal_static_fast_Delta_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              fast.Fast.Delta.class, fast.Fast.Delta.Builder.class);
+    }
+
+    public interface DiffOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:fast.Delta.Diff)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+       */
+      int getTypeValue();
+      /**
+       * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+       */
+      fast.Fast.Delta.Diff.DeltaType getType();
+
+      /**
+       * <code>.fast.Delta.Diff.Match match = 2;</code>
+       */
+      fast.Fast.Delta.Diff.Match getMatch();
+      /**
+       * <code>.fast.Delta.Diff.Match match = 2;</code>
+       */
+      fast.Fast.Delta.Diff.MatchOrBuilder getMatchOrBuilder();
+
+      /**
+       * <code>.fast.Delta.Diff.Add add = 3;</code>
+       */
+      fast.Fast.Delta.Diff.Add getAdd();
+      /**
+       * <code>.fast.Delta.Diff.Add add = 3;</code>
+       */
+      fast.Fast.Delta.Diff.AddOrBuilder getAddOrBuilder();
+
+      /**
+       * <code>.fast.Delta.Diff.Del del = 4;</code>
+       */
+      fast.Fast.Delta.Diff.Del getDel();
+      /**
+       * <code>.fast.Delta.Diff.Del del = 4;</code>
+       */
+      fast.Fast.Delta.Diff.DelOrBuilder getDelOrBuilder();
+
+      /**
+       * <code>.fast.Delta.Diff.Move move = 5;</code>
+       */
+      fast.Fast.Delta.Diff.Move getMove();
+      /**
+       * <code>.fast.Delta.Diff.Move move = 5;</code>
+       */
+      fast.Fast.Delta.Diff.MoveOrBuilder getMoveOrBuilder();
+
+      /**
+       * <code>.fast.Delta.Diff.Update update = 6;</code>
+       */
+      fast.Fast.Delta.Diff.Update getUpdate();
+      /**
+       * <code>.fast.Delta.Diff.Update update = 6;</code>
+       */
+      fast.Fast.Delta.Diff.UpdateOrBuilder getUpdateOrBuilder();
+
+      public fast.Fast.Delta.Diff.DeltaCase getDeltaCase();
+    }
+    /**
+     * Protobuf type {@code fast.Delta.Diff}
+     */
+    public  static final class Diff extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:fast.Delta.Diff)
+        DiffOrBuilder {
+      // Use Diff.newBuilder() to construct.
+      private Diff(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Diff() {
+        type_ = 0;
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      }
+      private Diff(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+                int rawValue = input.readEnum();
+
+                type_ = rawValue;
+                break;
+              }
+              case 18: {
+                fast.Fast.Delta.Diff.Match.Builder subBuilder = null;
+                if (deltaCase_ == 2) {
+                  subBuilder = ((fast.Fast.Delta.Diff.Match) delta_).toBuilder();
+                }
+                delta_ =
+                    input.readMessage(fast.Fast.Delta.Diff.Match.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((fast.Fast.Delta.Diff.Match) delta_);
+                  delta_ = subBuilder.buildPartial();
+                }
+                deltaCase_ = 2;
+                break;
+              }
+              case 26: {
+                fast.Fast.Delta.Diff.Add.Builder subBuilder = null;
+                if (deltaCase_ == 3) {
+                  subBuilder = ((fast.Fast.Delta.Diff.Add) delta_).toBuilder();
+                }
+                delta_ =
+                    input.readMessage(fast.Fast.Delta.Diff.Add.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((fast.Fast.Delta.Diff.Add) delta_);
+                  delta_ = subBuilder.buildPartial();
+                }
+                deltaCase_ = 3;
+                break;
+              }
+              case 34: {
+                fast.Fast.Delta.Diff.Del.Builder subBuilder = null;
+                if (deltaCase_ == 4) {
+                  subBuilder = ((fast.Fast.Delta.Diff.Del) delta_).toBuilder();
+                }
+                delta_ =
+                    input.readMessage(fast.Fast.Delta.Diff.Del.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((fast.Fast.Delta.Diff.Del) delta_);
+                  delta_ = subBuilder.buildPartial();
+                }
+                deltaCase_ = 4;
+                break;
+              }
+              case 42: {
+                fast.Fast.Delta.Diff.Move.Builder subBuilder = null;
+                if (deltaCase_ == 5) {
+                  subBuilder = ((fast.Fast.Delta.Diff.Move) delta_).toBuilder();
+                }
+                delta_ =
+                    input.readMessage(fast.Fast.Delta.Diff.Move.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((fast.Fast.Delta.Diff.Move) delta_);
+                  delta_ = subBuilder.buildPartial();
+                }
+                deltaCase_ = 5;
+                break;
+              }
+              case 50: {
+                fast.Fast.Delta.Diff.Update.Builder subBuilder = null;
+                if (deltaCase_ == 6) {
+                  subBuilder = ((fast.Fast.Delta.Diff.Update) delta_).toBuilder();
+                }
+                delta_ =
+                    input.readMessage(fast.Fast.Delta.Diff.Update.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((fast.Fast.Delta.Diff.Update) delta_);
+                  delta_ = subBuilder.buildPartial();
+                }
+                deltaCase_ = 6;
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Delta_Diff_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Delta_Diff_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Delta.Diff.class, fast.Fast.Delta.Diff.Builder.class);
+      }
+
+      /**
+       * Protobuf enum {@code fast.Delta.Diff.DeltaType}
+       */
+      public enum DeltaType
+          implements com.google.protobuf.ProtocolMessageEnum {
+        /**
+         * <code>MATCH = 0;</code>
+         */
+        MATCH(0),
+        /**
+         * <code>ADD = 1;</code>
+         */
+        ADD(1),
+        /**
+         * <code>DEL = 2;</code>
+         */
+        DEL(2),
+        /**
+         * <code>MOVE = 3;</code>
+         */
+        MOVE(3),
+        /**
+         * <code>UPDATE = 4;</code>
+         */
+        UPDATE(4),
+        UNRECOGNIZED(-1),
+        ;
+
+        /**
+         * <code>MATCH = 0;</code>
+         */
+        public static final int MATCH_VALUE = 0;
+        /**
+         * <code>ADD = 1;</code>
+         */
+        public static final int ADD_VALUE = 1;
+        /**
+         * <code>DEL = 2;</code>
+         */
+        public static final int DEL_VALUE = 2;
+        /**
+         * <code>MOVE = 3;</code>
+         */
+        public static final int MOVE_VALUE = 3;
+        /**
+         * <code>UPDATE = 4;</code>
+         */
+        public static final int UPDATE_VALUE = 4;
+
+
+        public final int getNumber() {
+          if (this == UNRECOGNIZED) {
+            throw new java.lang.IllegalArgumentException(
+                "Can't get the number of an unknown enum value.");
+          }
+          return value;
+        }
+
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static DeltaType valueOf(int value) {
+          return forNumber(value);
+        }
+
+        public static DeltaType forNumber(int value) {
+          switch (value) {
+            case 0: return MATCH;
+            case 1: return ADD;
+            case 2: return DEL;
+            case 3: return MOVE;
+            case 4: return UPDATE;
+            default: return null;
+          }
+        }
+
+        public static com.google.protobuf.Internal.EnumLiteMap<DeltaType>
+            internalGetValueMap() {
+          return internalValueMap;
+        }
+        private static final com.google.protobuf.Internal.EnumLiteMap<
+            DeltaType> internalValueMap =
+              new com.google.protobuf.Internal.EnumLiteMap<DeltaType>() {
+                public DeltaType findValueByNumber(int number) {
+                  return DeltaType.forNumber(number);
+                }
+              };
+
+        public final com.google.protobuf.Descriptors.EnumValueDescriptor
+            getValueDescriptor() {
+          return getDescriptor().getValues().get(ordinal());
+        }
+        public final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptorForType() {
+          return getDescriptor();
+        }
+        public static final com.google.protobuf.Descriptors.EnumDescriptor
+            getDescriptor() {
+          return fast.Fast.Delta.Diff.getDescriptor().getEnumTypes().get(0);
+        }
+
+        private static final DeltaType[] VALUES = values();
+
+        public static DeltaType valueOf(
+            com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+          if (desc.getType() != getDescriptor()) {
+            throw new java.lang.IllegalArgumentException(
+              "EnumValueDescriptor is not for this type.");
+          }
+          if (desc.getIndex() == -1) {
+            return UNRECOGNIZED;
+          }
+          return VALUES[desc.getIndex()];
+        }
+
+        private final int value;
+
+        private DeltaType(int value) {
+          this.value = value;
+        }
+
+        // @@protoc_insertion_point(enum_scope:fast.Delta.Diff.DeltaType)
+      }
+
+      public interface MatchOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Delta.Diff.Match)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        int getSrc();
+
+        /**
+         * <code>int32 dst = 2;</code>
+         */
+        int getDst();
+      }
+      /**
+       * Protobuf type {@code fast.Delta.Diff.Match}
+       */
+      public  static final class Match extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Delta.Diff.Match)
+          MatchOrBuilder {
+        // Use Match.newBuilder() to construct.
+        private Match(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Match() {
+          src_ = 0;
+          dst_ = 0;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Match(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  src_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+
+                  dst_ = input.readInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Match_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Match_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Delta.Diff.Match.class, fast.Fast.Delta.Diff.Match.Builder.class);
+        }
+
+        public static final int SRC_FIELD_NUMBER = 1;
+        private int src_;
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        public int getSrc() {
+          return src_;
+        }
+
+        public static final int DST_FIELD_NUMBER = 2;
+        private int dst_;
+        /**
+         * <code>int32 dst = 2;</code>
+         */
+        public int getDst() {
+          return dst_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (src_ != 0) {
+            output.writeInt32(1, src_);
+          }
+          if (dst_ != 0) {
+            output.writeInt32(2, dst_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (src_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1, src_);
+          }
+          if (dst_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(2, dst_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Delta.Diff.Match)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Delta.Diff.Match other = (fast.Fast.Delta.Diff.Match) obj;
+
+          boolean result = true;
+          result = result && (getSrc()
+              == other.getSrc());
+          result = result && (getDst()
+              == other.getDst());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + SRC_FIELD_NUMBER;
+          hash = (53 * hash) + getSrc();
+          hash = (37 * hash) + DST_FIELD_NUMBER;
+          hash = (53 * hash) + getDst();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Match parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Match parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Match parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Delta.Diff.Match prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Delta.Diff.Match}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Delta.Diff.Match)
+            fast.Fast.Delta.Diff.MatchOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Match_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Match_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Delta.Diff.Match.class, fast.Fast.Delta.Diff.Match.Builder.class);
+          }
+
+          // Construct using fast.Fast.Delta.Diff.Match.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            src_ = 0;
+
+            dst_ = 0;
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Match_descriptor;
+          }
+
+          public fast.Fast.Delta.Diff.Match getDefaultInstanceForType() {
+            return fast.Fast.Delta.Diff.Match.getDefaultInstance();
+          }
+
+          public fast.Fast.Delta.Diff.Match build() {
+            fast.Fast.Delta.Diff.Match result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Delta.Diff.Match buildPartial() {
+            fast.Fast.Delta.Diff.Match result = new fast.Fast.Delta.Diff.Match(this);
+            result.src_ = src_;
+            result.dst_ = dst_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Delta.Diff.Match) {
+              return mergeFrom((fast.Fast.Delta.Diff.Match)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Delta.Diff.Match other) {
+            if (other == fast.Fast.Delta.Diff.Match.getDefaultInstance()) return this;
+            if (other.getSrc() != 0) {
+              setSrc(other.getSrc());
+            }
+            if (other.getDst() != 0) {
+              setDst(other.getDst());
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Delta.Diff.Match parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Delta.Diff.Match) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int src_ ;
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public int getSrc() {
+            return src_;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder setSrc(int value) {
+            
+            src_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder clearSrc() {
+            
+            src_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private int dst_ ;
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public int getDst() {
+            return dst_;
+          }
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public Builder setDst(int value) {
+            
+            dst_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public Builder clearDst() {
+            
+            dst_ = 0;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Delta.Diff.Match)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Match)
+        private static final fast.Fast.Delta.Diff.Match DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Delta.Diff.Match();
+        }
+
+        public static fast.Fast.Delta.Diff.Match getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Match>
+            PARSER = new com.google.protobuf.AbstractParser<Match>() {
+          public Match parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Match(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Match> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Match> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Delta.Diff.Match getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public interface AddOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Delta.Diff.Add)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        int getSrc();
+
+        /**
+         * <code>int32 dst = 2;</code>
+         */
+        int getDst();
+
+        /**
+         * <code>int32 position = 3;</code>
+         */
+        int getPosition();
+      }
+      /**
+       * Protobuf type {@code fast.Delta.Diff.Add}
+       */
+      public  static final class Add extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Delta.Diff.Add)
+          AddOrBuilder {
+        // Use Add.newBuilder() to construct.
+        private Add(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Add() {
+          src_ = 0;
+          dst_ = 0;
+          position_ = 0;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Add(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  src_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+
+                  dst_ = input.readInt32();
+                  break;
+                }
+                case 24: {
+
+                  position_ = input.readInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Add_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Add_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Delta.Diff.Add.class, fast.Fast.Delta.Diff.Add.Builder.class);
+        }
+
+        public static final int SRC_FIELD_NUMBER = 1;
+        private int src_;
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        public int getSrc() {
+          return src_;
+        }
+
+        public static final int DST_FIELD_NUMBER = 2;
+        private int dst_;
+        /**
+         * <code>int32 dst = 2;</code>
+         */
+        public int getDst() {
+          return dst_;
+        }
+
+        public static final int POSITION_FIELD_NUMBER = 3;
+        private int position_;
+        /**
+         * <code>int32 position = 3;</code>
+         */
+        public int getPosition() {
+          return position_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (src_ != 0) {
+            output.writeInt32(1, src_);
+          }
+          if (dst_ != 0) {
+            output.writeInt32(2, dst_);
+          }
+          if (position_ != 0) {
+            output.writeInt32(3, position_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (src_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1, src_);
+          }
+          if (dst_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(2, dst_);
+          }
+          if (position_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(3, position_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Delta.Diff.Add)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Delta.Diff.Add other = (fast.Fast.Delta.Diff.Add) obj;
+
+          boolean result = true;
+          result = result && (getSrc()
+              == other.getSrc());
+          result = result && (getDst()
+              == other.getDst());
+          result = result && (getPosition()
+              == other.getPosition());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + SRC_FIELD_NUMBER;
+          hash = (53 * hash) + getSrc();
+          hash = (37 * hash) + DST_FIELD_NUMBER;
+          hash = (53 * hash) + getDst();
+          hash = (37 * hash) + POSITION_FIELD_NUMBER;
+          hash = (53 * hash) + getPosition();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Add parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Add parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Add parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Delta.Diff.Add prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Delta.Diff.Add}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Delta.Diff.Add)
+            fast.Fast.Delta.Diff.AddOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Add_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Add_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Delta.Diff.Add.class, fast.Fast.Delta.Diff.Add.Builder.class);
+          }
+
+          // Construct using fast.Fast.Delta.Diff.Add.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            src_ = 0;
+
+            dst_ = 0;
+
+            position_ = 0;
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Add_descriptor;
+          }
+
+          public fast.Fast.Delta.Diff.Add getDefaultInstanceForType() {
+            return fast.Fast.Delta.Diff.Add.getDefaultInstance();
+          }
+
+          public fast.Fast.Delta.Diff.Add build() {
+            fast.Fast.Delta.Diff.Add result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Delta.Diff.Add buildPartial() {
+            fast.Fast.Delta.Diff.Add result = new fast.Fast.Delta.Diff.Add(this);
+            result.src_ = src_;
+            result.dst_ = dst_;
+            result.position_ = position_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Delta.Diff.Add) {
+              return mergeFrom((fast.Fast.Delta.Diff.Add)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Delta.Diff.Add other) {
+            if (other == fast.Fast.Delta.Diff.Add.getDefaultInstance()) return this;
+            if (other.getSrc() != 0) {
+              setSrc(other.getSrc());
+            }
+            if (other.getDst() != 0) {
+              setDst(other.getDst());
+            }
+            if (other.getPosition() != 0) {
+              setPosition(other.getPosition());
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Delta.Diff.Add parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Delta.Diff.Add) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int src_ ;
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public int getSrc() {
+            return src_;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder setSrc(int value) {
+            
+            src_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder clearSrc() {
+            
+            src_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private int dst_ ;
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public int getDst() {
+            return dst_;
+          }
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public Builder setDst(int value) {
+            
+            dst_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public Builder clearDst() {
+            
+            dst_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private int position_ ;
+          /**
+           * <code>int32 position = 3;</code>
+           */
+          public int getPosition() {
+            return position_;
+          }
+          /**
+           * <code>int32 position = 3;</code>
+           */
+          public Builder setPosition(int value) {
+            
+            position_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 position = 3;</code>
+           */
+          public Builder clearPosition() {
+            
+            position_ = 0;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Delta.Diff.Add)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Add)
+        private static final fast.Fast.Delta.Diff.Add DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Delta.Diff.Add();
+        }
+
+        public static fast.Fast.Delta.Diff.Add getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Add>
+            PARSER = new com.google.protobuf.AbstractParser<Add>() {
+          public Add parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Add(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Add> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Add> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Delta.Diff.Add getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public interface DelOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Delta.Diff.Del)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        int getSrc();
+      }
+      /**
+       * Protobuf type {@code fast.Delta.Diff.Del}
+       */
+      public  static final class Del extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Delta.Diff.Del)
+          DelOrBuilder {
+        // Use Del.newBuilder() to construct.
+        private Del(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Del() {
+          src_ = 0;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Del(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  src_ = input.readInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Del_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Del_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Delta.Diff.Del.class, fast.Fast.Delta.Diff.Del.Builder.class);
+        }
+
+        public static final int SRC_FIELD_NUMBER = 1;
+        private int src_;
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        public int getSrc() {
+          return src_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (src_ != 0) {
+            output.writeInt32(1, src_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (src_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1, src_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Delta.Diff.Del)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Delta.Diff.Del other = (fast.Fast.Delta.Diff.Del) obj;
+
+          boolean result = true;
+          result = result && (getSrc()
+              == other.getSrc());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + SRC_FIELD_NUMBER;
+          hash = (53 * hash) + getSrc();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Del parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Del parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Del parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Delta.Diff.Del prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Delta.Diff.Del}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Delta.Diff.Del)
+            fast.Fast.Delta.Diff.DelOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Del_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Del_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Delta.Diff.Del.class, fast.Fast.Delta.Diff.Del.Builder.class);
+          }
+
+          // Construct using fast.Fast.Delta.Diff.Del.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            src_ = 0;
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Del_descriptor;
+          }
+
+          public fast.Fast.Delta.Diff.Del getDefaultInstanceForType() {
+            return fast.Fast.Delta.Diff.Del.getDefaultInstance();
+          }
+
+          public fast.Fast.Delta.Diff.Del build() {
+            fast.Fast.Delta.Diff.Del result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Delta.Diff.Del buildPartial() {
+            fast.Fast.Delta.Diff.Del result = new fast.Fast.Delta.Diff.Del(this);
+            result.src_ = src_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Delta.Diff.Del) {
+              return mergeFrom((fast.Fast.Delta.Diff.Del)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Delta.Diff.Del other) {
+            if (other == fast.Fast.Delta.Diff.Del.getDefaultInstance()) return this;
+            if (other.getSrc() != 0) {
+              setSrc(other.getSrc());
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Delta.Diff.Del parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Delta.Diff.Del) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int src_ ;
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public int getSrc() {
+            return src_;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder setSrc(int value) {
+            
+            src_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder clearSrc() {
+            
+            src_ = 0;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Delta.Diff.Del)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Del)
+        private static final fast.Fast.Delta.Diff.Del DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Delta.Diff.Del();
+        }
+
+        public static fast.Fast.Delta.Diff.Del getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Del>
+            PARSER = new com.google.protobuf.AbstractParser<Del>() {
+          public Del parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Del(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Del> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Del> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Delta.Diff.Del getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public interface MoveOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Delta.Diff.Move)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        int getSrc();
+
+        /**
+         * <code>int32 dst = 2;</code>
+         */
+        int getDst();
+
+        /**
+         * <code>int32 position = 3;</code>
+         */
+        int getPosition();
+      }
+      /**
+       * Protobuf type {@code fast.Delta.Diff.Move}
+       */
+      public  static final class Move extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Delta.Diff.Move)
+          MoveOrBuilder {
+        // Use Move.newBuilder() to construct.
+        private Move(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Move() {
+          src_ = 0;
+          dst_ = 0;
+          position_ = 0;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Move(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  src_ = input.readInt32();
+                  break;
+                }
+                case 16: {
+
+                  dst_ = input.readInt32();
+                  break;
+                }
+                case 24: {
+
+                  position_ = input.readInt32();
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Move_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Move_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Delta.Diff.Move.class, fast.Fast.Delta.Diff.Move.Builder.class);
+        }
+
+        public static final int SRC_FIELD_NUMBER = 1;
+        private int src_;
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        public int getSrc() {
+          return src_;
+        }
+
+        public static final int DST_FIELD_NUMBER = 2;
+        private int dst_;
+        /**
+         * <code>int32 dst = 2;</code>
+         */
+        public int getDst() {
+          return dst_;
+        }
+
+        public static final int POSITION_FIELD_NUMBER = 3;
+        private int position_;
+        /**
+         * <code>int32 position = 3;</code>
+         */
+        public int getPosition() {
+          return position_;
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (src_ != 0) {
+            output.writeInt32(1, src_);
+          }
+          if (dst_ != 0) {
+            output.writeInt32(2, dst_);
+          }
+          if (position_ != 0) {
+            output.writeInt32(3, position_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (src_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1, src_);
+          }
+          if (dst_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(2, dst_);
+          }
+          if (position_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(3, position_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Delta.Diff.Move)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Delta.Diff.Move other = (fast.Fast.Delta.Diff.Move) obj;
+
+          boolean result = true;
+          result = result && (getSrc()
+              == other.getSrc());
+          result = result && (getDst()
+              == other.getDst());
+          result = result && (getPosition()
+              == other.getPosition());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + SRC_FIELD_NUMBER;
+          hash = (53 * hash) + getSrc();
+          hash = (37 * hash) + DST_FIELD_NUMBER;
+          hash = (53 * hash) + getDst();
+          hash = (37 * hash) + POSITION_FIELD_NUMBER;
+          hash = (53 * hash) + getPosition();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Move parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Move parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Move parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Delta.Diff.Move prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Delta.Diff.Move}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Delta.Diff.Move)
+            fast.Fast.Delta.Diff.MoveOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Move_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Move_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Delta.Diff.Move.class, fast.Fast.Delta.Diff.Move.Builder.class);
+          }
+
+          // Construct using fast.Fast.Delta.Diff.Move.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            src_ = 0;
+
+            dst_ = 0;
+
+            position_ = 0;
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Move_descriptor;
+          }
+
+          public fast.Fast.Delta.Diff.Move getDefaultInstanceForType() {
+            return fast.Fast.Delta.Diff.Move.getDefaultInstance();
+          }
+
+          public fast.Fast.Delta.Diff.Move build() {
+            fast.Fast.Delta.Diff.Move result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Delta.Diff.Move buildPartial() {
+            fast.Fast.Delta.Diff.Move result = new fast.Fast.Delta.Diff.Move(this);
+            result.src_ = src_;
+            result.dst_ = dst_;
+            result.position_ = position_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Delta.Diff.Move) {
+              return mergeFrom((fast.Fast.Delta.Diff.Move)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Delta.Diff.Move other) {
+            if (other == fast.Fast.Delta.Diff.Move.getDefaultInstance()) return this;
+            if (other.getSrc() != 0) {
+              setSrc(other.getSrc());
+            }
+            if (other.getDst() != 0) {
+              setDst(other.getDst());
+            }
+            if (other.getPosition() != 0) {
+              setPosition(other.getPosition());
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Delta.Diff.Move parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Delta.Diff.Move) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int src_ ;
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public int getSrc() {
+            return src_;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder setSrc(int value) {
+            
+            src_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder clearSrc() {
+            
+            src_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private int dst_ ;
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public int getDst() {
+            return dst_;
+          }
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public Builder setDst(int value) {
+            
+            dst_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 dst = 2;</code>
+           */
+          public Builder clearDst() {
+            
+            dst_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private int position_ ;
+          /**
+           * <code>int32 position = 3;</code>
+           */
+          public int getPosition() {
+            return position_;
+          }
+          /**
+           * <code>int32 position = 3;</code>
+           */
+          public Builder setPosition(int value) {
+            
+            position_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 position = 3;</code>
+           */
+          public Builder clearPosition() {
+            
+            position_ = 0;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Delta.Diff.Move)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Move)
+        private static final fast.Fast.Delta.Diff.Move DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Delta.Diff.Move();
+        }
+
+        public static fast.Fast.Delta.Diff.Move getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Move>
+            PARSER = new com.google.protobuf.AbstractParser<Move>() {
+          public Move parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Move(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Move> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Move> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Delta.Diff.Move getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public interface UpdateOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Delta.Diff.Update)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        int getSrc();
+
+        /**
+         * <code>string label = 2;</code>
+         */
+        java.lang.String getLabel();
+        /**
+         * <code>string label = 2;</code>
+         */
+        com.google.protobuf.ByteString
+            getLabelBytes();
+      }
+      /**
+       * Protobuf type {@code fast.Delta.Diff.Update}
+       */
+      public  static final class Update extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Delta.Diff.Update)
+          UpdateOrBuilder {
+        // Use Update.newBuilder() to construct.
+        private Update(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Update() {
+          src_ = 0;
+          label_ = "";
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Update(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  src_ = input.readInt32();
+                  break;
+                }
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  label_ = s;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Update_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Delta_Diff_Update_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Delta.Diff.Update.class, fast.Fast.Delta.Diff.Update.Builder.class);
+        }
+
+        public static final int SRC_FIELD_NUMBER = 1;
+        private int src_;
+        /**
+         * <code>int32 src = 1;</code>
+         */
+        public int getSrc() {
+          return src_;
+        }
+
+        public static final int LABEL_FIELD_NUMBER = 2;
+        private volatile java.lang.Object label_;
+        /**
+         * <code>string label = 2;</code>
+         */
+        public java.lang.String getLabel() {
+          java.lang.Object ref = label_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            label_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string label = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getLabelBytes() {
+          java.lang.Object ref = label_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            label_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (src_ != 0) {
+            output.writeInt32(1, src_);
+          }
+          if (!getLabelBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, label_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (src_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1, src_);
+          }
+          if (!getLabelBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, label_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Delta.Diff.Update)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Delta.Diff.Update other = (fast.Fast.Delta.Diff.Update) obj;
+
+          boolean result = true;
+          result = result && (getSrc()
+              == other.getSrc());
+          result = result && getLabel()
+              .equals(other.getLabel());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + SRC_FIELD_NUMBER;
+          hash = (53 * hash) + getSrc();
+          hash = (37 * hash) + LABEL_FIELD_NUMBER;
+          hash = (53 * hash) + getLabel().hashCode();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Update parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Update parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Delta.Diff.Update parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Delta.Diff.Update prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Delta.Diff.Update}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Delta.Diff.Update)
+            fast.Fast.Delta.Diff.UpdateOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Update_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Update_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Delta.Diff.Update.class, fast.Fast.Delta.Diff.Update.Builder.class);
+          }
+
+          // Construct using fast.Fast.Delta.Diff.Update.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            src_ = 0;
+
+            label_ = "";
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Delta_Diff_Update_descriptor;
+          }
+
+          public fast.Fast.Delta.Diff.Update getDefaultInstanceForType() {
+            return fast.Fast.Delta.Diff.Update.getDefaultInstance();
+          }
+
+          public fast.Fast.Delta.Diff.Update build() {
+            fast.Fast.Delta.Diff.Update result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Delta.Diff.Update buildPartial() {
+            fast.Fast.Delta.Diff.Update result = new fast.Fast.Delta.Diff.Update(this);
+            result.src_ = src_;
+            result.label_ = label_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Delta.Diff.Update) {
+              return mergeFrom((fast.Fast.Delta.Diff.Update)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Delta.Diff.Update other) {
+            if (other == fast.Fast.Delta.Diff.Update.getDefaultInstance()) return this;
+            if (other.getSrc() != 0) {
+              setSrc(other.getSrc());
+            }
+            if (!other.getLabel().isEmpty()) {
+              label_ = other.label_;
+              onChanged();
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Delta.Diff.Update parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Delta.Diff.Update) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int src_ ;
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public int getSrc() {
+            return src_;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder setSrc(int value) {
+            
+            src_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 src = 1;</code>
+           */
+          public Builder clearSrc() {
+            
+            src_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object label_ = "";
+          /**
+           * <code>string label = 2;</code>
+           */
+          public java.lang.String getLabel() {
+            java.lang.Object ref = label_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              label_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string label = 2;</code>
+           */
+          public com.google.protobuf.ByteString
+              getLabelBytes() {
+            java.lang.Object ref = label_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              label_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string label = 2;</code>
+           */
+          public Builder setLabel(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            label_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string label = 2;</code>
+           */
+          public Builder clearLabel() {
+            
+            label_ = getDefaultInstance().getLabel();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string label = 2;</code>
+           */
+          public Builder setLabelBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            label_ = value;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Delta.Diff.Update)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Delta.Diff.Update)
+        private static final fast.Fast.Delta.Diff.Update DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Delta.Diff.Update();
+        }
+
+        public static fast.Fast.Delta.Diff.Update getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Update>
+            PARSER = new com.google.protobuf.AbstractParser<Update>() {
+          public Update parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Update(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Update> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Update> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Delta.Diff.Update getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      private int deltaCase_ = 0;
+      private java.lang.Object delta_;
+      public enum DeltaCase
+          implements com.google.protobuf.Internal.EnumLite {
+        MATCH(2),
+        ADD(3),
+        DEL(4),
+        MOVE(5),
+        UPDATE(6),
+        DELTA_NOT_SET(0);
+        private final int value;
+        private DeltaCase(int value) {
+          this.value = value;
+        }
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static DeltaCase valueOf(int value) {
+          return forNumber(value);
+        }
+
+        public static DeltaCase forNumber(int value) {
+          switch (value) {
+            case 2: return MATCH;
+            case 3: return ADD;
+            case 4: return DEL;
+            case 5: return MOVE;
+            case 6: return UPDATE;
+            case 0: return DELTA_NOT_SET;
+            default: return null;
+          }
+        }
+        public int getNumber() {
+          return this.value;
+        }
+      };
+
+      public DeltaCase
+      getDeltaCase() {
+        return DeltaCase.forNumber(
+            deltaCase_);
+      }
+
+      public static final int TYPE_FIELD_NUMBER = 1;
+      private int type_;
+      /**
+       * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+       */
+      public fast.Fast.Delta.Diff.DeltaType getType() {
+        fast.Fast.Delta.Diff.DeltaType result = fast.Fast.Delta.Diff.DeltaType.valueOf(type_);
+        return result == null ? fast.Fast.Delta.Diff.DeltaType.UNRECOGNIZED : result;
+      }
+
+      public static final int MATCH_FIELD_NUMBER = 2;
+      /**
+       * <code>.fast.Delta.Diff.Match match = 2;</code>
+       */
+      public fast.Fast.Delta.Diff.Match getMatch() {
+        if (deltaCase_ == 2) {
+           return (fast.Fast.Delta.Diff.Match) delta_;
+        }
+        return fast.Fast.Delta.Diff.Match.getDefaultInstance();
+      }
+      /**
+       * <code>.fast.Delta.Diff.Match match = 2;</code>
+       */
+      public fast.Fast.Delta.Diff.MatchOrBuilder getMatchOrBuilder() {
+        if (deltaCase_ == 2) {
+           return (fast.Fast.Delta.Diff.Match) delta_;
+        }
+        return fast.Fast.Delta.Diff.Match.getDefaultInstance();
+      }
+
+      public static final int ADD_FIELD_NUMBER = 3;
+      /**
+       * <code>.fast.Delta.Diff.Add add = 3;</code>
+       */
+      public fast.Fast.Delta.Diff.Add getAdd() {
+        if (deltaCase_ == 3) {
+           return (fast.Fast.Delta.Diff.Add) delta_;
+        }
+        return fast.Fast.Delta.Diff.Add.getDefaultInstance();
+      }
+      /**
+       * <code>.fast.Delta.Diff.Add add = 3;</code>
+       */
+      public fast.Fast.Delta.Diff.AddOrBuilder getAddOrBuilder() {
+        if (deltaCase_ == 3) {
+           return (fast.Fast.Delta.Diff.Add) delta_;
+        }
+        return fast.Fast.Delta.Diff.Add.getDefaultInstance();
+      }
+
+      public static final int DEL_FIELD_NUMBER = 4;
+      /**
+       * <code>.fast.Delta.Diff.Del del = 4;</code>
+       */
+      public fast.Fast.Delta.Diff.Del getDel() {
+        if (deltaCase_ == 4) {
+           return (fast.Fast.Delta.Diff.Del) delta_;
+        }
+        return fast.Fast.Delta.Diff.Del.getDefaultInstance();
+      }
+      /**
+       * <code>.fast.Delta.Diff.Del del = 4;</code>
+       */
+      public fast.Fast.Delta.Diff.DelOrBuilder getDelOrBuilder() {
+        if (deltaCase_ == 4) {
+           return (fast.Fast.Delta.Diff.Del) delta_;
+        }
+        return fast.Fast.Delta.Diff.Del.getDefaultInstance();
+      }
+
+      public static final int MOVE_FIELD_NUMBER = 5;
+      /**
+       * <code>.fast.Delta.Diff.Move move = 5;</code>
+       */
+      public fast.Fast.Delta.Diff.Move getMove() {
+        if (deltaCase_ == 5) {
+           return (fast.Fast.Delta.Diff.Move) delta_;
+        }
+        return fast.Fast.Delta.Diff.Move.getDefaultInstance();
+      }
+      /**
+       * <code>.fast.Delta.Diff.Move move = 5;</code>
+       */
+      public fast.Fast.Delta.Diff.MoveOrBuilder getMoveOrBuilder() {
+        if (deltaCase_ == 5) {
+           return (fast.Fast.Delta.Diff.Move) delta_;
+        }
+        return fast.Fast.Delta.Diff.Move.getDefaultInstance();
+      }
+
+      public static final int UPDATE_FIELD_NUMBER = 6;
+      /**
+       * <code>.fast.Delta.Diff.Update update = 6;</code>
+       */
+      public fast.Fast.Delta.Diff.Update getUpdate() {
+        if (deltaCase_ == 6) {
+           return (fast.Fast.Delta.Diff.Update) delta_;
+        }
+        return fast.Fast.Delta.Diff.Update.getDefaultInstance();
+      }
+      /**
+       * <code>.fast.Delta.Diff.Update update = 6;</code>
+       */
+      public fast.Fast.Delta.Diff.UpdateOrBuilder getUpdateOrBuilder() {
+        if (deltaCase_ == 6) {
+           return (fast.Fast.Delta.Diff.Update) delta_;
+        }
+        return fast.Fast.Delta.Diff.Update.getDefaultInstance();
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (type_ != fast.Fast.Delta.Diff.DeltaType.MATCH.getNumber()) {
+          output.writeEnum(1, type_);
+        }
+        if (deltaCase_ == 2) {
+          output.writeMessage(2, (fast.Fast.Delta.Diff.Match) delta_);
+        }
+        if (deltaCase_ == 3) {
+          output.writeMessage(3, (fast.Fast.Delta.Diff.Add) delta_);
+        }
+        if (deltaCase_ == 4) {
+          output.writeMessage(4, (fast.Fast.Delta.Diff.Del) delta_);
+        }
+        if (deltaCase_ == 5) {
+          output.writeMessage(5, (fast.Fast.Delta.Diff.Move) delta_);
+        }
+        if (deltaCase_ == 6) {
+          output.writeMessage(6, (fast.Fast.Delta.Diff.Update) delta_);
+        }
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (type_ != fast.Fast.Delta.Diff.DeltaType.MATCH.getNumber()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeEnumSize(1, type_);
+        }
+        if (deltaCase_ == 2) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(2, (fast.Fast.Delta.Diff.Match) delta_);
+        }
+        if (deltaCase_ == 3) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(3, (fast.Fast.Delta.Diff.Add) delta_);
+        }
+        if (deltaCase_ == 4) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(4, (fast.Fast.Delta.Diff.Del) delta_);
+        }
+        if (deltaCase_ == 5) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, (fast.Fast.Delta.Diff.Move) delta_);
+        }
+        if (deltaCase_ == 6) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, (fast.Fast.Delta.Diff.Update) delta_);
+        }
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof fast.Fast.Delta.Diff)) {
+          return super.equals(obj);
+        }
+        fast.Fast.Delta.Diff other = (fast.Fast.Delta.Diff) obj;
+
+        boolean result = true;
+        result = result && type_ == other.type_;
+        result = result && getDeltaCase().equals(
+            other.getDeltaCase());
+        if (!result) return false;
+        switch (deltaCase_) {
+          case 2:
+            result = result && getMatch()
+                .equals(other.getMatch());
+            break;
+          case 3:
+            result = result && getAdd()
+                .equals(other.getAdd());
+            break;
+          case 4:
+            result = result && getDel()
+                .equals(other.getDel());
+            break;
+          case 5:
+            result = result && getMove()
+                .equals(other.getMove());
+            break;
+          case 6:
+            result = result && getUpdate()
+                .equals(other.getUpdate());
+            break;
+          case 0:
+          default:
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + type_;
+        switch (deltaCase_) {
+          case 2:
+            hash = (37 * hash) + MATCH_FIELD_NUMBER;
+            hash = (53 * hash) + getMatch().hashCode();
+            break;
+          case 3:
+            hash = (37 * hash) + ADD_FIELD_NUMBER;
+            hash = (53 * hash) + getAdd().hashCode();
+            break;
+          case 4:
+            hash = (37 * hash) + DEL_FIELD_NUMBER;
+            hash = (53 * hash) + getDel().hashCode();
+            break;
+          case 5:
+            hash = (37 * hash) + MOVE_FIELD_NUMBER;
+            hash = (53 * hash) + getMove().hashCode();
+            break;
+          case 6:
+            hash = (37 * hash) + UPDATE_FIELD_NUMBER;
+            hash = (53 * hash) + getUpdate().hashCode();
+            break;
+          case 0:
+          default:
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static fast.Fast.Delta.Diff parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Delta.Diff parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Delta.Diff parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Delta.Diff parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(fast.Fast.Delta.Diff prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code fast.Delta.Diff}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:fast.Delta.Diff)
+          fast.Fast.Delta.DiffOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Delta_Diff_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Delta_Diff_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Delta.Diff.class, fast.Fast.Delta.Diff.Builder.class);
+        }
+
+        // Construct using fast.Fast.Delta.Diff.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          type_ = 0;
+
+          deltaCase_ = 0;
+          delta_ = null;
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return fast.Fast.internal_static_fast_Delta_Diff_descriptor;
+        }
+
+        public fast.Fast.Delta.Diff getDefaultInstanceForType() {
+          return fast.Fast.Delta.Diff.getDefaultInstance();
+        }
+
+        public fast.Fast.Delta.Diff build() {
+          fast.Fast.Delta.Diff result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public fast.Fast.Delta.Diff buildPartial() {
+          fast.Fast.Delta.Diff result = new fast.Fast.Delta.Diff(this);
+          result.type_ = type_;
+          if (deltaCase_ == 2) {
+            if (matchBuilder_ == null) {
+              result.delta_ = delta_;
+            } else {
+              result.delta_ = matchBuilder_.build();
+            }
+          }
+          if (deltaCase_ == 3) {
+            if (addBuilder_ == null) {
+              result.delta_ = delta_;
+            } else {
+              result.delta_ = addBuilder_.build();
+            }
+          }
+          if (deltaCase_ == 4) {
+            if (delBuilder_ == null) {
+              result.delta_ = delta_;
+            } else {
+              result.delta_ = delBuilder_.build();
+            }
+          }
+          if (deltaCase_ == 5) {
+            if (moveBuilder_ == null) {
+              result.delta_ = delta_;
+            } else {
+              result.delta_ = moveBuilder_.build();
+            }
+          }
+          if (deltaCase_ == 6) {
+            if (updateBuilder_ == null) {
+              result.delta_ = delta_;
+            } else {
+              result.delta_ = updateBuilder_.build();
+            }
+          }
+          result.deltaCase_ = deltaCase_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof fast.Fast.Delta.Diff) {
+            return mergeFrom((fast.Fast.Delta.Diff)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(fast.Fast.Delta.Diff other) {
+          if (other == fast.Fast.Delta.Diff.getDefaultInstance()) return this;
+          if (other.type_ != 0) {
+            setTypeValue(other.getTypeValue());
+          }
+          switch (other.getDeltaCase()) {
+            case MATCH: {
+              mergeMatch(other.getMatch());
+              break;
+            }
+            case ADD: {
+              mergeAdd(other.getAdd());
+              break;
+            }
+            case DEL: {
+              mergeDel(other.getDel());
+              break;
+            }
+            case MOVE: {
+              mergeMove(other.getMove());
+              break;
+            }
+            case UPDATE: {
+              mergeUpdate(other.getUpdate());
+              break;
+            }
+            case DELTA_NOT_SET: {
+              break;
+            }
+          }
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          fast.Fast.Delta.Diff parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (fast.Fast.Delta.Diff) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int deltaCase_ = 0;
+        private java.lang.Object delta_;
+        public DeltaCase
+            getDeltaCase() {
+          return DeltaCase.forNumber(
+              deltaCase_);
+        }
+
+        public Builder clearDelta() {
+          deltaCase_ = 0;
+          delta_ = null;
+          onChanged();
+          return this;
+        }
+
+
+        private int type_ = 0;
+        /**
+         * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+         */
+        public int getTypeValue() {
+          return type_;
+        }
+        /**
+         * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+         */
+        public Builder setTypeValue(int value) {
+          type_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+         */
+        public fast.Fast.Delta.Diff.DeltaType getType() {
+          fast.Fast.Delta.Diff.DeltaType result = fast.Fast.Delta.Diff.DeltaType.valueOf(type_);
+          return result == null ? fast.Fast.Delta.Diff.DeltaType.UNRECOGNIZED : result;
+        }
+        /**
+         * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+         */
+        public Builder setType(fast.Fast.Delta.Diff.DeltaType value) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          
+          type_ = value.getNumber();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.DeltaType type = 1;</code>
+         */
+        public Builder clearType() {
+          
+          type_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Match, fast.Fast.Delta.Diff.Match.Builder, fast.Fast.Delta.Diff.MatchOrBuilder> matchBuilder_;
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public fast.Fast.Delta.Diff.Match getMatch() {
+          if (matchBuilder_ == null) {
+            if (deltaCase_ == 2) {
+              return (fast.Fast.Delta.Diff.Match) delta_;
+            }
+            return fast.Fast.Delta.Diff.Match.getDefaultInstance();
+          } else {
+            if (deltaCase_ == 2) {
+              return matchBuilder_.getMessage();
+            }
+            return fast.Fast.Delta.Diff.Match.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public Builder setMatch(fast.Fast.Delta.Diff.Match value) {
+          if (matchBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            delta_ = value;
+            onChanged();
+          } else {
+            matchBuilder_.setMessage(value);
+          }
+          deltaCase_ = 2;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public Builder setMatch(
+            fast.Fast.Delta.Diff.Match.Builder builderForValue) {
+          if (matchBuilder_ == null) {
+            delta_ = builderForValue.build();
+            onChanged();
+          } else {
+            matchBuilder_.setMessage(builderForValue.build());
+          }
+          deltaCase_ = 2;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public Builder mergeMatch(fast.Fast.Delta.Diff.Match value) {
+          if (matchBuilder_ == null) {
+            if (deltaCase_ == 2 &&
+                delta_ != fast.Fast.Delta.Diff.Match.getDefaultInstance()) {
+              delta_ = fast.Fast.Delta.Diff.Match.newBuilder((fast.Fast.Delta.Diff.Match) delta_)
+                  .mergeFrom(value).buildPartial();
+            } else {
+              delta_ = value;
+            }
+            onChanged();
+          } else {
+            if (deltaCase_ == 2) {
+              matchBuilder_.mergeFrom(value);
+            }
+            matchBuilder_.setMessage(value);
+          }
+          deltaCase_ = 2;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public Builder clearMatch() {
+          if (matchBuilder_ == null) {
+            if (deltaCase_ == 2) {
+              deltaCase_ = 0;
+              delta_ = null;
+              onChanged();
+            }
+          } else {
+            if (deltaCase_ == 2) {
+              deltaCase_ = 0;
+              delta_ = null;
+            }
+            matchBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public fast.Fast.Delta.Diff.Match.Builder getMatchBuilder() {
+          return getMatchFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        public fast.Fast.Delta.Diff.MatchOrBuilder getMatchOrBuilder() {
+          if ((deltaCase_ == 2) && (matchBuilder_ != null)) {
+            return matchBuilder_.getMessageOrBuilder();
+          } else {
+            if (deltaCase_ == 2) {
+              return (fast.Fast.Delta.Diff.Match) delta_;
+            }
+            return fast.Fast.Delta.Diff.Match.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Match match = 2;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Match, fast.Fast.Delta.Diff.Match.Builder, fast.Fast.Delta.Diff.MatchOrBuilder> 
+            getMatchFieldBuilder() {
+          if (matchBuilder_ == null) {
+            if (!(deltaCase_ == 2)) {
+              delta_ = fast.Fast.Delta.Diff.Match.getDefaultInstance();
+            }
+            matchBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Delta.Diff.Match, fast.Fast.Delta.Diff.Match.Builder, fast.Fast.Delta.Diff.MatchOrBuilder>(
+                    (fast.Fast.Delta.Diff.Match) delta_,
+                    getParentForChildren(),
+                    isClean());
+            delta_ = null;
+          }
+          deltaCase_ = 2;
+          onChanged();;
+          return matchBuilder_;
+        }
+
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Add, fast.Fast.Delta.Diff.Add.Builder, fast.Fast.Delta.Diff.AddOrBuilder> addBuilder_;
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public fast.Fast.Delta.Diff.Add getAdd() {
+          if (addBuilder_ == null) {
+            if (deltaCase_ == 3) {
+              return (fast.Fast.Delta.Diff.Add) delta_;
+            }
+            return fast.Fast.Delta.Diff.Add.getDefaultInstance();
+          } else {
+            if (deltaCase_ == 3) {
+              return addBuilder_.getMessage();
+            }
+            return fast.Fast.Delta.Diff.Add.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public Builder setAdd(fast.Fast.Delta.Diff.Add value) {
+          if (addBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            delta_ = value;
+            onChanged();
+          } else {
+            addBuilder_.setMessage(value);
+          }
+          deltaCase_ = 3;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public Builder setAdd(
+            fast.Fast.Delta.Diff.Add.Builder builderForValue) {
+          if (addBuilder_ == null) {
+            delta_ = builderForValue.build();
+            onChanged();
+          } else {
+            addBuilder_.setMessage(builderForValue.build());
+          }
+          deltaCase_ = 3;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public Builder mergeAdd(fast.Fast.Delta.Diff.Add value) {
+          if (addBuilder_ == null) {
+            if (deltaCase_ == 3 &&
+                delta_ != fast.Fast.Delta.Diff.Add.getDefaultInstance()) {
+              delta_ = fast.Fast.Delta.Diff.Add.newBuilder((fast.Fast.Delta.Diff.Add) delta_)
+                  .mergeFrom(value).buildPartial();
+            } else {
+              delta_ = value;
+            }
+            onChanged();
+          } else {
+            if (deltaCase_ == 3) {
+              addBuilder_.mergeFrom(value);
+            }
+            addBuilder_.setMessage(value);
+          }
+          deltaCase_ = 3;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public Builder clearAdd() {
+          if (addBuilder_ == null) {
+            if (deltaCase_ == 3) {
+              deltaCase_ = 0;
+              delta_ = null;
+              onChanged();
+            }
+          } else {
+            if (deltaCase_ == 3) {
+              deltaCase_ = 0;
+              delta_ = null;
+            }
+            addBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public fast.Fast.Delta.Diff.Add.Builder getAddBuilder() {
+          return getAddFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        public fast.Fast.Delta.Diff.AddOrBuilder getAddOrBuilder() {
+          if ((deltaCase_ == 3) && (addBuilder_ != null)) {
+            return addBuilder_.getMessageOrBuilder();
+          } else {
+            if (deltaCase_ == 3) {
+              return (fast.Fast.Delta.Diff.Add) delta_;
+            }
+            return fast.Fast.Delta.Diff.Add.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Add add = 3;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Add, fast.Fast.Delta.Diff.Add.Builder, fast.Fast.Delta.Diff.AddOrBuilder> 
+            getAddFieldBuilder() {
+          if (addBuilder_ == null) {
+            if (!(deltaCase_ == 3)) {
+              delta_ = fast.Fast.Delta.Diff.Add.getDefaultInstance();
+            }
+            addBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Delta.Diff.Add, fast.Fast.Delta.Diff.Add.Builder, fast.Fast.Delta.Diff.AddOrBuilder>(
+                    (fast.Fast.Delta.Diff.Add) delta_,
+                    getParentForChildren(),
+                    isClean());
+            delta_ = null;
+          }
+          deltaCase_ = 3;
+          onChanged();;
+          return addBuilder_;
+        }
+
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Del, fast.Fast.Delta.Diff.Del.Builder, fast.Fast.Delta.Diff.DelOrBuilder> delBuilder_;
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public fast.Fast.Delta.Diff.Del getDel() {
+          if (delBuilder_ == null) {
+            if (deltaCase_ == 4) {
+              return (fast.Fast.Delta.Diff.Del) delta_;
+            }
+            return fast.Fast.Delta.Diff.Del.getDefaultInstance();
+          } else {
+            if (deltaCase_ == 4) {
+              return delBuilder_.getMessage();
+            }
+            return fast.Fast.Delta.Diff.Del.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public Builder setDel(fast.Fast.Delta.Diff.Del value) {
+          if (delBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            delta_ = value;
+            onChanged();
+          } else {
+            delBuilder_.setMessage(value);
+          }
+          deltaCase_ = 4;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public Builder setDel(
+            fast.Fast.Delta.Diff.Del.Builder builderForValue) {
+          if (delBuilder_ == null) {
+            delta_ = builderForValue.build();
+            onChanged();
+          } else {
+            delBuilder_.setMessage(builderForValue.build());
+          }
+          deltaCase_ = 4;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public Builder mergeDel(fast.Fast.Delta.Diff.Del value) {
+          if (delBuilder_ == null) {
+            if (deltaCase_ == 4 &&
+                delta_ != fast.Fast.Delta.Diff.Del.getDefaultInstance()) {
+              delta_ = fast.Fast.Delta.Diff.Del.newBuilder((fast.Fast.Delta.Diff.Del) delta_)
+                  .mergeFrom(value).buildPartial();
+            } else {
+              delta_ = value;
+            }
+            onChanged();
+          } else {
+            if (deltaCase_ == 4) {
+              delBuilder_.mergeFrom(value);
+            }
+            delBuilder_.setMessage(value);
+          }
+          deltaCase_ = 4;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public Builder clearDel() {
+          if (delBuilder_ == null) {
+            if (deltaCase_ == 4) {
+              deltaCase_ = 0;
+              delta_ = null;
+              onChanged();
+            }
+          } else {
+            if (deltaCase_ == 4) {
+              deltaCase_ = 0;
+              delta_ = null;
+            }
+            delBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public fast.Fast.Delta.Diff.Del.Builder getDelBuilder() {
+          return getDelFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        public fast.Fast.Delta.Diff.DelOrBuilder getDelOrBuilder() {
+          if ((deltaCase_ == 4) && (delBuilder_ != null)) {
+            return delBuilder_.getMessageOrBuilder();
+          } else {
+            if (deltaCase_ == 4) {
+              return (fast.Fast.Delta.Diff.Del) delta_;
+            }
+            return fast.Fast.Delta.Diff.Del.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Del del = 4;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Del, fast.Fast.Delta.Diff.Del.Builder, fast.Fast.Delta.Diff.DelOrBuilder> 
+            getDelFieldBuilder() {
+          if (delBuilder_ == null) {
+            if (!(deltaCase_ == 4)) {
+              delta_ = fast.Fast.Delta.Diff.Del.getDefaultInstance();
+            }
+            delBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Delta.Diff.Del, fast.Fast.Delta.Diff.Del.Builder, fast.Fast.Delta.Diff.DelOrBuilder>(
+                    (fast.Fast.Delta.Diff.Del) delta_,
+                    getParentForChildren(),
+                    isClean());
+            delta_ = null;
+          }
+          deltaCase_ = 4;
+          onChanged();;
+          return delBuilder_;
+        }
+
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Move, fast.Fast.Delta.Diff.Move.Builder, fast.Fast.Delta.Diff.MoveOrBuilder> moveBuilder_;
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public fast.Fast.Delta.Diff.Move getMove() {
+          if (moveBuilder_ == null) {
+            if (deltaCase_ == 5) {
+              return (fast.Fast.Delta.Diff.Move) delta_;
+            }
+            return fast.Fast.Delta.Diff.Move.getDefaultInstance();
+          } else {
+            if (deltaCase_ == 5) {
+              return moveBuilder_.getMessage();
+            }
+            return fast.Fast.Delta.Diff.Move.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public Builder setMove(fast.Fast.Delta.Diff.Move value) {
+          if (moveBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            delta_ = value;
+            onChanged();
+          } else {
+            moveBuilder_.setMessage(value);
+          }
+          deltaCase_ = 5;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public Builder setMove(
+            fast.Fast.Delta.Diff.Move.Builder builderForValue) {
+          if (moveBuilder_ == null) {
+            delta_ = builderForValue.build();
+            onChanged();
+          } else {
+            moveBuilder_.setMessage(builderForValue.build());
+          }
+          deltaCase_ = 5;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public Builder mergeMove(fast.Fast.Delta.Diff.Move value) {
+          if (moveBuilder_ == null) {
+            if (deltaCase_ == 5 &&
+                delta_ != fast.Fast.Delta.Diff.Move.getDefaultInstance()) {
+              delta_ = fast.Fast.Delta.Diff.Move.newBuilder((fast.Fast.Delta.Diff.Move) delta_)
+                  .mergeFrom(value).buildPartial();
+            } else {
+              delta_ = value;
+            }
+            onChanged();
+          } else {
+            if (deltaCase_ == 5) {
+              moveBuilder_.mergeFrom(value);
+            }
+            moveBuilder_.setMessage(value);
+          }
+          deltaCase_ = 5;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public Builder clearMove() {
+          if (moveBuilder_ == null) {
+            if (deltaCase_ == 5) {
+              deltaCase_ = 0;
+              delta_ = null;
+              onChanged();
+            }
+          } else {
+            if (deltaCase_ == 5) {
+              deltaCase_ = 0;
+              delta_ = null;
+            }
+            moveBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public fast.Fast.Delta.Diff.Move.Builder getMoveBuilder() {
+          return getMoveFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        public fast.Fast.Delta.Diff.MoveOrBuilder getMoveOrBuilder() {
+          if ((deltaCase_ == 5) && (moveBuilder_ != null)) {
+            return moveBuilder_.getMessageOrBuilder();
+          } else {
+            if (deltaCase_ == 5) {
+              return (fast.Fast.Delta.Diff.Move) delta_;
+            }
+            return fast.Fast.Delta.Diff.Move.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Move move = 5;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Move, fast.Fast.Delta.Diff.Move.Builder, fast.Fast.Delta.Diff.MoveOrBuilder> 
+            getMoveFieldBuilder() {
+          if (moveBuilder_ == null) {
+            if (!(deltaCase_ == 5)) {
+              delta_ = fast.Fast.Delta.Diff.Move.getDefaultInstance();
+            }
+            moveBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Delta.Diff.Move, fast.Fast.Delta.Diff.Move.Builder, fast.Fast.Delta.Diff.MoveOrBuilder>(
+                    (fast.Fast.Delta.Diff.Move) delta_,
+                    getParentForChildren(),
+                    isClean());
+            delta_ = null;
+          }
+          deltaCase_ = 5;
+          onChanged();;
+          return moveBuilder_;
+        }
+
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Update, fast.Fast.Delta.Diff.Update.Builder, fast.Fast.Delta.Diff.UpdateOrBuilder> updateBuilder_;
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public fast.Fast.Delta.Diff.Update getUpdate() {
+          if (updateBuilder_ == null) {
+            if (deltaCase_ == 6) {
+              return (fast.Fast.Delta.Diff.Update) delta_;
+            }
+            return fast.Fast.Delta.Diff.Update.getDefaultInstance();
+          } else {
+            if (deltaCase_ == 6) {
+              return updateBuilder_.getMessage();
+            }
+            return fast.Fast.Delta.Diff.Update.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public Builder setUpdate(fast.Fast.Delta.Diff.Update value) {
+          if (updateBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            delta_ = value;
+            onChanged();
+          } else {
+            updateBuilder_.setMessage(value);
+          }
+          deltaCase_ = 6;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public Builder setUpdate(
+            fast.Fast.Delta.Diff.Update.Builder builderForValue) {
+          if (updateBuilder_ == null) {
+            delta_ = builderForValue.build();
+            onChanged();
+          } else {
+            updateBuilder_.setMessage(builderForValue.build());
+          }
+          deltaCase_ = 6;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public Builder mergeUpdate(fast.Fast.Delta.Diff.Update value) {
+          if (updateBuilder_ == null) {
+            if (deltaCase_ == 6 &&
+                delta_ != fast.Fast.Delta.Diff.Update.getDefaultInstance()) {
+              delta_ = fast.Fast.Delta.Diff.Update.newBuilder((fast.Fast.Delta.Diff.Update) delta_)
+                  .mergeFrom(value).buildPartial();
+            } else {
+              delta_ = value;
+            }
+            onChanged();
+          } else {
+            if (deltaCase_ == 6) {
+              updateBuilder_.mergeFrom(value);
+            }
+            updateBuilder_.setMessage(value);
+          }
+          deltaCase_ = 6;
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public Builder clearUpdate() {
+          if (updateBuilder_ == null) {
+            if (deltaCase_ == 6) {
+              deltaCase_ = 0;
+              delta_ = null;
+              onChanged();
+            }
+          } else {
+            if (deltaCase_ == 6) {
+              deltaCase_ = 0;
+              delta_ = null;
+            }
+            updateBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public fast.Fast.Delta.Diff.Update.Builder getUpdateBuilder() {
+          return getUpdateFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        public fast.Fast.Delta.Diff.UpdateOrBuilder getUpdateOrBuilder() {
+          if ((deltaCase_ == 6) && (updateBuilder_ != null)) {
+            return updateBuilder_.getMessageOrBuilder();
+          } else {
+            if (deltaCase_ == 6) {
+              return (fast.Fast.Delta.Diff.Update) delta_;
+            }
+            return fast.Fast.Delta.Diff.Update.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Delta.Diff.Update update = 6;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Delta.Diff.Update, fast.Fast.Delta.Diff.Update.Builder, fast.Fast.Delta.Diff.UpdateOrBuilder> 
+            getUpdateFieldBuilder() {
+          if (updateBuilder_ == null) {
+            if (!(deltaCase_ == 6)) {
+              delta_ = fast.Fast.Delta.Diff.Update.getDefaultInstance();
+            }
+            updateBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Delta.Diff.Update, fast.Fast.Delta.Diff.Update.Builder, fast.Fast.Delta.Diff.UpdateOrBuilder>(
+                    (fast.Fast.Delta.Diff.Update) delta_,
+                    getParentForChildren(),
+                    isClean());
+            delta_ = null;
+          }
+          deltaCase_ = 6;
+          onChanged();;
+          return updateBuilder_;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:fast.Delta.Diff)
+      }
+
+      // @@protoc_insertion_point(class_scope:fast.Delta.Diff)
+      private static final fast.Fast.Delta.Diff DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new fast.Fast.Delta.Diff();
+      }
+
+      public static fast.Fast.Delta.Diff getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Diff>
+          PARSER = new com.google.protobuf.AbstractParser<Diff>() {
+        public Diff parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Diff(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Diff> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Diff> getParserForType() {
+        return PARSER;
+      }
+
+      public fast.Fast.Delta.Diff getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    private int bitField0_;
+    public static final int SRC_FIELD_NUMBER = 1;
+    private volatile java.lang.Object src_;
+    /**
+     * <code>string src = 1;</code>
+     */
+    public java.lang.String getSrc() {
+      java.lang.Object ref = src_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        src_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string src = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSrcBytes() {
+      java.lang.Object ref = src_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        src_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DST_FIELD_NUMBER = 2;
+    private volatile java.lang.Object dst_;
+    /**
+     * <code>string dst = 2;</code>
+     */
+    public java.lang.String getDst() {
+      java.lang.Object ref = dst_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        dst_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string dst = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDstBytes() {
+      java.lang.Object ref = dst_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        dst_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DIFF_FIELD_NUMBER = 3;
+    private java.util.List<fast.Fast.Delta.Diff> diff_;
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    public java.util.List<fast.Fast.Delta.Diff> getDiffList() {
+      return diff_;
+    }
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    public java.util.List<? extends fast.Fast.Delta.DiffOrBuilder> 
+        getDiffOrBuilderList() {
+      return diff_;
+    }
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    public int getDiffCount() {
+      return diff_.size();
+    }
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    public fast.Fast.Delta.Diff getDiff(int index) {
+      return diff_.get(index);
+    }
+    /**
+     * <code>repeated .fast.Delta.Diff diff = 3;</code>
+     */
+    public fast.Fast.Delta.DiffOrBuilder getDiffOrBuilder(
+        int index) {
+      return diff_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getSrcBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, src_);
+      }
+      if (!getDstBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, dst_);
+      }
+      for (int i = 0; i < diff_.size(); i++) {
+        output.writeMessage(3, diff_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getSrcBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, src_);
+      }
+      if (!getDstBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, dst_);
+      }
+      for (int i = 0; i < diff_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, diff_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof fast.Fast.Delta)) {
+        return super.equals(obj);
+      }
+      fast.Fast.Delta other = (fast.Fast.Delta) obj;
+
+      boolean result = true;
+      result = result && getSrc()
+          .equals(other.getSrc());
+      result = result && getDst()
+          .equals(other.getDst());
+      result = result && getDiffList()
+          .equals(other.getDiffList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SRC_FIELD_NUMBER;
+      hash = (53 * hash) + getSrc().hashCode();
+      hash = (37 * hash) + DST_FIELD_NUMBER;
+      hash = (53 * hash) + getDst().hashCode();
+      if (getDiffCount() > 0) {
+        hash = (37 * hash) + DIFF_FIELD_NUMBER;
+        hash = (53 * hash) + getDiffList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static fast.Fast.Delta parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Delta parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Delta parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Delta parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Delta parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Delta parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Delta parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Delta parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Delta parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Delta parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Delta parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Delta parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(fast.Fast.Delta prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code fast.Delta}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:fast.Delta)
+        fast.Fast.DeltaOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Delta_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Delta_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Delta.class, fast.Fast.Delta.Builder.class);
+      }
+
+      // Construct using fast.Fast.Delta.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getDiffFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        src_ = "";
+
+        dst_ = "";
+
+        if (diffBuilder_ == null) {
+          diff_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        } else {
+          diffBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return fast.Fast.internal_static_fast_Delta_descriptor;
+      }
+
+      public fast.Fast.Delta getDefaultInstanceForType() {
+        return fast.Fast.Delta.getDefaultInstance();
+      }
+
+      public fast.Fast.Delta build() {
+        fast.Fast.Delta result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public fast.Fast.Delta buildPartial() {
+        fast.Fast.Delta result = new fast.Fast.Delta(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        result.src_ = src_;
+        result.dst_ = dst_;
+        if (diffBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            diff_ = java.util.Collections.unmodifiableList(diff_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.diff_ = diff_;
+        } else {
+          result.diff_ = diffBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof fast.Fast.Delta) {
+          return mergeFrom((fast.Fast.Delta)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(fast.Fast.Delta other) {
+        if (other == fast.Fast.Delta.getDefaultInstance()) return this;
+        if (!other.getSrc().isEmpty()) {
+          src_ = other.src_;
+          onChanged();
+        }
+        if (!other.getDst().isEmpty()) {
+          dst_ = other.dst_;
+          onChanged();
+        }
+        if (diffBuilder_ == null) {
+          if (!other.diff_.isEmpty()) {
+            if (diff_.isEmpty()) {
+              diff_ = other.diff_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureDiffIsMutable();
+              diff_.addAll(other.diff_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.diff_.isEmpty()) {
+            if (diffBuilder_.isEmpty()) {
+              diffBuilder_.dispose();
+              diffBuilder_ = null;
+              diff_ = other.diff_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              diffBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getDiffFieldBuilder() : null;
+            } else {
+              diffBuilder_.addAllMessages(other.diff_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        fast.Fast.Delta parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (fast.Fast.Delta) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.lang.Object src_ = "";
+      /**
+       * <code>string src = 1;</code>
+       */
+      public java.lang.String getSrc() {
+        java.lang.Object ref = src_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          src_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string src = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSrcBytes() {
+        java.lang.Object ref = src_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          src_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string src = 1;</code>
+       */
+      public Builder setSrc(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        src_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string src = 1;</code>
+       */
+      public Builder clearSrc() {
+        
+        src_ = getDefaultInstance().getSrc();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string src = 1;</code>
+       */
+      public Builder setSrcBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        src_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object dst_ = "";
+      /**
+       * <code>string dst = 2;</code>
+       */
+      public java.lang.String getDst() {
+        java.lang.Object ref = dst_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          dst_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string dst = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDstBytes() {
+        java.lang.Object ref = dst_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          dst_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string dst = 2;</code>
+       */
+      public Builder setDst(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        dst_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dst = 2;</code>
+       */
+      public Builder clearDst() {
+        
+        dst_ = getDefaultInstance().getDst();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string dst = 2;</code>
+       */
+      public Builder setDstBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        dst_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<fast.Fast.Delta.Diff> diff_ =
+        java.util.Collections.emptyList();
+      private void ensureDiffIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          diff_ = new java.util.ArrayList<fast.Fast.Delta.Diff>(diff_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Delta.Diff, fast.Fast.Delta.Diff.Builder, fast.Fast.Delta.DiffOrBuilder> diffBuilder_;
+
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public java.util.List<fast.Fast.Delta.Diff> getDiffList() {
+        if (diffBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(diff_);
+        } else {
+          return diffBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public int getDiffCount() {
+        if (diffBuilder_ == null) {
+          return diff_.size();
+        } else {
+          return diffBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public fast.Fast.Delta.Diff getDiff(int index) {
+        if (diffBuilder_ == null) {
+          return diff_.get(index);
+        } else {
+          return diffBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder setDiff(
+          int index, fast.Fast.Delta.Diff value) {
+        if (diffBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDiffIsMutable();
+          diff_.set(index, value);
+          onChanged();
+        } else {
+          diffBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder setDiff(
+          int index, fast.Fast.Delta.Diff.Builder builderForValue) {
+        if (diffBuilder_ == null) {
+          ensureDiffIsMutable();
+          diff_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          diffBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder addDiff(fast.Fast.Delta.Diff value) {
+        if (diffBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDiffIsMutable();
+          diff_.add(value);
+          onChanged();
+        } else {
+          diffBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder addDiff(
+          int index, fast.Fast.Delta.Diff value) {
+        if (diffBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureDiffIsMutable();
+          diff_.add(index, value);
+          onChanged();
+        } else {
+          diffBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder addDiff(
+          fast.Fast.Delta.Diff.Builder builderForValue) {
+        if (diffBuilder_ == null) {
+          ensureDiffIsMutable();
+          diff_.add(builderForValue.build());
+          onChanged();
+        } else {
+          diffBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder addDiff(
+          int index, fast.Fast.Delta.Diff.Builder builderForValue) {
+        if (diffBuilder_ == null) {
+          ensureDiffIsMutable();
+          diff_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          diffBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder addAllDiff(
+          java.lang.Iterable<? extends fast.Fast.Delta.Diff> values) {
+        if (diffBuilder_ == null) {
+          ensureDiffIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, diff_);
+          onChanged();
+        } else {
+          diffBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder clearDiff() {
+        if (diffBuilder_ == null) {
+          diff_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+        } else {
+          diffBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public Builder removeDiff(int index) {
+        if (diffBuilder_ == null) {
+          ensureDiffIsMutable();
+          diff_.remove(index);
+          onChanged();
+        } else {
+          diffBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public fast.Fast.Delta.Diff.Builder getDiffBuilder(
+          int index) {
+        return getDiffFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public fast.Fast.Delta.DiffOrBuilder getDiffOrBuilder(
+          int index) {
+        if (diffBuilder_ == null) {
+          return diff_.get(index);  } else {
+          return diffBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public java.util.List<? extends fast.Fast.Delta.DiffOrBuilder> 
+           getDiffOrBuilderList() {
+        if (diffBuilder_ != null) {
+          return diffBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(diff_);
+        }
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public fast.Fast.Delta.Diff.Builder addDiffBuilder() {
+        return getDiffFieldBuilder().addBuilder(
+            fast.Fast.Delta.Diff.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public fast.Fast.Delta.Diff.Builder addDiffBuilder(
+          int index) {
+        return getDiffFieldBuilder().addBuilder(
+            index, fast.Fast.Delta.Diff.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Delta.Diff diff = 3;</code>
+       */
+      public java.util.List<fast.Fast.Delta.Diff.Builder> 
+           getDiffBuilderList() {
+        return getDiffFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Delta.Diff, fast.Fast.Delta.Diff.Builder, fast.Fast.Delta.DiffOrBuilder> 
+          getDiffFieldBuilder() {
+        if (diffBuilder_ == null) {
+          diffBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Delta.Diff, fast.Fast.Delta.Diff.Builder, fast.Fast.Delta.DiffOrBuilder>(
+                  diff_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
+                  getParentForChildren(),
+                  isClean());
+          diff_ = null;
+        }
+        return diffBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:fast.Delta)
+    }
+
+    // @@protoc_insertion_point(class_scope:fast.Delta)
+    private static final fast.Fast.Delta DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new fast.Fast.Delta();
+    }
+
+    public static fast.Fast.Delta getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Delta>
+        PARSER = new com.google.protobuf.AbstractParser<Delta>() {
+      public Delta parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Delta(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Delta> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Delta> getParserForType() {
+      return PARSER;
+    }
+
+    public fast.Fast.Delta getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_fast_Element_descriptor;
   private static final 
@@ -9557,6 +14901,41 @@ public final class Fast {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_fast_Element_Literal_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_Diff_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_Diff_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_Diff_Match_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_Diff_Match_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_Diff_Add_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_Diff_Add_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_Diff_Del_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_Diff_Del_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_Diff_Move_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_Diff_Move_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Delta_Diff_Update_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Delta_Diff_Update_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -9868,8 +15247,22 @@ public final class Fast {
       "LITERAL\020\302\001\022\034\n\027SUBANNOTATION_DIRECTIVE\020\303\001",
       "\022\024\n\017SUPER_DIRECTIVE\020\304\001\022\034\n\027VERIFICATION_E" +
       "RROR_TYPE\020\305\001\022\016\n\tVOID_TYPE\020\306\001\022\021\n\014VTABLE_I" +
-      "NDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extrab\006prot" +
-      "o3"
+      "NDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extra\"\306\004\n\005D" +
+      "elta\022\013\n\003src\030\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003" +
+      " \003(\0132\020.fast.Delta.Diff\032\202\004\n\004Diff\022(\n\004type\030" +
+      "\001 \001(\0162\032.fast.Delta.Diff.DeltaType\022\'\n\005mat" +
+      "ch\030\002 \001(\0132\026.fast.Delta.Diff.MatchH\000\022#\n\003ad" +
+      "d\030\003 \001(\0132\024.fast.Delta.Diff.AddH\000\022#\n\003del\030\004" +
+      " \001(\0132\024.fast.Delta.Diff.DelH\000\022%\n\004move\030\005 \001" +
+      "(\0132\025.fast.Delta.Diff.MoveH\000\022)\n\006update\030\006 ",
+      "\001(\0132\027.fast.Delta.Diff.UpdateH\000\032!\n\005Match\022" +
+      "\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030" +
+      "\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003" +
+      "Del\022\013\n\003src\030\001 \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n" +
+      "\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032$\n\006Update\022\013" +
+      "\n\003src\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\">\n\tDeltaType\022" +
+      "\t\n\005MATCH\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n" +
+      "\n\006UPDATE\020\004B\007\n\005deltab\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -9901,6 +15294,48 @@ public final class Fast {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Element_Literal_descriptor,
         new java.lang.String[] { "Type", });
+    internal_static_fast_Delta_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_fast_Delta_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_descriptor,
+        new java.lang.String[] { "Src", "Dst", "Diff", });
+    internal_static_fast_Delta_Diff_descriptor =
+      internal_static_fast_Delta_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Delta_Diff_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_Diff_descriptor,
+        new java.lang.String[] { "Type", "Match", "Add", "Del", "Move", "Update", "Delta", });
+    internal_static_fast_Delta_Diff_Match_descriptor =
+      internal_static_fast_Delta_Diff_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Delta_Diff_Match_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_Diff_Match_descriptor,
+        new java.lang.String[] { "Src", "Dst", });
+    internal_static_fast_Delta_Diff_Add_descriptor =
+      internal_static_fast_Delta_Diff_descriptor.getNestedTypes().get(1);
+    internal_static_fast_Delta_Diff_Add_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_Diff_Add_descriptor,
+        new java.lang.String[] { "Src", "Dst", "Position", });
+    internal_static_fast_Delta_Diff_Del_descriptor =
+      internal_static_fast_Delta_Diff_descriptor.getNestedTypes().get(2);
+    internal_static_fast_Delta_Diff_Del_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_Diff_Del_descriptor,
+        new java.lang.String[] { "Src", });
+    internal_static_fast_Delta_Diff_Move_descriptor =
+      internal_static_fast_Delta_Diff_descriptor.getNestedTypes().get(3);
+    internal_static_fast_Delta_Diff_Move_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_Diff_Move_descriptor,
+        new java.lang.String[] { "Src", "Dst", "Position", });
+    internal_static_fast_Delta_Diff_Update_descriptor =
+      internal_static_fast_Delta_Diff_descriptor.getNestedTypes().get(4);
+    internal_static_fast_Delta_Diff_Update_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Delta_Diff_Update_descriptor,
+        new java.lang.String[] { "Src", "Label", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
