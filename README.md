@@ -183,4 +183,8 @@ The modified srcSlice tool can replace parsing the srcML with loading the binary
 These commands convert between Android's smali representation and our protobuf representations. The first command converts SMALI code into a binary AST of
 the structural information; the second command decodes the binary AST into textual form; the third command marks up the original SMALI code with XML tags
 taken from the binary AST, hence making it similar to SrcML structures (albeit following the underlying ANTLR3 schema). 
+```
+	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
+```
+The first command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
 
