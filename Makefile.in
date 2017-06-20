@@ -1,4 +1,4 @@
-V=0.0.1
+V=0.0.2
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
