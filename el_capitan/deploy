@@ -1,11 +1,12 @@
+v=0.0.2
 git push && make -f Makefile.in release
 ln -sf el_capitan osx
 if [ -f /usr/local/bin/fast ]; then brew uninstall fast; fi
-if [ -f fast-0.0.1.el_capitan.bottle.1.tar.gz ]; then rm -f fast-0.0.1.el_capitan.bottle.1.tar.gz; fi
-if [ -f ~/Library/Caches/Homebrew/fast-0.0.1.tar.gz ]; then rm -f ~/Library/Caches/Homebrew/fast-0.0.1.tar.gz; fi
-wget https://github.com/yijunyu/fast/archive/v0.0.1.tar.gz
-a=$(shasum -a 256 v0.0.1.tar.gz | awk '{print $1}')
-rm -f v0.0.1.tar.gz
+if [ -f fast-$v.el_capitan.bottle.1.tar.gz ]; then rm -f fast-$v.el_capitan.bottle.1.tar.gz; fi
+if [ -f ~/Library/Caches/Homebrew/fast-$v.tar.gz ]; then rm -f ~/Library/Caches/Homebrew/fast-$v.tar.gz; fi
+wget https://github.com/yijunyu/fast/archive/v$v.tar.gz
+a=$(shasum -a 256 v$v.tar.gz | awk '{print $1}')
+rm -f v$v.tar.gz
 echo $a
 cd ../homebrew-fast/Formula
 sed -i -e 's/sha256 "[0-9a-f]*"$/sha256 "'$a'"/' fast.rb
@@ -15,12 +16,12 @@ cd -
 brew tap yijunyu/fast
 brew install --build-bottle fast
 brew bottle fast
-b=$(shasum -a 256 fast-0.0.1.el_capitan.bottle.1.tar.gz | awk '{print $1}')
+b=$(shasum -a 256 fast-$v.el_capitan.bottle.1.tar.gz | awk '{print $1}')
 echo $b
 cd ../homebrew-fast/Formula
 sed -i -e 's/sha256 "[0-9a-f]*" => :el_capitan/sha256 "'$b'" => :el_capitan/' fast.rb
 git commit -am "update fast's homebrew package"
 git push
 cd -
-mv fast-0.0.1.el_capitan.bottle.1.tar.gz fast-0.0.1.el_capitan.bottle.tar.gz
-echo Now you can edit https://github.com/yijunyu/fast/releases/tag/v0.0.1 by uploading the file fast-0.0.1.el_capitan.bottle.tar.gz
+mv fast-$v.el_capitan.bottle.1.tar.gz fast-$v.el_capitan.bottle.tar.gz
+echo Now you can edit https://github.com/yijunyu/fast/releases/tag/v$v by uploading the file fast-$v.el_capitan.bottle.tar.gz
