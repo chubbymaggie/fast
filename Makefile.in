@@ -206,6 +206,9 @@ fast_$V.orig.tar.gz: v$V.tar.gz
 
 fast-$V: fast_$V.orig.tar.gz
 	tar xf $^
+	rm -rf fast-$V/el_capitan
+	rm -rf fast-$V/sierra
+	rm -rf fast-$V/lib
 
 fast-$V/debian: fast-$V
 	mkdir -p $@
