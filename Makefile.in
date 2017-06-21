@@ -15,7 +15,7 @@ OPT=-O3
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
-SRCSAX_LIB=-L/usr/lib/x86_64-linux-gnu $(shell xml2-config --cflags --libs) /usr/local/lib/libsrcsax.a
+SRCSAX_LIB=/usr/local/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --cflags --libs)
 
 all: $(target)
 
@@ -199,8 +199,9 @@ v$V.tar.gz:
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
-	cd fast-$V && debuild -S
-	
+	cd fast-$V && dpkg-buildpackage -b
+#debuild -S	
+
 fast_$V.orig.tar.gz: v$V.tar.gz
 	mv $^ $@
 
