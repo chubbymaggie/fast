@@ -3,3 +3,9 @@ fast (0.0.1-1) xenial; urgency=medium
   * Initial release. (Closes: #XXXXXX)
 
  --  <y.yu@open.ac.uk>  Sun, 02 Apr 2017 08:06:00 +0000
+
+fast (0.0.2-1) xenial; urgency=medium
+
+  * New release to do slicing and parse smali code. (Closes: #XXXXXX)
+
+ --  <y.yu@open.ac.uk>  Sun, 02 Apr 2017 08:06:00 +0000
