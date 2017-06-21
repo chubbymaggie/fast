@@ -42,7 +42,7 @@ prefix=/usr/local
 
 ifeq ($(UNAME_S),Linux)
 
-fast_pb: fast.cc
+fast_pb: fast.cc fast.pb.cc
 	$(CXX) $(OPT) -DPB_fast -I/usr/local/include -Irapidxml $^ /usr/local/lib/libprotobuf.a -o $@
 
 fast_fbs: fast.cc
@@ -56,7 +56,7 @@ install: fast_pb fast_fbs
 endif
 
 ifeq ($(UNAME_S),Darwin)
-fast: fast.cc
+fast: fast.cc fast.pb.cc
 	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -Irapidxml $(PB_LIB) $(FBS_LIB) $^ -o $@
 
 fast-debug: fast.cc
@@ -184,9 +184,9 @@ endif
 v$V.tar.gz:
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
+#	cd fast-$V && debuild -S
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
-	cd fast-$V && debuild -S
-#	cd fast-$V && debuild -us -uc
+	cd fast-$V && debuild -us -uc
 	
 fast_$V.orig.tar.gz: v$V.tar.gz
 	mv $^ $@
