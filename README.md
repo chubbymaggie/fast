@@ -2,19 +2,6 @@
 # `fast` -- Flattening Abstract Syntax Trees
 This tool flattens code structures of abstract syntax trees (ASTs) as binary so that it is more efficient to load and save them between memory and disk, avoiding re-parsing altogether.
 
-## Performance
-In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by up to 100 times. 
-
-![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.") ![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
-
-That's part of the reasons why we call it "fast".
-
-A report on performance evaluation will be placed under the `doc/` subfolder.
-
-## License
-
-`fast` is distributed under GPL. See license.txt for details.
-
 ## Synopsis
 
 ```
@@ -145,6 +132,19 @@ taken from the binary AST, hence making it similar to SrcML structures (albeit f
   $ fast -a [DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods-v2.smali](test/DuplicateVirtualMethods-v2.smali) [DuplicateVirtualMethods-diff.pb](test/DuplicateVirtualMethods-diff.pb)
 
 The command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
+
+## Performance
+In the benchmarks folder if you check out from the `git` repository, you will see much larger examples where `fast` has been applied to speed up the parsing process by up to 100 times. 
+
+![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.") ![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
+
+That's part of the reasons why we call it "fast".
+
+A report on performance evaluation will be placed under the `doc/` subfolder.
+
+## License
+
+`fast` is distributed under GPL. See license.txt for details.
 
 ## Dependencies
 The current binary implementation is based on `protobuf` and `flatbuffers`. 
