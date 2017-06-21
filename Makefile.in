@@ -9,6 +9,7 @@ endif
 target+=fast
 CXX=c++
 protoc=protoc
+flatc=/usr/local/bin/protoc
 
 OPT_DEBUG=-g
 OPT=-O3
@@ -123,13 +124,13 @@ bin/Smali.class: src/Smali.java src/com/github/gumtreediff/client/diff/PBDiff.ja
 src/Smali.java: src/fast/Fast.java
 
 fast.fbs: fast.proto
-	flatc --proto fast.proto
+	$(flatc) --proto fast.proto
 
 _fast/Element.py: fast.fbs
-	flatc -p -o . fast.fbs
+	$(flatc) -p -o . fast.fbs
 
 src/fast_generated.h: fast.fbs
-	flatc --cpp -o src fast.fbs
+	$(flatc) --cpp -o src fast.fbs
 
 src/fast.proto.in: ElementType.proto SmaliType.proto \
 	Unit.proto Literal.proto
