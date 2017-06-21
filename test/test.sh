@@ -32,8 +32,8 @@ assertSame a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e $(sh
 #rm -f Hello.java
 #rm -f Hello.xml
 rm -f Hello.xml-expected
-rm -f Hello.pb
-rm -f Hello.pb.java
+#rm -f Hello.pb
+#rm -f Hello.pb.java
 }
 testCC() 
 {
@@ -51,8 +51,8 @@ $fast example.xml example.pb
 $fast example.pb example.pb.cc
 assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.pb.cc | awk '{print $1}')
 #rm -f example.xml
-rm -f example.pb
-rm -f example.pb.cc
+#rm -f example.pb
+#rm -f example.pb.cc
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
