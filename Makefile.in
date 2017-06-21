@@ -6,7 +6,7 @@ ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
 	target+=fast_pb fast_fbs
 	CXX=g++
-	protoc=protoc
+	protoc=/usr/local/bin/protoc
 endif
 ifeq ($(UNAME_S),Darwin)
 	gtime=gtime
