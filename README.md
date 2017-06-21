@@ -123,8 +123,8 @@ information, they will be omitted in the XML document.
   $ fast -S [example.fbs](test/example.position.fbs) > [example.slice](test/example.slice)
 	
   $ fast -s [test/example.cc](test/example.cc) > [example.slice](test/example.slice)
-	
-  $ fast -s [Hello.java](test/Hello.java] > [Hello.slice](test/Hello.slice)
+
+  $ fast -s [Hello.java](test/Hello.java) > [Hello.slice](test/Hello.slice)
 
 These commands perform forward program slicing on the source code using the srcSlice tool. 
 The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
@@ -134,7 +134,7 @@ The modified srcSlice tool can replace parsing the srcML with loading the binary
   
   $ fast -d [DuplicateVirtualMethods.pb](test/DuplicateVirtualMethods.pb) > [DuplicateVirtualMethods.txt](test/DuplicateVirtualMethods.txt)
   
-  $ fast -a [DuplicateVirtualMethods.pb](test/DuplicateVirtualMethods.pb)[DuplicateVirtualMethods.xml](test/DuplicateVirtualMethods.xml)
+  $ fast -a [DuplicateVirtualMethods.pb](test/DuplicateVirtualMethods.pb) [DuplicateVirtualMethods.xml](test/DuplicateVirtualMethods.xml)
 
 These commands convert between Android's smali representation and our protobuf representations. The first command converts SMALI code into a binary AST of
 the structural information; the second command decodes the binary AST into textual form; the third command marks up the original SMALI code with XML tags
