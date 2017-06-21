@@ -56,6 +56,87 @@ The following options are available:
 
      -S      Invoke modified srcSlice to use the binary AST directly.
 
+## Usage
+Here are a few examples:
+
+### Convert from source code to SrcML
+
+  $ fast [test/Hello.java](test/Hello.java) [Hello.xml](test/Hello.xml)
+
+  $ fast [test/example.cc](test/example.cc) [example.xml](test/example.xml)
+
+### Convert SrcML back to source code
+
+  $ fast [Hello.xml](test/Hello.xml) [Hello.java](test/Hello.java)
+
+### Convert SrcML to binary AST
+
+  $ fast [Hello.xml](test/Hello.xml) [Hello.pb](test/Hello.pb)
+
+  $ fast [example.xml](test/example.xml) [example.fbs](test/example.fbs)
+
+### Convert binary AST back to SrcML
+
+  $ fast [Hello.pb](test/Hello.pb) [Hello.xml](test/Hello.xml)
+
+  $ fast [example.fbs](test/example.fbs) [example.xml](test/example.xml)
+
+### Convert binary AST back to source code
+
+  $ fast [Hello.pb](test/Hello.pb) [Hello.java](test/Hello.java)
+  
+  $ fast [example.fbs](test/example.fbs) [example.cc](test/example.cc)
+
+### Print the textual representation of the protocol buffer using the generated fAST schema.
+```
+	$ fast -d Hello.pb
+	$ fast -d Hello.pb Hello.txt
+```
+
+### Translate the textual representations into the corresponding protobuf file. 
+```
+	$ fast -e Hello.txt Hello.pb
+```
+
+### Keep element positions in binary AST
+```
+	$ fast -p Hello.java Hello.pb
+	$ fast -p Hello.pb Hello.xml
+```
+These commands will keep the line/column positions of the code elements in the
+corresponding binary and XML documents.  Note that if "-p" option is not
+provided, even if the protobuf document has the code elements' position
+information, they will be omitted in the XML document.
+
+### Forward slice source code
+```
+	$ fast -p example.cc example.pb
+	$ fast -s example.pb
+	$ fast -S example.pb
+	$ fast -p example.cc example.fbs
+	$ fast -s example.fbs
+	$ fast -S example.fbs
+	$ fast -s example.cc
+	$ fast -s Hello.java
+```
+These commands perform forward program slicing on the source code using the srcSlice tool. 
+The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
+
+### Convert ANTLR3-based language to binary AST
+```
+	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
+	$ fast -d DuplicateVirtualMethods.pb
+	$ fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
+```
+These commands convert between Android's smali representation and our protobuf representations. The first command converts SMALI code into a binary AST of
+the structural information; the second command decodes the binary AST into textual form; the third command marks up the original SMALI code with XML tags
+taken from the binary AST, hence making it similar to SrcML structures (albeit following the underlying ANTLR3 schema). 
+
+### Convert GumTreeDiff editing scripts to binary representations
+```
+	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
+```
+The command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
 
 ## Dependencies
 The current binary implementation is based on `protobuf` and `flatbuffers`. 
@@ -116,76 +197,3 @@ sudo install_name_tool -change @@HOMEBREW_PREFIX@@/opt/LibArchive/lib/libarchive
 ```
 Specifically, the 1st line is to support HTTPS transport protocol for the repository on github.io; 
 the 2nd line is to update the list of repositories on your machine.
-## Usage
-Here are a few examples:
-
-	$ fast [test/Hello.java](../blob/master/test/Hello.java) [Hello.xml](../blob/master/test/Hello.xml)
-
-	$ fast [test/example.cc]../blob/master/test/example.cc) [example.xml](../blob/master/test/example.xml)
-
-These commands will translate the `Hello.java` Java code or the `example.cc` C++ code
-into the corresponding XML document `Hello.xml` or `example.xml`, respectively.
-```
-	$ fast Hello.xml Hello.java
-```
-This command will translate the XML document `Hello.xml` back into the corresponding Java code `Hello.java`.
-```
-	$ fast Hello.xml Hello.pb
-	$ fast example.xml example.fbs
-```
-These commands will translate the XML document `Hello.xml` into the corresponding Protocol Buffer (`.pb`) or 
-FlatBuffers (`.fbs`) binary in `Hello.pb` or `Hello.fbs`, respectively.
-```
-	$ fast Hello.pb Hello.xml
-	$ fast example.fbs example.xml
-```
-These commands will translate the binary representations into the corresponding XML document `Hello.xml`.
-```
-	$ fast Hello.pb Hello.java
-	$ fast example.fbs example.cc
-```
-These commands will translate the binary representations into the corresponding code files. 
-```
-	$ fast -d Hello.pb
-	$ fast -d Hello.pb Hello.txt
-```
-These commands will print the textual representation of the protocol buffer using the generated fAST schema.
-The first one prints it to the standard output, while the second one save it into a textual file.
-```
-	$ fast -e Hello.txt Hello.pb
-```
-This commands will translate the textual representations into the corresponding protobuf file. 
-```
-	$ fast -p Hello.java Hello.pb
-	$ fast -p Hello.pb Hello.xml
-```
-These commands will keep the line/column positions of the code elements in the
-corresponding binary and XML documents.  Note that if "-p" option is not
-provided, even if the protobuf document has the code elements' position
-information, they will be omitted in the XML document.
-```
-	$ fast -p example.cc example.pb
-	$ fast -s example.pb
-	$ fast -S example.pb
-	$ fast -p example.cc example.fbs
-	$ fast -s example.fbs
-	$ fast -S example.fbs
-	$ fast -s example.cc
-	$ fast -s Hello.java
-```
-These commands perform forward program slicing on the source code using the srcSlice tool. 
-The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
-
-```
-	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
-	$ fast -d DuplicateVirtualMethods.pb
-	$ fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
-```
-These commands convert between Android's smali representation and our protobuf representations. The first command converts SMALI code into a binary AST of
-the structural information; the second command decodes the binary AST into textual form; the third command marks up the original SMALI code with XML tags
-taken from the binary AST, hence making it similar to SrcML structures (albeit following the underlying ANTLR3 schema). 
-```
-	$ fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
-```
-The command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
-
