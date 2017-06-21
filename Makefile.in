@@ -15,7 +15,7 @@ OPT=-O3
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
-SRCSAX_LIB=$(shell xml2-config --cflags --libs) /usr/local/lib/libsrcsax.a
+SRCSAX_LIB=-L//usr/lib/x86_64-linux-gnu $(shell xml2-config --cflags --libs) /usr/local/lib/libsrcsax.a
 
 all: $(target)
 
