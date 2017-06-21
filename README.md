@@ -142,7 +142,7 @@ taken from the binary AST, hence making it similar to SrcML structures (albeit f
 
 ### Convert GumTreeDiff editing scripts to binary representations
 
-  $ fast -a [DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods-v2.smali](DuplicateVirtualMethods-v2.smali) [DuplicateVirtualMethods-diff.pb](test/DuplicateVirtualMethods-diff.pb)
+  $ fast -a [DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods-v2.smali](test/DuplicateVirtualMethods-v2.smali) [DuplicateVirtualMethods-diff.pb](test/DuplicateVirtualMethods-diff.pb)
 
 The command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
 
