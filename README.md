@@ -186,9 +186,10 @@ sudo install_name_tool -change @@HOMEBREW_PREFIX@@/opt/LibArchive/lib/libarchive
 ### Ubuntu Linux using Debian packages:
 ```
 	$ sudo apt-get install apt-transport-https
-	$ sudo echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list
-	$ sudo apt-get update
-	$ sudo apt-get install fast
+	$ sudo su -
+	$ echo deb http://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list
+	$ apt-get update
+	$ apt-get install fast
 ```
 Specifically, the 1st line is to support HTTPS transport protocol for the repository on github.io; 
 the 2nd line is to update the list of repositories on your machine.
