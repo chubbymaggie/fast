@@ -35,9 +35,9 @@ Here are a few examples:
 
 ### Convert from source code to SrcML
 
-  $ fast [test/Hello.java](test/Hello.java) [Hello.xml](test/Hello.xml)
+  $ fast [/usr/local/share/Hello.java](test/Hello.java) [Hello.xml](test/Hello.xml)
 
-  $ fast [test/example.cc](test/example.cc) [example.xml](test/example.xml)
+  $ fast [/usr/local/share/example.cc](test/example.cc) [example.xml](test/example.xml)
 
 ### Convert SrcML back to source code
 
@@ -104,7 +104,7 @@ These commands perform forward program slicing on the source code using the srcS
 The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
 
 ### Convert ANTLR3-based language to binary AST
-  $ fast -a [DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods.pb](test/DuplicateVirtualMethods.pb)
+  $ fast -a [/usr/local/share/DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods.pb](test/DuplicateVirtualMethods.pb)
   
   $ fast -d [DuplicateVirtualMethods.pb](test/DuplicateVirtualMethods.pb) > [DuplicateVirtualMethods.txt](test/DuplicateVirtualMethods.txt)
   
@@ -116,7 +116,7 @@ taken from the binary AST, hence making it similar to SrcML structures (albeit f
 
 ### Convert GumTreeDiff editing scripts to binary representations
 
-  $ fast -a [DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods-v2.smali](test/DuplicateVirtualMethods-v2.smali) [DuplicateVirtualMethods-diff.pb](test/DuplicateVirtualMethods-diff.pb)
+  $ fast -a [/usr/local/share/DuplicateVirtualMethods.smali](test/DuplicateVirtualMethods.smali) [/usr/local/share/DuplicateVirtualMethods-v2.smali](test/DuplicateVirtualMethods-v2.smali) [DuplicateVirtualMethods-diff.pb](test/DuplicateVirtualMethods-diff.pb)
 
 The command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
 
