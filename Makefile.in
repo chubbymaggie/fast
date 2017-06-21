@@ -9,7 +9,7 @@ endif
 target+=fast
 CXX=c++
 protoc=protoc
-flatc=/usr/local/bin/protoc
+flatc=/usr/local/bin/flatc
 
 OPT_DEBUG=-g
 OPT=-O3
