@@ -29,8 +29,8 @@ assertSame 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 $(sh
 $fast Hello.java Hello.pb
 $fast Hello.pb Hello.pb.java
 assertSame a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e $(shasum -a 256 Hello.pb.java | awk '{print $1}')
-rm -f Hello.java
-rm -f Hello.xml
+#rm -f Hello.java
+#rm -f Hello.xml
 rm -f Hello.xml-expected
 rm -f Hello.pb
 rm -f Hello.pb.java
@@ -46,7 +46,7 @@ EOF
 assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.cc | awk '{print $1}')
 $fast example.cc example.xml
 assertSame 2368362bbad04bf0f9d0b9d010de277f1d6932636dc64756bc23a9abc61a784e $(shasum -a 256 example.xml | awk '{print $1}')
-rm -f example.cc
+#rm -f example.cc
 $fast example.xml example.pb
 $fast example.pb example.pb.cc
 assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.pb.cc | awk '{print $1}')

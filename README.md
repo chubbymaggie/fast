@@ -118,30 +118,31 @@ Specifically, the 1st line is to support HTTPS transport protocol for the reposi
 the 2nd line is to update the list of repositories on your machine.
 ## Usage
 Here are a few examples:
-```
-	$ fast test/Hello.java Hello.xml
-	$ fast test/test.cc test.xml
-```
-These commands will translate the `Hello.java` Java code or the `test.cc` C++ code
-into the corresponding XML document `Hello.xml` or `test.xml`, respectively.
+
+	$ fast [test/Hello.java](../blob/master/test/Hello.java) [Hello.xml](../blob/master/test/Hello.xml)
+
+	$ fast [test/example.cc]../blob/master/test/example.cc) [example.xml](../blob/master/test/example.xml)
+
+These commands will translate the `Hello.java` Java code or the `example.cc` C++ code
+into the corresponding XML document `Hello.xml` or `example.xml`, respectively.
 ```
 	$ fast Hello.xml Hello.java
 ```
 This command will translate the XML document `Hello.xml` back into the corresponding Java code `Hello.java`.
 ```
 	$ fast Hello.xml Hello.pb
-	$ fast test.xml test.fbs
+	$ fast example.xml example.fbs
 ```
 These commands will translate the XML document `Hello.xml` into the corresponding Protocol Buffer (`.pb`) or 
 FlatBuffers (`.fbs`) binary in `Hello.pb` or `Hello.fbs`, respectively.
 ```
 	$ fast Hello.pb Hello.xml
-	$ fast test.fbs test.xml
+	$ fast example.fbs example.xml
 ```
 These commands will translate the binary representations into the corresponding XML document `Hello.xml`.
 ```
 	$ fast Hello.pb Hello.java
-	$ fast test.fbs test.cc
+	$ fast example.fbs example.cc
 ```
 These commands will translate the binary representations into the corresponding code files. 
 ```
@@ -163,13 +164,13 @@ corresponding binary and XML documents.  Note that if "-p" option is not
 provided, even if the protobuf document has the code elements' position
 information, they will be omitted in the XML document.
 ```
-	$ fast -p test.cc test.pb
-	$ fast -s test.pb
-	$ fast -S test.pb
-	$ fast -p test.cc test.fbs
-	$ fast -s test.fbs
-	$ fast -S test.fbs
-	$ fast -s test.cc
+	$ fast -p example.cc example.pb
+	$ fast -s example.pb
+	$ fast -S example.pb
+	$ fast -p example.cc example.fbs
+	$ fast -s example.fbs
+	$ fast -S example.fbs
+	$ fast -s example.cc
 	$ fast -s Hello.java
 ```
 These commands perform forward program slicing on the source code using the srcSlice tool. 
