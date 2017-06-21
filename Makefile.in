@@ -50,7 +50,7 @@ install: fast fast.proto
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
 	wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz
-	tar xvfz fast-java-$V.tar.gz -C $(DESTDIR)/local
+	tar xvfz fast-java-$V.tar.gz -C /usr/local
 
 lib/smali.jar: dist/smali.jar 
 	cp dist/smali.jar lib
