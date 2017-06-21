@@ -5,29 +5,16 @@ This tool flattens code structures of abstract syntax trees (ASTs) as binary so 
 ## Synopsis
 
 ```
-$ fast [-acdehpsSt] $input_file_name.$ext1 [$output_file_name.$ext2]
+$ fast [-acdehpsSt] $input [$output]
 ```
 
 ## Description
-The use of the tool is fairly simple. It accepts two file arguments on the command line.
-Here `$name` is the base name of a file. If `$ext1` is not one of the extensions such as
-```
-	.pb, .fbs
-```
-Assuming that you have set `/usr/local/bin` in the `$PATH` variable.
-
-SrcML will be called first to turn them into XML format. If the `$ext` 
-is one of these formats, the corresponding load / save functions of
-`fast` will be invoked to convert them from / to the corresponding binary form.
-
-If `$ext` is `.txt`, then `protoc` will be called to convert it between `.pb` and textual format.
-
-If the `output_file_name` is unspecified, the output will be directed to the standard output.
+The use of the tool is fairly simple. It accepts file arguments on the command line, namely input and output.
+If the second file is unspecified, the output will be directed to the standard output.
 
 The following options are available:
 
-     -a      Use Antlr's AST instead of srcML's 
-	     Currently we support .smali for Android assembler.
+     -a      Use Antlr's AST instead of srcML's, currently we support .smali for Android assembler.
 
      -c      Load the file only, no output.
 
