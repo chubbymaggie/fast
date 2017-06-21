@@ -42,12 +42,22 @@ fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cp
 
 install: fast fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
+	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
+	wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz
+	tar xvfz fast-java-$V.tar.gz -C $(DESTDIR)$(prefix)/lib
+
+lib/smali.jar: dist/smali.jar 
+	cp dist/smali.jar lib
+
+fast-java-$V.tar.gz: lib/smali.jar
+	tar cfz $@ lib/
+	
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -194,17 +204,20 @@ ifeq ($(UNAME_S),Darwin)
 endif
 
 v$V.tar.gz:
+	wget https://github.com/yijunyu/fast/archive/v0.0.1.tar.gz
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
-	cd fast-$V && dpkg-source --commit && debuild -S	
+	cd fast-$V && dpkg-source --commit
+	cd fast-$V && debuild -S	
 #	dpkg-buildpackage -b
 
-fast_$V.orig.tar.gz: v$V.tar.gz
+fast_%.orig.tar.gz: v%.tar.gz
 	mv $^ $@
 
-fast-$V: fast_$V.orig.tar.gz
-	tar xf $^
+fast-$V: fast_$V.orig.tar.gz fast_0.0.1.orig.tar.gz
+	tar xf fast_$V.orig.tar.gz 
+	tar xf fast_0.0.1.orig.tar.gz
 	rm -rf fast-$V/el_capitan
 	rm -rf fast-$V/sierra
 	rm -rf fast-$V/lib
