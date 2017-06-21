@@ -8,7 +8,7 @@ ifeq ($(UNAME_S),Darwin)
 endif
 target+=fast
 CXX=c++
-protoc=protoc
+protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
 OPT_DEBUG=-g
@@ -197,8 +197,8 @@ v$V.tar.gz:
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
-	dpkg-buildpackage -b
-#cd fast-$V && debuild -S	
+	cd fast-$V && debuild -S	
+#	dpkg-buildpackage -b
 
 fast_$V.orig.tar.gz: v$V.tar.gz
 	mv $^ $@
