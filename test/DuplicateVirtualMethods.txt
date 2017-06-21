@@ -1,0 +1,336 @@
+child {
+  kind: I_CLASS_DEF
+  length: 2048
+  child {
+    kind: CLASS_DESCRIPTOR
+    text: "LDuplicateVirtualMethods;"
+    pos: 14
+    length: 25
+  }
+  child {
+    kind: I_ACCESS_LIST
+    pos: 7
+    length: 6
+    child {
+      kind: ACCESS_SPEC
+      text: "public"
+      pos: 7
+      length: 6
+    }
+  }
+  child {
+    kind: I_SUPER
+    pos: 40
+    length: 25
+    child {
+      kind: CLASS_DESCRIPTOR
+      text: "Ljava/lang/Object;"
+      pos: 47
+      length: 18
+    }
+  }
+  child {
+    kind: I_METHODS
+    length: 1
+    child {
+      kind: I_METHOD
+      pos: 67
+      length: 67
+      child {
+        kind: SIMPLE_NAME
+        text: "alah"
+        pos: 82
+        length: 4
+      }
+      child {
+        kind: I_METHOD_PROTOTYPE
+        pos: 86
+        length: 3
+        child {
+          kind: I_METHOD_RETURN_TYPE
+          length: 1
+          child {
+            kind: VOID_TYPE
+            text: "V"
+            pos: 88
+            length: 1
+          }
+        }
+      }
+      child {
+        kind: I_ACCESS_LIST
+        pos: 75
+        length: 6
+        child {
+          kind: ACCESS_SPEC
+          text: "public"
+          pos: 75
+          length: 6
+        }
+      }
+      child {
+        kind: I_REGISTERS
+        pos: 94
+        length: 12
+        child {
+          kind: INTEGER_LITERAL
+          text: "1"
+          pos: 105
+          length: 1
+        }
+      }
+      child {
+        kind: I_ORDERED_METHOD_ITEMS
+        length: 1
+        child {
+          kind: I_STATEMENT_FORMAT10x
+          pos: 111
+          length: 11
+          child {
+            kind: INSTRUCTION_FORMAT10x
+            text: "return-void"
+            pos: 111
+            length: 11
+          }
+        }
+      }
+      child {
+        kind: I_CATCHES
+        length: 1
+      }
+      child {
+        kind: I_PARAMETERS
+        length: 1
+      }
+      child {
+        kind: I_ANNOTATIONS
+        length: 1
+      }
+    }
+    child {
+      kind: I_METHOD
+      pos: 136
+      length: 50
+      child {
+        kind: SIMPLE_NAME
+        text: "blah"
+        pos: 151
+        length: 4
+      }
+      child {
+        kind: I_METHOD_PROTOTYPE
+        pos: 155
+        length: 3
+        child {
+          kind: I_METHOD_RETURN_TYPE
+          length: 1
+          child {
+            kind: VOID_TYPE
+            text: "V"
+            pos: 157
+            length: 1
+          }
+        }
+      }
+      child {
+        kind: I_ACCESS_LIST
+        pos: 144
+        length: 6
+        child {
+          kind: ACCESS_SPEC
+          text: "public"
+          pos: 144
+          length: 6
+        }
+      }
+      child {
+        kind: I_ORDERED_METHOD_ITEMS
+        length: 1
+        child {
+          kind: I_STATEMENT_FORMAT10x
+          pos: 163
+          length: 11
+          child {
+            kind: INSTRUCTION_FORMAT10x
+            text: "return-void"
+            pos: 163
+            length: 11
+          }
+        }
+      }
+      child {
+        kind: I_CATCHES
+        length: 1
+      }
+      child {
+        kind: I_PARAMETERS
+        length: 1
+      }
+      child {
+        kind: I_ANNOTATIONS
+        length: 1
+      }
+    }
+    child {
+      kind: I_METHOD
+      pos: 188
+      length: 67
+      child {
+        kind: SIMPLE_NAME
+        text: "blah"
+        pos: 203
+        length: 4
+      }
+      child {
+        kind: I_METHOD_PROTOTYPE
+        pos: 207
+        length: 3
+        child {
+          kind: I_METHOD_RETURN_TYPE
+          length: 1
+          child {
+            kind: VOID_TYPE
+            text: "V"
+            pos: 209
+            length: 1
+          }
+        }
+      }
+      child {
+        kind: I_ACCESS_LIST
+        pos: 196
+        length: 6
+        child {
+          kind: ACCESS_SPEC
+          text: "public"
+          pos: 196
+          length: 6
+        }
+      }
+      child {
+        kind: I_REGISTERS
+        pos: 215
+        length: 12
+        child {
+          kind: INTEGER_LITERAL
+          text: "1"
+          pos: 226
+          length: 1
+        }
+      }
+      child {
+        kind: I_ORDERED_METHOD_ITEMS
+        length: 1
+        child {
+          kind: I_STATEMENT_FORMAT10x
+          pos: 232
+          length: 11
+          child {
+            kind: INSTRUCTION_FORMAT10x
+            text: "return-void"
+            pos: 232
+            length: 11
+          }
+        }
+      }
+      child {
+        kind: I_CATCHES
+        length: 1
+      }
+      child {
+        kind: I_PARAMETERS
+        length: 1
+      }
+      child {
+        kind: I_ANNOTATIONS
+        length: 1
+      }
+    }
+    child {
+      kind: I_METHOD
+      pos: 257
+      length: 67
+      child {
+        kind: SIMPLE_NAME
+        text: "clah"
+        pos: 272
+        length: 4
+      }
+      child {
+        kind: I_METHOD_PROTOTYPE
+        pos: 276
+        length: 3
+        child {
+          kind: I_METHOD_RETURN_TYPE
+          length: 1
+          child {
+            kind: VOID_TYPE
+            text: "V"
+            pos: 278
+            length: 1
+          }
+        }
+      }
+      child {
+        kind: I_ACCESS_LIST
+        pos: 265
+        length: 6
+        child {
+          kind: ACCESS_SPEC
+          text: "public"
+          pos: 265
+          length: 6
+        }
+      }
+      child {
+        kind: I_REGISTERS
+        pos: 284
+        length: 12
+        child {
+          kind: INTEGER_LITERAL
+          text: "1"
+          pos: 295
+          length: 1
+        }
+      }
+      child {
+        kind: I_ORDERED_METHOD_ITEMS
+        length: 1
+        child {
+          kind: I_STATEMENT_FORMAT10x
+          pos: 301
+          length: 11
+          child {
+            kind: INSTRUCTION_FORMAT10x
+            text: "return-void"
+            pos: 301
+            length: 11
+          }
+        }
+      }
+      child {
+        kind: I_CATCHES
+        length: 1
+      }
+      child {
+        kind: I_PARAMETERS
+        length: 1
+      }
+      child {
+        kind: I_ANNOTATIONS
+        length: 1
+      }
+    }
+  }
+  child {
+    kind: I_FIELDS
+    length: 1
+  }
+  child {
+    kind: I_ANNOTATIONS
+    length: 1
+  }
+}
+unit {
+  filename: "DuplicateVirtualMethods.smali"
+}
