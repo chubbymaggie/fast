@@ -67,3 +67,26 @@ message Delta {
 	}
    }
 }
+
+message Pairs {
+   message Pair {
+	enum CloneType {
+	  MAYBE = 0;
+	  YES = 1;
+	  NO = 2;
+	}
+	string project = 1;
+	Diff left = 2;
+	Diff right = 3;
+	CloneType type = 4;
+	message Diff {
+		int32 left_line = 1;
+		int32 left_column = 2;
+		int32 right_line = 3;
+		int32 right_column = 4;
+		Element old_code = 5;
+		Element new_code = 6;
+	}
+   } 
+   repeated Pair pair = 1;
+}

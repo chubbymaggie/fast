@@ -62,6 +62,15 @@ extern Element_LiteralDefaultTypeInternal _Element_Literal_default_instance_;
 class Element_Unit;
 class Element_UnitDefaultTypeInternal;
 extern Element_UnitDefaultTypeInternal _Element_Unit_default_instance_;
+class Pairs;
+class PairsDefaultTypeInternal;
+extern PairsDefaultTypeInternal _Pairs_default_instance_;
+class Pairs_Pair;
+class Pairs_PairDefaultTypeInternal;
+extern Pairs_PairDefaultTypeInternal _Pairs_Pair_default_instance_;
+class Pairs_Pair_Diff;
+class Pairs_Pair_DiffDefaultTypeInternal;
+extern Pairs_Pair_DiffDefaultTypeInternal _Pairs_Pair_Diff_default_instance_;
 }  // namespace fast
 
 namespace fast {
@@ -779,6 +788,28 @@ inline bool Delta_Diff_DeltaType_Parse(
     const ::std::string& name, Delta_Diff_DeltaType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<Delta_Diff_DeltaType>(
     Delta_Diff_DeltaType_descriptor(), name, value);
+}
+enum Pairs_Pair_CloneType {
+  Pairs_Pair_CloneType_MAYBE = 0,
+  Pairs_Pair_CloneType_YES = 1,
+  Pairs_Pair_CloneType_NO = 2,
+  Pairs_Pair_CloneType_Pairs_Pair_CloneType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  Pairs_Pair_CloneType_Pairs_Pair_CloneType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool Pairs_Pair_CloneType_IsValid(int value);
+const Pairs_Pair_CloneType Pairs_Pair_CloneType_CloneType_MIN = Pairs_Pair_CloneType_MAYBE;
+const Pairs_Pair_CloneType Pairs_Pair_CloneType_CloneType_MAX = Pairs_Pair_CloneType_NO;
+const int Pairs_Pair_CloneType_CloneType_ARRAYSIZE = Pairs_Pair_CloneType_CloneType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Pairs_Pair_CloneType_descriptor();
+inline const ::std::string& Pairs_Pair_CloneType_Name(Pairs_Pair_CloneType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Pairs_Pair_CloneType_descriptor(), value);
+}
+inline bool Pairs_Pair_CloneType_Parse(
+    const ::std::string& name, Pairs_Pair_CloneType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Pairs_Pair_CloneType>(
+    Pairs_Pair_CloneType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -3217,6 +3248,360 @@ class Delta : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   mutable int _cached_size_;
   friend struct protobuf_fast_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class Pairs_Pair_Diff : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Pairs.Pair.Diff) */ {
+ public:
+  Pairs_Pair_Diff();
+  virtual ~Pairs_Pair_Diff();
+
+  Pairs_Pair_Diff(const Pairs_Pair_Diff& from);
+
+  inline Pairs_Pair_Diff& operator=(const Pairs_Pair_Diff& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Pairs_Pair_Diff& default_instance();
+
+  static inline const Pairs_Pair_Diff* internal_default_instance() {
+    return reinterpret_cast<const Pairs_Pair_Diff*>(
+               &_Pairs_Pair_Diff_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    10;
+
+  void Swap(Pairs_Pair_Diff* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Pairs_Pair_Diff* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Pairs_Pair_Diff* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Pairs_Pair_Diff& from);
+  void MergeFrom(const Pairs_Pair_Diff& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Pairs_Pair_Diff* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .fast.Element old_code = 5;
+  bool has_old_code() const;
+  void clear_old_code();
+  static const int kOldCodeFieldNumber = 5;
+  const ::fast::Element& old_code() const;
+  ::fast::Element* mutable_old_code();
+  ::fast::Element* release_old_code();
+  void set_allocated_old_code(::fast::Element* old_code);
+
+  // .fast.Element new_code = 6;
+  bool has_new_code() const;
+  void clear_new_code();
+  static const int kNewCodeFieldNumber = 6;
+  const ::fast::Element& new_code() const;
+  ::fast::Element* mutable_new_code();
+  ::fast::Element* release_new_code();
+  void set_allocated_new_code(::fast::Element* new_code);
+
+  // int32 left_line = 1;
+  void clear_left_line();
+  static const int kLeftLineFieldNumber = 1;
+  ::google::protobuf::int32 left_line() const;
+  void set_left_line(::google::protobuf::int32 value);
+
+  // int32 left_column = 2;
+  void clear_left_column();
+  static const int kLeftColumnFieldNumber = 2;
+  ::google::protobuf::int32 left_column() const;
+  void set_left_column(::google::protobuf::int32 value);
+
+  // int32 right_line = 3;
+  void clear_right_line();
+  static const int kRightLineFieldNumber = 3;
+  ::google::protobuf::int32 right_line() const;
+  void set_right_line(::google::protobuf::int32 value);
+
+  // int32 right_column = 4;
+  void clear_right_column();
+  static const int kRightColumnFieldNumber = 4;
+  ::google::protobuf::int32 right_column() const;
+  void set_right_column(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Pairs.Pair.Diff)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::fast::Element* old_code_;
+  ::fast::Element* new_code_;
+  ::google::protobuf::int32 left_line_;
+  ::google::protobuf::int32 left_column_;
+  ::google::protobuf::int32 right_line_;
+  ::google::protobuf::int32 right_column_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Pairs_Pair : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Pairs.Pair) */ {
+ public:
+  Pairs_Pair();
+  virtual ~Pairs_Pair();
+
+  Pairs_Pair(const Pairs_Pair& from);
+
+  inline Pairs_Pair& operator=(const Pairs_Pair& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Pairs_Pair& default_instance();
+
+  static inline const Pairs_Pair* internal_default_instance() {
+    return reinterpret_cast<const Pairs_Pair*>(
+               &_Pairs_Pair_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    11;
+
+  void Swap(Pairs_Pair* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Pairs_Pair* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Pairs_Pair* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Pairs_Pair& from);
+  void MergeFrom(const Pairs_Pair& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Pairs_Pair* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Pairs_Pair_Diff Diff;
+
+  typedef Pairs_Pair_CloneType CloneType;
+  static const CloneType MAYBE =
+    Pairs_Pair_CloneType_MAYBE;
+  static const CloneType YES =
+    Pairs_Pair_CloneType_YES;
+  static const CloneType NO =
+    Pairs_Pair_CloneType_NO;
+  static inline bool CloneType_IsValid(int value) {
+    return Pairs_Pair_CloneType_IsValid(value);
+  }
+  static const CloneType CloneType_MIN =
+    Pairs_Pair_CloneType_CloneType_MIN;
+  static const CloneType CloneType_MAX =
+    Pairs_Pair_CloneType_CloneType_MAX;
+  static const int CloneType_ARRAYSIZE =
+    Pairs_Pair_CloneType_CloneType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  CloneType_descriptor() {
+    return Pairs_Pair_CloneType_descriptor();
+  }
+  static inline const ::std::string& CloneType_Name(CloneType value) {
+    return Pairs_Pair_CloneType_Name(value);
+  }
+  static inline bool CloneType_Parse(const ::std::string& name,
+      CloneType* value) {
+    return Pairs_Pair_CloneType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // string project = 1;
+  void clear_project();
+  static const int kProjectFieldNumber = 1;
+  const ::std::string& project() const;
+  void set_project(const ::std::string& value);
+  #if LANG_CXX11
+  void set_project(::std::string&& value);
+  #endif
+  void set_project(const char* value);
+  void set_project(const char* value, size_t size);
+  ::std::string* mutable_project();
+  ::std::string* release_project();
+  void set_allocated_project(::std::string* project);
+
+  // .fast.Pairs.Pair.Diff left = 2;
+  bool has_left() const;
+  void clear_left();
+  static const int kLeftFieldNumber = 2;
+  const ::fast::Pairs_Pair_Diff& left() const;
+  ::fast::Pairs_Pair_Diff* mutable_left();
+  ::fast::Pairs_Pair_Diff* release_left();
+  void set_allocated_left(::fast::Pairs_Pair_Diff* left);
+
+  // .fast.Pairs.Pair.Diff right = 3;
+  bool has_right() const;
+  void clear_right();
+  static const int kRightFieldNumber = 3;
+  const ::fast::Pairs_Pair_Diff& right() const;
+  ::fast::Pairs_Pair_Diff* mutable_right();
+  ::fast::Pairs_Pair_Diff* release_right();
+  void set_allocated_right(::fast::Pairs_Pair_Diff* right);
+
+  // .fast.Pairs.Pair.CloneType type = 4;
+  void clear_type();
+  static const int kTypeFieldNumber = 4;
+  ::fast::Pairs_Pair_CloneType type() const;
+  void set_type(::fast::Pairs_Pair_CloneType value);
+
+  // @@protoc_insertion_point(class_scope:fast.Pairs.Pair)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr project_;
+  ::fast::Pairs_Pair_Diff* left_;
+  ::fast::Pairs_Pair_Diff* right_;
+  int type_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Pairs : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Pairs) */ {
+ public:
+  Pairs();
+  virtual ~Pairs();
+
+  Pairs(const Pairs& from);
+
+  inline Pairs& operator=(const Pairs& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Pairs& default_instance();
+
+  static inline const Pairs* internal_default_instance() {
+    return reinterpret_cast<const Pairs*>(
+               &_Pairs_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    12;
+
+  void Swap(Pairs* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Pairs* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Pairs* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Pairs& from);
+  void MergeFrom(const Pairs& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Pairs* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Pairs_Pair Pair;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Pairs.Pair pair = 1;
+  int pair_size() const;
+  void clear_pair();
+  static const int kPairFieldNumber = 1;
+  const ::fast::Pairs_Pair& pair(int index) const;
+  ::fast::Pairs_Pair* mutable_pair(int index);
+  ::fast::Pairs_Pair* add_pair();
+  ::google::protobuf::RepeatedPtrField< ::fast::Pairs_Pair >*
+      mutable_pair();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Pairs_Pair >&
+      pair() const;
+
+  // @@protoc_insertion_point(class_scope:fast.Pairs)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Pairs_Pair > pair_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -4312,7 +4697,334 @@ Delta::diff() const {
   return diff_;
 }
 
+// -------------------------------------------------------------------
+
+// Pairs_Pair_Diff
+
+// int32 left_line = 1;
+inline void Pairs_Pair_Diff::clear_left_line() {
+  left_line_ = 0;
+}
+inline ::google::protobuf::int32 Pairs_Pair_Diff::left_line() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.left_line)
+  return left_line_;
+}
+inline void Pairs_Pair_Diff::set_left_line(::google::protobuf::int32 value) {
+  
+  left_line_ = value;
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.left_line)
+}
+
+// int32 left_column = 2;
+inline void Pairs_Pair_Diff::clear_left_column() {
+  left_column_ = 0;
+}
+inline ::google::protobuf::int32 Pairs_Pair_Diff::left_column() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.left_column)
+  return left_column_;
+}
+inline void Pairs_Pair_Diff::set_left_column(::google::protobuf::int32 value) {
+  
+  left_column_ = value;
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.left_column)
+}
+
+// int32 right_line = 3;
+inline void Pairs_Pair_Diff::clear_right_line() {
+  right_line_ = 0;
+}
+inline ::google::protobuf::int32 Pairs_Pair_Diff::right_line() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.right_line)
+  return right_line_;
+}
+inline void Pairs_Pair_Diff::set_right_line(::google::protobuf::int32 value) {
+  
+  right_line_ = value;
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.right_line)
+}
+
+// int32 right_column = 4;
+inline void Pairs_Pair_Diff::clear_right_column() {
+  right_column_ = 0;
+}
+inline ::google::protobuf::int32 Pairs_Pair_Diff::right_column() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.right_column)
+  return right_column_;
+}
+inline void Pairs_Pair_Diff::set_right_column(::google::protobuf::int32 value) {
+  
+  right_column_ = value;
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.right_column)
+}
+
+// .fast.Element old_code = 5;
+inline bool Pairs_Pair_Diff::has_old_code() const {
+  return this != internal_default_instance() && old_code_ != NULL;
+}
+inline void Pairs_Pair_Diff::clear_old_code() {
+  if (GetArenaNoVirtual() == NULL && old_code_ != NULL) delete old_code_;
+  old_code_ = NULL;
+}
+inline const ::fast::Element& Pairs_Pair_Diff::old_code() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.old_code)
+  return old_code_ != NULL ? *old_code_
+                         : *::fast::Element::internal_default_instance();
+}
+inline ::fast::Element* Pairs_Pair_Diff::mutable_old_code() {
+  
+  if (old_code_ == NULL) {
+    old_code_ = new ::fast::Element;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.Diff.old_code)
+  return old_code_;
+}
+inline ::fast::Element* Pairs_Pair_Diff::release_old_code() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.Diff.old_code)
+  
+  ::fast::Element* temp = old_code_;
+  old_code_ = NULL;
+  return temp;
+}
+inline void Pairs_Pair_Diff::set_allocated_old_code(::fast::Element* old_code) {
+  delete old_code_;
+  old_code_ = old_code;
+  if (old_code) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.old_code)
+}
+
+// .fast.Element new_code = 6;
+inline bool Pairs_Pair_Diff::has_new_code() const {
+  return this != internal_default_instance() && new_code_ != NULL;
+}
+inline void Pairs_Pair_Diff::clear_new_code() {
+  if (GetArenaNoVirtual() == NULL && new_code_ != NULL) delete new_code_;
+  new_code_ = NULL;
+}
+inline const ::fast::Element& Pairs_Pair_Diff::new_code() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.new_code)
+  return new_code_ != NULL ? *new_code_
+                         : *::fast::Element::internal_default_instance();
+}
+inline ::fast::Element* Pairs_Pair_Diff::mutable_new_code() {
+  
+  if (new_code_ == NULL) {
+    new_code_ = new ::fast::Element;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.Diff.new_code)
+  return new_code_;
+}
+inline ::fast::Element* Pairs_Pair_Diff::release_new_code() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.Diff.new_code)
+  
+  ::fast::Element* temp = new_code_;
+  new_code_ = NULL;
+  return temp;
+}
+inline void Pairs_Pair_Diff::set_allocated_new_code(::fast::Element* new_code) {
+  delete new_code_;
+  new_code_ = new_code;
+  if (new_code) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.new_code)
+}
+
+// -------------------------------------------------------------------
+
+// Pairs_Pair
+
+// string project = 1;
+inline void Pairs_Pair::clear_project() {
+  project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Pairs_Pair::project() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.project)
+  return project_.GetNoArena();
+}
+inline void Pairs_Pair::set_project(const ::std::string& value) {
+  
+  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.project)
+}
+#if LANG_CXX11
+inline void Pairs_Pair::set_project(::std::string&& value) {
+  
+  project_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Pairs.Pair.project)
+}
+#endif
+inline void Pairs_Pair::set_project(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Pairs.Pair.project)
+}
+inline void Pairs_Pair::set_project(const char* value, size_t size) {
+  
+  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Pairs.Pair.project)
+}
+inline ::std::string* Pairs_Pair::mutable_project() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.project)
+  return project_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Pairs_Pair::release_project() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.project)
+  
+  return project_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Pairs_Pair::set_allocated_project(::std::string* project) {
+  if (project != NULL) {
+    
+  } else {
+    
+  }
+  project_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), project);
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.project)
+}
+
+// .fast.Pairs.Pair.Diff left = 2;
+inline bool Pairs_Pair::has_left() const {
+  return this != internal_default_instance() && left_ != NULL;
+}
+inline void Pairs_Pair::clear_left() {
+  if (GetArenaNoVirtual() == NULL && left_ != NULL) delete left_;
+  left_ = NULL;
+}
+inline const ::fast::Pairs_Pair_Diff& Pairs_Pair::left() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.left)
+  return left_ != NULL ? *left_
+                         : *::fast::Pairs_Pair_Diff::internal_default_instance();
+}
+inline ::fast::Pairs_Pair_Diff* Pairs_Pair::mutable_left() {
+  
+  if (left_ == NULL) {
+    left_ = new ::fast::Pairs_Pair_Diff;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.left)
+  return left_;
+}
+inline ::fast::Pairs_Pair_Diff* Pairs_Pair::release_left() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.left)
+  
+  ::fast::Pairs_Pair_Diff* temp = left_;
+  left_ = NULL;
+  return temp;
+}
+inline void Pairs_Pair::set_allocated_left(::fast::Pairs_Pair_Diff* left) {
+  delete left_;
+  left_ = left;
+  if (left) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.left)
+}
+
+// .fast.Pairs.Pair.Diff right = 3;
+inline bool Pairs_Pair::has_right() const {
+  return this != internal_default_instance() && right_ != NULL;
+}
+inline void Pairs_Pair::clear_right() {
+  if (GetArenaNoVirtual() == NULL && right_ != NULL) delete right_;
+  right_ = NULL;
+}
+inline const ::fast::Pairs_Pair_Diff& Pairs_Pair::right() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.right)
+  return right_ != NULL ? *right_
+                         : *::fast::Pairs_Pair_Diff::internal_default_instance();
+}
+inline ::fast::Pairs_Pair_Diff* Pairs_Pair::mutable_right() {
+  
+  if (right_ == NULL) {
+    right_ = new ::fast::Pairs_Pair_Diff;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.right)
+  return right_;
+}
+inline ::fast::Pairs_Pair_Diff* Pairs_Pair::release_right() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.right)
+  
+  ::fast::Pairs_Pair_Diff* temp = right_;
+  right_ = NULL;
+  return temp;
+}
+inline void Pairs_Pair::set_allocated_right(::fast::Pairs_Pair_Diff* right) {
+  delete right_;
+  right_ = right;
+  if (right) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.right)
+}
+
+// .fast.Pairs.Pair.CloneType type = 4;
+inline void Pairs_Pair::clear_type() {
+  type_ = 0;
+}
+inline ::fast::Pairs_Pair_CloneType Pairs_Pair::type() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.type)
+  return static_cast< ::fast::Pairs_Pair_CloneType >(type_);
+}
+inline void Pairs_Pair::set_type(::fast::Pairs_Pair_CloneType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.type)
+}
+
+// -------------------------------------------------------------------
+
+// Pairs
+
+// repeated .fast.Pairs.Pair pair = 1;
+inline int Pairs::pair_size() const {
+  return pair_.size();
+}
+inline void Pairs::clear_pair() {
+  pair_.Clear();
+}
+inline const ::fast::Pairs_Pair& Pairs::pair(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.pair)
+  return pair_.Get(index);
+}
+inline ::fast::Pairs_Pair* Pairs::mutable_pair(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.pair)
+  return pair_.Mutable(index);
+}
+inline ::fast::Pairs_Pair* Pairs::add_pair() {
+  // @@protoc_insertion_point(field_add:fast.Pairs.pair)
+  return pair_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Pairs_Pair >*
+Pairs::mutable_pair() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Pairs.pair)
+  return &pair_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Pairs_Pair >&
+Pairs::pair() const {
+  // @@protoc_insertion_point(field_list:fast.Pairs.pair)
+  return pair_;
+}
+
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -4365,6 +5077,11 @@ template <> struct is_proto_enum< ::fast::Delta_Diff_DeltaType> : ::google::prot
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fast::Delta_Diff_DeltaType>() {
   return ::fast::Delta_Diff_DeltaType_descriptor();
+}
+template <> struct is_proto_enum< ::fast::Pairs_Pair_CloneType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::fast::Pairs_Pair_CloneType>() {
+  return ::fast::Pairs_Pair_CloneType_descriptor();
 }
 
 }  // namespace protobuf

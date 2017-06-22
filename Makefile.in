@@ -9,6 +9,7 @@ ifeq ($(UNAME_S),Darwin)
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --cflags --libs)
 endif
 target+=fast
+target+=process
 CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
@@ -20,6 +21,14 @@ FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 
 all: $(target)
+	cat codelabel_new.csv > a.csv
+	./process a.csv a.pb
+	protoc --decode=fast.Pairs fast.proto < a.pb > a.txt
+
+#	./process codelabel_new.csv codelabel_new.pb
+
+./process: src/process.cc src/fast.pb.cc
+	c++ $^ $(PB_LIB) -o $@
 
 src/fast.cc: ./rapidxml/rapidxml.hpp src/fast_generated.h
 	touch $@
