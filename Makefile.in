@@ -28,7 +28,7 @@ all: $(target)
 ./process: src/process.cc src/fast.pb.cc
 	c++ $^ $(PB_LIB) -o $@
 
-src/fast.cc: ./rapidxml/rapidxml.hpp src/fast_generated.h
+src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h
 	touch $@
 
 fast-$V.tar.gz:
@@ -46,7 +46,7 @@ ifeq ($(UNAME_S),Linux)
 
 prefix=/usr/local
 fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
-	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Irapidxml -Isrc -Isrc/headers -Isrc/cpp $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
+	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
 
 install: fast fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
@@ -74,10 +74,10 @@ ifeq ($(prefix),)
 prefix=/usr/local
 endif
 fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
-	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Irapidxml -Isrc -Isrc/headers -Isrc/cpp $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
+	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
 
 fast-debug: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
-	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Irapidxml -Isrc -Isrc/headers -Isrc/cpp $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
+	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
 
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@
