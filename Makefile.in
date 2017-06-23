@@ -25,8 +25,6 @@ all: $(target)
 	./process a.csv a.pb
 	protoc --decode=fast.Pairs fast.proto < a.pb > a.txt
 
-#	./process codelabel_new.csv codelabel_new.pb
-
 ./process: src/process.cc src/fast.pb.cc
 	c++ $^ $(PB_LIB) -o $@
 
@@ -89,12 +87,12 @@ install: fast fast.proto dist/smali.jar
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
-	install -m 0755 osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
-	install -m 0755 osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
-	install -m 0755 osx/srcml $(DESTDIR)$(prefix)/bin/srcml
-	install -m 0755 osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/
+	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
+	install -m 0755 lib/osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
+	install -m 0755 lib/osx/srcml $(DESTDIR)$(prefix)/bin/srcml
+	install -m 0755 lib/osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
 	install -m 0644 dist/smali.jar $(DESTDIR)$(prefix)/lib/smali.jar
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
@@ -228,8 +226,6 @@ fast_%.orig.tar.gz: v%.tar.gz
 fast-$V: fast_$V.orig.tar.gz fast_0.0.1.orig.tar.gz
 	tar xf fast_$V.orig.tar.gz 
 	tar xf fast_0.0.1.orig.tar.gz
-	rm -rf fast-$V/el_capitan
-	rm -rf fast-$V/sierra
 	rm -rf fast-$V/lib
 
 fast-$V/debian: fast-$V
