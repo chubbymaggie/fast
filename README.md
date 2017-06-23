@@ -7,15 +7,18 @@ See [instructions on installation](doc/installation.md).
 ## Acknowledgement
 
 * [ANTLR3](https://github.com/antlr/antlr3)
-
 * [flatbuffers](https://github.com/google/flatbuffers)
-
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
-
 * [protobuf](https://github.com/google/protobuf)
-
 * [rapidxml](https://github.com/dwd/rapidxml)
-
 * [smali](https://github.com/JesusFreke/smali)
-
 * [srcML](http://www.srcml.org/)
+
+### Contributors
+* Bram Adams
+* Duy Quoc Nghi Bui
+* Zhenjiang Hu
+* Lingxiao Jiang
+* Chunmiao Li
+* Qiuchi Li
+* Mohammed Sayagh
