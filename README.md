@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/yijunyu/fast.svg?branch=master)](https://travis-ci.org/yijunyu/fast)
 # `fast` -- Flattening Abstract Syntax Trees
 This [command](doc/options.md) [loads and saves](doc/usage.md) your source code [faster](doc/performance.md). 
-Input source code, output efficient structures, and vice versa. 
 
 See [instructions on installation](doc/installation.md).
 

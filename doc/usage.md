@@ -1,4 +1,4 @@
-## Examples
+## Input source code, output efficient structures, and vice versa. 
 
 ### Convert from source code to SrcML
 
