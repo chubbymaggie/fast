@@ -4,7 +4,7 @@
 
 ## Acknowledgement
 
-* [ANTLR3](https://github.com/antlr/antlr3)
+* [antlr3](https://github.com/antlr/antlr3)
 * [flatbuffers](https://github.com/google/flatbuffers)
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [protobuf](https://github.com/google/protobuf)
