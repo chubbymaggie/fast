@@ -4,7 +4,7 @@
 
 See [instructions on installation](doc/installation.md).
 
-## Dependencies
+## Acknowledgement
 
 * [ANTLR3](https://github.com/antlr/antlr3)
 
@@ -13,6 +13,8 @@ See [instructions on installation](doc/installation.md).
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 
 * [protobuf](https://github.com/google/protobuf)
+
+* [rapidxml](https://github.com/dwd/rapidxml)
 
 * [smali](https://github.com/JesusFreke/smali)
 
