@@ -21,6 +21,8 @@ FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 
 all: $(target)
+
+a.txt:
 	cat codelabel_new.csv > a.csv
 	./process a.csv a.pb
 	protoc --decode=fast.Pairs fast.proto < a.pb > a.txt
