@@ -39,10 +39,11 @@ bool srcML(fast::Element *unit, std::string text, std::string ext) {
 		fclose(src_file);
 		//sprintf(cmd, "lsof -p %d", getpid()); system(cmd);
 		sprintf(cmd, "fast %s %s", src_filename.c_str(), pb_filename.c_str());
+		// std::cout << cmd << std::endl;
 		n_srcML_invoked++;
 		int ret_val = system(cmd);
 		if (ret_val == 0) {
-			remove(src_filename.c_str());
+			// remove(src_filename.c_str());
 			FILE * pb_file  = fopen(pb_filename.c_str(), "r");
 			if (pb_file != NULL) {
 				fclose(pb_file);
@@ -90,7 +91,7 @@ bool process_hunk_xml(fast::Element **old_code, fast::Element **new_code, std::s
 		    }
 		}
 		if (! is_special && line != "") {
-		    line = line.substr(1);
+		    // line = line.substr(1);
 		    text_old += line + "\n";
 		    text_new += line + "\n";
 		}
@@ -100,7 +101,10 @@ bool process_hunk_xml(fast::Element **old_code, fast::Element **new_code, std::s
 	if (text_old != "") {
 		fast::Element *unit = new fast::Element();
 		bool success = srcML(unit, text_old, ext);
-		if (!success) return false;
+		if (!success) {
+			std::cerr << "Error found in processing the old text" << std::endl;
+			return false;
+		}
 		// ignore the filename field
 		if (unit!=NULL)
 			unit->mutable_unit()->set_filename("");
@@ -109,7 +113,10 @@ bool process_hunk_xml(fast::Element **old_code, fast::Element **new_code, std::s
 	if (text_new != "") {
 		fast::Element *unit = new fast::Element();
 		bool success = srcML(unit, text_new, ext);
-		if (!success) return false;
+		if (!success) {
+			std::cerr << "Error found in processing the new text" << std::endl;
+			return false;
+		}
 		// ignore the filename field
 		if (unit!=NULL)
 			unit->mutable_unit()->set_filename("");
@@ -166,7 +173,7 @@ int main(int argc, char ** argv) {
 			fast::Pairs_Pair *pair = pairs->add_pair();
 			std::string project = line.substr(0,linePos0);
 			pair->set_project(project);
-			std::cout << project <<  std::endl;
+			// std::cout << project <<  std::endl;
 			size_t linePos1 = line.substr(linePos0+1).find(SEPARATOR);
 			std::string line2 = line.substr(linePos0+1).substr(linePos1 + strlen(SEPARATOR) + 1);
 			size_t linePos2 = line2.find(SEPARATOR);
@@ -175,8 +182,10 @@ int main(int argc, char ** argv) {
 			size_t linePos3 = code.find(SEPARATOR);
 			std::string code1 = code.substr(0, linePos3-1);
 			replaceAll(code1, "$$", "\n");
+			// std::cout << code1 << std::endl;
 			fast::Pairs_Pair_Diff *diff1 = set_diff(index1, code1, "java");
 			pair->set_allocated_left(diff1);
+			// std::cout << "======" << std::endl;
 
 			std::string index = code.substr(linePos3 + strlen(SEPARATOR) + 1);
 			size_t linePos4 = index.find(SEPARATOR);
@@ -184,6 +193,7 @@ int main(int argc, char ** argv) {
 			std::string code2 = index.substr(linePos4 + 1);
 			replaceAll(code2, "$$", "\n");
 			size_t lastPos = code2.rfind(",");
+			// std::cout << code2 << std::endl;
 			fast::Pairs_Pair_Diff *diff2 = set_diff(index2, code2.substr(0, lastPos - 1), "cs");
 			pair->set_allocated_right(diff2);
 			int type = std::atoi(code2.substr(lastPos+1).c_str());
