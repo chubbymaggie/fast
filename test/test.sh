@@ -13,7 +13,7 @@ fi
 fast=${fast:=../fast}
 process=${process:=../process}
 
-testHelo() {
+testHello() {
 	$fast >& usage.txt
 	assertSame c9e20ff25008a57d1e563c93a27cbe432c588ea3f0152275631fdbaa0d1ec9c8 $(shasum -a 256 usage.txt | awk '{print $1}')
 	$fast -h >& usage.txt
