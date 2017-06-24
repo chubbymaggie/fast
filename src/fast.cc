@@ -712,11 +712,13 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				if (attr->name() == string("language")) {
 					fast::Element_Unit_LanguageType lang;
 					string lan = attr->value();
+					transform(lan.begin(), lan.end(),lan.begin(), ::toupper);
 					if (lan == string("C++"))
 						lan = "CXX";
 					if (lan == string("C#"))
 						lan = "CSHARP";
-					fast::Element_Unit_LanguageType_Parse(lan, &lang);
+					bool success = fast::Element_Unit_LanguageType_Parse(lan, &lang);
+					// cout << lang << " = " << lang << success << endl;
 					unit->set_language(lang);
 				}
 				if (attr->name() == string("item")) {
@@ -726,7 +728,9 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			    if (is_literal) {
 				if (attr->name() == string("type")) {
 					fast::Element_Literal_LiteralType type;
-					fast::Element_Literal_LiteralType_Parse(attr->value(), &type);
+					std::string value = attr->value();
+				        value = value + "_type";
+					bool success = fast::Element_Literal_LiteralType_Parse(value, &type);
 					literal->set_type(type);
 				}
 			    }

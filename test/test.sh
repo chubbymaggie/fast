@@ -1661,7 +1661,7 @@ else
 EOF
 	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.cs | awk '{print $1}')
 	fast test.cs test.pb
-	assertSame 041170a6a3890e60c97296a72e1f7a0014c192456d3f79ced49281568f83e4d2 $(shasum -a 256 test.pb | awk '{print $1}')
+	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
 }
 
 nottestFastPairs() {
@@ -1672,17 +1672,20 @@ nottestFastPairs() {
 	assertSame 98ff45055abbb65b64f8d011da56ffdb1309f26ecac5d703b8bb3c1eddf58cf1 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
-nottestFastPairs564() {
+testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	assertSame f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 $(shasum -a 256 a.csv | awk '{print $1}')
 	../process a.csv a.pb
 	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
-	#assertSame 69d85063d1eef4f8834e0b98923d83e5de96055e3e430366856f6a8c9de988aa $(shasum -a 256 a.pb | awk '{print $1}')
-	assertSame 0aa0a32e5766a2aff96df06d024b8f504a9cd2881d53e8d00b0966a8b504d941 $(shasum -a 256 a.txt | awk '{print $1}')
+	assertSame fddb29dee533d855776de0202f4a265fc0ad56b9c51ff3d9ef34f319a84bb267 $(shasum -a 256 a.pb | awk '{print $1}')
+	assertSame 714fd3345a187480eaabdc497086c9b9f0165f6e56c069d45d0aff8339d890b5 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
 	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
 fi
 
+lcov --directory .. --zerocounters
+lcov --directory .. --capture --output-file ../fast.info
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
+genhtml ../fast.info

@@ -2,6 +2,6 @@
 *.proto 
 *.dSYM	
 _fast/
-*.gcov
-*.gcno
-*.gcda
+*.gcov *.gcno *.gcda
+fast.info index-sort-f.html  index-sort-l.html  index.html *.png gcov.css
+v1

@@ -1,0 +1,5 @@
+fast t.cs t.pb
+cat t.pb | protoc --decode=fast.Element fast.proto > t.1
+fast t.cs t.pb
+cat t.pb | protoc --decode=fast.Element fast.proto > t.2
+diff t.1 t.2
