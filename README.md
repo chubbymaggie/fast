@@ -2,7 +2,7 @@
 [Test Coverage](https://htmlpreview.github.io/?https://github.com/yijunyu/fast/blob/master/test/index.html)
 
 # `fast` -- Flatten Abstract Syntax Trees
-[Once installed](doc/installation.md), [this tool](doc/options.md) [manupulates (i.e. loads, saves, slices, patches, and updates)](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
+[Once installed](doc/installation.md), [this tool](doc/options.md) [manipulates (i.e. loads, saves, slices, patches, and updates)](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
 
 ## Acknowledgement
 
