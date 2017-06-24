@@ -1,5 +1,6 @@
 #!/bin/sh
 fast=$(which fast)
+process=$(which process)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast -o ! -f ../process ]; then
 		cd .. 
@@ -10,6 +11,16 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 	fi
 fi
 fast=${fast:=../fast}
+process=${process:=../process}
+
+testHelo() {
+	$fast >& usage.txt
+	assertSame c9e20ff25008a57d1e563c93a27cbe432c588ea3f0152275631fdbaa0d1ec9c8 $(shasum -a 256 usage.txt | awk '{print $1}')
+	$fast -h >& usage.txt
+	assertSame 092fcf317436ed4b677c999e7f47b5da47a0d813ab192a204efcaecc12eaf0ea $(shasum -a 256 usage.txt | awk '{print $1}')
+	$fast Hello.java Hello.java >& usage.txt
+	assertSame 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 $(shasum -a 256 usage.txt | awk '{print $1}')
+}
 
 testJava() 
 {
@@ -25,6 +36,7 @@ assertSame a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e $(sh
 $fast Hello.java Hello.xml
 assertSame 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 $(shasum -a 256 Hello.xml | awk '{print $1}')
 $fast Hello.java Hello.pb
+assertSame 11eb0c9691d713fdcd90885ef28aa4edc17a8f4e30ba02cebe492d49b2c0ef50 $(shasum -a 256 Hello.pb | awk '{print $1}')
 $fast Hello.pb Hello.pb.java
 assertSame a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e $(shasum -a 256 Hello.pb.java | awk '{print $1}')
 $fast -p Hello.java Hello.position.xml
@@ -50,6 +62,10 @@ $fast -p example.cc example.position.fbs
 assertSame 6eaf262288d187d5e141942b37eb489b242b6da497315252201bb9c856a489d0 $(shasum -a 256 example.position.fbs | awk '{print $1}')
 $fast -p example.cc example.position.pb
 assertSame bf0582a18bd433734ffa8b79d799231bff2416eac4dcd5f0714b96224008c403 $(shasum -a 256 example.position.pb | awk '{print $1}')
+$fast -d example.pb > example.txt
+assertSame a5df895127e143ff9c8146171909bd19efbcd2cc34ce7be75ae26944d0bd15ff $(shasum -a 256 example.txt | awk '{print $1}')
+$fast example.pb example.txt
+assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.txt | awk '{print $1}')
 }
 testSmali() 
 {
@@ -107,8 +123,16 @@ $fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
 assertSame 0774322701503693f94f62a74d4a86a5aaa54b3272a253d9f974e28f2eb7ed15 $(shasum -a 256 DuplicateVirtualMethods.pb | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
 assertSame 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
+$fast -a DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml
+assertSame 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
 assertSame a01a9748c77d171f55d500ace774801dcb3753f34b99ceb4564225ba97dcd311 $(shasum -a 256 DuplicateVirtualMethods-diff.pb | awk '{print $1}')
+$fast DuplicateVirtualMethods.pb DuplicateVirtualMethods.txt
+assertSame 7354380d31df2ea06901501870781febce2141a31d0f4288fae23608e505e1ad $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
+$fast -d DuplicateVirtualMethods.pb > DuplicateVirtualMethods.txt
+assertSame 18ee3d3b611ff2d008f024b00298dc1c68a3391e1a4e2a50bea7a6b2ad8626d4 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
+$fast DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml
+assertSame d983aea123911ad5746aa91ed2b5ad57f18d6728d2ebba412833485e105aac34 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 }
 
 testCS() {
@@ -1660,14 +1684,14 @@ else
 }
 EOF
 	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.cs | awk '{print $1}')
-	fast test.cs test.pb
+	$fast test.cs test.pb
 	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
 }
 
 ### rather lengthy test :-) 
 notestFastPairs() {
 	cat codelabel_new.csv > a.csv
-	../process a.csv a.pb
+	$process a.csv a.pb
 	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
 	assertSame 1587f170c82a00c63529701479a1ade9265f860c1fa8ca0d875fd25057e474f1 $(shasum -a 256 a.pb | awk '{print $1}')
 	assertSame 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 $(shasum -a 256 a.txt | awk '{print $1}')
@@ -1676,16 +1700,75 @@ notestFastPairs() {
 testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	assertSame f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 $(shasum -a 256 a.csv | awk '{print $1}')
-	../process a.csv a.pb
+	$process a.csv a.pb
 	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
 	assertSame 7a0cc15f33abdf001042a84bb1d2c2b36ee30e2dc9d6038fa5529fb0dc90b0f4 $(shasum -a 256 a.pb | awk '{print $1}')
 	assertSame 958041d8682ef0a0e929677524f4cc33a47425dac00213519d951039100500df $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
 testFastSlice() {
-	fast -p Hello.java Hello.position.pb
-        fast -s Hello.position.pb > Hello-s.slice
-        fast -S Hello.position.pb > Hello-S.slice
+	$fast -p Hello.java Hello.position.pb
+	assertSame 29b942f74d31a6fb9d513772f40f580a35a7deff4936a2560e3238e434b965d5 $(shasum -a 256 Hello.position.pb | awk '{print $1}')
+        $fast -s Hello.position.pb > Hello-s.slice
+	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-s.slice | awk '{print $1}')
+        $fast -S Hello.position.pb > Hello-S.slice
+	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-S.slice | awk '{print $1}')
+	$fast -s Hello.java > Hello.slice
+	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-s.slice | awk '{print $1}')
+	$fast -S Hello.java > Hello.slice
+	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-S.slice | awk '{print $1}')
+	$fast -p example.cc example.position.fbs
+	assertSame 6eaf262288d187d5e141942b37eb489b242b6da497315252201bb9c856a489d0 $(shasum -a 256 example.position.fbs | awk '{print $1}')
+	$fast -s example.position.fbs > example-s.slice
+	assertSame dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 $(shasum -a 256 example-s.slice | awk '{print $1}')
+	$fast -S example.position.fbs > example-S.slice
+	assertSame dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 $(shasum -a 256 example-S.slice | awk '{print $1}')
+}
+
+testNoneExistingFile() {
+	$fast Hello.fancy.java >& Hello.error
+	assertSame 814df14a1d53133526ec28dc5cba556bdd4effaa9e711ad614567058a7c0b315 $(shasum -a 256 Hello.error | awk '{print $1}')
+	$fast Hello.fancy.xml >& Hello.error
+	assertSame edb2be541087eb4f3064ae2120900a62fa03294e85af0b01481ecfa4b863067c $(shasum -a 256 Hello.error | awk '{print $1}')
+	$fast Hello.fancy.fbs >& Hello.error
+	assertSame 5197a6c6c7406cfa4b12321d846b23019535a955c836fa48553c15de97ded243 $(shasum -a 256 Hello.error | awk '{print $1}')
+}
+
+testLoadFBS() {
+	$fast Hello.java Hello.fbs
+	assertSame fbf7122cd998656a5be8decd0adc8d740871ba9d22338360e90d3092eedc4201 $(shasum -a 256 Hello.fbs | awk '{print $1}')
+	$fast Hello.fbs Hello.xml
+	assertSame 43e589acc3b5381dcdac9699c4f7c344779f742d1f9f86a1bc8fe4aba81c3633 $(shasum -a 256 Hello.xml | awk '{print $1}')
+	$fast Hello.fbs > Hello.xml
+	assertSame 43e589acc3b5381dcdac9699c4f7c344779f742d1f9f86a1bc8fe4aba81c3633 $(shasum -a 256 Hello.xml | awk '{print $1}')
+	$fast test.cs test.fbs
+	assertSame 039d3eac62fb8ac31b3ae5a7ddf860815e078fbcc94559d5b25292e3e89e6c0c $(shasum -a 256 test.fbs | awk '{print $1}')
+	$fast test.fbs test.fbs.cs
+	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.fbs.cs | awk '{print $1}')
+}
+
+testLoadPB() {
+	$fast Hello.java Hello.pb
+	assertSame 11eb0c9691d713fdcd90885ef28aa4edc17a8f4e30ba02cebe492d49b2c0ef50 $(shasum -a 256 Hello.pb | awk '{print $1}')
+	$fast -c Hello.pb > Hello.err
+	assertSame e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 $(shasum -a 256 Hello.err | awk '{print $1}')
+	$fast Hello.pb Hello.xml
+	assertSame c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 $(shasum -a 256 Hello.xml | awk '{print $1}')
+	$fast Hello.pb > Hello.xml
+	assertSame c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 $(shasum -a 256 Hello.xml | awk '{print $1}')
+	$fast test.cs test.pb
+	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
+	$fast test.pb test.pb.cs
+	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.pb.cs | awk '{print $1}')
+	$fast -d test.pb test.txt
+	assertSame a01d28a81877df405d9d86baf40b26f30d2c42afd5ad133adb35b9896ea2484e $(shasum -a 256 test.txt | awk '{print $1}')
+	$fast -e test.txt test.pb
+	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
+	$fast -e test.txt > test.pb
+	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
+}
+
+testFinalReport() {
 	lcov --directory .. --capture --output-file ../fast.info
 	lcov --remove ../fast.info '/usr/*' '/Applications/*' > fast.info
 	genhtml fast.info
