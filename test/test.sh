@@ -6,7 +6,7 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 		cd .. 
 		./configure
 		make
-		make check
+		make install
 		cd -
 	fi
 fi
