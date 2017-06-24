@@ -7,6 +7,7 @@ sudo: required
 before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
+    brew install pyenv; eval "$(pyenv init -)"; pyenv install 2.7.6; pyenv global 2.7.6; pyenv rehash; pip install cpp-coveralls; pyenv rehash;
     brew tap yijunyu/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
@@ -26,7 +27,10 @@ before_install:
     wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
+    pip insall --user cpp-coveralls;
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
   - cd test && ./test.sh
+after_success:
+  - coveralls --exclude lib --exclude tests --gcov-options '\-lp'
