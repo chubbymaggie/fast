@@ -37,12 +37,8 @@ $fast Hello.java Hello.xml
 assertSame 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 $(shasum -a 256 Hello.xml | awk '{print $1}')
 $fast Hello.java Hello.pb
 assertSame 11eb0c9691d713fdcd90885ef28aa4edc17a8f4e30ba02cebe492d49b2c0ef50 $(shasum -a 256 Hello.pb | awk '{print $1}')
-$fast Hello.pb Hello.pb.java
-assertSame a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e $(shasum -a 256 Hello.pb.java | awk '{print $1}')
-$fast -p Hello.java Hello.position.xml
-assertSame 765682328876dc31c834ab0ccec0657a094a267ce68b5353a4072b625637fdd6 $(shasum -a 256 Hello.position.xml | awk '{print $1}')
 }
-testCC() 
+notestCC() 
 {
 	cat > example.cc <<EOF
 int f(int x) {
@@ -67,7 +63,7 @@ assertSame a5df895127e143ff9c8146171909bd19efbcd2cc34ce7be75ae26944d0bd15ff $(sh
 $fast example.pb example.txt
 assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.txt | awk '{print $1}')
 }
-testSmali() 
+notestSmali() 
 {
 	cat > DuplicateVirtualMethods.smali <<EOF
 .class public LDuplicateVirtualMethods;
@@ -135,7 +131,7 @@ $fast DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml
 assertSame d983aea123911ad5746aa91ed2b5ad57f18d6728d2ebba412833485e105aac34 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 }
 
-testCS() {
+notestCS() {
 	cat > test.cs <<EOF
 @ namespace HandCoded.FpML.Validation
 return (result);
@@ -1697,7 +1693,7 @@ notestFastPairs() {
 	assertSame 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
-testFastPairs564() {
+notestFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	assertSame f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 $(shasum -a 256 a.csv | awk '{print $1}')
 	$process a.csv a.pb
@@ -1706,7 +1702,7 @@ testFastPairs564() {
 	assertSame 958041d8682ef0a0e929677524f4cc33a47425dac00213519d951039100500df $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
-testFastSlice() {
+notestFastSlice() {
 	$fast -p Hello.java Hello.position.pb
 	assertSame 29b942f74d31a6fb9d513772f40f580a35a7deff4936a2560e3238e434b965d5 $(shasum -a 256 Hello.position.pb | awk '{print $1}')
         $fast -s Hello.position.pb > Hello-s.slice
@@ -1725,7 +1721,7 @@ testFastSlice() {
 	assertSame dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 $(shasum -a 256 example-S.slice | awk '{print $1}')
 }
 
-testNoneExistingFile() {
+notestNoneExistingFile() {
 	$fast Hello.fancy.java >& Hello.1.error
 	assertSame 814df14a1d53133526ec28dc5cba556bdd4effaa9e711ad614567058a7c0b315 $(shasum -a 256 Hello.1.error | awk '{print $1}')
 	$fast Hello.fancy.xml >& Hello.2.error
@@ -1734,7 +1730,7 @@ testNoneExistingFile() {
 	assertSame 5197a6c6c7406cfa4b12321d846b23019535a955c836fa48553c15de97ded243 $(shasum -a 256 Hello.3.error | awk '{print $1}')
 }
 
-testLoadFBS() {
+notestLoadFBS() {
 	$fast Hello.java Hello.fbs
 	assertSame fbf7122cd998656a5be8decd0adc8d740871ba9d22338360e90d3092eedc4201 $(shasum -a 256 Hello.fbs | awk '{print $1}')
 	$fast Hello.fbs Hello.xml
@@ -1747,7 +1743,7 @@ testLoadFBS() {
 	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.fbs.cs | awk '{print $1}')
 }
 
-testLoadPB() {
+notestLoadPB() {
 	$fast Hello.java Hello.pb
 	assertSame 11eb0c9691d713fdcd90885ef28aa4edc17a8f4e30ba02cebe492d49b2c0ef50 $(shasum -a 256 Hello.pb | awk '{print $1}')
 	$fast -c Hello.pb > Hello.err
