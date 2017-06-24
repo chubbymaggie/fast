@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/yijunyu/fast.svg?branch=master)](https://travis-ci.org/yijunyu/fast)
+[![Coverage Status](https://coveralls.io/repos/yijunyu/fast/badge.svg?branch=master)](https://coveralls.io/r/yijunyu/fast?branch=master)
+
 # `fast` -- Flatten Abstract Syntax Trees
 [Once installed](doc/installation.md), [this tool](doc/options.md) [loads, saves, slices, patches, and updates](doc/usage.md) [source code](doc/example.md) [faster](doc/performance.md). 
 
