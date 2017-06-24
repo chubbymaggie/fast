@@ -1664,12 +1664,13 @@ EOF
 	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
 }
 
-nottestFastPairs() {
+### rather lengthy test :-) 
+notestFastPairs() {
 	cat codelabel_new.csv > a.csv
 	../process a.csv a.pb
 	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
-	assertSame f54b9e031d174c3e0459b290621e7b9c1c64eeb2087dbe567cfa8b2f9ef0ecbb $(shasum -a 256 a.pb | awk '{print $1}')
-	assertSame 98ff45055abbb65b64f8d011da56ffdb1309f26ecac5d703b8bb3c1eddf58cf1 $(shasum -a 256 a.txt | awk '{print $1}')
+	assertSame 1587f170c82a00c63529701479a1ade9265f860c1fa8ca0d875fd25057e474f1 $(shasum -a 256 a.pb | awk '{print $1}')
+	assertSame 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
 testFastPairs564() {
@@ -1677,15 +1678,23 @@ testFastPairs564() {
 	assertSame f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 $(shasum -a 256 a.csv | awk '{print $1}')
 	../process a.csv a.pb
 	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
-	assertSame fddb29dee533d855776de0202f4a265fc0ad56b9c51ff3d9ef34f319a84bb267 $(shasum -a 256 a.pb | awk '{print $1}')
-	assertSame 714fd3345a187480eaabdc497086c9b9f0165f6e56c069d45d0aff8339d890b5 $(shasum -a 256 a.txt | awk '{print $1}')
+	assertSame 7a0cc15f33abdf001042a84bb1d2c2b36ee30e2dc9d6038fa5529fb0dc90b0f4 $(shasum -a 256 a.pb | awk '{print $1}')
+	assertSame 958041d8682ef0a0e929677524f4cc33a47425dac00213519d951039100500df $(shasum -a 256 a.txt | awk '{print $1}')
+}
+
+testFastSlice() {
+	fast -p Hello.java Hello.position.pb
+        fast -s Hello.position.pb > Hello-s.slice
+        fast -S Hello.position.pb > Hello-S.slice
+	lcov --directory .. --capture --output-file ../fast.info
+	lcov --remove ../fast.info '/usr/*' '/Applications/*' > fast.info
+	genhtml fast.info
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
 	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
 fi
 
+rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
 lcov --directory .. --zerocounters
-lcov --directory .. --capture --output-file ../fast.info
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
-genhtml ../fast.info

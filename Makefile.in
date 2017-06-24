@@ -208,7 +208,7 @@ clean:
 	rm -rf protobuf-3.3.0 protobuf-cpp-3.3.0.tar.gz
 	rm -rf fast_*-1* fast-*
 	rm -f *.gcno *.gcov *.gcda
-	rm -rf fast.info index*.html *.png v1/ gcov.css
+	rm -rf fast.info index*.html *.png v1/ gcov.css Users usr
 
 release::
 	git tag -f v$V
