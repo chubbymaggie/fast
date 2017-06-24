@@ -27,7 +27,7 @@ before_install:
     wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
-    pip insall --user cpp-coveralls;
+    pip install --user cpp-coveralls;
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
