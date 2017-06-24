@@ -2,3 +2,5 @@
 *.proto 
 *.dSYM	
 _fast/
+*.gcov
+*.gcno

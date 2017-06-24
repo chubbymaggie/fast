@@ -3,7 +3,7 @@ fast=$(which fast)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast ]; then
 		cd .. 
-		configure --enable-gcov
+		configure
 		make
 		make check
 		cd -
