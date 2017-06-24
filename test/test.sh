@@ -4,7 +4,7 @@ process=$(which process)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast -o ! -f ../process ]; then
 		cd .. 
-		configure
+		./configure
 		make
 		make check
 		cd -
