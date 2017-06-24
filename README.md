@@ -4,8 +4,24 @@
 # `fast` -- Flatten Abstract Syntax Trees
 [Once installed](doc/installation.md), [this tool](doc/options.md) [manipulates](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
 
-## Acknowledgement
+## Your software development projects may benefit direct from fast if you use
+* [antlr3](https://github.com/antlr/antlr3)
+* [biyacc](http://biyacc.yozora.moe)
+* [git-dl](https://github.com/yijunyu/git-dl)
+* [gumtree](https://github.com/GumTreeDiff/gumtree)
+* [srcML](http://www.srcml.org/)
+* [srcslice](https://github.com/srcml/srcslice)
 
+### Users and contributors
+* Bram Adams
+* Duy Quoc Nghi Bui
+* Zhenjiang Hu
+* Lingxiao Jiang
+* Chunmiao Li
+* Qiuchi Li
+* Mohammed Sayagh
+
+## Related projects
 * [antlr3](https://github.com/antlr/antlr3)
 * [biyacc](http://biyacc.yozora.moe)
 * [flatbuffers](https://github.com/google/flatbuffers)
@@ -17,11 +33,17 @@
 * [srcML](http://www.srcml.org/)
 * [txl](http://txl.ca)
 
-### Users and contributors
-* Bram Adams
-* Duy Quoc Nghi Bui
-* Zhenjiang Hu
-* Lingxiao Jiang
-* Chunmiao Li
-* Qiuchi Li
-* Mohammed Sayagh
+### Version History
+
+*0.0.2* (June 21, 2017)
+
+* Added support to smali
+* Added antlr3, and gumtreediff to improve diff speed by 2x. 
+* Added srcSlice support to improve the speed of forward slicing by 2x.
+
+*0.0.1* (April 11, 2017)
+
+* Initial public release: support round-trip translation between srcML and protobuf/flatbuffers binary ASTs, improving the parsing speed by 10x.
+---
+© 2017 Yijun Yu. Fast is released under an GPL license;
+see [license.txt](license.txt) for details.
