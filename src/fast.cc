@@ -154,6 +154,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 		char buf[100];
 		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 		mkstemp(buf);
+		remove(buf);
 		string xml_filename = buf;
 		remove(xml_filename.c_str());
 		xml_filename +=	".xml";
@@ -217,6 +218,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 	mkstemp(buf);
+	remove(buf);
 	string xml_filename = buf;
 	xml_filename +=	".xml";
 #if !defined(FBS_fast)
@@ -452,6 +454,7 @@ void saveTxtFromPB(char *input_file) {
 		system(buf);
 		sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Element /tmp/smali.proto", input_file);
 		system(buf);
+		remove("/tmp/smali.proto");
 	} else {
 		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto", input_file);
 		system(buf);
@@ -474,6 +477,7 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 		system(buf);
 		sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Element /tmp/smali.proto > %s", input_file, output_file);
 		system(buf);
+		remove("/tmp/smali.proto");
 	} else {
 		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
 		system(buf);
@@ -911,6 +915,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			char buf[100];
 			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 			mkstemp(buf);
+			remove(buf);
 			string xml_filename = buf;
 			xml_filename +=	".xml";
 			srcmlCommand = srcmlCommand + " --position" + " -o " + xml_filename;
