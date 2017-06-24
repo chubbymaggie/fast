@@ -726,7 +726,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			    if (is_literal) {
 				if (attr->name() == string("type")) {
 					fast::Element_Literal_LiteralType type;
-					fast::Element_Literal_LiteralType_Parse(attr->name(), &type);
+					fast::Element_Literal_LiteralType_Parse(attr->value(), &type);
 					literal->set_type(type);
 				}
 			    }
@@ -883,7 +883,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			return remove(xml_filename.c_str());
 		} else if (!is_xml && antlr) {
 			if (strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0) {
-				string cmd = "java -cp /usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar:/usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar  Smali";
+				string cmd = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar:/usr/local/lib/client-2.1.0-SNAPSHOT.jar:/usr/local/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/local/lib/rendersnake-1.9.0.jar:/usr/local/lib/trove4j-3.0.3.jar:/usr/local/lib/simmetrics-core-3.2.3.jar:/usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar Smali";
 				if (argc == 3)
 					cmd = cmd + " " + argv[1] + " " + argv[2];
 				else if (argc == 4)

@@ -4,3 +4,4 @@
 _fast/
 *.gcov
 *.gcno
+*.gcda

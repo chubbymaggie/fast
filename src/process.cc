@@ -50,6 +50,7 @@ bool srcML(fast::Element *unit, std::string text, std::string ext) {
 				std::fstream input(pb_filename.c_str(), std::ios::in | std::ios::binary);
 				unit->ParseFromIstream(&input);
 				input.close();
+				unit->mutable_unit()->set_filename(ext + "." + ext);
 				remove(pb_filename.c_str());
 			}
 		} else {

@@ -23,11 +23,6 @@ PB_LIB=$(shell pkg-config --libs protobuf)
 
 all: $(target)
 
-a.txt:
-	cat codelabel_new.csv > a.csv
-	./process a.csv a.pb
-	protoc --decode=fast.Pairs fast.proto < a.pb > a.txt
-
 ./process: src/process.cc src/fast.pb.cc
 	c++ $^ $(PB_LIB) -o $@
 
@@ -51,15 +46,17 @@ prefix=/usr/local
 fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
 	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
 
-install: fast fast.proto
+install: fast process fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
+	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
+	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
 	wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz
 	tar xvfz fast-java-$V.tar.gz -C /usr/local
 
@@ -85,11 +82,12 @@ fast-debug: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHand
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@
 
-install: fast fast.proto dist/smali.jar
+install: fast process fast.proto dist/smali.jar
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
+	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
@@ -99,6 +97,7 @@ install: fast fast.proto dist/smali.jar
 	install -m 0644 dist/smali.jar $(DESTDIR)$(prefix)/lib/smali.jar
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
+	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
 endif
 .PHONY: install
@@ -200,7 +199,7 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 	cat $^ $^ > $@
 
 clean:
-	rm -f fast.cc fast_pb2.py
+	rm -f fast.cc fast_pb2.py fast.fbs
 	rm -rf $(target) *.proto *.dSYM	_fast/
 	rm -rf Makefile Release autom4te.cache config.h config.log config.status configure.scan
 	rm -rf protobuf-3.3.0 protobuf-cpp-3.3.0.tar.gz
