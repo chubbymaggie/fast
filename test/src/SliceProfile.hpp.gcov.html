@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - fast.info - src/SliceProfile.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - SliceProfile.hpp<span style="font-size: 80%;"> (source / <a href="SliceProfile.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">fast.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntryMed">81.8 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-06-24 14:16:37</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntryLo">71.4 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /**</a>
+<span class="lineNum">       2 </span>            :  * @file SliceProfile.hpp
+<span class="lineNum">       3 </span>            :  *
+<span class="lineNum">       4 </span>            :  * @copyright Copyright (C) 2013-2014 SDML (www.srcML.org)
+<span class="lineNum">       5 </span>            :  *
+<span class="lineNum">       6 </span>            :  * The srcML Toolkit is free software; you can redistribute it and/or modify
+<span class="lineNum">       7 </span>            :  * it under the terms of the GNU General Public License as published by
+<span class="lineNum">       8 </span>            :  * the Free Software Foundation; either version 2 of the License, or
+<span class="lineNum">       9 </span>            :  * (at your option) any later version.
+<span class="lineNum">      10 </span>            :  *
+<span class="lineNum">      11 </span>            :  * The srcML Toolkit is distributed in the hope that it will be useful,
+<span class="lineNum">      12 </span>            :  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      13 </span>            :  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      14 </span>            :  * GNU General Public License for more details.
+<span class="lineNum">      15 </span>            :  *
+<span class="lineNum">      16 </span>            :  * You should have received a copy of the GNU General Public License
+<span class="lineNum">      17 </span>            :  * along with the srcML Toolkit; if not, write to the Free Software
+<span class="lineNum">      18 </span>            :  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+<span class="lineNum">      19 </span>            :  */
+<span class="lineNum">      20 </span>            : 
+<span class="lineNum">      21 </span>            : #ifndef SLICEPROFILE_HPP
+<span class="lineNum">      22 </span>            : #define SLICEPROFILE_HPP
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #include &lt;string&gt;
+<span class="lineNum">      25 </span>            : #include &lt;vector&gt;
+<span class="lineNum">      26 </span>            : #include &lt;unordered_set&gt;
+<span class="lineNum">      27 </span>            : #include &lt;unordered_map&gt;
+<span class="lineNum">      28 </span>            : #include &lt;set&gt;
+<span class="lineNum">      29 </span>            : class SliceProfile;
+<span class="lineNum">      30 </span>            : typedef std::unordered_map&lt;std::string, SliceProfile&gt; VarMap;
+<span class="lineNum">      31 </span>            : typedef std::unordered_map&lt;std::string, VarMap&gt; FunctionVarMap;
+<span class="lineNum">      32 </span>            : typedef std::unordered_map&lt;std::string, FunctionVarMap&gt; FileFunctionVarMap;
+<span class="lineNum">      33 </span>            : typedef std::pair&lt;std::string, unsigned int&gt; NameLineNumberPair;
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : struct NameLineNumberPairHash {
+<a name="36"><span class="lineNum">      36 </span>            : public:</a>
+<span class="lineNum">      37 </span>            :   template &lt;typename T, typename U&gt;
+<span class="lineNum">      38 </span>            :   std::size_t operator()(const std::pair&lt;T, U&gt; &amp;x) const
+<span class="lineNum">      39 </span>            :   {
+<span class="lineNum">      40 </span><span class="lineNoCov">          0 :     return std::hash&lt;T&gt;()(x.first);</span>
+<a name="41"><span class="lineNum">      41 </span>            :   }</a>
+<a name="42"><span class="lineNum">      42 </span>            : };</a>
+<span class="lineNum">      43 </span><span class="lineCov">         26 : struct FunctionData{</span>
+<span class="lineNum">      44 </span><span class="lineCov">          4 :     FunctionData(){</span>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          2 :         functionLineNumber = 0;</span></a>
+<span class="lineNum">      46 </span><span class="lineCov">          4 :     }</span>
+<span class="lineNum">      47 </span>            :     void clear(){
+<span class="lineNum">      48 </span><span class="lineCov">          2 :         returnType.clear();</span>
+<span class="lineNum">      49 </span><span class="lineCov">          2 :         functionName.clear();</span>
+<span class="lineNum">      50 </span><span class="lineCov">          2 :     }</span>
+<span class="lineNum">      51 </span>            :     std::string returnType;
+<span class="lineNum">      52 </span>            :     std::string functionName;
+<span class="lineNum">      53 </span>            :     std::string fileName;
+<span class="lineNum">      54 </span>            :     
+<span class="lineNum">      55 </span>            :     std::vector&lt;std::string&gt; params; //size of vector is # of arguments. String is type of argument.
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            :     unsigned int functionLineNumber;
+<a name="58"><span class="lineNum">      58 </span>            : };</a>
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span><span class="lineNoCov">          0 : struct ClassProfile{</span>
+<span class="lineNum">      61 </span>            :     std::string className;
+<span class="lineNum">      62 </span>            :     std::unordered_set&lt;std::string&gt; memberVariables;
+<span class="lineNum">      63 </span>            :     //std::unordered_set&lt;FunctionData, FunctionArgtypeArgnumHash&gt; memberFunctions; //need to handle overloads. Can't be string.
+<a name="64"><span class="lineNum">      64 </span>            : };</a>
+<span class="lineNum">      65 </span>            : 
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         28 : class SliceProfile{</span></a>
+<span class="lineNum">      67 </span>            :         public:
+<span class="lineNum">      68 </span><span class="lineCov">          4 :                 SliceProfile():index(0),visited(false),potentialAlias(false),dereferenced(false),isGlobal(false){}</span>
+<span class="lineNum">      69 </span>            :                 SliceProfile(unsigned int idx, std::string fle, std::string fcn, unsigned int sline, std::string name, bool alias = 0, bool global = 0):
+<span class="lineNum">      70 </span>            :         index(idx), file(fle), function(fcn), potentialAlias(alias), variableName(name),isGlobal(global) {
+<span class="lineNum">      71 </span>            :             dereferenced = false;
+<span class="lineNum">      72 </span>            :             visited = false;
+<span class="lineNum">      73 </span>            :                 }
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            :                 unsigned int index;
+<span class="lineNum">      76 </span>            :                 std::string file;
+<span class="lineNum">      77 </span>            :                 std::string function;
+<span class="lineNum">      78 </span>            :                 
+<span class="lineNum">      79 </span>            :         std::unordered_set&lt;std::string&gt;::iterator lastInsertedAlias;
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span>            :                 bool potentialAlias;
+<span class="lineNum">      82 </span>            :         bool dereferenced;
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span>            :         bool isGlobal;
+<span class="lineNum">      85 </span>            :         bool visited;
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span>            :                 std::string variableName;
+<span class="lineNum">      88 </span>            :                 std::string variableType;
+<span class="lineNum">      89 </span>            :                 std::unordered_set&lt;std::string&gt; memberVariables;
+<span class="lineNum">      90 </span>            :                 std::unordered_set&lt;unsigned int&gt; slines; //Deprecated
+<span class="lineNum">      91 </span>            :         
+<span class="lineNum">      92 </span>            :         std::set&lt;unsigned int&gt; def;
+<span class="lineNum">      93 </span>            :         std::set&lt;unsigned int&gt; use;
+<span class="lineNum">      94 </span>            :                 
+<span class="lineNum">      95 </span>            :         std::unordered_set&lt;std::pair&lt;std::string, unsigned int&gt;, NameLineNumberPairHash&gt; cfunctions;
+<span class="lineNum">      96 </span>            :                 std::unordered_set&lt;std::string&gt; dvars;
+<span class="lineNum">      97 </span>            :                 std::unordered_set&lt;std::string&gt; aliases;
+<span class="lineNum">      98 </span>            : };
+<span class="lineNum">      99 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

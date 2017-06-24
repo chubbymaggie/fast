@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - fast.info - src/Utility.hpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">src</a> - Utility.hpp<span style="font-size: 80%;"> (source / <a href="Utility.hpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">fast.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntryLo">25.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2017-06-24 14:16:37</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryMed">75.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /**</a>
+<span class="lineNum">       2 </span>            :  * @file Utility.hpp
+<span class="lineNum">       3 </span>            :  *
+<span class="lineNum">       4 </span>            :  * @copyright Copyright (C) 2013-2014  SDML (www.srcML.org)
+<span class="lineNum">       5 </span>            :  *
+<span class="lineNum">       6 </span>            :  * The srcML Toolkit is free software; you can redistribute it and/or modify
+<span class="lineNum">       7 </span>            :  * it under the terms of the GNU General Public License as published by
+<span class="lineNum">       8 </span>            :  * the Free Software Foundation; either version 2 of the License, or
+<span class="lineNum">       9 </span>            :  * (at your option) any later version.
+<span class="lineNum">      10 </span>            :  *
+<span class="lineNum">      11 </span>            :  * The srcML Toolkit is distributed in the hope that it will be useful,
+<span class="lineNum">      12 </span>            :  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+<span class="lineNum">      13 </span>            :  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+<span class="lineNum">      14 </span>            :  * GNU General Public License for more details.
+<span class="lineNum">      15 </span>            :  *
+<span class="lineNum">      16 </span>            :  * You should have received a copy of the GNU General Public License
+<span class="lineNum">      17 </span>            :  * along with the srcML Toolkit; if not, write to the Free Software
+<span class="lineNum">      18 </span>            :  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+<span class="lineNum">      19 </span>            :  */
+<span class="lineNum">      20 </span>            : #ifndef UTILITY_HPP
+<span class="lineNum">      21 </span>            : #define UTILITY_HPP
+<span class="lineNum">      22 </span>            : 
+<span class="lineNum">      23 </span>            : #include &lt;iostream&gt;
+<span class="lineNum">      24 </span>            : #include &lt;unordered_set&gt;
+<span class="lineNum">      25 </span>            : #include &lt;string&gt;
+<span class="lineNum">      26 </span>            : #include &lt;vector&gt;
+<span class="lineNum">      27 </span>            : #include &lt;set&gt;
+<span class="lineNum">      28 </span>            : 
+<a name="29"><span class="lineNum">      29 </span>            : #include &lt;SliceProfile.hpp&gt;</a>
+<a name="30"><span class="lineNum">      30 </span>            : </a>
+<span class="lineNum">      31 </span><span class="lineCov">      55712 : static std::set&lt;std::string&gt; errorset;</span>
+<a name="32"><span class="lineNum">      32 </span><span class="lineCov">         10 : struct SliceDictionary{</span></a>
+<span class="lineNum">      33 </span>            :     //context can be used to keep track of what function you're searching in. Makes searching faster because I assume you're using that function as the context
+<span class="lineNum">      34 </span><span class="lineCov">          4 :     struct Context{</span>
+<span class="lineNum">      35 </span>            :         int ln;
+<span class="lineNum">      36 </span>            :         std::string fileName;
+<span class="lineNum">      37 </span>            :         std::string functionName;
+<a name="38"><span class="lineNum">      38 </span>            :         FunctionVarMap::iterator currentFunc;</a>
+<span class="lineNum">      39 </span>            :         FileFunctionVarMap::iterator currentFile;
+<span class="lineNum">      40 </span><span class="lineCov">          6 :         Context():fileName(&quot;&quot;), functionName(&quot;&quot;), ln(-1){}</span>
+<span class="lineNum">      41 </span>            :         bool IsSet() const {return (ln == -1 || functionName == &quot;&quot;) ? false : true;}
+<span class="lineNum">      42 </span>            :         Context(std::string file, std::string func, unsigned int line, FileFunctionVarMap::iterator fileIt, FunctionVarMap::iterator funcIt)
+<span class="lineNum">      43 </span>            :         : fileName(file), functionName(func), ln(line), currentFile(fileIt), currentFunc(funcIt){}
+<span class="lineNum">      44 </span>            :     };
+<span class="lineNum">      45 </span>            :     VarMap globalMap;
+<span class="lineNum">      46 </span>            :     std::unordered_map&lt;std::string, ClassProfile&gt; classTable;
+<span class="lineNum">      47 </span>            :     std::unordered_map&lt;std::string, FunctionData&gt; fileFunctionTable;
+<span class="lineNum">      48 </span>            :     std::vector&lt;std::pair&lt;unsigned int, unsigned int&gt;&gt; controledges;
+<span class="lineNum">      49 </span>            :     Context currentContext;
+<span class="lineNum">      50 </span>            :     FileFunctionVarMap ffvMap;
+<a name="51"><span class="lineNum">      51 </span>            : };</a>
+<span class="lineNum">      52 </span>            : template &lt;typename T&gt; 
+<span class="lineNum">      53 </span>            : inline void SetUnion(std::unordered_set&lt;T&gt;&amp; set1, std::unordered_set&lt;T&gt; set2){
+<span class="lineNum">      54 </span><span class="lineNoCov">          0 :     for(typename std::unordered_set&lt;T&gt;::iterator itr = set2.begin(); itr != set2.end(); ++itr){</span>
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :         set1.insert(*itr);</span>
+<span class="lineNum">      56 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      57 </span><span class="lineNoCov">          0 : }</span>
+<a name="58"><span class="lineNum">      58 </span>            : </a>
+<span class="lineNum">      59 </span>            : template &lt;typename T&gt; 
+<span class="lineNum">      60 </span>            : inline void SetUnion(std::set&lt;T&gt;&amp; set1, std::set&lt;T&gt; set2){
+<span class="lineNum">      61 </span><span class="lineNoCov">          0 :     for(typename std::set&lt;T&gt;::iterator itr = set2.begin(); itr != set2.end(); ++itr){</span>
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :         set1.insert(*itr);</span>
+<span class="lineNum">      63 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      64 </span><span class="lineNoCov">          0 : }</span>
+<a name="65"><span class="lineNum">      65 </span>            : </a>
+<span class="lineNum">      66 </span>            : template &lt;typename T, typename U&gt;
+<span class="lineNum">      67 </span>            : inline void SetUnion(std::unordered_set&lt;T, U&gt;&amp; set1, std::unordered_set&lt;T, U&gt;&amp; set2){
+<span class="lineNum">      68 </span><span class="lineNoCov">          0 :     for(typename std::unordered_set&lt;T, U&gt;::iterator itr = set2.begin(); itr != set2.end(); ++itr){</span>
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 :         set1.insert(*itr);</span>
+<span class="lineNum">      70 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : inline std::vector&lt;std::string&gt; SplitLhsRhs(const std::string&amp; str){
+<span class="lineNum">      74 </span>            :     std::vector&lt;std::string&gt; expr;
+<span class="lineNum">      75 </span>            :     expr.push_back(std::string());
+<span class="lineNum">      76 </span>            :     for(int i = 0; i&lt;str.size(); ++i){
+<span class="lineNum">      77 </span>            :         if(str[i] == '='){
+<span class="lineNum">      78 </span>            :             expr.push_back(str.substr(i+1, str.size()-1));
+<span class="lineNum">      79 </span>            :             break;
+<span class="lineNum">      80 </span>            :         }else{
+<span class="lineNum">      81 </span>            :             expr[0]+=str[i];
+<span class="lineNum">      82 </span>            :         }
+<span class="lineNum">      83 </span>            :     }
+<span class="lineNum">      84 </span>            :     return expr;
+<span class="lineNum">      85 </span>            : }
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span>            : /* Split function for splitting strings by tokens. Works on sets of tokens or just one token*/
+<span class="lineNum">      88 </span>            : inline std::vector&lt;std::string&gt; SplitOnTok(const std::string&amp; str, const char* tok){
+<span class="lineNum">      89 </span>            :     std::size_t tokPos = str.find_first_of(tok);
+<span class="lineNum">      90 </span>            :     std::vector&lt;std::string&gt; result;
+<span class="lineNum">      91 </span>            :     std::size_t nextPos = 0, curPos = 0;
+<span class="lineNum">      92 </span>            :     while(curPos != std::string::npos){
+<span class="lineNum">      93 </span>            :         result.push_back(str.substr(nextPos, tokPos - nextPos));
+<span class="lineNum">      94 </span>            :         nextPos = tokPos+1;
+<span class="lineNum">      95 </span>            :         curPos = tokPos;
+<span class="lineNum">      96 </span>            :         tokPos = str.find_first_of(tok, nextPos);
+<span class="lineNum">      97 </span>            :     }
+<span class="lineNum">      98 </span>            :     return result;
+<span class="lineNum">      99 </span>            : }
+<span class="lineNum">     100 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
