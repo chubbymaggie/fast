@@ -1713,10 +1713,10 @@ testFastSlice() {
 	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-s.slice | awk '{print $1}')
         $fast -S Hello.position.pb > Hello-S.slice
 	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-S.slice | awk '{print $1}')
-	$fast -s Hello.java > Hello.slice
-	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-s.slice | awk '{print $1}')
-	$fast -S Hello.java > Hello.slice
-	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-S.slice | awk '{print $1}')
+	$fast -s Hello.java > Hello-s.2.slice
+	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-s.2.slice | awk '{print $1}')
+	$fast -S Hello.java > Hello-S.2.slice
+	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-S.2.slice | awk '{print $1}')
 	$fast -p example.cc example.position.fbs
 	assertSame 6eaf262288d187d5e141942b37eb489b242b6da497315252201bb9c856a489d0 $(shasum -a 256 example.position.fbs | awk '{print $1}')
 	$fast -s example.position.fbs > example-s.slice
@@ -1726,12 +1726,12 @@ testFastSlice() {
 }
 
 testNoneExistingFile() {
-	$fast Hello.fancy.java >& Hello.error
-	assertSame 814df14a1d53133526ec28dc5cba556bdd4effaa9e711ad614567058a7c0b315 $(shasum -a 256 Hello.error | awk '{print $1}')
-	$fast Hello.fancy.xml >& Hello.error
-	assertSame edb2be541087eb4f3064ae2120900a62fa03294e85af0b01481ecfa4b863067c $(shasum -a 256 Hello.error | awk '{print $1}')
-	$fast Hello.fancy.fbs >& Hello.error
-	assertSame 5197a6c6c7406cfa4b12321d846b23019535a955c836fa48553c15de97ded243 $(shasum -a 256 Hello.error | awk '{print $1}')
+	$fast Hello.fancy.java >& Hello.1.error
+	assertSame 814df14a1d53133526ec28dc5cba556bdd4effaa9e711ad614567058a7c0b315 $(shasum -a 256 Hello.1.error | awk '{print $1}')
+	$fast Hello.fancy.xml >& Hello.2.error
+	assertSame edb2be541087eb4f3064ae2120900a62fa03294e85af0b01481ecfa4b863067c $(shasum -a 256 Hello.2.error | awk '{print $1}')
+	$fast Hello.fancy.fbs >& Hello.3.error
+	assertSame 5197a6c6c7406cfa4b12321d846b23019535a955c836fa48553c15de97ded243 $(shasum -a 256 Hello.3.error | awk '{print $1}')
 }
 
 testLoadFBS() {
@@ -1752,10 +1752,10 @@ testLoadPB() {
 	assertSame 11eb0c9691d713fdcd90885ef28aa4edc17a8f4e30ba02cebe492d49b2c0ef50 $(shasum -a 256 Hello.pb | awk '{print $1}')
 	$fast -c Hello.pb > Hello.err
 	assertSame e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 $(shasum -a 256 Hello.err | awk '{print $1}')
-	$fast Hello.pb Hello.xml
-	assertSame c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 $(shasum -a 256 Hello.xml | awk '{print $1}')
-	$fast Hello.pb > Hello.xml
-	assertSame c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 $(shasum -a 256 Hello.xml | awk '{print $1}')
+	$fast Hello.pb Hello.pb.xml
+	assertSame c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 $(shasum -a 256 Hello.pb.xml | awk '{print $1}')
+	$fast Hello.pb > Hello.pb.1.xml
+	assertSame c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 $(shasum -a 256 Hello.pb.1.xml | awk '{print $1}')
 	$fast test.cs test.pb
 	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
 	$fast test.pb test.pb.cs
