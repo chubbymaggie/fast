@@ -10,6 +10,7 @@
 * [biyacc](http://biyacc.yozora.moe)
 * [flatbuffers](https://github.com/google/flatbuffers)
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
+* [meaningful-changes](https://github.com/yijunyu/meaningful-changes)
 * [protobuf](https://github.com/google/protobuf)
 * [rapidxml](https://github.com/dwd/rapidxml)
 * [smali](https://github.com/JesusFreke/smali)
