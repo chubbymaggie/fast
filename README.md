@@ -3,24 +3,7 @@
 
 # `fast` -- Flatten Abstract Syntax Trees
 [Once installed](doc/installation.md), [this tool](doc/options.md) [manipulates](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
-Your software development projects may benefit directly from `fast` if you use the following:
-* [antlr3](https://github.com/antlr/antlr3)
-* [biyacc](http://biyacc.yozora.moe)
-* [git-dl](https://github.com/yijunyu/git-dl)
-* [gumtree](https://github.com/GumTreeDiff/gumtree)
-* [srcML](http://www.srcml.org/)
-* [srcslice](https://github.com/srcml/srcslice)
-
-### Users and contributors
-* Bram Adams
-* Duy Quoc Nghi Bui
-* Zhenjiang Hu
-* Lingxiao Jiang
-* Chunmiao Li
-* Qiuchi Li
-* Mohammed Sayagh
-
-## Related projects
+Your software development projects may benefit directly from `fast` if you use the following related projects:
 * [antlr3](https://github.com/antlr/antlr3)
 * [biyacc](http://biyacc.yozora.moe)
 * [flatbuffers](https://github.com/google/flatbuffers)
@@ -31,6 +14,15 @@ Your software development projects may benefit directly from `fast` if you use t
 * [smali](https://github.com/JesusFreke/smali)
 * [srcML](http://www.srcml.org/)
 * [txl](http://txl.ca)
+
+### Users and contributors
+* Bram Adams
+* Duy Quoc Nghi Bui
+* Zhenjiang Hu
+* Lingxiao Jiang
+* Chunmiao Li
+* Qiuchi Li
+* Mohammed Sayagh
 
 ### Version History
 
