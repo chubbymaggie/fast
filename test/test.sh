@@ -126,10 +126,10 @@ assertSame 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 $(sh
 $fast -a DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml
 assertSame 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
-cat DuplicateVirtualMethods-diff.pb | protoc --decode=fast.Delta -I.. ../fast.proto > DuplicateVirtualMethods-diff.txt
-assertSame 91daaa5382b6e3759c31cf736b2393b2219badb91fa5f34fa4401a7248555204 $(shasum -a 256 DuplicateVirtualMethods-diff.txt | awk '{print $1}')
-cat DuplicateVirtualMethods.pb | protoc --decode=fast.Element -I.. ../fast.proto > DuplicateVirtualMethods.txt
-assertSame a5fae7d05ff1721eb3b604ac35b97bc1ebf26cb25969ef277286ad01dc23a331 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
+#cat DuplicateVirtualMethods-diff.pb | protoc --decode=fast.Delta -I.. ../fast.proto > DuplicateVirtualMethods-diff.txt
+#assertSame 91daaa5382b6e3759c31cf736b2393b2219badb91fa5f34fa4401a7248555204 $(shasum -a 256 DuplicateVirtualMethods-diff.txt | awk '{print $1}')
+#cat DuplicateVirtualMethods.pb | protoc --decode=fast.Element -I.. ../fast.proto > DuplicateVirtualMethods.txt
+#assertSame a5fae7d05ff1721eb3b604ac35b97bc1ebf26cb25969ef277286ad01dc23a331 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
 $fast -d DuplicateVirtualMethods.pb > DuplicateVirtualMethods.txt
 assertSame 18ee3d3b611ff2d008f024b00298dc1c68a3391e1a4e2a50bea7a6b2ad8626d4 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
 #$fast DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml

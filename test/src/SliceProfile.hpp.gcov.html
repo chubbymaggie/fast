@@ -31,18 +31,18 @@
             <td class="headerValue">fast.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">9</td>
             <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">14</td>
-            <td class="headerCovTableEntryMed">78.6 %</td>
+            <td class="headerCovTableEntryMed">81.8 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-06-25 16:03:51</td>
+            <td class="headerValue">2017-06-25 17:14:03</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">9</td>
-            <td class="headerCovTableEntry">13</td>
-            <td class="headerCovTableEntryLo">69.2 %</td>
+            <td class="headerCovTableEntry">15</td>
+            <td class="headerCovTableEntry">21</td>
+            <td class="headerCovTableEntryLo">71.4 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -92,21 +92,21 @@
 <span class="lineNum">      30 </span>            : typedef std::unordered_map&lt;std::string, SliceProfile&gt; VarMap;
 <span class="lineNum">      31 </span>            : typedef std::unordered_map&lt;std::string, VarMap&gt; FunctionVarMap;
 <span class="lineNum">      32 </span>            : typedef std::unordered_map&lt;std::string, FunctionVarMap&gt; FileFunctionVarMap;
-<a name="33"><span class="lineNum">      33 </span>            : typedef std::pair&lt;std::string, unsigned int&gt; NameLineNumberPair;</a>
+<span class="lineNum">      33 </span>            : typedef std::pair&lt;std::string, unsigned int&gt; NameLineNumberPair;
 <span class="lineNum">      34 </span>            : 
-<span class="lineNum">      35 </span><span class="lineCov">          2 : struct NameLineNumberPairHash {</span>
+<span class="lineNum">      35 </span>            : struct NameLineNumberPairHash {
 <a name="36"><span class="lineNum">      36 </span>            : public:</a>
 <span class="lineNum">      37 </span>            :   template &lt;typename T, typename U&gt;
-<span class="lineNum">      38 </span><span class="lineNoCov">          0 :   std::size_t operator()(const std::pair&lt;T, U&gt; &amp;x) const</span>
+<span class="lineNum">      38 </span>            :   std::size_t operator()(const std::pair&lt;T, U&gt; &amp;x) const
 <span class="lineNum">      39 </span>            :   {
 <span class="lineNum">      40 </span><span class="lineNoCov">          0 :     return std::hash&lt;T&gt;()(x.first);</span>
 <a name="41"><span class="lineNum">      41 </span>            :   }</a>
 <a name="42"><span class="lineNum">      42 </span>            : };</a>
-<span class="lineNum">      43 </span><span class="lineCov">         10 : struct FunctionData{</span>
-<span class="lineNum">      44 </span><span class="lineCov">          2 :     FunctionData(){</span>
+<span class="lineNum">      43 </span><span class="lineCov">         26 : struct FunctionData{</span>
+<span class="lineNum">      44 </span><span class="lineCov">          4 :     FunctionData(){</span>
 <a name="45"><span class="lineNum">      45 </span><span class="lineCov">          2 :         functionLineNumber = 0;</span></a>
-<span class="lineNum">      46 </span><span class="lineCov">          2 :     }</span>
-<span class="lineNum">      47 </span><span class="lineCov">          2 :     void clear(){</span>
+<span class="lineNum">      46 </span><span class="lineCov">          4 :     }</span>
+<span class="lineNum">      47 </span>            :     void clear(){
 <span class="lineNum">      48 </span><span class="lineCov">          2 :         returnType.clear();</span>
 <span class="lineNum">      49 </span><span class="lineCov">          2 :         functionName.clear();</span>
 <span class="lineNum">      50 </span><span class="lineCov">          2 :     }</span>
@@ -125,9 +125,9 @@
 <span class="lineNum">      63 </span>            :     //std::unordered_set&lt;FunctionData, FunctionArgtypeArgnumHash&gt; memberFunctions; //need to handle overloads. Can't be string.
 <a name="64"><span class="lineNum">      64 </span>            : };</a>
 <span class="lineNum">      65 </span>            : 
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         14 : class SliceProfile{</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">         28 : class SliceProfile{</span></a>
 <span class="lineNum">      67 </span>            :         public:
-<span class="lineNum">      68 </span><span class="lineCov">          2 :                 SliceProfile():index(0),visited(false),potentialAlias(false),dereferenced(false),isGlobal(false){}</span>
+<span class="lineNum">      68 </span><span class="lineCov">          4 :                 SliceProfile():index(0),visited(false),potentialAlias(false),dereferenced(false),isGlobal(false){}</span>
 <span class="lineNum">      69 </span>            :                 SliceProfile(unsigned int idx, std::string fle, std::string fcn, unsigned int sline, std::string name, bool alias = 0, bool global = 0):
 <span class="lineNum">      70 </span>            :         index(idx), file(fle), function(fcn), potentialAlias(alias), variableName(name),isGlobal(global) {
 <span class="lineNum">      71 </span>            :             dereferenced = false;
@@ -167,7 +167,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
   </table>
   <br>
 

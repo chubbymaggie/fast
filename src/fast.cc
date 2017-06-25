@@ -946,7 +946,8 @@ int mainRoutine(int argc, char* argv[]) {
 		 << "-h\tPrint this help message" << endl
 		 << "-p\tPreserve the position (line, column) numbers" << endl
 		 << "-s\tSlice programs on the srcML format" << endl
-		 << "-S\tSlice programs on the binary format" << endl;
+		 << "-S\tSlice programs on the binary format" << endl
+		 << "-v\tTell version number" << endl;
 	   return 1;
    }
    if (argc == 3 && strcmp(argv[1], argv[2])==0) {
@@ -998,7 +999,7 @@ int main(int argc, char* argv[]) {
   Slice = 0;
   encode = 0;
   antlr = 0;
-  while ((c = getopt (argc, argv, "acdehpsS")) != -1)
+  while ((c = getopt (argc, argv, "acdehpsSv")) != -1)
     switch (c) {
       case 'h':
 	    cerr << "Usage: fast [-acehpsSt] input_file output_file"  << endl
@@ -1009,7 +1010,11 @@ int main(int argc, char* argv[]) {
 		 << "-h\tPrint this help message" << endl
 		 << "-p\tPreserve the position (line, column) numbers" << endl
 		 << "-s\tSlice programs on the srcML format" << endl
-		 << "-S\tSlice programs on the binary format" << endl;
+		 << "-S\tSlice programs on the binary format" << endl
+		 << "-v\tTell version number" << endl;
+	    return 0;
+      case 'v':
+	    cerr << "fast 0.0.2"  << endl
 	    return 0;
       case 'a':
 	    antlr = 1;

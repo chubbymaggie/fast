@@ -31,18 +31,18 @@
             <td class="headerValue">fast.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">136</td>
-            <td class="headerCovTableEntry">140</td>
-            <td class="headerCovTableEntryHi">97.1 %</td>
+            <td class="headerCovTableEntry">94</td>
+            <td class="headerCovTableEntry">96</td>
+            <td class="headerCovTableEntryHi">97.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-06-25 16:03:51</td>
+            <td class="headerValue">2017-06-25 17:14:03</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">42</td>
-            <td class="headerCovTableEntry">44</td>
-            <td class="headerCovTableEntryHi">95.5 %</td>
+            <td class="headerCovTableEntry">46</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryHi">95.8 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -511,7 +511,7 @@
 <span class="lineNum">     449 </span>            :   Kind_MAX = Kind_SPECIAL_CHARS
 <a name="450"><span class="lineNum">     450 </span>            : };</a>
 <span class="lineNum">     451 </span>            : 
-<span class="lineNum">     452 </span><span class="lineCov">      26692 : inline const char **EnumNamesKind() {</span>
+<span class="lineNum">     452 </span>            : inline const char **EnumNamesKind() {
 <span class="lineNum">     453 </span>            :   static const char *names[] = {
 <span class="lineNum">     454 </span>            :     &quot;UNIT_KIND&quot;,
 <span class="lineNum">     455 </span>            :     &quot;DECL&quot;,
@@ -901,7 +901,7 @@
 <span class="lineNum">     839 </span>            :     &quot;SPECIAL_CHARS&quot;,
 <span class="lineNum">     840 </span>            :     nullptr
 <span class="lineNum">     841 </span>            :   };
-<span class="lineNum">     842 </span><span class="lineCov">      26692 :   return names;</span>
+<span class="lineNum">     842 </span>            :   return names;
 <span class="lineNum">     843 </span>            : }
 <span class="lineNum">     844 </span>            : 
 <span class="lineNum">     845 </span>            : inline const char *EnumNameKind(Kind e) {
@@ -965,7 +965,7 @@
 <span class="lineNum">     903 </span>            :   SmaliKind_INSTRUCTION_FORMAT21c_FIELD_ODEX = 52,
 <span class="lineNum">     904 </span>            :   SmaliKind_INSTRUCTION_FORMAT21c_STRING = 53,
 <span class="lineNum">     905 </span>            :   SmaliKind_INSTRUCTION_FORMAT21c_TYPE = 54,
-<span class="lineNum">     906 </span>            :   SmaliKind_INSTRUCTION_FORMAT21ih = 55,
+<span class="lineNum">     906 </span><span class="lineCov">      53384 :   SmaliKind_INSTRUCTION_FORMAT21ih = 55,</span>
 <span class="lineNum">     907 </span>            :   SmaliKind_INSTRUCTION_FORMAT21lh = 56,
 <span class="lineNum">     908 </span>            :   SmaliKind_INSTRUCTION_FORMAT21s = 57,
 <span class="lineNum">     909 </span>            :   SmaliKind_INSTRUCTION_FORMAT21t = 58,
@@ -1341,9 +1341,9 @@
 <span class="lineNum">    1279 </span>            :   LanguageType_OBJECTIVE_C = 7,
 <span class="lineNum">    1280 </span>            :   LanguageType_MIN = LanguageType_ALL,
 <span class="lineNum">    1281 </span>            :   LanguageType_MAX = LanguageType_OBJECTIVE_C
-<a name="1282"><span class="lineNum">    1282 </span>            : };</a>
+<span class="lineNum">    1282 </span>            : };
 <span class="lineNum">    1283 </span>            : 
-<span class="lineNum">    1284 </span><span class="lineCov">          9 : inline const char **EnumNamesLanguageType() {</span>
+<span class="lineNum">    1284 </span>            : inline const char **EnumNamesLanguageType() {
 <span class="lineNum">    1285 </span>            :   static const char *names[] = {
 <span class="lineNum">    1286 </span>            :     &quot;ALL&quot;,
 <span class="lineNum">    1287 </span>            :     &quot;OO&quot;,
@@ -1355,7 +1355,7 @@
 <span class="lineNum">    1293 </span>            :     &quot;OBJECTIVE_C&quot;,
 <span class="lineNum">    1294 </span>            :     nullptr
 <span class="lineNum">    1295 </span>            :   };
-<span class="lineNum">    1296 </span><span class="lineCov">          9 :   return names;</span>
+<span class="lineNum">    1296 </span>            :   return names;
 <span class="lineNum">    1297 </span>            : }
 <span class="lineNum">    1298 </span>            : 
 <span class="lineNum">    1299 </span>            : inline const char *EnumNameLanguageType(LanguageType e) {
@@ -1375,9 +1375,9 @@
 <span class="lineNum">    1313 </span>            :   LiteralType_null_type = 4,
 <span class="lineNum">    1314 </span>            :   LiteralType_MIN = LiteralType_number_type,
 <span class="lineNum">    1315 </span>            :   LiteralType_MAX = LiteralType_null_type
-<a name="1316"><span class="lineNum">    1316 </span>            : };</a>
+<span class="lineNum">    1316 </span>            : };
 <span class="lineNum">    1317 </span>            : 
-<span class="lineNum">    1318 </span><span class="lineCov">        642 : inline const char **EnumNamesLiteralType() {</span>
+<span class="lineNum">    1318 </span>            : inline const char **EnumNamesLiteralType() {
 <span class="lineNum">    1319 </span>            :   static const char *names[] = {
 <span class="lineNum">    1320 </span>            :     &quot;number_type&quot;,
 <span class="lineNum">    1321 </span>            :     &quot;char_type&quot;,
@@ -1386,7 +1386,7 @@
 <span class="lineNum">    1324 </span>            :     &quot;null_type&quot;,
 <span class="lineNum">    1325 </span>            :     nullptr
 <span class="lineNum">    1326 </span>            :   };
-<span class="lineNum">    1327 </span><span class="lineCov">        642 :   return names;</span>
+<span class="lineNum">    1327 </span>            :   return names;
 <span class="lineNum">    1328 </span>            : }
 <span class="lineNum">    1329 </span>            : 
 <span class="lineNum">    1330 </span>            : inline const char *EnumNameLiteralType(LiteralType e) {
@@ -1405,7 +1405,7 @@
 <span class="lineNum">    1343 </span>            :   DeltaType_ADD = 1,
 <span class="lineNum">    1344 </span>            :   DeltaType_DEL = 2,
 <span class="lineNum">    1345 </span>            :   DeltaType_MOVE = 3,
-<span class="lineNum">    1346 </span>            :   DeltaType_UPDATE = 4,
+<a name="1346"><span class="lineNum">    1346 </span>            :   DeltaType_UPDATE = 4,</a>
 <span class="lineNum">    1347 </span>            :   DeltaType_MIN = DeltaType_MATCH,
 <span class="lineNum">    1348 </span>            :   DeltaType_MAX = DeltaType_UPDATE
 <span class="lineNum">    1349 </span>            : };
@@ -1419,7 +1419,7 @@
 <span class="lineNum">    1357 </span>            :     &quot;UPDATE&quot;,
 <span class="lineNum">    1358 </span>            :     nullptr
 <span class="lineNum">    1359 </span>            :   };
-<span class="lineNum">    1360 </span>            :   return names;
+<span class="lineNum">    1360 </span><span class="lineCov">         18 :   return names;</span>
 <span class="lineNum">    1361 </span>            : }
 <span class="lineNum">    1362 </span>            : 
 <span class="lineNum">    1363 </span>            : inline const char *EnumNameDeltaType(DeltaType e) {
@@ -1439,7 +1439,7 @@
 <span class="lineNum">    1377 </span>            :   CloneType_NO = 2,
 <span class="lineNum">    1378 </span>            :   CloneType_MIN = CloneType_MAYBE,
 <span class="lineNum">    1379 </span>            :   CloneType_MAX = CloneType_NO
-<span class="lineNum">    1380 </span>            : };
+<a name="1380"><span class="lineNum">    1380 </span>            : };</a>
 <span class="lineNum">    1381 </span>            : 
 <span class="lineNum">    1382 </span>            : inline const char **EnumNamesCloneType() {
 <span class="lineNum">    1383 </span>            :   static const char *names[] = {
@@ -1450,7 +1450,7 @@
 <span class="lineNum">    1388 </span>            :   };
 <span class="lineNum">    1389 </span>            :   return names;
 <span class="lineNum">    1390 </span>            : }
-<span class="lineNum">    1391 </span>            : 
+<span class="lineNum">    1391 </span><span class="lineCov">       1284 : </span>
 <span class="lineNum">    1392 </span>            : inline const char *EnumNameCloneType(CloneType e) {
 <span class="lineNum">    1393 </span>            :   const size_t index = static_cast&lt;int&gt;(e);
 <span class="lineNum">    1394 </span>            :   return EnumNamesCloneType()[index];
@@ -1469,34 +1469,34 @@
 <span class="lineNum">    1407 </span>            :     VT_CHILD = 14,
 <span class="lineNum">    1408 </span>            :     VT_EXTRA = 16,
 <span class="lineNum">    1409 </span>            :     VT_LINE = 18,
-<a name="1410"><span class="lineNum">    1410 </span>            :     VT_COLUMN = 20</a>
+<span class="lineNum">    1410 </span>            :     VT_COLUMN = 20
 <span class="lineNum">    1411 </span>            :   };
-<span class="lineNum">    1412 </span><span class="lineCov">      40257 :   int32_t kind() const {</span>
-<a name="1413"><span class="lineNum">    1413 </span><span class="lineCov">      40257 :     return GetField&lt;int32_t&gt;(VT_KIND, 0);</span></a>
+<span class="lineNum">    1412 </span>            :   int32_t kind() const {
+<span class="lineNum">    1413 </span>            :     return GetField&lt;int32_t&gt;(VT_KIND, 0);
 <span class="lineNum">    1414 </span>            :   }
-<span class="lineNum">    1415 </span><span class="lineCov">      20500 :   const flatbuffers::String *text() const {</span>
-<a name="1416"><span class="lineNum">    1416 </span><span class="lineCov">      20500 :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_TEXT);</span></a>
+<span class="lineNum">    1415 </span>            :   const flatbuffers::String *text() const {
+<span class="lineNum">    1416 </span>            :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_TEXT);
 <span class="lineNum">    1417 </span>            :   }
-<span class="lineNum">    1418 </span><span class="lineCov">      19067 :   const flatbuffers::String *tail() const {</span>
-<span class="lineNum">    1419 </span><span class="lineCov">      19067 :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_TAIL);</span>
+<span class="lineNum">    1418 </span>            :   const flatbuffers::String *tail() const {
+<span class="lineNum">    1419 </span>            :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_TAIL);
 <span class="lineNum">    1420 </span>            :   }
 <span class="lineNum">    1421 </span>            :   int32_t pos() const {
 <span class="lineNum">    1422 </span>            :     return GetField&lt;int32_t&gt;(VT_POS, 0);
 <span class="lineNum">    1423 </span>            :   }
 <span class="lineNum">    1424 </span>            :   int32_t length() const {
-<a name="1425"><span class="lineNum">    1425 </span>            :     return GetField&lt;int32_t&gt;(VT_LENGTH, 0);</a>
+<span class="lineNum">    1425 </span>            :     return GetField&lt;int32_t&gt;(VT_LENGTH, 0);
 <span class="lineNum">    1426 </span>            :   }
-<span class="lineNum">    1427 </span><span class="lineCov">      40212 :   const flatbuffers::Vector&lt;flatbuffers::Offset&lt;Element&gt;&gt; *child() const {</span>
-<a name="1428"><span class="lineNum">    1428 </span><span class="lineCov">      40212 :     return GetPointer&lt;const flatbuffers::Vector&lt;flatbuffers::Offset&lt;Element&gt;&gt; *&gt;(VT_CHILD);</span></a>
+<span class="lineNum">    1427 </span>            :   const flatbuffers::Vector&lt;flatbuffers::Offset&lt;Element&gt;&gt; *child() const {
+<span class="lineNum">    1428 </span>            :     return GetPointer&lt;const flatbuffers::Vector&lt;flatbuffers::Offset&lt;Element&gt;&gt; *&gt;(VT_CHILD);
 <span class="lineNum">    1429 </span>            :   }
-<span class="lineNum">    1430 </span><span class="lineCov">      13553 :   const _fast::_Element::Anonymous0 *extra() const {</span>
-<a name="1431"><span class="lineNum">    1431 </span><span class="lineCov">      13553 :     return GetPointer&lt;const _fast::_Element::Anonymous0 *&gt;(VT_EXTRA);</span></a>
+<span class="lineNum">    1430 </span>            :   const _fast::_Element::Anonymous0 *extra() const {
+<span class="lineNum">    1431 </span>            :     return GetPointer&lt;const _fast::_Element::Anonymous0 *&gt;(VT_EXTRA);
 <span class="lineNum">    1432 </span>            :   }
-<span class="lineNum">    1433 </span><span class="lineCov">        116 :   int32_t line() const {</span>
-<a name="1434"><span class="lineNum">    1434 </span><span class="lineCov">        116 :     return GetField&lt;int32_t&gt;(VT_LINE, 0);</span></a>
+<span class="lineNum">    1433 </span>            :   int32_t line() const {
+<span class="lineNum">    1434 </span>            :     return GetField&lt;int32_t&gt;(VT_LINE, 0);
 <span class="lineNum">    1435 </span>            :   }
-<span class="lineNum">    1436 </span><span class="lineCov">         42 :   int32_t column() const {</span>
-<span class="lineNum">    1437 </span><span class="lineCov">         42 :     return GetField&lt;int32_t&gt;(VT_COLUMN, 0);</span>
+<span class="lineNum">    1436 </span>            :   int32_t column() const {
+<span class="lineNum">    1437 </span>            :     return GetField&lt;int32_t&gt;(VT_COLUMN, 0);
 <span class="lineNum">    1438 </span>            :   }
 <span class="lineNum">    1439 </span>            :   bool Verify(flatbuffers::Verifier &amp;verifier) const {
 <span class="lineNum">    1440 </span>            :     return VerifyTableStart(verifier) &amp;&amp;
@@ -1519,48 +1519,48 @@
 <span class="lineNum">    1457 </span>            : };
 <span class="lineNum">    1458 </span>            : 
 <span class="lineNum">    1459 </span>            : struct ElementBuilder {
-<a name="1460"><span class="lineNum">    1460 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;</a>
+<span class="lineNum">    1460 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;
 <span class="lineNum">    1461 </span>            :   flatbuffers::uoffset_t start_;
-<span class="lineNum">    1462 </span><span class="lineCov">      13332 :   void add_kind(int32_t kind) {</span>
-<a name="1463"><span class="lineNum">    1463 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_KIND, kind, 0);</span></a>
-<span class="lineNum">    1464 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1465 </span><span class="lineCov">      13332 :   void add_text(flatbuffers::Offset&lt;flatbuffers::String&gt; text) {</span>
-<a name="1466"><span class="lineNum">    1466 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Element::VT_TEXT, text);</span></a>
-<span class="lineNum">    1467 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1468 </span><span class="lineCov">      13332 :   void add_tail(flatbuffers::Offset&lt;flatbuffers::String&gt; tail) {</span>
-<a name="1469"><span class="lineNum">    1469 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Element::VT_TAIL, tail);</span></a>
-<span class="lineNum">    1470 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1471 </span><span class="lineCov">      13332 :   void add_pos(int32_t pos) {</span>
-<a name="1472"><span class="lineNum">    1472 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_POS, pos, 0);</span></a>
-<span class="lineNum">    1473 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1474 </span><span class="lineCov">      13332 :   void add_length(int32_t length) {</span>
-<a name="1475"><span class="lineNum">    1475 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_LENGTH, length, 0);</span></a>
-<span class="lineNum">    1476 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1477 </span><span class="lineCov">      13332 :   void add_child(flatbuffers::Offset&lt;flatbuffers::Vector&lt;flatbuffers::Offset&lt;Element&gt;&gt;&gt; child) {</span>
-<a name="1478"><span class="lineNum">    1478 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Element::VT_CHILD, child);</span></a>
-<span class="lineNum">    1479 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1480 </span><span class="lineCov">      13332 :   void add_extra(flatbuffers::Offset&lt;_fast::_Element::Anonymous0&gt; extra) {</span>
-<a name="1481"><span class="lineNum">    1481 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Element::VT_EXTRA, extra);</span></a>
-<span class="lineNum">    1482 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1483 </span><span class="lineCov">      13332 :   void add_line(int32_t line) {</span>
-<a name="1484"><span class="lineNum">    1484 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_LINE, line, 0);</span></a>
-<span class="lineNum">    1485 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1486 </span><span class="lineCov">      13332 :   void add_column(int32_t column) {</span>
-<a name="1487"><span class="lineNum">    1487 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_COLUMN, column, 0);</span></a>
-<span class="lineNum">    1488 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1489 </span><span class="lineCov">      13332 :   ElementBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)</span>
-<span class="lineNum">    1490 </span><span class="lineCov">      13332 :         : fbb_(_fbb) {</span>
-<span class="lineNum">    1491 </span><span class="lineCov">      13332 :     start_ = fbb_.StartTable();</span>
-<a name="1492"><span class="lineNum">    1492 </span><span class="lineCov">      13332 :   }</span></a>
+<span class="lineNum">    1462 </span>            :   void add_kind(int32_t kind) {
+<span class="lineNum">    1463 </span>            :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_KIND, kind, 0);
+<span class="lineNum">    1464 </span>            :   }
+<span class="lineNum">    1465 </span>            :   void add_text(flatbuffers::Offset&lt;flatbuffers::String&gt; text) {
+<span class="lineNum">    1466 </span>            :     fbb_.AddOffset(Element::VT_TEXT, text);
+<span class="lineNum">    1467 </span>            :   }
+<span class="lineNum">    1468 </span>            :   void add_tail(flatbuffers::Offset&lt;flatbuffers::String&gt; tail) {
+<span class="lineNum">    1469 </span>            :     fbb_.AddOffset(Element::VT_TAIL, tail);
+<span class="lineNum">    1470 </span>            :   }
+<span class="lineNum">    1471 </span>            :   void add_pos(int32_t pos) {
+<span class="lineNum">    1472 </span>            :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_POS, pos, 0);
+<span class="lineNum">    1473 </span>            :   }
+<a name="1474"><span class="lineNum">    1474 </span>            :   void add_length(int32_t length) {</a>
+<span class="lineNum">    1475 </span>            :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_LENGTH, length, 0);
+<span class="lineNum">    1476 </span>            :   }
+<a name="1477"><span class="lineNum">    1477 </span><span class="lineCov">      40257 :   void add_child(flatbuffers::Offset&lt;flatbuffers::Vector&lt;flatbuffers::Offset&lt;Element&gt;&gt;&gt; child) {</span></a>
+<span class="lineNum">    1478 </span>            :     fbb_.AddOffset(Element::VT_CHILD, child);
+<span class="lineNum">    1479 </span>            :   }
+<a name="1480"><span class="lineNum">    1480 </span><span class="lineCov">      20500 :   void add_extra(flatbuffers::Offset&lt;_fast::_Element::Anonymous0&gt; extra) {</span></a>
+<span class="lineNum">    1481 </span>            :     fbb_.AddOffset(Element::VT_EXTRA, extra);
+<span class="lineNum">    1482 </span>            :   }
+<span class="lineNum">    1483 </span><span class="lineCov">      19067 :   void add_line(int32_t line) {</span>
+<span class="lineNum">    1484 </span>            :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_LINE, line, 0);
+<span class="lineNum">    1485 </span>            :   }
+<span class="lineNum">    1486 </span>            :   void add_column(int32_t column) {
+<span class="lineNum">    1487 </span>            :     fbb_.AddElement&lt;int32_t&gt;(Element::VT_COLUMN, column, 0);
+<span class="lineNum">    1488 </span>            :   }
+<a name="1489"><span class="lineNum">    1489 </span>            :   ElementBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)</a>
+<span class="lineNum">    1490 </span>            :         : fbb_(_fbb) {
+<span class="lineNum">    1491 </span>            :     start_ = fbb_.StartTable();
+<a name="1492"><span class="lineNum">    1492 </span><span class="lineCov">      40212 :   }</span></a>
 <span class="lineNum">    1493 </span>            :   ElementBuilder &amp;operator=(const ElementBuilder &amp;);
-<span class="lineNum">    1494 </span><span class="lineCov">      13332 :   flatbuffers::Offset&lt;Element&gt; Finish() {</span>
-<span class="lineNum">    1495 </span><span class="lineCov">      13332 :     const auto end = fbb_.EndTable(start_, 9);</span>
-<span class="lineNum">    1496 </span><span class="lineCov">      13332 :     auto o = flatbuffers::Offset&lt;Element&gt;(end);</span>
-<span class="lineNum">    1497 </span><span class="lineCov">      13332 :     return o;</span>
-<span class="lineNum">    1498 </span>            :   }
-<a name="1499"><span class="lineNum">    1499 </span>            : };</a>
+<span class="lineNum">    1494 </span>            :   flatbuffers::Offset&lt;Element&gt; Finish() {
+<a name="1495"><span class="lineNum">    1495 </span><span class="lineCov">      13553 :     const auto end = fbb_.EndTable(start_, 9);</span></a>
+<span class="lineNum">    1496 </span>            :     auto o = flatbuffers::Offset&lt;Element&gt;(end);
+<span class="lineNum">    1497 </span>            :     return o;
+<a name="1498"><span class="lineNum">    1498 </span><span class="lineCov">        116 :   }</span></a>
+<span class="lineNum">    1499 </span>            : };
 <span class="lineNum">    1500 </span>            : 
-<span class="lineNum">    1501 </span><span class="lineCov">      13332 : inline flatbuffers::Offset&lt;Element&gt; CreateElement(</span>
+<span class="lineNum">    1501 </span><span class="lineCov">         42 : inline flatbuffers::Offset&lt;Element&gt; CreateElement(</span>
 <span class="lineNum">    1502 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
 <span class="lineNum">    1503 </span>            :     int32_t kind = 0,
 <span class="lineNum">    1504 </span>            :     flatbuffers::Offset&lt;flatbuffers::String&gt; text = 0,
@@ -1571,58 +1571,58 @@
 <span class="lineNum">    1509 </span>            :     flatbuffers::Offset&lt;_fast::_Element::Anonymous0&gt; extra = 0,
 <span class="lineNum">    1510 </span>            :     int32_t line = 0,
 <span class="lineNum">    1511 </span>            :     int32_t column = 0) {
-<span class="lineNum">    1512 </span><span class="lineCov">      13332 :   ElementBuilder builder_(_fbb);</span>
-<span class="lineNum">    1513 </span><span class="lineCov">      13332 :   builder_.add_column(column);</span>
-<span class="lineNum">    1514 </span><span class="lineCov">      13332 :   builder_.add_line(line);</span>
-<span class="lineNum">    1515 </span><span class="lineCov">      13332 :   builder_.add_extra(extra);</span>
-<span class="lineNum">    1516 </span><span class="lineCov">      13332 :   builder_.add_child(child);</span>
-<span class="lineNum">    1517 </span><span class="lineCov">      13332 :   builder_.add_length(length);</span>
-<span class="lineNum">    1518 </span><span class="lineCov">      13332 :   builder_.add_pos(pos);</span>
-<span class="lineNum">    1519 </span><span class="lineCov">      13332 :   builder_.add_tail(tail);</span>
-<span class="lineNum">    1520 </span><span class="lineCov">      13332 :   builder_.add_text(text);</span>
-<span class="lineNum">    1521 </span><span class="lineCov">      13332 :   builder_.add_kind(kind);</span>
-<span class="lineNum">    1522 </span><span class="lineCov">      13332 :   return builder_.Finish();</span>
+<span class="lineNum">    1512 </span>            :   ElementBuilder builder_(_fbb);
+<span class="lineNum">    1513 </span>            :   builder_.add_column(column);
+<span class="lineNum">    1514 </span>            :   builder_.add_line(line);
+<span class="lineNum">    1515 </span>            :   builder_.add_extra(extra);
+<span class="lineNum">    1516 </span>            :   builder_.add_child(child);
+<span class="lineNum">    1517 </span>            :   builder_.add_length(length);
+<span class="lineNum">    1518 </span>            :   builder_.add_pos(pos);
+<span class="lineNum">    1519 </span>            :   builder_.add_tail(tail);
+<span class="lineNum">    1520 </span>            :   builder_.add_text(text);
+<span class="lineNum">    1521 </span>            :   builder_.add_kind(kind);
+<span class="lineNum">    1522 </span>            :   return builder_.Finish();
 <span class="lineNum">    1523 </span>            : }
-<span class="lineNum">    1524 </span>            : 
+<a name="1524"><span class="lineNum">    1524 </span>            : </a>
 <span class="lineNum">    1525 </span>            : inline flatbuffers::Offset&lt;Element&gt; CreateElementDirect(
 <span class="lineNum">    1526 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
-<span class="lineNum">    1527 </span>            :     int32_t kind = 0,
-<span class="lineNum">    1528 </span>            :     const char *text = nullptr,
+<a name="1527"><span class="lineNum">    1527 </span><span class="lineCov">      13332 :     int32_t kind = 0,</span></a>
+<span class="lineNum">    1528 </span><span class="lineCov">      13332 :     const char *text = nullptr,</span>
 <span class="lineNum">    1529 </span>            :     const char *tail = nullptr,
-<span class="lineNum">    1530 </span>            :     int32_t pos = 0,
-<span class="lineNum">    1531 </span>            :     int32_t length = 0,
+<a name="1530"><span class="lineNum">    1530 </span><span class="lineCov">      13332 :     int32_t pos = 0,</span></a>
+<span class="lineNum">    1531 </span><span class="lineCov">      13332 :     int32_t length = 0,</span>
 <span class="lineNum">    1532 </span>            :     const std::vector&lt;flatbuffers::Offset&lt;Element&gt;&gt; *child = nullptr,
-<span class="lineNum">    1533 </span>            :     flatbuffers::Offset&lt;_fast::_Element::Anonymous0&gt; extra = 0,
-<span class="lineNum">    1534 </span>            :     int32_t line = 0,
+<a name="1533"><span class="lineNum">    1533 </span><span class="lineCov">      13332 :     flatbuffers::Offset&lt;_fast::_Element::Anonymous0&gt; extra = 0,</span></a>
+<span class="lineNum">    1534 </span><span class="lineCov">      13332 :     int32_t line = 0,</span>
 <span class="lineNum">    1535 </span>            :     int32_t column = 0) {
-<span class="lineNum">    1536 </span>            :   return _fast::CreateElement(
-<span class="lineNum">    1537 </span>            :       _fbb,
+<a name="1536"><span class="lineNum">    1536 </span><span class="lineCov">      13332 :   return _fast::CreateElement(</span></a>
+<span class="lineNum">    1537 </span><span class="lineCov">      13332 :       _fbb,</span>
 <span class="lineNum">    1538 </span>            :       kind,
-<span class="lineNum">    1539 </span>            :       text ? _fbb.CreateString(text) : 0,
-<span class="lineNum">    1540 </span>            :       tail ? _fbb.CreateString(tail) : 0,
+<a name="1539"><span class="lineNum">    1539 </span><span class="lineCov">      13332 :       text ? _fbb.CreateString(text) : 0,</span></a>
+<span class="lineNum">    1540 </span><span class="lineCov">      13332 :       tail ? _fbb.CreateString(tail) : 0,</span>
 <span class="lineNum">    1541 </span>            :       pos,
-<span class="lineNum">    1542 </span>            :       length,
-<span class="lineNum">    1543 </span>            :       child ? _fbb.CreateVector&lt;flatbuffers::Offset&lt;Element&gt;&gt;(*child) : 0,
+<a name="1542"><span class="lineNum">    1542 </span><span class="lineCov">      13332 :       length,</span></a>
+<span class="lineNum">    1543 </span><span class="lineCov">      13332 :       child ? _fbb.CreateVector&lt;flatbuffers::Offset&lt;Element&gt;&gt;(*child) : 0,</span>
 <span class="lineNum">    1544 </span>            :       extra,
-<span class="lineNum">    1545 </span>            :       line,
-<span class="lineNum">    1546 </span>            :       column);
+<a name="1545"><span class="lineNum">    1545 </span><span class="lineCov">      13332 :       line,</span></a>
+<span class="lineNum">    1546 </span><span class="lineCov">      13332 :       column);</span>
 <span class="lineNum">    1547 </span>            : }
-<span class="lineNum">    1548 </span>            : 
-<span class="lineNum">    1549 </span>            : namespace _Element {
+<a name="1548"><span class="lineNum">    1548 </span><span class="lineCov">      13332 : </span></a>
+<span class="lineNum">    1549 </span><span class="lineCov">      13332 : namespace _Element {</span>
 <span class="lineNum">    1550 </span>            : 
-<span class="lineNum">    1551 </span>            : struct Anonymous0 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-<span class="lineNum">    1552 </span>            :   enum {
+<a name="1551"><span class="lineNum">    1551 </span><span class="lineCov">      13332 : struct Anonymous0 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {</span></a>
+<span class="lineNum">    1552 </span><span class="lineCov">      13332 :   enum {</span>
 <span class="lineNum">    1553 </span>            :     VT_UNIT = 4,
-<a name="1554"><span class="lineNum">    1554 </span>            :     VT_LITERAL = 6</a>
-<span class="lineNum">    1555 </span>            :   };
-<span class="lineNum">    1556 </span><span class="lineCov">         16 :   const Unit *unit() const {</span>
-<a name="1557"><span class="lineNum">    1557 </span><span class="lineCov">         16 :     return GetPointer&lt;const Unit *&gt;(VT_UNIT);</span></a>
+<span class="lineNum">    1554 </span><span class="lineCov">      26664 :     VT_LITERAL = 6</span>
+<span class="lineNum">    1555 </span><span class="lineCov">      13332 :   };</span>
+<a name="1556"><span class="lineNum">    1556 </span><span class="lineCov">      26664 :   const Unit *unit() const {</span></a>
+<span class="lineNum">    1557 </span>            :     return GetPointer&lt;const Unit *&gt;(VT_UNIT);
 <span class="lineNum">    1558 </span>            :   }
-<span class="lineNum">    1559 </span><span class="lineNoCov">          0 :   const Literal *literal() const {</span>
-<span class="lineNum">    1560 </span><span class="lineNoCov">          0 :     return GetPointer&lt;const Literal *&gt;(VT_LITERAL);</span>
-<span class="lineNum">    1561 </span>            :   }
+<span class="lineNum">    1559 </span><span class="lineCov">      13332 :   const Literal *literal() const {</span>
+<span class="lineNum">    1560 </span><span class="lineCov">      13332 :     return GetPointer&lt;const Literal *&gt;(VT_LITERAL);</span>
+<span class="lineNum">    1561 </span><span class="lineCov">      13332 :   }</span>
 <span class="lineNum">    1562 </span>            :   bool Verify(flatbuffers::Verifier &amp;verifier) const {
-<span class="lineNum">    1563 </span>            :     return VerifyTableStart(verifier) &amp;&amp;
+<a name="1563"><span class="lineNum">    1563 </span>            :     return VerifyTableStart(verifier) &amp;&amp;</a>
 <span class="lineNum">    1564 </span>            :            VerifyField&lt;flatbuffers::uoffset_t&gt;(verifier, VT_UNIT) &amp;&amp;
 <span class="lineNum">    1565 </span>            :            verifier.VerifyTable(unit()) &amp;&amp;
 <span class="lineNum">    1566 </span>            :            VerifyField&lt;flatbuffers::uoffset_t&gt;(verifier, VT_LITERAL) &amp;&amp;
@@ -1632,34 +1632,34 @@
 <span class="lineNum">    1570 </span>            : };
 <span class="lineNum">    1571 </span>            : 
 <span class="lineNum">    1572 </span>            : struct Anonymous0Builder {
-<a name="1573"><span class="lineNum">    1573 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;</a>
+<span class="lineNum">    1573 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;
 <span class="lineNum">    1574 </span>            :   flatbuffers::uoffset_t start_;
-<span class="lineNum">    1575 </span><span class="lineCov">      13332 :   void add_unit(flatbuffers::Offset&lt;Unit&gt; unit) {</span>
-<a name="1576"><span class="lineNum">    1576 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Anonymous0::VT_UNIT, unit);</span></a>
+<span class="lineNum">    1575 </span>            :   void add_unit(flatbuffers::Offset&lt;Unit&gt; unit) {
+<span class="lineNum">    1576 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Anonymous0::VT_UNIT, unit);</span>
 <span class="lineNum">    1577 </span><span class="lineCov">      13332 :   }</span>
 <span class="lineNum">    1578 </span><span class="lineCov">      13332 :   void add_literal(flatbuffers::Offset&lt;Literal&gt; literal) {</span>
-<a name="1579"><span class="lineNum">    1579 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Anonymous0::VT_LITERAL, literal);</span></a>
+<span class="lineNum">    1579 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Anonymous0::VT_LITERAL, literal);</span>
 <span class="lineNum">    1580 </span><span class="lineCov">      13332 :   }</span>
 <span class="lineNum">    1581 </span><span class="lineCov">      13332 :   Anonymous0Builder(flatbuffers::FlatBufferBuilder &amp;_fbb)</span>
 <span class="lineNum">    1582 </span><span class="lineCov">      13332 :         : fbb_(_fbb) {</span>
 <span class="lineNum">    1583 </span><span class="lineCov">      13332 :     start_ = fbb_.StartTable();</span>
-<a name="1584"><span class="lineNum">    1584 </span><span class="lineCov">      13332 :   }</span></a>
-<span class="lineNum">    1585 </span>            :   Anonymous0Builder &amp;operator=(const Anonymous0Builder &amp;);
+<span class="lineNum">    1584 </span><span class="lineCov">      13332 :   }</span>
+<span class="lineNum">    1585 </span><span class="lineCov">      13332 :   Anonymous0Builder &amp;operator=(const Anonymous0Builder &amp;);</span>
 <span class="lineNum">    1586 </span><span class="lineCov">      13332 :   flatbuffers::Offset&lt;Anonymous0&gt; Finish() {</span>
-<span class="lineNum">    1587 </span><span class="lineCov">      13332 :     const auto end = fbb_.EndTable(start_, 2);</span>
-<span class="lineNum">    1588 </span><span class="lineCov">      13332 :     auto o = flatbuffers::Offset&lt;Anonymous0&gt;(end);</span>
-<span class="lineNum">    1589 </span><span class="lineCov">      13332 :     return o;</span>
+<span class="lineNum">    1587 </span>            :     const auto end = fbb_.EndTable(start_, 2);
+<span class="lineNum">    1588 </span>            :     auto o = flatbuffers::Offset&lt;Anonymous0&gt;(end);
+<span class="lineNum">    1589 </span>            :     return o;
 <span class="lineNum">    1590 </span>            :   }
-<a name="1591"><span class="lineNum">    1591 </span>            : };</a>
+<span class="lineNum">    1591 </span>            : };
 <span class="lineNum">    1592 </span>            : 
-<span class="lineNum">    1593 </span><span class="lineCov">      13332 : inline flatbuffers::Offset&lt;Anonymous0&gt; CreateAnonymous0(</span>
+<span class="lineNum">    1593 </span>            : inline flatbuffers::Offset&lt;Anonymous0&gt; CreateAnonymous0(
 <span class="lineNum">    1594 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
 <span class="lineNum">    1595 </span>            :     flatbuffers::Offset&lt;Unit&gt; unit = 0,
 <span class="lineNum">    1596 </span>            :     flatbuffers::Offset&lt;Literal&gt; literal = 0) {
-<span class="lineNum">    1597 </span><span class="lineCov">      13332 :   Anonymous0Builder builder_(_fbb);</span>
-<span class="lineNum">    1598 </span><span class="lineCov">      13332 :   builder_.add_literal(literal);</span>
-<span class="lineNum">    1599 </span><span class="lineCov">      13332 :   builder_.add_unit(unit);</span>
-<span class="lineNum">    1600 </span><span class="lineCov">      13332 :   return builder_.Finish();</span>
+<span class="lineNum">    1597 </span>            :   Anonymous0Builder builder_(_fbb);
+<span class="lineNum">    1598 </span>            :   builder_.add_literal(literal);
+<span class="lineNum">    1599 </span>            :   builder_.add_unit(unit);
+<span class="lineNum">    1600 </span>            :   return builder_.Finish();
 <span class="lineNum">    1601 </span>            : }
 <span class="lineNum">    1602 </span>            : 
 <span class="lineNum">    1603 </span>            : struct Unit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
@@ -1667,23 +1667,23 @@
 <span class="lineNum">    1605 </span>            :     VT_FILENAME = 4,
 <span class="lineNum">    1606 </span>            :     VT_REVISION = 6,
 <span class="lineNum">    1607 </span>            :     VT_LANGUAGE = 8,
-<a name="1608"><span class="lineNum">    1608 </span>            :     VT_ITEM = 10</a>
+<span class="lineNum">    1608 </span>            :     VT_ITEM = 10
 <span class="lineNum">    1609 </span>            :   };
-<span class="lineNum">    1610 </span><span class="lineCov">          6 :   const flatbuffers::String *filename() const {</span>
-<a name="1611"><span class="lineNum">    1611 </span><span class="lineCov">          6 :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_FILENAME);</span></a>
+<span class="lineNum">    1610 </span>            :   const flatbuffers::String *filename() const {
+<span class="lineNum">    1611 </span>            :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_FILENAME);
 <span class="lineNum">    1612 </span>            :   }
-<span class="lineNum">    1613 </span><span class="lineCov">          5 :   const flatbuffers::String *revision() const {</span>
-<a name="1614"><span class="lineNum">    1614 </span><span class="lineCov">          5 :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_REVISION);</span></a>
+<span class="lineNum">    1613 </span>            :   const flatbuffers::String *revision() const {
+<span class="lineNum">    1614 </span>            :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_REVISION);
 <span class="lineNum">    1615 </span>            :   }
-<span class="lineNum">    1616 </span><span class="lineCov">          5 :   int32_t language() const {</span>
-<span class="lineNum">    1617 </span><span class="lineCov">          5 :     return GetField&lt;int32_t&gt;(VT_LANGUAGE, 0);</span>
-<span class="lineNum">    1618 </span>            :   }
+<span class="lineNum">    1616 </span>            :   int32_t language() const {
+<span class="lineNum">    1617 </span>            :     return GetField&lt;int32_t&gt;(VT_LANGUAGE, 0);
+<a name="1618"><span class="lineNum">    1618 </span>            :   }</a>
 <span class="lineNum">    1619 </span>            :   int32_t item() const {
 <span class="lineNum">    1620 </span>            :     return GetField&lt;int32_t&gt;(VT_ITEM, 0);
-<span class="lineNum">    1621 </span>            :   }
+<a name="1621"><span class="lineNum">    1621 </span><span class="lineCov">         16 :   }</span></a>
 <span class="lineNum">    1622 </span>            :   bool Verify(flatbuffers::Verifier &amp;verifier) const {
 <span class="lineNum">    1623 </span>            :     return VerifyTableStart(verifier) &amp;&amp;
-<span class="lineNum">    1624 </span>            :            VerifyField&lt;flatbuffers::uoffset_t&gt;(verifier, VT_FILENAME) &amp;&amp;
+<span class="lineNum">    1624 </span><span class="lineNoCov">          0 :            VerifyField&lt;flatbuffers::uoffset_t&gt;(verifier, VT_FILENAME) &amp;&amp;</span>
 <span class="lineNum">    1625 </span>            :            verifier.Verify(filename()) &amp;&amp;
 <span class="lineNum">    1626 </span>            :            VerifyField&lt;flatbuffers::uoffset_t&gt;(verifier, VT_REVISION) &amp;&amp;
 <span class="lineNum">    1627 </span>            :            verifier.Verify(revision()) &amp;&amp;
@@ -1694,53 +1694,53 @@
 <span class="lineNum">    1632 </span>            : };
 <span class="lineNum">    1633 </span>            : 
 <span class="lineNum">    1634 </span>            : struct UnitBuilder {
-<a name="1635"><span class="lineNum">    1635 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;</a>
+<span class="lineNum">    1635 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;
 <span class="lineNum">    1636 </span>            :   flatbuffers::uoffset_t start_;
-<span class="lineNum">    1637 </span><span class="lineCov">      13332 :   void add_filename(flatbuffers::Offset&lt;flatbuffers::String&gt; filename) {</span>
-<a name="1638"><span class="lineNum">    1638 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Unit::VT_FILENAME, filename);</span></a>
-<span class="lineNum">    1639 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1640 </span><span class="lineCov">      13332 :   void add_revision(flatbuffers::Offset&lt;flatbuffers::String&gt; revision) {</span>
-<a name="1641"><span class="lineNum">    1641 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Unit::VT_REVISION, revision);</span></a>
-<span class="lineNum">    1642 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1643 </span><span class="lineCov">      13332 :   void add_language(int32_t language) {</span>
-<a name="1644"><span class="lineNum">    1644 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Unit::VT_LANGUAGE, language, 0);</span></a>
-<span class="lineNum">    1645 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1646 </span><span class="lineCov">      13332 :   void add_item(int32_t item) {</span>
-<a name="1647"><span class="lineNum">    1647 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Unit::VT_ITEM, item, 0);</span></a>
-<span class="lineNum">    1648 </span><span class="lineCov">      13332 :   }</span>
-<span class="lineNum">    1649 </span><span class="lineCov">      13332 :   UnitBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)</span>
-<span class="lineNum">    1650 </span><span class="lineCov">      13332 :         : fbb_(_fbb) {</span>
+<a name="1637"><span class="lineNum">    1637 </span>            :   void add_filename(flatbuffers::Offset&lt;flatbuffers::String&gt; filename) {</a>
+<span class="lineNum">    1638 </span>            :     fbb_.AddOffset(Unit::VT_FILENAME, filename);
+<span class="lineNum">    1639 </span>            :   }
+<a name="1640"><span class="lineNum">    1640 </span><span class="lineCov">      13332 :   void add_revision(flatbuffers::Offset&lt;flatbuffers::String&gt; revision) {</span></a>
+<span class="lineNum">    1641 </span><span class="lineCov">      13332 :     fbb_.AddOffset(Unit::VT_REVISION, revision);</span>
+<span class="lineNum">    1642 </span>            :   }
+<a name="1643"><span class="lineNum">    1643 </span><span class="lineCov">      13332 :   void add_language(int32_t language) {</span></a>
+<span class="lineNum">    1644 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Unit::VT_LANGUAGE, language, 0);</span>
+<span class="lineNum">    1645 </span>            :   }
+<span class="lineNum">    1646 </span><span class="lineCov">      26664 :   void add_item(int32_t item) {</span>
+<span class="lineNum">    1647 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Unit::VT_ITEM, item, 0);</span>
+<a name="1648"><span class="lineNum">    1648 </span><span class="lineCov">      26664 :   }</span></a>
+<span class="lineNum">    1649 </span>            :   UnitBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)
+<span class="lineNum">    1650 </span>            :         : fbb_(_fbb) {
 <span class="lineNum">    1651 </span><span class="lineCov">      13332 :     start_ = fbb_.StartTable();</span>
-<a name="1652"><span class="lineNum">    1652 </span><span class="lineCov">      13332 :   }</span></a>
-<span class="lineNum">    1653 </span>            :   UnitBuilder &amp;operator=(const UnitBuilder &amp;);
-<span class="lineNum">    1654 </span><span class="lineCov">      13332 :   flatbuffers::Offset&lt;Unit&gt; Finish() {</span>
-<span class="lineNum">    1655 </span><span class="lineCov">      13332 :     const auto end = fbb_.EndTable(start_, 4);</span>
-<span class="lineNum">    1656 </span><span class="lineCov">      13332 :     auto o = flatbuffers::Offset&lt;Unit&gt;(end);</span>
-<span class="lineNum">    1657 </span><span class="lineCov">      13332 :     return o;</span>
+<span class="lineNum">    1652 </span><span class="lineCov">      13332 :   }</span>
+<span class="lineNum">    1653 </span><span class="lineCov">      13332 :   UnitBuilder &amp;operator=(const UnitBuilder &amp;);</span>
+<span class="lineNum">    1654 </span>            :   flatbuffers::Offset&lt;Unit&gt; Finish() {
+<a name="1655"><span class="lineNum">    1655 </span>            :     const auto end = fbb_.EndTable(start_, 4);</a>
+<span class="lineNum">    1656 </span>            :     auto o = flatbuffers::Offset&lt;Unit&gt;(end);
+<span class="lineNum">    1657 </span>            :     return o;
 <span class="lineNum">    1658 </span>            :   }
-<a name="1659"><span class="lineNum">    1659 </span>            : };</a>
+<span class="lineNum">    1659 </span>            : };
 <span class="lineNum">    1660 </span>            : 
 <span class="lineNum">    1661 </span><span class="lineCov">      13332 : inline flatbuffers::Offset&lt;Unit&gt; CreateUnit(</span>
-<span class="lineNum">    1662 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
-<span class="lineNum">    1663 </span>            :     flatbuffers::Offset&lt;flatbuffers::String&gt; filename = 0,
-<span class="lineNum">    1664 </span>            :     flatbuffers::Offset&lt;flatbuffers::String&gt; revision = 0,
+<span class="lineNum">    1662 </span><span class="lineCov">      13332 :     flatbuffers::FlatBufferBuilder &amp;_fbb,</span>
+<span class="lineNum">    1663 </span><span class="lineCov">      13332 :     flatbuffers::Offset&lt;flatbuffers::String&gt; filename = 0,</span>
+<span class="lineNum">    1664 </span><span class="lineCov">      13332 :     flatbuffers::Offset&lt;flatbuffers::String&gt; revision = 0,</span>
 <span class="lineNum">    1665 </span>            :     int32_t language = 0,
 <span class="lineNum">    1666 </span>            :     int32_t item = 0) {
-<span class="lineNum">    1667 </span><span class="lineCov">      13332 :   UnitBuilder builder_(_fbb);</span>
-<span class="lineNum">    1668 </span><span class="lineCov">      13332 :   builder_.add_item(item);</span>
-<span class="lineNum">    1669 </span><span class="lineCov">      13332 :   builder_.add_language(language);</span>
-<span class="lineNum">    1670 </span><span class="lineCov">      13332 :   builder_.add_revision(revision);</span>
-<span class="lineNum">    1671 </span><span class="lineCov">      13332 :   builder_.add_filename(filename);</span>
-<span class="lineNum">    1672 </span><span class="lineCov">      13332 :   return builder_.Finish();</span>
+<span class="lineNum">    1667 </span>            :   UnitBuilder builder_(_fbb);
+<span class="lineNum">    1668 </span>            :   builder_.add_item(item);
+<span class="lineNum">    1669 </span>            :   builder_.add_language(language);
+<span class="lineNum">    1670 </span>            :   builder_.add_revision(revision);
+<span class="lineNum">    1671 </span>            :   builder_.add_filename(filename);
+<a name="1672"><span class="lineNum">    1672 </span>            :   return builder_.Finish();</a>
 <span class="lineNum">    1673 </span>            : }
 <span class="lineNum">    1674 </span>            : 
-<span class="lineNum">    1675 </span>            : inline flatbuffers::Offset&lt;Unit&gt; CreateUnitDirect(
+<a name="1675"><span class="lineNum">    1675 </span><span class="lineCov">          6 : inline flatbuffers::Offset&lt;Unit&gt; CreateUnitDirect(</span></a>
 <span class="lineNum">    1676 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
 <span class="lineNum">    1677 </span>            :     const char *filename = nullptr,
-<span class="lineNum">    1678 </span>            :     const char *revision = nullptr,
+<a name="1678"><span class="lineNum">    1678 </span><span class="lineCov">          5 :     const char *revision = nullptr,</span></a>
 <span class="lineNum">    1679 </span>            :     int32_t language = 0,
 <span class="lineNum">    1680 </span>            :     int32_t item = 0) {
-<span class="lineNum">    1681 </span>            :   return _fast::_Element::CreateUnit(
+<span class="lineNum">    1681 </span><span class="lineCov">          5 :   return _fast::_Element::CreateUnit(</span>
 <span class="lineNum">    1682 </span>            :       _fbb,
 <span class="lineNum">    1683 </span>            :       filename ? _fbb.CreateString(filename) : 0,
 <span class="lineNum">    1684 </span>            :       revision ? _fbb.CreateString(revision) : 0,
@@ -1750,52 +1750,52 @@
 <span class="lineNum">    1688 </span>            : 
 <span class="lineNum">    1689 </span>            : struct Literal FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 <span class="lineNum">    1690 </span>            :   enum {
-<a name="1691"><span class="lineNum">    1691 </span>            :     VT_TYPE = 4</a>
+<span class="lineNum">    1691 </span>            :     VT_TYPE = 4
 <span class="lineNum">    1692 </span>            :   };
-<span class="lineNum">    1693 </span><span class="lineNoCov">          0 :   int32_t type() const {</span>
-<span class="lineNum">    1694 </span><span class="lineNoCov">          0 :     return GetField&lt;int32_t&gt;(VT_TYPE, 0);</span>
+<span class="lineNum">    1693 </span>            :   int32_t type() const {
+<span class="lineNum">    1694 </span>            :     return GetField&lt;int32_t&gt;(VT_TYPE, 0);
 <span class="lineNum">    1695 </span>            :   }
 <span class="lineNum">    1696 </span>            :   bool Verify(flatbuffers::Verifier &amp;verifier) const {
 <span class="lineNum">    1697 </span>            :     return VerifyTableStart(verifier) &amp;&amp;
 <span class="lineNum">    1698 </span>            :            VerifyField&lt;int32_t&gt;(verifier, VT_TYPE) &amp;&amp;
-<span class="lineNum">    1699 </span>            :            verifier.EndTable();
+<a name="1699"><span class="lineNum">    1699 </span>            :            verifier.EndTable();</a>
 <span class="lineNum">    1700 </span>            :   }
 <span class="lineNum">    1701 </span>            : };
-<span class="lineNum">    1702 </span>            : 
-<span class="lineNum">    1703 </span>            : struct LiteralBuilder {
-<a name="1704"><span class="lineNum">    1704 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;</a>
-<span class="lineNum">    1705 </span>            :   flatbuffers::uoffset_t start_;
+<a name="1702"><span class="lineNum">    1702 </span><span class="lineCov">      13332 : </span></a>
+<span class="lineNum">    1703 </span><span class="lineCov">      13332 : struct LiteralBuilder {</span>
+<span class="lineNum">    1704 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;
+<a name="1705"><span class="lineNum">    1705 </span><span class="lineCov">      13332 :   flatbuffers::uoffset_t start_;</span></a>
 <span class="lineNum">    1706 </span><span class="lineCov">      13332 :   void add_type(int32_t type) {</span>
-<a name="1707"><span class="lineNum">    1707 </span><span class="lineCov">      13332 :     fbb_.AddElement&lt;int32_t&gt;(Literal::VT_TYPE, type, 0);</span></a>
-<span class="lineNum">    1708 </span><span class="lineCov">      13332 :   }</span>
+<span class="lineNum">    1707 </span>            :     fbb_.AddElement&lt;int32_t&gt;(Literal::VT_TYPE, type, 0);
+<a name="1708"><span class="lineNum">    1708 </span><span class="lineCov">      13332 :   }</span></a>
 <span class="lineNum">    1709 </span><span class="lineCov">      13332 :   LiteralBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)</span>
-<span class="lineNum">    1710 </span><span class="lineCov">      13332 :         : fbb_(_fbb) {</span>
-<span class="lineNum">    1711 </span><span class="lineCov">      13332 :     start_ = fbb_.StartTable();</span>
-<a name="1712"><span class="lineNum">    1712 </span><span class="lineCov">      13332 :   }</span></a>
+<span class="lineNum">    1710 </span>            :         : fbb_(_fbb) {
+<a name="1711"><span class="lineNum">    1711 </span><span class="lineCov">      13332 :     start_ = fbb_.StartTable();</span></a>
+<span class="lineNum">    1712 </span><span class="lineCov">      13332 :   }</span>
 <span class="lineNum">    1713 </span>            :   LiteralBuilder &amp;operator=(const LiteralBuilder &amp;);
-<span class="lineNum">    1714 </span><span class="lineCov">      13332 :   flatbuffers::Offset&lt;Literal&gt; Finish() {</span>
+<span class="lineNum">    1714 </span><span class="lineCov">      26664 :   flatbuffers::Offset&lt;Literal&gt; Finish() {</span>
 <span class="lineNum">    1715 </span><span class="lineCov">      13332 :     const auto end = fbb_.EndTable(start_, 1);</span>
-<span class="lineNum">    1716 </span><span class="lineCov">      13332 :     auto o = flatbuffers::Offset&lt;Literal&gt;(end);</span>
-<span class="lineNum">    1717 </span><span class="lineCov">      13332 :     return o;</span>
+<a name="1716"><span class="lineNum">    1716 </span><span class="lineCov">      26664 :     auto o = flatbuffers::Offset&lt;Literal&gt;(end);</span></a>
+<span class="lineNum">    1717 </span>            :     return o;
 <span class="lineNum">    1718 </span>            :   }
-<a name="1719"><span class="lineNum">    1719 </span>            : };</a>
-<span class="lineNum">    1720 </span>            : 
+<span class="lineNum">    1719 </span><span class="lineCov">      13332 : };</span>
+<span class="lineNum">    1720 </span><span class="lineCov">      13332 : </span>
 <span class="lineNum">    1721 </span><span class="lineCov">      13332 : inline flatbuffers::Offset&lt;Literal&gt; CreateLiteral(</span>
 <span class="lineNum">    1722 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
-<span class="lineNum">    1723 </span>            :     int32_t type = 0) {
-<span class="lineNum">    1724 </span><span class="lineCov">      13332 :   LiteralBuilder builder_(_fbb);</span>
-<span class="lineNum">    1725 </span><span class="lineCov">      13332 :   builder_.add_type(type);</span>
-<span class="lineNum">    1726 </span><span class="lineCov">      13332 :   return builder_.Finish();</span>
+<a name="1723"><span class="lineNum">    1723 </span>            :     int32_t type = 0) {</a>
+<span class="lineNum">    1724 </span>            :   LiteralBuilder builder_(_fbb);
+<span class="lineNum">    1725 </span>            :   builder_.add_type(type);
+<span class="lineNum">    1726 </span>            :   return builder_.Finish();
 <span class="lineNum">    1727 </span>            : }
 <span class="lineNum">    1728 </span>            : 
 <span class="lineNum">    1729 </span>            : }  // namespace _Element
 <span class="lineNum">    1730 </span>            : 
-<span class="lineNum">    1731 </span>            : struct Delta FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
-<span class="lineNum">    1732 </span>            :   enum {
-<span class="lineNum">    1733 </span>            :     VT_SRC = 4,
-<span class="lineNum">    1734 </span>            :     VT_DST = 6,
-<span class="lineNum">    1735 </span>            :     VT_DIFF = 8
-<span class="lineNum">    1736 </span>            :   };
+<span class="lineNum">    1731 </span><span class="lineCov">      13332 : struct Delta FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {</span>
+<span class="lineNum">    1732 </span><span class="lineCov">      13332 :   enum {</span>
+<span class="lineNum">    1733 </span><span class="lineCov">      13332 :     VT_SRC = 4,</span>
+<span class="lineNum">    1734 </span><span class="lineCov">      13332 :     VT_DST = 6,</span>
+<span class="lineNum">    1735 </span><span class="lineCov">      13332 :     VT_DIFF = 8</span>
+<span class="lineNum">    1736 </span><span class="lineCov">      13332 :   };</span>
 <span class="lineNum">    1737 </span>            :   const flatbuffers::String *src() const {
 <span class="lineNum">    1738 </span>            :     return GetPointer&lt;const flatbuffers::String *&gt;(VT_SRC);
 <span class="lineNum">    1739 </span>            :   }
@@ -1814,10 +1814,10 @@
 <span class="lineNum">    1752 </span>            :            VerifyField&lt;flatbuffers::uoffset_t&gt;(verifier, VT_DIFF) &amp;&amp;
 <span class="lineNum">    1753 </span>            :            verifier.Verify(diff()) &amp;&amp;
 <span class="lineNum">    1754 </span>            :            verifier.VerifyVectorOfTables(diff()) &amp;&amp;
-<span class="lineNum">    1755 </span>            :            verifier.EndTable();
+<a name="1755"><span class="lineNum">    1755 </span>            :            verifier.EndTable();</a>
 <span class="lineNum">    1756 </span>            :   }
 <span class="lineNum">    1757 </span>            : };
-<span class="lineNum">    1758 </span>            : 
+<span class="lineNum">    1758 </span><span class="lineNoCov">          0 : </span>
 <span class="lineNum">    1759 </span>            : struct DeltaBuilder {
 <span class="lineNum">    1760 </span>            :   flatbuffers::FlatBufferBuilder &amp;fbb_;
 <span class="lineNum">    1761 </span>            :   flatbuffers::uoffset_t start_;
@@ -1827,29 +1827,29 @@
 <span class="lineNum">    1765 </span>            :   void add_dst(flatbuffers::Offset&lt;flatbuffers::String&gt; dst) {
 <span class="lineNum">    1766 </span>            :     fbb_.AddOffset(Delta::VT_DST, dst);
 <span class="lineNum">    1767 </span>            :   }
-<span class="lineNum">    1768 </span>            :   void add_diff(flatbuffers::Offset&lt;flatbuffers::Vector&lt;flatbuffers::Offset&lt;_fast::_Delta::Diff&gt;&gt;&gt; diff) {
+<a name="1768"><span class="lineNum">    1768 </span>            :   void add_diff(flatbuffers::Offset&lt;flatbuffers::Vector&lt;flatbuffers::Offset&lt;_fast::_Delta::Diff&gt;&gt;&gt; diff) {</a>
 <span class="lineNum">    1769 </span>            :     fbb_.AddOffset(Delta::VT_DIFF, diff);
 <span class="lineNum">    1770 </span>            :   }
-<span class="lineNum">    1771 </span>            :   DeltaBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)
-<span class="lineNum">    1772 </span>            :         : fbb_(_fbb) {
+<a name="1771"><span class="lineNum">    1771 </span><span class="lineCov">      13332 :   DeltaBuilder(flatbuffers::FlatBufferBuilder &amp;_fbb)</span></a>
+<span class="lineNum">    1772 </span><span class="lineCov">      13332 :         : fbb_(_fbb) {</span>
 <span class="lineNum">    1773 </span>            :     start_ = fbb_.StartTable();
-<span class="lineNum">    1774 </span>            :   }
-<span class="lineNum">    1775 </span>            :   DeltaBuilder &amp;operator=(const DeltaBuilder &amp;);
-<span class="lineNum">    1776 </span>            :   flatbuffers::Offset&lt;Delta&gt; Finish() {
+<span class="lineNum">    1774 </span><span class="lineCov">      26664 :   }</span>
+<span class="lineNum">    1775 </span><span class="lineCov">      13332 :   DeltaBuilder &amp;operator=(const DeltaBuilder &amp;);</span>
+<a name="1776"><span class="lineNum">    1776 </span><span class="lineCov">      26664 :   flatbuffers::Offset&lt;Delta&gt; Finish() {</span></a>
 <span class="lineNum">    1777 </span>            :     const auto end = fbb_.EndTable(start_, 3);
 <span class="lineNum">    1778 </span>            :     auto o = flatbuffers::Offset&lt;Delta&gt;(end);
-<span class="lineNum">    1779 </span>            :     return o;
-<span class="lineNum">    1780 </span>            :   }
-<span class="lineNum">    1781 </span>            : };
+<span class="lineNum">    1779 </span><span class="lineCov">      13332 :     return o;</span>
+<span class="lineNum">    1780 </span><span class="lineCov">      13332 :   }</span>
+<span class="lineNum">    1781 </span><span class="lineCov">      13332 : };</span>
 <span class="lineNum">    1782 </span>            : 
-<span class="lineNum">    1783 </span>            : inline flatbuffers::Offset&lt;Delta&gt; CreateDelta(
+<a name="1783"><span class="lineNum">    1783 </span>            : inline flatbuffers::Offset&lt;Delta&gt; CreateDelta(</a>
 <span class="lineNum">    1784 </span>            :     flatbuffers::FlatBufferBuilder &amp;_fbb,
 <span class="lineNum">    1785 </span>            :     flatbuffers::Offset&lt;flatbuffers::String&gt; src = 0,
 <span class="lineNum">    1786 </span>            :     flatbuffers::Offset&lt;flatbuffers::String&gt; dst = 0,
 <span class="lineNum">    1787 </span>            :     flatbuffers::Offset&lt;flatbuffers::Vector&lt;flatbuffers::Offset&lt;_fast::_Delta::Diff&gt;&gt;&gt; diff = 0) {
-<span class="lineNum">    1788 </span>            :   DeltaBuilder builder_(_fbb);
-<span class="lineNum">    1789 </span>            :   builder_.add_diff(diff);
-<span class="lineNum">    1790 </span>            :   builder_.add_dst(dst);
+<span class="lineNum">    1788 </span><span class="lineCov">      13332 :   DeltaBuilder builder_(_fbb);</span>
+<span class="lineNum">    1789 </span><span class="lineCov">      13332 :   builder_.add_diff(diff);</span>
+<span class="lineNum">    1790 </span><span class="lineCov">      13332 :   builder_.add_dst(dst);</span>
 <span class="lineNum">    1791 </span>            :   builder_.add_src(src);
 <span class="lineNum">    1792 </span>            :   return builder_.Finish();
 <span class="lineNum">    1793 </span>            : }
@@ -2544,7 +2544,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
   </table>
   <br>
 

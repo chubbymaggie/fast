@@ -31,18 +31,18 @@
             <td class="headerValue">fast.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">311</td>
-            <td class="headerCovTableEntry">526</td>
-            <td class="headerCovTableEntryLo">59.1 %</td>
+            <td class="headerCovTableEntry">296</td>
+            <td class="headerCovTableEntry">528</td>
+            <td class="headerCovTableEntryLo">56.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-06-25 16:03:51</td>
+            <td class="headerValue">2017-06-25 17:14:03</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">59</td>
-            <td class="headerCovTableEntry">82</td>
-            <td class="headerCovTableEntryLo">72.0 %</td>
+            <td class="headerCovTableEntry">63</td>
+            <td class="headerCovTableEntry">90</td>
+            <td class="headerCovTableEntryLo">70.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -138,17 +138,17 @@
 <span class="lineNum">      76 </span>            :     public:
 <a name="77"><span class="lineNum">      77 </span>            : </a>
 <span class="lineNum">      78 </span>            :         //! Constructs parse error
-<span class="lineNum">      79 </span><span class="lineNoCov">          0 :         parse_error(const char *what, void *where)</span>
-<span class="lineNum">      80 </span>            :             : std::runtime_error(what)
+<span class="lineNum">      79 </span>            :         parse_error(const char *what, void *where)
+<span class="lineNum">      80 </span><span class="lineNoCov">          0 :             : std::runtime_error(what)</span>
 <span class="lineNum">      81 </span><span class="lineNoCov">          0 :             , m_where(where)</span>
-<span class="lineNum">      82 </span>            :         {
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :         {</span>
 <span class="lineNum">      83 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">      84 </span>            : 
 <span class="lineNum">      85 </span>            :         //! Gets pointer to character data where error happened.
 <span class="lineNum">      86 </span>            :         //! Ch should be the same as char type of xml_document that produced the error.
 <a name="87"><span class="lineNum">      87 </span>            :         //! \return Pointer to location within the parsed string where error occured.</a>
 <span class="lineNum">      88 </span>            :         template&lt;class Ch&gt;
-<span class="lineNum">      89 </span><span class="lineNoCov">          0 :         Ch *where() const</span>
+<span class="lineNum">      89 </span>            :         Ch *where() const
 <span class="lineNum">      90 </span>            :         {
 <span class="lineNum">      91 </span><span class="lineNoCov">          0 :             return reinterpret_cast&lt;Ch *&gt;(m_where);</span>
 <span class="lineNum">      92 </span>            :         }
@@ -200,9 +200,9 @@
 <span class="lineNum">     138 </span>            : namespace rapidxml
 <span class="lineNum">     139 </span>            : {
 <span class="lineNum">     140 </span>            :     // Forward declarations
-<span class="lineNum">     141 </span>            :     template&lt;class Ch&gt; class xml_node;
+<a name="141"><span class="lineNum">     141 </span>            :     template&lt;class Ch&gt; class xml_node;</a>
 <span class="lineNum">     142 </span>            :     template&lt;class Ch&gt; class xml_attribute;
-<span class="lineNum">     143 </span>            :     template&lt;class Ch&gt; class xml_document;
+<span class="lineNum">     143 </span><span class="lineCov">         30 :     template&lt;class Ch&gt; class xml_document;</span>
 <span class="lineNum">     144 </span>            : 
 <span class="lineNum">     145 </span>            :     //! Enumeration listing all node types produced by the parser.
 <span class="lineNum">     146 </span>            :     //! Use xml_node::type() function to query node type.
@@ -389,17 +389,17 @@
 <span class="lineNum">     327 </span>            : 
 <a name="328"><span class="lineNum">     328 </span>            :         // Find length of the string</a>
 <span class="lineNum">     329 </span>            :         template&lt;class Ch&gt;
-<span class="lineNum">     330 </span><span class="lineCov">         15 :         inline std::size_t measure(const Ch *p)</span>
+<span class="lineNum">     330 </span>            :         inline std::size_t measure(const Ch *p)
 <span class="lineNum">     331 </span>            :         {
 <span class="lineNum">     332 </span><span class="lineCov">         15 :             const Ch *tmp = p;</span>
-<span class="lineNum">     333 </span><span class="lineCov">         15 :             while (*tmp)</span>
+<span class="lineNum">     333 </span><span class="lineCov">         30 :             while (*tmp)</span>
 <span class="lineNum">     334 </span><span class="lineNoCov">          0 :                 ++tmp;</span>
 <span class="lineNum">     335 </span><span class="lineCov">         15 :             return tmp - p;</span>
 <span class="lineNum">     336 </span>            :         }
 <span class="lineNum">     337 </span>            : 
 <a name="338"><span class="lineNum">     338 </span>            :         // Compare strings for equality</a>
 <span class="lineNum">     339 </span>            :         template&lt;class Ch&gt;
-<span class="lineNum">     340 </span><span class="lineNoCov">          0 :         inline bool compare(const Ch *p1, std::size_t size1, const Ch *p2, std::size_t size2, bool case_sensitive)</span>
+<span class="lineNum">     340 </span>            :         inline bool compare(const Ch *p1, std::size_t size1, const Ch *p2, std::size_t size2, bool case_sensitive)
 <span class="lineNum">     341 </span>            :         {
 <span class="lineNum">     342 </span><span class="lineNoCov">          0 :             if (size1 != size2)</span>
 <span class="lineNum">     343 </span><span class="lineNoCov">          0 :                 return false;</span>
@@ -408,7 +408,7 @@
 <span class="lineNum">     346 </span><span class="lineNoCov">          0 :                 for (const Ch *end = p1 + size1; p1 &lt; end; ++p1, ++p2)</span>
 <span class="lineNum">     347 </span><span class="lineNoCov">          0 :                     if (*p1 != *p2)</span>
 <span class="lineNum">     348 </span><span class="lineNoCov">          0 :                         return false;</span>
-<span class="lineNum">     349 </span>            :             }
+<span class="lineNum">     349 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">     350 </span>            :             else
 <span class="lineNum">     351 </span>            :             {
 <span class="lineNum">     352 </span><span class="lineNoCov">          0 :                 for (const Ch *end = p1 + size1; p1 &lt; end; ++p1, ++p2)</span>
@@ -416,7 +416,7 @@
 <span class="lineNum">     354 </span><span class="lineNoCov">          0 :                         return false;</span>
 <span class="lineNum">     355 </span>            :             }
 <span class="lineNum">     356 </span><span class="lineNoCov">          0 :             return true;</span>
-<span class="lineNum">     357 </span>            :         }
+<span class="lineNum">     357 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">     358 </span>            :     }
 <span class="lineNum">     359 </span>            :     //! \endcond
 <span class="lineNum">     360 </span>            : 
@@ -469,8 +469,8 @@
 <span class="lineNum">     407 </span>            :         //! \endcond
 <a name="408"><span class="lineNum">     408 </span>            : </a>
 <span class="lineNum">     409 </span>            :         //! Constructs empty pool with default allocator functions.
-<span class="lineNum">     410 </span><span class="lineCov">         15 :         memory_pool()</span>
-<span class="lineNum">     411 </span>            :             : m_alloc_func(0)
+<span class="lineNum">     410 </span>            :         memory_pool()
+<span class="lineNum">     411 </span><span class="lineCov">         15 :             : m_alloc_func(0)</span>
 <span class="lineNum">     412 </span><span class="lineCov">         15 :             , m_free_func(0)</span>
 <span class="lineNum">     413 </span>            :         {
 <span class="lineNum">     414 </span><span class="lineCov">         15 :             init();</span>
@@ -479,7 +479,7 @@
 <span class="lineNum">     417 </span>            :         //! Destroys pool and frees all the memory.
 <a name="418"><span class="lineNum">     418 </span>            :         //! This causes memory occupied by nodes allocated by the pool to be freed.</a>
 <span class="lineNum">     419 </span>            :         //! Nodes allocated from the pool are no longer valid.
-<span class="lineNum">     420 </span><span class="lineCov">         15 :         ~memory_pool()</span>
+<span class="lineNum">     420 </span>            :         ~memory_pool()
 <span class="lineNum">     421 </span>            :         {
 <span class="lineNum">     422 </span><span class="lineCov">         15 :             clear();</span>
 <span class="lineNum">     423 </span><span class="lineCov">         15 :         }</span>
@@ -494,7 +494,7 @@
 <span class="lineNum">     432 </span>            :         //! \param name_size Size of name to assign, or 0 to automatically calculate size from name string.
 <a name="433"><span class="lineNum">     433 </span>            :         //! \param value_size Size of value to assign, or 0 to automatically calculate size from value string.</a>
 <span class="lineNum">     434 </span>            :         //! \return Pointer to allocated node. This pointer will never be NULL.
-<span class="lineNum">     435 </span><span class="lineCov">     133911 :         xml_node&lt;Ch&gt; *allocate_node(node_type type,</span>
+<span class="lineNum">     435 </span>            :         xml_node&lt;Ch&gt; *allocate_node(node_type type,
 <span class="lineNum">     436 </span>            :                                     const Ch *name = 0, const Ch *value = 0,
 <span class="lineNum">     437 </span>            :                                     std::size_t name_size = 0, std::size_t value_size = 0)
 <span class="lineNum">     438 </span>            :         {
@@ -506,7 +506,7 @@
 <span class="lineNum">     444 </span><span class="lineNoCov">          0 :                     node-&gt;name(name, name_size);</span>
 <span class="lineNum">     445 </span>            :                 else
 <span class="lineNum">     446 </span><span class="lineNoCov">          0 :                     node-&gt;name(name);</span>
-<span class="lineNum">     447 </span>            :             }
+<span class="lineNum">     447 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">     448 </span>            :             else
 <span class="lineNum">     449 </span>            :             {
 <span class="lineNum">     450 </span><span class="lineCov">     133911 :                 node-&gt;name(this-&gt;nullstr(), 0);</span>
@@ -517,7 +517,7 @@
 <span class="lineNum">     455 </span><span class="lineNoCov">          0 :                     node-&gt;value(value, value_size);</span>
 <span class="lineNum">     456 </span>            :                 else
 <span class="lineNum">     457 </span><span class="lineNoCov">          0 :                     node-&gt;value(value);</span>
-<span class="lineNum">     458 </span>            :             }
+<span class="lineNum">     458 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">     459 </span>            :             else
 <span class="lineNum">     460 </span>            :             {
 <span class="lineNum">     461 </span><span class="lineCov">     133911 :                 node-&gt;value(this-&gt;nullstr(), 0);</span>
@@ -534,7 +534,7 @@
 <span class="lineNum">     472 </span>            :         //! \param name_size Size of name to assign, or 0 to automatically calculate size from name string.
 <a name="473"><span class="lineNum">     473 </span>            :         //! \param value_size Size of value to assign, or 0 to automatically calculate size from value string.</a>
 <span class="lineNum">     474 </span>            :         //! \return Pointer to allocated attribute. This pointer will never be NULL.
-<span class="lineNum">     475 </span><span class="lineCov">       4557 :         xml_attribute&lt;Ch&gt; *allocate_attribute(const Ch *name = 0, const Ch *value = 0,</span>
+<span class="lineNum">     475 </span>            :         xml_attribute&lt;Ch&gt; *allocate_attribute(const Ch *name = 0, const Ch *value = 0,
 <span class="lineNum">     476 </span>            :                                               std::size_t name_size = 0, std::size_t value_size = 0)
 <span class="lineNum">     477 </span>            :         {
 <span class="lineNum">     478 </span><span class="lineCov">       4557 :             void *memory = allocate_aligned(sizeof(xml_attribute&lt;Ch&gt;));</span>
@@ -545,14 +545,14 @@
 <span class="lineNum">     483 </span><span class="lineNoCov">          0 :                     attribute-&gt;name(name, name_size);</span>
 <span class="lineNum">     484 </span>            :                 else
 <span class="lineNum">     485 </span><span class="lineNoCov">          0 :                     attribute-&gt;name(name);</span>
-<span class="lineNum">     486 </span>            :             }
+<span class="lineNum">     486 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">     487 </span><span class="lineCov">       4557 :             if (value)</span>
 <span class="lineNum">     488 </span>            :             {
 <span class="lineNum">     489 </span><span class="lineNoCov">          0 :                 if (value_size &gt; 0)</span>
 <span class="lineNum">     490 </span><span class="lineNoCov">          0 :                     attribute-&gt;value(value, value_size);</span>
 <span class="lineNum">     491 </span>            :                 else
 <span class="lineNum">     492 </span><span class="lineNoCov">          0 :                     attribute-&gt;value(value);</span>
-<span class="lineNum">     493 </span>            :             }
+<span class="lineNum">     493 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">     494 </span><span class="lineCov">       4557 :             return attribute;</span>
 <span class="lineNum">     495 </span>            :         }
 <span class="lineNum">     496 </span>            : 
@@ -564,32 +564,32 @@
 <span class="lineNum">     502 </span>            :         //! \param size Number of characters to allocate, or zero to calculate it automatically from source string length; if size is 0, source string must be specified and null terminated.
 <a name="503"><span class="lineNum">     503 </span>            :         //! \return Pointer to allocated char array. This pointer will never be NULL.</a>
 <span class="lineNum">     504 </span>            :         template&lt;typename Sch&gt;
-<span class="lineNum">     505 </span><span class="lineCov">         15 :         Ch *allocate_string(const Sch *source = 0, std::size_t size = 0)</span>
+<span class="lineNum">     505 </span>            :         Ch *allocate_string(const Sch *source = 0, std::size_t size = 0)
 <span class="lineNum">     506 </span>            :         {
-<span class="lineNum">     507 </span><span class="lineCov">         15 :             assert(source || size);     // Either source or size (or both) must be specified</span>
+<span class="lineNum">     507 </span><span class="lineCov">         45 :             assert(source || size);     // Either source or size (or both) must be specified</span>
 <span class="lineNum">     508 </span><span class="lineCov">         15 :             if (size == 0)</span>
 <span class="lineNum">     509 </span><span class="lineCov">         15 :                 size = internal::measure(source) + 1;</span>
 <span class="lineNum">     510 </span><span class="lineCov">         15 :             Ch *result = static_cast&lt;Ch *&gt;(allocate_aligned(size * sizeof(Ch)));</span>
 <span class="lineNum">     511 </span><span class="lineCov">         15 :             if (source)</span>
-<span class="lineNum">     512 </span><span class="lineCov">         30 :                 for (std::size_t i = 0; i &lt; size; ++i)</span>
-<span class="lineNum">     513 </span><span class="lineCov">         15 :                     result[i] = source[i];</span>
+<span class="lineNum">     512 </span><span class="lineCov">         60 :                 for (std::size_t i = 0; i &lt; size; ++i)</span>
+<span class="lineNum">     513 </span><span class="lineCov">         30 :                     result[i] = source[i];</span>
 <span class="lineNum">     514 </span><span class="lineCov">         15 :             return result;</span>
 <a name="515"><span class="lineNum">     515 </span>            :         }</a>
 <span class="lineNum">     516 </span>            : 
-<span class="lineNum">     517 </span><span class="lineCov">     267822 :         Ch * nullstr()</span>
+<span class="lineNum">     517 </span>            :         Ch * nullstr()
 <span class="lineNum">     518 </span>            :         {
 <span class="lineNum">     519 </span><span class="lineCov">     267822 :             if (!m_nullstr)</span>
 <span class="lineNum">     520 </span><span class="lineCov">         15 :                 m_nullstr = allocate_string(&quot;&quot;);</span>
 <a name="521"><span class="lineNum">     521 </span><span class="lineCov">     267822 :             return m_nullstr;</span></a>
 <span class="lineNum">     522 </span>            :         }
-<span class="lineNum">     523 </span><span class="lineNoCov">          0 :         Ch * xmlns_xml(std::size_t &amp; xmlns_size)</span>
+<span class="lineNum">     523 </span>            :         Ch * xmlns_xml(std::size_t &amp; xmlns_size)
 <span class="lineNum">     524 </span>            :         {
 <span class="lineNum">     525 </span><span class="lineNoCov">          0 :             if (!m_xmlns_xml)</span>
 <span class="lineNum">     526 </span><span class="lineNoCov">          0 :                 m_xmlns_xml = allocate_string(&quot;http://www.w3.org/XML/1998/namespace&quot;);</span>
 <span class="lineNum">     527 </span><span class="lineNoCov">          0 :             xmlns_size = internal::measure(m_xmlns_xml);</span>
 <a name="528"><span class="lineNum">     528 </span><span class="lineNoCov">          0 :             return m_xmlns_xml;</span></a>
 <span class="lineNum">     529 </span>            :         }
-<span class="lineNum">     530 </span><span class="lineNoCov">          0 :         Ch * xmlns_xmlns(std::size_t &amp; xmlns_size)</span>
+<span class="lineNum">     530 </span>            :         Ch * xmlns_xmlns(std::size_t &amp; xmlns_size)
 <span class="lineNum">     531 </span>            :         {
 <span class="lineNum">     532 </span><span class="lineNoCov">          0 :             if (!m_xmlns_xmlns)</span>
 <span class="lineNum">     533 </span><span class="lineNoCov">          0 :                 m_xmlns_xmlns = allocate_string(&quot;http://www.w3.org/2000/xmlns/&quot;);</span>
@@ -635,15 +635,15 @@
 <span class="lineNum">     573 </span>            :         //! Clears the pool.
 <a name="574"><span class="lineNum">     574 </span>            :         //! This causes memory occupied by nodes allocated by the pool to be freed.</a>
 <span class="lineNum">     575 </span>            :         //! Any nodes or strings allocated from the pool will no longer be valid.
-<span class="lineNum">     576 </span><span class="lineCov">        310 :         void clear()</span>
+<span class="lineNum">     576 </span>            :         void clear()
 <span class="lineNum">     577 </span>            :         {
-<span class="lineNum">     578 </span><span class="lineCov">        605 :             while (m_begin != m_static_memory)</span>
+<span class="lineNum">     578 </span><span class="lineCov">        620 :             while (m_begin != m_static_memory)</span>
 <span class="lineNum">     579 </span>            :             {
 <span class="lineNum">     580 </span><span class="lineCov">        295 :                 char *previous_begin = reinterpret_cast&lt;header *&gt;(align(m_begin))-&gt;previous_begin;</span>
 <span class="lineNum">     581 </span><span class="lineCov">        295 :                 if (m_free_func)</span>
 <span class="lineNum">     582 </span><span class="lineNoCov">          0 :                     m_free_func(m_begin);</span>
 <span class="lineNum">     583 </span>            :                 else
-<span class="lineNum">     584 </span><span class="lineCov">        295 :                     delete[] m_begin;</span>
+<span class="lineNum">     584 </span><span class="lineCov">        590 :                     delete[] m_begin;</span>
 <span class="lineNum">     585 </span><span class="lineCov">        295 :                 m_begin = previous_begin;</span>
 <span class="lineNum">     586 </span>            :             }
 <span class="lineNum">     587 </span><span class="lineCov">         15 :             init();</span>
@@ -676,7 +676,7 @@
 <span class="lineNum">     614 </span>            :             char *previous_begin;
 <a name="615"><span class="lineNum">     615 </span>            :         };</a>
 <span class="lineNum">     616 </span>            : 
-<span class="lineNum">     617 </span><span class="lineCov">         30 :         void init()</span>
+<span class="lineNum">     617 </span>            :         void init()
 <span class="lineNum">     618 </span>            :         {
 <span class="lineNum">     619 </span><span class="lineCov">         30 :             m_begin = m_static_memory;</span>
 <span class="lineNum">     620 </span><span class="lineCov">         30 :             m_ptr = align(m_begin);</span>
@@ -686,13 +686,13 @@
 <span class="lineNum">     624 </span><span class="lineCov">         30 :             m_xmlns_xmlns = 0;</span>
 <a name="625"><span class="lineNum">     625 </span><span class="lineCov">         30 :         }</span></a>
 <span class="lineNum">     626 </span>            : 
-<span class="lineNum">     627 </span><span class="lineCov">     139398 :         char *align(char *ptr)</span>
+<span class="lineNum">     627 </span>            :         char *align(char *ptr)
 <span class="lineNum">     628 </span>            :         {
 <span class="lineNum">     629 </span><span class="lineCov">     139398 :             std::size_t alignment = ((RAPIDXML_ALIGNMENT - (std::size_t(ptr) &amp; (RAPIDXML_ALIGNMENT - 1))) &amp; (RAPIDXML_ALIGNMENT - 1));</span>
 <span class="lineNum">     630 </span><span class="lineCov">     139398 :             return ptr + alignment;</span>
 <a name="631"><span class="lineNum">     631 </span>            :         }</a>
 <span class="lineNum">     632 </span>            : 
-<span class="lineNum">     633 </span><span class="lineCov">        295 :         char *allocate_raw(std::size_t size)</span>
+<span class="lineNum">     633 </span>            :         char *allocate_raw(std::size_t size)
 <span class="lineNum">     634 </span>            :         {
 <span class="lineNum">     635 </span>            :             // Allocate
 <span class="lineNum">     636 </span>            :             void *memory;
@@ -700,7 +700,7 @@
 <span class="lineNum">     638 </span>            :             {
 <span class="lineNum">     639 </span><span class="lineNoCov">          0 :                 memory = m_alloc_func(size);</span>
 <span class="lineNum">     640 </span><span class="lineNoCov">          0 :                 assert(memory); // Allocator is not allowed to return 0, on failure it must either throw, stop the program or use longjmp</span>
-<span class="lineNum">     641 </span>            :             }
+<span class="lineNum">     641 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">     642 </span>            :             else
 <span class="lineNum">     643 </span>            :             {
 <span class="lineNum">     644 </span><span class="lineCov">        295 :                 memory = new char[size];</span>
@@ -712,7 +712,7 @@
 <span class="lineNum">     650 </span><span class="lineCov">        295 :             return static_cast&lt;char *&gt;(memory);</span>
 <a name="651"><span class="lineNum">     651 </span>            :         }</a>
 <span class="lineNum">     652 </span>            : 
-<span class="lineNum">     653 </span><span class="lineCov">     138483 :         void *allocate_aligned(std::size_t size)</span>
+<span class="lineNum">     653 </span>            :         void *allocate_aligned(std::size_t size)
 <span class="lineNum">     654 </span>            :         {
 <span class="lineNum">     655 </span>            :             // Calculate aligned pointer
 <span class="lineNum">     656 </span><span class="lineCov">     138483 :             char *result = align(m_ptr);</span>
@@ -739,7 +739,7 @@
 <span class="lineNum">     677 </span>            : 
 <span class="lineNum">     678 </span>            :                 // Calculate aligned pointer again using new pool
 <span class="lineNum">     679 </span><span class="lineCov">        295 :                 result = align(m_ptr);</span>
-<span class="lineNum">     680 </span>            :             }
+<span class="lineNum">     680 </span><span class="lineCov">        295 :             }</span>
 <span class="lineNum">     681 </span>            : 
 <span class="lineNum">     682 </span>            :             // Update pool and return aligned pointer
 <span class="lineNum">     683 </span><span class="lineCov">     138483 :             m_ptr = result + size;</span>
@@ -773,11 +773,11 @@
 <span class="lineNum">     711 </span>            :         // Construction &amp; destruction
 <a name="712"><span class="lineNum">     712 </span>            : </a>
 <span class="lineNum">     713 </span>            :         // Construct a base with empty name, value and parent
-<span class="lineNum">     714 </span><span class="lineCov">     138483 :         xml_base()</span>
-<span class="lineNum">     715 </span>            :             : m_name(0)
-<span class="lineNum">     716 </span>            :             , m_value(0)
-<span class="lineNum">     717 </span>            :             , m_name_size(0)
-<span class="lineNum">     718 </span>            :             , m_value_size(0)
+<span class="lineNum">     714 </span>            :         xml_base()
+<span class="lineNum">     715 </span><span class="lineCov">     138483 :             : m_name(0)</span>
+<span class="lineNum">     716 </span><span class="lineCov">     138483 :             , m_value(0)</span>
+<span class="lineNum">     717 </span><span class="lineCov">     138483 :             , m_name_size(0)</span>
+<span class="lineNum">     718 </span><span class="lineCov">     138483 :             , m_value_size(0)</span>
 <span class="lineNum">     719 </span><span class="lineCov">     138483 :             , m_parent(0)</span>
 <span class="lineNum">     720 </span>            :         {
 <span class="lineNum">     721 </span><span class="lineCov">     138483 :         }</span>
@@ -791,7 +791,7 @@
 <span class="lineNum">     729 </span>            :         //! &lt;br&gt;&lt;br&gt;
 <a name="730"><span class="lineNum">     730 </span>            :         //! Use name_size() function to determine length of the name.</a>
 <span class="lineNum">     731 </span>            :         //! \return Name of node, or empty string if node has no name.
-<span class="lineNum">     732 </span><span class="lineCov">     392440 :         Ch *name() const</span>
+<span class="lineNum">     732 </span>            :         Ch *name() const
 <span class="lineNum">     733 </span>            :         {
 <span class="lineNum">     734 </span><span class="lineCov">     392440 :             return m_name;</span>
 <span class="lineNum">     735 </span>            :         }
@@ -799,9 +799,9 @@
 <span class="lineNum">     737 </span>            :         //! Gets size of node name, not including terminator character.
 <a name="738"><span class="lineNum">     738 </span>            :         //! This function works correctly irrespective of whether name is or is not zero terminated.</a>
 <span class="lineNum">     739 </span>            :         //! \return Size of node name, in characters.
-<span class="lineNum">     740 </span><span class="lineCov">      73244 :         std::size_t name_size() const</span>
+<span class="lineNum">     740 </span>            :         std::size_t name_size() const
 <span class="lineNum">     741 </span>            :         {
-<span class="lineNum">     742 </span><span class="lineCov">      73244 :             return m_name ? m_name_size : 0;</span>
+<span class="lineNum">     742 </span><span class="lineCov">     219732 :             return m_name ? m_name_size : 0;</span>
 <span class="lineNum">     743 </span>            :         }
 <span class="lineNum">     744 </span>            : 
 <span class="lineNum">     745 </span>            :         //! Gets value of node.
@@ -810,7 +810,7 @@
 <span class="lineNum">     748 </span>            :         //! &lt;br&gt;&lt;br&gt;
 <a name="749"><span class="lineNum">     749 </span>            :         //! Use value_size() function to determine length of the value.</a>
 <span class="lineNum">     750 </span>            :         //! \return Value of node, or empty string if node has no value.
-<span class="lineNum">     751 </span><span class="lineCov">     138630 :         Ch *value() const</span>
+<span class="lineNum">     751 </span>            :         Ch *value() const
 <span class="lineNum">     752 </span>            :         {
 <span class="lineNum">     753 </span><span class="lineCov">     138630 :             return m_value;</span>
 <span class="lineNum">     754 </span>            :         }
@@ -818,9 +818,9 @@
 <span class="lineNum">     756 </span>            :         //! Gets size of node value, not including terminator character.
 <a name="757"><span class="lineNum">     757 </span>            :         //! This function works correctly irrespective of whether value is or is not zero terminated.</a>
 <span class="lineNum">     758 </span>            :         //! \return Size of node value, in characters.
-<span class="lineNum">     759 </span><span class="lineCov">       4557 :         std::size_t value_size() const</span>
+<span class="lineNum">     759 </span>            :         std::size_t value_size() const
 <span class="lineNum">     760 </span>            :         {
-<span class="lineNum">     761 </span><span class="lineCov">       4557 :             return m_value ? m_value_size : 0;</span>
+<span class="lineNum">     761 </span><span class="lineCov">      13671 :             return m_value ? m_value_size : 0;</span>
 <span class="lineNum">     762 </span>            :         }
 <span class="lineNum">     763 </span>            :         ///////////////////////////////////////////////////////////////////////////
 <span class="lineNum">     764 </span>            :         // Node modification
@@ -838,7 +838,7 @@
 <span class="lineNum">     776 </span>            :         //! Use name(const Ch *) function to have the length automatically calculated (string must be zero terminated).
 <a name="777"><span class="lineNum">     777 </span>            :         //! \param name Name of node to set. Does not have to be zero terminated.</a>
 <span class="lineNum">     778 </span>            :         //! \param size Size of name, in characters. This does not include zero terminator, if one is present.
-<span class="lineNum">     779 </span><span class="lineCov">     207155 :         void name(const Ch *name, std::size_t size)</span>
+<span class="lineNum">     779 </span>            :         void name(const Ch *name, std::size_t size)
 <span class="lineNum">     780 </span>            :         {
 <span class="lineNum">     781 </span><span class="lineCov">     207155 :             m_name = const_cast&lt;Ch *&gt;(name);</span>
 <span class="lineNum">     782 </span><span class="lineCov">     207155 :             m_name_size = size;</span>
@@ -847,7 +847,7 @@
 <span class="lineNum">     785 </span>            :         //! Sets name of node to a zero-terminated string.
 <a name="786"><span class="lineNum">     786 </span>            :         //! See also \ref ownership_of_strings and xml_node::name(const Ch *, std::size_t).</a>
 <span class="lineNum">     787 </span>            :         //! \param name Name of node to set. Must be zero terminated.
-<span class="lineNum">     788 </span><span class="lineNoCov">          0 :         void name(const Ch *name)</span>
+<span class="lineNum">     788 </span>            :         void name(const Ch *name)
 <span class="lineNum">     789 </span>            :         {
 <span class="lineNum">     790 </span><span class="lineNoCov">          0 :             this-&gt;name(name, internal::measure(name));</span>
 <span class="lineNum">     791 </span><span class="lineNoCov">          0 :         }</span>
@@ -868,7 +868,7 @@
 <span class="lineNum">     806 </span>            :         //! If you want to manipulate data of elements using values, use parser flag rapidxml::parse_no_data_nodes to prevent creation of data nodes by the parser.
 <a name="807"><span class="lineNum">     807 </span>            :         //! \param value value of node to set. Does not have to be zero terminated.</a>
 <span class="lineNum">     808 </span>            :         //! \param size Size of value, in characters. This does not include zero terminator, if one is present.
-<span class="lineNum">     809 </span><span class="lineCov">     249558 :         void value(const Ch *value, std::size_t size)</span>
+<span class="lineNum">     809 </span>            :         void value(const Ch *value, std::size_t size)
 <span class="lineNum">     810 </span>            :         {
 <span class="lineNum">     811 </span><span class="lineCov">     249558 :             m_value = const_cast&lt;Ch *&gt;(value);</span>
 <span class="lineNum">     812 </span><span class="lineCov">     249558 :             m_value_size = size;</span>
@@ -877,7 +877,7 @@
 <span class="lineNum">     815 </span>            :         //! Sets value of node to a zero-terminated string.
 <a name="816"><span class="lineNum">     816 </span>            :         //! See also \ref ownership_of_strings and xml_node::value(const Ch *, std::size_t).</a>
 <span class="lineNum">     817 </span>            :         //! \param value Vame of node to set. Must be zero terminated.
-<span class="lineNum">     818 </span><span class="lineNoCov">          0 :         void value(const Ch *value)</span>
+<span class="lineNum">     818 </span>            :         void value(const Ch *value)
 <span class="lineNum">     819 </span>            :         {
 <span class="lineNum">     820 </span><span class="lineNoCov">          0 :             this-&gt;value(value, internal::measure(value));</span>
 <span class="lineNum">     821 </span><span class="lineNoCov">          0 :         }</span>
@@ -886,7 +886,7 @@
 <span class="lineNum">     824 </span>            : 
 <a name="825"><span class="lineNum">     825 </span>            :         //! Gets node parent.</a>
 <span class="lineNum">     826 </span>            :         //! \return Pointer to parent node, or 0 if there is no parent.
-<span class="lineNum">     827 </span><span class="lineCov">     138468 :         xml_node&lt;Ch&gt; *parent() const</span>
+<span class="lineNum">     827 </span>            :         xml_node&lt;Ch&gt; *parent() const
 <span class="lineNum">     828 </span>            :         {
 <span class="lineNum">     829 </span><span class="lineCov">     138468 :             return m_parent;</span>
 <span class="lineNum">     830 </span>            :         }
@@ -919,8 +919,8 @@
 <a name="857"><span class="lineNum">     857 </span>            :         //! Constructs an empty attribute with the specified type.</a>
 <span class="lineNum">     858 </span>            :         //! Consider using memory_pool of appropriate xml_document if allocating attributes manually.
 <span class="lineNum">     859 </span><span class="lineCov">       4557 :         xml_attribute() : m_prev_attribute(0), m_next_attribute(0), m_xmlns(0), m_xmlns_size(0), m_local_name(0)</span>
-<span class="lineNum">     860 </span>            :         {
-<span class="lineNum">     861 </span><span class="lineCov">       4557 :         }</span>
+<span class="lineNum">     860 </span><span class="lineCov">       9114 :         {</span>
+<span class="lineNum">     861 </span><span class="lineCov">       9114 :         }</span>
 <span class="lineNum">     862 </span>            : 
 <span class="lineNum">     863 </span>            :         ///////////////////////////////////////////////////////////////////////////
 <span class="lineNum">     864 </span>            :         // Related nodes access
@@ -984,7 +984,7 @@
 <span class="lineNum">     922 </span>            :         //! \param name_size Size of name, in characters, or 0 to have size calculated automatically from string
 <a name="923"><span class="lineNum">     923 </span>            :         //! \param case_sensitive Should name comparison be case-sensitive; non case-sensitive comparison works properly only for ASCII characters</a>
 <span class="lineNum">     924 </span>            :         //! \return Pointer to found attribute, or 0 if not found.
-<span class="lineNum">     925 </span><span class="lineCov">       4557 :         xml_attribute&lt;Ch&gt; *next_attribute(const Ch *name = 0, std::size_t name_size = 0, bool case_sensitive = true) const</span>
+<span class="lineNum">     925 </span>            :         xml_attribute&lt;Ch&gt; *next_attribute(const Ch *name = 0, std::size_t name_size = 0, bool case_sensitive = true) const
 <span class="lineNum">     926 </span>            :         {
 <span class="lineNum">     927 </span><span class="lineCov">       4557 :             if (name)</span>
 <span class="lineNum">     928 </span>            :             {
@@ -996,8 +996,8 @@
 <span class="lineNum">     934 </span><span class="lineNoCov">          0 :                 return 0;</span>
 <span class="lineNum">     935 </span>            :             }
 <span class="lineNum">     936 </span>            :             else
-<span class="lineNum">     937 </span><span class="lineCov">       4557 :                 return this-&gt;m_parent ? m_next_attribute : 0;</span>
-<span class="lineNum">     938 </span>            :         }
+<span class="lineNum">     937 </span><span class="lineCov">      13671 :                 return this-&gt;m_parent ? m_next_attribute : 0;</span>
+<span class="lineNum">     938 </span><span class="lineCov">       4557 :         }</span>
 <span class="lineNum">     939 </span>            : 
 <span class="lineNum">     940 </span>            :         Ch * local_name() const
 <span class="lineNum">     941 </span>            :         {
@@ -1049,33 +1049,33 @@
 <a name="987"><span class="lineNum">     987 </span>            :         //! Consider using memory_pool of appropriate document to allocate nodes manually.</a>
 <span class="lineNum">     988 </span>            :         //! \param type Type of node to construct.
 <span class="lineNum">     989 </span><span class="lineCov">     133926 :         xml_node(node_type type)</span>
-<span class="lineNum">     990 </span>            :             : m_prefix(0)
-<span class="lineNum">     991 </span>            :             , m_xmlns(0)
-<span class="lineNum">     992 </span>            :             , m_prefix_size(0)
-<span class="lineNum">     993 </span>            :             , m_xmlns_size(0)
-<span class="lineNum">     994 </span>            :             , m_type(type)
-<span class="lineNum">     995 </span>            :             , m_first_node(0)
-<span class="lineNum">     996 </span>            :             , m_last_node(0)
-<span class="lineNum">     997 </span>            :             , m_first_attribute(0)
-<span class="lineNum">     998 </span>            :             , m_last_attribute(0)
-<span class="lineNum">     999 </span>            :             , m_prev_sibling(0)
-<span class="lineNum">    1000 </span>            :             , m_next_sibling(0)
-<span class="lineNum">    1001 </span>            :             , m_contents(0)
+<span class="lineNum">     990 </span><span class="lineCov">     133926 :             : m_prefix(0)</span>
+<span class="lineNum">     991 </span><span class="lineCov">     133926 :             , m_xmlns(0)</span>
+<span class="lineNum">     992 </span><span class="lineCov">     133926 :             , m_prefix_size(0)</span>
+<span class="lineNum">     993 </span><span class="lineCov">     133926 :             , m_xmlns_size(0)</span>
+<span class="lineNum">     994 </span><span class="lineCov">     133926 :             , m_type(type)</span>
+<span class="lineNum">     995 </span><span class="lineCov">     133926 :             , m_first_node(0)</span>
+<span class="lineNum">     996 </span><span class="lineCov">     133926 :             , m_last_node(0)</span>
+<span class="lineNum">     997 </span><span class="lineCov">     133926 :             , m_first_attribute(0)</span>
+<span class="lineNum">     998 </span><span class="lineCov">     133926 :             , m_last_attribute(0)</span>
+<span class="lineNum">     999 </span><span class="lineCov">     133926 :             , m_prev_sibling(0)</span>
+<span class="lineNum">    1000 </span><span class="lineCov">     133926 :             , m_next_sibling(0)</span>
+<span class="lineNum">    1001 </span><span class="lineCov">     133926 :             , m_contents(0)</span>
 <span class="lineNum">    1002 </span><span class="lineCov">     133926 :             , m_contents_size(0)</span>
-<span class="lineNum">    1003 </span>            :         {
-<span class="lineNum">    1004 </span><span class="lineCov">     133926 :         }</span>
+<span class="lineNum">    1003 </span><span class="lineCov">     267837 :         {</span>
+<span class="lineNum">    1004 </span><span class="lineCov">     267837 :         }</span>
 <span class="lineNum">    1005 </span>            : 
 <span class="lineNum">    1006 </span>            :         ///////////////////////////////////////////////////////////////////////////
 <span class="lineNum">    1007 </span>            :         // Node data access
 <span class="lineNum">    1008 </span>            : 
 <a name="1009"><span class="lineNum">    1009 </span>            :         //! Gets type of node.</a>
 <span class="lineNum">    1010 </span>            :         //! \return Type of node.
-<span class="lineNum">    1011 </span><span class="lineCov">     133911 :         node_type type() const</span>
+<span class="lineNum">    1011 </span>            :         node_type type() const
 <span class="lineNum">    1012 </span>            :         {
 <span class="lineNum">    1013 </span><span class="lineCov">     133911 :             return m_type;</span>
 <a name="1014"><span class="lineNum">    1014 </span>            :         }</a>
 <span class="lineNum">    1015 </span>            : 
-<span class="lineNum">    1016 </span><span class="lineCov">         76 :         void prefix(const Ch *prefix, std::size_t size)</span>
+<span class="lineNum">    1016 </span>            :         void prefix(const Ch *prefix, std::size_t size)
 <span class="lineNum">    1017 </span>            :         {
 <span class="lineNum">    1018 </span><span class="lineCov">         76 :             m_prefix = const_cast&lt;Ch *&gt;(prefix);</span>
 <span class="lineNum">    1019 </span><span class="lineCov">         76 :             m_prefix_size = size;</span>
@@ -1085,17 +1085,17 @@
 <span class="lineNum">    1023 </span>            :             this-&gt;prefix(prefix, internal::measure(prefix));
 <a name="1024"><span class="lineNum">    1024 </span>            :         }</a>
 <span class="lineNum">    1025 </span>            : 
-<span class="lineNum">    1026 </span><span class="lineCov">      68763 :         Ch *prefix() const</span>
+<span class="lineNum">    1026 </span>            :         Ch *prefix() const
 <span class="lineNum">    1027 </span>            :         {
 <span class="lineNum">    1028 </span><span class="lineCov">      68763 :             return m_prefix;</span>
 <a name="1029"><span class="lineNum">    1029 </span>            :         }</a>
 <span class="lineNum">    1030 </span>            : 
-<span class="lineNum">    1031 </span><span class="lineCov">         76 :         std::size_t prefix_size() const</span>
+<span class="lineNum">    1031 </span>            :         std::size_t prefix_size() const
 <span class="lineNum">    1032 </span>            :         {
-<span class="lineNum">    1033 </span><span class="lineCov">         76 :             return m_prefix ? m_prefix_size : 0;</span>
+<span class="lineNum">    1033 </span><span class="lineCov">        228 :             return m_prefix ? m_prefix_size : 0;</span>
 <a name="1034"><span class="lineNum">    1034 </span>            :         }</a>
 <span class="lineNum">    1035 </span>            : 
-<span class="lineNum">    1036 </span><span class="lineCov">      68619 :         void contents(Ch const * contents, std::size_t contents_size)</span>
+<span class="lineNum">    1036 </span>            :         void contents(Ch const * contents, std::size_t contents_size)
 <span class="lineNum">    1037 </span>            :         {
 <span class="lineNum">    1038 </span><span class="lineCov">      68619 :             m_contents = contents;</span>
 <span class="lineNum">    1039 </span><span class="lineCov">      68619 :             m_contents_size = contents_size;</span>
@@ -1109,21 +1109,21 @@
 <span class="lineNum">    1047 </span>            :             return m_contents ? m_contents_size : 0;
 <a name="1048"><span class="lineNum">    1048 </span>            :         }</a>
 <span class="lineNum">    1049 </span>            : 
-<span class="lineNum">    1050 </span><span class="lineNoCov">          0 :         Ch *xmlns() const</span>
+<span class="lineNum">    1050 </span>            :         Ch *xmlns() const
 <span class="lineNum">    1051 </span>            :         {
 <span class="lineNum">    1052 </span><span class="lineNoCov">          0 :             if (m_xmlns) return m_xmlns;</span>
 <span class="lineNum">    1053 </span><span class="lineNoCov">          0 :             xmlns_lookup(m_xmlns, m_xmlns_size, m_prefix, m_prefix_size);</span>
 <span class="lineNum">    1054 </span><span class="lineNoCov">          0 :             return m_xmlns;</span>
-<a name="1055"><span class="lineNum">    1055 </span>            :         }</a>
+<a name="1055"><span class="lineNum">    1055 </span><span class="lineNoCov">          0 :         }</span></a>
 <span class="lineNum">    1056 </span>            : 
-<span class="lineNum">    1057 </span><span class="lineNoCov">          0 :         void xmlns_lookup(Ch *&amp; xmlns, size_t &amp;xmlns_size, Ch * prefix, size_t prefix_size) const</span>
+<span class="lineNum">    1057 </span>            :         void xmlns_lookup(Ch *&amp; xmlns, size_t &amp;xmlns_size, Ch * prefix, size_t prefix_size) const
 <span class="lineNum">    1058 </span>            :         {
 <span class="lineNum">    1059 </span><span class="lineNoCov">          0 :             Ch * freeme = 0;</span>
 <span class="lineNum">    1060 </span>            :             Ch * attrname;
 <span class="lineNum">    1061 </span><span class="lineNoCov">          0 :             if (prefix) {</span>
 <span class="lineNum">    1062 </span>            :                 // Check if the prefix begins &quot;xml&quot;.
 <span class="lineNum">    1063 </span><span class="lineNoCov">          0 :                 if (prefix_size &gt;= 3</span>
-<span class="lineNum">    1064 </span>            :                     &amp;&amp; prefix[0] == Ch('x')
+<span class="lineNum">    1064 </span><span class="lineNoCov">          0 :                     &amp;&amp; prefix[0] == Ch('x')</span>
 <span class="lineNum">    1065 </span><span class="lineNoCov">          0 :                     &amp;&amp; prefix[1] == Ch('m')</span>
 <span class="lineNum">    1066 </span><span class="lineNoCov">          0 :                     &amp;&amp; prefix[2] == Ch('l')) {</span>
 <span class="lineNum">    1067 </span><span class="lineNoCov">          0 :                     if (prefix_size == 3) {</span>
@@ -1135,7 +1135,7 @@
 <span class="lineNum">    1073 </span><span class="lineNoCov">          0 :                         xmlns = this-&gt;document()-&gt;xmlns_xmlns(xmlns_size);</span>
 <span class="lineNum">    1074 </span><span class="lineNoCov">          0 :                         return;</span>
 <span class="lineNum">    1075 </span>            :                     }
-<span class="lineNum">    1076 </span>            :                 }
+<span class="lineNum">    1076 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">    1077 </span><span class="lineNoCov">          0 :                 freeme = attrname = new Ch[prefix_size + 7];</span>
 <span class="lineNum">    1078 </span><span class="lineNoCov">          0 :                 const char * p1=&quot;xmlns&quot;;</span>
 <span class="lineNum">    1079 </span><span class="lineNoCov">          0 :                 while (*p1) *attrname++ = *p1++;</span>
@@ -1147,7 +1147,7 @@
 <span class="lineNum">    1085 </span>            :                 }
 <span class="lineNum">    1086 </span><span class="lineNoCov">          0 :                 *attrname = Ch(0);</span>
 <span class="lineNum">    1087 </span><span class="lineNoCov">          0 :                 attrname = freeme;</span>
-<span class="lineNum">    1088 </span>            :             } else {
+<span class="lineNum">    1088 </span><span class="lineNoCov">          0 :             } else {</span>
 <span class="lineNum">    1089 </span><span class="lineNoCov">          0 :                 freeme = attrname = new Ch[6];</span>
 <span class="lineNum">    1090 </span><span class="lineNoCov">          0 :                 const char * p1=&quot;xmlns&quot;;</span>
 <span class="lineNum">    1091 </span><span class="lineNoCov">          0 :                 while (*p1) *attrname++ = *p1++;</span>
@@ -1155,39 +1155,39 @@
 <span class="lineNum">    1093 </span><span class="lineNoCov">          0 :                 attrname = freeme;</span>
 <span class="lineNum">    1094 </span>            :             }
 <span class="lineNum">    1095 </span><span class="lineNoCov">          0 :             for (const xml_node&lt;Ch&gt; * node = this;</span>
-<span class="lineNum">    1096 </span>            :                  node;
+<span class="lineNum">    1096 </span><span class="lineNoCov">          0 :                  node;</span>
 <span class="lineNum">    1097 </span><span class="lineNoCov">          0 :                  node = node-&gt;parent()) {</span>
 <span class="lineNum">    1098 </span><span class="lineNoCov">          0 :                 const xml_attribute&lt;Ch&gt; * attr = node-&gt;first_attribute(attrname);</span>
 <span class="lineNum">    1099 </span><span class="lineNoCov">          0 :                 if (attr) {</span>
 <span class="lineNum">    1100 </span><span class="lineNoCov">          0 :                     xmlns = attr-&gt;value();</span>
 <span class="lineNum">    1101 </span><span class="lineNoCov">          0 :                     if (xmlns) {</span>
 <span class="lineNum">    1102 </span><span class="lineNoCov">          0 :                         xmlns_size = attr-&gt;value_size();</span>
-<span class="lineNum">    1103 </span>            :                     }
+<span class="lineNum">    1103 </span><span class="lineNoCov">          0 :                     }</span>
 <span class="lineNum">    1104 </span><span class="lineNoCov">          0 :                     break;</span>
 <span class="lineNum">    1105 </span>            :                 }
-<span class="lineNum">    1106 </span>            :             }
+<span class="lineNum">    1106 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">    1107 </span><span class="lineNoCov">          0 :             if (!xmlns) {</span>
 <span class="lineNum">    1108 </span><span class="lineNoCov">          0 :                 if (!prefix) {</span>
 <span class="lineNum">    1109 </span><span class="lineNoCov">          0 :                     xmlns = document()-&gt;nullstr();</span>
 <span class="lineNum">    1110 </span><span class="lineNoCov">          0 :                     xmlns_size = 0;</span>
-<span class="lineNum">    1111 </span>            :                 }
-<span class="lineNum">    1112 </span>            :             }
+<span class="lineNum">    1111 </span><span class="lineNoCov">          0 :                 }</span>
+<span class="lineNum">    1112 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">    1113 </span><span class="lineNoCov">          0 :             if (freeme) delete[] freeme;</span>
-<a name="1114"><span class="lineNum">    1114 </span>            :         }</a>
+<a name="1114"><span class="lineNum">    1114 </span><span class="lineNoCov">          0 :         }</span></a>
 <span class="lineNum">    1115 </span>            : 
-<span class="lineNum">    1116 </span><span class="lineNoCov">          0 :         std::size_t xmlns_size() const</span>
+<span class="lineNum">    1116 </span>            :         std::size_t xmlns_size() const
 <span class="lineNum">    1117 </span>            :         {
 <span class="lineNum">    1118 </span><span class="lineNoCov">          0 :             if (m_xmlns) return m_xmlns_size;</span>
 <span class="lineNum">    1119 </span><span class="lineNoCov">          0 :             this-&gt;xmlns();</span>
 <span class="lineNum">    1120 </span><span class="lineNoCov">          0 :             return m_xmlns_size;</span>
-<span class="lineNum">    1121 </span>            :         }
+<span class="lineNum">    1121 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    1122 </span>            : 
 <span class="lineNum">    1123 </span>            :         ///////////////////////////////////////////////////////////////////////////
 <span class="lineNum">    1124 </span>            :         // Related nodes access
 <span class="lineNum">    1125 </span>            : 
 <a name="1126"><span class="lineNum">    1126 </span>            :         //! Gets document of which node is a child.</a>
 <span class="lineNum">    1127 </span>            :         //! \return Pointer to document that contains this node, or 0 if there is no parent document.
-<span class="lineNum">    1128 </span><span class="lineNoCov">          0 :         xml_document&lt;Ch&gt; *document() const</span>
+<span class="lineNum">    1128 </span>            :         xml_document&lt;Ch&gt; *document() const
 <span class="lineNum">    1129 </span>            :         {
 <span class="lineNum">    1130 </span><span class="lineNoCov">          0 :             xml_node&lt;Ch&gt; *node = const_cast&lt;xml_node&lt;Ch&gt; *&gt;(this);</span>
 <span class="lineNum">    1131 </span><span class="lineNoCov">          0 :             while (node-&gt;parent())</span>
@@ -1200,22 +1200,22 @@
 <span class="lineNum">    1138 </span>            :         //! \param name_size Size of name, in characters, or 0 to have size calculated automatically from string
 <a name="1139"><span class="lineNum">    1139 </span>            :         //! \param case_sensitive Should name comparison be case-sensitive; non case-sensitive comparison works properly only for ASCII characters</a>
 <span class="lineNum">    1140 </span>            :         //! \return Pointer to found child, or 0 if not found.
-<span class="lineNum">    1141 </span><span class="lineCov">     202628 :         xml_node&lt;Ch&gt; *first_node(const Ch *name = 0, const Ch *xmlns = 0, std::size_t name_size = 0, std::size_t xmlns_size = 0, bool case_sensitive = true) const</span>
+<span class="lineNum">    1141 </span>            :         xml_node&lt;Ch&gt; *first_node(const Ch *name = 0, const Ch *xmlns = 0, std::size_t name_size = 0, std::size_t xmlns_size = 0, bool case_sensitive = true) const
 <span class="lineNum">    1142 </span>            :         {
 <span class="lineNum">    1143 </span><span class="lineCov">     202628 :             if (name &amp;&amp; !name_size) name_size = internal::measure(name);</span>
 <span class="lineNum">    1144 </span><span class="lineCov">     202628 :             if (xmlns &amp;&amp; !xmlns_size) xmlns_size = internal::measure(xmlns);</span>
-<span class="lineNum">    1145 </span><span class="lineCov">     202628 :             if (!xmlns &amp;&amp; name) {</span>
+<span class="lineNum">    1145 </span><span class="lineCov">     405256 :             if (!xmlns &amp;&amp; name) {</span>
 <span class="lineNum">    1146 </span>            :                 // No XMLNS asked for, but a name is present.
 <span class="lineNum">    1147 </span>            :                 // Assume &quot;same XMLNS&quot;.
 <span class="lineNum">    1148 </span><span class="lineNoCov">          0 :                 xmlns = this-&gt;xmlns();</span>
 <span class="lineNum">    1149 </span><span class="lineNoCov">          0 :                 xmlns_size = this-&gt;xmlns_size();</span>
-<span class="lineNum">    1150 </span>            :             }
-<span class="lineNum">    1151 </span><span class="lineCov">     202628 :             for (xml_node&lt;Ch&gt; *child = m_first_node; child; child = child-&gt;next_sibling())</span>
+<span class="lineNum">    1150 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">    1151 </span><span class="lineCov">     405256 :             for (xml_node&lt;Ch&gt; *child = m_first_node; child; child = child-&gt;next_sibling())</span>
 <span class="lineNum">    1152 </span><span class="lineCov">     133911 :                 if ((!name || internal::compare(child-&gt;name(), child-&gt;name_size(), name, name_size, case_sensitive))</span>
-<span class="lineNum">    1153 </span><span class="lineNoCov">          0 :                     &amp;&amp; (!xmlns || internal::compare(child-&gt;xmlns(), child-&gt;xmlns_size(), xmlns, xmlns_size, case_sensitive)))</span>
+<span class="lineNum">    1153 </span><span class="lineCov">     133911 :                     &amp;&amp; (!xmlns || internal::compare(child-&gt;xmlns(), child-&gt;xmlns_size(), xmlns, xmlns_size, case_sensitive)))</span>
 <span class="lineNum">    1154 </span><span class="lineCov">     133911 :                     return child;</span>
 <span class="lineNum">    1155 </span><span class="lineCov">      68717 :             return 0;</span>
-<span class="lineNum">    1156 </span>            :         }
+<span class="lineNum">    1156 </span><span class="lineCov">     202628 :         }</span>
 <span class="lineNum">    1157 </span>            : 
 <span class="lineNum">    1158 </span>            :         //! Gets last child node, optionally matching node name.
 <span class="lineNum">    1159 </span>            :         //! Behaviour is undefined if node has no children.
@@ -1280,9 +1280,9 @@
 <span class="lineNum">    1218 </span>            :         //! \param name_size Size of name, in characters, or 0 to have size calculated automatically from string
 <a name="1219"><span class="lineNum">    1219 </span>            :         //! \param case_sensitive Should name comparison be case-sensitive; non case-sensitive comparison works properly only for ASCII characters</a>
 <span class="lineNum">    1220 </span>            :         //! \return Pointer to found sibling, or 0 if not found.
-<span class="lineNum">    1221 </span><span class="lineCov">     266595 :         xml_node&lt;Ch&gt; *next_sibling(const Ch *name = 0, const Ch *xmlns = 0, std::size_t name_size = 0, std::size_t xmlns_size = 0, bool case_sensitive = true) const</span>
+<span class="lineNum">    1221 </span>            :         xml_node&lt;Ch&gt; *next_sibling(const Ch *name = 0, const Ch *xmlns = 0, std::size_t name_size = 0, std::size_t xmlns_size = 0, bool case_sensitive = true) const
 <span class="lineNum">    1222 </span>            :         {
-<span class="lineNum">    1223 </span><span class="lineCov">     266595 :             assert(this-&gt;m_parent);     // Cannot query for siblings if node has no parent</span>
+<span class="lineNum">    1223 </span><span class="lineCov">     533190 :             assert(this-&gt;m_parent);     // Cannot query for siblings if node has no parent</span>
 <span class="lineNum">    1224 </span><span class="lineCov">     266595 :             if (name)</span>
 <span class="lineNum">    1225 </span>            :             {
 <span class="lineNum">    1226 </span><span class="lineNoCov">          0 :                 if (name_size == 0)</span>
@@ -1293,7 +1293,7 @@
 <span class="lineNum">    1231 </span>            :                     // Assume &quot;same XMLNS&quot;.
 <span class="lineNum">    1232 </span><span class="lineNoCov">          0 :                     xmlns = this-&gt;xmlns();</span>
 <span class="lineNum">    1233 </span><span class="lineNoCov">          0 :                     xmlns_size = this-&gt;xmlns_size();</span>
-<span class="lineNum">    1234 </span>            :                 }
+<span class="lineNum">    1234 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">    1235 </span><span class="lineNoCov">          0 :                 for (xml_node&lt;Ch&gt; *sibling = m_next_sibling; sibling; sibling = sibling-&gt;m_next_sibling)</span>
 <span class="lineNum">    1236 </span><span class="lineNoCov">          0 :                     if ((!name || internal::compare(sibling-&gt;name(), sibling-&gt;name_size(), name, name_size, case_sensitive))</span>
 <span class="lineNum">    1237 </span><span class="lineNoCov">          0 :                         &amp;&amp; (!xmlns || internal::compare(sibling-&gt;xmlns(), sibling-&gt;xmlns_size(), xmlns, xmlns_size, case_sensitive)))</span>
@@ -1302,14 +1302,14 @@
 <span class="lineNum">    1240 </span>            :             }
 <span class="lineNum">    1241 </span>            :             else
 <span class="lineNum">    1242 </span><span class="lineCov">     266595 :                 return m_next_sibling;</span>
-<span class="lineNum">    1243 </span>            :         }
+<span class="lineNum">    1243 </span><span class="lineCov">     266595 :         }</span>
 <span class="lineNum">    1244 </span>            : 
 <span class="lineNum">    1245 </span>            :         //! Gets first attribute of node, optionally matching attribute name.
 <span class="lineNum">    1246 </span>            :         //! \param name Name of attribute to find, or 0 to return first attribute regardless of its name; this string doesn't have to be zero-terminated if name_size is non-zero
 <span class="lineNum">    1247 </span>            :         //! \param name_size Size of name, in characters, or 0 to have size calculated automatically from string
 <a name="1248"><span class="lineNum">    1248 </span>            :         //! \param case_sensitive Should name comparison be case-sensitive; non case-sensitive comparison works properly only for ASCII characters</a>
 <span class="lineNum">    1249 </span>            :         //! \return Pointer to found attribute, or 0 if not found.
-<span class="lineNum">    1250 </span><span class="lineCov">      73259 :         xml_attribute&lt;Ch&gt; *first_attribute(const Ch *name = 0, std::size_t name_size = 0, bool case_sensitive = true) const</span>
+<span class="lineNum">    1250 </span>            :         xml_attribute&lt;Ch&gt; *first_attribute(const Ch *name = 0, std::size_t name_size = 0, bool case_sensitive = true) const
 <span class="lineNum">    1251 </span>            :         {
 <span class="lineNum">    1252 </span><span class="lineCov">      73259 :             if (name)</span>
 <span class="lineNum">    1253 </span>            :             {
@@ -1322,7 +1322,7 @@
 <span class="lineNum">    1260 </span>            :             }
 <span class="lineNum">    1261 </span>            :             else
 <span class="lineNum">    1262 </span><span class="lineCov">      73259 :                 return m_first_attribute;</span>
-<span class="lineNum">    1263 </span>            :         }
+<span class="lineNum">    1263 </span><span class="lineCov">      73259 :         }</span>
 <span class="lineNum">    1264 </span>            : 
 <span class="lineNum">    1265 </span>            :         //! Gets last attribute of node, optionally matching attribute name.
 <span class="lineNum">    1266 </span>            :         //! \param name Name of attribute to find, or 0 to return last attribute regardless of its name; this string doesn't have to be zero-terminated if name_size is non-zero
@@ -1381,14 +1381,14 @@
 <span class="lineNum">    1319 </span>            :         //! Appends a new child node.
 <a name="1320"><span class="lineNum">    1320 </span>            :         //! The appended child becomes the last child.</a>
 <span class="lineNum">    1321 </span>            :         //! \param child Node to append.
-<span class="lineNum">    1322 </span><span class="lineCov">     133911 :         void append_node(xml_node&lt;Ch&gt; *child)</span>
+<span class="lineNum">    1322 </span>            :         void append_node(xml_node&lt;Ch&gt; *child)
 <span class="lineNum">    1323 </span>            :         {
-<span class="lineNum">    1324 </span><span class="lineCov">     133911 :             assert(child &amp;&amp; !child-&gt;parent() &amp;&amp; child-&gt;type() != node_document);</span>
+<span class="lineNum">    1324 </span><span class="lineCov">     669555 :             assert(child &amp;&amp; !child-&gt;parent() &amp;&amp; child-&gt;type() != node_document);</span>
 <span class="lineNum">    1325 </span><span class="lineCov">     133911 :             if (first_node())</span>
 <span class="lineNum">    1326 </span>            :             {
 <span class="lineNum">    1327 </span><span class="lineCov">      65277 :                 child-&gt;m_prev_sibling = m_last_node;</span>
 <span class="lineNum">    1328 </span><span class="lineCov">      65277 :                 m_last_node-&gt;m_next_sibling = child;</span>
-<span class="lineNum">    1329 </span>            :             }
+<span class="lineNum">    1329 </span><span class="lineCov">      65277 :             }</span>
 <span class="lineNum">    1330 </span>            :             else
 <span class="lineNum">    1331 </span>            :             {
 <span class="lineNum">    1332 </span><span class="lineCov">      68634 :                 child-&gt;m_prev_sibling = 0;</span>
@@ -1472,9 +1472,9 @@
 <span class="lineNum">    1410 </span>            :         }
 <a name="1411"><span class="lineNum">    1411 </span>            : </a>
 <span class="lineNum">    1412 </span>            :         //! Removes all child nodes (but not attributes).
-<span class="lineNum">    1413 </span><span class="lineCov">         15 :         void remove_all_nodes()</span>
+<span class="lineNum">    1413 </span>            :         void remove_all_nodes()
 <span class="lineNum">    1414 </span>            :         {
-<span class="lineNum">    1415 </span><span class="lineCov">         15 :             for (xml_node&lt;Ch&gt; *node = first_node(); node; node = node-&gt;m_next_sibling)</span>
+<span class="lineNum">    1415 </span><span class="lineCov">         30 :             for (xml_node&lt;Ch&gt; *node = first_node(); node; node = node-&gt;m_next_sibling)</span>
 <span class="lineNum">    1416 </span><span class="lineNoCov">          0 :                 node-&gt;m_parent = 0;</span>
 <span class="lineNum">    1417 </span><span class="lineCov">         15 :             m_first_node = 0;</span>
 <span class="lineNum">    1418 </span><span class="lineCov">         15 :         }</span>
@@ -1501,14 +1501,14 @@
 <span class="lineNum">    1439 </span>            : 
 <a name="1440"><span class="lineNum">    1440 </span>            :         //! Appends a new attribute to the node.</a>
 <span class="lineNum">    1441 </span>            :         //! \param attribute Attribute to append.
-<span class="lineNum">    1442 </span><span class="lineCov">       4557 :         void append_attribute(xml_attribute&lt;Ch&gt; *attribute)</span>
+<span class="lineNum">    1442 </span>            :         void append_attribute(xml_attribute&lt;Ch&gt; *attribute)
 <span class="lineNum">    1443 </span>            :         {
-<span class="lineNum">    1444 </span><span class="lineCov">       4557 :             assert(attribute &amp;&amp; !attribute-&gt;parent());</span>
+<span class="lineNum">    1444 </span><span class="lineCov">      18228 :             assert(attribute &amp;&amp; !attribute-&gt;parent());</span>
 <span class="lineNum">    1445 </span><span class="lineCov">       4557 :             if (first_attribute())</span>
 <span class="lineNum">    1446 </span>            :             {
 <span class="lineNum">    1447 </span><span class="lineCov">        204 :                 attribute-&gt;m_prev_attribute = m_last_attribute;</span>
 <span class="lineNum">    1448 </span><span class="lineCov">        204 :                 m_last_attribute-&gt;m_next_attribute = attribute;</span>
-<span class="lineNum">    1449 </span>            :             }
+<span class="lineNum">    1449 </span><span class="lineCov">        204 :             }</span>
 <span class="lineNum">    1450 </span>            :             else
 <span class="lineNum">    1451 </span>            :             {
 <span class="lineNum">    1452 </span><span class="lineCov">       4353 :                 attribute-&gt;m_prev_attribute = 0;</span>
@@ -1593,9 +1593,9 @@
 <span class="lineNum">    1531 </span>            :         }
 <a name="1532"><span class="lineNum">    1532 </span>            : </a>
 <span class="lineNum">    1533 </span>            :         //! Removes all attributes of node.
-<span class="lineNum">    1534 </span><span class="lineCov">         15 :         void remove_all_attributes()</span>
+<span class="lineNum">    1534 </span>            :         void remove_all_attributes()
 <span class="lineNum">    1535 </span>            :         {
-<span class="lineNum">    1536 </span><span class="lineCov">         15 :             for (xml_attribute&lt;Ch&gt; *attribute = first_attribute(); attribute; attribute = attribute-&gt;m_next_attribute)</span>
+<span class="lineNum">    1536 </span><span class="lineCov">         30 :             for (xml_attribute&lt;Ch&gt; *attribute = first_attribute(); attribute; attribute = attribute-&gt;m_next_attribute)</span>
 <span class="lineNum">    1537 </span><span class="lineNoCov">          0 :                 attribute-&gt;m_parent = 0;</span>
 <span class="lineNum">    1538 </span><span class="lineCov">         15 :             m_first_attribute = 0;</span>
 <span class="lineNum">    1539 </span><span class="lineCov">         15 :         }</span>
@@ -1672,9 +1672,9 @@
 <span class="lineNum">    1610 </span>            :     //! parse() function allocates memory for nodes and attributes by using functions of xml_document,
 <span class="lineNum">    1611 </span>            :     //! which are inherited from memory_pool.
 <span class="lineNum">    1612 </span>            :     //! To access root node of the document, use the document itself, as if it was an xml_node.
-<a name="1613"><span class="lineNum">    1613 </span>            :     //! \param Ch Character type to use.</a>
+<span class="lineNum">    1613 </span>            :     //! \param Ch Character type to use.
 <span class="lineNum">    1614 </span>            :     template&lt;class Ch = char&gt;
-<span class="lineNum">    1615 </span><span class="lineCov">         15 :     class xml_document: public xml_node&lt;Ch&gt;, public memory_pool&lt;Ch&gt;</span>
+<span class="lineNum">    1615 </span>            :     class xml_document: public xml_node&lt;Ch&gt;, public memory_pool&lt;Ch&gt;
 <span class="lineNum">    1616 </span>            :     {
 <span class="lineNum">    1617 </span>            : 
 <span class="lineNum">    1618 </span>            :     public:
@@ -1682,8 +1682,8 @@
 <span class="lineNum">    1620 </span>            :         //! Constructs empty XML document
 <span class="lineNum">    1621 </span><span class="lineCov">         15 :         xml_document()</span>
 <span class="lineNum">    1622 </span><span class="lineCov">         15 :             : xml_node&lt;Ch&gt;(node_document)</span>
-<span class="lineNum">    1623 </span>            :         {
-<span class="lineNum">    1624 </span><span class="lineCov">         15 :         }</span>
+<span class="lineNum">    1623 </span><span class="lineCov">         45 :         {</span>
+<span class="lineNum">    1624 </span><span class="lineCov">         30 :         }</span>
 <span class="lineNum">    1625 </span>            : 
 <span class="lineNum">    1626 </span>            :         //! Parses zero-terminated XML string according to given flags.
 <span class="lineNum">    1627 </span>            :         //! Passed string will be modified by the parser, unless rapidxml::parse_non_destructive flag is used.
@@ -1697,20 +1697,20 @@
 <span class="lineNum">    1635 </span>            :         //! Each new call to parse removes previous nodes and attributes (if any), but does not clear memory pool.
 <a name="1636"><span class="lineNum">    1636 </span>            :         //! \param text XML data to parse; pointer is non-const to denote fact that this data may be modified by the parser.</a>
 <span class="lineNum">    1637 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    1638 </span><span class="lineCov">         15 :         Ch * parse(Ch * text, xml_document&lt;Ch&gt; * parent = 0)</span>
+<span class="lineNum">    1638 </span>            :         Ch * parse(Ch * text, xml_document&lt;Ch&gt; * parent = 0)
 <span class="lineNum">    1639 </span>            :         {
-<span class="lineNum">    1640 </span><span class="lineCov">         15 :             assert(text);</span>
+<span class="lineNum">    1640 </span><span class="lineCov">         30 :             assert(text);</span>
 <span class="lineNum">    1641 </span>            : 
 <span class="lineNum">    1642 </span>            :             // Remove current contents
 <span class="lineNum">    1643 </span><span class="lineCov">         15 :             this-&gt;remove_all_nodes();</span>
 <span class="lineNum">    1644 </span><span class="lineCov">         15 :             this-&gt;remove_all_attributes();</span>
-<span class="lineNum">    1645 </span><span class="lineCov">         15 :             this-&gt;m_parent = parent ? parent-&gt;first_node() : 0;</span>
+<span class="lineNum">    1645 </span><span class="lineCov">         45 :             this-&gt;m_parent = parent ? parent-&gt;first_node() : 0;</span>
 <span class="lineNum">    1646 </span>            : 
 <span class="lineNum">    1647 </span>            :             // Parse BOM, if any
 <span class="lineNum">    1648 </span><span class="lineCov">         15 :             parse_bom&lt;Flags&gt;(text);</span>
 <span class="lineNum">    1649 </span>            : 
 <span class="lineNum">    1650 </span>            :             // Parse children
-<span class="lineNum">    1651 </span><span class="lineCov">         30 :             while (1)</span>
+<span class="lineNum">    1651 </span><span class="lineCov">         45 :             while (1)</span>
 <span class="lineNum">    1652 </span>            :             {
 <span class="lineNum">    1653 </span>            :                 // Skip whitespace before node
 <span class="lineNum">    1654 </span><span class="lineCov">         45 :                 skip&lt;whitespace_pred, Flags&gt;(text);</span>
@@ -1727,13 +1727,13 @@
 <span class="lineNum">    1665 </span>            :                             if (node-&gt;type() == node_element)
 <span class="lineNum">    1666 </span>            :                                 break;
 <span class="lineNum">    1667 </span>            :                         }
-<span class="lineNum">    1668 </span>            :                     }
-<span class="lineNum">    1669 </span>            :                 }
+<span class="lineNum">    1668 </span><span class="lineCov">         15 :                     }</span>
+<span class="lineNum">    1669 </span><span class="lineCov">         30 :                 }</span>
 <span class="lineNum">    1670 </span>            :                 else
 <span class="lineNum">    1671 </span><span class="lineNoCov">          0 :                     RAPIDXML_PARSE_ERROR(&quot;expected &lt;&quot;, text);</span>
 <span class="lineNum">    1672 </span>            :             }
 <span class="lineNum">    1673 </span><span class="lineCov">         15 :             return text;</span>
-<span class="lineNum">    1674 </span>            :         }
+<span class="lineNum">    1674 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    1675 </span>            :         template&lt;int Flags&gt;
 <span class="lineNum">    1676 </span>            :         Ch * parse(Ch * text, xml_document&lt;Ch&gt; &amp; parent)
 <span class="lineNum">    1677 </span>            :         {
@@ -1807,7 +1807,7 @@
 <span class="lineNum">    1745 </span>            :         // Detect whitespace character
 <a name="1746"><span class="lineNum">    1746 </span>            :         struct whitespace_pred</a>
 <span class="lineNum">    1747 </span>            :         {
-<span class="lineNum">    1748 </span><span class="lineCov">     155624 :             static unsigned char test(Ch ch)</span>
+<span class="lineNum">    1748 </span>            :             static unsigned char test(Ch ch)
 <span class="lineNum">    1749 </span>            :             {
 <span class="lineNum">    1750 </span><span class="lineCov">     155624 :                 return internal::lookup_tables&lt;0&gt;::lookup_whitespace[static_cast&lt;unsigned char&gt;(ch)];</span>
 <span class="lineNum">    1751 </span>            :             }
@@ -1816,7 +1816,7 @@
 <span class="lineNum">    1754 </span>            :         // Detect node name character
 <a name="1755"><span class="lineNum">    1755 </span>            :         struct node_name_pred</a>
 <span class="lineNum">    1756 </span>            :         {
-<span class="lineNum">    1757 </span><span class="lineCov">     470591 :             static unsigned char test(Ch ch)</span>
+<span class="lineNum">    1757 </span>            :             static unsigned char test(Ch ch)
 <span class="lineNum">    1758 </span>            :             {
 <span class="lineNum">    1759 </span><span class="lineCov">     470591 :                 return internal::lookup_tables&lt;0&gt;::lookup_node_name[static_cast&lt;unsigned char&gt;(ch)];</span>
 <span class="lineNum">    1760 </span>            :             }
@@ -1825,7 +1825,7 @@
 <span class="lineNum">    1763 </span>            :         // Detect element name character
 <a name="1764"><span class="lineNum">    1764 </span>            :         struct element_name_pred</a>
 <span class="lineNum">    1765 </span>            :         {
-<span class="lineNum">    1766 </span><span class="lineCov">     470135 :             static unsigned char test(Ch ch)</span>
+<span class="lineNum">    1766 </span>            :             static unsigned char test(Ch ch)
 <span class="lineNum">    1767 </span>            :             {
 <span class="lineNum">    1768 </span><span class="lineCov">     470135 :                 return internal::lookup_tables&lt;0&gt;::lookup_element_name[static_cast&lt;unsigned char&gt;(ch)];</span>
 <span class="lineNum">    1769 </span>            :             }
@@ -1834,7 +1834,7 @@
 <span class="lineNum">    1772 </span>            :         // Detect attribute name character
 <a name="1773"><span class="lineNum">    1773 </span>            :         struct attribute_name_pred</a>
 <span class="lineNum">    1774 </span>            :         {
-<span class="lineNum">    1775 </span><span class="lineCov">      93104 :             static unsigned char test(Ch ch)</span>
+<span class="lineNum">    1775 </span>            :             static unsigned char test(Ch ch)
 <span class="lineNum">    1776 </span>            :             {
 <span class="lineNum">    1777 </span><span class="lineCov">      93104 :                 return internal::lookup_tables&lt;0&gt;::lookup_attribute_name[static_cast&lt;unsigned char&gt;(ch)];</span>
 <span class="lineNum">    1778 </span>            :             }
@@ -1843,7 +1843,7 @@
 <span class="lineNum">    1781 </span>            :         // Detect text character (PCDATA)
 <a name="1782"><span class="lineNum">    1782 </span>            :         struct text_pred</a>
 <span class="lineNum">    1783 </span>            :         {
-<span class="lineNum">    1784 </span><span class="lineCov">     362276 :             static unsigned char test(Ch ch)</span>
+<span class="lineNum">    1784 </span>            :             static unsigned char test(Ch ch)
 <span class="lineNum">    1785 </span>            :             {
 <span class="lineNum">    1786 </span><span class="lineCov">     362276 :                 return internal::lookup_tables&lt;0&gt;::lookup_text[static_cast&lt;unsigned char&gt;(ch)];</span>
 <span class="lineNum">    1787 </span>            :             }
@@ -1871,7 +1871,7 @@
 <span class="lineNum">    1809 </span>            :         template&lt;Ch Quote&gt;
 <a name="1810"><span class="lineNum">    1810 </span>            :         struct attribute_value_pred</a>
 <span class="lineNum">    1811 </span>            :         {
-<span class="lineNum">    1812 </span><span class="lineCov">      30132 :             static unsigned char test(Ch ch)</span>
+<span class="lineNum">    1812 </span>            :             static unsigned char test(Ch ch)
 <span class="lineNum">    1813 </span>            :             {
 <span class="lineNum">    1814 </span>            :                 if (Quote == Ch('\''))
 <span class="lineNum">    1815 </span><span class="lineNoCov">          0 :                     return internal::lookup_tables&lt;0&gt;::lookup_attribute_data_1[static_cast&lt;unsigned char&gt;(ch)];</span>
@@ -1944,10 +1944,10 @@
 <span class="lineNum">    1882 </span>            : 
 <a name="1883"><span class="lineNum">    1883 </span>            :         // Skip characters until predicate evaluates to true</a>
 <span class="lineNum">    1884 </span>            :         template&lt;class StopPred, int Flags&gt;
-<span class="lineNum">    1885 </span><span class="lineCov">     362742 :         static void skip(Ch *&amp;text)</span>
+<span class="lineNum">    1885 </span>            :         static void skip(Ch *&amp;text)
 <span class="lineNum">    1886 </span>            :         {
 <span class="lineNum">    1887 </span><span class="lineCov">     362742 :             Ch *tmp = text;</span>
-<span class="lineNum">    1888 </span><span class="lineCov">    2654464 :             while (StopPred::test(*tmp))</span>
+<span class="lineNum">    1888 </span><span class="lineCov">    3017206 :             while (StopPred::test(*tmp))</span>
 <span class="lineNum">    1889 </span><span class="lineCov">    1145861 :                 ++tmp;</span>
 <span class="lineNum">    1890 </span><span class="lineCov">     362742 :             text = tmp;</span>
 <span class="lineNum">    1891 </span><span class="lineCov">     362742 :         }</span>
@@ -1956,7 +1956,7 @@
 <span class="lineNum">    1894 </span>            :         // - replacing XML character entity references with proper characters (&amp;apos; &amp;amp; &amp;quot; &amp;lt; &amp;gt; &amp;#...;)
 <a name="1895"><span class="lineNum">    1895 </span>            :         // - condensing whitespace sequences to single space character</a>
 <span class="lineNum">    1896 </span>            :         template&lt;class StopPred, class StopPredPure, int Flags&gt;
-<span class="lineNum">    1897 </span><span class="lineCov">      69781 :         static Ch *skip_and_expand_character_refs(Ch *&amp;text)</span>
+<span class="lineNum">    1897 </span>            :         static Ch *skip_and_expand_character_refs(Ch *&amp;text)
 <span class="lineNum">    1898 </span>            :         {
 <span class="lineNum">    1899 </span>            :             // If entity translation, whitespace condense and whitespace trimming is disabled, use plain skip
 <span class="lineNum">    1900 </span>            :             if (Flags &amp; parse_no_entity_translation &amp;&amp;
@@ -2111,7 +2111,7 @@
 <span class="lineNum">    2049 </span>            : 
 <a name="2050"><span class="lineNum">    2050 </span>            :         // Parse BOM, if any</a>
 <span class="lineNum">    2051 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2052 </span><span class="lineCov">         15 :         void parse_bom(Ch *&amp;text)</span>
+<span class="lineNum">    2052 </span>            :         void parse_bom(Ch *&amp;text)
 <span class="lineNum">    2053 </span>            :         {
 <span class="lineNum">    2054 </span>            :             // UTF-8?
 <span class="lineNum">    2055 </span><span class="lineCov">         15 :             if (static_cast&lt;unsigned char&gt;(text[0]) == 0xEF &amp;&amp;</span>
@@ -2119,18 +2119,18 @@
 <span class="lineNum">    2057 </span><span class="lineNoCov">          0 :                 static_cast&lt;unsigned char&gt;(text[2]) == 0xBF)</span>
 <span class="lineNum">    2058 </span>            :             {
 <span class="lineNum">    2059 </span><span class="lineNoCov">          0 :                 text += 3;      // Skup utf-8 bom</span>
-<span class="lineNum">    2060 </span>            :             }
+<span class="lineNum">    2060 </span><span class="lineNoCov">          0 :             }</span>
 <span class="lineNum">    2061 </span><span class="lineCov">         15 :         }</span>
 <span class="lineNum">    2062 </span>            : 
 <a name="2063"><span class="lineNum">    2063 </span>            :         // Parse XML declaration (&lt;?xml...)</a>
 <span class="lineNum">    2064 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2065 </span><span class="lineCov">        720 :         xml_node&lt;Ch&gt; *parse_xml_declaration(Ch *&amp;text)</span>
+<span class="lineNum">    2065 </span>            :         xml_node&lt;Ch&gt; *parse_xml_declaration(Ch *&amp;text)
 <span class="lineNum">    2066 </span>            :         {
 <span class="lineNum">    2067 </span>            :             // If parsing of declaration is disabled
 <span class="lineNum">    2068 </span>            :             if (!(Flags &amp; parse_declaration_node))
 <span class="lineNum">    2069 </span>            :             {
 <span class="lineNum">    2070 </span>            :                 // Skip until end of declaration
-<span class="lineNum">    2071 </span><span class="lineCov">       1425 :                 while (text[0] != Ch('?') || text[1] != Ch('&gt;'))</span>
+<span class="lineNum">    2071 </span><span class="lineCov">       2175 :                 while (text[0] != Ch('?') || text[1] != Ch('&gt;'))</span>
 <span class="lineNum">    2072 </span>            :                 {
 <span class="lineNum">    2073 </span><span class="lineCov">        705 :                     if (!text[0]) RAPIDXML_PARSE_ERROR(&quot;unexpected end of data&quot;, text);</span>
 <span class="lineNum">    2074 </span><span class="lineCov">        705 :                     ++text;</span>
@@ -2153,11 +2153,11 @@
 <span class="lineNum">    2091 </span>            :             text += 2;
 <span class="lineNum">    2092 </span>            : 
 <span class="lineNum">    2093 </span>            :             return declaration;
-<span class="lineNum">    2094 </span>            :         }
+<span class="lineNum">    2094 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2095 </span>            : 
 <a name="2096"><span class="lineNum">    2096 </span>            :         // Parse XML comment (&lt;!--...)</a>
 <span class="lineNum">    2097 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2098 </span><span class="lineNoCov">          0 :         xml_node&lt;Ch&gt; *parse_comment(Ch *&amp;text)</span>
+<span class="lineNum">    2098 </span>            :         xml_node&lt;Ch&gt; *parse_comment(Ch *&amp;text)
 <span class="lineNum">    2099 </span>            :         {
 <span class="lineNum">    2100 </span>            :             // If parsing of comments is disabled
 <span class="lineNum">    2101 </span>            :             if (!(Flags &amp; parse_comment_nodes))
@@ -2192,11 +2192,11 @@
 <span class="lineNum">    2130 </span>            : 
 <span class="lineNum">    2131 </span>            :             text += 3;     // Skip '--&gt;'
 <span class="lineNum">    2132 </span>            :             return comment;
-<span class="lineNum">    2133 </span>            :         }
+<span class="lineNum">    2133 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2134 </span>            : 
 <a name="2135"><span class="lineNum">    2135 </span>            :         // Parse DOCTYPE</a>
 <span class="lineNum">    2136 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2137 </span><span class="lineNoCov">          0 :         xml_node&lt;Ch&gt; *parse_doctype(Ch *&amp;text)</span>
+<span class="lineNum">    2137 </span>            :         xml_node&lt;Ch&gt; *parse_doctype(Ch *&amp;text)
 <span class="lineNum">    2138 </span>            :         {
 <span class="lineNum">    2139 </span>            :             // Remember value start
 <span class="lineNum">    2140 </span><span class="lineNoCov">          0 :             Ch *value = text;</span>
@@ -2235,7 +2235,7 @@
 <span class="lineNum">    2173 </span>            :                 default:
 <span class="lineNum">    2174 </span><span class="lineNoCov">          0 :                     ++text;</span>
 <span class="lineNum">    2175 </span>            : 
-<span class="lineNum">    2176 </span>            :                 }
+<span class="lineNum">    2176 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">    2177 </span>            :             }
 <span class="lineNum">    2178 </span>            : 
 <span class="lineNum">    2179 </span>            :             // If DOCTYPE nodes enabled
@@ -2258,11 +2258,11 @@
 <span class="lineNum">    2196 </span><span class="lineNoCov">          0 :                 return 0;</span>
 <span class="lineNum">    2197 </span>            :             }
 <span class="lineNum">    2198 </span>            : 
-<span class="lineNum">    2199 </span>            :         }
+<span class="lineNum">    2199 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2200 </span>            : 
 <a name="2201"><span class="lineNum">    2201 </span>            :         // Parse PI</a>
 <span class="lineNum">    2202 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2203 </span><span class="lineNoCov">          0 :         xml_node&lt;Ch&gt; *parse_pi(Ch *&amp;text)</span>
+<span class="lineNum">    2203 </span>            :         xml_node&lt;Ch&gt; *parse_pi(Ch *&amp;text)
 <span class="lineNum">    2204 </span>            :         {
 <span class="lineNum">    2205 </span>            :             // If creation of PI nodes is enabled
 <span class="lineNum">    2206 </span>            :             if (Flags &amp; parse_pi_nodes)
@@ -2315,13 +2315,13 @@
 <span class="lineNum">    2253 </span><span class="lineNoCov">          0 :                 text += 2;    // Skip '?&gt;'</span>
 <span class="lineNum">    2254 </span><span class="lineNoCov">          0 :                 return 0;</span>
 <span class="lineNum">    2255 </span>            :             }
-<span class="lineNum">    2256 </span>            :         }
+<span class="lineNum">    2256 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2257 </span>            : 
 <span class="lineNum">    2258 </span>            :         // Parse and append data
 <span class="lineNum">    2259 </span>            :         // Return character that ends data.
 <a name="2260"><span class="lineNum">    2260 </span>            :         // This is necessary because this character might have been overwritten by a terminating 0</a>
 <span class="lineNum">    2261 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2262 </span><span class="lineCov">      65224 :         Ch parse_and_append_data(xml_node&lt;Ch&gt; *node, Ch *&amp;text, Ch *contents_start)</span>
+<span class="lineNum">    2262 </span>            :         Ch parse_and_append_data(xml_node&lt;Ch&gt; *node, Ch *&amp;text, Ch *contents_start)
 <span class="lineNum">    2263 </span>            :         {
 <span class="lineNum">    2264 </span>            :             // Backup to contents start if whitespace trimming is disabled
 <span class="lineNum">    2265 </span>            :             if (!(Flags &amp; parse_trim_whitespace))
@@ -2379,7 +2379,7 @@
 <span class="lineNum">    2317 </span>            : 
 <a name="2318"><span class="lineNum">    2318 </span>            :         // Parse CDATA</a>
 <span class="lineNum">    2319 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2320 </span><span class="lineNoCov">          0 :         xml_node&lt;Ch&gt; *parse_cdata(Ch *&amp;text)</span>
+<span class="lineNum">    2320 </span>            :         xml_node&lt;Ch&gt; *parse_cdata(Ch *&amp;text)
 <span class="lineNum">    2321 </span>            :         {
 <span class="lineNum">    2322 </span>            :             // If CDATA is disabled
 <span class="lineNum">    2323 </span>            :             if (Flags &amp; parse_no_data_nodes)
@@ -2414,11 +2414,11 @@
 <span class="lineNum">    2352 </span>            : 
 <span class="lineNum">    2353 </span><span class="lineNoCov">          0 :             text += 3;      // Skip ]]&gt;</span>
 <span class="lineNum">    2354 </span><span class="lineNoCov">          0 :             return cdata;</span>
-<span class="lineNum">    2355 </span>            :         }
+<span class="lineNum">    2355 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2356 </span>            : 
 <a name="2357"><span class="lineNum">    2357 </span>            :         // Parse element node</a>
 <span class="lineNum">    2358 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2359 </span><span class="lineCov">      68687 :         xml_node&lt;Ch&gt; *parse_element(Ch *&amp;text)</span>
+<span class="lineNum">    2359 </span>            :         xml_node&lt;Ch&gt; *parse_element(Ch *&amp;text)
 <span class="lineNum">    2360 </span>            :         {
 <span class="lineNum">    2361 </span>            :             // Create element node
 <span class="lineNum">    2362 </span><span class="lineCov">      68687 :             xml_node&lt;Ch&gt; *element = this-&gt;allocate_node(node_element);</span>
@@ -2436,7 +2436,7 @@
 <span class="lineNum">    2374 </span><span class="lineCov">         76 :                 if (text == name)</span>
 <span class="lineNum">    2375 </span><span class="lineNoCov">          0 :                     RAPIDXML_PARSE_ERROR(&quot;expected element local name&quot;, text);</span>
 <span class="lineNum">    2376 </span><span class="lineCov">         76 :                 element-&gt;name(name, text - name);</span>
-<span class="lineNum">    2377 </span>            :             } else {
+<span class="lineNum">    2377 </span><span class="lineCov">         76 :             } else {</span>
 <span class="lineNum">    2378 </span><span class="lineCov">      68611 :                 element-&gt;name(prefix, text - prefix);</span>
 <span class="lineNum">    2379 </span>            :             }
 <span class="lineNum">    2380 </span>            : 
@@ -2454,8 +2454,8 @@
 <span class="lineNum">    2392 </span>            :                 if (!(Flags &amp; parse_open_only))
 <span class="lineNum">    2393 </span><span class="lineCov">      68619 :                     contents_end = parse_node_contents&lt;Flags&gt;(text, element);</span>
 <span class="lineNum">    2394 </span><span class="lineCov">      68619 :                 std::size_t sz = contents_end - contents;</span>
-<span class="lineNum">    2395 </span><span class="lineCov">      68619 :                 if (sz) element-&gt;contents(contents, sz);</span>
-<span class="lineNum">    2396 </span>            :             }
+<span class="lineNum">    2395 </span><span class="lineCov">     137238 :                 if (sz) element-&gt;contents(contents, sz);</span>
+<span class="lineNum">    2396 </span><span class="lineCov">      68619 :             }</span>
 <span class="lineNum">    2397 </span><span class="lineCov">         68 :             else if (*text == Ch('/'))</span>
 <span class="lineNum">    2398 </span>            :             {
 <span class="lineNum">    2399 </span><span class="lineCov">         68 :                 ++text;</span>
@@ -2464,23 +2464,23 @@
 <span class="lineNum">    2402 </span><span class="lineCov">         68 :                 ++text;</span>
 <span class="lineNum">    2403 </span>            :                 if (Flags &amp; parse_open_only)
 <span class="lineNum">    2404 </span>            :                     RAPIDXML_PARSE_ERROR(&quot;open_only, but closed&quot;, text);
-<span class="lineNum">    2405 </span>            :             }
+<span class="lineNum">    2405 </span><span class="lineCov">         68 :             }</span>
 <span class="lineNum">    2406 </span>            :             else
 <span class="lineNum">    2407 </span><span class="lineNoCov">          0 :                 RAPIDXML_PARSE_ERROR(&quot;expected &gt;&quot;, text);</span>
 <span class="lineNum">    2408 </span>            : 
 <span class="lineNum">    2409 </span>            :             // Place zero terminator after name
 <span class="lineNum">    2410 </span>            :             if (!(Flags &amp; parse_no_string_terminators)) {
 <span class="lineNum">    2411 </span><span class="lineCov">      68687 :                 element-&gt;name()[element-&gt;name_size()] = Ch('\0');</span>
-<span class="lineNum">    2412 </span><span class="lineCov">      68687 :                 if (element-&gt;prefix()) element-&gt;prefix()[element-&gt;prefix_size()] = Ch('\0');</span>
+<span class="lineNum">    2412 </span><span class="lineCov">      68763 :                 if (element-&gt;prefix()) element-&gt;prefix()[element-&gt;prefix_size()] = Ch('\0');</span>
 <span class="lineNum">    2413 </span>            :             }
 <span class="lineNum">    2414 </span>            : 
 <span class="lineNum">    2415 </span>            :             // Return parsed element
 <span class="lineNum">    2416 </span><span class="lineCov">      68687 :             return element;</span>
-<span class="lineNum">    2417 </span>            :         }
+<span class="lineNum">    2417 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2418 </span>            : 
 <a name="2419"><span class="lineNum">    2419 </span>            :         // Determine node type, and parse it</a>
 <span class="lineNum">    2420 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2421 </span><span class="lineCov">      68702 :         xml_node&lt;Ch&gt; *parse_node(Ch *&amp;text)</span>
+<span class="lineNum">    2421 </span>            :         xml_node&lt;Ch&gt; *parse_node(Ch *&amp;text)
 <span class="lineNum">    2422 </span>            :         {
 <span class="lineNum">    2423 </span>            :             // Parse proper node type
 <span class="lineNum">    2424 </span><span class="lineCov">      68702 :             switch (text[0])</span>
@@ -2494,7 +2494,7 @@
 <span class="lineNum">    2432 </span>            :             // &lt;?...
 <span class="lineNum">    2433 </span>            :             case Ch('?'):
 <span class="lineNum">    2434 </span><span class="lineCov">         15 :                 ++text;     // Skip ?</span>
-<span class="lineNum">    2435 </span><span class="lineCov">         60 :                 if ((text[0] == Ch('x') || text[0] == Ch('X')) &amp;&amp;</span>
+<span class="lineNum">    2435 </span><span class="lineCov">         30 :                 if ((text[0] == Ch('x') || text[0] == Ch('X')) &amp;&amp;</span>
 <span class="lineNum">    2436 </span><span class="lineCov">         15 :                     (text[1] == Ch('m') || text[1] == Ch('M')) &amp;&amp;</span>
 <span class="lineNum">    2437 </span><span class="lineCov">         15 :                     (text[2] == Ch('l') || text[2] == Ch('L')) &amp;&amp;</span>
 <span class="lineNum">    2438 </span><span class="lineCov">         15 :                     whitespace_pred::test(text[3]))</span>
@@ -2548,7 +2548,7 @@
 <span class="lineNum">    2486 </span><span class="lineNoCov">          0 :                         return parse_doctype&lt;Flags&gt;(text);</span>
 <span class="lineNum">    2487 </span>            :                     }
 <span class="lineNum">    2488 </span>            : 
-<span class="lineNum">    2489 </span>            :                 }   // switch
+<span class="lineNum">    2489 </span><span class="lineNoCov">          0 :                 }   // switch</span>
 <span class="lineNum">    2490 </span>            : 
 <span class="lineNum">    2491 </span>            :                 // Attempt to skip other, unrecognized node types starting with &lt;!
 <span class="lineNum">    2492 </span><span class="lineNoCov">          0 :                 ++text;     // Skip !</span>
@@ -2562,16 +2562,16 @@
 <span class="lineNum">    2500 </span><span class="lineNoCov">          0 :                 return 0;   // No node recognized</span>
 <span class="lineNum">    2501 </span>            : 
 <span class="lineNum">    2502 </span>            :             }
-<span class="lineNum">    2503 </span>            :         }
+<span class="lineNum">    2503 </span><span class="lineCov">      68702 :         }</span>
 <span class="lineNum">    2504 </span>            : 
 <span class="lineNum">    2505 </span>            :         // Parse contents of the node - children, data etc.
 <a name="2506"><span class="lineNum">    2506 </span>            :         // Return end pointer.</a>
 <span class="lineNum">    2507 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2508 </span><span class="lineCov">      68619 :         Ch * parse_node_contents(Ch *&amp;text, xml_node&lt;Ch&gt; *node)</span>
+<span class="lineNum">    2508 </span>            :         Ch * parse_node_contents(Ch *&amp;text, xml_node&lt;Ch&gt; *node)
 <span class="lineNum">    2509 </span>            :         {
 <span class="lineNum">    2510 </span><span class="lineCov">      68619 :             Ch * retval = 0;</span>
 <span class="lineNum">    2511 </span>            :             // For all children and text
-<span class="lineNum">    2512 </span><span class="lineCov">      68672 :             while (1)</span>
+<span class="lineNum">    2512 </span><span class="lineCov">     137291 :             while (1)</span>
 <span class="lineNum">    2513 </span>            :             {
 <span class="lineNum">    2514 </span>            :                 // Skip whitespace between &gt; and node contents
 <span class="lineNum">    2515 </span><span class="lineCov">     137291 :                 Ch *contents_start = text;      // Store start of node contents before whitespace is skipped</span>
@@ -2641,14 +2641,14 @@
 <span class="lineNum">    2579 </span>            : 
 <span class="lineNum">    2580 </span>            :                 }
 <span class="lineNum">    2581 </span>            :             }
-<span class="lineNum">    2582 </span>            :         }
+<span class="lineNum">    2582 </span><span class="lineNoCov">          0 :         }</span>
 <span class="lineNum">    2583 </span>            : 
 <a name="2584"><span class="lineNum">    2584 </span>            :         // Parse XML attributes of the node</a>
 <span class="lineNum">    2585 </span>            :         template&lt;int Flags&gt;
-<span class="lineNum">    2586 </span><span class="lineCov">      73244 :         void parse_node_attributes(Ch *&amp;text, xml_node&lt;Ch&gt; *node)</span>
+<span class="lineNum">    2586 </span>            :         void parse_node_attributes(Ch *&amp;text, xml_node&lt;Ch&gt; *node)
 <span class="lineNum">    2587 </span>            :         {
 <span class="lineNum">    2588 </span>            :             // For all attributes
-<span class="lineNum">    2589 </span><span class="lineCov">      77801 :             while (attribute_name_pred::test(*text))</span>
+<span class="lineNum">    2589 </span><span class="lineCov">     146488 :             while (attribute_name_pred::test(*text))</span>
 <span class="lineNum">    2590 </span>            :             {
 <span class="lineNum">    2591 </span>            :                 // Extract attribute name
 <span class="lineNum">    2592 </span><span class="lineCov">       4557 :                 Ch *name = text;</span>
@@ -2679,7 +2679,7 @@
 <span class="lineNum">    2617 </span>            : 
 <span class="lineNum">    2618 </span>            :                 // Skip quote and remember if it was ' or &quot;
 <span class="lineNum">    2619 </span><span class="lineCov">       4557 :                 Ch quote = *text;</span>
-<span class="lineNum">    2620 </span><span class="lineCov">       4557 :                 if (quote != Ch('\'') &amp;&amp; quote != Ch('&quot;'))</span>
+<span class="lineNum">    2620 </span><span class="lineCov">       9114 :                 if (quote != Ch('\'') &amp;&amp; quote != Ch('&quot;'))</span>
 <span class="lineNum">    2621 </span><span class="lineNoCov">          0 :                     RAPIDXML_PARSE_ERROR(&quot;expected ' or \&quot;&quot;, text);</span>
 <span class="lineNum">    2622 </span><span class="lineCov">       4557 :                 ++text;</span>
 <span class="lineNum">    2623 </span>            : 
@@ -3036,7 +3036,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
   </table>
   <br>
 

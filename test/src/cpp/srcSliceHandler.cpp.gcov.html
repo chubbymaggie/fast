@@ -31,18 +31,18 @@
             <td class="headerValue">fast.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">71</td>
-            <td class="headerCovTableEntry">188</td>
-            <td class="headerCovTableEntryLo">37.8 %</td>
+            <td class="headerCovTableEntry">70</td>
+            <td class="headerCovTableEntry">213</td>
+            <td class="headerCovTableEntryLo">32.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-06-25 16:03:51</td>
+            <td class="headerValue">2017-06-25 17:14:03</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">18</td>
-            <td class="headerCovTableEntryLo">61.1 %</td>
+            <td class="headerCovTableEntry">9</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntryLo">56.2 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -90,7 +90,7 @@
 <span class="lineNum">      28 </span>            :  *@param varName - Name of the variable whose slice profile we want.
 <a name="29"><span class="lineNum">      29 </span>            :  *@return Pointer to Slice Profile or null.</a>
 <span class="lineNum">      30 </span>            :  */
-<span class="lineNum">      31 </span><span class="lineCov">          7 : SliceProfile* srcSliceHandler::Find(const std::string&amp; varName){    </span>
+<span class="lineNum">      31 </span>            : SliceProfile* srcSliceHandler::Find(const std::string&amp; varName){    
 <span class="lineNum">      32 </span><span class="lineCov">          7 :     auto sp = FunctionIt-&gt;second.find(varName);</span>
 <span class="lineNum">      33 </span><span class="lineCov">          7 :     if(sp != FunctionIt-&gt;second.end()){</span>
 <span class="lineNum">      34 </span><span class="lineCov">          4 :         return &amp;(sp-&gt;second);</span>
@@ -101,16 +101,16 @@
 <span class="lineNum">      39 </span>            :         }
 <span class="lineNum">      40 </span>            :     }
 <span class="lineNum">      41 </span><span class="lineCov">          3 :     return nullptr;</span>
-<span class="lineNum">      42 </span>            : }
+<span class="lineNum">      42 </span><span class="lineCov">          7 : }</span>
 <span class="lineNum">      43 </span>            : /**
 <span class="lineNum">      44 </span>            :  *ProcessConstructorDecl
 <a name="45"><span class="lineNum">      45 </span>            :  *Processes decls of the form object(arg,arg)</a>
 <span class="lineNum">      46 </span>            :  */
-<span class="lineNum">      47 </span><span class="lineNoCov">          0 : void srcSliceHandler::ProcessConstructorDecl(){</span>
+<span class="lineNum">      47 </span>            : void srcSliceHandler::ProcessConstructorDecl(){
 <span class="lineNum">      48 </span><span class="lineNoCov">          0 :     auto sp = Find(currentDeclArg.first);</span>
 <span class="lineNum">      49 </span><span class="lineNoCov">          0 :     if(sp){</span>
 <span class="lineNum">      50 </span><span class="lineNoCov">          0 :         sp-&gt;dvars.insert(varIt-&gt;second.variableName);</span>
-<span class="lineNum">      51 </span>            :     }
+<span class="lineNum">      51 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">      52 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">      53 </span>            : 
 <span class="lineNum">      54 </span>            : /*
@@ -118,7 +118,7 @@
 <span class="lineNum">      56 </span>            : *Takes rhs of decl_stmt and processes it. Split by tokens and then throw against the map for an answer.
 <a name="57"><span class="lineNum">      57 </span>            : *corner case at new operator because new makes an object even if its argument is an alias.</a>
 <span class="lineNum">      58 </span>            : */
-<span class="lineNum">      59 </span><span class="lineCov">          1 : void srcSliceHandler::ProcessDeclStmt(){</span>
+<span class="lineNum">      59 </span>            : void srcSliceHandler::ProcessDeclStmt(){
 <span class="lineNum">      60 </span><span class="lineCov">          1 :     if(currentDeclInit.first == &quot;&quot;){return;} //No nameless profiles.</span>
 <span class="lineNum">      61 </span><span class="lineCov">          1 :     auto sp = Find(currentDeclInit.first);</span>
 <span class="lineNum">      62 </span><span class="lineCov">          1 :     if(sawnew){sawnew = false;}</span>
@@ -127,17 +127,17 @@
 <span class="lineNum">      65 </span><span class="lineCov">          1 :         sp-&gt;use.insert(currentDeclInit.second);</span>
 <span class="lineNum">      66 </span><span class="lineCov">          1 :         if(varIt-&gt;second.potentialAlias &amp;&amp; !sawnew){ //new operator of the form int i = new int(tmp); screws around with aliasing</span>
 <span class="lineNum">      67 </span><span class="lineNoCov">          0 :             varIt-&gt;second.lastInsertedAlias = varIt-&gt;second.aliases.insert(sp-&gt;variableName).first;</span>
-<span class="lineNum">      68 </span>            :         }else{
+<span class="lineNum">      68 </span><span class="lineNoCov">          0 :         }else{</span>
 <span class="lineNum">      69 </span><span class="lineCov">          1 :             sp-&gt;dvars.insert(varIt-&gt;second.variableName);</span>
 <span class="lineNum">      70 </span><span class="lineCov">          1 :             sp-&gt;use.insert(currentDeclInit.second);</span>
 <span class="lineNum">      71 </span>            :         }
-<span class="lineNum">      72 </span>            :     }else{ //Inits in for loops screw with typical decl statement handling. This will grab decls I miss due to weird init usage
+<span class="lineNum">      72 </span><span class="lineCov">          1 :     }else{ //Inits in for loops screw with typical decl statement handling. This will grab decls I miss due to weird init usage</span>
 <span class="lineNum">      73 </span><span class="lineNoCov">          0 :         if(!inFor) return; //This really is only for for loop inits. TODO: Possibly, write a separate function for these.</span>
 <span class="lineNum">      74 </span><span class="lineNoCov">          0 :         varIt = FunctionIt-&gt;second.insert(std::make_pair(currentDeclInit.first, std::move(currentSliceProfile))).first;</span>
 <span class="lineNum">      75 </span><span class="lineNoCov">          0 :         varIt-&gt;second.def.insert(currentDeclInit.second);    </span>
 <span class="lineNum">      76 </span>            :     } 
 <span class="lineNum">      77 </span><span class="lineCov">          1 :     currentDeclInit.first.clear();</span>
-<span class="lineNum">      78 </span>            : }
+<span class="lineNum">      78 </span><span class="lineCov">          2 : }</span>
 <span class="lineNum">      79 </span>            : 
 <span class="lineNum">      80 </span>            : /*
 <span class="lineNum">      81 </span>            : * GetCallData
@@ -145,10 +145,10 @@
 <span class="lineNum">      83 </span>            : * It stores data about those variables if it can find a slice profile entry for them.
 <a name="84"><span class="lineNum">      84 </span>            : * Essentially, update the slice profile of the argument to reflect new data.</a>
 <span class="lineNum">      85 </span>            : */
-<span class="lineNum">      86 </span><span class="lineCov">          4 : void srcSliceHandler::GetCallData(){</span>
+<span class="lineNum">      86 </span>            : void srcSliceHandler::GetCallData(){
 <span class="lineNum">      87 </span>            :     //Get function arguments
-<span class="lineNum">      88 </span><span class="lineCov">          8 :     if(triggerField[argument_list] &amp;&amp; triggerField[argument] &amp;&amp; </span>
-<span class="lineNum">      89 </span><span class="lineCov">          4 :         triggerField[expr] &amp;&amp; triggerField[name] &amp;&amp; !nameOfCurrentClldFcn.empty()){</span>
+<span class="lineNum">      88 </span><span class="lineCov">          4 :     if(triggerField[argument_list] &amp;&amp; triggerField[argument] &amp;&amp; </span>
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :         triggerField[expr] &amp;&amp; triggerField[name] &amp;&amp; !nameOfCurrentClldFcn.empty()){</span>
 <span class="lineNum">      90 </span><span class="lineNoCov">          0 :         if(!callArgData.empty()){</span>
 <span class="lineNum">      91 </span><span class="lineNoCov">          0 :             auto sp = Find(callArgData.top().first); //check to find sp for the variable being called on fcn</span>
 <span class="lineNum">      92 </span><span class="lineNoCov">          0 :             if(sp){</span>
@@ -156,17 +156,17 @@
 <span class="lineNum">      94 </span><span class="lineNoCov">          0 :                 sp-&gt;use.insert(callArgData.top().second);</span>
 <span class="lineNum">      95 </span><span class="lineNoCov">          0 :                 sp-&gt;index = numArgs;</span>
 <span class="lineNum">      96 </span><span class="lineNoCov">          0 :                 sp-&gt;cfunctions.insert(std::make_pair(nameOfCurrentClldFcn.top(), numArgs));</span>
-<span class="lineNum">      97 </span>            :             }
-<span class="lineNum">      98 </span>            :         }
-<span class="lineNum">      99 </span>            :     }
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :         }</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :     }</span>
 <a name="100"><span class="lineNum">     100 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">     101 </span>            : 
-<span class="lineNum">     102 </span><span class="lineCov">          2 : void srcSliceHandler::GetParamType(){</span>
+<span class="lineNum">     102 </span>            : void srcSliceHandler::GetParamType(){
 <span class="lineNum">     103 </span><span class="lineCov">          2 :     currentSliceProfile.variableType = currentParamType.first;</span>
 <span class="lineNum">     104 </span><span class="lineCov">          2 :     currentParamType.first.clear();</span>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">          2 : }</span></a>
 <span class="lineNum">     106 </span>            : 
-<span class="lineNum">     107 </span><span class="lineCov">          2 : void srcSliceHandler::GetParamName(){</span>
+<span class="lineNum">     107 </span>            : void srcSliceHandler::GetParamName(){
 <span class="lineNum">     108 </span><span class="lineCov">          2 :     currentSliceProfile.index = declIndex;</span>
 <span class="lineNum">     109 </span><span class="lineCov">          2 :     currentSliceProfile.file = fileName;</span>
 <span class="lineNum">     110 </span><span class="lineCov">          2 :     currentSliceProfile.function = functionTmplt.functionName;</span>
@@ -174,7 +174,7 @@
 <span class="lineNum">     112 </span><span class="lineCov">          2 :     currentSliceProfile.potentialAlias = potentialAlias;</span>
 <span class="lineNum">     113 </span><span class="lineCov">          2 :     currentSliceProfile.isGlobal = inGlobalScope;</span>
 <span class="lineNum">     114 </span>            : 
-<span class="lineNum">     115 </span><span class="lineCov">          2 :     varIt = FunctionIt-&gt;second.insert(std::make_pair(currentParam.first, std::move(currentSliceProfile))).first;</span>
+<span class="lineNum">     115 </span><span class="lineCov">          4 :     varIt = FunctionIt-&gt;second.insert(std::make_pair(currentParam.first, std::move(currentSliceProfile))).first;</span>
 <span class="lineNum">     116 </span><span class="lineCov">          2 :     varIt-&gt;second.def.insert(currentParam.second);</span>
 <span class="lineNum">     117 </span>            : 
 <span class="lineNum">     118 </span><span class="lineCov">          2 :     currentParam.first.clear();</span>
@@ -185,47 +185,47 @@
 <span class="lineNum">     123 </span>            : * Knows proper constraints for obtaining function's return type, name, and arguments. Stores all of this in
 <a name="124"><span class="lineNum">     124 </span>            : * functionTmplt.</a>
 <span class="lineNum">     125 </span>            : */
-<span class="lineNum">     126 </span><span class="lineCov">          2 : void srcSliceHandler::GetFunctionData(){</span>
+<span class="lineNum">     126 </span>            : void srcSliceHandler::GetFunctionData(){
 <span class="lineNum">     127 </span>            :     //Get function name
 <span class="lineNum">     128 </span><span class="lineCov">          2 :     if(isConstructor){</span>
 <span class="lineNum">     129 </span><span class="lineNoCov">          0 :         std::stringstream ststrm;</span>
 <span class="lineNum">     130 </span><span class="lineNoCov">          0 :         ststrm&lt;&lt;constructorNum;</span>
 <span class="lineNum">     131 </span><span class="lineNoCov">          0 :         currentFunctionBody.first+=ststrm.str(); //number the constructor. Find a better way than stringstreams someday.</span>
-<span class="lineNum">     132 </span>            :     }
+<span class="lineNum">     132 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     133 </span><span class="lineCov">          2 :     functionTmplt.functionName = currentFunctionBody.first;</span>
 <span class="lineNum">     134 </span><span class="lineCov">          2 :     currentFunctionBody.first.clear();</span>
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">          2 : }</span></a>
 <span class="lineNum">     136 </span>            : 
-<span class="lineNum">     137 </span><span class="lineNoCov">          0 : void srcSliceHandler::GetFunctionDeclData(){</span>
+<span class="lineNum">     137 </span>            : void srcSliceHandler::GetFunctionDeclData(){
 <a name="138"><span class="lineNum">     138 </span><span class="lineNoCov">          0 :     functionTmplt.params.push_back(currentParamType.first);</span></a>
 <span class="lineNum">     139 </span><span class="lineNoCov">          0 : }</span>
-<span class="lineNum">     140 </span><span class="lineNoCov">          0 : void srcSliceHandler::AssignProfile(){</span>
+<span class="lineNum">     140 </span>            : void srcSliceHandler::AssignProfile(){
 <span class="lineNum">     141 </span><span class="lineNoCov">          0 :     if(currentSliceProfile.index == 0){</span>
 <span class="lineNum">     142 </span><span class="lineNoCov">          0 :         currentSliceProfile.index = declIndex;</span>
-<span class="lineNum">     143 </span>            :     }
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     144 </span><span class="lineNoCov">          0 :     if(currentSliceProfile.file.empty()){</span>
 <span class="lineNum">     145 </span><span class="lineNoCov">          0 :         currentSliceProfile.file = fileName;</span>
-<span class="lineNum">     146 </span>            :     }
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     147 </span><span class="lineNoCov">          0 :     if(currentSliceProfile.function.empty()){</span>
 <span class="lineNum">     148 </span><span class="lineNoCov">          0 :         currentSliceProfile.function = functionTmplt.functionName;</span>
-<span class="lineNum">     149 </span>            :     }
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     150 </span><span class="lineNoCov">          0 :     if(currentSliceProfile.variableName.empty()){</span>
 <span class="lineNum">     151 </span><span class="lineNoCov">          0 :         currentSliceProfile.variableName = currentDecl.first;</span>
 <span class="lineNum">     152 </span>            :         //std::cerr&lt;&lt;currentDecl.first&lt;&lt;std::endl;
-<span class="lineNum">     153 </span>            :     }
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     154 </span><span class="lineNoCov">          0 :     if(!currentSliceProfile.potentialAlias){</span>
 <span class="lineNum">     155 </span><span class="lineNoCov">          0 :         currentSliceProfile.potentialAlias = potentialAlias;</span>
-<span class="lineNum">     156 </span>            :     }
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     157 </span><span class="lineNoCov">          0 :     if(!currentSliceProfile.isGlobal){</span>
 <span class="lineNum">     158 </span><span class="lineNoCov">          0 :         currentSliceProfile.isGlobal = inGlobalScope;</span>
-<span class="lineNum">     159 </span>            :     }
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     160 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">     161 </span>            : /**
 <span class="lineNum">     162 </span>            : * GetDeclStmtData
 <span class="lineNum">     163 </span>            : * Knows proper constraints for obtaining DeclStmt type and name.
 <a name="164"><span class="lineNum">     164 </span>            : * creates a new slice profile and stores data about decle statement inside.</a>
 <span class="lineNum">     165 </span>            : */
-<span class="lineNum">     166 </span><span class="lineCov">          1 : void srcSliceHandler::GetDeclStmtData(){</span>
+<span class="lineNum">     166 </span>            : void srcSliceHandler::GetDeclStmtData(){
 <span class="lineNum">     167 </span><span class="lineCov">          1 :     if(currentDecl.first.empty()) return;</span>
 <span class="lineNum">     168 </span><span class="lineCov">          1 :     currentSliceProfile.index = declIndex;</span>
 <span class="lineNum">     169 </span><span class="lineCov">          1 :     currentSliceProfile.file = fileName;</span>
@@ -235,13 +235,13 @@
 <span class="lineNum">     173 </span><span class="lineCov">          1 :     currentSliceProfile.potentialAlias = potentialAlias;</span>
 <span class="lineNum">     174 </span><span class="lineCov">          1 :     currentSliceProfile.isGlobal = inGlobalScope;</span>
 <span class="lineNum">     175 </span><span class="lineCov">          1 :     if(!inGlobalScope){</span>
-<span class="lineNum">     176 </span><span class="lineCov">          1 :         varIt = FunctionIt-&gt;second.insert(std::make_pair(currentSliceProfile.variableName, std::move(currentSliceProfile))).first;</span>
+<span class="lineNum">     176 </span><span class="lineCov">          2 :         varIt = FunctionIt-&gt;second.insert(std::make_pair(currentSliceProfile.variableName, std::move(currentSliceProfile))).first;</span>
 <span class="lineNum">     177 </span><span class="lineCov">          1 :         varIt-&gt;second.def.insert(currentDecl.second);</span>
-<span class="lineNum">     178 </span>            :     }else{ //TODO: Handle def use for globals
+<span class="lineNum">     178 </span><span class="lineCov">          1 :     }else{ //TODO: Handle def use for globals</span>
 <span class="lineNum">     179 </span><span class="lineNoCov">          0 :         sysDict-&gt;globalMap.insert(std::make_pair(currentSliceProfile.variableName, std::move(currentSliceProfile)));</span>
 <span class="lineNum">     180 </span>            :     }
 <span class="lineNum">     181 </span><span class="lineCov">          1 :     currentDecl.first.clear();</span>
-<span class="lineNum">     182 </span>            : }
+<span class="lineNum">     182 </span><span class="lineCov">          2 : }</span>
 <span class="lineNum">     183 </span>            : 
 <span class="lineNum">     184 </span>            : /**
 <span class="lineNum">     185 </span>            :  * ProcessExprStmt
@@ -249,7 +249,7 @@
 <span class="lineNum">     187 </span>            :  * by saving its slines if it can be found in the map. After lhs is processed, keep track of it and then
 <a name="188"><span class="lineNum">     188 </span>            :  * process the rhs for any aliases, dvars, or function calls.</a>
 <span class="lineNum">     189 </span>            :  */
-<span class="lineNum">     190 </span><span class="lineNoCov">          0 : void srcSliceHandler::ProcessExprStmtPreAssign(){</span>
+<span class="lineNum">     190 </span>            : void srcSliceHandler::ProcessExprStmtPreAssign(){
 <span class="lineNum">     191 </span><span class="lineNoCov">          0 :     if(!lhsExprStmt.first.empty()){</span>
 <span class="lineNum">     192 </span><span class="lineNoCov">          0 :         SliceProfile* lhs = Find(lhsExprStmt.first);</span>
 <span class="lineNum">     193 </span><span class="lineNoCov">          0 :         if(!lhs){</span>
@@ -262,10 +262,10 @@
 <span class="lineNum">     200 </span>            :             
 <span class="lineNum">     201 </span><span class="lineNoCov">          0 :             varIt = FunctionIt-&gt;second.insert(std::make_pair(lhsExprStmt.first, std::move(currentSliceProfile))).first;</span>
 <span class="lineNum">     202 </span><span class="lineNoCov">          0 :             varIt-&gt;second.def.insert(lhsExprStmt.second);</span>
-<span class="lineNum">     203 </span>            :         }else{
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :         }else{</span>
 <span class="lineNum">     204 </span><span class="lineNoCov">          0 :             lhs-&gt;def.insert(lhsExprStmt.second);</span>
 <span class="lineNum">     205 </span>            :         }        
-<span class="lineNum">     206 </span>            :     }
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     207 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">     208 </span>            : 
 <span class="lineNum">     209 </span>            : /**
@@ -274,7 +274,7 @@
 <span class="lineNum">     212 </span>            :  * by saving its slines if it can be found in the map. After lhs is processed, keep track of it and then
 <a name="213"><span class="lineNum">     213 </span>            :  * process the rhs for any aliases, dvars, or function calls.</a>
 <span class="lineNum">     214 </span>            :  */
-<span class="lineNum">     215 </span><span class="lineNoCov">          0 : void srcSliceHandler::ProcessExprStmtPostAssign(){</span>
+<span class="lineNum">     215 </span>            : void srcSliceHandler::ProcessExprStmtPostAssign(){
 <span class="lineNum">     216 </span><span class="lineNoCov">          0 :     SliceProfile* lhs = Find(lhsName);</span>
 <span class="lineNum">     217 </span><span class="lineNoCov">          0 :     if(!lhs){return;}</span>
 <span class="lineNum">     218 </span>            : 
@@ -283,7 +283,7 @@
 <span class="lineNum">     221 </span><span class="lineNoCov">          0 :         if(lhs-&gt;variableName != sprIt-&gt;variableName){    </span>
 <span class="lineNum">     222 </span><span class="lineNoCov">          0 :             if(!lhs-&gt;potentialAlias || dereferenced){ //It is not potentially a reference and if it is, it must not have been dereferenced</span>
 <span class="lineNum">     223 </span><span class="lineNoCov">          0 :                 sprIt-&gt;dvars.insert(lhs-&gt;variableName); //it's not an alias so it's a dvar</span>
-<span class="lineNum">     224 </span>            :             }else{//it is an alias, so save that this is the most recent alias and insert it into rhs alias list
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :             }else{//it is an alias, so save that this is the most recent alias and insert it into rhs alias list</span>
 <span class="lineNum">     225 </span><span class="lineNoCov">          0 :                 lhs-&gt;lastInsertedAlias = lhs-&gt;aliases.insert(sprIt-&gt;variableName).first;</span>
 <span class="lineNum">     226 </span>            :             }
 <span class="lineNum">     227 </span><span class="lineNoCov">          0 :             sprIt-&gt;use.insert(currentExprStmt.second);           </span>
@@ -294,23 +294,23 @@
 <span class="lineNum">     232 </span><span class="lineNoCov">          0 :                         spaIt-&gt;second.dvars.insert(lhs-&gt;variableName);</span>
 <span class="lineNum">     233 </span><span class="lineNoCov">          0 :                         spaIt-&gt;second.use.insert(currentExprStmt.second);  </span>
 <span class="lineNum">     234 </span><span class="lineNoCov">          0 :                         spaIt-&gt;second.slines.insert(currentExprStmt.second);</span>
-<span class="lineNum">     235 </span>            :                     }
-<span class="lineNum">     236 </span>            :                 }
-<span class="lineNum">     237 </span>            :             }
-<span class="lineNum">     238 </span>            :         }
-<a name="239"><span class="lineNum">     239 </span>            :     }</a>
-<span class="lineNum">     240 </span>            : }
-<span class="lineNum">     241 </span><span class="lineCov">          2 : void srcSliceHandler::ProcessExprStmtNoAssign(){</span>
-<span class="lineNum">     242 </span><span class="lineCov">          4 :     for(NameLineNumberPair name : useExprStack){</span>
-<span class="lineNum">     243 </span><span class="lineCov">          2 :         SliceProfile* useProfile = Find(name.first);</span>
+<span class="lineNum">     235 </span><span class="lineNoCov">          0 :                     }</span>
+<span class="lineNum">     236 </span><span class="lineNoCov">          0 :                 }</span>
+<span class="lineNum">     237 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">     238 </span><span class="lineNoCov">          0 :         }</span>
+<a name="239"><span class="lineNum">     239 </span><span class="lineNoCov">          0 :     }</span></a>
+<span class="lineNum">     240 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">     241 </span>            : void srcSliceHandler::ProcessExprStmtNoAssign(){
+<span class="lineNum">     242 </span><span class="lineCov">         12 :     for(NameLineNumberPair name : useExprStack){</span>
+<span class="lineNum">     243 </span><span class="lineCov">          4 :         SliceProfile* useProfile = Find(name.first);</span>
 <span class="lineNum">     244 </span><span class="lineCov">          2 :         if(!useProfile){continue;}</span>
 <span class="lineNum">     245 </span>            :         else{//it's running on the same word as the other two exprstmt functions
-<span class="lineNum">     246 </span><span class="lineCov">          2 :             useProfile-&gt;use.insert(name.second);</span>
+<span class="lineNum">     246 </span><span class="lineCov">          4 :             useProfile-&gt;use.insert(name.second);</span>
 <span class="lineNum">     247 </span>            :         }        
-<span class="lineNum">     248 </span>            :     }
+<span class="lineNum">     248 </span><span class="lineCov">          6 :     }</span>
 <a name="249"><span class="lineNum">     249 </span>            : </a>
 <span class="lineNum">     250 </span><span class="lineCov">          2 : }</span>
-<span class="lineNum">     251 </span><span class="lineNoCov">          0 : void srcSliceHandler::ProcessDeclCtor(){</span>
+<span class="lineNum">     251 </span>            : void srcSliceHandler::ProcessDeclCtor(){
 <span class="lineNum">     252 </span><span class="lineNoCov">          0 :     SliceProfile* lhs = Find(currentDecl.first);</span>
 <span class="lineNum">     253 </span><span class="lineNoCov">          0 :     if(!lhs){</span>
 <span class="lineNum">     254 </span><span class="lineNoCov">          0 :         return;</span>
@@ -322,16 +322,16 @@
 <span class="lineNum">     260 </span>            :         //std::cerr&lt;&lt;lhs-&gt;variableName&lt;&lt;std::endl;
 <span class="lineNum">     261 </span><span class="lineNoCov">          0 :         rhs-&gt;dvars.insert(lhs-&gt;variableName);</span>
 <span class="lineNum">     262 </span><span class="lineNoCov">          0 :         rhs-&gt;use.insert(currentDecl.second);</span>
-<span class="lineNum">     263 </span>            :     }
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :     }</span>
 <span class="lineNum">     264 </span>            :     
-<span class="lineNum">     265 </span>            : }
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 : }</span>
 <span class="lineNum">     266 </span>            : 
 <span class="lineNum">     267 </span>            : /*
 <span class="lineNum">     268 </span>            :  *ComputeInterprocedural
 <span class="lineNum">     269 </span>            :  *@param f- name of the file
 <a name="270"><span class="lineNum">     270 </span>            :  *No return value</a>
 <span class="lineNum">     271 </span>            :  */
-<span class="lineNum">     272 </span><span class="lineCov">          2 : void srcSliceHandler::ComputeInterprocedural(const std::string&amp; f){   </span>
+<span class="lineNum">     272 </span>            : void srcSliceHandler::ComputeInterprocedural(const std::string&amp; f){   
 <span class="lineNum">     273 </span><span class="lineCov">          2 :     FileIt = sysDict-&gt;ffvMap.find(f);</span>
 <span class="lineNum">     274 </span><span class="lineCov">          2 :     if(FileIt == sysDict-&gt;ffvMap.end()){</span>
 <span class="lineNum">     275 </span>            :         //std::cerr&lt;&lt;&quot;CAN'T FIND FILE&quot;&lt;&lt;std::endl;
@@ -340,10 +340,10 @@
 <span class="lineNum">     278 </span><span class="lineCov">          2 :     FunctionIt = (FileIt)-&gt;second.begin();</span>
 <span class="lineNum">     279 </span><span class="lineCov">          2 :     FunctionVarMap::iterator FunctionItEnd = FileIt-&gt;second.end();</span>
 <span class="lineNum">     280 </span>            : 
-<span class="lineNum">     281 </span><span class="lineCov">         10 :     for(; FunctionIt != FunctionItEnd; ++FunctionIt){</span>
-<span class="lineNum">     282 </span><span class="lineCov">          7 :         for(VarMap::iterator it = FunctionIt-&gt;second.begin(); it != FunctionIt-&gt;second.end(); ++it){</span>
+<span class="lineNum">     281 </span><span class="lineCov">         12 :     for(; FunctionIt != FunctionItEnd; ++FunctionIt){</span>
+<span class="lineNum">     282 </span><span class="lineCov">         14 :         for(VarMap::iterator it = FunctionIt-&gt;second.begin(); it != FunctionIt-&gt;second.end(); ++it){</span>
 <span class="lineNum">     283 </span><span class="lineCov">          3 :             if(it-&gt;second.visited == false){//std::unordered_set&lt;NameLineNumberPair, NameLineNumberPairHash&gt;::iterator - auto       </span>
-<span class="lineNum">     284 </span><span class="lineCov">          3 :                 for(auto itCF = it-&gt;second.cfunctions.begin(); itCF != it-&gt;second.cfunctions.end(); ++itCF ){</span>
+<span class="lineNum">     284 </span><span class="lineCov">          6 :                 for(auto itCF = it-&gt;second.cfunctions.begin(); itCF != it-&gt;second.cfunctions.end(); ++itCF ){</span>
 <span class="lineNum">     285 </span><span class="lineNoCov">          0 :                     unsigned int argumentIndex = itCF-&gt;second;</span>
 <span class="lineNum">     286 </span><span class="lineNoCov">          0 :                     SliceProfile Spi = ArgumentProfile(itCF-&gt;first, argumentIndex, it);</span>
 <span class="lineNum">     287 </span><span class="lineNoCov">          0 :                     SetUnion(it-&gt;second.use, Spi.def);</span>
@@ -351,19 +351,19 @@
 <span class="lineNum">     289 </span><span class="lineNoCov">          0 :                     SetUnion(it-&gt;second.cfunctions, Spi.cfunctions);</span>
 <span class="lineNum">     290 </span><span class="lineNoCov">          0 :                     SetUnion(it-&gt;second.dvars, Spi.dvars);</span>
 <span class="lineNum">     291 </span>            :                     //SetUnion(it-&gt;second.aliases, Spi.aliases); //I suspect this is wrong, but I'll leave it here in case I'm wrong.
-<span class="lineNum">     292 </span>            :                 }
+<span class="lineNum">     292 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">     293 </span><span class="lineCov">          3 :                 it-&gt;second.visited = true;</span>
-<span class="lineNum">     294 </span>            :             } 
-<span class="lineNum">     295 </span>            :         }
-<span class="lineNum">     296 </span>            :     }  
-<span class="lineNum">     297 </span>            : }
+<span class="lineNum">     294 </span><span class="lineCov">          3 :             } </span>
+<span class="lineNum">     295 </span><span class="lineCov">          3 :         }</span>
+<span class="lineNum">     296 </span><span class="lineCov">          4 :     }  </span>
+<span class="lineNum">     297 </span><span class="lineCov">          2 : }</span>
 <span class="lineNum">     298 </span>            : 
 <span class="lineNum">     299 </span>            : /*
 <span class="lineNum">     300 </span>            :  *ArgumentProfile
 <span class="lineNum">     301 </span>            :  *@param functIt- iterator to the FunctionVarMap, parameterIndex- index of the parameter 
 <a name="302"><span class="lineNum">     302 </span>            :  *@Return SliceProfile of the variable</a>
 <span class="lineNum">     303 </span>            : */
-<span class="lineNum">     304 </span><span class="lineNoCov">          0 : SliceProfile srcSliceHandler::ArgumentProfile(std::string fname, unsigned int parameterIndex, VarMap::iterator vIt){ //TODO varIt is a hack here. Fix. We shouldn't need to pass an extra param to do this.</span>
+<span class="lineNum">     304 </span>            : SliceProfile srcSliceHandler::ArgumentProfile(std::string fname, unsigned int parameterIndex, VarMap::iterator vIt){ //TODO varIt is a hack here. Fix. We shouldn't need to pass an extra param to do this.
 <span class="lineNum">     305 </span><span class="lineNoCov">          0 :     SliceProfile Spi;</span>
 <span class="lineNum">     306 </span><span class="lineNoCov">          0 :     auto gFuncIt = sysDict-&gt;fileFunctionTable.find(fname);</span>
 <span class="lineNum">     307 </span><span class="lineNoCov">          0 :     if(gFuncIt != sysDict-&gt;fileFunctionTable.end()){</span>
@@ -379,7 +379,7 @@
 <span class="lineNum">     317 </span><span class="lineNoCov">          0 :                         if(it-&gt;second.visited == true){</span>
 <span class="lineNum">     318 </span><span class="lineNoCov">          0 :                             if(it-&gt;second.potentialAlias){</span>
 <span class="lineNum">     319 </span><span class="lineNoCov">          0 :                                 it-&gt;second.aliases.insert(vIt-&gt;second.variableName);</span>
-<span class="lineNum">     320 </span>            :                             }
+<span class="lineNum">     320 </span><span class="lineNoCov">          0 :                             }</span>
 <span class="lineNum">     321 </span><span class="lineNoCov">          0 :                             return it-&gt;second;</span>
 <span class="lineNum">     322 </span>            :                         }else{
 <span class="lineNum">     323 </span><span class="lineNoCov">          0 :                             for(auto itCF = it-&gt;second.cfunctions.begin(); itCF != it-&gt;second.cfunctions.end(); ++itCF ){</span>
@@ -393,25 +393,25 @@
 <span class="lineNum">     331 </span><span class="lineNoCov">          0 :                                     SetUnion(it-&gt;second.cfunctions, Spi.cfunctions);</span>
 <span class="lineNum">     332 </span><span class="lineNoCov">          0 :                                     SetUnion(it-&gt;second.dvars, Spi.dvars);</span>
 <span class="lineNum">     333 </span><span class="lineNoCov">          0 :                                     SetUnion(it-&gt;second.aliases, Spi.aliases);</span>
-<span class="lineNum">     334 </span>            :                                 }
-<span class="lineNum">     335 </span>            :                             }
+<span class="lineNum">     334 </span><span class="lineNoCov">          0 :                                 }</span>
+<span class="lineNum">     335 </span><span class="lineNoCov">          0 :                             }</span>
 <span class="lineNum">     336 </span><span class="lineNoCov">          0 :                             if(it-&gt;second.potentialAlias){</span>
 <span class="lineNum">     337 </span><span class="lineNoCov">          0 :                                 it-&gt;second.aliases.insert(vIt-&gt;second.variableName);</span>
-<span class="lineNum">     338 </span>            :                             }
+<span class="lineNum">     338 </span><span class="lineNoCov">          0 :                             }</span>
 <span class="lineNum">     339 </span><span class="lineNoCov">          0 :                             it-&gt;second.visited = true;</span>
 <span class="lineNum">     340 </span><span class="lineNoCov">          0 :                             return it-&gt;second;</span>
 <span class="lineNum">     341 </span>            :                         }
 <span class="lineNum">     342 </span>            :                     }
-<span class="lineNum">     343 </span>            :                 }
-<span class="lineNum">     344 </span>            :             }else{
+<span class="lineNum">     343 </span><span class="lineNoCov">          0 :                 }</span>
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :             }else{</span>
 <span class="lineNum">     345 </span>            :                 //uncomment to see errors. Need to handle this properly. Also, currently, a lot of these misses are calls 
 <span class="lineNum">     346 </span>            :                 //into functions in header files or libraries that I can't see. Running preprocessor before srcML should
 <span class="lineNum">     347 </span>            :                 //help but will also make things messy.
 <span class="lineNum">     348 </span>            :                 //std::cout&lt;&lt;&quot;ERROR IN ARGUMENT PROFILE WHEN ACCESSING: &quot;&lt;&lt;fname&lt;&lt;std::endl;
 <span class="lineNum">     349 </span>            :             }
-<a name="350"><span class="lineNum">     350 </span>            :     } </a>
+<span class="lineNum">     350 </span><span class="lineNoCov">          0 :     } </span>
 <span class="lineNum">     351 </span><span class="lineNoCov">          0 :     return Spi;</span>
-<span class="lineNum">     352 </span><span class="lineCov">        147 : }</span>
+<span class="lineNum">     352 </span><span class="lineNoCov">          0 : }</span>
 </pre>
       </td>
     </tr>
@@ -420,7 +420,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
   </table>
   <br>
 

@@ -31,18 +31,18 @@
             <td class="headerValue">fast.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">40</td>
-            <td class="headerCovTableEntry">113</td>
-            <td class="headerCovTableEntryLo">35.4 %</td>
+            <td class="headerCovTableEntry">44</td>
+            <td class="headerCovTableEntry">126</td>
+            <td class="headerCovTableEntryLo">34.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-06-25 16:03:51</td>
+            <td class="headerValue">2017-06-25 17:14:03</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">3</td>
-            <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntryLo">50.0 %</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryLo">25.0 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -86,7 +86,7 @@
 <span class="lineNum">      24 </span>            : #include &lt;map&gt;
 <a name="25"><span class="lineNum">      25 </span>            : #include &lt;iostream&gt;</a>
 <span class="lineNum">      26 </span>            : 
-<span class="lineNum">      27 </span><span class="lineNoCov">          0 : void TestSlice2(const VarMap&amp; mp){</span>
+<span class="lineNum">      27 </span>            : void TestSlice2(const VarMap&amp; mp){
 <span class="lineNum">      28 </span><span class="lineNoCov">          0 :         for(VarMap::const_iterator vmIt = mp.begin(); vmIt != mp.end(); ++vmIt){</span>
 <span class="lineNum">      29 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;-------------------------&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      30 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;Variable: &quot;&lt;&lt;vmIt-&gt;first&lt;&lt;std::endl;</span>
@@ -98,22 +98,22 @@
 <span class="lineNum">      36 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;dvars: {&quot;;</span>
 <span class="lineNum">      37 </span><span class="lineNoCov">          0 :                 for(std::string dv : vmIt-&gt;second.dvars){</span>
 <span class="lineNum">      38 </span><span class="lineNoCov">          0 :                         std::cerr&lt;&lt;dv&lt;&lt;&quot;,&quot;;</span>
-<span class="lineNum">      39 </span>            :                 }
+<span class="lineNum">      39 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">      40 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      41 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;is aliase for: {&quot;;</span>
 <span class="lineNum">      42 </span><span class="lineNoCov">          0 :                 for(std::string al : vmIt-&gt;second.aliases){</span>
 <span class="lineNum">      43 </span><span class="lineNoCov">          0 :                         std::cerr&lt;&lt;al&lt;&lt;&quot;,&quot;;</span>
-<span class="lineNum">      44 </span>            :                 }
+<span class="lineNum">      44 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">      45 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      46 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;cfuntions: {&quot;;</span>
 <span class="lineNum">      47 </span><span class="lineNoCov">          0 :                 for(auto cfunc : vmIt-&gt;second.cfunctions){</span>
 <span class="lineNum">      48 </span><span class="lineNoCov">          0 :                         std::cerr&lt;&lt;cfunc.first&lt;&lt;&quot; &quot;&lt;&lt;cfunc.second&lt;&lt;&quot;,&quot;;</span>
-<span class="lineNum">      49 </span>            :                 }
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 :                 }</span>
 <span class="lineNum">      50 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      51 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;-------------------------&quot;&lt;&lt;std::endl;</span>
-<a name="52"><span class="lineNum">      52 </span>            :         }</a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineNoCov">          0 :         }</span></a>
 <span class="lineNum">      53 </span><span class="lineNoCov">          0 : }</span>
-<span class="lineNum">      54 </span><span class="lineNoCov">          0 : void TestSlice(const FileFunctionVarMap&amp; mp, srcSliceHandler handler){</span>
+<span class="lineNum">      54 </span>            : void TestSlice(const FileFunctionVarMap&amp; mp, srcSliceHandler handler){
 <span class="lineNum">      55 </span><span class="lineNoCov">          0 :         for(FileFunctionVarMap::const_iterator ffvmIt = mp.begin(); ffvmIt != mp.end(); ++ffvmIt){</span>
 <span class="lineNum">      56 </span><span class="lineNoCov">          0 :                 std::cerr&lt;&lt;&quot;FILE: &quot;&lt;&lt;ffvmIt-&gt;first&lt;&lt;std::endl;</span>
 <span class="lineNum">      57 </span><span class="lineNoCov">          0 :         for(FunctionVarMap::const_iterator fvmIt = ffvmIt-&gt;second.begin(); fvmIt != ffvmIt-&gt;second.end(); ++fvmIt){</span>
@@ -130,17 +130,17 @@
 <span class="lineNum">      68 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;variables dependant on this one: {&quot;;</span>
 <span class="lineNum">      69 </span><span class="lineNoCov">          0 :                                 for(std::string dv : vmIt-&gt;second.dvars){</span>
 <span class="lineNum">      70 </span><span class="lineNoCov">          0 :                                         std::cerr&lt;&lt;dv&lt;&lt;&quot;,&quot;;</span>
-<span class="lineNum">      71 </span>            :                                 }
+<span class="lineNum">      71 </span><span class="lineNoCov">          0 :                                 }</span>
 <span class="lineNum">      72 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      73 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;is aliase for: {&quot;;</span>
 <span class="lineNum">      74 </span><span class="lineNoCov">          0 :                                 for(std::string al : vmIt-&gt;second.aliases){</span>
 <span class="lineNum">      75 </span><span class="lineNoCov">          0 :                                         std::cerr&lt;&lt;al&lt;&lt;&quot;,&quot;;</span>
-<span class="lineNum">      76 </span>            :                                 }
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :                                 }</span>
 <span class="lineNum">      77 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      78 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;cfuntions: {&quot;;</span>
 <span class="lineNum">      79 </span><span class="lineNoCov">          0 :                                 for(auto cfunc : vmIt-&gt;second.cfunctions){</span>
 <span class="lineNum">      80 </span><span class="lineNoCov">          0 :                                                 std::cerr&lt;&lt;cfunc.first&lt;&lt;&quot; &quot;&lt;&lt;cfunc.second&lt;&lt;&quot;,&quot;;</span>
-<span class="lineNum">      81 </span>            :                                 }
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :                                 }</span>
 <span class="lineNum">      82 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      83 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;def: {&quot;;</span>
 <span class="lineNum">      84 </span><span class="lineNoCov">          0 :                                 for(auto defv : vmIt-&gt;second.def){</span>
@@ -153,66 +153,66 @@
 <span class="lineNum">      91 </span>            :                                 }
 <span class="lineNum">      92 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;}&quot;&lt;&lt;std::endl;</span>
 <span class="lineNum">      93 </span><span class="lineNoCov">          0 :                                 std::cerr&lt;&lt;&quot;-------------------------&quot;&lt;&lt;std::endl;</span>
-<span class="lineNum">      94 </span>            :                         }
-<span class="lineNum">      95 </span>            :                 }
-<span class="lineNum">      96 </span>            :         }
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :                         }</span>
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :                 }</span>
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :         }</span>
 <a name="97"><span class="lineNum">      97 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">      98 </span>            : 
-<span class="lineNum">      99 </span><span class="lineCov">          2 : void srcSliceToCsv(const srcSlice&amp; handler){</span>
-<span class="lineNum">     100 </span><span class="lineCov">          4 :         std::string str;</span>
-<span class="lineNum">     101 </span><span class="lineCov">          4 :         for(FileFunctionVarMap::const_iterator ffvmIt = handler.dictionary.ffvMap.begin(); ffvmIt != handler.dictionary.ffvMap.end(); ++ffvmIt){</span>
+<span class="lineNum">      99 </span>            : void srcSliceToCsv(const srcSlice&amp; handler){
+<span class="lineNum">     100 </span><span class="lineCov">          2 :         std::string str;</span>
+<span class="lineNum">     101 </span><span class="lineCov">         14 :         for(FileFunctionVarMap::const_iterator ffvmIt = handler.dictionary.ffvMap.begin(); ffvmIt != handler.dictionary.ffvMap.end(); ++ffvmIt){</span>
 <span class="lineNum">     102 </span>            :                 //auto fileNameIt = handler.dictionary.fileTable.find(ffvmIt-&gt;first);
 <span class="lineNum">     103 </span>            :                 //if(fileNameIt != handler.dictionary.fileTable.end())
-<span class="lineNum">     104 </span><span class="lineCov">          6 :                 for(FunctionVarMap::const_iterator fvmIt = ffvmIt-&gt;second.begin(); fvmIt != ffvmIt-&gt;second.end(); ++fvmIt){</span>
+<span class="lineNum">     104 </span><span class="lineCov">         30 :                 for(FunctionVarMap::const_iterator fvmIt = ffvmIt-&gt;second.begin(); fvmIt != ffvmIt-&gt;second.end(); ++fvmIt){</span>
 <span class="lineNum">     105 </span>            :                         //auto functionNameIt = handler.dictionary.functionTable.find();
-<span class="lineNum">     106 </span><span class="lineCov">          7 :                         for(VarMap::const_iterator vmIt = fvmIt-&gt;second.begin(); vmIt != fvmIt-&gt;second.end(); ++vmIt){</span>
-<span class="lineNum">     107 </span><span class="lineCov">          3 :                                 str.append(ffvmIt-&gt;first).append(&quot;,&quot;).append(fvmIt-&gt;first).append(&quot;,&quot;).append(vmIt-&gt;first);</span>
+<span class="lineNum">     106 </span><span class="lineCov">         35 :                         for(VarMap::const_iterator vmIt = fvmIt-&gt;second.begin(); vmIt != fvmIt-&gt;second.end(); ++vmIt){</span>
+<span class="lineNum">     107 </span><span class="lineCov">         24 :                                 str.append(ffvmIt-&gt;first).append(&quot;,&quot;).append(fvmIt-&gt;first).append(&quot;,&quot;).append(vmIt-&gt;first);</span>
 <span class="lineNum">     108 </span><span class="lineCov">          3 :                                 str.append(&quot;,def{&quot;);</span>
-<span class="lineNum">     109 </span><span class="lineCov">          6 :                                 for(unsigned int def : vmIt-&gt;second.def){</span>
-<span class="lineNum">     110 </span><span class="lineCov">          6 :                         std::stringstream ststrm;</span>
+<span class="lineNum">     109 </span><span class="lineCov">         33 :                                 for(unsigned int def : vmIt-&gt;second.def){</span>
+<span class="lineNum">     110 </span><span class="lineCov">          3 :                         std::stringstream ststrm;</span>
 <span class="lineNum">     111 </span><span class="lineCov">          3 :                         ststrm&lt;&lt;def;</span>
-<span class="lineNum">     112 </span><span class="lineCov">          3 :                                         str.append(ststrm.str()).append(&quot;,&quot;);</span>
-<span class="lineNum">     113 </span>            :                                 }
-<span class="lineNum">     114 </span><span class="lineCov">          3 :                                 if(str.at(str.length()-1) == ',')</span>
-<span class="lineNum">     115 </span><span class="lineCov">          3 :                                         str.erase(str.length()-1);</span>
+<span class="lineNum">     112 </span><span class="lineCov">         12 :                                         str.append(ststrm.str()).append(&quot;,&quot;);</span>
+<span class="lineNum">     113 </span><span class="lineCov">          3 :                                 }</span>
+<span class="lineNum">     114 </span><span class="lineCov">          6 :                                 if(str.at(str.length()-1) == ',')</span>
+<span class="lineNum">     115 </span><span class="lineCov">          6 :                                         str.erase(str.length()-1);</span>
 <span class="lineNum">     116 </span><span class="lineCov">          3 :                                 str.append(&quot;},&quot;);</span>
 <span class="lineNum">     117 </span><span class="lineCov">          3 :                 str.append(&quot;use{&quot;);</span>
-<span class="lineNum">     118 </span><span class="lineCov">          5 :                 for(unsigned int use : vmIt-&gt;second.use){</span>
-<span class="lineNum">     119 </span><span class="lineCov">          4 :                     std::stringstream ststrm;</span>
+<span class="lineNum">     118 </span><span class="lineCov">         26 :                 for(unsigned int use : vmIt-&gt;second.use){</span>
+<span class="lineNum">     119 </span><span class="lineCov">          2 :                     std::stringstream ststrm;</span>
 <span class="lineNum">     120 </span><span class="lineCov">          2 :                     ststrm&lt;&lt;use;</span>
-<span class="lineNum">     121 </span><span class="lineCov">          2 :                     str.append(ststrm.str()).append(&quot;,&quot;);</span>
-<span class="lineNum">     122 </span>            :                 }
-<span class="lineNum">     123 </span><span class="lineCov">          3 :                 if(str.at(str.length()-1) == ',')</span>
-<span class="lineNum">     124 </span><span class="lineCov">          2 :                     str.erase(str.length()-1);</span>
+<span class="lineNum">     121 </span><span class="lineCov">          8 :                     str.append(ststrm.str()).append(&quot;,&quot;);</span>
+<span class="lineNum">     122 </span><span class="lineCov">          2 :                 }</span>
+<span class="lineNum">     123 </span><span class="lineCov">          6 :                 if(str.at(str.length()-1) == ',')</span>
+<span class="lineNum">     124 </span><span class="lineCov">          4 :                     str.erase(str.length()-1);</span>
 <span class="lineNum">     125 </span><span class="lineCov">          3 :                 str.append(&quot;},&quot;);</span>
 <span class="lineNum">     126 </span><span class="lineCov">          3 :                                 str.append(&quot;dvars{&quot;);</span>
-<span class="lineNum">     127 </span><span class="lineCov">          4 :                                 for(std::string dv : vmIt-&gt;second.dvars){</span>
-<span class="lineNum">     128 </span><span class="lineCov">          1 :                                         str.append(dv.append(&quot;,&quot;));</span>
-<span class="lineNum">     129 </span>            :                                 }
-<span class="lineNum">     130 </span><span class="lineCov">          3 :                                 if(str.at(str.length()-1) == ',')</span>
-<span class="lineNum">     131 </span><span class="lineCov">          1 :                                         str.erase(str.length()-1);</span>
+<span class="lineNum">     127 </span><span class="lineCov">         19 :                                 for(std::string dv : vmIt-&gt;second.dvars){</span>
+<span class="lineNum">     128 </span><span class="lineCov">          2 :                                         str.append(dv.append(&quot;,&quot;));</span>
+<span class="lineNum">     129 </span><span class="lineCov">          1 :                                 }</span>
+<span class="lineNum">     130 </span><span class="lineCov">          6 :                                 if(str.at(str.length()-1) == ',')</span>
+<span class="lineNum">     131 </span><span class="lineCov">          2 :                                         str.erase(str.length()-1);</span>
 <span class="lineNum">     132 </span><span class="lineCov">          3 :                                 str.append(&quot;},&quot;);</span>
 <span class="lineNum">     133 </span><span class="lineCov">          3 :                                 str.append(&quot;pointers{&quot;);</span>
-<span class="lineNum">     134 </span><span class="lineCov">          3 :                                 for(std::string al : vmIt-&gt;second.aliases){</span>
+<span class="lineNum">     134 </span><span class="lineCov">         12 :                                 for(std::string al : vmIt-&gt;second.aliases){</span>
 <span class="lineNum">     135 </span><span class="lineNoCov">          0 :                                         str.append(al.append(&quot;,&quot;));</span>
-<span class="lineNum">     136 </span>            :                                 }
-<span class="lineNum">     137 </span><span class="lineCov">          3 :                                 if(str.at(str.length()-1) == ',')</span>
+<span class="lineNum">     136 </span><span class="lineNoCov">          0 :                                 }</span>
+<span class="lineNum">     137 </span><span class="lineCov">          6 :                                 if(str.at(str.length()-1) == ',')</span>
 <span class="lineNum">     138 </span><span class="lineNoCov">          0 :                                         str.erase(str.length()-1);</span>
 <span class="lineNum">     139 </span><span class="lineCov">          3 :                                 str.append(&quot;},&quot;);</span>
 <span class="lineNum">     140 </span><span class="lineCov">          3 :                                 str.append(&quot;cfuncs{&quot;);</span>
-<span class="lineNum">     141 </span><span class="lineCov">          3 :                                 for(auto cfunc : vmIt-&gt;second.cfunctions){</span>
+<span class="lineNum">     141 </span><span class="lineCov">         12 :                                 for(auto cfunc : vmIt-&gt;second.cfunctions){</span>
 <span class="lineNum">     142 </span><span class="lineNoCov">          0 :                                 std::stringstream ststrm;</span>
 <span class="lineNum">     143 </span><span class="lineNoCov">          0 :                                 ststrm&lt;&lt;cfunc.second;</span>
 <span class="lineNum">     144 </span><span class="lineNoCov">          0 :                                                 str.append(cfunc.first).append(&quot;{&quot;).append(ststrm.str()).append(&quot;},&quot;);</span>
-<span class="lineNum">     145 </span>            :                                 }
-<span class="lineNum">     146 </span><span class="lineCov">          3 :                                 if(str.at(str.length()-1) == ',')</span>
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :                                 }</span>
+<span class="lineNum">     146 </span><span class="lineCov">          6 :                                 if(str.at(str.length()-1) == ',')</span>
 <span class="lineNum">     147 </span><span class="lineNoCov">          0 :                                         str.erase(str.length()-1);</span>
 <span class="lineNum">     148 </span><span class="lineCov">          3 :                                 str.append(&quot;}&quot;);</span>
-<span class="lineNum">     149 </span><span class="lineCov">          3 :                                 std::cout&lt;&lt;str&lt;&lt;std::endl;</span>
+<span class="lineNum">     149 </span><span class="lineCov">          6 :                                 std::cout&lt;&lt;str&lt;&lt;std::endl;</span>
 <span class="lineNum">     150 </span><span class="lineCov">          3 :                                 str.clear();</span>
-<span class="lineNum">     151 </span>            :                         }
-<span class="lineNum">     152 </span>            :                 }
-<span class="lineNum">     153 </span>            :         }
+<span class="lineNum">     151 </span><span class="lineCov">          3 :                         }</span>
+<span class="lineNum">     152 </span><span class="lineCov">          4 :                 }</span>
+<span class="lineNum">     153 </span><span class="lineCov">          2 :         }</span>
 <span class="lineNum">     154 </span><span class="lineCov">          2 : }</span>
 <span class="lineNum">     155 </span>            : /**
 <span class="lineNum">     156 </span>            :  * main
@@ -228,7 +228,7 @@
 <span class="lineNum">     166 </span>            :   statement #
 <a name="167"><span class="lineNum">     167 </span>            :   Consider output to srcML</a>
 <span class="lineNum">     168 </span>            :   */
-<span class="lineNum">     169 </span><span class="lineNoCov">          0 : int slice_main(int argc, char * argv[]) {</span>
+<span class="lineNum">     169 </span>            : int slice_main(int argc, char * argv[]) {
 <span class="lineNum">     170 </span>            : 
 <span class="lineNum">     171 </span><span class="lineNoCov">          0 :   if(argc &lt; 2) {</span>
 <span class="lineNum">     172 </span>            : 
@@ -246,9 +246,9 @@
 <span class="lineNum">     184 </span>            :   //handler.ComputeInterprocedural(&quot;SlicerTestSample.cpp&quot;);
 <span class="lineNum">     185 </span>            :   //TestSlice(handler.sysDict-&gt; handler);
 <span class="lineNum">     186 </span>            :   //TestSlice2(handler.sysDict-&gt;globalMap);
-<a name="187"><span class="lineNum">     187 </span><span class="lineNoCov">          0 :   srcSliceToCsv(sslice);</span></a>
-<span class="lineNum">     188 </span><span class="lineNoCov">          0 :   return 0;</span>
-<span class="lineNum">     189 </span><span class="lineCov">        147 : }</span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :   srcSliceToCsv(sslice);</span>
+<span class="lineNum">     188 </span>            :   return 0;
+<span class="lineNum">     189 </span><span class="lineNoCov">          0 : }</span>
 </pre>
       </td>
     </tr>
@@ -257,7 +257,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
   </table>
   <br>
 
