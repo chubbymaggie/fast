@@ -939,7 +939,8 @@ int loadSrcML(int load_only, int argc, char **argv) {
 
 int mainRoutine(int argc, char* argv[]) {
    if (argc < 2) {
-	   cerr << "Usage: fast [-cehpsSt] input_file output_file"  << endl
+	   cerr << "Usage: fast [-acdehpsSv] input_file output_file"  << endl
+		 << "-a\tuse Antlr's AST instead of srcML's" << endl
 		 << "-c\tLoad only" << endl
 		 << "-d\tDecode protobuf into text format" << endl
 		 << "-e\tEncode text format into protobuf" << endl
@@ -1002,7 +1003,7 @@ int main(int argc, char* argv[]) {
   while ((c = getopt (argc, argv, "acdehpsSv")) != -1)
     switch (c) {
       case 'h':
-	    cerr << "Usage: fast [-acehpsSt] input_file output_file"  << endl
+	    cerr << "Usage: fast [-acdehpsSv] input_file output_file"  << endl
 		 << "-a\tuse Antlr's AST instead of srcML's" << endl
 		 << "-c\tLoad only" << endl
 		 << "-d\tDecode protobuf into text format" << endl

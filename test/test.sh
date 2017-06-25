@@ -16,9 +16,9 @@ process=${process:=../process}
 
 testhello() {
 	$fast >& usage.txt
-	assertSame c9e20ff25008a57d1e563c93a27cbe432c588ea3f0152275631fdbaa0d1ec9c8 $(shasum -a 256 usage.txt | awk '{print $1}')
+	assertSame 243759c641189bc8349901e65539cb97ff9aaaec0aa4916cfea4a614c6e583fc $(shasum -a 256 usage.txt | awk '{print $1}')
 	$fast -h >& usage.txt
-	assertSame 092fcf317436ed4b677c999e7f47b5da47a0d813ab192a204efcaecc12eaf0ea $(shasum -a 256 usage.txt | awk '{print $1}')
+	assertSame 7c96074c07fa01a61108f22c765fc8fa515d80bcdd51ffc5eccec1fc87e91feb $(shasum -a 256 usage.txt | awk '{print $1}')
 	$fast Hello.java Hello.java >& usage.txt
 	assertSame 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 $(shasum -a 256 usage.txt | awk '{print $1}')
 }
