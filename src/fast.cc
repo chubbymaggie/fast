@@ -1014,7 +1014,7 @@ int main(int argc, char* argv[]) {
 		 << "-v\tTell version number" << endl;
 	    return 0;
       case 'v':
-	    cerr << "fast 0.0.2"  << endl
+	    cerr << "fast 0.0.2"  << endl;
 	    return 0;
       case 'a':
 	    antlr = 1;
