@@ -1708,6 +1708,7 @@ testFastPairs564() {
 
 testFastSlice() {
 	$fast -p Hello.java Hello.position.pb
+	$fast -p Hello.java Hello.position.xml
 #        $fast -s Hello.position.pb Hello-s.slice
 #	assertSame 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec $(shasum -a 256 Hello-s.slice | awk '{print $1}')
         $fast -S Hello.position.pb >& Hello-S.slice
