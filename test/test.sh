@@ -56,6 +56,7 @@ $fast example.pb example.pb.cc
 assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.pb.cc | awk '{print $1}')
 $fast -p example.cc example.position.xml
 assertSame 873145704786c3f0671984705735f8c7415caf274414cf5fbf82be6bc6ba60cf $(shasum -a 256 example.position.xml | awk '{print $1}')
+$fast example.cc example.fbs
 $fast -p example.cc example.position.fbs
 $fast example.position.fbs > example.position.xml
 assertSame c287b1162d8b3d9e44dac808ec4edaf9dbd49282e0d0853db3f08a54ec5e3aea $(shasum -a 256 example.position.xml | awk '{print $1}')

@@ -21,10 +21,10 @@
 * With positions: [Hello.xml](../test/Hello.position.xml)
 * Merged: [DuplicateVirtualMethods.xml](../test/DuplicateVirtualMethods.xml)
 ## Textual format
-* [Hello.txt](../test/Hello.txt)
+* Textual format of the protobuf structures: [Hello.txt](../test/Hello.txt)
 * Structures: [DuplicateVirtualMethods.txt](../test/DuplicateVirtualMethods.txt)
-* Slices: [example.slice](../test/example.slice)
-* Slices: [Hello.slice](../test/Hello.slice)
+* Slices: [example.slice](../test/example-s.slice)
+* Slices: [Hello.slice](../test/Hello-s.slice)
 
 ## Benchmarks
 ### C
