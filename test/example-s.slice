@@ -1,2 +1,4 @@
-example.cc,f,result,def{2},use{3},dvars{},pointers{},cfuncs{}
-example.cc,f,x,def{1},use{2},dvars{result},pointers{},cfuncs{}
+int f(int x) {
+	  int result = (x / 42);
+	    return result;
+}

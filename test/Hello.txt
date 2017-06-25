@@ -117,7 +117,7 @@ child {
                       kind: LITERAL
                       text: "\"Hello, world!\""
                       literal {
-                        type: char_type
+                        type: string_type
                       }
                     }
                   }
@@ -133,5 +133,5 @@ child {
 unit {
   filename: "Hello.java"
   revision: "0.9.5"
-  language: OO
+  language: JAVA
 }

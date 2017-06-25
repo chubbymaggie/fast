@@ -62,6 +62,8 @@ install: fast process fast.proto
 	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
 	wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz
 	tar xvfz fast-java-$V.tar.gz -C /usr/local
+	wget https://yijunyu.github.io/ubuntu/srcslice
+	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
 
 lib/smali.jar: dist/smali.jar 
 	cp dist/smali.jar lib

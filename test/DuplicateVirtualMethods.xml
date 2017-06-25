@@ -1,2 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<unit xmlns="http://www.srcML.org/srcML/src" xmlns:all="http://www.srcML.org/srcML/all" revision="" language="ALL" filename="DuplicateVirtualMethods.smali"><function_specifier><constructor_decl>LDuplicateVirtualMethods;</constructor_decl><label_statement><expr>public</expr></label_statement><><constructor_decl>Ljava/lang/Object;</constructor_decl></><public_access><derivation_list><cpp_if>alah</cpp_if><public_access_default><private_access><cpp_region>V</cpp_region></private_access></public_access_default><label_statement><expr>public</expr></label_statement><constructor_declaration><continue_statement>1</continue_statement></constructor_declaration><private_access_default><throw_statement><unit>return-void</unit></throw_statement></private_access_default><function_lambda></function_lambda><member_initialization_list></member_initialization_list><switch></switch></derivation_list><derivation_list><cpp_if>blah</cpp_if><public_access_default><private_access><cpp_region>V</cpp_region></private_access></public_access_default><label_statement><expr>public</expr></label_statement><private_access_default><throw_statement><unit>return-void</unit></throw_statement></private_access_default><function_lambda></function_lambda><member_initialization_list></member_initialization_list><switch></switch></derivation_list><derivation_list><cpp_if>blah</cpp_if><public_access_default><private_access><cpp_region>V</cpp_region></private_access></public_access_default><label_statement><expr>public</expr></label_statement><constructor_declaration><continue_statement>1</continue_statement></constructor_declaration><private_access_default><throw_statement><unit>return-void</unit></throw_statement></private_access_default><function_lambda></function_lambda><member_initialization_list></member_initialization_list><switch></switch></derivation_list><derivation_list><cpp_if>clah</cpp_if><public_access_default><private_access><cpp_region>V</cpp_region></private_access></public_access_default><label_statement><expr>public</expr></label_statement><constructor_declaration><continue_statement>1</continue_statement></constructor_declaration><private_access_default><throw_statement><unit>return-void</unit></throw_statement></private_access_default><function_lambda></function_lambda><member_initialization_list></member_initialization_list><switch></switch></derivation_list></public_access><pseudo_parameter_list></pseudo_parameter_list><switch></switch></function_specifier></unit>
+<unit><i_class_def>.class <i_access_list><access_spec>public</access_spec></i_access_list> <class_descriptor>LDuplicateVirtualMethods;</class_descriptor>
+<i_super>.super <class_descriptor>Ljava/lang/Object;</class_descriptor></i_super>
+
+<i_methods><i_method>.method <i_access_list><access_spec>public</access_spec></i_access_list> <simple_name>alah</simple_name><i_method_prototype>()<i_method_return_type><void_type>V</void_type></i_method_return_type></i_method_prototype>
+    <i_registers>.registers <integer_literal>1</integer_literal></i_registers>
+    <i_ordered_method_items><i_statement_format10x><instruction_format10x>return-void</instruction_format10x></i_statement_format10x></i_ordered_method_items>
+.end method</i_method>
+
+<i_method>.method <i_access_list><access_spec>public</access_spec></i_access_list> <simple_name>blah</simple_name><i_method_prototype>()<i_method_return_type><void_type>V</void_type></i_method_return_type></i_method_prototype>
+    <i_ordered_method_items><i_statement_format10x><instruction_format10x>return-void</instruction_format10x></i_statement_format10x></i_ordered_method_items>
+.end method</i_method>
+
+<i_method>.method <i_access_list><access_spec>public</access_spec></i_access_list> <simple_name>blah</simple_name><i_method_prototype>()<i_method_return_type><void_type>V</void_type></i_method_return_type></i_method_prototype>
+    <i_registers>.registers <integer_literal>1</integer_literal></i_registers>
+    <i_ordered_method_items><i_statement_format10x><instruction_format10x>return-void</instruction_format10x></i_statement_format10x></i_ordered_method_items>
+.end method</i_method>
+
+<i_method>.method <i_access_list><access_spec>public</access_spec></i_access_list> <simple_name>clah</simple_name><i_method_prototype>()<i_method_return_type><void_type>V</void_type></i_method_return_type></i_method_prototype>
+    <i_registers>.registers <integer_literal>1</integer_literal></i_registers>
+    <i_ordered_method_items><i_statement_format10x><instruction_format10x>return-void</instruction_format10x></i_statement_format10x></i_ordered_method_items>
+.end method</i_method></i_methods>
+</i_class_def></unit>
