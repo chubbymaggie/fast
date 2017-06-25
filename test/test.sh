@@ -1,4 +1,5 @@
 #!/bin/sh
+
 fast=$(which fast)
 process=$(which process)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
@@ -1764,16 +1765,16 @@ notestLoadPB() {
 	assertSame 83bb09458e9b56975cd42df7de0caa9d978fccef769eb548361ee96ac98f969a $(shasum -a 256 test.pb | awk '{print $1}')
 }
 
-testFinalReport() {
-	lcov --directory .. --capture --output-file ../fast.info
-	lcov --remove ../fast.info '/usr/*' '/Applications/*' > fast.info
-	genhtml fast.info
-}
+#testFinalReport() {
+#	lcov --directory .. --capture --output-file ../fast.info
+#	lcov --remove ../fast.info '/usr/*' '/Applications/*' > fast.info
+#	genhtml fast.info
+#}
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
 	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
 fi
 
-rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
-lcov --directory .. --zerocounters
+#rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
+#lcov --directory .. --zerocounters
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
