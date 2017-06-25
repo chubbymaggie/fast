@@ -3,8 +3,7 @@
 
 # `fast` -- Flatten Abstract Syntax Trees
 [Once installed](doc/installation.md), [this tool](doc/options.md) [manipulates](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
-
-## Your software development projects may benefit direct from fast if you use
+Your software development projects may benefit directly from `fast` if you use the following:
 * [antlr3](https://github.com/antlr/antlr3)
 * [biyacc](http://biyacc.yozora.moe)
 * [git-dl](https://github.com/yijunyu/git-dl)
