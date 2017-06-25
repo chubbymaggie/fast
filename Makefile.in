@@ -97,7 +97,6 @@ install: fast process fast.proto dist/smali.jar
 	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0755 lib/osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
-	install -m 0755 lib/osx/srcml $(DESTDIR)$(prefix)/bin/srcml
 	install -m 0755 lib/osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
 	install -m 0644 dist/smali.jar $(DESTDIR)$(prefix)/lib/smali.jar
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
