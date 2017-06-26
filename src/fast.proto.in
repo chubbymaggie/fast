@@ -90,3 +90,14 @@ message Pairs {
    } 
    repeated Pair pair = 1;
 }
+
+#include "log.proto"
+
+message Data {
+ oneof RecordType {
+	Element element = 1;
+	Log log = 2;
+	Delta delta = 3;
+	Pairs pairs = 4;
+ }
+}

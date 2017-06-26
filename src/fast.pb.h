@@ -32,6 +32,9 @@
 #include <google/protobuf/unknown_field_set.h>
 // @@protoc_insertion_point(includes)
 namespace fast {
+class Data;
+class DataDefaultTypeInternal;
+extern DataDefaultTypeInternal _Data_default_instance_;
 class Delta;
 class DeltaDefaultTypeInternal;
 extern DeltaDefaultTypeInternal _Delta_default_instance_;
@@ -62,6 +65,27 @@ extern Element_LiteralDefaultTypeInternal _Element_Literal_default_instance_;
 class Element_Unit;
 class Element_UnitDefaultTypeInternal;
 extern Element_UnitDefaultTypeInternal _Element_Unit_default_instance_;
+class Log;
+class LogDefaultTypeInternal;
+extern LogDefaultTypeInternal _Log_default_instance_;
+class Log_Author;
+class Log_AuthorDefaultTypeInternal;
+extern Log_AuthorDefaultTypeInternal _Log_Author_default_instance_;
+class Log_Commit;
+class Log_CommitDefaultTypeInternal;
+extern Log_CommitDefaultTypeInternal _Log_Commit_default_instance_;
+class Log_Commit_Committer;
+class Log_Commit_CommitterDefaultTypeInternal;
+extern Log_Commit_CommitterDefaultTypeInternal _Log_Commit_Committer_default_instance_;
+class Log_Commit_Diff;
+class Log_Commit_DiffDefaultTypeInternal;
+extern Log_Commit_DiffDefaultTypeInternal _Log_Commit_Diff_default_instance_;
+class Log_Commit_Diff_Hunk;
+class Log_Commit_Diff_HunkDefaultTypeInternal;
+extern Log_Commit_Diff_HunkDefaultTypeInternal _Log_Commit_Diff_Hunk_default_instance_;
+class Log_Commit_Diff_Hunk_ModLine;
+class Log_Commit_Diff_Hunk_ModLineDefaultTypeInternal;
+extern Log_Commit_Diff_Hunk_ModLineDefaultTypeInternal _Log_Commit_Diff_Hunk_ModLine_default_instance_;
 class Pairs;
 class PairsDefaultTypeInternal;
 extern PairsDefaultTypeInternal _Pairs_default_instance_;
@@ -221,312 +245,312 @@ enum Element_Kind {
   Element_Kind_FOR_INCREMENT = 77,
   Element_Kind_FOR_LIKE_CONTROL = 78,
   Element_Kind_EXPRESSION_STATEMENT = 79,
-  Element_Kind_FUNCTION_CALL = 80,
-  Element_Kind_DECLARATION_STATEMENT = 81,
-  Element_Kind_DECLARATION = 82,
-  Element_Kind_DECLARATION_INITIALIZATION = 83,
-  Element_Kind_DECLARATION_RANGE = 84,
-  Element_Kind_RANGE = 85,
-  Element_Kind_GOTO_STATEMENT = 86,
-  Element_Kind_CONTINUE_STATEMENT = 87,
-  Element_Kind_BREAK_STATEMENT = 88,
-  Element_Kind_LABEL_STATEMENT = 89,
-  Element_Kind_LABEL = 90,
-  Element_Kind_SWITCH = 91,
-  Element_Kind_CASE = 92,
-  Element_Kind_DEFAULT = 93,
-  Element_Kind_FUNCTION_DEFINITION = 94,
-  Element_Kind_FUNCTION_DECLARATION = 95,
-  Element_Kind_LAMBDA = 96,
-  Element_Kind_FUNCTION_LAMBDA = 97,
-  Element_Kind_FUNCTION_SPECIFIER = 98,
-  Element_Kind_RETURN_STATEMENT = 99,
-  Element_Kind_PARAMETER_LIST = 100,
-  Element_Kind_PARAMETER = 101,
-  Element_Kind_KRPARAMETER_LIST = 102,
-  Element_Kind_KRPARAMETER = 103,
-  Element_Kind_ARGUMENT_LIST = 104,
-  Element_Kind_ARGUMENT = 105,
-  Element_Kind_PSEUDO_PARAMETER_LIST = 106,
-  Element_Kind_INDEXER_PARAMETER_LIST = 107,
-  Element_Kind_CLASS = 108,
-  Element_Kind_CLASS_DECLARATION = 109,
-  Element_Kind_STRUCT = 110,
-  Element_Kind_STRUCT_DECLARATION = 111,
-  Element_Kind_UNION = 112,
-  Element_Kind_UNION_DECLARATION = 113,
-  Element_Kind_DERIVATION_LIST = 114,
-  Element_Kind_PUBLIC_ACCESS = 115,
-  Element_Kind_PUBLIC_ACCESS_DEFAULT = 116,
-  Element_Kind_PRIVATE_ACCESS = 117,
-  Element_Kind_PRIVATE_ACCESS_DEFAULT = 118,
-  Element_Kind_PROTECTED_ACCESS = 119,
-  Element_Kind_PROTECTED_ACCESS_DEFAULT = 120,
-  Element_Kind_MEMBER_INIT_LIST = 121,
-  Element_Kind_MEMBER_INITIALIZATION_LIST = 122,
-  Element_Kind_MEMBER_INITIALIZATION = 123,
-  Element_Kind_CONSTRUCTOR_DEFINITION = 124,
-  Element_Kind_CONSTRUCTOR_DECLARATION = 125,
-  Element_Kind_DESTRUCTOR_DEFINITION = 126,
-  Element_Kind_DESTRUCTOR_DECLARATION = 127,
-  Element_Kind_FRIEND = 128,
-  Element_Kind_CLASS_SPECIFIER = 129,
-  Element_Kind_TRY_BLOCK = 130,
-  Element_Kind_CATCH_BLOCK = 131,
-  Element_Kind_FINALLY_BLOCK = 132,
-  Element_Kind_THROW_STATEMENT = 133,
-  Element_Kind_THROW_SPECIFIER = 134,
-  Element_Kind_THROW_SPECIFIER_JAVA = 135,
-  Element_Kind_TEMPLATE = 136,
-  Element_Kind_GENERIC_ARGUMENT = 137,
-  Element_Kind_GENERIC_ARGUMENT_LIST = 138,
-  Element_Kind_TEMPLATE_PARAMETER = 139,
-  Element_Kind_TEMPLATE_PARAMETER_LIST = 140,
-  Element_Kind_GENERIC_PARAMETER = 141,
-  Element_Kind_GENERIC_PARAMETER_LIST = 142,
-  Element_Kind_TYPEDEF = 143,
-  Element_Kind_ASM = 144,
-  Element_Kind_MACRO_CALL = 145,
-  Element_Kind_SIZEOF_CALL = 146,
-  Element_Kind_EXTERN = 147,
-  Element_Kind_NAMESPACE = 148,
-  Element_Kind_USING_DIRECTIVE = 149,
-  Element_Kind_DIRECTIVE = 150,
-  Element_Kind_ATOMIC = 151,
-  Element_Kind_STATIC_ASSERT_STATEMENT = 152,
-  Element_Kind_GENERIC_SELECTION = 153,
-  Element_Kind_GENERIC_SELECTOR = 154,
-  Element_Kind_GENERIC_ASSOCIATION_LIST = 155,
-  Element_Kind_GENERIC_ASSOCIATION = 156,
-  Element_Kind_ALIGNAS = 157,
-  Element_Kind_DECLTYPE = 158,
-  Element_Kind_CAPTURE = 159,
-  Element_Kind_LAMBDA_CAPTURE = 160,
-  Element_Kind_NOEXCEPT = 161,
-  Element_Kind_TYPENAME = 162,
-  Element_Kind_ALIGNOF = 163,
-  Element_Kind_TYPEID = 164,
-  Element_Kind_SIZEOF_PACK = 165,
-  Element_Kind_ENUM_CLASS = 166,
-  Element_Kind_ENUM_CLASS_DECLARATION = 167,
-  Element_Kind_REF_QUALIFIER = 168,
-  Element_Kind_SIGNAL_ACCESS = 169,
-  Element_Kind_FOREVER_STATEMENT = 170,
-  Element_Kind_EMIT_STATEMENT = 171,
-  Element_Kind_CPP_DIRECTIVE = 172,
-  Element_Kind_CPP_FILENAME = 173,
-  Element_Kind_FILE = 174,
-  Element_Kind_NUMBER = 175,
-  Element_Kind_CPP_NUMBER = 176,
-  Element_Kind_CPP_LITERAL = 177,
-  Element_Kind_CPP_MACRO_DEFN = 178,
-  Element_Kind_CPP_MACRO_VALUE = 179,
-  Element_Kind_ERROR = 180,
-  Element_Kind_CPP_ERROR = 181,
-  Element_Kind_CPP_WARNING = 182,
-  Element_Kind_CPP_PRAGMA = 183,
-  Element_Kind_CPP_INCLUDE = 184,
-  Element_Kind_CPP_DEFINE = 185,
-  Element_Kind_CPP_UNDEF = 186,
-  Element_Kind_CPP_LINE = 187,
-  Element_Kind_CPP_IF = 188,
-  Element_Kind_CPP_IFDEF = 189,
-  Element_Kind_CPP_IFNDEF = 190,
-  Element_Kind_CPP_THEN = 191,
-  Element_Kind_CPP_ELSE = 192,
-  Element_Kind_CPP_ELIF = 193,
-  Element_Kind_CPP_EMPTY = 194,
-  Element_Kind_CPP_REGION = 195,
-  Element_Kind_CPP_ENDREGION = 196,
-  Element_Kind_USING_STMT = 197,
-  Element_Kind_ESCAPE = 198,
-  Element_Kind_VALUE = 199,
-  Element_Kind_CPP_IMPORT = 200,
-  Element_Kind_CPP_ENDIF = 201,
-  Element_Kind_MARKER = 202,
-  Element_Kind_ERROR_PARSE = 203,
-  Element_Kind_ERROR_MODE = 204,
-  Element_Kind_IMPLEMENTS = 205,
-  Element_Kind_EXTENDS = 206,
-  Element_Kind_IMPORT = 207,
-  Element_Kind_PACKAGE = 208,
-  Element_Kind_ASSERT_STATEMENT = 209,
-  Element_Kind_INTERFACE = 210,
-  Element_Kind_INTERFACE_DECLARATION = 211,
-  Element_Kind_SYNCHRONIZED_STATEMENT = 212,
-  Element_Kind_ANNOTATION = 213,
-  Element_Kind_STATIC_BLOCK = 214,
-  Element_Kind_CHECKED_STATEMENT = 215,
-  Element_Kind_UNCHECKED_STATEMENT = 216,
-  Element_Kind_ATTRIBUTE = 217,
-  Element_Kind_TARGET = 218,
-  Element_Kind_UNSAFE_STATEMENT = 219,
-  Element_Kind_LOCK_STATEMENT = 220,
-  Element_Kind_FIXED_STATEMENT = 221,
-  Element_Kind_TYPEOF = 222,
-  Element_Kind_USING_STATEMENT = 223,
-  Element_Kind_FUNCTION_DELEGATE = 224,
-  Element_Kind_CONSTRAINT = 225,
-  Element_Kind_LINQ = 226,
-  Element_Kind_FROM = 227,
-  Element_Kind_WHERE = 228,
-  Element_Kind_SELECT = 229,
-  Element_Kind_LET = 230,
-  Element_Kind_ORDERBY = 231,
-  Element_Kind_JOIN = 232,
-  Element_Kind_GROUP = 233,
-  Element_Kind_IN = 234,
-  Element_Kind_ON = 235,
-  Element_Kind_EQUALS = 236,
-  Element_Kind_BY = 237,
-  Element_Kind_INTO = 238,
-  Element_Kind_EMPTY = 239,
-  Element_Kind_EMPTY_STMT = 240,
-  Element_Kind_RECEIVER = 241,
-  Element_Kind_MESSAGE = 242,
-  Element_Kind_SELECTOR = 243,
-  Element_Kind_PROTOCOL_LIST = 244,
-  Element_Kind_CATEGORY = 245,
-  Element_Kind_PROTOCOL = 246,
-  Element_Kind_REQUIRED_DEFAULT = 247,
-  Element_Kind_REQUIRED = 248,
-  Element_Kind_OPTIONAL = 249,
-  Element_Kind_ATTRIBUTE_LIST = 250,
-  Element_Kind_SYNTHESIZE = 251,
-  Element_Kind_DYNAMIC = 252,
-  Element_Kind_ENCODE = 253,
-  Element_Kind_AUTORELEASEPOOL = 254,
-  Element_Kind_COMPATIBILITY_ALIAS = 255,
-  Element_Kind_NIL = 256,
-  Element_Kind_CLASS_INTERFACE = 257,
-  Element_Kind_CLASS_IMPLEMENTATION = 258,
-  Element_Kind_PROTOCOL_DECLARATION = 259,
-  Element_Kind_CAST = 260,
-  Element_Kind_CONST_CAST = 261,
-  Element_Kind_DYNAMIC_CAST = 262,
-  Element_Kind_REINTERPRET_CAST = 263,
-  Element_Kind_STATIC_CAST = 264,
-  Element_Kind_POSITION = 265,
-  Element_Kind_CUDA_ARGUMENT_LIST = 266,
-  Element_Kind_OMP_DIRECTIVE = 267,
-  Element_Kind_OMP_NAME = 268,
-  Element_Kind_OMP_CLAUSE = 269,
-  Element_Kind_OMP_ARGUMENT_LIST = 270,
-  Element_Kind_OMP_ARGUMENT = 271,
-  Element_Kind_OMP_EXPRESSION = 272,
-  Element_Kind_END_ELEMENT_TOKEN = 273,
-  Element_Kind_MAIN = 274,
-  Element_Kind_BREAK = 275,
-  Element_Kind_CONTINUE = 276,
-  Element_Kind_WHILE = 277,
-  Element_Kind_DO = 278,
-  Element_Kind_FOR = 279,
-  Element_Kind_IF = 280,
-  Element_Kind_GOTO = 281,
-  Element_Kind_VISUAL_CXX_ASM = 282,
-  Element_Kind_SIZEOF = 283,
-  Element_Kind_AUTO = 284,
-  Element_Kind_REGISTER = 285,
-  Element_Kind_RESTRICT = 286,
-  Element_Kind_IMAGINARY = 287,
-  Element_Kind_NORETURN = 288,
-  Element_Kind_STATIC_ASSERT = 289,
-  Element_Kind_CRESTRICT = 290,
-  Element_Kind_CXX_TRY = 291,
-  Element_Kind_CXX_CATCH = 292,
-  Element_Kind_CXX_CLASS = 293,
-  Element_Kind_CONSTEXPR = 294,
-  Element_Kind_THREAD_LOCAL = 295,
-  Element_Kind_NULLPTR = 296,
-  Element_Kind_VOID = 297,
-  Element_Kind_RETURN = 298,
-  Element_Kind_INCLUDE = 299,
-  Element_Kind_DEFINE = 300,
-  Element_Kind_ELIF = 301,
-  Element_Kind_ENDIF = 302,
-  Element_Kind_ERRORPREC = 303,
-  Element_Kind_WARNING = 304,
-  Element_Kind_IFDEF = 305,
-  Element_Kind_IFNDEF = 306,
-  Element_Kind_LINE = 307,
-  Element_Kind_PRAGMA = 308,
-  Element_Kind_UNDEF = 309,
-  Element_Kind_INLINE = 310,
-  Element_Kind_MACRO_TYPE_NAME = 311,
-  Element_Kind_MACRO_CASE = 312,
-  Element_Kind_MACRO_LABEL = 313,
-  Element_Kind_SPECIFIER = 314,
-  Element_Kind_TRY = 315,
-  Element_Kind_CATCH = 316,
-  Element_Kind_THROW = 317,
-  Element_Kind_THROWS = 318,
-  Element_Kind_PUBLIC = 319,
-  Element_Kind_PRIVATE = 320,
-  Element_Kind_PROTECTED = 321,
-  Element_Kind_VIRTUAL = 322,
-  Element_Kind_EXPLICIT = 323,
-  Element_Kind_FOREVER = 324,
-  Element_Kind_SIGNAL = 325,
-  Element_Kind_EMIT = 326,
-  Element_Kind_NEW = 327,
-  Element_Kind_DELETE = 328,
-  Element_Kind_STATIC = 329,
-  Element_Kind_CONST = 330,
-  Element_Kind_MUTABLE = 331,
-  Element_Kind_VOLATILE = 332,
-  Element_Kind_TRANSIENT = 333,
-  Element_Kind_FINALLY = 334,
-  Element_Kind_FINAL = 335,
-  Element_Kind_ABSTRACT = 336,
-  Element_Kind_SUPER = 337,
-  Element_Kind_SYNCHRONIZED = 338,
-  Element_Kind_NATIVE = 339,
-  Element_Kind_STRICTFP = 340,
-  Element_Kind_NULLLITERAL = 341,
-  Element_Kind_ASSERT = 342,
-  Element_Kind_FOREACH = 343,
-  Element_Kind_REF = 344,
-  Element_Kind_OUT = 345,
-  Element_Kind_LOCK = 346,
-  Element_Kind_IS = 347,
-  Element_Kind_INTERNAL = 348,
-  Element_Kind_SEALED = 349,
-  Element_Kind_OVERRIDE = 350,
-  Element_Kind_IMPLICIT = 351,
-  Element_Kind_STACKALLOC = 352,
-  Element_Kind_AS = 353,
-  Element_Kind_DELEGATE = 354,
-  Element_Kind_FIXED = 355,
-  Element_Kind_CHECKED = 356,
-  Element_Kind_UNCHECKED = 357,
-  Element_Kind_REGION = 358,
-  Element_Kind_ENDREGION = 359,
-  Element_Kind_UNSAFE = 360,
-  Element_Kind_READONLY = 361,
-  Element_Kind_GET = 362,
-  Element_Kind_SET = 363,
-  Element_Kind_ADD = 364,
-  Element_Kind_REMOVE = 365,
-  Element_Kind_YIELD = 366,
-  Element_Kind_PARTIAL = 367,
-  Element_Kind_AWAIT = 368,
-  Element_Kind_ASYNC = 369,
-  Element_Kind_THIS = 370,
-  Element_Kind_PARAMS = 371,
-  Element_Kind_ALIAS = 372,
-  Element_Kind_ASCENDING = 373,
-  Element_Kind_DESCENDING = 374,
-  Element_Kind_ATINTERFACE = 375,
-  Element_Kind_ATIMPLEMENTATION = 376,
-  Element_Kind_ATEND = 377,
-  Element_Kind_ATPROTOCOL = 378,
-  Element_Kind_ATREQUIRED = 379,
-  Element_Kind_ATOPTIONAL = 380,
-  Element_Kind_ATCLASS = 381,
-  Element_Kind_WEAK = 382,
-  Element_Kind_STRONG = 383,
-  Element_Kind_OMP_OMP = 384,
-  Element_Kind_SPECIAL_CHARS = 385,
+  Element_Kind_FUNCTION_CALL = 81,
+  Element_Kind_DECLARATION_STATEMENT = 82,
+  Element_Kind_DECLARATION = 83,
+  Element_Kind_DECLARATION_INITIALIZATION = 84,
+  Element_Kind_DECLARATION_RANGE = 85,
+  Element_Kind_RANGE = 86,
+  Element_Kind_GOTO_STATEMENT = 87,
+  Element_Kind_CONTINUE_STATEMENT = 88,
+  Element_Kind_BREAK_STATEMENT = 89,
+  Element_Kind_LABEL_STATEMENT = 90,
+  Element_Kind_LABEL = 91,
+  Element_Kind_SWITCH = 92,
+  Element_Kind_CASE = 93,
+  Element_Kind_DEFAULT = 94,
+  Element_Kind_FUNCTION_DEFINITION = 95,
+  Element_Kind_FUNCTION_DECLARATION = 96,
+  Element_Kind_LAMBDA = 97,
+  Element_Kind_FUNCTION_LAMBDA = 98,
+  Element_Kind_FUNCTION_SPECIFIER = 99,
+  Element_Kind_RETURN_STATEMENT = 100,
+  Element_Kind_PARAMETER_LIST = 101,
+  Element_Kind_PARAMETER = 102,
+  Element_Kind_KRPARAMETER_LIST = 103,
+  Element_Kind_KRPARAMETER = 104,
+  Element_Kind_ARGUMENT_LIST = 105,
+  Element_Kind_ARGUMENT = 106,
+  Element_Kind_PSEUDO_PARAMETER_LIST = 107,
+  Element_Kind_INDEXER_PARAMETER_LIST = 108,
+  Element_Kind_CLASS = 109,
+  Element_Kind_CLASS_DECLARATION = 110,
+  Element_Kind_STRUCT = 111,
+  Element_Kind_STRUCT_DECLARATION = 112,
+  Element_Kind_UNION = 113,
+  Element_Kind_UNION_DECLARATION = 114,
+  Element_Kind_DERIVATION_LIST = 115,
+  Element_Kind_PUBLIC_ACCESS = 116,
+  Element_Kind_PUBLIC_ACCESS_DEFAULT = 117,
+  Element_Kind_PRIVATE_ACCESS = 118,
+  Element_Kind_PRIVATE_ACCESS_DEFAULT = 119,
+  Element_Kind_PROTECTED_ACCESS = 120,
+  Element_Kind_PROTECTED_ACCESS_DEFAULT = 121,
+  Element_Kind_MEMBER_INIT_LIST = 122,
+  Element_Kind_MEMBER_INITIALIZATION_LIST = 123,
+  Element_Kind_MEMBER_INITIALIZATION = 124,
+  Element_Kind_CONSTRUCTOR_DEFINITION = 125,
+  Element_Kind_CONSTRUCTOR_DECLARATION = 126,
+  Element_Kind_DESTRUCTOR_DEFINITION = 127,
+  Element_Kind_DESTRUCTOR_DECLARATION = 128,
+  Element_Kind_FRIEND = 129,
+  Element_Kind_CLASS_SPECIFIER = 130,
+  Element_Kind_TRY_BLOCK = 131,
+  Element_Kind_CATCH_BLOCK = 132,
+  Element_Kind_FINALLY_BLOCK = 133,
+  Element_Kind_THROW_STATEMENT = 134,
+  Element_Kind_THROW_SPECIFIER = 135,
+  Element_Kind_THROW_SPECIFIER_JAVA = 136,
+  Element_Kind_TEMPLATE = 137,
+  Element_Kind_GENERIC_ARGUMENT = 138,
+  Element_Kind_GENERIC_ARGUMENT_LIST = 139,
+  Element_Kind_TEMPLATE_PARAMETER = 140,
+  Element_Kind_TEMPLATE_PARAMETER_LIST = 141,
+  Element_Kind_GENERIC_PARAMETER = 142,
+  Element_Kind_GENERIC_PARAMETER_LIST = 143,
+  Element_Kind_TYPEDEF = 144,
+  Element_Kind_ASM = 145,
+  Element_Kind_MACRO_CALL = 146,
+  Element_Kind_SIZEOF_CALL = 147,
+  Element_Kind_EXTERN = 148,
+  Element_Kind_NAMESPACE = 149,
+  Element_Kind_USING_DIRECTIVE = 150,
+  Element_Kind_DIRECTIVE = 151,
+  Element_Kind_ATOMIC = 152,
+  Element_Kind_STATIC_ASSERT_STATEMENT = 153,
+  Element_Kind_GENERIC_SELECTION = 154,
+  Element_Kind_GENERIC_SELECTOR = 155,
+  Element_Kind_GENERIC_ASSOCIATION_LIST = 156,
+  Element_Kind_GENERIC_ASSOCIATION = 157,
+  Element_Kind_ALIGNAS = 158,
+  Element_Kind_DECLTYPE = 159,
+  Element_Kind_CAPTURE = 160,
+  Element_Kind_LAMBDA_CAPTURE = 161,
+  Element_Kind_NOEXCEPT = 162,
+  Element_Kind_TYPENAME = 163,
+  Element_Kind_ALIGNOF = 164,
+  Element_Kind_TYPEID = 165,
+  Element_Kind_SIZEOF_PACK = 166,
+  Element_Kind_ENUM_CLASS = 167,
+  Element_Kind_ENUM_CLASS_DECLARATION = 168,
+  Element_Kind_REF_QUALIFIER = 171,
+  Element_Kind_SIGNAL_ACCESS = 172,
+  Element_Kind_FOREVER_STATEMENT = 173,
+  Element_Kind_EMIT_STATEMENT = 174,
+  Element_Kind_CPP_DIRECTIVE = 175,
+  Element_Kind_CPP_FILENAME = 176,
+  Element_Kind_FILE = 177,
+  Element_Kind_NUMBER = 178,
+  Element_Kind_CPP_NUMBER = 179,
+  Element_Kind_CPP_LITERAL = 180,
+  Element_Kind_CPP_MACRO_DEFN = 181,
+  Element_Kind_CPP_MACRO_VALUE = 182,
+  Element_Kind_ERROR = 183,
+  Element_Kind_CPP_ERROR = 184,
+  Element_Kind_CPP_WARNING = 185,
+  Element_Kind_CPP_PRAGMA = 186,
+  Element_Kind_CPP_INCLUDE = 187,
+  Element_Kind_CPP_DEFINE = 188,
+  Element_Kind_CPP_UNDEF = 189,
+  Element_Kind_CPP_LINE = 190,
+  Element_Kind_CPP_IF = 191,
+  Element_Kind_CPP_IFDEF = 192,
+  Element_Kind_CPP_IFNDEF = 193,
+  Element_Kind_CPP_THEN = 194,
+  Element_Kind_CPP_ELSE = 195,
+  Element_Kind_CPP_ELIF = 196,
+  Element_Kind_CPP_EMPTY = 197,
+  Element_Kind_CPP_REGION = 198,
+  Element_Kind_CPP_ENDREGION = 199,
+  Element_Kind_USING_STMT = 200,
+  Element_Kind_ESCAPE = 201,
+  Element_Kind_VALUE = 202,
+  Element_Kind_CPP_IMPORT = 203,
+  Element_Kind_CPP_ENDIF = 204,
+  Element_Kind_MARKER = 205,
+  Element_Kind_ERROR_PARSE = 206,
+  Element_Kind_ERROR_MODE = 207,
+  Element_Kind_IMPLEMENTS = 208,
+  Element_Kind_EXTENDS = 209,
+  Element_Kind_IMPORT = 210,
+  Element_Kind_PACKAGE = 211,
+  Element_Kind_ASSERT_STATEMENT = 212,
+  Element_Kind_INTERFACE = 213,
+  Element_Kind_INTERFACE_DECLARATION = 214,
+  Element_Kind_SYNCHRONIZED_STATEMENT = 215,
+  Element_Kind_ANNOTATION = 216,
+  Element_Kind_STATIC_BLOCK = 218,
+  Element_Kind_CHECKED_STATEMENT = 219,
+  Element_Kind_UNCHECKED_STATEMENT = 220,
+  Element_Kind_ATTRIBUTE = 221,
+  Element_Kind_TARGET = 222,
+  Element_Kind_UNSAFE_STATEMENT = 223,
+  Element_Kind_LOCK_STATEMENT = 224,
+  Element_Kind_FIXED_STATEMENT = 225,
+  Element_Kind_TYPEOF = 226,
+  Element_Kind_USING_STATEMENT = 227,
+  Element_Kind_FUNCTION_DELEGATE = 228,
+  Element_Kind_CONSTRAINT = 230,
+  Element_Kind_LINQ = 231,
+  Element_Kind_FROM = 232,
+  Element_Kind_WHERE = 233,
+  Element_Kind_SELECT = 234,
+  Element_Kind_LET = 235,
+  Element_Kind_ORDERBY = 236,
+  Element_Kind_JOIN = 237,
+  Element_Kind_GROUP = 238,
+  Element_Kind_IN = 239,
+  Element_Kind_ON = 240,
+  Element_Kind_EQUALS = 241,
+  Element_Kind_BY = 242,
+  Element_Kind_INTO = 243,
+  Element_Kind_EMPTY = 244,
+  Element_Kind_EMPTY_STMT = 245,
+  Element_Kind_RECEIVER = 246,
+  Element_Kind_MESSAGE = 247,
+  Element_Kind_SELECTOR = 248,
+  Element_Kind_PROTOCOL_LIST = 249,
+  Element_Kind_CATEGORY = 250,
+  Element_Kind_PROTOCOL = 251,
+  Element_Kind_REQUIRED_DEFAULT = 252,
+  Element_Kind_REQUIRED = 253,
+  Element_Kind_OPTIONAL = 254,
+  Element_Kind_ATTRIBUTE_LIST = 256,
+  Element_Kind_SYNTHESIZE = 257,
+  Element_Kind_DYNAMIC = 258,
+  Element_Kind_ENCODE = 259,
+  Element_Kind_AUTORELEASEPOOL = 260,
+  Element_Kind_COMPATIBILITY_ALIAS = 261,
+  Element_Kind_NIL = 262,
+  Element_Kind_CLASS_INTERFACE = 263,
+  Element_Kind_CLASS_IMPLEMENTATION = 264,
+  Element_Kind_PROTOCOL_DECLARATION = 265,
+  Element_Kind_CAST = 266,
+  Element_Kind_CONST_CAST = 267,
+  Element_Kind_DYNAMIC_CAST = 268,
+  Element_Kind_REINTERPRET_CAST = 269,
+  Element_Kind_STATIC_CAST = 270,
+  Element_Kind_POSITION = 271,
+  Element_Kind_CUDA_ARGUMENT_LIST = 272,
+  Element_Kind_OMP_DIRECTIVE = 273,
+  Element_Kind_OMP_NAME = 274,
+  Element_Kind_OMP_CLAUSE = 275,
+  Element_Kind_OMP_ARGUMENT_LIST = 276,
+  Element_Kind_OMP_ARGUMENT = 277,
+  Element_Kind_OMP_EXPRESSION = 278,
+  Element_Kind_END_ELEMENT_TOKEN = 279,
+  Element_Kind_MAIN = 280,
+  Element_Kind_BREAK = 281,
+  Element_Kind_CONTINUE = 282,
+  Element_Kind_WHILE = 283,
+  Element_Kind_DO = 284,
+  Element_Kind_FOR = 285,
+  Element_Kind_IF = 286,
+  Element_Kind_GOTO = 293,
+  Element_Kind_VISUAL_CXX_ASM = 295,
+  Element_Kind_SIZEOF = 296,
+  Element_Kind_AUTO = 298,
+  Element_Kind_REGISTER = 299,
+  Element_Kind_RESTRICT = 300,
+  Element_Kind_IMAGINARY = 304,
+  Element_Kind_NORETURN = 305,
+  Element_Kind_STATIC_ASSERT = 306,
+  Element_Kind_CRESTRICT = 307,
+  Element_Kind_CXX_TRY = 308,
+  Element_Kind_CXX_CATCH = 309,
+  Element_Kind_CXX_CLASS = 310,
+  Element_Kind_CONSTEXPR = 311,
+  Element_Kind_THREAD_LOCAL = 313,
+  Element_Kind_NULLPTR = 314,
+  Element_Kind_VOID = 326,
+  Element_Kind_RETURN = 327,
+  Element_Kind_INCLUDE = 328,
+  Element_Kind_DEFINE = 329,
+  Element_Kind_ELIF = 330,
+  Element_Kind_ENDIF = 331,
+  Element_Kind_ERRORPREC = 332,
+  Element_Kind_WARNING = 333,
+  Element_Kind_IFDEF = 334,
+  Element_Kind_IFNDEF = 335,
+  Element_Kind_LINE = 336,
+  Element_Kind_PRAGMA = 337,
+  Element_Kind_UNDEF = 338,
+  Element_Kind_INLINE = 339,
+  Element_Kind_MACRO_TYPE_NAME = 340,
+  Element_Kind_MACRO_CASE = 341,
+  Element_Kind_MACRO_LABEL = 342,
+  Element_Kind_SPECIFIER = 344,
+  Element_Kind_TRY = 345,
+  Element_Kind_CATCH = 346,
+  Element_Kind_THROW = 347,
+  Element_Kind_THROWS = 348,
+  Element_Kind_PUBLIC = 350,
+  Element_Kind_PRIVATE = 351,
+  Element_Kind_PROTECTED = 352,
+  Element_Kind_VIRTUAL = 353,
+  Element_Kind_EXPLICIT = 356,
+  Element_Kind_FOREVER = 357,
+  Element_Kind_SIGNAL = 358,
+  Element_Kind_EMIT = 359,
+  Element_Kind_NEW = 363,
+  Element_Kind_DELETE = 364,
+  Element_Kind_STATIC = 365,
+  Element_Kind_CONST = 366,
+  Element_Kind_MUTABLE = 367,
+  Element_Kind_VOLATILE = 368,
+  Element_Kind_TRANSIENT = 369,
+  Element_Kind_FINALLY = 372,
+  Element_Kind_FINAL = 376,
+  Element_Kind_ABSTRACT = 377,
+  Element_Kind_SUPER = 378,
+  Element_Kind_SYNCHRONIZED = 379,
+  Element_Kind_NATIVE = 380,
+  Element_Kind_STRICTFP = 381,
+  Element_Kind_NULLLITERAL = 382,
+  Element_Kind_ASSERT = 383,
+  Element_Kind_FOREACH = 384,
+  Element_Kind_REF = 385,
+  Element_Kind_OUT = 386,
+  Element_Kind_LOCK = 388,
+  Element_Kind_IS = 389,
+  Element_Kind_INTERNAL = 390,
+  Element_Kind_SEALED = 391,
+  Element_Kind_OVERRIDE = 392,
+  Element_Kind_IMPLICIT = 393,
+  Element_Kind_STACKALLOC = 394,
+  Element_Kind_AS = 395,
+  Element_Kind_DELEGATE = 396,
+  Element_Kind_FIXED = 397,
+  Element_Kind_CHECKED = 398,
+  Element_Kind_UNCHECKED = 399,
+  Element_Kind_REGION = 400,
+  Element_Kind_ENDREGION = 401,
+  Element_Kind_UNSAFE = 402,
+  Element_Kind_READONLY = 403,
+  Element_Kind_GET = 404,
+  Element_Kind_SET = 405,
+  Element_Kind_ADD = 406,
+  Element_Kind_REMOVE = 407,
+  Element_Kind_YIELD = 408,
+  Element_Kind_PARTIAL = 409,
+  Element_Kind_AWAIT = 410,
+  Element_Kind_ASYNC = 412,
+  Element_Kind_THIS = 413,
+  Element_Kind_PARAMS = 414,
+  Element_Kind_ALIAS = 416,
+  Element_Kind_ASCENDING = 422,
+  Element_Kind_DESCENDING = 423,
+  Element_Kind_ATINTERFACE = 430,
+  Element_Kind_ATIMPLEMENTATION = 431,
+  Element_Kind_ATEND = 432,
+  Element_Kind_ATPROTOCOL = 433,
+  Element_Kind_ATREQUIRED = 434,
+  Element_Kind_ATOPTIONAL = 435,
+  Element_Kind_ATCLASS = 441,
+  Element_Kind_WEAK = 443,
+  Element_Kind_STRONG = 444,
+  Element_Kind_OMP_OMP = 448,
+  Element_Kind_SPECIAL_CHARS = 449,
   Element_Kind_Element_Kind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   Element_Kind_Element_Kind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
@@ -3602,6 +3626,1046 @@ class Pairs : public ::google::protobuf::Message /* @@protoc_insertion_point(cla
   mutable int _cached_size_;
   friend struct protobuf_fast_2eproto::TableStruct;
 };
+// -------------------------------------------------------------------
+
+class Log_Commit_Committer : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log.Commit.Committer) */ {
+ public:
+  Log_Commit_Committer();
+  virtual ~Log_Commit_Committer();
+
+  Log_Commit_Committer(const Log_Commit_Committer& from);
+
+  inline Log_Commit_Committer& operator=(const Log_Commit_Committer& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log_Commit_Committer& default_instance();
+
+  static inline const Log_Commit_Committer* internal_default_instance() {
+    return reinterpret_cast<const Log_Commit_Committer*>(
+               &_Log_Commit_Committer_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    13;
+
+  void Swap(Log_Commit_Committer* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log_Commit_Committer* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log_Commit_Committer* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log_Commit_Committer& from);
+  void MergeFrom(const Log_Commit_Committer& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log_Commit_Committer* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string commit_date = 2;
+  void clear_commit_date();
+  static const int kCommitDateFieldNumber = 2;
+  const ::std::string& commit_date() const;
+  void set_commit_date(const ::std::string& value);
+  #if LANG_CXX11
+  void set_commit_date(::std::string&& value);
+  #endif
+  void set_commit_date(const char* value);
+  void set_commit_date(const char* value, size_t size);
+  ::std::string* mutable_commit_date();
+  ::std::string* release_commit_date();
+  void set_allocated_commit_date(::std::string* commit_date);
+
+  // int32 committer_id = 1;
+  void clear_committer_id();
+  static const int kCommitterIdFieldNumber = 1;
+  ::google::protobuf::int32 committer_id() const;
+  void set_committer_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Log.Commit.Committer)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr commit_date_;
+  ::google::protobuf::int32 committer_id_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Log_Commit_Diff_Hunk_ModLine : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log.Commit.Diff.Hunk.ModLine) */ {
+ public:
+  Log_Commit_Diff_Hunk_ModLine();
+  virtual ~Log_Commit_Diff_Hunk_ModLine();
+
+  Log_Commit_Diff_Hunk_ModLine(const Log_Commit_Diff_Hunk_ModLine& from);
+
+  inline Log_Commit_Diff_Hunk_ModLine& operator=(const Log_Commit_Diff_Hunk_ModLine& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log_Commit_Diff_Hunk_ModLine& default_instance();
+
+  static inline const Log_Commit_Diff_Hunk_ModLine* internal_default_instance() {
+    return reinterpret_cast<const Log_Commit_Diff_Hunk_ModLine*>(
+               &_Log_Commit_Diff_Hunk_ModLine_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    14;
+
+  void Swap(Log_Commit_Diff_Hunk_ModLine* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log_Commit_Diff_Hunk_ModLine* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log_Commit_Diff_Hunk_ModLine* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log_Commit_Diff_Hunk_ModLine& from);
+  void MergeFrom(const Log_Commit_Diff_Hunk_ModLine& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log_Commit_Diff_Hunk_ModLine* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // bytes line = 1;
+  void clear_line();
+  static const int kLineFieldNumber = 1;
+  const ::std::string& line() const;
+  void set_line(const ::std::string& value);
+  #if LANG_CXX11
+  void set_line(::std::string&& value);
+  #endif
+  void set_line(const char* value);
+  void set_line(const void* value, size_t size);
+  ::std::string* mutable_line();
+  ::std::string* release_line();
+  void set_allocated_line(::std::string* line);
+
+  // bool is_add = 2;
+  void clear_is_add();
+  static const int kIsAddFieldNumber = 2;
+  bool is_add() const;
+  void set_is_add(bool value);
+
+  // bool is_del = 3;
+  void clear_is_del();
+  static const int kIsDelFieldNumber = 3;
+  bool is_del() const;
+  void set_is_del(bool value);
+
+  // @@protoc_insertion_point(class_scope:fast.Log.Commit.Diff.Hunk.ModLine)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr line_;
+  bool is_add_;
+  bool is_del_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Log_Commit_Diff_Hunk : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log.Commit.Diff.Hunk) */ {
+ public:
+  Log_Commit_Diff_Hunk();
+  virtual ~Log_Commit_Diff_Hunk();
+
+  Log_Commit_Diff_Hunk(const Log_Commit_Diff_Hunk& from);
+
+  inline Log_Commit_Diff_Hunk& operator=(const Log_Commit_Diff_Hunk& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log_Commit_Diff_Hunk& default_instance();
+
+  static inline const Log_Commit_Diff_Hunk* internal_default_instance() {
+    return reinterpret_cast<const Log_Commit_Diff_Hunk*>(
+               &_Log_Commit_Diff_Hunk_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    15;
+
+  void Swap(Log_Commit_Diff_Hunk* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log_Commit_Diff_Hunk* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log_Commit_Diff_Hunk* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log_Commit_Diff_Hunk& from);
+  void MergeFrom(const Log_Commit_Diff_Hunk& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log_Commit_Diff_Hunk* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Log_Commit_Diff_Hunk_ModLine ModLine;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Element element = 6;
+  int element_size() const;
+  void clear_element();
+  static const int kElementFieldNumber = 6;
+  const ::fast::Element& element(int index) const;
+  ::fast::Element* mutable_element(int index);
+  ::fast::Element* add_element();
+  ::google::protobuf::RepeatedPtrField< ::fast::Element >*
+      mutable_element();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
+      element() const;
+
+  // repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;
+  int mod_size() const;
+  void clear_mod();
+  static const int kModFieldNumber = 7;
+  const ::fast::Log_Commit_Diff_Hunk_ModLine& mod(int index) const;
+  ::fast::Log_Commit_Diff_Hunk_ModLine* mutable_mod(int index);
+  ::fast::Log_Commit_Diff_Hunk_ModLine* add_mod();
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine >*
+      mutable_mod();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine >&
+      mod() const;
+
+  // string context = 5;
+  void clear_context();
+  static const int kContextFieldNumber = 5;
+  const ::std::string& context() const;
+  void set_context(const ::std::string& value);
+  #if LANG_CXX11
+  void set_context(::std::string&& value);
+  #endif
+  void set_context(const char* value);
+  void set_context(const char* value, size_t size);
+  ::std::string* mutable_context();
+  ::std::string* release_context();
+  void set_allocated_context(::std::string* context);
+
+  // int32 from_lineno = 1;
+  void clear_from_lineno();
+  static const int kFromLinenoFieldNumber = 1;
+  ::google::protobuf::int32 from_lineno() const;
+  void set_from_lineno(::google::protobuf::int32 value);
+
+  // int32 from_column = 2;
+  void clear_from_column();
+  static const int kFromColumnFieldNumber = 2;
+  ::google::protobuf::int32 from_column() const;
+  void set_from_column(::google::protobuf::int32 value);
+
+  // int32 to_lineno = 3;
+  void clear_to_lineno();
+  static const int kToLinenoFieldNumber = 3;
+  ::google::protobuf::int32 to_lineno() const;
+  void set_to_lineno(::google::protobuf::int32 value);
+
+  // int32 to_column = 4;
+  void clear_to_column();
+  static const int kToColumnFieldNumber = 4;
+  ::google::protobuf::int32 to_column() const;
+  void set_to_column(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Log.Commit.Diff.Hunk)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Element > element_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine > mod_;
+  ::google::protobuf::internal::ArenaStringPtr context_;
+  ::google::protobuf::int32 from_lineno_;
+  ::google::protobuf::int32 from_column_;
+  ::google::protobuf::int32 to_lineno_;
+  ::google::protobuf::int32 to_column_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Log_Commit_Diff : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log.Commit.Diff) */ {
+ public:
+  Log_Commit_Diff();
+  virtual ~Log_Commit_Diff();
+
+  Log_Commit_Diff(const Log_Commit_Diff& from);
+
+  inline Log_Commit_Diff& operator=(const Log_Commit_Diff& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log_Commit_Diff& default_instance();
+
+  static inline const Log_Commit_Diff* internal_default_instance() {
+    return reinterpret_cast<const Log_Commit_Diff*>(
+               &_Log_Commit_Diff_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    16;
+
+  void Swap(Log_Commit_Diff* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log_Commit_Diff* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log_Commit_Diff* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log_Commit_Diff& from);
+  void MergeFrom(const Log_Commit_Diff& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log_Commit_Diff* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Log_Commit_Diff_Hunk Hunk;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Log.Commit.Diff.Hunk hunk = 8;
+  int hunk_size() const;
+  void clear_hunk();
+  static const int kHunkFieldNumber = 8;
+  const ::fast::Log_Commit_Diff_Hunk& hunk(int index) const;
+  ::fast::Log_Commit_Diff_Hunk* mutable_hunk(int index);
+  ::fast::Log_Commit_Diff_Hunk* add_hunk();
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk >*
+      mutable_hunk();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk >&
+      hunk() const;
+
+  // string a = 1;
+  void clear_a();
+  static const int kAFieldNumber = 1;
+  const ::std::string& a() const;
+  void set_a(const ::std::string& value);
+  #if LANG_CXX11
+  void set_a(::std::string&& value);
+  #endif
+  void set_a(const char* value);
+  void set_a(const char* value, size_t size);
+  ::std::string* mutable_a();
+  ::std::string* release_a();
+  void set_allocated_a(::std::string* a);
+
+  // string b = 2;
+  void clear_b();
+  static const int kBFieldNumber = 2;
+  const ::std::string& b() const;
+  void set_b(const ::std::string& value);
+  #if LANG_CXX11
+  void set_b(::std::string&& value);
+  #endif
+  void set_b(const char* value);
+  void set_b(const char* value, size_t size);
+  ::std::string* mutable_b();
+  ::std::string* release_b();
+  void set_allocated_b(::std::string* b);
+
+  // string is_code = 4;
+  void clear_is_code();
+  static const int kIsCodeFieldNumber = 4;
+  const ::std::string& is_code() const;
+  void set_is_code(const ::std::string& value);
+  #if LANG_CXX11
+  void set_is_code(::std::string&& value);
+  #endif
+  void set_is_code(const char* value);
+  void set_is_code(const char* value, size_t size);
+  ::std::string* mutable_is_code();
+  ::std::string* release_is_code();
+  void set_allocated_is_code(::std::string* is_code);
+
+  // string index_from = 5;
+  void clear_index_from();
+  static const int kIndexFromFieldNumber = 5;
+  const ::std::string& index_from() const;
+  void set_index_from(const ::std::string& value);
+  #if LANG_CXX11
+  void set_index_from(::std::string&& value);
+  #endif
+  void set_index_from(const char* value);
+  void set_index_from(const char* value, size_t size);
+  ::std::string* mutable_index_from();
+  ::std::string* release_index_from();
+  void set_allocated_index_from(::std::string* index_from);
+
+  // string index_to = 6;
+  void clear_index_to();
+  static const int kIndexToFieldNumber = 6;
+  const ::std::string& index_to() const;
+  void set_index_to(const ::std::string& value);
+  #if LANG_CXX11
+  void set_index_to(::std::string&& value);
+  #endif
+  void set_index_to(const char* value);
+  void set_index_to(const char* value, size_t size);
+  ::std::string* mutable_index_to();
+  ::std::string* release_index_to();
+  void set_allocated_index_to(::std::string* index_to);
+
+  // string mode = 7;
+  void clear_mode();
+  static const int kModeFieldNumber = 7;
+  const ::std::string& mode() const;
+  void set_mode(const ::std::string& value);
+  #if LANG_CXX11
+  void set_mode(::std::string&& value);
+  #endif
+  void set_mode(const char* value);
+  void set_mode(const char* value, size_t size);
+  ::std::string* mutable_mode();
+  ::std::string* release_mode();
+  void set_allocated_mode(::std::string* mode);
+
+  // bool is_new = 3;
+  void clear_is_new();
+  static const int kIsNewFieldNumber = 3;
+  bool is_new() const;
+  void set_is_new(bool value);
+
+  // @@protoc_insertion_point(class_scope:fast.Log.Commit.Diff)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk > hunk_;
+  ::google::protobuf::internal::ArenaStringPtr a_;
+  ::google::protobuf::internal::ArenaStringPtr b_;
+  ::google::protobuf::internal::ArenaStringPtr is_code_;
+  ::google::protobuf::internal::ArenaStringPtr index_from_;
+  ::google::protobuf::internal::ArenaStringPtr index_to_;
+  ::google::protobuf::internal::ArenaStringPtr mode_;
+  bool is_new_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Log_Commit : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log.Commit) */ {
+ public:
+  Log_Commit();
+  virtual ~Log_Commit();
+
+  Log_Commit(const Log_Commit& from);
+
+  inline Log_Commit& operator=(const Log_Commit& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log_Commit& default_instance();
+
+  enum ExtraCase {
+    kCommitter = 5,
+    EXTRA_NOT_SET = 0,
+  };
+
+  static inline const Log_Commit* internal_default_instance() {
+    return reinterpret_cast<const Log_Commit*>(
+               &_Log_Commit_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    17;
+
+  void Swap(Log_Commit* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log_Commit* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log_Commit* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log_Commit& from);
+  void MergeFrom(const Log_Commit& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log_Commit* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Log_Commit_Committer Committer;
+  typedef Log_Commit_Diff Diff;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Log.Commit.Diff diff = 6;
+  int diff_size() const;
+  void clear_diff();
+  static const int kDiffFieldNumber = 6;
+  const ::fast::Log_Commit_Diff& diff(int index) const;
+  ::fast::Log_Commit_Diff* mutable_diff(int index);
+  ::fast::Log_Commit_Diff* add_diff();
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff >*
+      mutable_diff();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff >&
+      diff() const;
+
+  // string id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  const ::std::string& id() const;
+  void set_id(const ::std::string& value);
+  #if LANG_CXX11
+  void set_id(::std::string&& value);
+  #endif
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  ::std::string* mutable_id();
+  ::std::string* release_id();
+  void set_allocated_id(::std::string* id);
+
+  // bytes text = 2;
+  void clear_text();
+  static const int kTextFieldNumber = 2;
+  const ::std::string& text() const;
+  void set_text(const ::std::string& value);
+  #if LANG_CXX11
+  void set_text(::std::string&& value);
+  #endif
+  void set_text(const char* value);
+  void set_text(const void* value, size_t size);
+  ::std::string* mutable_text();
+  ::std::string* release_text();
+  void set_allocated_text(::std::string* text);
+
+  // string author_date = 4;
+  void clear_author_date();
+  static const int kAuthorDateFieldNumber = 4;
+  const ::std::string& author_date() const;
+  void set_author_date(const ::std::string& value);
+  #if LANG_CXX11
+  void set_author_date(::std::string&& value);
+  #endif
+  void set_author_date(const char* value);
+  void set_author_date(const char* value, size_t size);
+  ::std::string* mutable_author_date();
+  ::std::string* release_author_date();
+  void set_allocated_author_date(::std::string* author_date);
+
+  // int32 author_id = 3;
+  void clear_author_id();
+  static const int kAuthorIdFieldNumber = 3;
+  ::google::protobuf::int32 author_id() const;
+  void set_author_id(::google::protobuf::int32 value);
+
+  // .fast.Log.Commit.Committer committer = 5;
+  bool has_committer() const;
+  void clear_committer();
+  static const int kCommitterFieldNumber = 5;
+  const ::fast::Log_Commit_Committer& committer() const;
+  ::fast::Log_Commit_Committer* mutable_committer();
+  ::fast::Log_Commit_Committer* release_committer();
+  void set_allocated_committer(::fast::Log_Commit_Committer* committer);
+
+  ExtraCase extra_case() const;
+  // @@protoc_insertion_point(class_scope:fast.Log.Commit)
+ private:
+  void set_has_committer();
+
+  inline bool has_extra() const;
+  void clear_extra();
+  inline void clear_has_extra();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff > diff_;
+  ::google::protobuf::internal::ArenaStringPtr id_;
+  ::google::protobuf::internal::ArenaStringPtr text_;
+  ::google::protobuf::internal::ArenaStringPtr author_date_;
+  ::google::protobuf::int32 author_id_;
+  union ExtraUnion {
+    ExtraUnion() {}
+    ::fast::Log_Commit_Committer* committer_;
+  } extra_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Log_Author : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log.Author) */ {
+ public:
+  Log_Author();
+  virtual ~Log_Author();
+
+  Log_Author(const Log_Author& from);
+
+  inline Log_Author& operator=(const Log_Author& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log_Author& default_instance();
+
+  static inline const Log_Author* internal_default_instance() {
+    return reinterpret_cast<const Log_Author*>(
+               &_Log_Author_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    18;
+
+  void Swap(Log_Author* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log_Author* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log_Author* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log_Author& from);
+  void MergeFrom(const Log_Author& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log_Author* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string name = 2;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // string email = 3;
+  void clear_email();
+  static const int kEmailFieldNumber = 3;
+  const ::std::string& email() const;
+  void set_email(const ::std::string& value);
+  #if LANG_CXX11
+  void set_email(::std::string&& value);
+  #endif
+  void set_email(const char* value);
+  void set_email(const char* value, size_t size);
+  ::std::string* mutable_email();
+  ::std::string* release_email();
+  void set_allocated_email(::std::string* email);
+
+  // int32 id = 1;
+  void clear_id();
+  static const int kIdFieldNumber = 1;
+  ::google::protobuf::int32 id() const;
+  void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Log.Author)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::internal::ArenaStringPtr email_;
+  ::google::protobuf::int32 id_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Log : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Log) */ {
+ public:
+  Log();
+  virtual ~Log();
+
+  Log(const Log& from);
+
+  inline Log& operator=(const Log& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Log& default_instance();
+
+  static inline const Log* internal_default_instance() {
+    return reinterpret_cast<const Log*>(
+               &_Log_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    19;
+
+  void Swap(Log* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Log* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Log* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Log& from);
+  void MergeFrom(const Log& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Log* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Log_Commit Commit;
+  typedef Log_Author Author;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Log.Commit commit = 1;
+  int commit_size() const;
+  void clear_commit();
+  static const int kCommitFieldNumber = 1;
+  const ::fast::Log_Commit& commit(int index) const;
+  ::fast::Log_Commit* mutable_commit(int index);
+  ::fast::Log_Commit* add_commit();
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit >*
+      mutable_commit();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit >&
+      commit() const;
+
+  // repeated .fast.Log.Author author = 2;
+  int author_size() const;
+  void clear_author();
+  static const int kAuthorFieldNumber = 2;
+  const ::fast::Log_Author& author(int index) const;
+  ::fast::Log_Author* mutable_author(int index);
+  ::fast::Log_Author* add_author();
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Author >*
+      mutable_author();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Log_Author >&
+      author() const;
+
+  // @@protoc_insertion_point(class_scope:fast.Log)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit > commit_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Log_Author > author_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Data) */ {
+ public:
+  Data();
+  virtual ~Data();
+
+  Data(const Data& from);
+
+  inline Data& operator=(const Data& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Data& default_instance();
+
+  enum RecordTypeCase {
+    kElement = 1,
+    kLog = 2,
+    kDelta = 3,
+    kPairs = 4,
+    RECORDTYPE_NOT_SET = 0,
+  };
+
+  static inline const Data* internal_default_instance() {
+    return reinterpret_cast<const Data*>(
+               &_Data_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    20;
+
+  void Swap(Data* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Data* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Data* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Data& from);
+  void MergeFrom(const Data& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Data* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // .fast.Element element = 1;
+  bool has_element() const;
+  void clear_element();
+  static const int kElementFieldNumber = 1;
+  const ::fast::Element& element() const;
+  ::fast::Element* mutable_element();
+  ::fast::Element* release_element();
+  void set_allocated_element(::fast::Element* element);
+
+  // .fast.Log log = 2;
+  bool has_log() const;
+  void clear_log();
+  static const int kLogFieldNumber = 2;
+  const ::fast::Log& log() const;
+  ::fast::Log* mutable_log();
+  ::fast::Log* release_log();
+  void set_allocated_log(::fast::Log* log);
+
+  // .fast.Delta delta = 3;
+  bool has_delta() const;
+  void clear_delta();
+  static const int kDeltaFieldNumber = 3;
+  const ::fast::Delta& delta() const;
+  ::fast::Delta* mutable_delta();
+  ::fast::Delta* release_delta();
+  void set_allocated_delta(::fast::Delta* delta);
+
+  // .fast.Pairs pairs = 4;
+  bool has_pairs() const;
+  void clear_pairs();
+  static const int kPairsFieldNumber = 4;
+  const ::fast::Pairs& pairs() const;
+  ::fast::Pairs* mutable_pairs();
+  ::fast::Pairs* release_pairs();
+  void set_allocated_pairs(::fast::Pairs* pairs);
+
+  RecordTypeCase RecordType_case() const;
+  // @@protoc_insertion_point(class_scope:fast.Data)
+ private:
+  void set_has_element();
+  void set_has_log();
+  void set_has_delta();
+  void set_has_pairs();
+
+  inline bool has_RecordType() const;
+  void clear_RecordType();
+  inline void clear_has_RecordType();
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  union RecordTypeUnion {
+    RecordTypeUnion() {}
+    ::fast::Element* element_;
+    ::fast::Log* log_;
+    ::fast::Delta* delta_;
+    ::fast::Pairs* pairs_;
+  } RecordType_;
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _oneof_case_[1];
+
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
 // ===================================================================
 
 
@@ -5018,7 +6082,1375 @@ Pairs::pair() const {
   return pair_;
 }
 
+// -------------------------------------------------------------------
+
+// Log_Commit_Committer
+
+// int32 committer_id = 1;
+inline void Log_Commit_Committer::clear_committer_id() {
+  committer_id_ = 0;
+}
+inline ::google::protobuf::int32 Log_Commit_Committer::committer_id() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Committer.committer_id)
+  return committer_id_;
+}
+inline void Log_Commit_Committer::set_committer_id(::google::protobuf::int32 value) {
+  
+  committer_id_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Committer.committer_id)
+}
+
+// string commit_date = 2;
+inline void Log_Commit_Committer::clear_commit_date() {
+  commit_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Committer::commit_date() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Committer.commit_date)
+  return commit_date_.GetNoArena();
+}
+inline void Log_Commit_Committer::set_commit_date(const ::std::string& value) {
+  
+  commit_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Committer.commit_date)
+}
+#if LANG_CXX11
+inline void Log_Commit_Committer::set_commit_date(::std::string&& value) {
+  
+  commit_date_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Committer.commit_date)
+}
+#endif
+inline void Log_Commit_Committer::set_commit_date(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  commit_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Committer.commit_date)
+}
+inline void Log_Commit_Committer::set_commit_date(const char* value, size_t size) {
+  
+  commit_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Committer.commit_date)
+}
+inline ::std::string* Log_Commit_Committer::mutable_commit_date() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Committer.commit_date)
+  return commit_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Committer::release_commit_date() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Committer.commit_date)
+  
+  return commit_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Committer::set_allocated_commit_date(::std::string* commit_date) {
+  if (commit_date != NULL) {
+    
+  } else {
+    
+  }
+  commit_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), commit_date);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Committer.commit_date)
+}
+
+// -------------------------------------------------------------------
+
+// Log_Commit_Diff_Hunk_ModLine
+
+// bytes line = 1;
+inline void Log_Commit_Diff_Hunk_ModLine::clear_line() {
+  line_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff_Hunk_ModLine::line() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.ModLine.line)
+  return line_.GetNoArena();
+}
+inline void Log_Commit_Diff_Hunk_ModLine::set_line(const ::std::string& value) {
+  
+  line_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.ModLine.line)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff_Hunk_ModLine::set_line(::std::string&& value) {
+  
+  line_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.Hunk.ModLine.line)
+}
+#endif
+inline void Log_Commit_Diff_Hunk_ModLine::set_line(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  line_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.Hunk.ModLine.line)
+}
+inline void Log_Commit_Diff_Hunk_ModLine::set_line(const void* value, size_t size) {
+  
+  line_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.Hunk.ModLine.line)
+}
+inline ::std::string* Log_Commit_Diff_Hunk_ModLine::mutable_line() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.Hunk.ModLine.line)
+  return line_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff_Hunk_ModLine::release_line() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.Hunk.ModLine.line)
+  
+  return line_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff_Hunk_ModLine::set_allocated_line(::std::string* line) {
+  if (line != NULL) {
+    
+  } else {
+    
+  }
+  line_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), line);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.Hunk.ModLine.line)
+}
+
+// bool is_add = 2;
+inline void Log_Commit_Diff_Hunk_ModLine::clear_is_add() {
+  is_add_ = false;
+}
+inline bool Log_Commit_Diff_Hunk_ModLine::is_add() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.ModLine.is_add)
+  return is_add_;
+}
+inline void Log_Commit_Diff_Hunk_ModLine::set_is_add(bool value) {
+  
+  is_add_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.ModLine.is_add)
+}
+
+// bool is_del = 3;
+inline void Log_Commit_Diff_Hunk_ModLine::clear_is_del() {
+  is_del_ = false;
+}
+inline bool Log_Commit_Diff_Hunk_ModLine::is_del() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.ModLine.is_del)
+  return is_del_;
+}
+inline void Log_Commit_Diff_Hunk_ModLine::set_is_del(bool value) {
+  
+  is_del_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.ModLine.is_del)
+}
+
+// -------------------------------------------------------------------
+
+// Log_Commit_Diff_Hunk
+
+// int32 from_lineno = 1;
+inline void Log_Commit_Diff_Hunk::clear_from_lineno() {
+  from_lineno_ = 0;
+}
+inline ::google::protobuf::int32 Log_Commit_Diff_Hunk::from_lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.from_lineno)
+  return from_lineno_;
+}
+inline void Log_Commit_Diff_Hunk::set_from_lineno(::google::protobuf::int32 value) {
+  
+  from_lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.from_lineno)
+}
+
+// int32 from_column = 2;
+inline void Log_Commit_Diff_Hunk::clear_from_column() {
+  from_column_ = 0;
+}
+inline ::google::protobuf::int32 Log_Commit_Diff_Hunk::from_column() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.from_column)
+  return from_column_;
+}
+inline void Log_Commit_Diff_Hunk::set_from_column(::google::protobuf::int32 value) {
+  
+  from_column_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.from_column)
+}
+
+// int32 to_lineno = 3;
+inline void Log_Commit_Diff_Hunk::clear_to_lineno() {
+  to_lineno_ = 0;
+}
+inline ::google::protobuf::int32 Log_Commit_Diff_Hunk::to_lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.to_lineno)
+  return to_lineno_;
+}
+inline void Log_Commit_Diff_Hunk::set_to_lineno(::google::protobuf::int32 value) {
+  
+  to_lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.to_lineno)
+}
+
+// int32 to_column = 4;
+inline void Log_Commit_Diff_Hunk::clear_to_column() {
+  to_column_ = 0;
+}
+inline ::google::protobuf::int32 Log_Commit_Diff_Hunk::to_column() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.to_column)
+  return to_column_;
+}
+inline void Log_Commit_Diff_Hunk::set_to_column(::google::protobuf::int32 value) {
+  
+  to_column_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.to_column)
+}
+
+// string context = 5;
+inline void Log_Commit_Diff_Hunk::clear_context() {
+  context_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff_Hunk::context() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.context)
+  return context_.GetNoArena();
+}
+inline void Log_Commit_Diff_Hunk::set_context(const ::std::string& value) {
+  
+  context_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.Hunk.context)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff_Hunk::set_context(::std::string&& value) {
+  
+  context_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.Hunk.context)
+}
+#endif
+inline void Log_Commit_Diff_Hunk::set_context(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  context_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.Hunk.context)
+}
+inline void Log_Commit_Diff_Hunk::set_context(const char* value, size_t size) {
+  
+  context_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.Hunk.context)
+}
+inline ::std::string* Log_Commit_Diff_Hunk::mutable_context() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.Hunk.context)
+  return context_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff_Hunk::release_context() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.Hunk.context)
+  
+  return context_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff_Hunk::set_allocated_context(::std::string* context) {
+  if (context != NULL) {
+    
+  } else {
+    
+  }
+  context_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), context);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.Hunk.context)
+}
+
+// repeated .fast.Element element = 6;
+inline int Log_Commit_Diff_Hunk::element_size() const {
+  return element_.size();
+}
+inline void Log_Commit_Diff_Hunk::clear_element() {
+  element_.Clear();
+}
+inline const ::fast::Element& Log_Commit_Diff_Hunk::element(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.element)
+  return element_.Get(index);
+}
+inline ::fast::Element* Log_Commit_Diff_Hunk::mutable_element(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.Hunk.element)
+  return element_.Mutable(index);
+}
+inline ::fast::Element* Log_Commit_Diff_Hunk::add_element() {
+  // @@protoc_insertion_point(field_add:fast.Log.Commit.Diff.Hunk.element)
+  return element_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Element >*
+Log_Commit_Diff_Hunk::mutable_element() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Log.Commit.Diff.Hunk.element)
+  return &element_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
+Log_Commit_Diff_Hunk::element() const {
+  // @@protoc_insertion_point(field_list:fast.Log.Commit.Diff.Hunk.element)
+  return element_;
+}
+
+// repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;
+inline int Log_Commit_Diff_Hunk::mod_size() const {
+  return mod_.size();
+}
+inline void Log_Commit_Diff_Hunk::clear_mod() {
+  mod_.Clear();
+}
+inline const ::fast::Log_Commit_Diff_Hunk_ModLine& Log_Commit_Diff_Hunk::mod(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.mod)
+  return mod_.Get(index);
+}
+inline ::fast::Log_Commit_Diff_Hunk_ModLine* Log_Commit_Diff_Hunk::mutable_mod(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.Hunk.mod)
+  return mod_.Mutable(index);
+}
+inline ::fast::Log_Commit_Diff_Hunk_ModLine* Log_Commit_Diff_Hunk::add_mod() {
+  // @@protoc_insertion_point(field_add:fast.Log.Commit.Diff.Hunk.mod)
+  return mod_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine >*
+Log_Commit_Diff_Hunk::mutable_mod() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Log.Commit.Diff.Hunk.mod)
+  return &mod_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine >&
+Log_Commit_Diff_Hunk::mod() const {
+  // @@protoc_insertion_point(field_list:fast.Log.Commit.Diff.Hunk.mod)
+  return mod_;
+}
+
+// -------------------------------------------------------------------
+
+// Log_Commit_Diff
+
+// string a = 1;
+inline void Log_Commit_Diff::clear_a() {
+  a_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff::a() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.a)
+  return a_.GetNoArena();
+}
+inline void Log_Commit_Diff::set_a(const ::std::string& value) {
+  
+  a_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.a)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff::set_a(::std::string&& value) {
+  
+  a_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.a)
+}
+#endif
+inline void Log_Commit_Diff::set_a(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  a_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.a)
+}
+inline void Log_Commit_Diff::set_a(const char* value, size_t size) {
+  
+  a_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.a)
+}
+inline ::std::string* Log_Commit_Diff::mutable_a() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.a)
+  return a_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff::release_a() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.a)
+  
+  return a_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff::set_allocated_a(::std::string* a) {
+  if (a != NULL) {
+    
+  } else {
+    
+  }
+  a_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), a);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.a)
+}
+
+// string b = 2;
+inline void Log_Commit_Diff::clear_b() {
+  b_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff::b() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.b)
+  return b_.GetNoArena();
+}
+inline void Log_Commit_Diff::set_b(const ::std::string& value) {
+  
+  b_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.b)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff::set_b(::std::string&& value) {
+  
+  b_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.b)
+}
+#endif
+inline void Log_Commit_Diff::set_b(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  b_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.b)
+}
+inline void Log_Commit_Diff::set_b(const char* value, size_t size) {
+  
+  b_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.b)
+}
+inline ::std::string* Log_Commit_Diff::mutable_b() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.b)
+  return b_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff::release_b() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.b)
+  
+  return b_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff::set_allocated_b(::std::string* b) {
+  if (b != NULL) {
+    
+  } else {
+    
+  }
+  b_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), b);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.b)
+}
+
+// bool is_new = 3;
+inline void Log_Commit_Diff::clear_is_new() {
+  is_new_ = false;
+}
+inline bool Log_Commit_Diff::is_new() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.is_new)
+  return is_new_;
+}
+inline void Log_Commit_Diff::set_is_new(bool value) {
+  
+  is_new_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.is_new)
+}
+
+// string is_code = 4;
+inline void Log_Commit_Diff::clear_is_code() {
+  is_code_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff::is_code() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.is_code)
+  return is_code_.GetNoArena();
+}
+inline void Log_Commit_Diff::set_is_code(const ::std::string& value) {
+  
+  is_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.is_code)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff::set_is_code(::std::string&& value) {
+  
+  is_code_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.is_code)
+}
+#endif
+inline void Log_Commit_Diff::set_is_code(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  is_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.is_code)
+}
+inline void Log_Commit_Diff::set_is_code(const char* value, size_t size) {
+  
+  is_code_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.is_code)
+}
+inline ::std::string* Log_Commit_Diff::mutable_is_code() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.is_code)
+  return is_code_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff::release_is_code() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.is_code)
+  
+  return is_code_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff::set_allocated_is_code(::std::string* is_code) {
+  if (is_code != NULL) {
+    
+  } else {
+    
+  }
+  is_code_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), is_code);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.is_code)
+}
+
+// string index_from = 5;
+inline void Log_Commit_Diff::clear_index_from() {
+  index_from_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff::index_from() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.index_from)
+  return index_from_.GetNoArena();
+}
+inline void Log_Commit_Diff::set_index_from(const ::std::string& value) {
+  
+  index_from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.index_from)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff::set_index_from(::std::string&& value) {
+  
+  index_from_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.index_from)
+}
+#endif
+inline void Log_Commit_Diff::set_index_from(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  index_from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.index_from)
+}
+inline void Log_Commit_Diff::set_index_from(const char* value, size_t size) {
+  
+  index_from_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.index_from)
+}
+inline ::std::string* Log_Commit_Diff::mutable_index_from() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.index_from)
+  return index_from_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff::release_index_from() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.index_from)
+  
+  return index_from_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff::set_allocated_index_from(::std::string* index_from) {
+  if (index_from != NULL) {
+    
+  } else {
+    
+  }
+  index_from_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), index_from);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.index_from)
+}
+
+// string index_to = 6;
+inline void Log_Commit_Diff::clear_index_to() {
+  index_to_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff::index_to() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.index_to)
+  return index_to_.GetNoArena();
+}
+inline void Log_Commit_Diff::set_index_to(const ::std::string& value) {
+  
+  index_to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.index_to)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff::set_index_to(::std::string&& value) {
+  
+  index_to_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.index_to)
+}
+#endif
+inline void Log_Commit_Diff::set_index_to(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  index_to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.index_to)
+}
+inline void Log_Commit_Diff::set_index_to(const char* value, size_t size) {
+  
+  index_to_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.index_to)
+}
+inline ::std::string* Log_Commit_Diff::mutable_index_to() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.index_to)
+  return index_to_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff::release_index_to() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.index_to)
+  
+  return index_to_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff::set_allocated_index_to(::std::string* index_to) {
+  if (index_to != NULL) {
+    
+  } else {
+    
+  }
+  index_to_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), index_to);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.index_to)
+}
+
+// string mode = 7;
+inline void Log_Commit_Diff::clear_mode() {
+  mode_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit_Diff::mode() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.mode)
+  return mode_.GetNoArena();
+}
+inline void Log_Commit_Diff::set_mode(const ::std::string& value) {
+  
+  mode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.Diff.mode)
+}
+#if LANG_CXX11
+inline void Log_Commit_Diff::set_mode(::std::string&& value) {
+  
+  mode_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.Diff.mode)
+}
+#endif
+inline void Log_Commit_Diff::set_mode(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  mode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.Diff.mode)
+}
+inline void Log_Commit_Diff::set_mode(const char* value, size_t size) {
+  
+  mode_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.Diff.mode)
+}
+inline ::std::string* Log_Commit_Diff::mutable_mode() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.mode)
+  return mode_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit_Diff::release_mode() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.mode)
+  
+  return mode_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit_Diff::set_allocated_mode(::std::string* mode) {
+  if (mode != NULL) {
+    
+  } else {
+    
+  }
+  mode_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), mode);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.mode)
+}
+
+// repeated .fast.Log.Commit.Diff.Hunk hunk = 8;
+inline int Log_Commit_Diff::hunk_size() const {
+  return hunk_.size();
+}
+inline void Log_Commit_Diff::clear_hunk() {
+  hunk_.Clear();
+}
+inline const ::fast::Log_Commit_Diff_Hunk& Log_Commit_Diff::hunk(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.hunk)
+  return hunk_.Get(index);
+}
+inline ::fast::Log_Commit_Diff_Hunk* Log_Commit_Diff::mutable_hunk(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.hunk)
+  return hunk_.Mutable(index);
+}
+inline ::fast::Log_Commit_Diff_Hunk* Log_Commit_Diff::add_hunk() {
+  // @@protoc_insertion_point(field_add:fast.Log.Commit.Diff.hunk)
+  return hunk_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk >*
+Log_Commit_Diff::mutable_hunk() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Log.Commit.Diff.hunk)
+  return &hunk_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk >&
+Log_Commit_Diff::hunk() const {
+  // @@protoc_insertion_point(field_list:fast.Log.Commit.Diff.hunk)
+  return hunk_;
+}
+
+// -------------------------------------------------------------------
+
+// Log_Commit
+
+// string id = 1;
+inline void Log_Commit::clear_id() {
+  id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit::id() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.id)
+  return id_.GetNoArena();
+}
+inline void Log_Commit::set_id(const ::std::string& value) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.id)
+}
+#if LANG_CXX11
+inline void Log_Commit::set_id(::std::string&& value) {
+  
+  id_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.id)
+}
+#endif
+inline void Log_Commit::set_id(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.id)
+}
+inline void Log_Commit::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.id)
+}
+inline ::std::string* Log_Commit::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.id)
+  return id_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit::release_id() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.id)
+  
+  return id_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit::set_allocated_id(::std::string* id) {
+  if (id != NULL) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.id)
+}
+
+// bytes text = 2;
+inline void Log_Commit::clear_text() {
+  text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit::text() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.text)
+  return text_.GetNoArena();
+}
+inline void Log_Commit::set_text(const ::std::string& value) {
+  
+  text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.text)
+}
+#if LANG_CXX11
+inline void Log_Commit::set_text(::std::string&& value) {
+  
+  text_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.text)
+}
+#endif
+inline void Log_Commit::set_text(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.text)
+}
+inline void Log_Commit::set_text(const void* value, size_t size) {
+  
+  text_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.text)
+}
+inline ::std::string* Log_Commit::mutable_text() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.text)
+  return text_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit::release_text() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.text)
+  
+  return text_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit::set_allocated_text(::std::string* text) {
+  if (text != NULL) {
+    
+  } else {
+    
+  }
+  text_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), text);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.text)
+}
+
+// int32 author_id = 3;
+inline void Log_Commit::clear_author_id() {
+  author_id_ = 0;
+}
+inline ::google::protobuf::int32 Log_Commit::author_id() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.author_id)
+  return author_id_;
+}
+inline void Log_Commit::set_author_id(::google::protobuf::int32 value) {
+  
+  author_id_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.author_id)
+}
+
+// string author_date = 4;
+inline void Log_Commit::clear_author_date() {
+  author_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Commit::author_date() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.author_date)
+  return author_date_.GetNoArena();
+}
+inline void Log_Commit::set_author_date(const ::std::string& value) {
+  
+  author_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Commit.author_date)
+}
+#if LANG_CXX11
+inline void Log_Commit::set_author_date(::std::string&& value) {
+  
+  author_date_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Commit.author_date)
+}
+#endif
+inline void Log_Commit::set_author_date(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  author_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Commit.author_date)
+}
+inline void Log_Commit::set_author_date(const char* value, size_t size) {
+  
+  author_date_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Commit.author_date)
+}
+inline ::std::string* Log_Commit::mutable_author_date() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.author_date)
+  return author_date_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Commit::release_author_date() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.author_date)
+  
+  return author_date_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Commit::set_allocated_author_date(::std::string* author_date) {
+  if (author_date != NULL) {
+    
+  } else {
+    
+  }
+  author_date_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), author_date);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.author_date)
+}
+
+// .fast.Log.Commit.Committer committer = 5;
+inline bool Log_Commit::has_committer() const {
+  return extra_case() == kCommitter;
+}
+inline void Log_Commit::set_has_committer() {
+  _oneof_case_[0] = kCommitter;
+}
+inline void Log_Commit::clear_committer() {
+  if (has_committer()) {
+    delete extra_.committer_;
+    clear_has_extra();
+  }
+}
+inline  const ::fast::Log_Commit_Committer& Log_Commit::committer() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.committer)
+  return has_committer()
+      ? *extra_.committer_
+      : ::fast::Log_Commit_Committer::default_instance();
+}
+inline ::fast::Log_Commit_Committer* Log_Commit::mutable_committer() {
+  if (!has_committer()) {
+    clear_extra();
+    set_has_committer();
+    extra_.committer_ = new ::fast::Log_Commit_Committer;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.committer)
+  return extra_.committer_;
+}
+inline ::fast::Log_Commit_Committer* Log_Commit::release_committer() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.committer)
+  if (has_committer()) {
+    clear_has_extra();
+    ::fast::Log_Commit_Committer* temp = extra_.committer_;
+    extra_.committer_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Log_Commit::set_allocated_committer(::fast::Log_Commit_Committer* committer) {
+  clear_extra();
+  if (committer) {
+    set_has_committer();
+    extra_.committer_ = committer;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.committer)
+}
+
+// repeated .fast.Log.Commit.Diff diff = 6;
+inline int Log_Commit::diff_size() const {
+  return diff_.size();
+}
+inline void Log_Commit::clear_diff() {
+  diff_.Clear();
+}
+inline const ::fast::Log_Commit_Diff& Log_Commit::diff(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.diff)
+  return diff_.Get(index);
+}
+inline ::fast::Log_Commit_Diff* Log_Commit::mutable_diff(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.diff)
+  return diff_.Mutable(index);
+}
+inline ::fast::Log_Commit_Diff* Log_Commit::add_diff() {
+  // @@protoc_insertion_point(field_add:fast.Log.Commit.diff)
+  return diff_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff >*
+Log_Commit::mutable_diff() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Log.Commit.diff)
+  return &diff_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff >&
+Log_Commit::diff() const {
+  // @@protoc_insertion_point(field_list:fast.Log.Commit.diff)
+  return diff_;
+}
+
+inline bool Log_Commit::has_extra() const {
+  return extra_case() != EXTRA_NOT_SET;
+}
+inline void Log_Commit::clear_has_extra() {
+  _oneof_case_[0] = EXTRA_NOT_SET;
+}
+inline Log_Commit::ExtraCase Log_Commit::extra_case() const {
+  return Log_Commit::ExtraCase(_oneof_case_[0]);
+}
+// -------------------------------------------------------------------
+
+// Log_Author
+
+// int32 id = 1;
+inline void Log_Author::clear_id() {
+  id_ = 0;
+}
+inline ::google::protobuf::int32 Log_Author::id() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Author.id)
+  return id_;
+}
+inline void Log_Author::set_id(::google::protobuf::int32 value) {
+  
+  id_ = value;
+  // @@protoc_insertion_point(field_set:fast.Log.Author.id)
+}
+
+// string name = 2;
+inline void Log_Author::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Author::name() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Author.name)
+  return name_.GetNoArena();
+}
+inline void Log_Author::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Author.name)
+}
+#if LANG_CXX11
+inline void Log_Author::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Author.name)
+}
+#endif
+inline void Log_Author::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Author.name)
+}
+inline void Log_Author::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Author.name)
+}
+inline ::std::string* Log_Author::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Author.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Author::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Log.Author.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Author::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Author.name)
+}
+
+// string email = 3;
+inline void Log_Author::clear_email() {
+  email_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Log_Author::email() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Author.email)
+  return email_.GetNoArena();
+}
+inline void Log_Author::set_email(const ::std::string& value) {
+  
+  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Log.Author.email)
+}
+#if LANG_CXX11
+inline void Log_Author::set_email(::std::string&& value) {
+  
+  email_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Log.Author.email)
+}
+#endif
+inline void Log_Author::set_email(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Log.Author.email)
+}
+inline void Log_Author::set_email(const char* value, size_t size) {
+  
+  email_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Log.Author.email)
+}
+inline ::std::string* Log_Author::mutable_email() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Log.Author.email)
+  return email_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Log_Author::release_email() {
+  // @@protoc_insertion_point(field_release:fast.Log.Author.email)
+  
+  return email_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Log_Author::set_allocated_email(::std::string* email) {
+  if (email != NULL) {
+    
+  } else {
+    
+  }
+  email_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), email);
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Author.email)
+}
+
+// -------------------------------------------------------------------
+
+// Log
+
+// repeated .fast.Log.Commit commit = 1;
+inline int Log::commit_size() const {
+  return commit_.size();
+}
+inline void Log::clear_commit() {
+  commit_.Clear();
+}
+inline const ::fast::Log_Commit& Log::commit(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Log.commit)
+  return commit_.Get(index);
+}
+inline ::fast::Log_Commit* Log::mutable_commit(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Log.commit)
+  return commit_.Mutable(index);
+}
+inline ::fast::Log_Commit* Log::add_commit() {
+  // @@protoc_insertion_point(field_add:fast.Log.commit)
+  return commit_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit >*
+Log::mutable_commit() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Log.commit)
+  return &commit_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit >&
+Log::commit() const {
+  // @@protoc_insertion_point(field_list:fast.Log.commit)
+  return commit_;
+}
+
+// repeated .fast.Log.Author author = 2;
+inline int Log::author_size() const {
+  return author_.size();
+}
+inline void Log::clear_author() {
+  author_.Clear();
+}
+inline const ::fast::Log_Author& Log::author(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Log.author)
+  return author_.Get(index);
+}
+inline ::fast::Log_Author* Log::mutable_author(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Log.author)
+  return author_.Mutable(index);
+}
+inline ::fast::Log_Author* Log::add_author() {
+  // @@protoc_insertion_point(field_add:fast.Log.author)
+  return author_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Log_Author >*
+Log::mutable_author() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Log.author)
+  return &author_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Log_Author >&
+Log::author() const {
+  // @@protoc_insertion_point(field_list:fast.Log.author)
+  return author_;
+}
+
+// -------------------------------------------------------------------
+
+// Data
+
+// .fast.Element element = 1;
+inline bool Data::has_element() const {
+  return RecordType_case() == kElement;
+}
+inline void Data::set_has_element() {
+  _oneof_case_[0] = kElement;
+}
+inline void Data::clear_element() {
+  if (has_element()) {
+    delete RecordType_.element_;
+    clear_has_RecordType();
+  }
+}
+inline  const ::fast::Element& Data::element() const {
+  // @@protoc_insertion_point(field_get:fast.Data.element)
+  return has_element()
+      ? *RecordType_.element_
+      : ::fast::Element::default_instance();
+}
+inline ::fast::Element* Data::mutable_element() {
+  if (!has_element()) {
+    clear_RecordType();
+    set_has_element();
+    RecordType_.element_ = new ::fast::Element;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Data.element)
+  return RecordType_.element_;
+}
+inline ::fast::Element* Data::release_element() {
+  // @@protoc_insertion_point(field_release:fast.Data.element)
+  if (has_element()) {
+    clear_has_RecordType();
+    ::fast::Element* temp = RecordType_.element_;
+    RecordType_.element_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Data::set_allocated_element(::fast::Element* element) {
+  clear_RecordType();
+  if (element) {
+    set_has_element();
+    RecordType_.element_ = element;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.element)
+}
+
+// .fast.Log log = 2;
+inline bool Data::has_log() const {
+  return RecordType_case() == kLog;
+}
+inline void Data::set_has_log() {
+  _oneof_case_[0] = kLog;
+}
+inline void Data::clear_log() {
+  if (has_log()) {
+    delete RecordType_.log_;
+    clear_has_RecordType();
+  }
+}
+inline  const ::fast::Log& Data::log() const {
+  // @@protoc_insertion_point(field_get:fast.Data.log)
+  return has_log()
+      ? *RecordType_.log_
+      : ::fast::Log::default_instance();
+}
+inline ::fast::Log* Data::mutable_log() {
+  if (!has_log()) {
+    clear_RecordType();
+    set_has_log();
+    RecordType_.log_ = new ::fast::Log;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Data.log)
+  return RecordType_.log_;
+}
+inline ::fast::Log* Data::release_log() {
+  // @@protoc_insertion_point(field_release:fast.Data.log)
+  if (has_log()) {
+    clear_has_RecordType();
+    ::fast::Log* temp = RecordType_.log_;
+    RecordType_.log_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Data::set_allocated_log(::fast::Log* log) {
+  clear_RecordType();
+  if (log) {
+    set_has_log();
+    RecordType_.log_ = log;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.log)
+}
+
+// .fast.Delta delta = 3;
+inline bool Data::has_delta() const {
+  return RecordType_case() == kDelta;
+}
+inline void Data::set_has_delta() {
+  _oneof_case_[0] = kDelta;
+}
+inline void Data::clear_delta() {
+  if (has_delta()) {
+    delete RecordType_.delta_;
+    clear_has_RecordType();
+  }
+}
+inline  const ::fast::Delta& Data::delta() const {
+  // @@protoc_insertion_point(field_get:fast.Data.delta)
+  return has_delta()
+      ? *RecordType_.delta_
+      : ::fast::Delta::default_instance();
+}
+inline ::fast::Delta* Data::mutable_delta() {
+  if (!has_delta()) {
+    clear_RecordType();
+    set_has_delta();
+    RecordType_.delta_ = new ::fast::Delta;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Data.delta)
+  return RecordType_.delta_;
+}
+inline ::fast::Delta* Data::release_delta() {
+  // @@protoc_insertion_point(field_release:fast.Data.delta)
+  if (has_delta()) {
+    clear_has_RecordType();
+    ::fast::Delta* temp = RecordType_.delta_;
+    RecordType_.delta_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Data::set_allocated_delta(::fast::Delta* delta) {
+  clear_RecordType();
+  if (delta) {
+    set_has_delta();
+    RecordType_.delta_ = delta;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.delta)
+}
+
+// .fast.Pairs pairs = 4;
+inline bool Data::has_pairs() const {
+  return RecordType_case() == kPairs;
+}
+inline void Data::set_has_pairs() {
+  _oneof_case_[0] = kPairs;
+}
+inline void Data::clear_pairs() {
+  if (has_pairs()) {
+    delete RecordType_.pairs_;
+    clear_has_RecordType();
+  }
+}
+inline  const ::fast::Pairs& Data::pairs() const {
+  // @@protoc_insertion_point(field_get:fast.Data.pairs)
+  return has_pairs()
+      ? *RecordType_.pairs_
+      : ::fast::Pairs::default_instance();
+}
+inline ::fast::Pairs* Data::mutable_pairs() {
+  if (!has_pairs()) {
+    clear_RecordType();
+    set_has_pairs();
+    RecordType_.pairs_ = new ::fast::Pairs;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Data.pairs)
+  return RecordType_.pairs_;
+}
+inline ::fast::Pairs* Data::release_pairs() {
+  // @@protoc_insertion_point(field_release:fast.Data.pairs)
+  if (has_pairs()) {
+    clear_has_RecordType();
+    ::fast::Pairs* temp = RecordType_.pairs_;
+    RecordType_.pairs_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Data::set_allocated_pairs(::fast::Pairs* pairs) {
+  clear_RecordType();
+  if (pairs) {
+    set_has_pairs();
+    RecordType_.pairs_ = pairs;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.pairs)
+}
+
+inline bool Data::has_RecordType() const {
+  return RecordType_case() != RECORDTYPE_NOT_SET;
+}
+inline void Data::clear_has_RecordType() {
+  _oneof_case_[0] = RECORDTYPE_NOT_SET;
+}
+inline Data::RecordTypeCase Data::RecordType_case() const {
+  return Data::RecordTypeCase(_oneof_case_[0]);
+}
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

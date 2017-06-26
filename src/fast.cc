@@ -102,8 +102,10 @@ int loadXML(int load_only, int argc, char**argv) {
 	if (is_protobuf) {
 		fstream output(output_filename, ios::out | ios::trunc | ios::binary);
   		GOOGLE_PROTOBUF_VERIFY_VERSION;
-		fast::Element * element = savePBfromXML(doc.first_node());
-		element->SerializeToOstream(&output);
+		fast::Data *data = new fast::Data();
+		fast::Element *element = savePBfromXML(doc.first_node());
+		data->set_allocated_element(element);
+		data->SerializeToOstream(&output);
   		google::protobuf::ShutdownProtobufLibrary();
 		output.close();
 	}
@@ -112,7 +114,9 @@ int loadXML(int load_only, int argc, char**argv) {
 	if (is_flatbuffers) {
 		flatbuffers::FlatBufferBuilder builder;
 		auto element = saveFBSfromXML(builder, doc.first_node());
-		builder.Finish(element);
+		auto anonymous = _fast::_Data::CreateAnonymous3(builder, element, 0, 0, 0);
+		auto data = _fast::CreateData(builder, anonymous);
+		builder.Finish(data);
 		ofstream output(output_filename, ios::out | ios::trunc | ios::binary);
 		long size = builder.GetSize();
 		output.write((const char*) builder.GetBufferPointer(), size);
@@ -148,8 +152,8 @@ int loadFBS(int load_only, int argc, char **argv) {
 	char *data = new char[length];
 	fread(data, sizeof(char), length, file);
 	fclose(file);
-	const struct _fast::Element *element = flatbuffers::GetRoot<Element>(data);
-	if (!load_only && !Slice) {
+	const struct _fast::Data *d = flatbuffers::GetRoot<Data>(data);
+	if (d != NULL && !load_only && !Slice) {
 		//string xml_filename = tmpnam(NULL);
 		char buf[100];
 		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -160,6 +164,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 		xml_filename +=	".xml";
 		ofstream out(xml_filename, ios::out | ios::trunc);
 		out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+		const struct _fast::Element *element = d->RecordType()->element();
 		saveXMLfromFBS(out, element);
 		out << endl;
 		if (argc == 2) {
@@ -183,10 +188,11 @@ int loadFBS(int load_only, int argc, char **argv) {
 		argv[1] = (char*) xml_filename.c_str();
 		mainRoutine(argc, argv);
 		return remove(xml_filename.c_str());
-	} else if (!load_only && Slice) {
+	} else if (d != NULL && !load_only && Slice) {
 		srcSlice sslice;
 		srcSliceHandler handler(&sslice.dictionary);
 		handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
+		const struct _fast::Element *element = d->RecordType()->element();
 		sliceFBS(handler, element);
 		handler.endRoot(NULL, NULL, NULL);
 		DoComputation(handler, handler.sysDict->ffvMap);
@@ -199,21 +205,24 @@ int loadFBS(int load_only, int argc, char **argv) {
 #ifdef PB_fast
 void slicePB(srcSliceHandler& handler, fast::Element *element);
 
+fast::Data readData(char *input_filename) {
+	// Verify that the version of the library that we linked against is
+	// compatible with the version of the headers we compiled against.
+	GOOGLE_PROTOBUF_VERIFY_VERSION;
+	fast::Data data;
+	ifstream input(input_filename, ios::in | ios::binary);
+    	if (!data.ParseFromIstream(&input)) {
+	      cerr << "Failed to parse compilation unit." << endl;
+	}
+	input.close();
+	return data;
+}
+
 int loadPB(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
 	char *input_filename = argv[1];
-  // Verify that the version of the library that we linked against is
-  // compatible with the version of the headers we compiled against.
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-  fast::Element unit;
-  {
-    ifstream input(input_filename, ios::in | ios::binary);
-    if (!unit.ParseFromIstream(&input)) {
-      cerr << "Failed to parse compilation unit." << endl;
-      return -1;
-    }
-    input.close();
-    if (!load_only && !Slice) {
+	fast::Data data = readData(input_filename);
+    if (data.has_element() && !load_only && !Slice) {
 	// string xml_filename = tmpnam(NULL);
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -227,6 +236,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	fstream out(xml_filename, ios::out | ios::trunc);
 #endif
 	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	fast::Element unit = data.element();
 	saveXMLfromPB(out, &unit);
 	out << endl;
 	if (argc == 2) {
@@ -248,16 +258,16 @@ int loadPB(int load_only, int argc, char **argv) {
 	argv[1] = (char*) xml_filename.c_str();
 	mainRoutine(argc, argv);
 	return remove(xml_filename.c_str());
-    } else if (!load_only && Slice) {
+    } else if (data.has_element() && !load_only && Slice) {
 	srcSlice sslice;
 	srcSliceHandler handler(&sslice.dictionary);
 	handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
+	fast::Element unit = data.element();
 	slicePB(handler, &unit);
 	handler.endRoot(NULL, NULL, NULL);
 	DoComputation(handler, handler.sysDict->ffvMap);
 	srcSliceToCsv(sslice);
     } 
-  }
   // Optional:  Delete all global objects allocated by libprotobuf.
   google::protobuf::ShutdownProtobufLibrary();
   return 0;
@@ -437,60 +447,46 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 }
 #endif
 
-void saveTxtFromPB(char *input_file) {
-	char buf[100];
-	fast::Element unit;
-	{
-	    ifstream input(input_file, ios::in | ios::binary);
-	    if (!unit.ParseFromIstream(&input)) {
-	      cerr << "Failed to parse compilation unit." << endl;
-	      return;
-	    }
-	    input.close();
-	}
-	const char *filename = unit.unit().filename().c_str();
-   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
-		sprintf(buf, "cat /usr/local/share/fast.proto | sed -e 's/Kind kind = 1;/SmaliKind kind = 1;/' > /tmp/smali.proto");
-		system(buf);
-		sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Element /tmp/smali.proto", input_file);
-		system(buf);
-		remove("/tmp/smali.proto");
-	} else {
-		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto", input_file);
-		system(buf);
-	}
-}
 void saveTxtFromPB(char *input_file, char *output_file) {
 	char buf[100];
-	fast::Element unit;
-	{
-	    ifstream input(input_file, ios::in | ios::binary);
-	    if (!unit.ParseFromIstream(&input)) {
-	      cerr << "Failed to parse compilation unit." << endl;
-	      return;
-	    }
-	    input.close();
+	fast::Data data;
+	ifstream input(input_file, ios::in | ios::binary);
+	if (!data.ParseFromIstream(&input)) {
+	    cerr << "Error parsing the protobuf input" << endl;
 	}
-	const char *filename = unit.unit().filename().c_str();
-   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
-		sprintf(buf, "cat /usr/local/share/fast.proto | sed -e 's/Kind kind = 1;/SmaliKind kind = 1;/' > /tmp/smali.proto");
-		system(buf);
-		sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Element /tmp/smali.proto > %s", input_file, output_file);
-		system(buf);
-		remove("/tmp/smali.proto");
+	input.close();
+	if (data.has_element()) {
+		fast::Element unit = data.element();
+		const char *filename = unit.unit().filename().c_str();
+		if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
+			sprintf(buf, "cat /usr/local/share/fast.proto | sed -e 's/Kind kind = 1;/SmaliKind kind = 1;/' > /tmp/smali.proto");
+			system(buf);
+			sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Data /tmp/smali.proto %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+			system(buf);
+			remove("/tmp/smali.proto");
+		} else {
+			sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+			system(buf);
+		}
 	} else {
-		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
+		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s",
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
 		system(buf);
-	}
+	} 
+}
+void saveTxtFromPB(char *input_file) {
+	saveTxtFromPB(input_file, NULL);
 }
 void savePBfromTxt(char *input_file) {
 	char buf[100];
-	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Element /usr/local/share/fast.proto", input_file);
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto", input_file);
 	system(buf);
 }
 void savePBfromTxt(char *input_file, char *output_file) {
 	char buf[1000];
-	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Element /usr/local/share/fast.proto > %s", input_file, output_file);
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto > %s", input_file, output_file);
 	system(buf);
 }
 void markupElementBegin(map<int, string> *map, fast::Element *node);
@@ -640,15 +636,8 @@ void printMarkups(ofstream *output, FILE *file, fast::Element *unit) {
 
 void saveMarkupFromPB(char *input_file) {
 	char buf[100];
-	fast::Element unit;
-	{
-	    ifstream input(input_file, ios::in | ios::binary);
-	    if (!unit.ParseFromIstream(&input)) {
-	      cerr << "Failed to parse compilation unit." << endl;
-	      return;
-	    }
-	    input.close();
-	}
+	fast::Data data = readData(input_file);
+	fast::Element unit = data.element();
 	const char *filename = unit.unit().filename().c_str(); // this is the original filename
 	FILE *file = fopen(filename, "r"); 
 	if (!file) { 
@@ -665,15 +654,8 @@ void saveMarkupFromPB(char *input_file) {
 
 void saveMarkupFromPB(char *input_file, char *output_file) {
 	char buf[100];
-	fast::Element unit;
-	{
-	    ifstream input(input_file, ios::in | ios::binary);
-	    if (!unit.ParseFromIstream(&input)) {
-	      cerr << "Failed to parse compilation unit." << endl;
-	      return;
-	    }
-	    input.close();
-	}
+	fast::Data data = readData(input_file);
+	fast::Element unit = data.element();
 	const char *filename = unit.unit().filename().c_str(); // this is the original filename
 	FILE *file = fopen(filename, "r"); 
 	if (!file) { 

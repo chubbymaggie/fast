@@ -17750,6 +17750,8795 @@ public final class Fast {
 
   }
 
+  public interface LogOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fast.Log)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    java.util.List<fast.Fast.Log.Commit> 
+        getCommitList();
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    fast.Fast.Log.Commit getCommit(int index);
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    int getCommitCount();
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    java.util.List<? extends fast.Fast.Log.CommitOrBuilder> 
+        getCommitOrBuilderList();
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    fast.Fast.Log.CommitOrBuilder getCommitOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    java.util.List<fast.Fast.Log.Author> 
+        getAuthorList();
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    fast.Fast.Log.Author getAuthor(int index);
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    int getAuthorCount();
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    java.util.List<? extends fast.Fast.Log.AuthorOrBuilder> 
+        getAuthorOrBuilderList();
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    fast.Fast.Log.AuthorOrBuilder getAuthorOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code fast.Log}
+   */
+  public  static final class Log extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:fast.Log)
+      LogOrBuilder {
+    // Use Log.newBuilder() to construct.
+    private Log(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Log() {
+      commit_ = java.util.Collections.emptyList();
+      author_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Log(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                commit_ = new java.util.ArrayList<fast.Fast.Log.Commit>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              commit_.add(
+                  input.readMessage(fast.Fast.Log.Commit.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                author_ = new java.util.ArrayList<fast.Fast.Log.Author>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              author_.add(
+                  input.readMessage(fast.Fast.Log.Author.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          commit_ = java.util.Collections.unmodifiableList(commit_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          author_ = java.util.Collections.unmodifiableList(author_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return fast.Fast.internal_static_fast_Log_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return fast.Fast.internal_static_fast_Log_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              fast.Fast.Log.class, fast.Fast.Log.Builder.class);
+    }
+
+    public interface CommitOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:fast.Log.Commit)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>string id = 1;</code>
+       */
+      java.lang.String getId();
+      /**
+       * <code>string id = 1;</code>
+       */
+      com.google.protobuf.ByteString
+          getIdBytes();
+
+      /**
+       * <code>bytes text = 2;</code>
+       */
+      com.google.protobuf.ByteString getText();
+
+      /**
+       * <code>int32 author_id = 3;</code>
+       */
+      int getAuthorId();
+
+      /**
+       * <code>string author_date = 4;</code>
+       */
+      java.lang.String getAuthorDate();
+      /**
+       * <code>string author_date = 4;</code>
+       */
+      com.google.protobuf.ByteString
+          getAuthorDateBytes();
+
+      /**
+       * <code>.fast.Log.Commit.Committer committer = 5;</code>
+       */
+      fast.Fast.Log.Commit.Committer getCommitter();
+      /**
+       * <code>.fast.Log.Commit.Committer committer = 5;</code>
+       */
+      fast.Fast.Log.Commit.CommitterOrBuilder getCommitterOrBuilder();
+
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      java.util.List<fast.Fast.Log.Commit.Diff> 
+          getDiffList();
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      fast.Fast.Log.Commit.Diff getDiff(int index);
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      int getDiffCount();
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      java.util.List<? extends fast.Fast.Log.Commit.DiffOrBuilder> 
+          getDiffOrBuilderList();
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      fast.Fast.Log.Commit.DiffOrBuilder getDiffOrBuilder(
+          int index);
+
+      public fast.Fast.Log.Commit.ExtraCase getExtraCase();
+    }
+    /**
+     * Protobuf type {@code fast.Log.Commit}
+     */
+    public  static final class Commit extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:fast.Log.Commit)
+        CommitOrBuilder {
+      // Use Commit.newBuilder() to construct.
+      private Commit(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Commit() {
+        id_ = "";
+        text_ = com.google.protobuf.ByteString.EMPTY;
+        authorId_ = 0;
+        authorDate_ = "";
+        diff_ = java.util.Collections.emptyList();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      }
+      private Commit(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                id_ = s;
+                break;
+              }
+              case 18: {
+
+                text_ = input.readBytes();
+                break;
+              }
+              case 24: {
+
+                authorId_ = input.readInt32();
+                break;
+              }
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                authorDate_ = s;
+                break;
+              }
+              case 42: {
+                fast.Fast.Log.Commit.Committer.Builder subBuilder = null;
+                if (extraCase_ == 5) {
+                  subBuilder = ((fast.Fast.Log.Commit.Committer) extra_).toBuilder();
+                }
+                extra_ =
+                    input.readMessage(fast.Fast.Log.Commit.Committer.parser(), extensionRegistry);
+                if (subBuilder != null) {
+                  subBuilder.mergeFrom((fast.Fast.Log.Commit.Committer) extra_);
+                  extra_ = subBuilder.buildPartial();
+                }
+                extraCase_ = 5;
+                break;
+              }
+              case 50: {
+                if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                  diff_ = new java.util.ArrayList<fast.Fast.Log.Commit.Diff>();
+                  mutable_bitField0_ |= 0x00000020;
+                }
+                diff_.add(
+                    input.readMessage(fast.Fast.Log.Commit.Diff.parser(), extensionRegistry));
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+            diff_ = java.util.Collections.unmodifiableList(diff_);
+          }
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Log_Commit_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Log_Commit_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Log.Commit.class, fast.Fast.Log.Commit.Builder.class);
+      }
+
+      public interface CommitterOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Log.Commit.Committer)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>int32 committer_id = 1;</code>
+         */
+        int getCommitterId();
+
+        /**
+         * <code>string commit_date = 2;</code>
+         */
+        java.lang.String getCommitDate();
+        /**
+         * <code>string commit_date = 2;</code>
+         */
+        com.google.protobuf.ByteString
+            getCommitDateBytes();
+      }
+      /**
+       * Protobuf type {@code fast.Log.Commit.Committer}
+       */
+      public  static final class Committer extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Log.Commit.Committer)
+          CommitterOrBuilder {
+        // Use Committer.newBuilder() to construct.
+        private Committer(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Committer() {
+          committerId_ = 0;
+          commitDate_ = "";
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Committer(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 8: {
+
+                  committerId_ = input.readInt32();
+                  break;
+                }
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  commitDate_ = s;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Log_Commit_Committer_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Log_Commit_Committer_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Log.Commit.Committer.class, fast.Fast.Log.Commit.Committer.Builder.class);
+        }
+
+        public static final int COMMITTER_ID_FIELD_NUMBER = 1;
+        private int committerId_;
+        /**
+         * <code>int32 committer_id = 1;</code>
+         */
+        public int getCommitterId() {
+          return committerId_;
+        }
+
+        public static final int COMMIT_DATE_FIELD_NUMBER = 2;
+        private volatile java.lang.Object commitDate_;
+        /**
+         * <code>string commit_date = 2;</code>
+         */
+        public java.lang.String getCommitDate() {
+          java.lang.Object ref = commitDate_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            commitDate_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string commit_date = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getCommitDateBytes() {
+          java.lang.Object ref = commitDate_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            commitDate_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (committerId_ != 0) {
+            output.writeInt32(1, committerId_);
+          }
+          if (!getCommitDateBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, commitDate_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (committerId_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(1, committerId_);
+          }
+          if (!getCommitDateBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, commitDate_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Log.Commit.Committer)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Log.Commit.Committer other = (fast.Fast.Log.Commit.Committer) obj;
+
+          boolean result = true;
+          result = result && (getCommitterId()
+              == other.getCommitterId());
+          result = result && getCommitDate()
+              .equals(other.getCommitDate());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + COMMITTER_ID_FIELD_NUMBER;
+          hash = (53 * hash) + getCommitterId();
+          hash = (37 * hash) + COMMIT_DATE_FIELD_NUMBER;
+          hash = (53 * hash) + getCommitDate().hashCode();
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Committer parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Log.Commit.Committer parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Log.Commit.Committer parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Log.Commit.Committer prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Log.Commit.Committer}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Log.Commit.Committer)
+            fast.Fast.Log.Commit.CommitterOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Log_Commit_Committer_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Log_Commit_Committer_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Log.Commit.Committer.class, fast.Fast.Log.Commit.Committer.Builder.class);
+          }
+
+          // Construct using fast.Fast.Log.Commit.Committer.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            committerId_ = 0;
+
+            commitDate_ = "";
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Log_Commit_Committer_descriptor;
+          }
+
+          public fast.Fast.Log.Commit.Committer getDefaultInstanceForType() {
+            return fast.Fast.Log.Commit.Committer.getDefaultInstance();
+          }
+
+          public fast.Fast.Log.Commit.Committer build() {
+            fast.Fast.Log.Commit.Committer result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Log.Commit.Committer buildPartial() {
+            fast.Fast.Log.Commit.Committer result = new fast.Fast.Log.Commit.Committer(this);
+            result.committerId_ = committerId_;
+            result.commitDate_ = commitDate_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Log.Commit.Committer) {
+              return mergeFrom((fast.Fast.Log.Commit.Committer)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Log.Commit.Committer other) {
+            if (other == fast.Fast.Log.Commit.Committer.getDefaultInstance()) return this;
+            if (other.getCommitterId() != 0) {
+              setCommitterId(other.getCommitterId());
+            }
+            if (!other.getCommitDate().isEmpty()) {
+              commitDate_ = other.commitDate_;
+              onChanged();
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Log.Commit.Committer parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Log.Commit.Committer) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+
+          private int committerId_ ;
+          /**
+           * <code>int32 committer_id = 1;</code>
+           */
+          public int getCommitterId() {
+            return committerId_;
+          }
+          /**
+           * <code>int32 committer_id = 1;</code>
+           */
+          public Builder setCommitterId(int value) {
+            
+            committerId_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>int32 committer_id = 1;</code>
+           */
+          public Builder clearCommitterId() {
+            
+            committerId_ = 0;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object commitDate_ = "";
+          /**
+           * <code>string commit_date = 2;</code>
+           */
+          public java.lang.String getCommitDate() {
+            java.lang.Object ref = commitDate_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              commitDate_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string commit_date = 2;</code>
+           */
+          public com.google.protobuf.ByteString
+              getCommitDateBytes() {
+            java.lang.Object ref = commitDate_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              commitDate_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string commit_date = 2;</code>
+           */
+          public Builder setCommitDate(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            commitDate_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string commit_date = 2;</code>
+           */
+          public Builder clearCommitDate() {
+            
+            commitDate_ = getDefaultInstance().getCommitDate();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string commit_date = 2;</code>
+           */
+          public Builder setCommitDateBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            commitDate_ = value;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Log.Commit.Committer)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Log.Commit.Committer)
+        private static final fast.Fast.Log.Commit.Committer DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Log.Commit.Committer();
+        }
+
+        public static fast.Fast.Log.Commit.Committer getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Committer>
+            PARSER = new com.google.protobuf.AbstractParser<Committer>() {
+          public Committer parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Committer(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Committer> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Committer> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Log.Commit.Committer getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      public interface DiffOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Log.Commit.Diff)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>string a = 1;</code>
+         */
+        java.lang.String getA();
+        /**
+         * <code>string a = 1;</code>
+         */
+        com.google.protobuf.ByteString
+            getABytes();
+
+        /**
+         * <code>string b = 2;</code>
+         */
+        java.lang.String getB();
+        /**
+         * <code>string b = 2;</code>
+         */
+        com.google.protobuf.ByteString
+            getBBytes();
+
+        /**
+         * <code>bool is_new = 3;</code>
+         */
+        boolean getIsNew();
+
+        /**
+         * <code>string is_code = 4;</code>
+         */
+        java.lang.String getIsCode();
+        /**
+         * <code>string is_code = 4;</code>
+         */
+        com.google.protobuf.ByteString
+            getIsCodeBytes();
+
+        /**
+         * <code>string index_from = 5;</code>
+         */
+        java.lang.String getIndexFrom();
+        /**
+         * <code>string index_from = 5;</code>
+         */
+        com.google.protobuf.ByteString
+            getIndexFromBytes();
+
+        /**
+         * <code>string index_to = 6;</code>
+         */
+        java.lang.String getIndexTo();
+        /**
+         * <code>string index_to = 6;</code>
+         */
+        com.google.protobuf.ByteString
+            getIndexToBytes();
+
+        /**
+         * <code>string mode = 7;</code>
+         */
+        java.lang.String getMode();
+        /**
+         * <code>string mode = 7;</code>
+         */
+        com.google.protobuf.ByteString
+            getModeBytes();
+
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        java.util.List<fast.Fast.Log.Commit.Diff.Hunk> 
+            getHunkList();
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        fast.Fast.Log.Commit.Diff.Hunk getHunk(int index);
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        int getHunkCount();
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        java.util.List<? extends fast.Fast.Log.Commit.Diff.HunkOrBuilder> 
+            getHunkOrBuilderList();
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        fast.Fast.Log.Commit.Diff.HunkOrBuilder getHunkOrBuilder(
+            int index);
+      }
+      /**
+       * Protobuf type {@code fast.Log.Commit.Diff}
+       */
+      public  static final class Diff extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Log.Commit.Diff)
+          DiffOrBuilder {
+        // Use Diff.newBuilder() to construct.
+        private Diff(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Diff() {
+          a_ = "";
+          b_ = "";
+          isNew_ = false;
+          isCode_ = "";
+          indexFrom_ = "";
+          indexTo_ = "";
+          mode_ = "";
+          hunk_ = java.util.Collections.emptyList();
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Diff(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  a_ = s;
+                  break;
+                }
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  b_ = s;
+                  break;
+                }
+                case 24: {
+
+                  isNew_ = input.readBool();
+                  break;
+                }
+                case 34: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  isCode_ = s;
+                  break;
+                }
+                case 42: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  indexFrom_ = s;
+                  break;
+                }
+                case 50: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  indexTo_ = s;
+                  break;
+                }
+                case 58: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  mode_ = s;
+                  break;
+                }
+                case 66: {
+                  if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                    hunk_ = new java.util.ArrayList<fast.Fast.Log.Commit.Diff.Hunk>();
+                    mutable_bitField0_ |= 0x00000080;
+                  }
+                  hunk_.add(
+                      input.readMessage(fast.Fast.Log.Commit.Diff.Hunk.parser(), extensionRegistry));
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+              hunk_ = java.util.Collections.unmodifiableList(hunk_);
+            }
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Log_Commit_Diff_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Log_Commit_Diff_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Log.Commit.Diff.class, fast.Fast.Log.Commit.Diff.Builder.class);
+        }
+
+        public interface HunkOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:fast.Log.Commit.Diff.Hunk)
+            com.google.protobuf.MessageOrBuilder {
+
+          /**
+           * <code>int32 from_lineno = 1;</code>
+           */
+          int getFromLineno();
+
+          /**
+           * <code>int32 from_column = 2;</code>
+           */
+          int getFromColumn();
+
+          /**
+           * <code>int32 to_lineno = 3;</code>
+           */
+          int getToLineno();
+
+          /**
+           * <code>int32 to_column = 4;</code>
+           */
+          int getToColumn();
+
+          /**
+           * <code>string context = 5;</code>
+           */
+          java.lang.String getContext();
+          /**
+           * <code>string context = 5;</code>
+           */
+          com.google.protobuf.ByteString
+              getContextBytes();
+
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          java.util.List<fast.Fast.Element> 
+              getElementList();
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          fast.Fast.Element getElement(int index);
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          int getElementCount();
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          java.util.List<? extends fast.Fast.ElementOrBuilder> 
+              getElementOrBuilderList();
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          fast.Fast.ElementOrBuilder getElementOrBuilder(
+              int index);
+
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          java.util.List<fast.Fast.Log.Commit.Diff.Hunk.ModLine> 
+              getModList();
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          fast.Fast.Log.Commit.Diff.Hunk.ModLine getMod(int index);
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          int getModCount();
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          java.util.List<? extends fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder> 
+              getModOrBuilderList();
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder getModOrBuilder(
+              int index);
+        }
+        /**
+         * Protobuf type {@code fast.Log.Commit.Diff.Hunk}
+         */
+        public  static final class Hunk extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:fast.Log.Commit.Diff.Hunk)
+            HunkOrBuilder {
+          // Use Hunk.newBuilder() to construct.
+          private Hunk(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+          }
+          private Hunk() {
+            fromLineno_ = 0;
+            fromColumn_ = 0;
+            toLineno_ = 0;
+            toColumn_ = 0;
+            context_ = "";
+            element_ = java.util.Collections.emptyList();
+            mod_ = java.util.Collections.emptyList();
+          }
+
+          @java.lang.Override
+          public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+          }
+          private Hunk(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  default: {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                  case 8: {
+
+                    fromLineno_ = input.readInt32();
+                    break;
+                  }
+                  case 16: {
+
+                    fromColumn_ = input.readInt32();
+                    break;
+                  }
+                  case 24: {
+
+                    toLineno_ = input.readInt32();
+                    break;
+                  }
+                  case 32: {
+
+                    toColumn_ = input.readInt32();
+                    break;
+                  }
+                  case 42: {
+                    java.lang.String s = input.readStringRequireUtf8();
+
+                    context_ = s;
+                    break;
+                  }
+                  case 50: {
+                    if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                      element_ = new java.util.ArrayList<fast.Fast.Element>();
+                      mutable_bitField0_ |= 0x00000020;
+                    }
+                    element_.add(
+                        input.readMessage(fast.Fast.Element.parser(), extensionRegistry));
+                    break;
+                  }
+                  case 58: {
+                    if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                      mod_ = new java.util.ArrayList<fast.Fast.Log.Commit.Diff.Hunk.ModLine>();
+                      mutable_bitField0_ |= 0x00000040;
+                    }
+                    mod_.add(
+                        input.readMessage(fast.Fast.Log.Commit.Diff.Hunk.ModLine.parser(), extensionRegistry));
+                    break;
+                  }
+                }
+              }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(
+                  e).setUnfinishedMessage(this);
+            } finally {
+              if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                element_ = java.util.Collections.unmodifiableList(element_);
+              }
+              if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                mod_ = java.util.Collections.unmodifiableList(mod_);
+              }
+              makeExtensionsImmutable();
+            }
+          }
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Log.Commit.Diff.Hunk.class, fast.Fast.Log.Commit.Diff.Hunk.Builder.class);
+          }
+
+          public interface ModLineOrBuilder extends
+              // @@protoc_insertion_point(interface_extends:fast.Log.Commit.Diff.Hunk.ModLine)
+              com.google.protobuf.MessageOrBuilder {
+
+            /**
+             * <code>bytes line = 1;</code>
+             */
+            com.google.protobuf.ByteString getLine();
+
+            /**
+             * <code>bool is_add = 2;</code>
+             */
+            boolean getIsAdd();
+
+            /**
+             * <code>bool is_del = 3;</code>
+             */
+            boolean getIsDel();
+          }
+          /**
+           * Protobuf type {@code fast.Log.Commit.Diff.Hunk.ModLine}
+           */
+          public  static final class ModLine extends
+              com.google.protobuf.GeneratedMessageV3 implements
+              // @@protoc_insertion_point(message_implements:fast.Log.Commit.Diff.Hunk.ModLine)
+              ModLineOrBuilder {
+            // Use ModLine.newBuilder() to construct.
+            private ModLine(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+              super(builder);
+            }
+            private ModLine() {
+              line_ = com.google.protobuf.ByteString.EMPTY;
+              isAdd_ = false;
+              isDel_ = false;
+            }
+
+            @java.lang.Override
+            public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+              return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+            }
+            private ModLine(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              this();
+              int mutable_bitField0_ = 0;
+              try {
+                boolean done = false;
+                while (!done) {
+                  int tag = input.readTag();
+                  switch (tag) {
+                    case 0:
+                      done = true;
+                      break;
+                    default: {
+                      if (!input.skipField(tag)) {
+                        done = true;
+                      }
+                      break;
+                    }
+                    case 10: {
+
+                      line_ = input.readBytes();
+                      break;
+                    }
+                    case 16: {
+
+                      isAdd_ = input.readBool();
+                      break;
+                    }
+                    case 24: {
+
+                      isDel_ = input.readBool();
+                      break;
+                    }
+                  }
+                }
+              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+              } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+              } finally {
+                makeExtensionsImmutable();
+              }
+            }
+            public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+              return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_ModLine_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+              return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_ModLine_fieldAccessorTable
+                  .ensureFieldAccessorsInitialized(
+                      fast.Fast.Log.Commit.Diff.Hunk.ModLine.class, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder.class);
+            }
+
+            public static final int LINE_FIELD_NUMBER = 1;
+            private com.google.protobuf.ByteString line_;
+            /**
+             * <code>bytes line = 1;</code>
+             */
+            public com.google.protobuf.ByteString getLine() {
+              return line_;
+            }
+
+            public static final int IS_ADD_FIELD_NUMBER = 2;
+            private boolean isAdd_;
+            /**
+             * <code>bool is_add = 2;</code>
+             */
+            public boolean getIsAdd() {
+              return isAdd_;
+            }
+
+            public static final int IS_DEL_FIELD_NUMBER = 3;
+            private boolean isDel_;
+            /**
+             * <code>bool is_del = 3;</code>
+             */
+            public boolean getIsDel() {
+              return isDel_;
+            }
+
+            private byte memoizedIsInitialized = -1;
+            public final boolean isInitialized() {
+              byte isInitialized = memoizedIsInitialized;
+              if (isInitialized == 1) return true;
+              if (isInitialized == 0) return false;
+
+              memoizedIsInitialized = 1;
+              return true;
+            }
+
+            public void writeTo(com.google.protobuf.CodedOutputStream output)
+                                throws java.io.IOException {
+              if (!line_.isEmpty()) {
+                output.writeBytes(1, line_);
+              }
+              if (isAdd_ != false) {
+                output.writeBool(2, isAdd_);
+              }
+              if (isDel_ != false) {
+                output.writeBool(3, isDel_);
+              }
+            }
+
+            public int getSerializedSize() {
+              int size = memoizedSize;
+              if (size != -1) return size;
+
+              size = 0;
+              if (!line_.isEmpty()) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeBytesSize(1, line_);
+              }
+              if (isAdd_ != false) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeBoolSize(2, isAdd_);
+              }
+              if (isDel_ != false) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeBoolSize(3, isDel_);
+              }
+              memoizedSize = size;
+              return size;
+            }
+
+            private static final long serialVersionUID = 0L;
+            @java.lang.Override
+            public boolean equals(final java.lang.Object obj) {
+              if (obj == this) {
+               return true;
+              }
+              if (!(obj instanceof fast.Fast.Log.Commit.Diff.Hunk.ModLine)) {
+                return super.equals(obj);
+              }
+              fast.Fast.Log.Commit.Diff.Hunk.ModLine other = (fast.Fast.Log.Commit.Diff.Hunk.ModLine) obj;
+
+              boolean result = true;
+              result = result && getLine()
+                  .equals(other.getLine());
+              result = result && (getIsAdd()
+                  == other.getIsAdd());
+              result = result && (getIsDel()
+                  == other.getIsDel());
+              return result;
+            }
+
+            @java.lang.Override
+            public int hashCode() {
+              if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+              }
+              int hash = 41;
+              hash = (19 * hash) + getDescriptor().hashCode();
+              hash = (37 * hash) + LINE_FIELD_NUMBER;
+              hash = (53 * hash) + getLine().hashCode();
+              hash = (37 * hash) + IS_ADD_FIELD_NUMBER;
+              hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                  getIsAdd());
+              hash = (37 * hash) + IS_DEL_FIELD_NUMBER;
+              hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+                  getIsDel());
+              hash = (29 * hash) + unknownFields.hashCode();
+              memoizedHashCode = hash;
+              return hash;
+            }
+
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseDelimitedWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+
+            public Builder newBuilderForType() { return newBuilder(); }
+            public static Builder newBuilder() {
+              return DEFAULT_INSTANCE.toBuilder();
+            }
+            public static Builder newBuilder(fast.Fast.Log.Commit.Diff.Hunk.ModLine prototype) {
+              return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+            }
+            public Builder toBuilder() {
+              return this == DEFAULT_INSTANCE
+                  ? new Builder() : new Builder().mergeFrom(this);
+            }
+
+            @java.lang.Override
+            protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              Builder builder = new Builder(parent);
+              return builder;
+            }
+            /**
+             * Protobuf type {@code fast.Log.Commit.Diff.Hunk.ModLine}
+             */
+            public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:fast.Log.Commit.Diff.Hunk.ModLine)
+                fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder {
+              public static final com.google.protobuf.Descriptors.Descriptor
+                  getDescriptor() {
+                return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_ModLine_descriptor;
+              }
+
+              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                  internalGetFieldAccessorTable() {
+                return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_ModLine_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                        fast.Fast.Log.Commit.Diff.Hunk.ModLine.class, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder.class);
+              }
+
+              // Construct using fast.Fast.Log.Commit.Diff.Hunk.ModLine.newBuilder()
+              private Builder() {
+                maybeForceBuilderInitialization();
+              }
+
+              private Builder(
+                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+              }
+              private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+              }
+              public Builder clear() {
+                super.clear();
+                line_ = com.google.protobuf.ByteString.EMPTY;
+
+                isAdd_ = false;
+
+                isDel_ = false;
+
+                return this;
+              }
+
+              public com.google.protobuf.Descriptors.Descriptor
+                  getDescriptorForType() {
+                return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_ModLine_descriptor;
+              }
+
+              public fast.Fast.Log.Commit.Diff.Hunk.ModLine getDefaultInstanceForType() {
+                return fast.Fast.Log.Commit.Diff.Hunk.ModLine.getDefaultInstance();
+              }
+
+              public fast.Fast.Log.Commit.Diff.Hunk.ModLine build() {
+                fast.Fast.Log.Commit.Diff.Hunk.ModLine result = buildPartial();
+                if (!result.isInitialized()) {
+                  throw newUninitializedMessageException(result);
+                }
+                return result;
+              }
+
+              public fast.Fast.Log.Commit.Diff.Hunk.ModLine buildPartial() {
+                fast.Fast.Log.Commit.Diff.Hunk.ModLine result = new fast.Fast.Log.Commit.Diff.Hunk.ModLine(this);
+                result.line_ = line_;
+                result.isAdd_ = isAdd_;
+                result.isDel_ = isDel_;
+                onBuilt();
+                return result;
+              }
+
+              public Builder clone() {
+                return (Builder) super.clone();
+              }
+              public Builder setField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  Object value) {
+                return (Builder) super.setField(field, value);
+              }
+              public Builder clearField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+              }
+              public Builder clearOneof(
+                  com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+              }
+              public Builder setRepeatedField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+              }
+              public Builder addRepeatedField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+              }
+              public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof fast.Fast.Log.Commit.Diff.Hunk.ModLine) {
+                  return mergeFrom((fast.Fast.Log.Commit.Diff.Hunk.ModLine)other);
+                } else {
+                  super.mergeFrom(other);
+                  return this;
+                }
+              }
+
+              public Builder mergeFrom(fast.Fast.Log.Commit.Diff.Hunk.ModLine other) {
+                if (other == fast.Fast.Log.Commit.Diff.Hunk.ModLine.getDefaultInstance()) return this;
+                if (other.getLine() != com.google.protobuf.ByteString.EMPTY) {
+                  setLine(other.getLine());
+                }
+                if (other.getIsAdd() != false) {
+                  setIsAdd(other.getIsAdd());
+                }
+                if (other.getIsDel() != false) {
+                  setIsDel(other.getIsDel());
+                }
+                onChanged();
+                return this;
+              }
+
+              public final boolean isInitialized() {
+                return true;
+              }
+
+              public Builder mergeFrom(
+                  com.google.protobuf.CodedInputStream input,
+                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                  throws java.io.IOException {
+                fast.Fast.Log.Commit.Diff.Hunk.ModLine parsedMessage = null;
+                try {
+                  parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  parsedMessage = (fast.Fast.Log.Commit.Diff.Hunk.ModLine) e.getUnfinishedMessage();
+                  throw e.unwrapIOException();
+                } finally {
+                  if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                  }
+                }
+                return this;
+              }
+
+              private com.google.protobuf.ByteString line_ = com.google.protobuf.ByteString.EMPTY;
+              /**
+               * <code>bytes line = 1;</code>
+               */
+              public com.google.protobuf.ByteString getLine() {
+                return line_;
+              }
+              /**
+               * <code>bytes line = 1;</code>
+               */
+              public Builder setLine(com.google.protobuf.ByteString value) {
+                if (value == null) {
+    throw new NullPointerException();
+  }
+  
+                line_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>bytes line = 1;</code>
+               */
+              public Builder clearLine() {
+                
+                line_ = getDefaultInstance().getLine();
+                onChanged();
+                return this;
+              }
+
+              private boolean isAdd_ ;
+              /**
+               * <code>bool is_add = 2;</code>
+               */
+              public boolean getIsAdd() {
+                return isAdd_;
+              }
+              /**
+               * <code>bool is_add = 2;</code>
+               */
+              public Builder setIsAdd(boolean value) {
+                
+                isAdd_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>bool is_add = 2;</code>
+               */
+              public Builder clearIsAdd() {
+                
+                isAdd_ = false;
+                onChanged();
+                return this;
+              }
+
+              private boolean isDel_ ;
+              /**
+               * <code>bool is_del = 3;</code>
+               */
+              public boolean getIsDel() {
+                return isDel_;
+              }
+              /**
+               * <code>bool is_del = 3;</code>
+               */
+              public Builder setIsDel(boolean value) {
+                
+                isDel_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>bool is_del = 3;</code>
+               */
+              public Builder clearIsDel() {
+                
+                isDel_ = false;
+                onChanged();
+                return this;
+              }
+              public final Builder setUnknownFields(
+                  final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+              }
+
+              public final Builder mergeUnknownFields(
+                  final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+              }
+
+
+              // @@protoc_insertion_point(builder_scope:fast.Log.Commit.Diff.Hunk.ModLine)
+            }
+
+            // @@protoc_insertion_point(class_scope:fast.Log.Commit.Diff.Hunk.ModLine)
+            private static final fast.Fast.Log.Commit.Diff.Hunk.ModLine DEFAULT_INSTANCE;
+            static {
+              DEFAULT_INSTANCE = new fast.Fast.Log.Commit.Diff.Hunk.ModLine();
+            }
+
+            public static fast.Fast.Log.Commit.Diff.Hunk.ModLine getDefaultInstance() {
+              return DEFAULT_INSTANCE;
+            }
+
+            private static final com.google.protobuf.Parser<ModLine>
+                PARSER = new com.google.protobuf.AbstractParser<ModLine>() {
+              public ModLine parsePartialFrom(
+                  com.google.protobuf.CodedInputStream input,
+                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                  throws com.google.protobuf.InvalidProtocolBufferException {
+                  return new ModLine(input, extensionRegistry);
+              }
+            };
+
+            public static com.google.protobuf.Parser<ModLine> parser() {
+              return PARSER;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Parser<ModLine> getParserForType() {
+              return PARSER;
+            }
+
+            public fast.Fast.Log.Commit.Diff.Hunk.ModLine getDefaultInstanceForType() {
+              return DEFAULT_INSTANCE;
+            }
+
+          }
+
+          private int bitField0_;
+          public static final int FROM_LINENO_FIELD_NUMBER = 1;
+          private int fromLineno_;
+          /**
+           * <code>int32 from_lineno = 1;</code>
+           */
+          public int getFromLineno() {
+            return fromLineno_;
+          }
+
+          public static final int FROM_COLUMN_FIELD_NUMBER = 2;
+          private int fromColumn_;
+          /**
+           * <code>int32 from_column = 2;</code>
+           */
+          public int getFromColumn() {
+            return fromColumn_;
+          }
+
+          public static final int TO_LINENO_FIELD_NUMBER = 3;
+          private int toLineno_;
+          /**
+           * <code>int32 to_lineno = 3;</code>
+           */
+          public int getToLineno() {
+            return toLineno_;
+          }
+
+          public static final int TO_COLUMN_FIELD_NUMBER = 4;
+          private int toColumn_;
+          /**
+           * <code>int32 to_column = 4;</code>
+           */
+          public int getToColumn() {
+            return toColumn_;
+          }
+
+          public static final int CONTEXT_FIELD_NUMBER = 5;
+          private volatile java.lang.Object context_;
+          /**
+           * <code>string context = 5;</code>
+           */
+          public java.lang.String getContext() {
+            java.lang.Object ref = context_;
+            if (ref instanceof java.lang.String) {
+              return (java.lang.String) ref;
+            } else {
+              com.google.protobuf.ByteString bs = 
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              context_ = s;
+              return s;
+            }
+          }
+          /**
+           * <code>string context = 5;</code>
+           */
+          public com.google.protobuf.ByteString
+              getContextBytes() {
+            java.lang.Object ref = context_;
+            if (ref instanceof java.lang.String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              context_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+
+          public static final int ELEMENT_FIELD_NUMBER = 6;
+          private java.util.List<fast.Fast.Element> element_;
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          public java.util.List<fast.Fast.Element> getElementList() {
+            return element_;
+          }
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          public java.util.List<? extends fast.Fast.ElementOrBuilder> 
+              getElementOrBuilderList() {
+            return element_;
+          }
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          public int getElementCount() {
+            return element_.size();
+          }
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          public fast.Fast.Element getElement(int index) {
+            return element_.get(index);
+          }
+          /**
+           * <code>repeated .fast.Element element = 6;</code>
+           */
+          public fast.Fast.ElementOrBuilder getElementOrBuilder(
+              int index) {
+            return element_.get(index);
+          }
+
+          public static final int MOD_FIELD_NUMBER = 7;
+          private java.util.List<fast.Fast.Log.Commit.Diff.Hunk.ModLine> mod_;
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          public java.util.List<fast.Fast.Log.Commit.Diff.Hunk.ModLine> getModList() {
+            return mod_;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          public java.util.List<? extends fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder> 
+              getModOrBuilderList() {
+            return mod_;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          public int getModCount() {
+            return mod_.size();
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.Hunk.ModLine getMod(int index) {
+            return mod_.get(index);
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder getModOrBuilder(
+              int index) {
+            return mod_.get(index);
+          }
+
+          private byte memoizedIsInitialized = -1;
+          public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+          }
+
+          public void writeTo(com.google.protobuf.CodedOutputStream output)
+                              throws java.io.IOException {
+            if (fromLineno_ != 0) {
+              output.writeInt32(1, fromLineno_);
+            }
+            if (fromColumn_ != 0) {
+              output.writeInt32(2, fromColumn_);
+            }
+            if (toLineno_ != 0) {
+              output.writeInt32(3, toLineno_);
+            }
+            if (toColumn_ != 0) {
+              output.writeInt32(4, toColumn_);
+            }
+            if (!getContextBytes().isEmpty()) {
+              com.google.protobuf.GeneratedMessageV3.writeString(output, 5, context_);
+            }
+            for (int i = 0; i < element_.size(); i++) {
+              output.writeMessage(6, element_.get(i));
+            }
+            for (int i = 0; i < mod_.size(); i++) {
+              output.writeMessage(7, mod_.get(i));
+            }
+          }
+
+          public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (fromLineno_ != 0) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeInt32Size(1, fromLineno_);
+            }
+            if (fromColumn_ != 0) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeInt32Size(2, fromColumn_);
+            }
+            if (toLineno_ != 0) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeInt32Size(3, toLineno_);
+            }
+            if (toColumn_ != 0) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeInt32Size(4, toColumn_);
+            }
+            if (!getContextBytes().isEmpty()) {
+              size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, context_);
+            }
+            for (int i = 0; i < element_.size(); i++) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(6, element_.get(i));
+            }
+            for (int i = 0; i < mod_.size(); i++) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(7, mod_.get(i));
+            }
+            memoizedSize = size;
+            return size;
+          }
+
+          private static final long serialVersionUID = 0L;
+          @java.lang.Override
+          public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+             return true;
+            }
+            if (!(obj instanceof fast.Fast.Log.Commit.Diff.Hunk)) {
+              return super.equals(obj);
+            }
+            fast.Fast.Log.Commit.Diff.Hunk other = (fast.Fast.Log.Commit.Diff.Hunk) obj;
+
+            boolean result = true;
+            result = result && (getFromLineno()
+                == other.getFromLineno());
+            result = result && (getFromColumn()
+                == other.getFromColumn());
+            result = result && (getToLineno()
+                == other.getToLineno());
+            result = result && (getToColumn()
+                == other.getToColumn());
+            result = result && getContext()
+                .equals(other.getContext());
+            result = result && getElementList()
+                .equals(other.getElementList());
+            result = result && getModList()
+                .equals(other.getModList());
+            return result;
+          }
+
+          @java.lang.Override
+          public int hashCode() {
+            if (memoizedHashCode != 0) {
+              return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + FROM_LINENO_FIELD_NUMBER;
+            hash = (53 * hash) + getFromLineno();
+            hash = (37 * hash) + FROM_COLUMN_FIELD_NUMBER;
+            hash = (53 * hash) + getFromColumn();
+            hash = (37 * hash) + TO_LINENO_FIELD_NUMBER;
+            hash = (53 * hash) + getToLineno();
+            hash = (37 * hash) + TO_COLUMN_FIELD_NUMBER;
+            hash = (53 * hash) + getToColumn();
+            hash = (37 * hash) + CONTEXT_FIELD_NUMBER;
+            hash = (53 * hash) + getContext().hashCode();
+            if (getElementCount() > 0) {
+              hash = (37 * hash) + ELEMENT_FIELD_NUMBER;
+              hash = (53 * hash) + getElementList().hashCode();
+            }
+            if (getModCount() > 0) {
+              hash = (37 * hash) + MOD_FIELD_NUMBER;
+              hash = (53 * hash) + getModList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+          }
+
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              java.nio.ByteBuffer data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              java.nio.ByteBuffer data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              com.google.protobuf.ByteString data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              com.google.protobuf.ByteString data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(byte[] data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              byte[] data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(java.io.InputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseDelimitedFrom(java.io.InputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseDelimitedFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              com.google.protobuf.CodedInputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+          }
+          public static fast.Fast.Log.Commit.Diff.Hunk parseFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+          }
+
+          public Builder newBuilderForType() { return newBuilder(); }
+          public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+          }
+          public static Builder newBuilder(fast.Fast.Log.Commit.Diff.Hunk prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+          }
+          public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+          }
+
+          @java.lang.Override
+          protected Builder newBuilderForType(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+          }
+          /**
+           * Protobuf type {@code fast.Log.Commit.Diff.Hunk}
+           */
+          public static final class Builder extends
+              com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+              // @@protoc_insertion_point(builder_implements:fast.Log.Commit.Diff.Hunk)
+              fast.Fast.Log.Commit.Diff.HunkOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+              return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+              return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_fieldAccessorTable
+                  .ensureFieldAccessorsInitialized(
+                      fast.Fast.Log.Commit.Diff.Hunk.class, fast.Fast.Log.Commit.Diff.Hunk.Builder.class);
+            }
+
+            // Construct using fast.Fast.Log.Commit.Diff.Hunk.newBuilder()
+            private Builder() {
+              maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              super(parent);
+              maybeForceBuilderInitialization();
+            }
+            private void maybeForceBuilderInitialization() {
+              if (com.google.protobuf.GeneratedMessageV3
+                      .alwaysUseFieldBuilders) {
+                getElementFieldBuilder();
+                getModFieldBuilder();
+              }
+            }
+            public Builder clear() {
+              super.clear();
+              fromLineno_ = 0;
+
+              fromColumn_ = 0;
+
+              toLineno_ = 0;
+
+              toColumn_ = 0;
+
+              context_ = "";
+
+              if (elementBuilder_ == null) {
+                element_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000020);
+              } else {
+                elementBuilder_.clear();
+              }
+              if (modBuilder_ == null) {
+                mod_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000040);
+              } else {
+                modBuilder_.clear();
+              }
+              return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+                getDescriptorForType() {
+              return fast.Fast.internal_static_fast_Log_Commit_Diff_Hunk_descriptor;
+            }
+
+            public fast.Fast.Log.Commit.Diff.Hunk getDefaultInstanceForType() {
+              return fast.Fast.Log.Commit.Diff.Hunk.getDefaultInstance();
+            }
+
+            public fast.Fast.Log.Commit.Diff.Hunk build() {
+              fast.Fast.Log.Commit.Diff.Hunk result = buildPartial();
+              if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+              }
+              return result;
+            }
+
+            public fast.Fast.Log.Commit.Diff.Hunk buildPartial() {
+              fast.Fast.Log.Commit.Diff.Hunk result = new fast.Fast.Log.Commit.Diff.Hunk(this);
+              int from_bitField0_ = bitField0_;
+              int to_bitField0_ = 0;
+              result.fromLineno_ = fromLineno_;
+              result.fromColumn_ = fromColumn_;
+              result.toLineno_ = toLineno_;
+              result.toColumn_ = toColumn_;
+              result.context_ = context_;
+              if (elementBuilder_ == null) {
+                if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                  element_ = java.util.Collections.unmodifiableList(element_);
+                  bitField0_ = (bitField0_ & ~0x00000020);
+                }
+                result.element_ = element_;
+              } else {
+                result.element_ = elementBuilder_.build();
+              }
+              if (modBuilder_ == null) {
+                if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                  mod_ = java.util.Collections.unmodifiableList(mod_);
+                  bitField0_ = (bitField0_ & ~0x00000040);
+                }
+                result.mod_ = mod_;
+              } else {
+                result.mod_ = modBuilder_.build();
+              }
+              result.bitField0_ = to_bitField0_;
+              onBuilt();
+              return result;
+            }
+
+            public Builder clone() {
+              return (Builder) super.clone();
+            }
+            public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                Object value) {
+              return (Builder) super.setField(field, value);
+            }
+            public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+              return (Builder) super.clearField(field);
+            }
+            public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+              return (Builder) super.clearOneof(oneof);
+            }
+            public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, Object value) {
+              return (Builder) super.setRepeatedField(field, index, value);
+            }
+            public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                Object value) {
+              return (Builder) super.addRepeatedField(field, value);
+            }
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+              if (other instanceof fast.Fast.Log.Commit.Diff.Hunk) {
+                return mergeFrom((fast.Fast.Log.Commit.Diff.Hunk)other);
+              } else {
+                super.mergeFrom(other);
+                return this;
+              }
+            }
+
+            public Builder mergeFrom(fast.Fast.Log.Commit.Diff.Hunk other) {
+              if (other == fast.Fast.Log.Commit.Diff.Hunk.getDefaultInstance()) return this;
+              if (other.getFromLineno() != 0) {
+                setFromLineno(other.getFromLineno());
+              }
+              if (other.getFromColumn() != 0) {
+                setFromColumn(other.getFromColumn());
+              }
+              if (other.getToLineno() != 0) {
+                setToLineno(other.getToLineno());
+              }
+              if (other.getToColumn() != 0) {
+                setToColumn(other.getToColumn());
+              }
+              if (!other.getContext().isEmpty()) {
+                context_ = other.context_;
+                onChanged();
+              }
+              if (elementBuilder_ == null) {
+                if (!other.element_.isEmpty()) {
+                  if (element_.isEmpty()) {
+                    element_ = other.element_;
+                    bitField0_ = (bitField0_ & ~0x00000020);
+                  } else {
+                    ensureElementIsMutable();
+                    element_.addAll(other.element_);
+                  }
+                  onChanged();
+                }
+              } else {
+                if (!other.element_.isEmpty()) {
+                  if (elementBuilder_.isEmpty()) {
+                    elementBuilder_.dispose();
+                    elementBuilder_ = null;
+                    element_ = other.element_;
+                    bitField0_ = (bitField0_ & ~0x00000020);
+                    elementBuilder_ = 
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                         getElementFieldBuilder() : null;
+                  } else {
+                    elementBuilder_.addAllMessages(other.element_);
+                  }
+                }
+              }
+              if (modBuilder_ == null) {
+                if (!other.mod_.isEmpty()) {
+                  if (mod_.isEmpty()) {
+                    mod_ = other.mod_;
+                    bitField0_ = (bitField0_ & ~0x00000040);
+                  } else {
+                    ensureModIsMutable();
+                    mod_.addAll(other.mod_);
+                  }
+                  onChanged();
+                }
+              } else {
+                if (!other.mod_.isEmpty()) {
+                  if (modBuilder_.isEmpty()) {
+                    modBuilder_.dispose();
+                    modBuilder_ = null;
+                    mod_ = other.mod_;
+                    bitField0_ = (bitField0_ & ~0x00000040);
+                    modBuilder_ = 
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                         getModFieldBuilder() : null;
+                  } else {
+                    modBuilder_.addAllMessages(other.mod_);
+                  }
+                }
+              }
+              onChanged();
+              return this;
+            }
+
+            public final boolean isInitialized() {
+              return true;
+            }
+
+            public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              fast.Fast.Log.Commit.Diff.Hunk parsedMessage = null;
+              try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (fast.Fast.Log.Commit.Diff.Hunk) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+              } finally {
+                if (parsedMessage != null) {
+                  mergeFrom(parsedMessage);
+                }
+              }
+              return this;
+            }
+            private int bitField0_;
+
+            private int fromLineno_ ;
+            /**
+             * <code>int32 from_lineno = 1;</code>
+             */
+            public int getFromLineno() {
+              return fromLineno_;
+            }
+            /**
+             * <code>int32 from_lineno = 1;</code>
+             */
+            public Builder setFromLineno(int value) {
+              
+              fromLineno_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>int32 from_lineno = 1;</code>
+             */
+            public Builder clearFromLineno() {
+              
+              fromLineno_ = 0;
+              onChanged();
+              return this;
+            }
+
+            private int fromColumn_ ;
+            /**
+             * <code>int32 from_column = 2;</code>
+             */
+            public int getFromColumn() {
+              return fromColumn_;
+            }
+            /**
+             * <code>int32 from_column = 2;</code>
+             */
+            public Builder setFromColumn(int value) {
+              
+              fromColumn_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>int32 from_column = 2;</code>
+             */
+            public Builder clearFromColumn() {
+              
+              fromColumn_ = 0;
+              onChanged();
+              return this;
+            }
+
+            private int toLineno_ ;
+            /**
+             * <code>int32 to_lineno = 3;</code>
+             */
+            public int getToLineno() {
+              return toLineno_;
+            }
+            /**
+             * <code>int32 to_lineno = 3;</code>
+             */
+            public Builder setToLineno(int value) {
+              
+              toLineno_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>int32 to_lineno = 3;</code>
+             */
+            public Builder clearToLineno() {
+              
+              toLineno_ = 0;
+              onChanged();
+              return this;
+            }
+
+            private int toColumn_ ;
+            /**
+             * <code>int32 to_column = 4;</code>
+             */
+            public int getToColumn() {
+              return toColumn_;
+            }
+            /**
+             * <code>int32 to_column = 4;</code>
+             */
+            public Builder setToColumn(int value) {
+              
+              toColumn_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>int32 to_column = 4;</code>
+             */
+            public Builder clearToColumn() {
+              
+              toColumn_ = 0;
+              onChanged();
+              return this;
+            }
+
+            private java.lang.Object context_ = "";
+            /**
+             * <code>string context = 5;</code>
+             */
+            public java.lang.String getContext() {
+              java.lang.Object ref = context_;
+              if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                context_ = s;
+                return s;
+              } else {
+                return (java.lang.String) ref;
+              }
+            }
+            /**
+             * <code>string context = 5;</code>
+             */
+            public com.google.protobuf.ByteString
+                getContextBytes() {
+              java.lang.Object ref = context_;
+              if (ref instanceof String) {
+                com.google.protobuf.ByteString b = 
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
+                context_ = b;
+                return b;
+              } else {
+                return (com.google.protobuf.ByteString) ref;
+              }
+            }
+            /**
+             * <code>string context = 5;</code>
+             */
+            public Builder setContext(
+                java.lang.String value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  
+              context_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>string context = 5;</code>
+             */
+            public Builder clearContext() {
+              
+              context_ = getDefaultInstance().getContext();
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>string context = 5;</code>
+             */
+            public Builder setContextBytes(
+                com.google.protobuf.ByteString value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+              
+              context_ = value;
+              onChanged();
+              return this;
+            }
+
+            private java.util.List<fast.Fast.Element> element_ =
+              java.util.Collections.emptyList();
+            private void ensureElementIsMutable() {
+              if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+                element_ = new java.util.ArrayList<fast.Fast.Element>(element_);
+                bitField0_ |= 0x00000020;
+               }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder> elementBuilder_;
+
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public java.util.List<fast.Fast.Element> getElementList() {
+              if (elementBuilder_ == null) {
+                return java.util.Collections.unmodifiableList(element_);
+              } else {
+                return elementBuilder_.getMessageList();
+              }
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public int getElementCount() {
+              if (elementBuilder_ == null) {
+                return element_.size();
+              } else {
+                return elementBuilder_.getCount();
+              }
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public fast.Fast.Element getElement(int index) {
+              if (elementBuilder_ == null) {
+                return element_.get(index);
+              } else {
+                return elementBuilder_.getMessage(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder setElement(
+                int index, fast.Fast.Element value) {
+              if (elementBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureElementIsMutable();
+                element_.set(index, value);
+                onChanged();
+              } else {
+                elementBuilder_.setMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder setElement(
+                int index, fast.Fast.Element.Builder builderForValue) {
+              if (elementBuilder_ == null) {
+                ensureElementIsMutable();
+                element_.set(index, builderForValue.build());
+                onChanged();
+              } else {
+                elementBuilder_.setMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder addElement(fast.Fast.Element value) {
+              if (elementBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureElementIsMutable();
+                element_.add(value);
+                onChanged();
+              } else {
+                elementBuilder_.addMessage(value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder addElement(
+                int index, fast.Fast.Element value) {
+              if (elementBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureElementIsMutable();
+                element_.add(index, value);
+                onChanged();
+              } else {
+                elementBuilder_.addMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder addElement(
+                fast.Fast.Element.Builder builderForValue) {
+              if (elementBuilder_ == null) {
+                ensureElementIsMutable();
+                element_.add(builderForValue.build());
+                onChanged();
+              } else {
+                elementBuilder_.addMessage(builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder addElement(
+                int index, fast.Fast.Element.Builder builderForValue) {
+              if (elementBuilder_ == null) {
+                ensureElementIsMutable();
+                element_.add(index, builderForValue.build());
+                onChanged();
+              } else {
+                elementBuilder_.addMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder addAllElement(
+                java.lang.Iterable<? extends fast.Fast.Element> values) {
+              if (elementBuilder_ == null) {
+                ensureElementIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    values, element_);
+                onChanged();
+              } else {
+                elementBuilder_.addAllMessages(values);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder clearElement() {
+              if (elementBuilder_ == null) {
+                element_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000020);
+                onChanged();
+              } else {
+                elementBuilder_.clear();
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public Builder removeElement(int index) {
+              if (elementBuilder_ == null) {
+                ensureElementIsMutable();
+                element_.remove(index);
+                onChanged();
+              } else {
+                elementBuilder_.remove(index);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public fast.Fast.Element.Builder getElementBuilder(
+                int index) {
+              return getElementFieldBuilder().getBuilder(index);
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public fast.Fast.ElementOrBuilder getElementOrBuilder(
+                int index) {
+              if (elementBuilder_ == null) {
+                return element_.get(index);  } else {
+                return elementBuilder_.getMessageOrBuilder(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public java.util.List<? extends fast.Fast.ElementOrBuilder> 
+                 getElementOrBuilderList() {
+              if (elementBuilder_ != null) {
+                return elementBuilder_.getMessageOrBuilderList();
+              } else {
+                return java.util.Collections.unmodifiableList(element_);
+              }
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public fast.Fast.Element.Builder addElementBuilder() {
+              return getElementFieldBuilder().addBuilder(
+                  fast.Fast.Element.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public fast.Fast.Element.Builder addElementBuilder(
+                int index) {
+              return getElementFieldBuilder().addBuilder(
+                  index, fast.Fast.Element.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Element element = 6;</code>
+             */
+            public java.util.List<fast.Fast.Element.Builder> 
+                 getElementBuilderList() {
+              return getElementFieldBuilder().getBuilderList();
+            }
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder> 
+                getElementFieldBuilder() {
+              if (elementBuilder_ == null) {
+                elementBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                    fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder>(
+                        element_,
+                        ((bitField0_ & 0x00000020) == 0x00000020),
+                        getParentForChildren(),
+                        isClean());
+                element_ = null;
+              }
+              return elementBuilder_;
+            }
+
+            private java.util.List<fast.Fast.Log.Commit.Diff.Hunk.ModLine> mod_ =
+              java.util.Collections.emptyList();
+            private void ensureModIsMutable() {
+              if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+                mod_ = new java.util.ArrayList<fast.Fast.Log.Commit.Diff.Hunk.ModLine>(mod_);
+                bitField0_ |= 0x00000040;
+               }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Log.Commit.Diff.Hunk.ModLine, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder, fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder> modBuilder_;
+
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public java.util.List<fast.Fast.Log.Commit.Diff.Hunk.ModLine> getModList() {
+              if (modBuilder_ == null) {
+                return java.util.Collections.unmodifiableList(mod_);
+              } else {
+                return modBuilder_.getMessageList();
+              }
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public int getModCount() {
+              if (modBuilder_ == null) {
+                return mod_.size();
+              } else {
+                return modBuilder_.getCount();
+              }
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public fast.Fast.Log.Commit.Diff.Hunk.ModLine getMod(int index) {
+              if (modBuilder_ == null) {
+                return mod_.get(index);
+              } else {
+                return modBuilder_.getMessage(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder setMod(
+                int index, fast.Fast.Log.Commit.Diff.Hunk.ModLine value) {
+              if (modBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureModIsMutable();
+                mod_.set(index, value);
+                onChanged();
+              } else {
+                modBuilder_.setMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder setMod(
+                int index, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder builderForValue) {
+              if (modBuilder_ == null) {
+                ensureModIsMutable();
+                mod_.set(index, builderForValue.build());
+                onChanged();
+              } else {
+                modBuilder_.setMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder addMod(fast.Fast.Log.Commit.Diff.Hunk.ModLine value) {
+              if (modBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureModIsMutable();
+                mod_.add(value);
+                onChanged();
+              } else {
+                modBuilder_.addMessage(value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder addMod(
+                int index, fast.Fast.Log.Commit.Diff.Hunk.ModLine value) {
+              if (modBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureModIsMutable();
+                mod_.add(index, value);
+                onChanged();
+              } else {
+                modBuilder_.addMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder addMod(
+                fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder builderForValue) {
+              if (modBuilder_ == null) {
+                ensureModIsMutable();
+                mod_.add(builderForValue.build());
+                onChanged();
+              } else {
+                modBuilder_.addMessage(builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder addMod(
+                int index, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder builderForValue) {
+              if (modBuilder_ == null) {
+                ensureModIsMutable();
+                mod_.add(index, builderForValue.build());
+                onChanged();
+              } else {
+                modBuilder_.addMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder addAllMod(
+                java.lang.Iterable<? extends fast.Fast.Log.Commit.Diff.Hunk.ModLine> values) {
+              if (modBuilder_ == null) {
+                ensureModIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    values, mod_);
+                onChanged();
+              } else {
+                modBuilder_.addAllMessages(values);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder clearMod() {
+              if (modBuilder_ == null) {
+                mod_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000040);
+                onChanged();
+              } else {
+                modBuilder_.clear();
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public Builder removeMod(int index) {
+              if (modBuilder_ == null) {
+                ensureModIsMutable();
+                mod_.remove(index);
+                onChanged();
+              } else {
+                modBuilder_.remove(index);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder getModBuilder(
+                int index) {
+              return getModFieldBuilder().getBuilder(index);
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder getModOrBuilder(
+                int index) {
+              if (modBuilder_ == null) {
+                return mod_.get(index);  } else {
+                return modBuilder_.getMessageOrBuilder(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public java.util.List<? extends fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder> 
+                 getModOrBuilderList() {
+              if (modBuilder_ != null) {
+                return modBuilder_.getMessageOrBuilderList();
+              } else {
+                return java.util.Collections.unmodifiableList(mod_);
+              }
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder addModBuilder() {
+              return getModFieldBuilder().addBuilder(
+                  fast.Fast.Log.Commit.Diff.Hunk.ModLine.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder addModBuilder(
+                int index) {
+              return getModFieldBuilder().addBuilder(
+                  index, fast.Fast.Log.Commit.Diff.Hunk.ModLine.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Log.Commit.Diff.Hunk.ModLine mod = 7;</code>
+             */
+            public java.util.List<fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder> 
+                 getModBuilderList() {
+              return getModFieldBuilder().getBuilderList();
+            }
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Log.Commit.Diff.Hunk.ModLine, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder, fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder> 
+                getModFieldBuilder() {
+              if (modBuilder_ == null) {
+                modBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                    fast.Fast.Log.Commit.Diff.Hunk.ModLine, fast.Fast.Log.Commit.Diff.Hunk.ModLine.Builder, fast.Fast.Log.Commit.Diff.Hunk.ModLineOrBuilder>(
+                        mod_,
+                        ((bitField0_ & 0x00000040) == 0x00000040),
+                        getParentForChildren(),
+                        isClean());
+                mod_ = null;
+              }
+              return modBuilder_;
+            }
+            public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+              return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+              return this;
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:fast.Log.Commit.Diff.Hunk)
+          }
+
+          // @@protoc_insertion_point(class_scope:fast.Log.Commit.Diff.Hunk)
+          private static final fast.Fast.Log.Commit.Diff.Hunk DEFAULT_INSTANCE;
+          static {
+            DEFAULT_INSTANCE = new fast.Fast.Log.Commit.Diff.Hunk();
+          }
+
+          public static fast.Fast.Log.Commit.Diff.Hunk getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+          }
+
+          private static final com.google.protobuf.Parser<Hunk>
+              PARSER = new com.google.protobuf.AbstractParser<Hunk>() {
+            public Hunk parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Hunk(input, extensionRegistry);
+            }
+          };
+
+          public static com.google.protobuf.Parser<Hunk> parser() {
+            return PARSER;
+          }
+
+          @java.lang.Override
+          public com.google.protobuf.Parser<Hunk> getParserForType() {
+            return PARSER;
+          }
+
+          public fast.Fast.Log.Commit.Diff.Hunk getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+          }
+
+        }
+
+        private int bitField0_;
+        public static final int A_FIELD_NUMBER = 1;
+        private volatile java.lang.Object a_;
+        /**
+         * <code>string a = 1;</code>
+         */
+        public java.lang.String getA() {
+          java.lang.Object ref = a_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            a_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string a = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getABytes() {
+          java.lang.Object ref = a_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            a_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int B_FIELD_NUMBER = 2;
+        private volatile java.lang.Object b_;
+        /**
+         * <code>string b = 2;</code>
+         */
+        public java.lang.String getB() {
+          java.lang.Object ref = b_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            b_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string b = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getBBytes() {
+          java.lang.Object ref = b_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            b_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int IS_NEW_FIELD_NUMBER = 3;
+        private boolean isNew_;
+        /**
+         * <code>bool is_new = 3;</code>
+         */
+        public boolean getIsNew() {
+          return isNew_;
+        }
+
+        public static final int IS_CODE_FIELD_NUMBER = 4;
+        private volatile java.lang.Object isCode_;
+        /**
+         * <code>string is_code = 4;</code>
+         */
+        public java.lang.String getIsCode() {
+          java.lang.Object ref = isCode_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            isCode_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string is_code = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+            getIsCodeBytes() {
+          java.lang.Object ref = isCode_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            isCode_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int INDEX_FROM_FIELD_NUMBER = 5;
+        private volatile java.lang.Object indexFrom_;
+        /**
+         * <code>string index_from = 5;</code>
+         */
+        public java.lang.String getIndexFrom() {
+          java.lang.Object ref = indexFrom_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            indexFrom_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string index_from = 5;</code>
+         */
+        public com.google.protobuf.ByteString
+            getIndexFromBytes() {
+          java.lang.Object ref = indexFrom_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            indexFrom_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int INDEX_TO_FIELD_NUMBER = 6;
+        private volatile java.lang.Object indexTo_;
+        /**
+         * <code>string index_to = 6;</code>
+         */
+        public java.lang.String getIndexTo() {
+          java.lang.Object ref = indexTo_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            indexTo_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string index_to = 6;</code>
+         */
+        public com.google.protobuf.ByteString
+            getIndexToBytes() {
+          java.lang.Object ref = indexTo_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            indexTo_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int MODE_FIELD_NUMBER = 7;
+        private volatile java.lang.Object mode_;
+        /**
+         * <code>string mode = 7;</code>
+         */
+        public java.lang.String getMode() {
+          java.lang.Object ref = mode_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            mode_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string mode = 7;</code>
+         */
+        public com.google.protobuf.ByteString
+            getModeBytes() {
+          java.lang.Object ref = mode_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            mode_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int HUNK_FIELD_NUMBER = 8;
+        private java.util.List<fast.Fast.Log.Commit.Diff.Hunk> hunk_;
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        public java.util.List<fast.Fast.Log.Commit.Diff.Hunk> getHunkList() {
+          return hunk_;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        public java.util.List<? extends fast.Fast.Log.Commit.Diff.HunkOrBuilder> 
+            getHunkOrBuilderList() {
+          return hunk_;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        public int getHunkCount() {
+          return hunk_.size();
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        public fast.Fast.Log.Commit.Diff.Hunk getHunk(int index) {
+          return hunk_.get(index);
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+         */
+        public fast.Fast.Log.Commit.Diff.HunkOrBuilder getHunkOrBuilder(
+            int index) {
+          return hunk_.get(index);
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          if (!getABytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, a_);
+          }
+          if (!getBBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, b_);
+          }
+          if (isNew_ != false) {
+            output.writeBool(3, isNew_);
+          }
+          if (!getIsCodeBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 4, isCode_);
+          }
+          if (!getIndexFromBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 5, indexFrom_);
+          }
+          if (!getIndexToBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 6, indexTo_);
+          }
+          if (!getModeBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 7, mode_);
+          }
+          for (int i = 0; i < hunk_.size(); i++) {
+            output.writeMessage(8, hunk_.get(i));
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          if (!getABytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, a_);
+          }
+          if (!getBBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, b_);
+          }
+          if (isNew_ != false) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeBoolSize(3, isNew_);
+          }
+          if (!getIsCodeBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, isCode_);
+          }
+          if (!getIndexFromBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, indexFrom_);
+          }
+          if (!getIndexToBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, indexTo_);
+          }
+          if (!getModeBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, mode_);
+          }
+          for (int i = 0; i < hunk_.size(); i++) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeMessageSize(8, hunk_.get(i));
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Log.Commit.Diff)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Log.Commit.Diff other = (fast.Fast.Log.Commit.Diff) obj;
+
+          boolean result = true;
+          result = result && getA()
+              .equals(other.getA());
+          result = result && getB()
+              .equals(other.getB());
+          result = result && (getIsNew()
+              == other.getIsNew());
+          result = result && getIsCode()
+              .equals(other.getIsCode());
+          result = result && getIndexFrom()
+              .equals(other.getIndexFrom());
+          result = result && getIndexTo()
+              .equals(other.getIndexTo());
+          result = result && getMode()
+              .equals(other.getMode());
+          result = result && getHunkList()
+              .equals(other.getHunkList());
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          hash = (37 * hash) + A_FIELD_NUMBER;
+          hash = (53 * hash) + getA().hashCode();
+          hash = (37 * hash) + B_FIELD_NUMBER;
+          hash = (53 * hash) + getB().hashCode();
+          hash = (37 * hash) + IS_NEW_FIELD_NUMBER;
+          hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+              getIsNew());
+          hash = (37 * hash) + IS_CODE_FIELD_NUMBER;
+          hash = (53 * hash) + getIsCode().hashCode();
+          hash = (37 * hash) + INDEX_FROM_FIELD_NUMBER;
+          hash = (53 * hash) + getIndexFrom().hashCode();
+          hash = (37 * hash) + INDEX_TO_FIELD_NUMBER;
+          hash = (53 * hash) + getIndexTo().hashCode();
+          hash = (37 * hash) + MODE_FIELD_NUMBER;
+          hash = (53 * hash) + getMode().hashCode();
+          if (getHunkCount() > 0) {
+            hash = (37 * hash) + HUNK_FIELD_NUMBER;
+            hash = (53 * hash) + getHunkList().hashCode();
+          }
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Diff parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Log.Commit.Diff parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Log.Commit.Diff parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Log.Commit.Diff prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Log.Commit.Diff}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Log.Commit.Diff)
+            fast.Fast.Log.Commit.DiffOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Log_Commit_Diff_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Log_Commit_Diff_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Log.Commit.Diff.class, fast.Fast.Log.Commit.Diff.Builder.class);
+          }
+
+          // Construct using fast.Fast.Log.Commit.Diff.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+              getHunkFieldBuilder();
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            a_ = "";
+
+            b_ = "";
+
+            isNew_ = false;
+
+            isCode_ = "";
+
+            indexFrom_ = "";
+
+            indexTo_ = "";
+
+            mode_ = "";
+
+            if (hunkBuilder_ == null) {
+              hunk_ = java.util.Collections.emptyList();
+              bitField0_ = (bitField0_ & ~0x00000080);
+            } else {
+              hunkBuilder_.clear();
+            }
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Log_Commit_Diff_descriptor;
+          }
+
+          public fast.Fast.Log.Commit.Diff getDefaultInstanceForType() {
+            return fast.Fast.Log.Commit.Diff.getDefaultInstance();
+          }
+
+          public fast.Fast.Log.Commit.Diff build() {
+            fast.Fast.Log.Commit.Diff result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Log.Commit.Diff buildPartial() {
+            fast.Fast.Log.Commit.Diff result = new fast.Fast.Log.Commit.Diff(this);
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            result.a_ = a_;
+            result.b_ = b_;
+            result.isNew_ = isNew_;
+            result.isCode_ = isCode_;
+            result.indexFrom_ = indexFrom_;
+            result.indexTo_ = indexTo_;
+            result.mode_ = mode_;
+            if (hunkBuilder_ == null) {
+              if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                hunk_ = java.util.Collections.unmodifiableList(hunk_);
+                bitField0_ = (bitField0_ & ~0x00000080);
+              }
+              result.hunk_ = hunk_;
+            } else {
+              result.hunk_ = hunkBuilder_.build();
+            }
+            result.bitField0_ = to_bitField0_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Log.Commit.Diff) {
+              return mergeFrom((fast.Fast.Log.Commit.Diff)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Log.Commit.Diff other) {
+            if (other == fast.Fast.Log.Commit.Diff.getDefaultInstance()) return this;
+            if (!other.getA().isEmpty()) {
+              a_ = other.a_;
+              onChanged();
+            }
+            if (!other.getB().isEmpty()) {
+              b_ = other.b_;
+              onChanged();
+            }
+            if (other.getIsNew() != false) {
+              setIsNew(other.getIsNew());
+            }
+            if (!other.getIsCode().isEmpty()) {
+              isCode_ = other.isCode_;
+              onChanged();
+            }
+            if (!other.getIndexFrom().isEmpty()) {
+              indexFrom_ = other.indexFrom_;
+              onChanged();
+            }
+            if (!other.getIndexTo().isEmpty()) {
+              indexTo_ = other.indexTo_;
+              onChanged();
+            }
+            if (!other.getMode().isEmpty()) {
+              mode_ = other.mode_;
+              onChanged();
+            }
+            if (hunkBuilder_ == null) {
+              if (!other.hunk_.isEmpty()) {
+                if (hunk_.isEmpty()) {
+                  hunk_ = other.hunk_;
+                  bitField0_ = (bitField0_ & ~0x00000080);
+                } else {
+                  ensureHunkIsMutable();
+                  hunk_.addAll(other.hunk_);
+                }
+                onChanged();
+              }
+            } else {
+              if (!other.hunk_.isEmpty()) {
+                if (hunkBuilder_.isEmpty()) {
+                  hunkBuilder_.dispose();
+                  hunkBuilder_ = null;
+                  hunk_ = other.hunk_;
+                  bitField0_ = (bitField0_ & ~0x00000080);
+                  hunkBuilder_ = 
+                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                       getHunkFieldBuilder() : null;
+                } else {
+                  hunkBuilder_.addAllMessages(other.hunk_);
+                }
+              }
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Log.Commit.Diff parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Log.Commit.Diff) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+          private int bitField0_;
+
+          private java.lang.Object a_ = "";
+          /**
+           * <code>string a = 1;</code>
+           */
+          public java.lang.String getA() {
+            java.lang.Object ref = a_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              a_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string a = 1;</code>
+           */
+          public com.google.protobuf.ByteString
+              getABytes() {
+            java.lang.Object ref = a_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              a_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string a = 1;</code>
+           */
+          public Builder setA(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            a_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string a = 1;</code>
+           */
+          public Builder clearA() {
+            
+            a_ = getDefaultInstance().getA();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string a = 1;</code>
+           */
+          public Builder setABytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            a_ = value;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object b_ = "";
+          /**
+           * <code>string b = 2;</code>
+           */
+          public java.lang.String getB() {
+            java.lang.Object ref = b_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              b_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string b = 2;</code>
+           */
+          public com.google.protobuf.ByteString
+              getBBytes() {
+            java.lang.Object ref = b_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              b_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string b = 2;</code>
+           */
+          public Builder setB(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            b_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string b = 2;</code>
+           */
+          public Builder clearB() {
+            
+            b_ = getDefaultInstance().getB();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string b = 2;</code>
+           */
+          public Builder setBBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            b_ = value;
+            onChanged();
+            return this;
+          }
+
+          private boolean isNew_ ;
+          /**
+           * <code>bool is_new = 3;</code>
+           */
+          public boolean getIsNew() {
+            return isNew_;
+          }
+          /**
+           * <code>bool is_new = 3;</code>
+           */
+          public Builder setIsNew(boolean value) {
+            
+            isNew_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>bool is_new = 3;</code>
+           */
+          public Builder clearIsNew() {
+            
+            isNew_ = false;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object isCode_ = "";
+          /**
+           * <code>string is_code = 4;</code>
+           */
+          public java.lang.String getIsCode() {
+            java.lang.Object ref = isCode_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              isCode_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string is_code = 4;</code>
+           */
+          public com.google.protobuf.ByteString
+              getIsCodeBytes() {
+            java.lang.Object ref = isCode_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              isCode_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string is_code = 4;</code>
+           */
+          public Builder setIsCode(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            isCode_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string is_code = 4;</code>
+           */
+          public Builder clearIsCode() {
+            
+            isCode_ = getDefaultInstance().getIsCode();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string is_code = 4;</code>
+           */
+          public Builder setIsCodeBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            isCode_ = value;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object indexFrom_ = "";
+          /**
+           * <code>string index_from = 5;</code>
+           */
+          public java.lang.String getIndexFrom() {
+            java.lang.Object ref = indexFrom_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              indexFrom_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string index_from = 5;</code>
+           */
+          public com.google.protobuf.ByteString
+              getIndexFromBytes() {
+            java.lang.Object ref = indexFrom_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              indexFrom_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string index_from = 5;</code>
+           */
+          public Builder setIndexFrom(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            indexFrom_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string index_from = 5;</code>
+           */
+          public Builder clearIndexFrom() {
+            
+            indexFrom_ = getDefaultInstance().getIndexFrom();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string index_from = 5;</code>
+           */
+          public Builder setIndexFromBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            indexFrom_ = value;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object indexTo_ = "";
+          /**
+           * <code>string index_to = 6;</code>
+           */
+          public java.lang.String getIndexTo() {
+            java.lang.Object ref = indexTo_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              indexTo_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string index_to = 6;</code>
+           */
+          public com.google.protobuf.ByteString
+              getIndexToBytes() {
+            java.lang.Object ref = indexTo_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              indexTo_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string index_to = 6;</code>
+           */
+          public Builder setIndexTo(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            indexTo_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string index_to = 6;</code>
+           */
+          public Builder clearIndexTo() {
+            
+            indexTo_ = getDefaultInstance().getIndexTo();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string index_to = 6;</code>
+           */
+          public Builder setIndexToBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            indexTo_ = value;
+            onChanged();
+            return this;
+          }
+
+          private java.lang.Object mode_ = "";
+          /**
+           * <code>string mode = 7;</code>
+           */
+          public java.lang.String getMode() {
+            java.lang.Object ref = mode_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              mode_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string mode = 7;</code>
+           */
+          public com.google.protobuf.ByteString
+              getModeBytes() {
+            java.lang.Object ref = mode_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              mode_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string mode = 7;</code>
+           */
+          public Builder setMode(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            mode_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string mode = 7;</code>
+           */
+          public Builder clearMode() {
+            
+            mode_ = getDefaultInstance().getMode();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string mode = 7;</code>
+           */
+          public Builder setModeBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            mode_ = value;
+            onChanged();
+            return this;
+          }
+
+          private java.util.List<fast.Fast.Log.Commit.Diff.Hunk> hunk_ =
+            java.util.Collections.emptyList();
+          private void ensureHunkIsMutable() {
+            if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+              hunk_ = new java.util.ArrayList<fast.Fast.Log.Commit.Diff.Hunk>(hunk_);
+              bitField0_ |= 0x00000080;
+             }
+          }
+
+          private com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Log.Commit.Diff.Hunk, fast.Fast.Log.Commit.Diff.Hunk.Builder, fast.Fast.Log.Commit.Diff.HunkOrBuilder> hunkBuilder_;
+
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public java.util.List<fast.Fast.Log.Commit.Diff.Hunk> getHunkList() {
+            if (hunkBuilder_ == null) {
+              return java.util.Collections.unmodifiableList(hunk_);
+            } else {
+              return hunkBuilder_.getMessageList();
+            }
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public int getHunkCount() {
+            if (hunkBuilder_ == null) {
+              return hunk_.size();
+            } else {
+              return hunkBuilder_.getCount();
+            }
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.Hunk getHunk(int index) {
+            if (hunkBuilder_ == null) {
+              return hunk_.get(index);
+            } else {
+              return hunkBuilder_.getMessage(index);
+            }
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder setHunk(
+              int index, fast.Fast.Log.Commit.Diff.Hunk value) {
+            if (hunkBuilder_ == null) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              ensureHunkIsMutable();
+              hunk_.set(index, value);
+              onChanged();
+            } else {
+              hunkBuilder_.setMessage(index, value);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder setHunk(
+              int index, fast.Fast.Log.Commit.Diff.Hunk.Builder builderForValue) {
+            if (hunkBuilder_ == null) {
+              ensureHunkIsMutable();
+              hunk_.set(index, builderForValue.build());
+              onChanged();
+            } else {
+              hunkBuilder_.setMessage(index, builderForValue.build());
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder addHunk(fast.Fast.Log.Commit.Diff.Hunk value) {
+            if (hunkBuilder_ == null) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              ensureHunkIsMutable();
+              hunk_.add(value);
+              onChanged();
+            } else {
+              hunkBuilder_.addMessage(value);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder addHunk(
+              int index, fast.Fast.Log.Commit.Diff.Hunk value) {
+            if (hunkBuilder_ == null) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              ensureHunkIsMutable();
+              hunk_.add(index, value);
+              onChanged();
+            } else {
+              hunkBuilder_.addMessage(index, value);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder addHunk(
+              fast.Fast.Log.Commit.Diff.Hunk.Builder builderForValue) {
+            if (hunkBuilder_ == null) {
+              ensureHunkIsMutable();
+              hunk_.add(builderForValue.build());
+              onChanged();
+            } else {
+              hunkBuilder_.addMessage(builderForValue.build());
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder addHunk(
+              int index, fast.Fast.Log.Commit.Diff.Hunk.Builder builderForValue) {
+            if (hunkBuilder_ == null) {
+              ensureHunkIsMutable();
+              hunk_.add(index, builderForValue.build());
+              onChanged();
+            } else {
+              hunkBuilder_.addMessage(index, builderForValue.build());
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder addAllHunk(
+              java.lang.Iterable<? extends fast.Fast.Log.Commit.Diff.Hunk> values) {
+            if (hunkBuilder_ == null) {
+              ensureHunkIsMutable();
+              com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                  values, hunk_);
+              onChanged();
+            } else {
+              hunkBuilder_.addAllMessages(values);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder clearHunk() {
+            if (hunkBuilder_ == null) {
+              hunk_ = java.util.Collections.emptyList();
+              bitField0_ = (bitField0_ & ~0x00000080);
+              onChanged();
+            } else {
+              hunkBuilder_.clear();
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public Builder removeHunk(int index) {
+            if (hunkBuilder_ == null) {
+              ensureHunkIsMutable();
+              hunk_.remove(index);
+              onChanged();
+            } else {
+              hunkBuilder_.remove(index);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.Hunk.Builder getHunkBuilder(
+              int index) {
+            return getHunkFieldBuilder().getBuilder(index);
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.HunkOrBuilder getHunkOrBuilder(
+              int index) {
+            if (hunkBuilder_ == null) {
+              return hunk_.get(index);  } else {
+              return hunkBuilder_.getMessageOrBuilder(index);
+            }
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public java.util.List<? extends fast.Fast.Log.Commit.Diff.HunkOrBuilder> 
+               getHunkOrBuilderList() {
+            if (hunkBuilder_ != null) {
+              return hunkBuilder_.getMessageOrBuilderList();
+            } else {
+              return java.util.Collections.unmodifiableList(hunk_);
+            }
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.Hunk.Builder addHunkBuilder() {
+            return getHunkFieldBuilder().addBuilder(
+                fast.Fast.Log.Commit.Diff.Hunk.getDefaultInstance());
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public fast.Fast.Log.Commit.Diff.Hunk.Builder addHunkBuilder(
+              int index) {
+            return getHunkFieldBuilder().addBuilder(
+                index, fast.Fast.Log.Commit.Diff.Hunk.getDefaultInstance());
+          }
+          /**
+           * <code>repeated .fast.Log.Commit.Diff.Hunk hunk = 8;</code>
+           */
+          public java.util.List<fast.Fast.Log.Commit.Diff.Hunk.Builder> 
+               getHunkBuilderList() {
+            return getHunkFieldBuilder().getBuilderList();
+          }
+          private com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Log.Commit.Diff.Hunk, fast.Fast.Log.Commit.Diff.Hunk.Builder, fast.Fast.Log.Commit.Diff.HunkOrBuilder> 
+              getHunkFieldBuilder() {
+            if (hunkBuilder_ == null) {
+              hunkBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                  fast.Fast.Log.Commit.Diff.Hunk, fast.Fast.Log.Commit.Diff.Hunk.Builder, fast.Fast.Log.Commit.Diff.HunkOrBuilder>(
+                      hunk_,
+                      ((bitField0_ & 0x00000080) == 0x00000080),
+                      getParentForChildren(),
+                      isClean());
+              hunk_ = null;
+            }
+            return hunkBuilder_;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Log.Commit.Diff)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Log.Commit.Diff)
+        private static final fast.Fast.Log.Commit.Diff DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Log.Commit.Diff();
+        }
+
+        public static fast.Fast.Log.Commit.Diff getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Diff>
+            PARSER = new com.google.protobuf.AbstractParser<Diff>() {
+          public Diff parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Diff(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Diff> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Diff> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Log.Commit.Diff getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      private int bitField0_;
+      private int extraCase_ = 0;
+      private java.lang.Object extra_;
+      public enum ExtraCase
+          implements com.google.protobuf.Internal.EnumLite {
+        COMMITTER(5),
+        EXTRA_NOT_SET(0);
+        private final int value;
+        private ExtraCase(int value) {
+          this.value = value;
+        }
+        /**
+         * @deprecated Use {@link #forNumber(int)} instead.
+         */
+        @java.lang.Deprecated
+        public static ExtraCase valueOf(int value) {
+          return forNumber(value);
+        }
+
+        public static ExtraCase forNumber(int value) {
+          switch (value) {
+            case 5: return COMMITTER;
+            case 0: return EXTRA_NOT_SET;
+            default: return null;
+          }
+        }
+        public int getNumber() {
+          return this.value;
+        }
+      };
+
+      public ExtraCase
+      getExtraCase() {
+        return ExtraCase.forNumber(
+            extraCase_);
+      }
+
+      public static final int ID_FIELD_NUMBER = 1;
+      private volatile java.lang.Object id_;
+      /**
+       * <code>string id = 1;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string id = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int TEXT_FIELD_NUMBER = 2;
+      private com.google.protobuf.ByteString text_;
+      /**
+       * <code>bytes text = 2;</code>
+       */
+      public com.google.protobuf.ByteString getText() {
+        return text_;
+      }
+
+      public static final int AUTHOR_ID_FIELD_NUMBER = 3;
+      private int authorId_;
+      /**
+       * <code>int32 author_id = 3;</code>
+       */
+      public int getAuthorId() {
+        return authorId_;
+      }
+
+      public static final int AUTHOR_DATE_FIELD_NUMBER = 4;
+      private volatile java.lang.Object authorDate_;
+      /**
+       * <code>string author_date = 4;</code>
+       */
+      public java.lang.String getAuthorDate() {
+        java.lang.Object ref = authorDate_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          authorDate_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string author_date = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAuthorDateBytes() {
+        java.lang.Object ref = authorDate_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          authorDate_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int COMMITTER_FIELD_NUMBER = 5;
+      /**
+       * <code>.fast.Log.Commit.Committer committer = 5;</code>
+       */
+      public fast.Fast.Log.Commit.Committer getCommitter() {
+        if (extraCase_ == 5) {
+           return (fast.Fast.Log.Commit.Committer) extra_;
+        }
+        return fast.Fast.Log.Commit.Committer.getDefaultInstance();
+      }
+      /**
+       * <code>.fast.Log.Commit.Committer committer = 5;</code>
+       */
+      public fast.Fast.Log.Commit.CommitterOrBuilder getCommitterOrBuilder() {
+        if (extraCase_ == 5) {
+           return (fast.Fast.Log.Commit.Committer) extra_;
+        }
+        return fast.Fast.Log.Commit.Committer.getDefaultInstance();
+      }
+
+      public static final int DIFF_FIELD_NUMBER = 6;
+      private java.util.List<fast.Fast.Log.Commit.Diff> diff_;
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      public java.util.List<fast.Fast.Log.Commit.Diff> getDiffList() {
+        return diff_;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      public java.util.List<? extends fast.Fast.Log.Commit.DiffOrBuilder> 
+          getDiffOrBuilderList() {
+        return diff_;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      public int getDiffCount() {
+        return diff_.size();
+      }
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      public fast.Fast.Log.Commit.Diff getDiff(int index) {
+        return diff_.get(index);
+      }
+      /**
+       * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+       */
+      public fast.Fast.Log.Commit.DiffOrBuilder getDiffOrBuilder(
+          int index) {
+        return diff_.get(index);
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!getIdBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
+        }
+        if (!text_.isEmpty()) {
+          output.writeBytes(2, text_);
+        }
+        if (authorId_ != 0) {
+          output.writeInt32(3, authorId_);
+        }
+        if (!getAuthorDateBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, authorDate_);
+        }
+        if (extraCase_ == 5) {
+          output.writeMessage(5, (fast.Fast.Log.Commit.Committer) extra_);
+        }
+        for (int i = 0; i < diff_.size(); i++) {
+          output.writeMessage(6, diff_.get(i));
+        }
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!getIdBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
+        }
+        if (!text_.isEmpty()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBytesSize(2, text_);
+        }
+        if (authorId_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(3, authorId_);
+        }
+        if (!getAuthorDateBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, authorDate_);
+        }
+        if (extraCase_ == 5) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(5, (fast.Fast.Log.Commit.Committer) extra_);
+        }
+        for (int i = 0; i < diff_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(6, diff_.get(i));
+        }
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof fast.Fast.Log.Commit)) {
+          return super.equals(obj);
+        }
+        fast.Fast.Log.Commit other = (fast.Fast.Log.Commit) obj;
+
+        boolean result = true;
+        result = result && getId()
+            .equals(other.getId());
+        result = result && getText()
+            .equals(other.getText());
+        result = result && (getAuthorId()
+            == other.getAuthorId());
+        result = result && getAuthorDate()
+            .equals(other.getAuthorDate());
+        result = result && getDiffList()
+            .equals(other.getDiffList());
+        result = result && getExtraCase().equals(
+            other.getExtraCase());
+        if (!result) return false;
+        switch (extraCase_) {
+          case 5:
+            result = result && getCommitter()
+                .equals(other.getCommitter());
+            break;
+          case 0:
+          default:
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId().hashCode();
+        hash = (37 * hash) + TEXT_FIELD_NUMBER;
+        hash = (53 * hash) + getText().hashCode();
+        hash = (37 * hash) + AUTHOR_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthorId();
+        hash = (37 * hash) + AUTHOR_DATE_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthorDate().hashCode();
+        if (getDiffCount() > 0) {
+          hash = (37 * hash) + DIFF_FIELD_NUMBER;
+          hash = (53 * hash) + getDiffList().hashCode();
+        }
+        switch (extraCase_) {
+          case 5:
+            hash = (37 * hash) + COMMITTER_FIELD_NUMBER;
+            hash = (53 * hash) + getCommitter().hashCode();
+            break;
+          case 0:
+          default:
+        }
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static fast.Fast.Log.Commit parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Log.Commit parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Log.Commit parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Log.Commit parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Log.Commit parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Log.Commit parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(fast.Fast.Log.Commit prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code fast.Log.Commit}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:fast.Log.Commit)
+          fast.Fast.Log.CommitOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Log_Commit_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Log_Commit_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Log.Commit.class, fast.Fast.Log.Commit.Builder.class);
+        }
+
+        // Construct using fast.Fast.Log.Commit.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+            getDiffFieldBuilder();
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          id_ = "";
+
+          text_ = com.google.protobuf.ByteString.EMPTY;
+
+          authorId_ = 0;
+
+          authorDate_ = "";
+
+          if (diffBuilder_ == null) {
+            diff_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000020);
+          } else {
+            diffBuilder_.clear();
+          }
+          extraCase_ = 0;
+          extra_ = null;
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return fast.Fast.internal_static_fast_Log_Commit_descriptor;
+        }
+
+        public fast.Fast.Log.Commit getDefaultInstanceForType() {
+          return fast.Fast.Log.Commit.getDefaultInstance();
+        }
+
+        public fast.Fast.Log.Commit build() {
+          fast.Fast.Log.Commit result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public fast.Fast.Log.Commit buildPartial() {
+          fast.Fast.Log.Commit result = new fast.Fast.Log.Commit(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          result.id_ = id_;
+          result.text_ = text_;
+          result.authorId_ = authorId_;
+          result.authorDate_ = authorDate_;
+          if (extraCase_ == 5) {
+            if (committerBuilder_ == null) {
+              result.extra_ = extra_;
+            } else {
+              result.extra_ = committerBuilder_.build();
+            }
+          }
+          if (diffBuilder_ == null) {
+            if (((bitField0_ & 0x00000020) == 0x00000020)) {
+              diff_ = java.util.Collections.unmodifiableList(diff_);
+              bitField0_ = (bitField0_ & ~0x00000020);
+            }
+            result.diff_ = diff_;
+          } else {
+            result.diff_ = diffBuilder_.build();
+          }
+          result.bitField0_ = to_bitField0_;
+          result.extraCase_ = extraCase_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof fast.Fast.Log.Commit) {
+            return mergeFrom((fast.Fast.Log.Commit)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(fast.Fast.Log.Commit other) {
+          if (other == fast.Fast.Log.Commit.getDefaultInstance()) return this;
+          if (!other.getId().isEmpty()) {
+            id_ = other.id_;
+            onChanged();
+          }
+          if (other.getText() != com.google.protobuf.ByteString.EMPTY) {
+            setText(other.getText());
+          }
+          if (other.getAuthorId() != 0) {
+            setAuthorId(other.getAuthorId());
+          }
+          if (!other.getAuthorDate().isEmpty()) {
+            authorDate_ = other.authorDate_;
+            onChanged();
+          }
+          if (diffBuilder_ == null) {
+            if (!other.diff_.isEmpty()) {
+              if (diff_.isEmpty()) {
+                diff_ = other.diff_;
+                bitField0_ = (bitField0_ & ~0x00000020);
+              } else {
+                ensureDiffIsMutable();
+                diff_.addAll(other.diff_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.diff_.isEmpty()) {
+              if (diffBuilder_.isEmpty()) {
+                diffBuilder_.dispose();
+                diffBuilder_ = null;
+                diff_ = other.diff_;
+                bitField0_ = (bitField0_ & ~0x00000020);
+                diffBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getDiffFieldBuilder() : null;
+              } else {
+                diffBuilder_.addAllMessages(other.diff_);
+              }
+            }
+          }
+          switch (other.getExtraCase()) {
+            case COMMITTER: {
+              mergeCommitter(other.getCommitter());
+              break;
+            }
+            case EXTRA_NOT_SET: {
+              break;
+            }
+          }
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          fast.Fast.Log.Commit parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (fast.Fast.Log.Commit) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int extraCase_ = 0;
+        private java.lang.Object extra_;
+        public ExtraCase
+            getExtraCase() {
+          return ExtraCase.forNumber(
+              extraCase_);
+        }
+
+        public Builder clearExtra() {
+          extraCase_ = 0;
+          extra_ = null;
+          onChanged();
+          return this;
+        }
+
+        private int bitField0_;
+
+        private java.lang.Object id_ = "";
+        /**
+         * <code>string id = 1;</code>
+         */
+        public java.lang.String getId() {
+          java.lang.Object ref = id_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            id_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string id = 1;</code>
+         */
+        public com.google.protobuf.ByteString
+            getIdBytes() {
+          java.lang.Object ref = id_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            id_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string id = 1;</code>
+         */
+        public Builder setId(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          id_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string id = 1;</code>
+         */
+        public Builder clearId() {
+          
+          id_ = getDefaultInstance().getId();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string id = 1;</code>
+         */
+        public Builder setIdBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          id_ = value;
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.ByteString text_ = com.google.protobuf.ByteString.EMPTY;
+        /**
+         * <code>bytes text = 2;</code>
+         */
+        public com.google.protobuf.ByteString getText() {
+          return text_;
+        }
+        /**
+         * <code>bytes text = 2;</code>
+         */
+        public Builder setText(com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          text_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>bytes text = 2;</code>
+         */
+        public Builder clearText() {
+          
+          text_ = getDefaultInstance().getText();
+          onChanged();
+          return this;
+        }
+
+        private int authorId_ ;
+        /**
+         * <code>int32 author_id = 3;</code>
+         */
+        public int getAuthorId() {
+          return authorId_;
+        }
+        /**
+         * <code>int32 author_id = 3;</code>
+         */
+        public Builder setAuthorId(int value) {
+          
+          authorId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int32 author_id = 3;</code>
+         */
+        public Builder clearAuthorId() {
+          
+          authorId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object authorDate_ = "";
+        /**
+         * <code>string author_date = 4;</code>
+         */
+        public java.lang.String getAuthorDate() {
+          java.lang.Object ref = authorDate_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            authorDate_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string author_date = 4;</code>
+         */
+        public com.google.protobuf.ByteString
+            getAuthorDateBytes() {
+          java.lang.Object ref = authorDate_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            authorDate_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string author_date = 4;</code>
+         */
+        public Builder setAuthorDate(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          authorDate_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string author_date = 4;</code>
+         */
+        public Builder clearAuthorDate() {
+          
+          authorDate_ = getDefaultInstance().getAuthorDate();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string author_date = 4;</code>
+         */
+        public Builder setAuthorDateBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          authorDate_ = value;
+          onChanged();
+          return this;
+        }
+
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Log.Commit.Committer, fast.Fast.Log.Commit.Committer.Builder, fast.Fast.Log.Commit.CommitterOrBuilder> committerBuilder_;
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public fast.Fast.Log.Commit.Committer getCommitter() {
+          if (committerBuilder_ == null) {
+            if (extraCase_ == 5) {
+              return (fast.Fast.Log.Commit.Committer) extra_;
+            }
+            return fast.Fast.Log.Commit.Committer.getDefaultInstance();
+          } else {
+            if (extraCase_ == 5) {
+              return committerBuilder_.getMessage();
+            }
+            return fast.Fast.Log.Commit.Committer.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public Builder setCommitter(fast.Fast.Log.Commit.Committer value) {
+          if (committerBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            extra_ = value;
+            onChanged();
+          } else {
+            committerBuilder_.setMessage(value);
+          }
+          extraCase_ = 5;
+          return this;
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public Builder setCommitter(
+            fast.Fast.Log.Commit.Committer.Builder builderForValue) {
+          if (committerBuilder_ == null) {
+            extra_ = builderForValue.build();
+            onChanged();
+          } else {
+            committerBuilder_.setMessage(builderForValue.build());
+          }
+          extraCase_ = 5;
+          return this;
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public Builder mergeCommitter(fast.Fast.Log.Commit.Committer value) {
+          if (committerBuilder_ == null) {
+            if (extraCase_ == 5 &&
+                extra_ != fast.Fast.Log.Commit.Committer.getDefaultInstance()) {
+              extra_ = fast.Fast.Log.Commit.Committer.newBuilder((fast.Fast.Log.Commit.Committer) extra_)
+                  .mergeFrom(value).buildPartial();
+            } else {
+              extra_ = value;
+            }
+            onChanged();
+          } else {
+            if (extraCase_ == 5) {
+              committerBuilder_.mergeFrom(value);
+            }
+            committerBuilder_.setMessage(value);
+          }
+          extraCase_ = 5;
+          return this;
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public Builder clearCommitter() {
+          if (committerBuilder_ == null) {
+            if (extraCase_ == 5) {
+              extraCase_ = 0;
+              extra_ = null;
+              onChanged();
+            }
+          } else {
+            if (extraCase_ == 5) {
+              extraCase_ = 0;
+              extra_ = null;
+            }
+            committerBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public fast.Fast.Log.Commit.Committer.Builder getCommitterBuilder() {
+          return getCommitterFieldBuilder().getBuilder();
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        public fast.Fast.Log.Commit.CommitterOrBuilder getCommitterOrBuilder() {
+          if ((extraCase_ == 5) && (committerBuilder_ != null)) {
+            return committerBuilder_.getMessageOrBuilder();
+          } else {
+            if (extraCase_ == 5) {
+              return (fast.Fast.Log.Commit.Committer) extra_;
+            }
+            return fast.Fast.Log.Commit.Committer.getDefaultInstance();
+          }
+        }
+        /**
+         * <code>.fast.Log.Commit.Committer committer = 5;</code>
+         */
+        private com.google.protobuf.SingleFieldBuilderV3<
+            fast.Fast.Log.Commit.Committer, fast.Fast.Log.Commit.Committer.Builder, fast.Fast.Log.Commit.CommitterOrBuilder> 
+            getCommitterFieldBuilder() {
+          if (committerBuilder_ == null) {
+            if (!(extraCase_ == 5)) {
+              extra_ = fast.Fast.Log.Commit.Committer.getDefaultInstance();
+            }
+            committerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Log.Commit.Committer, fast.Fast.Log.Commit.Committer.Builder, fast.Fast.Log.Commit.CommitterOrBuilder>(
+                    (fast.Fast.Log.Commit.Committer) extra_,
+                    getParentForChildren(),
+                    isClean());
+            extra_ = null;
+          }
+          extraCase_ = 5;
+          onChanged();;
+          return committerBuilder_;
+        }
+
+        private java.util.List<fast.Fast.Log.Commit.Diff> diff_ =
+          java.util.Collections.emptyList();
+        private void ensureDiffIsMutable() {
+          if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+            diff_ = new java.util.ArrayList<fast.Fast.Log.Commit.Diff>(diff_);
+            bitField0_ |= 0x00000020;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            fast.Fast.Log.Commit.Diff, fast.Fast.Log.Commit.Diff.Builder, fast.Fast.Log.Commit.DiffOrBuilder> diffBuilder_;
+
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public java.util.List<fast.Fast.Log.Commit.Diff> getDiffList() {
+          if (diffBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(diff_);
+          } else {
+            return diffBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public int getDiffCount() {
+          if (diffBuilder_ == null) {
+            return diff_.size();
+          } else {
+            return diffBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public fast.Fast.Log.Commit.Diff getDiff(int index) {
+          if (diffBuilder_ == null) {
+            return diff_.get(index);
+          } else {
+            return diffBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder setDiff(
+            int index, fast.Fast.Log.Commit.Diff value) {
+          if (diffBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureDiffIsMutable();
+            diff_.set(index, value);
+            onChanged();
+          } else {
+            diffBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder setDiff(
+            int index, fast.Fast.Log.Commit.Diff.Builder builderForValue) {
+          if (diffBuilder_ == null) {
+            ensureDiffIsMutable();
+            diff_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            diffBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder addDiff(fast.Fast.Log.Commit.Diff value) {
+          if (diffBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureDiffIsMutable();
+            diff_.add(value);
+            onChanged();
+          } else {
+            diffBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder addDiff(
+            int index, fast.Fast.Log.Commit.Diff value) {
+          if (diffBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureDiffIsMutable();
+            diff_.add(index, value);
+            onChanged();
+          } else {
+            diffBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder addDiff(
+            fast.Fast.Log.Commit.Diff.Builder builderForValue) {
+          if (diffBuilder_ == null) {
+            ensureDiffIsMutable();
+            diff_.add(builderForValue.build());
+            onChanged();
+          } else {
+            diffBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder addDiff(
+            int index, fast.Fast.Log.Commit.Diff.Builder builderForValue) {
+          if (diffBuilder_ == null) {
+            ensureDiffIsMutable();
+            diff_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            diffBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder addAllDiff(
+            java.lang.Iterable<? extends fast.Fast.Log.Commit.Diff> values) {
+          if (diffBuilder_ == null) {
+            ensureDiffIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, diff_);
+            onChanged();
+          } else {
+            diffBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder clearDiff() {
+          if (diffBuilder_ == null) {
+            diff_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000020);
+            onChanged();
+          } else {
+            diffBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public Builder removeDiff(int index) {
+          if (diffBuilder_ == null) {
+            ensureDiffIsMutable();
+            diff_.remove(index);
+            onChanged();
+          } else {
+            diffBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public fast.Fast.Log.Commit.Diff.Builder getDiffBuilder(
+            int index) {
+          return getDiffFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public fast.Fast.Log.Commit.DiffOrBuilder getDiffOrBuilder(
+            int index) {
+          if (diffBuilder_ == null) {
+            return diff_.get(index);  } else {
+            return diffBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public java.util.List<? extends fast.Fast.Log.Commit.DiffOrBuilder> 
+             getDiffOrBuilderList() {
+          if (diffBuilder_ != null) {
+            return diffBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(diff_);
+          }
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public fast.Fast.Log.Commit.Diff.Builder addDiffBuilder() {
+          return getDiffFieldBuilder().addBuilder(
+              fast.Fast.Log.Commit.Diff.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public fast.Fast.Log.Commit.Diff.Builder addDiffBuilder(
+            int index) {
+          return getDiffFieldBuilder().addBuilder(
+              index, fast.Fast.Log.Commit.Diff.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .fast.Log.Commit.Diff diff = 6;</code>
+         */
+        public java.util.List<fast.Fast.Log.Commit.Diff.Builder> 
+             getDiffBuilderList() {
+          return getDiffFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            fast.Fast.Log.Commit.Diff, fast.Fast.Log.Commit.Diff.Builder, fast.Fast.Log.Commit.DiffOrBuilder> 
+            getDiffFieldBuilder() {
+          if (diffBuilder_ == null) {
+            diffBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Log.Commit.Diff, fast.Fast.Log.Commit.Diff.Builder, fast.Fast.Log.Commit.DiffOrBuilder>(
+                    diff_,
+                    ((bitField0_ & 0x00000020) == 0x00000020),
+                    getParentForChildren(),
+                    isClean());
+            diff_ = null;
+          }
+          return diffBuilder_;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:fast.Log.Commit)
+      }
+
+      // @@protoc_insertion_point(class_scope:fast.Log.Commit)
+      private static final fast.Fast.Log.Commit DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new fast.Fast.Log.Commit();
+      }
+
+      public static fast.Fast.Log.Commit getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Commit>
+          PARSER = new com.google.protobuf.AbstractParser<Commit>() {
+        public Commit parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Commit(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Commit> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Commit> getParserForType() {
+        return PARSER;
+      }
+
+      public fast.Fast.Log.Commit getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public interface AuthorOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:fast.Log.Author)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      int getId();
+
+      /**
+       * <code>string name = 2;</code>
+       */
+      java.lang.String getName();
+      /**
+       * <code>string name = 2;</code>
+       */
+      com.google.protobuf.ByteString
+          getNameBytes();
+
+      /**
+       * <code>string email = 3;</code>
+       */
+      java.lang.String getEmail();
+      /**
+       * <code>string email = 3;</code>
+       */
+      com.google.protobuf.ByteString
+          getEmailBytes();
+    }
+    /**
+     * Protobuf type {@code fast.Log.Author}
+     */
+    public  static final class Author extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:fast.Log.Author)
+        AuthorOrBuilder {
+      // Use Author.newBuilder() to construct.
+      private Author(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private Author() {
+        id_ = 0;
+        name_ = "";
+        email_ = "";
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      }
+      private Author(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 8: {
+
+                id_ = input.readInt32();
+                break;
+              }
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                name_ = s;
+                break;
+              }
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                email_ = s;
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Log_Author_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Log_Author_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Log.Author.class, fast.Fast.Log.Author.Builder.class);
+      }
+
+      public static final int ID_FIELD_NUMBER = 1;
+      private int id_;
+      /**
+       * <code>int32 id = 1;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+
+      public static final int NAME_FIELD_NUMBER = 2;
+      private volatile java.lang.Object name_;
+      /**
+       * <code>string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int EMAIL_FIELD_NUMBER = 3;
+      private volatile java.lang.Object email_;
+      /**
+       * <code>string email = 3;</code>
+       */
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          email_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string email = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailBytes() {
+        java.lang.Object ref = email_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          email_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (id_ != 0) {
+          output.writeInt32(1, id_);
+        }
+        if (!getNameBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+        }
+        if (!getEmailBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
+        }
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (id_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeInt32Size(1, id_);
+        }
+        if (!getNameBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+        }
+        if (!getEmailBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
+        }
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof fast.Fast.Log.Author)) {
+          return super.equals(obj);
+        }
+        fast.Fast.Log.Author other = (fast.Fast.Log.Author) obj;
+
+        boolean result = true;
+        result = result && (getId()
+            == other.getId());
+        result = result && getName()
+            .equals(other.getName());
+        result = result && getEmail()
+            .equals(other.getEmail());
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+        hash = (37 * hash) + EMAIL_FIELD_NUMBER;
+        hash = (53 * hash) + getEmail().hashCode();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static fast.Fast.Log.Author parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Log.Author parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Log.Author parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Log.Author parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Log.Author parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Log.Author parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(fast.Fast.Log.Author prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code fast.Log.Author}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:fast.Log.Author)
+          fast.Fast.Log.AuthorOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Log_Author_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Log_Author_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Log.Author.class, fast.Fast.Log.Author.Builder.class);
+        }
+
+        // Construct using fast.Fast.Log.Author.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          id_ = 0;
+
+          name_ = "";
+
+          email_ = "";
+
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return fast.Fast.internal_static_fast_Log_Author_descriptor;
+        }
+
+        public fast.Fast.Log.Author getDefaultInstanceForType() {
+          return fast.Fast.Log.Author.getDefaultInstance();
+        }
+
+        public fast.Fast.Log.Author build() {
+          fast.Fast.Log.Author result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public fast.Fast.Log.Author buildPartial() {
+          fast.Fast.Log.Author result = new fast.Fast.Log.Author(this);
+          result.id_ = id_;
+          result.name_ = name_;
+          result.email_ = email_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof fast.Fast.Log.Author) {
+            return mergeFrom((fast.Fast.Log.Author)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(fast.Fast.Log.Author other) {
+          if (other == fast.Fast.Log.Author.getDefaultInstance()) return this;
+          if (other.getId() != 0) {
+            setId(other.getId());
+          }
+          if (!other.getName().isEmpty()) {
+            name_ = other.name_;
+            onChanged();
+          }
+          if (!other.getEmail().isEmpty()) {
+            email_ = other.email_;
+            onChanged();
+          }
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          fast.Fast.Log.Author parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (fast.Fast.Log.Author) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private int id_ ;
+        /**
+         * <code>int32 id = 1;</code>
+         */
+        public int getId() {
+          return id_;
+        }
+        /**
+         * <code>int32 id = 1;</code>
+         */
+        public Builder setId(int value) {
+          
+          id_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>int32 id = 1;</code>
+         */
+        public Builder clearId() {
+          
+          id_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object name_ = "";
+        /**
+         * <code>string name = 2;</code>
+         */
+        public java.lang.String getName() {
+          java.lang.Object ref = name_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            name_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          java.lang.Object ref = name_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            name_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public Builder setName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          name_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public Builder clearName() {
+          
+          name_ = getDefaultInstance().getName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public Builder setNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          name_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object email_ = "";
+        /**
+         * <code>string email = 3;</code>
+         */
+        public java.lang.String getEmail() {
+          java.lang.Object ref = email_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            email_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string email = 3;</code>
+         */
+        public com.google.protobuf.ByteString
+            getEmailBytes() {
+          java.lang.Object ref = email_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            email_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string email = 3;</code>
+         */
+        public Builder setEmail(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          email_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string email = 3;</code>
+         */
+        public Builder clearEmail() {
+          
+          email_ = getDefaultInstance().getEmail();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string email = 3;</code>
+         */
+        public Builder setEmailBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          email_ = value;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:fast.Log.Author)
+      }
+
+      // @@protoc_insertion_point(class_scope:fast.Log.Author)
+      private static final fast.Fast.Log.Author DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new fast.Fast.Log.Author();
+      }
+
+      public static fast.Fast.Log.Author getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<Author>
+          PARSER = new com.google.protobuf.AbstractParser<Author>() {
+        public Author parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new Author(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<Author> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<Author> getParserForType() {
+        return PARSER;
+      }
+
+      public fast.Fast.Log.Author getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int COMMIT_FIELD_NUMBER = 1;
+    private java.util.List<fast.Fast.Log.Commit> commit_;
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    public java.util.List<fast.Fast.Log.Commit> getCommitList() {
+      return commit_;
+    }
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    public java.util.List<? extends fast.Fast.Log.CommitOrBuilder> 
+        getCommitOrBuilderList() {
+      return commit_;
+    }
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    public int getCommitCount() {
+      return commit_.size();
+    }
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    public fast.Fast.Log.Commit getCommit(int index) {
+      return commit_.get(index);
+    }
+    /**
+     * <code>repeated .fast.Log.Commit commit = 1;</code>
+     */
+    public fast.Fast.Log.CommitOrBuilder getCommitOrBuilder(
+        int index) {
+      return commit_.get(index);
+    }
+
+    public static final int AUTHOR_FIELD_NUMBER = 2;
+    private java.util.List<fast.Fast.Log.Author> author_;
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    public java.util.List<fast.Fast.Log.Author> getAuthorList() {
+      return author_;
+    }
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    public java.util.List<? extends fast.Fast.Log.AuthorOrBuilder> 
+        getAuthorOrBuilderList() {
+      return author_;
+    }
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    public int getAuthorCount() {
+      return author_.size();
+    }
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    public fast.Fast.Log.Author getAuthor(int index) {
+      return author_.get(index);
+    }
+    /**
+     * <code>repeated .fast.Log.Author author = 2;</code>
+     */
+    public fast.Fast.Log.AuthorOrBuilder getAuthorOrBuilder(
+        int index) {
+      return author_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < commit_.size(); i++) {
+        output.writeMessage(1, commit_.get(i));
+      }
+      for (int i = 0; i < author_.size(); i++) {
+        output.writeMessage(2, author_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < commit_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, commit_.get(i));
+      }
+      for (int i = 0; i < author_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, author_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof fast.Fast.Log)) {
+        return super.equals(obj);
+      }
+      fast.Fast.Log other = (fast.Fast.Log) obj;
+
+      boolean result = true;
+      result = result && getCommitList()
+          .equals(other.getCommitList());
+      result = result && getAuthorList()
+          .equals(other.getAuthorList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getCommitCount() > 0) {
+        hash = (37 * hash) + COMMIT_FIELD_NUMBER;
+        hash = (53 * hash) + getCommitList().hashCode();
+      }
+      if (getAuthorCount() > 0) {
+        hash = (37 * hash) + AUTHOR_FIELD_NUMBER;
+        hash = (53 * hash) + getAuthorList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static fast.Fast.Log parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Log parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Log parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Log parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Log parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Log parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Log parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Log parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Log parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Log parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Log parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Log parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(fast.Fast.Log prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code fast.Log}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:fast.Log)
+        fast.Fast.LogOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Log_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Log_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Log.class, fast.Fast.Log.Builder.class);
+      }
+
+      // Construct using fast.Fast.Log.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getCommitFieldBuilder();
+          getAuthorFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (commitBuilder_ == null) {
+          commit_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          commitBuilder_.clear();
+        }
+        if (authorBuilder_ == null) {
+          author_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          authorBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return fast.Fast.internal_static_fast_Log_descriptor;
+      }
+
+      public fast.Fast.Log getDefaultInstanceForType() {
+        return fast.Fast.Log.getDefaultInstance();
+      }
+
+      public fast.Fast.Log build() {
+        fast.Fast.Log result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public fast.Fast.Log buildPartial() {
+        fast.Fast.Log result = new fast.Fast.Log(this);
+        int from_bitField0_ = bitField0_;
+        if (commitBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            commit_ = java.util.Collections.unmodifiableList(commit_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.commit_ = commit_;
+        } else {
+          result.commit_ = commitBuilder_.build();
+        }
+        if (authorBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            author_ = java.util.Collections.unmodifiableList(author_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.author_ = author_;
+        } else {
+          result.author_ = authorBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof fast.Fast.Log) {
+          return mergeFrom((fast.Fast.Log)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(fast.Fast.Log other) {
+        if (other == fast.Fast.Log.getDefaultInstance()) return this;
+        if (commitBuilder_ == null) {
+          if (!other.commit_.isEmpty()) {
+            if (commit_.isEmpty()) {
+              commit_ = other.commit_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureCommitIsMutable();
+              commit_.addAll(other.commit_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.commit_.isEmpty()) {
+            if (commitBuilder_.isEmpty()) {
+              commitBuilder_.dispose();
+              commitBuilder_ = null;
+              commit_ = other.commit_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              commitBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getCommitFieldBuilder() : null;
+            } else {
+              commitBuilder_.addAllMessages(other.commit_);
+            }
+          }
+        }
+        if (authorBuilder_ == null) {
+          if (!other.author_.isEmpty()) {
+            if (author_.isEmpty()) {
+              author_ = other.author_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureAuthorIsMutable();
+              author_.addAll(other.author_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.author_.isEmpty()) {
+            if (authorBuilder_.isEmpty()) {
+              authorBuilder_.dispose();
+              authorBuilder_ = null;
+              author_ = other.author_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              authorBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getAuthorFieldBuilder() : null;
+            } else {
+              authorBuilder_.addAllMessages(other.author_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        fast.Fast.Log parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (fast.Fast.Log) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<fast.Fast.Log.Commit> commit_ =
+        java.util.Collections.emptyList();
+      private void ensureCommitIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          commit_ = new java.util.ArrayList<fast.Fast.Log.Commit>(commit_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Log.Commit, fast.Fast.Log.Commit.Builder, fast.Fast.Log.CommitOrBuilder> commitBuilder_;
+
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public java.util.List<fast.Fast.Log.Commit> getCommitList() {
+        if (commitBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(commit_);
+        } else {
+          return commitBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public int getCommitCount() {
+        if (commitBuilder_ == null) {
+          return commit_.size();
+        } else {
+          return commitBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public fast.Fast.Log.Commit getCommit(int index) {
+        if (commitBuilder_ == null) {
+          return commit_.get(index);
+        } else {
+          return commitBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder setCommit(
+          int index, fast.Fast.Log.Commit value) {
+        if (commitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCommitIsMutable();
+          commit_.set(index, value);
+          onChanged();
+        } else {
+          commitBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder setCommit(
+          int index, fast.Fast.Log.Commit.Builder builderForValue) {
+        if (commitBuilder_ == null) {
+          ensureCommitIsMutable();
+          commit_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          commitBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder addCommit(fast.Fast.Log.Commit value) {
+        if (commitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCommitIsMutable();
+          commit_.add(value);
+          onChanged();
+        } else {
+          commitBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder addCommit(
+          int index, fast.Fast.Log.Commit value) {
+        if (commitBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureCommitIsMutable();
+          commit_.add(index, value);
+          onChanged();
+        } else {
+          commitBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder addCommit(
+          fast.Fast.Log.Commit.Builder builderForValue) {
+        if (commitBuilder_ == null) {
+          ensureCommitIsMutable();
+          commit_.add(builderForValue.build());
+          onChanged();
+        } else {
+          commitBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder addCommit(
+          int index, fast.Fast.Log.Commit.Builder builderForValue) {
+        if (commitBuilder_ == null) {
+          ensureCommitIsMutable();
+          commit_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          commitBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder addAllCommit(
+          java.lang.Iterable<? extends fast.Fast.Log.Commit> values) {
+        if (commitBuilder_ == null) {
+          ensureCommitIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, commit_);
+          onChanged();
+        } else {
+          commitBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder clearCommit() {
+        if (commitBuilder_ == null) {
+          commit_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          commitBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public Builder removeCommit(int index) {
+        if (commitBuilder_ == null) {
+          ensureCommitIsMutable();
+          commit_.remove(index);
+          onChanged();
+        } else {
+          commitBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public fast.Fast.Log.Commit.Builder getCommitBuilder(
+          int index) {
+        return getCommitFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public fast.Fast.Log.CommitOrBuilder getCommitOrBuilder(
+          int index) {
+        if (commitBuilder_ == null) {
+          return commit_.get(index);  } else {
+          return commitBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public java.util.List<? extends fast.Fast.Log.CommitOrBuilder> 
+           getCommitOrBuilderList() {
+        if (commitBuilder_ != null) {
+          return commitBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(commit_);
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public fast.Fast.Log.Commit.Builder addCommitBuilder() {
+        return getCommitFieldBuilder().addBuilder(
+            fast.Fast.Log.Commit.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public fast.Fast.Log.Commit.Builder addCommitBuilder(
+          int index) {
+        return getCommitFieldBuilder().addBuilder(
+            index, fast.Fast.Log.Commit.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Log.Commit commit = 1;</code>
+       */
+      public java.util.List<fast.Fast.Log.Commit.Builder> 
+           getCommitBuilderList() {
+        return getCommitFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Log.Commit, fast.Fast.Log.Commit.Builder, fast.Fast.Log.CommitOrBuilder> 
+          getCommitFieldBuilder() {
+        if (commitBuilder_ == null) {
+          commitBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Log.Commit, fast.Fast.Log.Commit.Builder, fast.Fast.Log.CommitOrBuilder>(
+                  commit_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          commit_ = null;
+        }
+        return commitBuilder_;
+      }
+
+      private java.util.List<fast.Fast.Log.Author> author_ =
+        java.util.Collections.emptyList();
+      private void ensureAuthorIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          author_ = new java.util.ArrayList<fast.Fast.Log.Author>(author_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Log.Author, fast.Fast.Log.Author.Builder, fast.Fast.Log.AuthorOrBuilder> authorBuilder_;
+
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public java.util.List<fast.Fast.Log.Author> getAuthorList() {
+        if (authorBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(author_);
+        } else {
+          return authorBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public int getAuthorCount() {
+        if (authorBuilder_ == null) {
+          return author_.size();
+        } else {
+          return authorBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public fast.Fast.Log.Author getAuthor(int index) {
+        if (authorBuilder_ == null) {
+          return author_.get(index);
+        } else {
+          return authorBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder setAuthor(
+          int index, fast.Fast.Log.Author value) {
+        if (authorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAuthorIsMutable();
+          author_.set(index, value);
+          onChanged();
+        } else {
+          authorBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder setAuthor(
+          int index, fast.Fast.Log.Author.Builder builderForValue) {
+        if (authorBuilder_ == null) {
+          ensureAuthorIsMutable();
+          author_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          authorBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder addAuthor(fast.Fast.Log.Author value) {
+        if (authorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAuthorIsMutable();
+          author_.add(value);
+          onChanged();
+        } else {
+          authorBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder addAuthor(
+          int index, fast.Fast.Log.Author value) {
+        if (authorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureAuthorIsMutable();
+          author_.add(index, value);
+          onChanged();
+        } else {
+          authorBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder addAuthor(
+          fast.Fast.Log.Author.Builder builderForValue) {
+        if (authorBuilder_ == null) {
+          ensureAuthorIsMutable();
+          author_.add(builderForValue.build());
+          onChanged();
+        } else {
+          authorBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder addAuthor(
+          int index, fast.Fast.Log.Author.Builder builderForValue) {
+        if (authorBuilder_ == null) {
+          ensureAuthorIsMutable();
+          author_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          authorBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder addAllAuthor(
+          java.lang.Iterable<? extends fast.Fast.Log.Author> values) {
+        if (authorBuilder_ == null) {
+          ensureAuthorIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, author_);
+          onChanged();
+        } else {
+          authorBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder clearAuthor() {
+        if (authorBuilder_ == null) {
+          author_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          authorBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public Builder removeAuthor(int index) {
+        if (authorBuilder_ == null) {
+          ensureAuthorIsMutable();
+          author_.remove(index);
+          onChanged();
+        } else {
+          authorBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public fast.Fast.Log.Author.Builder getAuthorBuilder(
+          int index) {
+        return getAuthorFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public fast.Fast.Log.AuthorOrBuilder getAuthorOrBuilder(
+          int index) {
+        if (authorBuilder_ == null) {
+          return author_.get(index);  } else {
+          return authorBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public java.util.List<? extends fast.Fast.Log.AuthorOrBuilder> 
+           getAuthorOrBuilderList() {
+        if (authorBuilder_ != null) {
+          return authorBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(author_);
+        }
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public fast.Fast.Log.Author.Builder addAuthorBuilder() {
+        return getAuthorFieldBuilder().addBuilder(
+            fast.Fast.Log.Author.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public fast.Fast.Log.Author.Builder addAuthorBuilder(
+          int index) {
+        return getAuthorFieldBuilder().addBuilder(
+            index, fast.Fast.Log.Author.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Log.Author author = 2;</code>
+       */
+      public java.util.List<fast.Fast.Log.Author.Builder> 
+           getAuthorBuilderList() {
+        return getAuthorFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Log.Author, fast.Fast.Log.Author.Builder, fast.Fast.Log.AuthorOrBuilder> 
+          getAuthorFieldBuilder() {
+        if (authorBuilder_ == null) {
+          authorBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Log.Author, fast.Fast.Log.Author.Builder, fast.Fast.Log.AuthorOrBuilder>(
+                  author_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          author_ = null;
+        }
+        return authorBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:fast.Log)
+    }
+
+    // @@protoc_insertion_point(class_scope:fast.Log)
+    private static final fast.Fast.Log DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new fast.Fast.Log();
+    }
+
+    public static fast.Fast.Log getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Log>
+        PARSER = new com.google.protobuf.AbstractParser<Log>() {
+      public Log parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Log(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Log> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Log> getParserForType() {
+      return PARSER;
+    }
+
+    public fast.Fast.Log getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fast.Data)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.fast.Element element = 1;</code>
+     */
+    fast.Fast.Element getElement();
+    /**
+     * <code>.fast.Element element = 1;</code>
+     */
+    fast.Fast.ElementOrBuilder getElementOrBuilder();
+
+    /**
+     * <code>.fast.Log log = 2;</code>
+     */
+    fast.Fast.Log getLog();
+    /**
+     * <code>.fast.Log log = 2;</code>
+     */
+    fast.Fast.LogOrBuilder getLogOrBuilder();
+
+    /**
+     * <code>.fast.Delta delta = 3;</code>
+     */
+    fast.Fast.Delta getDelta();
+    /**
+     * <code>.fast.Delta delta = 3;</code>
+     */
+    fast.Fast.DeltaOrBuilder getDeltaOrBuilder();
+
+    /**
+     * <code>.fast.Pairs pairs = 4;</code>
+     */
+    fast.Fast.Pairs getPairs();
+    /**
+     * <code>.fast.Pairs pairs = 4;</code>
+     */
+    fast.Fast.PairsOrBuilder getPairsOrBuilder();
+
+    public fast.Fast.Data.RecordTypeCase getRecordTypeCase();
+  }
+  /**
+   * Protobuf type {@code fast.Data}
+   */
+  public  static final class Data extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:fast.Data)
+      DataOrBuilder {
+    // Use Data.newBuilder() to construct.
+    private Data(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Data() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Data(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              fast.Fast.Element.Builder subBuilder = null;
+              if (recordTypeCase_ == 1) {
+                subBuilder = ((fast.Fast.Element) recordType_).toBuilder();
+              }
+              recordType_ =
+                  input.readMessage(fast.Fast.Element.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((fast.Fast.Element) recordType_);
+                recordType_ = subBuilder.buildPartial();
+              }
+              recordTypeCase_ = 1;
+              break;
+            }
+            case 18: {
+              fast.Fast.Log.Builder subBuilder = null;
+              if (recordTypeCase_ == 2) {
+                subBuilder = ((fast.Fast.Log) recordType_).toBuilder();
+              }
+              recordType_ =
+                  input.readMessage(fast.Fast.Log.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((fast.Fast.Log) recordType_);
+                recordType_ = subBuilder.buildPartial();
+              }
+              recordTypeCase_ = 2;
+              break;
+            }
+            case 26: {
+              fast.Fast.Delta.Builder subBuilder = null;
+              if (recordTypeCase_ == 3) {
+                subBuilder = ((fast.Fast.Delta) recordType_).toBuilder();
+              }
+              recordType_ =
+                  input.readMessage(fast.Fast.Delta.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((fast.Fast.Delta) recordType_);
+                recordType_ = subBuilder.buildPartial();
+              }
+              recordTypeCase_ = 3;
+              break;
+            }
+            case 34: {
+              fast.Fast.Pairs.Builder subBuilder = null;
+              if (recordTypeCase_ == 4) {
+                subBuilder = ((fast.Fast.Pairs) recordType_).toBuilder();
+              }
+              recordType_ =
+                  input.readMessage(fast.Fast.Pairs.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((fast.Fast.Pairs) recordType_);
+                recordType_ = subBuilder.buildPartial();
+              }
+              recordTypeCase_ = 4;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return fast.Fast.internal_static_fast_Data_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return fast.Fast.internal_static_fast_Data_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              fast.Fast.Data.class, fast.Fast.Data.Builder.class);
+    }
+
+    private int recordTypeCase_ = 0;
+    private java.lang.Object recordType_;
+    public enum RecordTypeCase
+        implements com.google.protobuf.Internal.EnumLite {
+      ELEMENT(1),
+      LOG(2),
+      DELTA(3),
+      PAIRS(4),
+      RECORDTYPE_NOT_SET(0);
+      private final int value;
+      private RecordTypeCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static RecordTypeCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static RecordTypeCase forNumber(int value) {
+        switch (value) {
+          case 1: return ELEMENT;
+          case 2: return LOG;
+          case 3: return DELTA;
+          case 4: return PAIRS;
+          case 0: return RECORDTYPE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public RecordTypeCase
+    getRecordTypeCase() {
+      return RecordTypeCase.forNumber(
+          recordTypeCase_);
+    }
+
+    public static final int ELEMENT_FIELD_NUMBER = 1;
+    /**
+     * <code>.fast.Element element = 1;</code>
+     */
+    public fast.Fast.Element getElement() {
+      if (recordTypeCase_ == 1) {
+         return (fast.Fast.Element) recordType_;
+      }
+      return fast.Fast.Element.getDefaultInstance();
+    }
+    /**
+     * <code>.fast.Element element = 1;</code>
+     */
+    public fast.Fast.ElementOrBuilder getElementOrBuilder() {
+      if (recordTypeCase_ == 1) {
+         return (fast.Fast.Element) recordType_;
+      }
+      return fast.Fast.Element.getDefaultInstance();
+    }
+
+    public static final int LOG_FIELD_NUMBER = 2;
+    /**
+     * <code>.fast.Log log = 2;</code>
+     */
+    public fast.Fast.Log getLog() {
+      if (recordTypeCase_ == 2) {
+         return (fast.Fast.Log) recordType_;
+      }
+      return fast.Fast.Log.getDefaultInstance();
+    }
+    /**
+     * <code>.fast.Log log = 2;</code>
+     */
+    public fast.Fast.LogOrBuilder getLogOrBuilder() {
+      if (recordTypeCase_ == 2) {
+         return (fast.Fast.Log) recordType_;
+      }
+      return fast.Fast.Log.getDefaultInstance();
+    }
+
+    public static final int DELTA_FIELD_NUMBER = 3;
+    /**
+     * <code>.fast.Delta delta = 3;</code>
+     */
+    public fast.Fast.Delta getDelta() {
+      if (recordTypeCase_ == 3) {
+         return (fast.Fast.Delta) recordType_;
+      }
+      return fast.Fast.Delta.getDefaultInstance();
+    }
+    /**
+     * <code>.fast.Delta delta = 3;</code>
+     */
+    public fast.Fast.DeltaOrBuilder getDeltaOrBuilder() {
+      if (recordTypeCase_ == 3) {
+         return (fast.Fast.Delta) recordType_;
+      }
+      return fast.Fast.Delta.getDefaultInstance();
+    }
+
+    public static final int PAIRS_FIELD_NUMBER = 4;
+    /**
+     * <code>.fast.Pairs pairs = 4;</code>
+     */
+    public fast.Fast.Pairs getPairs() {
+      if (recordTypeCase_ == 4) {
+         return (fast.Fast.Pairs) recordType_;
+      }
+      return fast.Fast.Pairs.getDefaultInstance();
+    }
+    /**
+     * <code>.fast.Pairs pairs = 4;</code>
+     */
+    public fast.Fast.PairsOrBuilder getPairsOrBuilder() {
+      if (recordTypeCase_ == 4) {
+         return (fast.Fast.Pairs) recordType_;
+      }
+      return fast.Fast.Pairs.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (recordTypeCase_ == 1) {
+        output.writeMessage(1, (fast.Fast.Element) recordType_);
+      }
+      if (recordTypeCase_ == 2) {
+        output.writeMessage(2, (fast.Fast.Log) recordType_);
+      }
+      if (recordTypeCase_ == 3) {
+        output.writeMessage(3, (fast.Fast.Delta) recordType_);
+      }
+      if (recordTypeCase_ == 4) {
+        output.writeMessage(4, (fast.Fast.Pairs) recordType_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (recordTypeCase_ == 1) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, (fast.Fast.Element) recordType_);
+      }
+      if (recordTypeCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (fast.Fast.Log) recordType_);
+      }
+      if (recordTypeCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, (fast.Fast.Delta) recordType_);
+      }
+      if (recordTypeCase_ == 4) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, (fast.Fast.Pairs) recordType_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof fast.Fast.Data)) {
+        return super.equals(obj);
+      }
+      fast.Fast.Data other = (fast.Fast.Data) obj;
+
+      boolean result = true;
+      result = result && getRecordTypeCase().equals(
+          other.getRecordTypeCase());
+      if (!result) return false;
+      switch (recordTypeCase_) {
+        case 1:
+          result = result && getElement()
+              .equals(other.getElement());
+          break;
+        case 2:
+          result = result && getLog()
+              .equals(other.getLog());
+          break;
+        case 3:
+          result = result && getDelta()
+              .equals(other.getDelta());
+          break;
+        case 4:
+          result = result && getPairs()
+              .equals(other.getPairs());
+          break;
+        case 0:
+        default:
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      switch (recordTypeCase_) {
+        case 1:
+          hash = (37 * hash) + ELEMENT_FIELD_NUMBER;
+          hash = (53 * hash) + getElement().hashCode();
+          break;
+        case 2:
+          hash = (37 * hash) + LOG_FIELD_NUMBER;
+          hash = (53 * hash) + getLog().hashCode();
+          break;
+        case 3:
+          hash = (37 * hash) + DELTA_FIELD_NUMBER;
+          hash = (53 * hash) + getDelta().hashCode();
+          break;
+        case 4:
+          hash = (37 * hash) + PAIRS_FIELD_NUMBER;
+          hash = (53 * hash) + getPairs().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static fast.Fast.Data parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Data parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Data parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Data parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Data parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Data parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Data parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Data parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Data parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Data parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Data parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Data parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(fast.Fast.Data prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code fast.Data}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:fast.Data)
+        fast.Fast.DataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Data_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Data_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Data.class, fast.Fast.Data.Builder.class);
+      }
+
+      // Construct using fast.Fast.Data.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        recordTypeCase_ = 0;
+        recordType_ = null;
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return fast.Fast.internal_static_fast_Data_descriptor;
+      }
+
+      public fast.Fast.Data getDefaultInstanceForType() {
+        return fast.Fast.Data.getDefaultInstance();
+      }
+
+      public fast.Fast.Data build() {
+        fast.Fast.Data result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public fast.Fast.Data buildPartial() {
+        fast.Fast.Data result = new fast.Fast.Data(this);
+        if (recordTypeCase_ == 1) {
+          if (elementBuilder_ == null) {
+            result.recordType_ = recordType_;
+          } else {
+            result.recordType_ = elementBuilder_.build();
+          }
+        }
+        if (recordTypeCase_ == 2) {
+          if (logBuilder_ == null) {
+            result.recordType_ = recordType_;
+          } else {
+            result.recordType_ = logBuilder_.build();
+          }
+        }
+        if (recordTypeCase_ == 3) {
+          if (deltaBuilder_ == null) {
+            result.recordType_ = recordType_;
+          } else {
+            result.recordType_ = deltaBuilder_.build();
+          }
+        }
+        if (recordTypeCase_ == 4) {
+          if (pairsBuilder_ == null) {
+            result.recordType_ = recordType_;
+          } else {
+            result.recordType_ = pairsBuilder_.build();
+          }
+        }
+        result.recordTypeCase_ = recordTypeCase_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof fast.Fast.Data) {
+          return mergeFrom((fast.Fast.Data)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(fast.Fast.Data other) {
+        if (other == fast.Fast.Data.getDefaultInstance()) return this;
+        switch (other.getRecordTypeCase()) {
+          case ELEMENT: {
+            mergeElement(other.getElement());
+            break;
+          }
+          case LOG: {
+            mergeLog(other.getLog());
+            break;
+          }
+          case DELTA: {
+            mergeDelta(other.getDelta());
+            break;
+          }
+          case PAIRS: {
+            mergePairs(other.getPairs());
+            break;
+          }
+          case RECORDTYPE_NOT_SET: {
+            break;
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        fast.Fast.Data parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (fast.Fast.Data) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int recordTypeCase_ = 0;
+      private java.lang.Object recordType_;
+      public RecordTypeCase
+          getRecordTypeCase() {
+        return RecordTypeCase.forNumber(
+            recordTypeCase_);
+      }
+
+      public Builder clearRecordType() {
+        recordTypeCase_ = 0;
+        recordType_ = null;
+        onChanged();
+        return this;
+      }
+
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder> elementBuilder_;
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public fast.Fast.Element getElement() {
+        if (elementBuilder_ == null) {
+          if (recordTypeCase_ == 1) {
+            return (fast.Fast.Element) recordType_;
+          }
+          return fast.Fast.Element.getDefaultInstance();
+        } else {
+          if (recordTypeCase_ == 1) {
+            return elementBuilder_.getMessage();
+          }
+          return fast.Fast.Element.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public Builder setElement(fast.Fast.Element value) {
+        if (elementBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          recordType_ = value;
+          onChanged();
+        } else {
+          elementBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 1;
+        return this;
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public Builder setElement(
+          fast.Fast.Element.Builder builderForValue) {
+        if (elementBuilder_ == null) {
+          recordType_ = builderForValue.build();
+          onChanged();
+        } else {
+          elementBuilder_.setMessage(builderForValue.build());
+        }
+        recordTypeCase_ = 1;
+        return this;
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public Builder mergeElement(fast.Fast.Element value) {
+        if (elementBuilder_ == null) {
+          if (recordTypeCase_ == 1 &&
+              recordType_ != fast.Fast.Element.getDefaultInstance()) {
+            recordType_ = fast.Fast.Element.newBuilder((fast.Fast.Element) recordType_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            recordType_ = value;
+          }
+          onChanged();
+        } else {
+          if (recordTypeCase_ == 1) {
+            elementBuilder_.mergeFrom(value);
+          }
+          elementBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 1;
+        return this;
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public Builder clearElement() {
+        if (elementBuilder_ == null) {
+          if (recordTypeCase_ == 1) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+            onChanged();
+          }
+        } else {
+          if (recordTypeCase_ == 1) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+          }
+          elementBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public fast.Fast.Element.Builder getElementBuilder() {
+        return getElementFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      public fast.Fast.ElementOrBuilder getElementOrBuilder() {
+        if ((recordTypeCase_ == 1) && (elementBuilder_ != null)) {
+          return elementBuilder_.getMessageOrBuilder();
+        } else {
+          if (recordTypeCase_ == 1) {
+            return (fast.Fast.Element) recordType_;
+          }
+          return fast.Fast.Element.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Element element = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder> 
+          getElementFieldBuilder() {
+        if (elementBuilder_ == null) {
+          if (!(recordTypeCase_ == 1)) {
+            recordType_ = fast.Fast.Element.getDefaultInstance();
+          }
+          elementBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder>(
+                  (fast.Fast.Element) recordType_,
+                  getParentForChildren(),
+                  isClean());
+          recordType_ = null;
+        }
+        recordTypeCase_ = 1;
+        onChanged();;
+        return elementBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Log, fast.Fast.Log.Builder, fast.Fast.LogOrBuilder> logBuilder_;
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public fast.Fast.Log getLog() {
+        if (logBuilder_ == null) {
+          if (recordTypeCase_ == 2) {
+            return (fast.Fast.Log) recordType_;
+          }
+          return fast.Fast.Log.getDefaultInstance();
+        } else {
+          if (recordTypeCase_ == 2) {
+            return logBuilder_.getMessage();
+          }
+          return fast.Fast.Log.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public Builder setLog(fast.Fast.Log value) {
+        if (logBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          recordType_ = value;
+          onChanged();
+        } else {
+          logBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public Builder setLog(
+          fast.Fast.Log.Builder builderForValue) {
+        if (logBuilder_ == null) {
+          recordType_ = builderForValue.build();
+          onChanged();
+        } else {
+          logBuilder_.setMessage(builderForValue.build());
+        }
+        recordTypeCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public Builder mergeLog(fast.Fast.Log value) {
+        if (logBuilder_ == null) {
+          if (recordTypeCase_ == 2 &&
+              recordType_ != fast.Fast.Log.getDefaultInstance()) {
+            recordType_ = fast.Fast.Log.newBuilder((fast.Fast.Log) recordType_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            recordType_ = value;
+          }
+          onChanged();
+        } else {
+          if (recordTypeCase_ == 2) {
+            logBuilder_.mergeFrom(value);
+          }
+          logBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 2;
+        return this;
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public Builder clearLog() {
+        if (logBuilder_ == null) {
+          if (recordTypeCase_ == 2) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+            onChanged();
+          }
+        } else {
+          if (recordTypeCase_ == 2) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+          }
+          logBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public fast.Fast.Log.Builder getLogBuilder() {
+        return getLogFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      public fast.Fast.LogOrBuilder getLogOrBuilder() {
+        if ((recordTypeCase_ == 2) && (logBuilder_ != null)) {
+          return logBuilder_.getMessageOrBuilder();
+        } else {
+          if (recordTypeCase_ == 2) {
+            return (fast.Fast.Log) recordType_;
+          }
+          return fast.Fast.Log.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Log log = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Log, fast.Fast.Log.Builder, fast.Fast.LogOrBuilder> 
+          getLogFieldBuilder() {
+        if (logBuilder_ == null) {
+          if (!(recordTypeCase_ == 2)) {
+            recordType_ = fast.Fast.Log.getDefaultInstance();
+          }
+          logBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              fast.Fast.Log, fast.Fast.Log.Builder, fast.Fast.LogOrBuilder>(
+                  (fast.Fast.Log) recordType_,
+                  getParentForChildren(),
+                  isClean());
+          recordType_ = null;
+        }
+        recordTypeCase_ = 2;
+        onChanged();;
+        return logBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Delta, fast.Fast.Delta.Builder, fast.Fast.DeltaOrBuilder> deltaBuilder_;
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public fast.Fast.Delta getDelta() {
+        if (deltaBuilder_ == null) {
+          if (recordTypeCase_ == 3) {
+            return (fast.Fast.Delta) recordType_;
+          }
+          return fast.Fast.Delta.getDefaultInstance();
+        } else {
+          if (recordTypeCase_ == 3) {
+            return deltaBuilder_.getMessage();
+          }
+          return fast.Fast.Delta.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public Builder setDelta(fast.Fast.Delta value) {
+        if (deltaBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          recordType_ = value;
+          onChanged();
+        } else {
+          deltaBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public Builder setDelta(
+          fast.Fast.Delta.Builder builderForValue) {
+        if (deltaBuilder_ == null) {
+          recordType_ = builderForValue.build();
+          onChanged();
+        } else {
+          deltaBuilder_.setMessage(builderForValue.build());
+        }
+        recordTypeCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public Builder mergeDelta(fast.Fast.Delta value) {
+        if (deltaBuilder_ == null) {
+          if (recordTypeCase_ == 3 &&
+              recordType_ != fast.Fast.Delta.getDefaultInstance()) {
+            recordType_ = fast.Fast.Delta.newBuilder((fast.Fast.Delta) recordType_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            recordType_ = value;
+          }
+          onChanged();
+        } else {
+          if (recordTypeCase_ == 3) {
+            deltaBuilder_.mergeFrom(value);
+          }
+          deltaBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 3;
+        return this;
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public Builder clearDelta() {
+        if (deltaBuilder_ == null) {
+          if (recordTypeCase_ == 3) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+            onChanged();
+          }
+        } else {
+          if (recordTypeCase_ == 3) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+          }
+          deltaBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public fast.Fast.Delta.Builder getDeltaBuilder() {
+        return getDeltaFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      public fast.Fast.DeltaOrBuilder getDeltaOrBuilder() {
+        if ((recordTypeCase_ == 3) && (deltaBuilder_ != null)) {
+          return deltaBuilder_.getMessageOrBuilder();
+        } else {
+          if (recordTypeCase_ == 3) {
+            return (fast.Fast.Delta) recordType_;
+          }
+          return fast.Fast.Delta.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Delta delta = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Delta, fast.Fast.Delta.Builder, fast.Fast.DeltaOrBuilder> 
+          getDeltaFieldBuilder() {
+        if (deltaBuilder_ == null) {
+          if (!(recordTypeCase_ == 3)) {
+            recordType_ = fast.Fast.Delta.getDefaultInstance();
+          }
+          deltaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              fast.Fast.Delta, fast.Fast.Delta.Builder, fast.Fast.DeltaOrBuilder>(
+                  (fast.Fast.Delta) recordType_,
+                  getParentForChildren(),
+                  isClean());
+          recordType_ = null;
+        }
+        recordTypeCase_ = 3;
+        onChanged();;
+        return deltaBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Pairs, fast.Fast.Pairs.Builder, fast.Fast.PairsOrBuilder> pairsBuilder_;
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public fast.Fast.Pairs getPairs() {
+        if (pairsBuilder_ == null) {
+          if (recordTypeCase_ == 4) {
+            return (fast.Fast.Pairs) recordType_;
+          }
+          return fast.Fast.Pairs.getDefaultInstance();
+        } else {
+          if (recordTypeCase_ == 4) {
+            return pairsBuilder_.getMessage();
+          }
+          return fast.Fast.Pairs.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public Builder setPairs(fast.Fast.Pairs value) {
+        if (pairsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          recordType_ = value;
+          onChanged();
+        } else {
+          pairsBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public Builder setPairs(
+          fast.Fast.Pairs.Builder builderForValue) {
+        if (pairsBuilder_ == null) {
+          recordType_ = builderForValue.build();
+          onChanged();
+        } else {
+          pairsBuilder_.setMessage(builderForValue.build());
+        }
+        recordTypeCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public Builder mergePairs(fast.Fast.Pairs value) {
+        if (pairsBuilder_ == null) {
+          if (recordTypeCase_ == 4 &&
+              recordType_ != fast.Fast.Pairs.getDefaultInstance()) {
+            recordType_ = fast.Fast.Pairs.newBuilder((fast.Fast.Pairs) recordType_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            recordType_ = value;
+          }
+          onChanged();
+        } else {
+          if (recordTypeCase_ == 4) {
+            pairsBuilder_.mergeFrom(value);
+          }
+          pairsBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 4;
+        return this;
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public Builder clearPairs() {
+        if (pairsBuilder_ == null) {
+          if (recordTypeCase_ == 4) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+            onChanged();
+          }
+        } else {
+          if (recordTypeCase_ == 4) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+          }
+          pairsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public fast.Fast.Pairs.Builder getPairsBuilder() {
+        return getPairsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      public fast.Fast.PairsOrBuilder getPairsOrBuilder() {
+        if ((recordTypeCase_ == 4) && (pairsBuilder_ != null)) {
+          return pairsBuilder_.getMessageOrBuilder();
+        } else {
+          if (recordTypeCase_ == 4) {
+            return (fast.Fast.Pairs) recordType_;
+          }
+          return fast.Fast.Pairs.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Pairs pairs = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Pairs, fast.Fast.Pairs.Builder, fast.Fast.PairsOrBuilder> 
+          getPairsFieldBuilder() {
+        if (pairsBuilder_ == null) {
+          if (!(recordTypeCase_ == 4)) {
+            recordType_ = fast.Fast.Pairs.getDefaultInstance();
+          }
+          pairsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              fast.Fast.Pairs, fast.Fast.Pairs.Builder, fast.Fast.PairsOrBuilder>(
+                  (fast.Fast.Pairs) recordType_,
+                  getParentForChildren(),
+                  isClean());
+          recordType_ = null;
+        }
+        recordTypeCase_ = 4;
+        onChanged();;
+        return pairsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:fast.Data)
+    }
+
+    // @@protoc_insertion_point(class_scope:fast.Data)
+    private static final fast.Fast.Data DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new fast.Fast.Data();
+    }
+
+    public static fast.Fast.Data getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Data>
+        PARSER = new com.google.protobuf.AbstractParser<Data>() {
+      public Data parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Data(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Data> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Data> getParserForType() {
+      return PARSER;
+    }
+
+    public fast.Fast.Data getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_fast_Element_descriptor;
   private static final 
@@ -17815,6 +26604,46 @@ public final class Fast {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_fast_Pairs_Pair_Diff_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_Commit_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_Commit_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_Commit_Committer_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_Commit_Committer_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_Commit_Diff_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_Commit_Diff_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_Commit_Diff_Hunk_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_Commit_Diff_Hunk_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_Commit_Diff_Hunk_ModLine_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_Commit_Diff_Hunk_ModLine_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Log_Author_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Log_Author_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Data_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Data_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -18151,7 +26980,29 @@ public final class Fast {
       "ht_column\030\004 \001(\005\022\037\n\010old_code\030\005 \001(\0132\r.fast" +
       ".Element\022\037\n\010new_code\030\006 \001(\0132\r.fast.Elemen" +
       "t\"\'\n\tCloneType\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO" +
-      "\020\002b\006proto3"
+      "\020\002\"\362\005\n\003Log\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Co" +
+      "mmit\022 \n\006author\030\002 \003(\0132\020.fast.Log.Author\032\363" +
+      "\004\n\006Commit\022\n\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\ta",
+      "uthor_id\030\003 \001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tc" +
+      "ommitter\030\005 \001(\0132\032.fast.Log.Commit.Committ" +
+      "erH\000\022#\n\004diff\030\006 \003(\0132\025.fast.Log.Commit.Dif" +
+      "f\0326\n\tCommitter\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013" +
+      "commit_date\030\002 \001(\t\032\217\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n" +
+      "\001b\030\002 \001(\t\022\016\n\006is_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001(" +
+      "\t\022\022\n\nindex_from\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022" +
+      "\014\n\004mode\030\007 \001(\t\022(\n\004hunk\030\010 \003(\0132\032.fast.Log.C" +
+      "ommit.Diff.Hunk\032\361\001\n\004Hunk\022\023\n\013from_lineno\030" +
+      "\001 \001(\005\022\023\n\013from_column\030\002 \001(\005\022\021\n\tto_lineno\030",
+      "\003 \001(\005\022\021\n\tto_column\030\004 \001(\005\022\017\n\007context\030\005 \001(" +
+      "\t\022\036\n\007element\030\006 \003(\0132\r.fast.Element\022/\n\003mod" +
+      "\030\007 \003(\0132\".fast.Log.Commit.Diff.Hunk.ModLi" +
+      "ne\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 " +
+      "\001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n" +
+      "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"" +
+      "\214\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Element" +
+      "H\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030\003 " +
+      "\001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fast" +
+      ".PairsH\000B\014\n\nRecordTypeb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -18243,6 +27094,54 @@ public final class Fast {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Pairs_Pair_Diff_descriptor,
         new java.lang.String[] { "LeftLine", "LeftColumn", "RightLine", "RightColumn", "OldCode", "NewCode", });
+    internal_static_fast_Log_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_fast_Log_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_descriptor,
+        new java.lang.String[] { "Commit", "Author", });
+    internal_static_fast_Log_Commit_descriptor =
+      internal_static_fast_Log_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Log_Commit_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_Commit_descriptor,
+        new java.lang.String[] { "Id", "Text", "AuthorId", "AuthorDate", "Committer", "Diff", "Extra", });
+    internal_static_fast_Log_Commit_Committer_descriptor =
+      internal_static_fast_Log_Commit_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Log_Commit_Committer_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_Commit_Committer_descriptor,
+        new java.lang.String[] { "CommitterId", "CommitDate", });
+    internal_static_fast_Log_Commit_Diff_descriptor =
+      internal_static_fast_Log_Commit_descriptor.getNestedTypes().get(1);
+    internal_static_fast_Log_Commit_Diff_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_Commit_Diff_descriptor,
+        new java.lang.String[] { "A", "B", "IsNew", "IsCode", "IndexFrom", "IndexTo", "Mode", "Hunk", });
+    internal_static_fast_Log_Commit_Diff_Hunk_descriptor =
+      internal_static_fast_Log_Commit_Diff_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Log_Commit_Diff_Hunk_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_Commit_Diff_Hunk_descriptor,
+        new java.lang.String[] { "FromLineno", "FromColumn", "ToLineno", "ToColumn", "Context", "Element", "Mod", });
+    internal_static_fast_Log_Commit_Diff_Hunk_ModLine_descriptor =
+      internal_static_fast_Log_Commit_Diff_Hunk_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Log_Commit_Diff_Hunk_ModLine_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_Commit_Diff_Hunk_ModLine_descriptor,
+        new java.lang.String[] { "Line", "IsAdd", "IsDel", });
+    internal_static_fast_Log_Author_descriptor =
+      internal_static_fast_Log_descriptor.getNestedTypes().get(1);
+    internal_static_fast_Log_Author_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Log_Author_descriptor,
+        new java.lang.String[] { "Id", "Name", "Email", });
+    internal_static_fast_Data_descriptor =
+      getDescriptor().getMessageTypes().get(4);
+    internal_static_fast_Data_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Data_descriptor,
+        new java.lang.String[] { "Element", "Log", "Delta", "Pairs", "RecordType", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

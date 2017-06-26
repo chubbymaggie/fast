@@ -38,7 +38,9 @@ $fast Hello.java Hello.xml
 assertSame 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 $(shasum -a 256 Hello.xml | awk '{print $1}')
 $fast Hello.java Hello.pb
 $fast -d Hello.pb > Hello.txt
-assertSame 8135b175e053bafaf8a244d74087d1a401bd4aadcbb586bb70202c00f06c0e08 $(shasum -a 256 Hello.txt | awk '{print $1}')
+assertSame 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 $(shasum -a 256 Hello.txt | awk '{print $1}')
+$fast -d Hello.pb Hello.txt
+assertSame 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 $(shasum -a 256 Hello.txt | awk '{print $1}')
 }
 testCC() 
 {
@@ -62,9 +64,9 @@ $fast example.position.fbs > example.position.xml
 assertSame c287b1162d8b3d9e44dac808ec4edaf9dbd49282e0d0853db3f08a54ec5e3aea $(shasum -a 256 example.position.xml | awk '{print $1}')
 $fast -p example.cc example.position.pb
 $fast -d example.position.pb > example.position.txt
-assertSame 6fd80a4a40c57d5df960f03b9741a85c5898df5b5269b573f804dbf9317ac381 $(shasum -a 256 example.position.txt | awk '{print $1}')
+assertSame 8a506738ebb0692f64e6dbaf620e77c52f6e7d6d6e382684869c56ac5f0d5077 $(shasum -a 256 example.position.txt | awk '{print $1}')
 $fast -d example.pb > example.txt
-assertSame a5df895127e143ff9c8146171909bd19efbcd2cc34ce7be75ae26944d0bd15ff $(shasum -a 256 example.txt | awk '{print $1}')
+assertSame 734a67198a2d244f056a4d6a47495972523b94ab184e1f54feece64ca9627da2 $(shasum -a 256 example.txt | awk '{print $1}')
 $fast example.pb example.txt
 assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example.txt | awk '{print $1}')
 }
@@ -121,7 +123,7 @@ EOF
 assertSame 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 $(shasum -a 256 DuplicateVirtualMethods.smali | awk '{print $1}')
 assertSame 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a $(shasum -a 256 DuplicateVirtualMethods-v2.smali | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
-assertSame 0774322701503693f94f62a74d4a86a5aaa54b3272a253d9f974e28f2eb7ed15 $(shasum -a 256 DuplicateVirtualMethods.pb | awk '{print $1}')
+assertSame 8e9f2cb72e0ead3286329c3c44a7859d22b975a32f60d71c5e761257255de60a $(shasum -a 256 DuplicateVirtualMethods.pb | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
 assertSame 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml
@@ -132,7 +134,7 @@ $fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali Duplicat
 #cat DuplicateVirtualMethods.pb | protoc --decode=fast.Element -I.. ../fast.proto > DuplicateVirtualMethods.txt
 #assertSame a5fae7d05ff1721eb3b604ac35b97bc1ebf26cb25969ef277286ad01dc23a331 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
 $fast -d DuplicateVirtualMethods.pb > DuplicateVirtualMethods.txt
-assertSame 18ee3d3b611ff2d008f024b00298dc1c68a3391e1a4e2a50bea7a6b2ad8626d4 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
+assertSame 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 $(shasum -a 256 DuplicateVirtualMethods.txt | awk '{print $1}')
 #$fast DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml
 #assertSame 042943e78f71cbbbe30d904c9c1aad65251fe8372d51527f74ef2bb0b4573563 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 }
@@ -1688,14 +1690,14 @@ EOF
 	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.cs | awk '{print $1}')
 	$fast test.cs test.pb
 	$fast -d test.pb > test.txt
-	assertSame a01d28a81877df405d9d86baf40b26f30d2c42afd5ad133adb35b9896ea2484e $(shasum -a 256 test.txt | awk '{print $1}')
+	assertSame eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d $(shasum -a 256 test.txt | awk '{print $1}')
 }
 
 ### rather lengthy test :-) 
 notestFastPairs() {
 	cat codelabel_new.csv > a.csv
 	$process a.csv a.pb
-	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
+	fast -d a.pb > a.txt
 	assertSame 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
@@ -1703,8 +1705,8 @@ testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	assertSame f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 $(shasum -a 256 a.csv | awk '{print $1}')
 	$process a.csv a.pb
-	protoc --decode=fast.Pairs -I.. ../fast.proto < a.pb > a.txt
-	assertSame 958041d8682ef0a0e929677524f4cc33a47425dac00213519d951039100500df $(shasum -a 256 a.txt | awk '{print $1}')
+	fast -d a.pb > a.txt
+	assertSame 8f05c6357c8c3a5f192fc4adb8339024398f51e10fbd835e5e43f015ee35ea92 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
 testFastSlice() {
@@ -1753,14 +1755,14 @@ testLoadPB() {
 	$fast test.pb test.pb.cs
 	assertSame 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 $(shasum -a 256 test.pb.cs | awk '{print $1}')
 	$fast -d test.pb test.txt
-	assertSame a01d28a81877df405d9d86baf40b26f30d2c42afd5ad133adb35b9896ea2484e $(shasum -a 256 test.txt | awk '{print $1}')
+	assertSame eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d $(shasum -a 256 test.txt | awk '{print $1}')
 	$fast -e test.txt test.pb
 	$fast -e test.txt > test.pb
 }
 
 testFinalReport() {
 	lcov --directory .. --capture --output-file ../fast.info
-	lcov --remove ../fast.info '/usr/*' '/Applications/*' > fast.info
+	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/*' '*/src/fast_generated.h' > fast.info
 	genhtml fast.info
 }
 
@@ -1768,6 +1770,7 @@ if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
 	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
 fi
 
+rm -f ../*.gcda
 rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
 lcov --directory .. --zerocounters
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2

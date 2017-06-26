@@ -1,0 +1,228 @@
+element {
+  child {
+    kind: FUNCTION
+    tail: "\n"
+    child {
+      kind: TYPE
+      tail: " "
+      child {
+        kind: NAME
+        text: "int"
+        child {
+          kind: POSITION
+          line: 1
+          column: 4
+        }
+        line: 1
+        column: 1
+      }
+    }
+    child {
+      kind: NAME
+      text: "f"
+      child {
+        kind: POSITION
+        line: 1
+        column: 6
+      }
+      line: 1
+      column: 5
+    }
+    child {
+      kind: PARAMETER_LIST
+      text: "("
+      tail: " "
+      child {
+        kind: PARAMETER
+        tail: ")"
+        child {
+          kind: DECL
+          child {
+            kind: TYPE
+            tail: " "
+            child {
+              kind: NAME
+              text: "int"
+              child {
+                kind: POSITION
+                line: 1
+                column: 10
+              }
+              line: 1
+              column: 7
+            }
+          }
+          child {
+            kind: NAME
+            text: "x"
+            child {
+              kind: POSITION
+              line: 1
+              column: 12
+            }
+            line: 1
+            column: 11
+          }
+        }
+      }
+      child {
+        kind: POSITION
+        line: 1
+        column: 13
+      }
+      line: 1
+      column: 6
+    }
+    child {
+      kind: BLOCK
+      text: "{\n\t  "
+      child {
+        kind: DECL_STMT
+        tail: "\n\t    "
+        child {
+          kind: DECL
+          tail: ";"
+          child {
+            kind: TYPE
+            tail: " "
+            child {
+              kind: NAME
+              text: "int"
+              child {
+                kind: POSITION
+                line: 2
+                column: 14
+              }
+              line: 2
+              column: 11
+            }
+          }
+          child {
+            kind: NAME
+            text: "result"
+            tail: " "
+            child {
+              kind: POSITION
+              line: 2
+              column: 21
+            }
+            line: 2
+            column: 15
+          }
+          child {
+            kind: INIT
+            text: "= "
+            child {
+              kind: EXPR
+              child {
+                kind: OPERATOR
+                text: "("
+                child {
+                  kind: POSITION
+                  line: 2
+                  column: 25
+                }
+                line: 2
+                column: 24
+              }
+              child {
+                kind: NAME
+                text: "x"
+                tail: " "
+                child {
+                  kind: POSITION
+                  line: 2
+                  column: 26
+                }
+                line: 2
+                column: 25
+              }
+              child {
+                kind: OPERATOR
+                text: "/"
+                tail: " "
+                child {
+                  kind: POSITION
+                  line: 2
+                  column: 28
+                }
+                line: 2
+                column: 27
+              }
+              child {
+                kind: LITERAL
+                text: "42"
+                child {
+                  kind: POSITION
+                  line: 2
+                  column: 31
+                }
+                literal {
+                }
+                line: 2
+                column: 29
+              }
+              child {
+                kind: OPERATOR
+                text: ")"
+                child {
+                  kind: POSITION
+                  line: 2
+                  column: 32
+                }
+                line: 2
+                column: 31
+              }
+            }
+            line: 2
+            column: 22
+          }
+        }
+        child {
+          kind: POSITION
+          line: 2
+          column: 33
+        }
+      }
+      child {
+        kind: RETURN
+        text: "return "
+        tail: "\n}"
+        child {
+          kind: EXPR
+          tail: ";"
+          child {
+            kind: NAME
+            text: "result"
+            child {
+              kind: POSITION
+              line: 3
+              column: 26
+            }
+            line: 3
+            column: 20
+          }
+        }
+        child {
+          kind: POSITION
+          line: 3
+          column: 27
+        }
+        line: 3
+        column: 13
+      }
+      child {
+        kind: POSITION
+        line: 4
+        column: 2
+      }
+      line: 1
+      column: 14
+    }
+  }
+  unit {
+    filename: "example.cc"
+    revision: "0.9.5"
+    language: CXX
+  }
+}

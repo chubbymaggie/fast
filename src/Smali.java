@@ -108,8 +108,8 @@ public class Smali {
 		TreeContext src = Generators.getInstance().getTree(args[0]); // System.out.println(src);
 		ITree t = src.getRoot();
 
-		fast.Fast.Element.Builder root_element = fast.Fast.Element.newBuilder();
-
+		fast.Fast.Data.Builder data_element = fast.Fast.Data.newBuilder();
+		fast.Fast.Element.Builder root_element = data_element.getElementBuilder();
 		fast.Fast.Element.Unit.Builder unit = root_element.getUnitBuilder();
 		unit.setFilename(args[0]);
 
@@ -118,7 +118,7 @@ public class Smali {
 		root_element.addChild(element);
 
 		FileOutputStream output = new FileOutputStream(args[1]);
-		root_element.build().writeTo(output);
+		data_element.build().writeTo(output);
 		output.close();
 	}
 	if (args.length == 3 && args[1].endsWith(".smali")) {
@@ -135,12 +135,13 @@ public class Smali {
 	        g.generate();
 	        List<Action> actions = g.getActions();
 		try {
-		    fast.Fast.Delta.Builder delta = fast.Fast.Delta.newBuilder();
+		    fast.Fast.Data.Builder data_builder = fast.Fast.Data.newBuilder();
+		    fast.Fast.Delta.Builder delta = data_builder.getDeltaBuilder();
 		    delta.setSrc(args[0]);
 		    delta.setDst(args[1]);
 		    ActionsIoPB.toPB(src, actions, matcher.getMappings(), delta).writeTo(args[2]);
 		    FileOutputStream output = new FileOutputStream(args[2]);
-		    delta.build().writeTo(output);
+		    data_builder.build().writeTo(output);
 		    output.close();
 		} catch (Exception e) {
 		    e.printStackTrace();

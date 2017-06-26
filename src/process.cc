@@ -203,8 +203,10 @@ int main(int argc, char ** argv) {
 			if (type == 2) pair->set_type(fast::Pairs_Pair_CloneType_NO);
 		}
 	}
+	fast::Data * data = new fast::Data(); 
+	data->set_allocated_pairs(pairs);
 	std::fstream output(argv[2], std::ios::out | std::ios::trunc | std::ios::binary);
-	pairs->SerializeToOstream(&output);
+	data->SerializeToOstream(&output);
 	output.close();
 	google::protobuf::ShutdownProtobufLibrary();
 }

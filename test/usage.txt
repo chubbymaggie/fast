@@ -1,10 +1,1 @@
-Usage: fast [-acdehpsSv] input_file output_file
--a	use Antlr's AST instead of srcML's
--c	Load only
--d	Decode protobuf into text format
--e	Encode text format into protobuf
--h	Print this help message
--p	Preserve the position (line, column) numbers
--s	Slice programs on the srcML format
--S	Slice programs on the binary format
--v	Tell version number
+Warning: input and output file name are the same, no change is needed

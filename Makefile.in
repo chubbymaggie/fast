@@ -26,9 +26,6 @@ all: $(target)
 ./process: src/process.cc src/fast.pb.cc
 	c++ $^ $(PB_LIB) -o $@
 
-./testLiteral: src/testLiteral.cc src/fast.pb.cc
-	c++ $^ $(PB_LIB) -o $@
-
 src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h
 	touch $@
 
@@ -157,14 +154,20 @@ src/fast_generated.h: fast.fbs
 	$(flatc) --cpp -o src fast.fbs
 
 src/fast.proto.in: ElementType.proto SmaliType.proto \
-	Unit.proto Literal.proto
-	touch $@
+	Unit.proto Literal.proto \
+	log.proto
+
+src/log.proto.in: author.proto commit.proto
+
+src/commit.proto.in: diff.proto
+
+src/diff.proto.in: hunk.proto
+
+src/hunk.proto.in: modline.proto
 
 src/Unit.proto.in: LanguageType.proto
-	touch $@
 
 src/Literal.proto.in: LiteralType.proto
-	touch $@
 
 %: src/%.in
 	cpp -I. -E -P $^ | grep -v "^[ ]*$$" | grep -v "^0$$" > $@
