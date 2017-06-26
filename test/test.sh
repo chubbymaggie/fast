@@ -123,7 +123,6 @@ EOF
 assertSame 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 $(shasum -a 256 DuplicateVirtualMethods.smali | awk '{print $1}')
 assertSame 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a $(shasum -a 256 DuplicateVirtualMethods-v2.smali | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
-assertSame 8e9f2cb72e0ead3286329c3c44a7859d22b975a32f60d71c5e761257255de60a $(shasum -a 256 DuplicateVirtualMethods.pb | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
 assertSame 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 $(shasum -a 256 DuplicateVirtualMethods.xml | awk '{print $1}')
 $fast -a DuplicateVirtualMethods.pb > DuplicateVirtualMethods.xml

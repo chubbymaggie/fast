@@ -1,4 +1,4 @@
-V=0.0.2
+V=0.0.3
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 	gtime=/usr/bin/time
@@ -66,7 +66,7 @@ lib/smali.jar: dist/smali.jar
 	cp dist/smali.jar lib
 
 fast-java-$V.tar.gz: lib/smali.jar
-	tar cfz $@ lib/
+	tar cfz $@ lib/*.jar
 	
 endif
 
