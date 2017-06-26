@@ -1,0 +1,11 @@
+__COUNTER__
+int32 from_lineno = __COUNTER__;
+int32 from_column = __COUNTER__;
+int32 to_lineno = __COUNTER__;
+int32 to_column = __COUNTER__;
+string context = __COUNTER__;
+message ModLine {
+#include "modline.proto"
+}
+repeated Element element = __COUNTER__;
+repeated ModLine mod = __COUNTER__;

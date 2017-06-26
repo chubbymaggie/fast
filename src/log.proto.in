@@ -1,0 +1,11 @@
+message Log {
+__COUNTER__
+	message Commit {
+#include "commit.proto"
+	}
+	message Author {
+#include "author.proto"
+	}
+	repeated Commit commit = __COUNTER__;
+	repeated Author author = __COUNTER__;
+}

@@ -1,3 +1,4 @@
+cat a.pb | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto  
 pairs {
   pair {
     project: "fpml"

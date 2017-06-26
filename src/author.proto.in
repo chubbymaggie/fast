@@ -1,0 +1,4 @@
+__COUNTER__
+	int32 id = __COUNTER__;
+	string name = __COUNTER__;
+	string email = __COUNTER__;

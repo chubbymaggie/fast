@@ -1697,7 +1697,7 @@ EOF
 notestFastPairs() {
 	cat codelabel_new.csv > a.csv
 	$process a.csv a.pb
-	fast -d a.pb > a.txt
+	$fast -d a.pb > a.txt
 	assertSame 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
@@ -1705,8 +1705,8 @@ testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	assertSame f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 $(shasum -a 256 a.csv | awk '{print $1}')
 	$process a.csv a.pb
-	fast -d a.pb > a.txt
-	assertSame 8f05c6357c8c3a5f192fc4adb8339024398f51e10fbd835e5e43f015ee35ea92 $(shasum -a 256 a.txt | awk '{print $1}')
+	$fast -d a.pb > a.txt
+	assertSame 93877c435249da5df80a4247d847370ffd32b44459e3b2246cff5e10a560c280 $(shasum -a 256 a.txt | awk '{print $1}')
 }
 
 testFastSlice() {

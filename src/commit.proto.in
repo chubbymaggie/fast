@@ -1,0 +1,16 @@
+__COUNTER__
+string id = __COUNTER__;
+bytes text = __COUNTER__;
+int32 author_id = __COUNTER__;
+string author_date = __COUNTER__;
+oneof extra {
+  	Committer committer = __COUNTER__;
+}
+message Committer {
+	int32 committer_id = 1;
+	string commit_date = 2;
+}
+message Diff {
+#include "diff.proto"
+}
+repeated Diff diff = __COUNTER__;

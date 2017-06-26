@@ -449,12 +449,7 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 
 void saveTxtFromPB(char *input_file, char *output_file) {
 	char buf[100];
-	fast::Data data;
-	ifstream input(input_file, ios::in | ios::binary);
-	if (!data.ParseFromIstream(&input)) {
-	    cerr << "Error parsing the protobuf input" << endl;
-	}
-	input.close();
+	fast::Data data = readData(input_file);
 	if (data.has_element()) {
 		fast::Element unit = data.element();
 		const char *filename = unit.unit().filename().c_str();
@@ -473,6 +468,7 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 	} else {
 		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s",
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		cout << buf << endl;
 		system(buf);
 	} 
 }

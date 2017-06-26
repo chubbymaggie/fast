@@ -1,0 +1,12 @@
+__COUNTER__
+string a = __COUNTER__;
+string b = __COUNTER__;
+bool is_new = __COUNTER__;
+string is_code = __COUNTER__;
+string index_from = __COUNTER__;
+string index_to = __COUNTER__;
+string mode = __COUNTER__;
+message Hunk {
+#include "hunk.proto"
+}
+repeated Hunk hunk = __COUNTER__;
