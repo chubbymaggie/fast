@@ -14,9 +14,9 @@ CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
-OPT_DEBUG=-g
-OPT=-O3
 OPT=-g -O0 --coverage
+OPT=-O3
+OPT=-g
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
@@ -77,9 +77,6 @@ prefix=/usr/local
 endif
 fast: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
 	$(CXX) $(OPT) -std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
-
-fast-debug: src/fast.cc src/fast.pb.cc src/cpp/srcSlice.cpp src/cpp/srcSliceHandler.cpp src/cpp/output.cpp
-	$(CXX) $(OPT_DEBUG) -std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
 
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@

@@ -165,7 +165,9 @@ int loadFBS(int load_only, int argc, char **argv) {
 		ofstream out(xml_filename, ios::out | ios::trunc);
 		out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
 		const struct _fast::Element *element = d->RecordType()->element();
-		saveXMLfromFBS(out, element);
+		if (element != NULL) {
+			saveXMLfromFBS(out, element);
+		}
 		out << endl;
 		if (argc == 2) {
 			if (slice) {
@@ -311,8 +313,10 @@ void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 	if (element->extra()) {
 		if (element->kind() == 0) {
 			struct srcsax_attribute attrs[3];
-			attrs[2].value = element->extra()->unit()->filename()->c_str();
-			handler.startUnit(NULL, NULL, NULL, 0, NULL, 3, attrs);
+			if (element->extra()->unit()->filename()!=NULL) {
+				attrs[2].value = element->extra()->unit()->filename()->c_str();
+				handler.startUnit(NULL, NULL, NULL, 0, NULL, 3, attrs);
+			}
 		} 
 	}
 	if (element->text())
@@ -365,7 +369,8 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 				attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
 			attr = attr + " revision=\"" + element->extra()->unit()->revision()->c_str() + "\"";
 			attr = attr + " language=\"" + lang + "\"";
-			attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
+			if (element->extra()->unit()->filename()!=NULL)
+				attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
 		} else if (element->kind() == 47) {
 			tag = "literal";
 			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
@@ -764,9 +769,9 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 	flatbuffers::Offset<flatbuffers::String> tail;
 	flatbuffers::Offset<flatbuffers::String> filename;
 	flatbuffers::Offset<flatbuffers::String> revision;
-	int language = -1;
+	int language = 0;
 	int item = -1;
-	int type = -1;
+	int type = 0;
 	int line = 0;
 	int column = 0;
 	int length = 0;
@@ -812,9 +817,12 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 		int kind = flatbuffers::LookupEnum(EnumNamesKind(), str.c_str());
 		if (kind == -1)
 			cerr << "Warning: the following kind is not found " << str << endl;
-		auto extra = CreateAnonymous0(builder, 
-			CreateUnit(builder, filename, revision, language, item), 
-			CreateLiteral(builder, type));
+		flatbuffers::Offset<_fast::_Element::Anonymous0> extra = 0;
+		if (is_unit || is_literal) {
+			extra = CreateAnonymous0(builder, 
+				CreateUnit(builder, filename, revision, language, item), 
+				CreateLiteral(builder, type));
+		}
 		xml_node<> *child_node = node->first_node();
 		if (child_node != 0 && string(child_node->name()) == "") { // first text node
 			string str = string(child_node->value());

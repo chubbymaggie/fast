@@ -43,7 +43,7 @@ bool srcML(fast::Element *unit, std::string text, std::string ext) {
 		n_srcML_invoked++;
 		int ret_val = system(cmd);
 		if (ret_val == 0) {
-			remove(src_filename.c_str());
+			// remove(src_filename.c_str());
 			FILE * pb_file  = fopen(pb_filename.c_str(), "r");
 			if (pb_file != NULL) {
 				fclose(pb_file);
