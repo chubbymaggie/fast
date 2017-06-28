@@ -15,8 +15,8 @@ protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
 OPT=-g -O0 --coverage
-OPT=-O3
 OPT=-g
+OPT=-O3
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)

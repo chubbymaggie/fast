@@ -1,0 +1,84 @@
+#!/bin/bash
+cat > /tmp/t1.sh <<EOF 
+if [ ! -f \$1.xml ]; then
+	srcml --position \$1 -o \$1.xml
+fi
+srcSlice \$1.xml
+EOF
+chmod +x /tmp/t1.sh
+
+cat > /tmp/t2.sh <<EOF 
+if [ ! -f \$1.pb ]; then
+	fast -p \$1.xml \$1.pb
+fi
+fast -S \$1.pb
+EOF
+chmod +x /tmp/t2.sh
+
+cat > /tmp/t3.sh <<EOF 
+if [ ! -f \$1.fbs ]; then
+	fast -p \$1.xml \$1.fbs
+fi
+fast -S \$1.fbs
+EOF
+chmod +x /tmp/t3.sh
+
+slice() {
+echo == $1 == >> timing.txt
+gtime -f %E -o timing.txt -a /tmp/t1.sh $1
+#gtime -f %E -o timing.txt -a /tmp/t2.sh $1
+gtime -f %E -o timing.txt -a /tmp/t3.sh $1
+}
+export -f slice
+
+fetch() {
+if [ ! "$2" == "" ]; then
+    f=${2##*/}
+    if [ ! -f $f ]; then
+	wget $2
+	tar xvfz $f
+    fi
+else
+   g=${1/-*/}
+   u=https://ftp.gnu.org/gnu/$g/$1.tar.gz 
+   f=$1.tar.gz
+   if [ ! -f $f ]; then
+	wget $u
+	tar xvfz $f
+   fi
+fi
+}
+export -f fetch
+
+datasets () {
+fetch ed-1.2 http://ftp.vim.org/ftp/gnu/ed/ed-1.2.tar.gz 3062
+fetch ed-1.6 https://ftp.osuosl.org/pub/blfs/conglomeration/ed/ed-1.6.tar.gz 3235
+fetch which-2.20
+fetch wdiff-0.5
+fetch barcode-0.98
+fetch acct-6.5
+fetch enscript-1.4.0
+fetch make-3.82
+fetch libkate-0.3.8 http://ftp.osuosl.org/pub/xiph/releases/kate/libkate-0.3.8.tar.gz
+fetch enscript-1.6.5.2
+fetch enscript-1.6.5
+fetch enscript-1.6.5.1
+fetch a2ps-4.10.4
+fetch findutils-4.4.2
+fetch radius-1.0
+fetch dico-2.2
+fetch cvs-1.12.10 https://ftp.gnu.org/gnu/non-gnu/cvs/source/feature/1.12.10/cvs-1.12.10.tar.gz
+fetch Clanlib-4.0.0 https://github.com/sphair/ClanLib/archive/v4.0.0.tar.gz
+fetch HippoDraw-1.21.3 http://pkgs.fedoraproject.org/repo/pkgs/HippoDraw/HippoDraw-1.21.3.tar.gz/d4b427b7469af5728951eab8c502074d/HippoDraw-1.21.3.tar.gz
+fetch Quantlib-0.9.7 http://downloads.sourceforge.net/quantlib/QuantLib-0.9.7.tar.gz
+}
+
+datasets
+
+ls -d *-* | while read f; do
+ if [ -d "$f" ]; then
+	g=$(basename $f)
+	echo $g
+	slice $g >& slice.$g
+ fi
+done
