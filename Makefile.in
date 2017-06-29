@@ -14,9 +14,9 @@ CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
-OPT=-g -O0 --coverage
 OPT=-g
 OPT=-O3
+OPT=-g -O0 --coverage
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)

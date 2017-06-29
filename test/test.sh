@@ -6,7 +6,7 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast -o ! -f ../process ]; then
 		cd .. 
 		./configure
-		make
+		make OPT="-g -O0 --coverage"
 		sudo make install
 		cd -
 	fi
