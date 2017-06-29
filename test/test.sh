@@ -1719,7 +1719,7 @@ testFastSlice() {
 	$fast -s example.position.fbs example-s.slice
 	assertSame 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 $(shasum -a 256 example-s.slice | awk '{print $1}')
 	$fast -S example.position.fbs >& example-S.slice
-	assertSame dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 $(shasum -a 256 example-S.slice | awk '{print $1}')
+	assertSame e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 $(shasum -a 256 example-S.slice | awk '{print $1}')
 }
 
 testNoneExistingFile() {
