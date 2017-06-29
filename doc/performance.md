@@ -1,13 +1,14 @@
 # Performance
 
 ## Parsing
-`fast` speeds up parsing by up to 100 times according the following benchmarks. 
+`fast` speeds up parsing by at least 10x for Protobuf implementation and 20x for FlatBuffers implementation, 
+according the following significant benchmarks. 
 
 ![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/doc/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.") 
 ![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/doc/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
 
 ## Slicing
-`fast` speeds up forward slicing by 2x according the benchmarks of srcSlice. 
+`fast` speeds up forward slicing by at least 2x according the benchmarks of srcSlice. 
 ![Benchmarks 3. Program slicing](https://github.com/yijunyu/fast/raw/master/doc/benchmarks/slicing.png "The projects are selected from previous performance evaluation
 of the scalable srcSlice tool.")
 
