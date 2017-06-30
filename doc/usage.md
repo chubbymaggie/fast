@@ -20,7 +20,7 @@
 
   $ fast ../test [all.pb](../test/all.pb)
 
-  $ fast ../test [all.pb](../test/all.fbs)
+  $ fast ../test [all.fbs](../test/all.fbs)
 
 ### Convert binary AST back to SrcML
 
