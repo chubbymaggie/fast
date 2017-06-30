@@ -892,8 +892,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
 			system(srcmlCommand.c_str());
 		}
-	}
-	if (argc == 2) {
+	} else if (argc == 2) {
 		// invoke srcml and print to standard output
 		string srcmlCommand = "srcml ";
 		srcmlCommand = srcmlCommand + argv[1];
@@ -919,22 +918,58 @@ int loadSrcML(int load_only, int argc, char **argv) {
 				srcmlCommand = srcmlCommand + " --position";
 			system(srcmlCommand.c_str());
 		}
+	} else {
+		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
+		if (!is_xml) {
+			string srcmlCommand = "srcml";
+			for (int i = 1; i < argc - 1; i++)
+				srcmlCommand = srcmlCommand + " " + argv[1];
+			if (position)
+				srcmlCommand = srcmlCommand + " --position";
+			system(srcmlCommand.c_str());
+			string xml_filename;
+			if (!slice) 
+				xml_filename = argv[argc - 1];
+			else {
+				char buf[100];
+				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+				mkstemp(buf);
+				remove(buf);
+				string xml_filename = buf;
+				xml_filename +=	".xml";
+			}
+			srcmlCommand = srcmlCommand + " -o " + xml_filename;
+			if (slice) {
+				string sliceCommand = "srcSlice ";
+				sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
+				system(sliceCommand.c_str());
+				string catCommand = "cat ";
+				catCommand = catCommand + xml_filename + ".slice";
+				system(catCommand.c_str());
+				remove((xml_filename + ".slice").c_str());
+				remove(xml_filename.c_str());
+			}
+		}
 	}
 	return 0;
 }
 
+void usage() {
+    cerr << "Usage: fast [-acdehpsSv] input_file output_file"  << endl
+	 << "-a\tuse Antlr's AST instead of srcML's" << endl
+	 << "-c\tLoad only" << endl
+	 << "-d\tDecode protobuf into text format" << endl
+	 << "-e\tEncode text format into protobuf" << endl
+	 << "-h\tPrint this help message" << endl
+	 << "-p\tPreserve the position (line, column) numbers" << endl
+	 << "-s\tSlice programs on the srcML format" << endl
+	 << "-S\tSlice programs on the binary format" << endl
+	 << "-v\tTell version number" << endl;
+}
+
 int mainRoutine(int argc, char* argv[]) {
    if (argc < 2) {
-	   cerr << "Usage: fast [-acdehpsSv] input_file output_file"  << endl
-		 << "-a\tuse Antlr's AST instead of srcML's" << endl
-		 << "-c\tLoad only" << endl
-		 << "-d\tDecode protobuf into text format" << endl
-		 << "-e\tEncode text format into protobuf" << endl
-		 << "-h\tPrint this help message" << endl
-		 << "-p\tPreserve the position (line, column) numbers" << endl
-		 << "-s\tSlice programs on the srcML format" << endl
-		 << "-S\tSlice programs on the binary format" << endl
-		 << "-v\tTell version number" << endl;
+	   usage();
 	   return 1;
    }
    if (argc == 3 && strcmp(argv[1], argv[2])==0) {
@@ -989,16 +1024,7 @@ int main(int argc, char* argv[]) {
   while ((c = getopt (argc, argv, "acdehpsSv")) != -1)
     switch (c) {
       case 'h':
-	    cerr << "Usage: fast [-acdehpsSv] input_file output_file"  << endl
-		 << "-a\tuse Antlr's AST instead of srcML's" << endl
-		 << "-c\tLoad only" << endl
-		 << "-d\tDecode protobuf into text format" << endl
-		 << "-e\tEncode text format into protobuf" << endl
-		 << "-h\tPrint this help message" << endl
-		 << "-p\tPreserve the position (line, column) numbers" << endl
-		 << "-s\tSlice programs on the srcML format" << endl
-		 << "-S\tSlice programs on the binary format" << endl
-		 << "-v\tTell version number" << endl;
+	    usage();
 	    return 0;
       case 'v':
 	    cerr << "fast 0.0.2"  << endl;

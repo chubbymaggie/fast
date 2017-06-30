@@ -14,9 +14,8 @@ CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
-OPT=-g
 OPT=-O3
-OPT=-g -O0 --coverage
+OPT=-g
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
@@ -57,9 +56,9 @@ install: fast process fast.proto
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
-	wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz
+	if [ ! -f fast-java-$V.tar.gz ]; then wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz; fi
 	tar xvfz fast-java-$V.tar.gz -C /usr/local
-	wget https://yijunyu.github.io/ubuntu/srcslice
+	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
 	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
 
 lib/smali.jar: dist/smali.jar 
