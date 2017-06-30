@@ -42,6 +42,7 @@ used one of the following related tools:
 * Chunmiao Li
 * Qiuchi Li
 * Mohammed Sayagh
+* Yijun Yu
 
 ### Version History
 
