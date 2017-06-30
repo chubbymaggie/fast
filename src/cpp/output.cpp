@@ -27,78 +27,6 @@
 #include "fast.pb.h"
 using namespace std;
 
-void TestSlice2(const VarMap& mp){
-	for(VarMap::const_iterator vmIt = mp.begin(); vmIt != mp.end(); ++vmIt){
-		std::cerr<<"-------------------------"<<std::endl;
-		std::cerr<<"Variable: "<<vmIt->first<<std::endl;
-		std::cerr<<"Slines: {";
-		for(unsigned int sl : vmIt->second.slines){
-			std::cerr<<sl<<",";
-		}
-		std::cerr<<"}"<<std::endl;
-		std::cerr<<"dvars: {";
-		for(std::string dv : vmIt->second.dvars){
-			std::cerr<<dv<<",";
-		}
-		std::cerr<<"}"<<std::endl;
-		std::cerr<<"is aliase for: {";
-		for(std::string al : vmIt->second.aliases){
-			std::cerr<<al<<",";
-		}
-		std::cerr<<"}"<<std::endl;
-		std::cerr<<"cfuntions: {";
-		for(auto cfunc : vmIt->second.cfunctions){
-			std::cerr<<cfunc.first<<" "<<cfunc.second<<",";
-		}
-		std::cerr<<"}"<<std::endl;
-		std::cerr<<"-------------------------"<<std::endl;
-	}
-}
-void TestSlice(const FileFunctionVarMap& mp, srcSliceHandler handler){
-	for(FileFunctionVarMap::const_iterator ffvmIt = mp.begin(); ffvmIt != mp.end(); ++ffvmIt){
-		std::cerr<<"FILE: "<<ffvmIt->first<<std::endl;
-        for(FunctionVarMap::const_iterator fvmIt = ffvmIt->second.begin(); fvmIt != ffvmIt->second.end(); ++fvmIt){
-			std::cerr<<fvmIt->first<<std::endl;
-			//std::cerr<<handler.sysDict->functionTable.find(fvmIt->first)->second<<std::endl; 
-			for(VarMap::const_iterator vmIt = fvmIt->second.begin(); vmIt != fvmIt->second.end(); ++vmIt){
-				std::cerr<<"-------------------------"<<std::endl;
-				std::cerr<<"Variable: "<<vmIt->first<<std::endl;
-				std::cerr<<"Slines: {";
-				for(unsigned int sl : vmIt->second.slines){
-					std::cerr<<sl<<",";
-				}
-				std::cerr<<"}"<<std::endl;
-				std::cerr<<"variables dependant on this one: {";
-				for(std::string dv : vmIt->second.dvars){
-					std::cerr<<dv<<",";
-				}
-				std::cerr<<"}"<<std::endl;
-				std::cerr<<"is aliase for: {";
-				for(std::string al : vmIt->second.aliases){
-					std::cerr<<al<<",";
-				}
-				std::cerr<<"}"<<std::endl;
-				std::cerr<<"cfuntions: {";
-				for(auto cfunc : vmIt->second.cfunctions){
-						std::cerr<<cfunc.first<<" "<<cfunc.second<<",";
-				}
-				std::cerr<<"}"<<std::endl;
-				std::cerr<<"def: {";
-				for(auto defv : vmIt->second.def){
-					std::cerr<<defv<<",";
-				}
-				std::cerr<<"}"<<std::endl;
-				std::cerr<<"use: {";
-				for(auto usev : vmIt->second.use){
-					std::cerr<<usev<<",";
-				}
-				std::cerr<<"}"<<std::endl;
-				std::cerr<<"-------------------------"<<std::endl;
-			}
-		}
-	}
-}
-
 void srcSliceToCsv(const srcSlice& handler, const char *output_file){
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 	fast::Data *data = new fast::Data();
@@ -196,39 +124,4 @@ void srcSliceToCsv(const srcSlice& handler, const char *output_file){
   		google::protobuf::ShutdownProtobufLibrary();
 		output.close();
 	}
-}
-/**
- * main
- * @param argc number of arguments
- * @param argv the provided arguments (array of C strings)
- * 
- * Invoke srcSAX handler to count element occurences and print out the resulting element counts.
- */
-/*
-  Type Resolution tool
-  Def Use Tool as separate thing (same as type res?)
-  methods
-  statement #
-  Consider output to srcML
-  */
-int slice_main(int argc, char * argv[]) {
-
-  if(argc < 2) {
-
-    std::cerr << "Useage: srcSlice input_file.xml\n";
-    exit(1);
-
-  }
-  clock_t t;
-  t = clock();
-  srcSlice sslice;
-  sslice.ReadArchiveFile(argv[1]);
-  t = clock() - t;
-  std::cerr<<"Time is: "<<((float)t)/CLOCKS_PER_SEC<<std::endl;
-  //std::string filename = handler.sysDict->find("stack.cpp.xml");
-  //handler.ComputeInterprocedural("SlicerTestSample.cpp");
-  //TestSlice(handler.sysDict-> handler);
-  //TestSlice2(handler.sysDict->globalMap);
-  srcSliceToCsv(sslice, NULL);
-  return 0;
 }

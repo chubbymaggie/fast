@@ -1,0 +1,9 @@
+*D
+B
+*
+
+result"*
+
+x"*2resultf
+GLOBAL
+example.cc

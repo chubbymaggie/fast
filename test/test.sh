@@ -1715,10 +1715,14 @@ testFastSlice() {
 	$fast -p Hello.java Hello.position.pb
 	$fast -p Hello.java Hello.position.xml
 	same_all 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec -S Hello.position.pb
+	$fast -S Hello.position.pb Hello.slice.pb
+	fast=cat same e8a7f3816b1a7cab1e8e19df60740e04a8159ed87bbc4b72d9d059d8ff938d1e Hello.slice.pb
 	$fast -p example.cc example.position.fbs
 	$fast -s example.position.fbs example-s.slice
 	fast=cat same 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example-s.slice
 	same_all e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -S example.position.fbs
+	$fast -S example.position.pb example.slice.pb
+	fast=cat same ffbd97b2a84699168c429f917969c4a442aac1868aa58a942b7422f39f49c49e example.slice.pb
 }
 
 testNoneExistingFile() {
@@ -1757,7 +1761,7 @@ testLoadPB() {
 
 testFinalReport() {
 	lcov --directory .. --capture --output-file ../fast.info
-	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/*' '*/src/fast_generated.h' > fast.info
+	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' > fast.info
 	genhtml fast.info
 }
 

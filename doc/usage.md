@@ -62,7 +62,9 @@ information, they will be omitted in the XML document.
   $ fast -s [example.pb](../test/example.position.pb) > [example.slice](../test/example-s.slice)
   
   $ fast -S [example.pb](../test/example.position.pb) > [example.slice](../test/example-s.slice)
-  
+
+  $ fast -S [example.pb](../test/example.position.pb) [example.slice.pb](../test/example.slice.pb)
+
   $ fast -p [test/example.cc](../test/example.cc) [example.fbs](../test/example.position.fbs)
 	
   $ fast -s [example.fbs](../test/example.position.fbs) > [example.slice](../test/example-s.slice)
@@ -72,6 +74,8 @@ information, they will be omitted in the XML document.
   $ fast -s [test/example.cc](../test/example.cc) > [example.slice](../test/example-s.slice)
 
   $ fast -s [Hello.java](../test/Hello.java) > [Hello.slice](../test/Hello-s.slice)
+
+  
 
 These commands perform forward program slicing on the source code using the srcSlice tool. 
 The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
