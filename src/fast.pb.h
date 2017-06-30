@@ -95,6 +95,24 @@ extern Pairs_PairDefaultTypeInternal _Pairs_Pair_default_instance_;
 class Pairs_Pair_Diff;
 class Pairs_Pair_DiffDefaultTypeInternal;
 extern Pairs_Pair_DiffDefaultTypeInternal _Pairs_Pair_Diff_default_instance_;
+class Slice;
+class SliceDefaultTypeInternal;
+extern SliceDefaultTypeInternal _Slice_default_instance_;
+class Slice_SourceFile;
+class Slice_SourceFileDefaultTypeInternal;
+extern Slice_SourceFileDefaultTypeInternal _Slice_SourceFile_default_instance_;
+class Slice_SourceFile_Function;
+class Slice_SourceFile_FunctionDefaultTypeInternal;
+extern Slice_SourceFile_FunctionDefaultTypeInternal _Slice_SourceFile_Function_default_instance_;
+class Slice_SourceFile_Function_Variable;
+class Slice_SourceFile_Function_VariableDefaultTypeInternal;
+extern Slice_SourceFile_Function_VariableDefaultTypeInternal _Slice_SourceFile_Function_Variable_default_instance_;
+class Slice_SourceFile_Function_Variable_FunctionDecl;
+class Slice_SourceFile_Function_Variable_FunctionDeclDefaultTypeInternal;
+extern Slice_SourceFile_Function_Variable_FunctionDeclDefaultTypeInternal _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_;
+class Slice_SourceFile_Function_Variable_Position;
+class Slice_SourceFile_Function_Variable_PositionDefaultTypeInternal;
+extern Slice_SourceFile_Function_Variable_PositionDefaultTypeInternal _Slice_SourceFile_Function_Variable_Position_default_instance_;
 }  // namespace fast
 
 namespace fast {
@@ -834,6 +852,28 @@ inline bool Pairs_Pair_CloneType_Parse(
     const ::std::string& name, Pairs_Pair_CloneType* value) {
   return ::google::protobuf::internal::ParseNamedEnum<Pairs_Pair_CloneType>(
     Pairs_Pair_CloneType_descriptor(), name, value);
+}
+enum Slice_ChangeType {
+  Slice_ChangeType_UNCHANGED = 0,
+  Slice_ChangeType_ADD = 1,
+  Slice_ChangeType_DEL = 2,
+  Slice_ChangeType_Slice_ChangeType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  Slice_ChangeType_Slice_ChangeType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+};
+bool Slice_ChangeType_IsValid(int value);
+const Slice_ChangeType Slice_ChangeType_ChangeType_MIN = Slice_ChangeType_UNCHANGED;
+const Slice_ChangeType Slice_ChangeType_ChangeType_MAX = Slice_ChangeType_DEL;
+const int Slice_ChangeType_ChangeType_ARRAYSIZE = Slice_ChangeType_ChangeType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Slice_ChangeType_descriptor();
+inline const ::std::string& Slice_ChangeType_Name(Slice_ChangeType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Slice_ChangeType_descriptor(), value);
+}
+inline bool Slice_ChangeType_Parse(
+    const ::std::string& name, Slice_ChangeType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Slice_ChangeType>(
+    Slice_ChangeType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -4533,6 +4573,739 @@ class Log : public ::google::protobuf::Message /* @@protoc_insertion_point(class
 };
 // -------------------------------------------------------------------
 
+class Slice_SourceFile_Function_Variable_Position : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Slice.SourceFile.Function.Variable.Position) */ {
+ public:
+  Slice_SourceFile_Function_Variable_Position();
+  virtual ~Slice_SourceFile_Function_Variable_Position();
+
+  Slice_SourceFile_Function_Variable_Position(const Slice_SourceFile_Function_Variable_Position& from);
+
+  inline Slice_SourceFile_Function_Variable_Position& operator=(const Slice_SourceFile_Function_Variable_Position& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slice_SourceFile_Function_Variable_Position& default_instance();
+
+  static inline const Slice_SourceFile_Function_Variable_Position* internal_default_instance() {
+    return reinterpret_cast<const Slice_SourceFile_Function_Variable_Position*>(
+               &_Slice_SourceFile_Function_Variable_Position_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    20;
+
+  void Swap(Slice_SourceFile_Function_Variable_Position* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Slice_SourceFile_Function_Variable_Position* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Slice_SourceFile_Function_Variable_Position* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Slice_SourceFile_Function_Variable_Position& from);
+  void MergeFrom(const Slice_SourceFile_Function_Variable_Position& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Slice_SourceFile_Function_Variable_Position* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // int32 lineno = 1;
+  void clear_lineno();
+  static const int kLinenoFieldNumber = 1;
+  ::google::protobuf::int32 lineno() const;
+  void set_lineno(::google::protobuf::int32 value);
+
+  // .fast.Slice.ChangeType type = 2;
+  void clear_type();
+  static const int kTypeFieldNumber = 2;
+  ::fast::Slice_ChangeType type() const;
+  void set_type(::fast::Slice_ChangeType value);
+
+  // int32 delta_lineno = 5;
+  void clear_delta_lineno();
+  static const int kDeltaLinenoFieldNumber = 5;
+  ::google::protobuf::int32 delta_lineno() const;
+  void set_delta_lineno(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function.Variable.Position)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::int32 lineno_;
+  int type_;
+  ::google::protobuf::int32 delta_lineno_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Slice_SourceFile_Function_Variable_FunctionDecl : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Slice.SourceFile.Function.Variable.FunctionDecl) */ {
+ public:
+  Slice_SourceFile_Function_Variable_FunctionDecl();
+  virtual ~Slice_SourceFile_Function_Variable_FunctionDecl();
+
+  Slice_SourceFile_Function_Variable_FunctionDecl(const Slice_SourceFile_Function_Variable_FunctionDecl& from);
+
+  inline Slice_SourceFile_Function_Variable_FunctionDecl& operator=(const Slice_SourceFile_Function_Variable_FunctionDecl& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slice_SourceFile_Function_Variable_FunctionDecl& default_instance();
+
+  static inline const Slice_SourceFile_Function_Variable_FunctionDecl* internal_default_instance() {
+    return reinterpret_cast<const Slice_SourceFile_Function_Variable_FunctionDecl*>(
+               &_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    21;
+
+  void Swap(Slice_SourceFile_Function_Variable_FunctionDecl* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Slice_SourceFile_Function_Variable_FunctionDecl* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Slice_SourceFile_Function_Variable_FunctionDecl* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Slice_SourceFile_Function_Variable_FunctionDecl& from);
+  void MergeFrom(const Slice_SourceFile_Function_Variable_FunctionDecl& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Slice_SourceFile_Function_Variable_FunctionDecl* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string name = 1;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // int32 lineno = 2;
+  void clear_lineno();
+  static const int kLinenoFieldNumber = 2;
+  ::google::protobuf::int32 lineno() const;
+  void set_lineno(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::google::protobuf::int32 lineno_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Slice_SourceFile_Function_Variable : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Slice.SourceFile.Function.Variable) */ {
+ public:
+  Slice_SourceFile_Function_Variable();
+  virtual ~Slice_SourceFile_Function_Variable();
+
+  Slice_SourceFile_Function_Variable(const Slice_SourceFile_Function_Variable& from);
+
+  inline Slice_SourceFile_Function_Variable& operator=(const Slice_SourceFile_Function_Variable& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slice_SourceFile_Function_Variable& default_instance();
+
+  static inline const Slice_SourceFile_Function_Variable* internal_default_instance() {
+    return reinterpret_cast<const Slice_SourceFile_Function_Variable*>(
+               &_Slice_SourceFile_Function_Variable_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    22;
+
+  void Swap(Slice_SourceFile_Function_Variable* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Slice_SourceFile_Function_Variable* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Slice_SourceFile_Function_Variable* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Slice_SourceFile_Function_Variable& from);
+  void MergeFrom(const Slice_SourceFile_Function_Variable& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Slice_SourceFile_Function_Variable* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Slice_SourceFile_Function_Variable_Position Position;
+  typedef Slice_SourceFile_Function_Variable_FunctionDecl FunctionDecl;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+  int def_size() const;
+  void clear_def();
+  static const int kDefFieldNumber = 4;
+  const ::fast::Slice_SourceFile_Function_Variable_Position& def(int index) const;
+  ::fast::Slice_SourceFile_Function_Variable_Position* mutable_def(int index);
+  ::fast::Slice_SourceFile_Function_Variable_Position* add_def();
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
+      mutable_def();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
+      def() const;
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  int use_size() const;
+  void clear_use();
+  static const int kUseFieldNumber = 5;
+  const ::fast::Slice_SourceFile_Function_Variable_Position& use(int index) const;
+  ::fast::Slice_SourceFile_Function_Variable_Position* mutable_use(int index);
+  ::fast::Slice_SourceFile_Function_Variable_Position* add_use();
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
+      mutable_use();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
+      use() const;
+
+  // repeated string dvar = 6;
+  int dvar_size() const;
+  void clear_dvar();
+  static const int kDvarFieldNumber = 6;
+  const ::std::string& dvar(int index) const;
+  ::std::string* mutable_dvar(int index);
+  void set_dvar(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_dvar(int index, ::std::string&& value);
+  #endif
+  void set_dvar(int index, const char* value);
+  void set_dvar(int index, const char* value, size_t size);
+  ::std::string* add_dvar();
+  void add_dvar(const ::std::string& value);
+  #if LANG_CXX11
+  void add_dvar(::std::string&& value);
+  #endif
+  void add_dvar(const char* value);
+  void add_dvar(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& dvar() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_dvar();
+
+  // repeated string alias = 7;
+  int alias_size() const;
+  void clear_alias();
+  static const int kAliasFieldNumber = 7;
+  const ::std::string& alias(int index) const;
+  ::std::string* mutable_alias(int index);
+  void set_alias(int index, const ::std::string& value);
+  #if LANG_CXX11
+  void set_alias(int index, ::std::string&& value);
+  #endif
+  void set_alias(int index, const char* value);
+  void set_alias(int index, const char* value, size_t size);
+  ::std::string* add_alias();
+  void add_alias(const ::std::string& value);
+  #if LANG_CXX11
+  void add_alias(::std::string&& value);
+  #endif
+  void add_alias(const char* value);
+  void add_alias(const char* value, size_t size);
+  const ::google::protobuf::RepeatedPtrField< ::std::string>& alias() const;
+  ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_alias();
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  int cfunc_size() const;
+  void clear_cfunc();
+  static const int kCfuncFieldNumber = 8;
+  const ::fast::Slice_SourceFile_Function_Variable_FunctionDecl& cfunc(int index) const;
+  ::fast::Slice_SourceFile_Function_Variable_FunctionDecl* mutable_cfunc(int index);
+  ::fast::Slice_SourceFile_Function_Variable_FunctionDecl* add_cfunc();
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >*
+      mutable_cfunc();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >&
+      cfunc() const;
+
+  // string name = 1;
+  void clear_name();
+  static const int kNameFieldNumber = 1;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  bool has_pos() const;
+  void clear_pos();
+  static const int kPosFieldNumber = 2;
+  const ::fast::Slice_SourceFile_Function_Variable_Position& pos() const;
+  ::fast::Slice_SourceFile_Function_Variable_Position* mutable_pos();
+  ::fast::Slice_SourceFile_Function_Variable_Position* release_pos();
+  void set_allocated_pos(::fast::Slice_SourceFile_Function_Variable_Position* pos);
+
+  // .fast.Slice.ChangeType type = 3;
+  void clear_type();
+  static const int kTypeFieldNumber = 3;
+  ::fast::Slice_ChangeType type() const;
+  void set_type(::fast::Slice_ChangeType value);
+
+  // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function.Variable)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position > def_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position > use_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> dvar_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> alias_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl > cfunc_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  ::fast::Slice_SourceFile_Function_Variable_Position* pos_;
+  int type_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Slice_SourceFile_Function : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Slice.SourceFile.Function) */ {
+ public:
+  Slice_SourceFile_Function();
+  virtual ~Slice_SourceFile_Function();
+
+  Slice_SourceFile_Function(const Slice_SourceFile_Function& from);
+
+  inline Slice_SourceFile_Function& operator=(const Slice_SourceFile_Function& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slice_SourceFile_Function& default_instance();
+
+  static inline const Slice_SourceFile_Function* internal_default_instance() {
+    return reinterpret_cast<const Slice_SourceFile_Function*>(
+               &_Slice_SourceFile_Function_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    23;
+
+  void Swap(Slice_SourceFile_Function* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Slice_SourceFile_Function* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Slice_SourceFile_Function* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Slice_SourceFile_Function& from);
+  void MergeFrom(const Slice_SourceFile_Function& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Slice_SourceFile_Function* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Slice_SourceFile_Function_Variable Variable;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  int variable_size() const;
+  void clear_variable();
+  static const int kVariableFieldNumber = 1;
+  const ::fast::Slice_SourceFile_Function_Variable& variable(int index) const;
+  ::fast::Slice_SourceFile_Function_Variable* mutable_variable(int index);
+  ::fast::Slice_SourceFile_Function_Variable* add_variable();
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >*
+      mutable_variable();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >&
+      variable() const;
+
+  // string name = 2;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // .fast.Slice.ChangeType type = 3;
+  void clear_type();
+  static const int kTypeFieldNumber = 3;
+  ::fast::Slice_ChangeType type() const;
+  void set_type(::fast::Slice_ChangeType value);
+
+  // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable > variable_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  int type_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Slice_SourceFile : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Slice.SourceFile) */ {
+ public:
+  Slice_SourceFile();
+  virtual ~Slice_SourceFile();
+
+  Slice_SourceFile(const Slice_SourceFile& from);
+
+  inline Slice_SourceFile& operator=(const Slice_SourceFile& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slice_SourceFile& default_instance();
+
+  static inline const Slice_SourceFile* internal_default_instance() {
+    return reinterpret_cast<const Slice_SourceFile*>(
+               &_Slice_SourceFile_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    24;
+
+  void Swap(Slice_SourceFile* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Slice_SourceFile* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Slice_SourceFile* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Slice_SourceFile& from);
+  void MergeFrom(const Slice_SourceFile& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Slice_SourceFile* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Slice_SourceFile_Function Function;
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Slice.SourceFile.Function function = 1;
+  int function_size() const;
+  void clear_function();
+  static const int kFunctionFieldNumber = 1;
+  const ::fast::Slice_SourceFile_Function& function(int index) const;
+  ::fast::Slice_SourceFile_Function* mutable_function(int index);
+  ::fast::Slice_SourceFile_Function* add_function();
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >*
+      mutable_function();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >&
+      function() const;
+
+  // string name = 2;
+  void clear_name();
+  static const int kNameFieldNumber = 2;
+  const ::std::string& name() const;
+  void set_name(const ::std::string& value);
+  #if LANG_CXX11
+  void set_name(::std::string&& value);
+  #endif
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  ::std::string* mutable_name();
+  ::std::string* release_name();
+  void set_allocated_name(::std::string* name);
+
+  // .fast.Slice.ChangeType type = 3;
+  void clear_type();
+  static const int kTypeFieldNumber = 3;
+  ::fast::Slice_ChangeType type() const;
+  void set_type(::fast::Slice_ChangeType value);
+
+  // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function > function_;
+  ::google::protobuf::internal::ArenaStringPtr name_;
+  int type_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
+class Slice : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Slice) */ {
+ public:
+  Slice();
+  virtual ~Slice();
+
+  Slice(const Slice& from);
+
+  inline Slice& operator=(const Slice& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Slice& default_instance();
+
+  static inline const Slice* internal_default_instance() {
+    return reinterpret_cast<const Slice*>(
+               &_Slice_default_instance_);
+  }
+  static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
+    25;
+
+  void Swap(Slice* other);
+
+  // implements Message ----------------------------------------------
+
+  inline Slice* New() const PROTOBUF_FINAL { return New(NULL); }
+
+  Slice* New(::google::protobuf::Arena* arena) const PROTOBUF_FINAL;
+  void CopyFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void MergeFrom(const ::google::protobuf::Message& from) PROTOBUF_FINAL;
+  void CopyFrom(const Slice& from);
+  void MergeFrom(const Slice& from);
+  void Clear() PROTOBUF_FINAL;
+  bool IsInitialized() const PROTOBUF_FINAL;
+
+  size_t ByteSizeLong() const PROTOBUF_FINAL;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input) PROTOBUF_FINAL;
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const PROTOBUF_FINAL;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* target) const PROTOBUF_FINAL;
+  int GetCachedSize() const PROTOBUF_FINAL { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const PROTOBUF_FINAL;
+  void InternalSwap(Slice* other);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return NULL;
+  }
+  inline void* MaybeArenaPtr() const {
+    return NULL;
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const PROTOBUF_FINAL;
+
+  // nested types ----------------------------------------------------
+
+  typedef Slice_SourceFile SourceFile;
+
+  typedef Slice_ChangeType ChangeType;
+  static const ChangeType UNCHANGED =
+    Slice_ChangeType_UNCHANGED;
+  static const ChangeType ADD =
+    Slice_ChangeType_ADD;
+  static const ChangeType DEL =
+    Slice_ChangeType_DEL;
+  static inline bool ChangeType_IsValid(int value) {
+    return Slice_ChangeType_IsValid(value);
+  }
+  static const ChangeType ChangeType_MIN =
+    Slice_ChangeType_ChangeType_MIN;
+  static const ChangeType ChangeType_MAX =
+    Slice_ChangeType_ChangeType_MAX;
+  static const int ChangeType_ARRAYSIZE =
+    Slice_ChangeType_ChangeType_ARRAYSIZE;
+  static inline const ::google::protobuf::EnumDescriptor*
+  ChangeType_descriptor() {
+    return Slice_ChangeType_descriptor();
+  }
+  static inline const ::std::string& ChangeType_Name(ChangeType value) {
+    return Slice_ChangeType_Name(value);
+  }
+  static inline bool ChangeType_Parse(const ::std::string& name,
+      ChangeType* value) {
+    return Slice_ChangeType_Parse(name, value);
+  }
+
+  // accessors -------------------------------------------------------
+
+  // repeated .fast.Slice.SourceFile file = 1;
+  int file_size() const;
+  void clear_file();
+  static const int kFileFieldNumber = 1;
+  const ::fast::Slice_SourceFile& file(int index) const;
+  ::fast::Slice_SourceFile* mutable_file(int index);
+  ::fast::Slice_SourceFile* add_file();
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >*
+      mutable_file();
+  const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >&
+      file() const;
+
+  // string hash = 2;
+  void clear_hash();
+  static const int kHashFieldNumber = 2;
+  const ::std::string& hash() const;
+  void set_hash(const ::std::string& value);
+  #if LANG_CXX11
+  void set_hash(::std::string&& value);
+  #endif
+  void set_hash(const char* value);
+  void set_hash(const char* value, size_t size);
+  ::std::string* mutable_hash();
+  ::std::string* release_hash();
+  void set_allocated_hash(::std::string* hash);
+
+  // @@protoc_insertion_point(class_scope:fast.Slice)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile > file_;
+  ::google::protobuf::internal::ArenaStringPtr hash_;
+  mutable int _cached_size_;
+  friend struct protobuf_fast_2eproto::TableStruct;
+};
+// -------------------------------------------------------------------
+
 class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:fast.Data) */ {
  public:
   Data();
@@ -4553,6 +5326,7 @@ class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
     kLog = 2,
     kDelta = 3,
     kPairs = 4,
+    kSlice = 5,
     RECORDTYPE_NOT_SET = 0,
   };
 
@@ -4561,7 +5335,7 @@ class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
                &_Data_default_instance_);
   }
   static PROTOBUF_CONSTEXPR int const kIndexInFileMessages =
-    20;
+    26;
 
   void Swap(Data* other);
 
@@ -4641,6 +5415,15 @@ class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   ::fast::Pairs* release_pairs();
   void set_allocated_pairs(::fast::Pairs* pairs);
 
+  // .fast.Slice slice = 5;
+  bool has_slice() const;
+  void clear_slice();
+  static const int kSliceFieldNumber = 5;
+  const ::fast::Slice& slice() const;
+  ::fast::Slice* mutable_slice();
+  ::fast::Slice* release_slice();
+  void set_allocated_slice(::fast::Slice* slice);
+
   RecordTypeCase RecordType_case() const;
   // @@protoc_insertion_point(class_scope:fast.Data)
  private:
@@ -4648,6 +5431,7 @@ class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
   void set_has_log();
   void set_has_delta();
   void set_has_pairs();
+  void set_has_slice();
 
   inline bool has_RecordType() const;
   void clear_RecordType();
@@ -4660,6 +5444,7 @@ class Data : public ::google::protobuf::Message /* @@protoc_insertion_point(clas
     ::fast::Log* log_;
     ::fast::Delta* delta_;
     ::fast::Pairs* pairs_;
+    ::fast::Slice* slice_;
   } RecordType_;
   mutable int _cached_size_;
   ::google::protobuf::uint32 _oneof_case_[1];
@@ -7231,6 +8016,750 @@ Log::author() const {
 
 // -------------------------------------------------------------------
 
+// Slice_SourceFile_Function_Variable_Position
+
+// int32 lineno = 1;
+inline void Slice_SourceFile_Function_Variable_Position::clear_lineno() {
+  lineno_ = 0;
+}
+inline ::google::protobuf::int32 Slice_SourceFile_Function_Variable_Position::lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.lineno)
+  return lineno_;
+}
+inline void Slice_SourceFile_Function_Variable_Position::set_lineno(::google::protobuf::int32 value) {
+  
+  lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.lineno)
+}
+
+// .fast.Slice.ChangeType type = 2;
+inline void Slice_SourceFile_Function_Variable_Position::clear_type() {
+  type_ = 0;
+}
+inline ::fast::Slice_ChangeType Slice_SourceFile_Function_Variable_Position::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+inline void Slice_SourceFile_Function_Variable_Position::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.type)
+}
+
+// int32 delta_lineno = 5;
+inline void Slice_SourceFile_Function_Variable_Position::clear_delta_lineno() {
+  delta_lineno_ = 0;
+}
+inline ::google::protobuf::int32 Slice_SourceFile_Function_Variable_Position::delta_lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.delta_lineno)
+  return delta_lineno_;
+}
+inline void Slice_SourceFile_Function_Variable_Position::set_delta_lineno(::google::protobuf::int32 value) {
+  
+  delta_lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.delta_lineno)
+}
+
+// -------------------------------------------------------------------
+
+// Slice_SourceFile_Function_Variable_FunctionDecl
+
+// string name = 1;
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Slice_SourceFile_Function_Variable_FunctionDecl::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  return name_.GetNoArena();
+}
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+#endif
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+inline ::std::string* Slice_SourceFile_Function_Variable_FunctionDecl::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Slice_SourceFile_Function_Variable_FunctionDecl::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+
+// int32 lineno = 2;
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::clear_lineno() {
+  lineno_ = 0;
+}
+inline ::google::protobuf::int32 Slice_SourceFile_Function_Variable_FunctionDecl::lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
+  return lineno_;
+}
+inline void Slice_SourceFile_Function_Variable_FunctionDecl::set_lineno(::google::protobuf::int32 value) {
+  
+  lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
+}
+
+// -------------------------------------------------------------------
+
+// Slice_SourceFile_Function_Variable
+
+// string name = 1;
+inline void Slice_SourceFile_Function_Variable::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Slice_SourceFile_Function_Variable::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.name)
+  return name_.GetNoArena();
+}
+inline void Slice_SourceFile_Function_Variable::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.name)
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function_Variable::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.Variable.name)
+}
+#endif
+inline void Slice_SourceFile_Function_Variable::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.name)
+}
+inline void Slice_SourceFile_Function_Variable::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.name)
+}
+inline ::std::string* Slice_SourceFile_Function_Variable::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Slice_SourceFile_Function_Variable::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Slice_SourceFile_Function_Variable::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.name)
+}
+
+// .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+inline bool Slice_SourceFile_Function_Variable::has_pos() const {
+  return this != internal_default_instance() && pos_ != NULL;
+}
+inline void Slice_SourceFile_Function_Variable::clear_pos() {
+  if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
+  pos_ = NULL;
+}
+inline const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::pos() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.pos)
+  return pos_ != NULL ? *pos_
+                         : *::fast::Slice_SourceFile_Function_Variable_Position::internal_default_instance();
+}
+inline ::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_pos() {
+  
+  if (pos_ == NULL) {
+    pos_ = new ::fast::Slice_SourceFile_Function_Variable_Position;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.pos)
+  return pos_;
+}
+inline ::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::release_pos() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.pos)
+  
+  ::fast::Slice_SourceFile_Function_Variable_Position* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void Slice_SourceFile_Function_Variable::set_allocated_pos(::fast::Slice_SourceFile_Function_Variable_Position* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.pos)
+}
+
+// .fast.Slice.ChangeType type = 3;
+inline void Slice_SourceFile_Function_Variable::clear_type() {
+  type_ = 0;
+}
+inline ::fast::Slice_ChangeType Slice_SourceFile_Function_Variable::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+inline void Slice_SourceFile_Function_Variable::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.type)
+}
+
+// repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+inline int Slice_SourceFile_Function_Variable::def_size() const {
+  return def_.size();
+}
+inline void Slice_SourceFile_Function_Variable::clear_def() {
+  def_.Clear();
+}
+inline const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::def(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.def)
+  return def_.Get(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_def(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.def)
+  return def_.Mutable(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::add_def() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.def)
+  return def_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
+Slice_SourceFile_Function_Variable::mutable_def() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.def)
+  return &def_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
+Slice_SourceFile_Function_Variable::def() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.def)
+  return def_;
+}
+
+// repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+inline int Slice_SourceFile_Function_Variable::use_size() const {
+  return use_.size();
+}
+inline void Slice_SourceFile_Function_Variable::clear_use() {
+  use_.Clear();
+}
+inline const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::use(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.use)
+  return use_.Get(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_use(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.use)
+  return use_.Mutable(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::add_use() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.use)
+  return use_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
+Slice_SourceFile_Function_Variable::mutable_use() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.use)
+  return &use_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
+Slice_SourceFile_Function_Variable::use() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.use)
+  return use_;
+}
+
+// repeated string dvar = 6;
+inline int Slice_SourceFile_Function_Variable::dvar_size() const {
+  return dvar_.size();
+}
+inline void Slice_SourceFile_Function_Variable::clear_dvar() {
+  dvar_.Clear();
+}
+inline const ::std::string& Slice_SourceFile_Function_Variable::dvar(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_.Get(index);
+}
+inline ::std::string* Slice_SourceFile_Function_Variable::mutable_dvar(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_.Mutable(index);
+}
+inline void Slice_SourceFile_Function_Variable::set_dvar(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.dvar)
+  dvar_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function_Variable::set_dvar(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.dvar)
+  dvar_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  dvar_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+inline void Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value, size_t size) {
+  dvar_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+inline ::std::string* Slice_SourceFile_Function_Variable::add_dvar() {
+  // @@protoc_insertion_point(field_add_mutable:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_.Add();
+}
+inline void Slice_SourceFile_Function_Variable::add_dvar(const ::std::string& value) {
+  dvar_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function_Variable::add_dvar(::std::string&& value) {
+  dvar_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+#endif
+inline void Slice_SourceFile_Function_Variable::add_dvar(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  dvar_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+inline void Slice_SourceFile_Function_Variable::add_dvar(const char* value, size_t size) {
+  dvar_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+Slice_SourceFile_Function_Variable::dvar() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+Slice_SourceFile_Function_Variable::mutable_dvar() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.dvar)
+  return &dvar_;
+}
+
+// repeated string alias = 7;
+inline int Slice_SourceFile_Function_Variable::alias_size() const {
+  return alias_.size();
+}
+inline void Slice_SourceFile_Function_Variable::clear_alias() {
+  alias_.Clear();
+}
+inline const ::std::string& Slice_SourceFile_Function_Variable::alias(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_.Get(index);
+}
+inline ::std::string* Slice_SourceFile_Function_Variable::mutable_alias(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_.Mutable(index);
+}
+inline void Slice_SourceFile_Function_Variable::set_alias(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.alias)
+  alias_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function_Variable::set_alias(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.alias)
+  alias_.Mutable(index)->assign(std::move(value));
+}
+#endif
+inline void Slice_SourceFile_Function_Variable::set_alias(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  alias_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.alias)
+}
+inline void Slice_SourceFile_Function_Variable::set_alias(int index, const char* value, size_t size) {
+  alias_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.alias)
+}
+inline ::std::string* Slice_SourceFile_Function_Variable::add_alias() {
+  // @@protoc_insertion_point(field_add_mutable:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_.Add();
+}
+inline void Slice_SourceFile_Function_Variable::add_alias(const ::std::string& value) {
+  alias_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.alias)
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function_Variable::add_alias(::std::string&& value) {
+  alias_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.alias)
+}
+#endif
+inline void Slice_SourceFile_Function_Variable::add_alias(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  alias_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fast.Slice.SourceFile.Function.Variable.alias)
+}
+inline void Slice_SourceFile_Function_Variable::add_alias(const char* value, size_t size) {
+  alias_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fast.Slice.SourceFile.Function.Variable.alias)
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+Slice_SourceFile_Function_Variable::alias() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+Slice_SourceFile_Function_Variable::mutable_alias() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.alias)
+  return &alias_;
+}
+
+// repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+inline int Slice_SourceFile_Function_Variable::cfunc_size() const {
+  return cfunc_.size();
+}
+inline void Slice_SourceFile_Function_Variable::clear_cfunc() {
+  cfunc_.Clear();
+}
+inline const ::fast::Slice_SourceFile_Function_Variable_FunctionDecl& Slice_SourceFile_Function_Variable::cfunc(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_.Get(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable::mutable_cfunc(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_.Mutable(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable::add_cfunc() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >*
+Slice_SourceFile_Function_Variable::mutable_cfunc() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return &cfunc_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >&
+Slice_SourceFile_Function_Variable::cfunc() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_;
+}
+
+// -------------------------------------------------------------------
+
+// Slice_SourceFile_Function
+
+// repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+inline int Slice_SourceFile_Function::variable_size() const {
+  return variable_.size();
+}
+inline void Slice_SourceFile_Function::clear_variable() {
+  variable_.Clear();
+}
+inline const ::fast::Slice_SourceFile_Function_Variable& Slice_SourceFile_Function::variable(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.variable)
+  return variable_.Get(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable* Slice_SourceFile_Function::mutable_variable(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.variable)
+  return variable_.Mutable(index);
+}
+inline ::fast::Slice_SourceFile_Function_Variable* Slice_SourceFile_Function::add_variable() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.variable)
+  return variable_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >*
+Slice_SourceFile_Function::mutable_variable() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.variable)
+  return &variable_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >&
+Slice_SourceFile_Function::variable() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.variable)
+  return variable_;
+}
+
+// string name = 2;
+inline void Slice_SourceFile_Function::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Slice_SourceFile_Function::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.name)
+  return name_.GetNoArena();
+}
+inline void Slice_SourceFile_Function::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.name)
+}
+#if LANG_CXX11
+inline void Slice_SourceFile_Function::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.name)
+}
+#endif
+inline void Slice_SourceFile_Function::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.name)
+}
+inline void Slice_SourceFile_Function::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.name)
+}
+inline ::std::string* Slice_SourceFile_Function::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Slice_SourceFile_Function::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Slice_SourceFile_Function::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.name)
+}
+
+// .fast.Slice.ChangeType type = 3;
+inline void Slice_SourceFile_Function::clear_type() {
+  type_ = 0;
+}
+inline ::fast::Slice_ChangeType Slice_SourceFile_Function::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+inline void Slice_SourceFile_Function::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.type)
+}
+
+// -------------------------------------------------------------------
+
+// Slice_SourceFile
+
+// repeated .fast.Slice.SourceFile.Function function = 1;
+inline int Slice_SourceFile::function_size() const {
+  return function_.size();
+}
+inline void Slice_SourceFile::clear_function() {
+  function_.Clear();
+}
+inline const ::fast::Slice_SourceFile_Function& Slice_SourceFile::function(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.function)
+  return function_.Get(index);
+}
+inline ::fast::Slice_SourceFile_Function* Slice_SourceFile::mutable_function(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.function)
+  return function_.Mutable(index);
+}
+inline ::fast::Slice_SourceFile_Function* Slice_SourceFile::add_function() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.function)
+  return function_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >*
+Slice_SourceFile::mutable_function() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.function)
+  return &function_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >&
+Slice_SourceFile::function() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.function)
+  return function_;
+}
+
+// string name = 2;
+inline void Slice_SourceFile::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Slice_SourceFile::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.name)
+  return name_.GetNoArena();
+}
+inline void Slice_SourceFile::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.name)
+}
+#if LANG_CXX11
+inline void Slice_SourceFile::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.name)
+}
+#endif
+inline void Slice_SourceFile::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.name)
+}
+inline void Slice_SourceFile::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.name)
+}
+inline ::std::string* Slice_SourceFile::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Slice_SourceFile::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Slice_SourceFile::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.name)
+}
+
+// .fast.Slice.ChangeType type = 3;
+inline void Slice_SourceFile::clear_type() {
+  type_ = 0;
+}
+inline ::fast::Slice_ChangeType Slice_SourceFile::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+inline void Slice_SourceFile::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.type)
+}
+
+// -------------------------------------------------------------------
+
+// Slice
+
+// repeated .fast.Slice.SourceFile file = 1;
+inline int Slice::file_size() const {
+  return file_.size();
+}
+inline void Slice::clear_file() {
+  file_.Clear();
+}
+inline const ::fast::Slice_SourceFile& Slice::file(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.file)
+  return file_.Get(index);
+}
+inline ::fast::Slice_SourceFile* Slice::mutable_file(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.file)
+  return file_.Mutable(index);
+}
+inline ::fast::Slice_SourceFile* Slice::add_file() {
+  // @@protoc_insertion_point(field_add:fast.Slice.file)
+  return file_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >*
+Slice::mutable_file() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.file)
+  return &file_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >&
+Slice::file() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.file)
+  return file_;
+}
+
+// string hash = 2;
+inline void Slice::clear_hash() {
+  hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& Slice::hash() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.hash)
+  return hash_.GetNoArena();
+}
+inline void Slice::set_hash(const ::std::string& value) {
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.hash)
+}
+#if LANG_CXX11
+inline void Slice::set_hash(::std::string&& value) {
+  
+  hash_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.hash)
+}
+#endif
+inline void Slice::set_hash(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.hash)
+}
+inline void Slice::set_hash(const char* value, size_t size) {
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.hash)
+}
+inline ::std::string* Slice::mutable_hash() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.hash)
+  return hash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* Slice::release_hash() {
+  // @@protoc_insertion_point(field_release:fast.Slice.hash)
+  
+  return hash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void Slice::set_allocated_hash(::std::string* hash) {
+  if (hash != NULL) {
+    
+  } else {
+    
+  }
+  hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hash);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.hash)
+}
+
+// -------------------------------------------------------------------
+
 // Data
 
 // .fast.Element element = 1;
@@ -7425,6 +8954,54 @@ inline void Data::set_allocated_pairs(::fast::Pairs* pairs) {
   // @@protoc_insertion_point(field_set_allocated:fast.Data.pairs)
 }
 
+// .fast.Slice slice = 5;
+inline bool Data::has_slice() const {
+  return RecordType_case() == kSlice;
+}
+inline void Data::set_has_slice() {
+  _oneof_case_[0] = kSlice;
+}
+inline void Data::clear_slice() {
+  if (has_slice()) {
+    delete RecordType_.slice_;
+    clear_has_RecordType();
+  }
+}
+inline  const ::fast::Slice& Data::slice() const {
+  // @@protoc_insertion_point(field_get:fast.Data.slice)
+  return has_slice()
+      ? *RecordType_.slice_
+      : ::fast::Slice::default_instance();
+}
+inline ::fast::Slice* Data::mutable_slice() {
+  if (!has_slice()) {
+    clear_RecordType();
+    set_has_slice();
+    RecordType_.slice_ = new ::fast::Slice;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Data.slice)
+  return RecordType_.slice_;
+}
+inline ::fast::Slice* Data::release_slice() {
+  // @@protoc_insertion_point(field_release:fast.Data.slice)
+  if (has_slice()) {
+    clear_has_RecordType();
+    ::fast::Slice* temp = RecordType_.slice_;
+    RecordType_.slice_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+inline void Data::set_allocated_slice(::fast::Slice* slice) {
+  clear_RecordType();
+  if (slice) {
+    set_has_slice();
+    RecordType_.slice_ = slice;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.slice)
+}
+
 inline bool Data::has_RecordType() const {
   return RecordType_case() != RECORDTYPE_NOT_SET;
 }
@@ -7435,6 +9012,18 @@ inline Data::RecordTypeCase Data::RecordType_case() const {
   return Data::RecordTypeCase(_oneof_case_[0]);
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
@@ -7514,6 +9103,11 @@ template <> struct is_proto_enum< ::fast::Pairs_Pair_CloneType> : ::google::prot
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fast::Pairs_Pair_CloneType>() {
   return ::fast::Pairs_Pair_CloneType_descriptor();
+}
+template <> struct is_proto_enum< ::fast::Slice_ChangeType> : ::google::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::fast::Slice_ChangeType>() {
+  return ::fast::Slice_ChangeType_descriptor();
 }
 
 }  // namespace protobuf

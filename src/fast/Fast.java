@@ -25288,6 +25288,6411 @@ public final class Fast {
 
   }
 
+  public interface SliceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:fast.Slice)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    java.util.List<fast.Fast.Slice.SourceFile> 
+        getFileList();
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    fast.Fast.Slice.SourceFile getFile(int index);
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    int getFileCount();
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    java.util.List<? extends fast.Fast.Slice.SourceFileOrBuilder> 
+        getFileOrBuilderList();
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    fast.Fast.Slice.SourceFileOrBuilder getFileOrBuilder(
+        int index);
+
+    /**
+     * <code>string hash = 2;</code>
+     */
+    java.lang.String getHash();
+    /**
+     * <code>string hash = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getHashBytes();
+  }
+  /**
+   * Protobuf type {@code fast.Slice}
+   */
+  public  static final class Slice extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:fast.Slice)
+      SliceOrBuilder {
+    // Use Slice.newBuilder() to construct.
+    private Slice(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Slice() {
+      file_ = java.util.Collections.emptyList();
+      hash_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Slice(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                file_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              file_.add(
+                  input.readMessage(fast.Fast.Slice.SourceFile.parser(), extensionRegistry));
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              hash_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          file_ = java.util.Collections.unmodifiableList(file_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return fast.Fast.internal_static_fast_Slice_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return fast.Fast.internal_static_fast_Slice_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              fast.Fast.Slice.class, fast.Fast.Slice.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code fast.Slice.ChangeType}
+     */
+    public enum ChangeType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>UNCHANGED = 0;</code>
+       */
+      UNCHANGED(0),
+      /**
+       * <code>ADD = 1;</code>
+       */
+      ADD(1),
+      /**
+       * <code>DEL = 2;</code>
+       */
+      DEL(2),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>UNCHANGED = 0;</code>
+       */
+      public static final int UNCHANGED_VALUE = 0;
+      /**
+       * <code>ADD = 1;</code>
+       */
+      public static final int ADD_VALUE = 1;
+      /**
+       * <code>DEL = 2;</code>
+       */
+      public static final int DEL_VALUE = 2;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ChangeType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ChangeType forNumber(int value) {
+        switch (value) {
+          case 0: return UNCHANGED;
+          case 1: return ADD;
+          case 2: return DEL;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ChangeType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ChangeType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ChangeType>() {
+              public ChangeType findValueByNumber(int number) {
+                return ChangeType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return fast.Fast.Slice.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final ChangeType[] VALUES = values();
+
+      public static ChangeType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private ChangeType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:fast.Slice.ChangeType)
+    }
+
+    public interface SourceFileOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:fast.Slice.SourceFile)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      java.util.List<fast.Fast.Slice.SourceFile.Function> 
+          getFunctionList();
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      fast.Fast.Slice.SourceFile.Function getFunction(int index);
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      int getFunctionCount();
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      java.util.List<? extends fast.Fast.Slice.SourceFile.FunctionOrBuilder> 
+          getFunctionOrBuilderList();
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      fast.Fast.Slice.SourceFile.FunctionOrBuilder getFunctionOrBuilder(
+          int index);
+
+      /**
+       * <code>string name = 2;</code>
+       */
+      java.lang.String getName();
+      /**
+       * <code>string name = 2;</code>
+       */
+      com.google.protobuf.ByteString
+          getNameBytes();
+
+      /**
+       * <code>.fast.Slice.ChangeType type = 3;</code>
+       */
+      int getTypeValue();
+      /**
+       * <code>.fast.Slice.ChangeType type = 3;</code>
+       */
+      fast.Fast.Slice.ChangeType getType();
+    }
+    /**
+     * Protobuf type {@code fast.Slice.SourceFile}
+     */
+    public  static final class SourceFile extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:fast.Slice.SourceFile)
+        SourceFileOrBuilder {
+      // Use SourceFile.newBuilder() to construct.
+      private SourceFile(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private SourceFile() {
+        function_ = java.util.Collections.emptyList();
+        name_ = "";
+        type_ = 0;
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+      }
+      private SourceFile(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        int mutable_bitField0_ = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!input.skipField(tag)) {
+                  done = true;
+                }
+                break;
+              }
+              case 10: {
+                if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                  function_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function>();
+                  mutable_bitField0_ |= 0x00000001;
+                }
+                function_.add(
+                    input.readMessage(fast.Fast.Slice.SourceFile.Function.parser(), extensionRegistry));
+                break;
+              }
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                name_ = s;
+                break;
+              }
+              case 24: {
+                int rawValue = input.readEnum();
+
+                type_ = rawValue;
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+            function_ = java.util.Collections.unmodifiableList(function_);
+          }
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Slice_SourceFile_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Slice_SourceFile_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Slice.SourceFile.class, fast.Fast.Slice.SourceFile.Builder.class);
+      }
+
+      public interface FunctionOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:fast.Slice.SourceFile.Function)
+          com.google.protobuf.MessageOrBuilder {
+
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        java.util.List<fast.Fast.Slice.SourceFile.Function.Variable> 
+            getVariableList();
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        fast.Fast.Slice.SourceFile.Function.Variable getVariable(int index);
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        int getVariableCount();
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        java.util.List<? extends fast.Fast.Slice.SourceFile.Function.VariableOrBuilder> 
+            getVariableOrBuilderList();
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        fast.Fast.Slice.SourceFile.Function.VariableOrBuilder getVariableOrBuilder(
+            int index);
+
+        /**
+         * <code>string name = 2;</code>
+         */
+        java.lang.String getName();
+        /**
+         * <code>string name = 2;</code>
+         */
+        com.google.protobuf.ByteString
+            getNameBytes();
+
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        int getTypeValue();
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        fast.Fast.Slice.ChangeType getType();
+      }
+      /**
+       * Protobuf type {@code fast.Slice.SourceFile.Function}
+       */
+      public  static final class Function extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:fast.Slice.SourceFile.Function)
+          FunctionOrBuilder {
+        // Use Function.newBuilder() to construct.
+        private Function(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+          super(builder);
+        }
+        private Function() {
+          variable_ = java.util.Collections.emptyList();
+          name_ = "";
+          type_ = 0;
+        }
+
+        @java.lang.Override
+        public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+          return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+        }
+        private Function(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          this();
+          int mutable_bitField0_ = 0;
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!input.skipField(tag)) {
+                    done = true;
+                  }
+                  break;
+                }
+                case 10: {
+                  if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                    variable_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable>();
+                    mutable_bitField0_ |= 0x00000001;
+                  }
+                  variable_.add(
+                      input.readMessage(fast.Fast.Slice.SourceFile.Function.Variable.parser(), extensionRegistry));
+                  break;
+                }
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+
+                  name_ = s;
+                  break;
+                }
+                case 24: {
+                  int rawValue = input.readEnum();
+
+                  type_ = rawValue;
+                  break;
+                }
+              }
+            }
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(this);
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+          } finally {
+            if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              variable_ = java.util.Collections.unmodifiableList(variable_);
+            }
+            makeExtensionsImmutable();
+          }
+        }
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Slice_SourceFile_Function_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Slice_SourceFile_Function_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Slice.SourceFile.Function.class, fast.Fast.Slice.SourceFile.Function.Builder.class);
+        }
+
+        public interface VariableOrBuilder extends
+            // @@protoc_insertion_point(interface_extends:fast.Slice.SourceFile.Function.Variable)
+            com.google.protobuf.MessageOrBuilder {
+
+          /**
+           * <code>string name = 1;</code>
+           */
+          java.lang.String getName();
+          /**
+           * <code>string name = 1;</code>
+           */
+          com.google.protobuf.ByteString
+              getNameBytes();
+
+          /**
+           * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+           */
+          boolean hasPos();
+          /**
+           * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.Position getPos();
+          /**
+           * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getPosOrBuilder();
+
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          int getTypeValue();
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          fast.Fast.Slice.ChangeType getType();
+
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> 
+              getDefList();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.Position getDef(int index);
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          int getDefCount();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+              getDefOrBuilderList();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getDefOrBuilder(
+              int index);
+
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> 
+              getUseList();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.Position getUse(int index);
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          int getUseCount();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+              getUseOrBuilderList();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getUseOrBuilder(
+              int index);
+
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          java.util.List<java.lang.String>
+              getDvarList();
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          int getDvarCount();
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          java.lang.String getDvar(int index);
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          com.google.protobuf.ByteString
+              getDvarBytes(int index);
+
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          java.util.List<java.lang.String>
+              getAliasList();
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          int getAliasCount();
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          java.lang.String getAlias(int index);
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          com.google.protobuf.ByteString
+              getAliasBytes(int index);
+
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl> 
+              getCfuncList();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl getCfunc(int index);
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          int getCfuncCount();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder> 
+              getCfuncOrBuilderList();
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder getCfuncOrBuilder(
+              int index);
+        }
+        /**
+         * Protobuf type {@code fast.Slice.SourceFile.Function.Variable}
+         */
+        public  static final class Variable extends
+            com.google.protobuf.GeneratedMessageV3 implements
+            // @@protoc_insertion_point(message_implements:fast.Slice.SourceFile.Function.Variable)
+            VariableOrBuilder {
+          // Use Variable.newBuilder() to construct.
+          private Variable(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+            super(builder);
+          }
+          private Variable() {
+            name_ = "";
+            type_ = 0;
+            def_ = java.util.Collections.emptyList();
+            use_ = java.util.Collections.emptyList();
+            dvar_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            alias_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            cfunc_ = java.util.Collections.emptyList();
+          }
+
+          @java.lang.Override
+          public final com.google.protobuf.UnknownFieldSet
+          getUnknownFields() {
+            return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+          }
+          private Variable(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            this();
+            int mutable_bitField0_ = 0;
+            try {
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  default: {
+                    if (!input.skipField(tag)) {
+                      done = true;
+                    }
+                    break;
+                  }
+                  case 10: {
+                    java.lang.String s = input.readStringRequireUtf8();
+
+                    name_ = s;
+                    break;
+                  }
+                  case 18: {
+                    fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder subBuilder = null;
+                    if (pos_ != null) {
+                      subBuilder = pos_.toBuilder();
+                    }
+                    pos_ = input.readMessage(fast.Fast.Slice.SourceFile.Function.Variable.Position.parser(), extensionRegistry);
+                    if (subBuilder != null) {
+                      subBuilder.mergeFrom(pos_);
+                      pos_ = subBuilder.buildPartial();
+                    }
+
+                    break;
+                  }
+                  case 24: {
+                    int rawValue = input.readEnum();
+
+                    type_ = rawValue;
+                    break;
+                  }
+                  case 34: {
+                    if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                      def_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable.Position>();
+                      mutable_bitField0_ |= 0x00000008;
+                    }
+                    def_.add(
+                        input.readMessage(fast.Fast.Slice.SourceFile.Function.Variable.Position.parser(), extensionRegistry));
+                    break;
+                  }
+                  case 42: {
+                    if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                      use_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable.Position>();
+                      mutable_bitField0_ |= 0x00000010;
+                    }
+                    use_.add(
+                        input.readMessage(fast.Fast.Slice.SourceFile.Function.Variable.Position.parser(), extensionRegistry));
+                    break;
+                  }
+                  case 50: {
+                    java.lang.String s = input.readStringRequireUtf8();
+                    if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                      dvar_ = new com.google.protobuf.LazyStringArrayList();
+                      mutable_bitField0_ |= 0x00000020;
+                    }
+                    dvar_.add(s);
+                    break;
+                  }
+                  case 58: {
+                    java.lang.String s = input.readStringRequireUtf8();
+                    if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                      alias_ = new com.google.protobuf.LazyStringArrayList();
+                      mutable_bitField0_ |= 0x00000040;
+                    }
+                    alias_.add(s);
+                    break;
+                  }
+                  case 66: {
+                    if (!((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                      cfunc_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl>();
+                      mutable_bitField0_ |= 0x00000080;
+                    }
+                    cfunc_.add(
+                        input.readMessage(fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.parser(), extensionRegistry));
+                    break;
+                  }
+                }
+              }
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(this);
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(
+                  e).setUnfinishedMessage(this);
+            } finally {
+              if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                def_ = java.util.Collections.unmodifiableList(def_);
+              }
+              if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+                use_ = java.util.Collections.unmodifiableList(use_);
+              }
+              if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+                dvar_ = dvar_.getUnmodifiableView();
+              }
+              if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
+                alias_ = alias_.getUnmodifiableView();
+              }
+              if (((mutable_bitField0_ & 0x00000080) == 0x00000080)) {
+                cfunc_ = java.util.Collections.unmodifiableList(cfunc_);
+              }
+              makeExtensionsImmutable();
+            }
+          }
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Slice.SourceFile.Function.Variable.class, fast.Fast.Slice.SourceFile.Function.Variable.Builder.class);
+          }
+
+          public interface PositionOrBuilder extends
+              // @@protoc_insertion_point(interface_extends:fast.Slice.SourceFile.Function.Variable.Position)
+              com.google.protobuf.MessageOrBuilder {
+
+            /**
+             * <code>int32 lineno = 1;</code>
+             */
+            int getLineno();
+
+            /**
+             * <code>.fast.Slice.ChangeType type = 2;</code>
+             */
+            int getTypeValue();
+            /**
+             * <code>.fast.Slice.ChangeType type = 2;</code>
+             */
+            fast.Fast.Slice.ChangeType getType();
+
+            /**
+             * <code>int32 delta_lineno = 5;</code>
+             */
+            int getDeltaLineno();
+          }
+          /**
+           * Protobuf type {@code fast.Slice.SourceFile.Function.Variable.Position}
+           */
+          public  static final class Position extends
+              com.google.protobuf.GeneratedMessageV3 implements
+              // @@protoc_insertion_point(message_implements:fast.Slice.SourceFile.Function.Variable.Position)
+              PositionOrBuilder {
+            // Use Position.newBuilder() to construct.
+            private Position(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+              super(builder);
+            }
+            private Position() {
+              lineno_ = 0;
+              type_ = 0;
+              deltaLineno_ = 0;
+            }
+
+            @java.lang.Override
+            public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+              return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+            }
+            private Position(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              this();
+              int mutable_bitField0_ = 0;
+              try {
+                boolean done = false;
+                while (!done) {
+                  int tag = input.readTag();
+                  switch (tag) {
+                    case 0:
+                      done = true;
+                      break;
+                    default: {
+                      if (!input.skipField(tag)) {
+                        done = true;
+                      }
+                      break;
+                    }
+                    case 8: {
+
+                      lineno_ = input.readInt32();
+                      break;
+                    }
+                    case 16: {
+                      int rawValue = input.readEnum();
+
+                      type_ = rawValue;
+                      break;
+                    }
+                    case 40: {
+
+                      deltaLineno_ = input.readInt32();
+                      break;
+                    }
+                  }
+                }
+              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+              } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+              } finally {
+                makeExtensionsImmutable();
+              }
+            }
+            public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_Position_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_Position_fieldAccessorTable
+                  .ensureFieldAccessorsInitialized(
+                      fast.Fast.Slice.SourceFile.Function.Variable.Position.class, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder.class);
+            }
+
+            public static final int LINENO_FIELD_NUMBER = 1;
+            private int lineno_;
+            /**
+             * <code>int32 lineno = 1;</code>
+             */
+            public int getLineno() {
+              return lineno_;
+            }
+
+            public static final int TYPE_FIELD_NUMBER = 2;
+            private int type_;
+            /**
+             * <code>.fast.Slice.ChangeType type = 2;</code>
+             */
+            public int getTypeValue() {
+              return type_;
+            }
+            /**
+             * <code>.fast.Slice.ChangeType type = 2;</code>
+             */
+            public fast.Fast.Slice.ChangeType getType() {
+              fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+              return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+            }
+
+            public static final int DELTA_LINENO_FIELD_NUMBER = 5;
+            private int deltaLineno_;
+            /**
+             * <code>int32 delta_lineno = 5;</code>
+             */
+            public int getDeltaLineno() {
+              return deltaLineno_;
+            }
+
+            private byte memoizedIsInitialized = -1;
+            public final boolean isInitialized() {
+              byte isInitialized = memoizedIsInitialized;
+              if (isInitialized == 1) return true;
+              if (isInitialized == 0) return false;
+
+              memoizedIsInitialized = 1;
+              return true;
+            }
+
+            public void writeTo(com.google.protobuf.CodedOutputStream output)
+                                throws java.io.IOException {
+              if (lineno_ != 0) {
+                output.writeInt32(1, lineno_);
+              }
+              if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+                output.writeEnum(2, type_);
+              }
+              if (deltaLineno_ != 0) {
+                output.writeInt32(5, deltaLineno_);
+              }
+            }
+
+            public int getSerializedSize() {
+              int size = memoizedSize;
+              if (size != -1) return size;
+
+              size = 0;
+              if (lineno_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeInt32Size(1, lineno_);
+              }
+              if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeEnumSize(2, type_);
+              }
+              if (deltaLineno_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeInt32Size(5, deltaLineno_);
+              }
+              memoizedSize = size;
+              return size;
+            }
+
+            private static final long serialVersionUID = 0L;
+            @java.lang.Override
+            public boolean equals(final java.lang.Object obj) {
+              if (obj == this) {
+               return true;
+              }
+              if (!(obj instanceof fast.Fast.Slice.SourceFile.Function.Variable.Position)) {
+                return super.equals(obj);
+              }
+              fast.Fast.Slice.SourceFile.Function.Variable.Position other = (fast.Fast.Slice.SourceFile.Function.Variable.Position) obj;
+
+              boolean result = true;
+              result = result && (getLineno()
+                  == other.getLineno());
+              result = result && type_ == other.type_;
+              result = result && (getDeltaLineno()
+                  == other.getDeltaLineno());
+              return result;
+            }
+
+            @java.lang.Override
+            public int hashCode() {
+              if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+              }
+              int hash = 41;
+              hash = (19 * hash) + getDescriptor().hashCode();
+              hash = (37 * hash) + LINENO_FIELD_NUMBER;
+              hash = (53 * hash) + getLineno();
+              hash = (37 * hash) + TYPE_FIELD_NUMBER;
+              hash = (53 * hash) + type_;
+              hash = (37 * hash) + DELTA_LINENO_FIELD_NUMBER;
+              hash = (53 * hash) + getDeltaLineno();
+              hash = (29 * hash) + unknownFields.hashCode();
+              memoizedHashCode = hash;
+              return hash;
+            }
+
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseDelimitedWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+
+            public Builder newBuilderForType() { return newBuilder(); }
+            public static Builder newBuilder() {
+              return DEFAULT_INSTANCE.toBuilder();
+            }
+            public static Builder newBuilder(fast.Fast.Slice.SourceFile.Function.Variable.Position prototype) {
+              return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+            }
+            public Builder toBuilder() {
+              return this == DEFAULT_INSTANCE
+                  ? new Builder() : new Builder().mergeFrom(this);
+            }
+
+            @java.lang.Override
+            protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              Builder builder = new Builder(parent);
+              return builder;
+            }
+            /**
+             * Protobuf type {@code fast.Slice.SourceFile.Function.Variable.Position}
+             */
+            public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:fast.Slice.SourceFile.Function.Variable.Position)
+                fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder {
+              public static final com.google.protobuf.Descriptors.Descriptor
+                  getDescriptor() {
+                return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_Position_descriptor;
+              }
+
+              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                  internalGetFieldAccessorTable() {
+                return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_Position_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                        fast.Fast.Slice.SourceFile.Function.Variable.Position.class, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder.class);
+              }
+
+              // Construct using fast.Fast.Slice.SourceFile.Function.Variable.Position.newBuilder()
+              private Builder() {
+                maybeForceBuilderInitialization();
+              }
+
+              private Builder(
+                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+              }
+              private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+              }
+              public Builder clear() {
+                super.clear();
+                lineno_ = 0;
+
+                type_ = 0;
+
+                deltaLineno_ = 0;
+
+                return this;
+              }
+
+              public com.google.protobuf.Descriptors.Descriptor
+                  getDescriptorForType() {
+                return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_Position_descriptor;
+              }
+
+              public fast.Fast.Slice.SourceFile.Function.Variable.Position getDefaultInstanceForType() {
+                return fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance();
+              }
+
+              public fast.Fast.Slice.SourceFile.Function.Variable.Position build() {
+                fast.Fast.Slice.SourceFile.Function.Variable.Position result = buildPartial();
+                if (!result.isInitialized()) {
+                  throw newUninitializedMessageException(result);
+                }
+                return result;
+              }
+
+              public fast.Fast.Slice.SourceFile.Function.Variable.Position buildPartial() {
+                fast.Fast.Slice.SourceFile.Function.Variable.Position result = new fast.Fast.Slice.SourceFile.Function.Variable.Position(this);
+                result.lineno_ = lineno_;
+                result.type_ = type_;
+                result.deltaLineno_ = deltaLineno_;
+                onBuilt();
+                return result;
+              }
+
+              public Builder clone() {
+                return (Builder) super.clone();
+              }
+              public Builder setField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  Object value) {
+                return (Builder) super.setField(field, value);
+              }
+              public Builder clearField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+              }
+              public Builder clearOneof(
+                  com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+              }
+              public Builder setRepeatedField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+              }
+              public Builder addRepeatedField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+              }
+              public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof fast.Fast.Slice.SourceFile.Function.Variable.Position) {
+                  return mergeFrom((fast.Fast.Slice.SourceFile.Function.Variable.Position)other);
+                } else {
+                  super.mergeFrom(other);
+                  return this;
+                }
+              }
+
+              public Builder mergeFrom(fast.Fast.Slice.SourceFile.Function.Variable.Position other) {
+                if (other == fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance()) return this;
+                if (other.getLineno() != 0) {
+                  setLineno(other.getLineno());
+                }
+                if (other.type_ != 0) {
+                  setTypeValue(other.getTypeValue());
+                }
+                if (other.getDeltaLineno() != 0) {
+                  setDeltaLineno(other.getDeltaLineno());
+                }
+                onChanged();
+                return this;
+              }
+
+              public final boolean isInitialized() {
+                return true;
+              }
+
+              public Builder mergeFrom(
+                  com.google.protobuf.CodedInputStream input,
+                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                  throws java.io.IOException {
+                fast.Fast.Slice.SourceFile.Function.Variable.Position parsedMessage = null;
+                try {
+                  parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  parsedMessage = (fast.Fast.Slice.SourceFile.Function.Variable.Position) e.getUnfinishedMessage();
+                  throw e.unwrapIOException();
+                } finally {
+                  if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                  }
+                }
+                return this;
+              }
+
+              private int lineno_ ;
+              /**
+               * <code>int32 lineno = 1;</code>
+               */
+              public int getLineno() {
+                return lineno_;
+              }
+              /**
+               * <code>int32 lineno = 1;</code>
+               */
+              public Builder setLineno(int value) {
+                
+                lineno_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>int32 lineno = 1;</code>
+               */
+              public Builder clearLineno() {
+                
+                lineno_ = 0;
+                onChanged();
+                return this;
+              }
+
+              private int type_ = 0;
+              /**
+               * <code>.fast.Slice.ChangeType type = 2;</code>
+               */
+              public int getTypeValue() {
+                return type_;
+              }
+              /**
+               * <code>.fast.Slice.ChangeType type = 2;</code>
+               */
+              public Builder setTypeValue(int value) {
+                type_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>.fast.Slice.ChangeType type = 2;</code>
+               */
+              public fast.Fast.Slice.ChangeType getType() {
+                fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+                return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+              }
+              /**
+               * <code>.fast.Slice.ChangeType type = 2;</code>
+               */
+              public Builder setType(fast.Fast.Slice.ChangeType value) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                
+                type_ = value.getNumber();
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>.fast.Slice.ChangeType type = 2;</code>
+               */
+              public Builder clearType() {
+                
+                type_ = 0;
+                onChanged();
+                return this;
+              }
+
+              private int deltaLineno_ ;
+              /**
+               * <code>int32 delta_lineno = 5;</code>
+               */
+              public int getDeltaLineno() {
+                return deltaLineno_;
+              }
+              /**
+               * <code>int32 delta_lineno = 5;</code>
+               */
+              public Builder setDeltaLineno(int value) {
+                
+                deltaLineno_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>int32 delta_lineno = 5;</code>
+               */
+              public Builder clearDeltaLineno() {
+                
+                deltaLineno_ = 0;
+                onChanged();
+                return this;
+              }
+              public final Builder setUnknownFields(
+                  final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+              }
+
+              public final Builder mergeUnknownFields(
+                  final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+              }
+
+
+              // @@protoc_insertion_point(builder_scope:fast.Slice.SourceFile.Function.Variable.Position)
+            }
+
+            // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function.Variable.Position)
+            private static final fast.Fast.Slice.SourceFile.Function.Variable.Position DEFAULT_INSTANCE;
+            static {
+              DEFAULT_INSTANCE = new fast.Fast.Slice.SourceFile.Function.Variable.Position();
+            }
+
+            public static fast.Fast.Slice.SourceFile.Function.Variable.Position getDefaultInstance() {
+              return DEFAULT_INSTANCE;
+            }
+
+            private static final com.google.protobuf.Parser<Position>
+                PARSER = new com.google.protobuf.AbstractParser<Position>() {
+              public Position parsePartialFrom(
+                  com.google.protobuf.CodedInputStream input,
+                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                  throws com.google.protobuf.InvalidProtocolBufferException {
+                  return new Position(input, extensionRegistry);
+              }
+            };
+
+            public static com.google.protobuf.Parser<Position> parser() {
+              return PARSER;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Parser<Position> getParserForType() {
+              return PARSER;
+            }
+
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position getDefaultInstanceForType() {
+              return DEFAULT_INSTANCE;
+            }
+
+          }
+
+          public interface FunctionDeclOrBuilder extends
+              // @@protoc_insertion_point(interface_extends:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+              com.google.protobuf.MessageOrBuilder {
+
+            /**
+             * <code>string name = 1;</code>
+             */
+            java.lang.String getName();
+            /**
+             * <code>string name = 1;</code>
+             */
+            com.google.protobuf.ByteString
+                getNameBytes();
+
+            /**
+             * <code>int32 lineno = 2;</code>
+             */
+            int getLineno();
+          }
+          /**
+           * Protobuf type {@code fast.Slice.SourceFile.Function.Variable.FunctionDecl}
+           */
+          public  static final class FunctionDecl extends
+              com.google.protobuf.GeneratedMessageV3 implements
+              // @@protoc_insertion_point(message_implements:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+              FunctionDeclOrBuilder {
+            // Use FunctionDecl.newBuilder() to construct.
+            private FunctionDecl(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+              super(builder);
+            }
+            private FunctionDecl() {
+              name_ = "";
+              lineno_ = 0;
+            }
+
+            @java.lang.Override
+            public final com.google.protobuf.UnknownFieldSet
+            getUnknownFields() {
+              return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+            }
+            private FunctionDecl(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              this();
+              int mutable_bitField0_ = 0;
+              try {
+                boolean done = false;
+                while (!done) {
+                  int tag = input.readTag();
+                  switch (tag) {
+                    case 0:
+                      done = true;
+                      break;
+                    default: {
+                      if (!input.skipField(tag)) {
+                        done = true;
+                      }
+                      break;
+                    }
+                    case 10: {
+                      java.lang.String s = input.readStringRequireUtf8();
+
+                      name_ = s;
+                      break;
+                    }
+                    case 16: {
+
+                      lineno_ = input.readInt32();
+                      break;
+                    }
+                  }
+                }
+              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                throw e.setUnfinishedMessage(this);
+              } catch (java.io.IOException e) {
+                throw new com.google.protobuf.InvalidProtocolBufferException(
+                    e).setUnfinishedMessage(this);
+              } finally {
+                makeExtensionsImmutable();
+              }
+            }
+            public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_fieldAccessorTable
+                  .ensureFieldAccessorsInitialized(
+                      fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.class, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder.class);
+            }
+
+            public static final int NAME_FIELD_NUMBER = 1;
+            private volatile java.lang.Object name_;
+            /**
+             * <code>string name = 1;</code>
+             */
+            public java.lang.String getName() {
+              java.lang.Object ref = name_;
+              if (ref instanceof java.lang.String) {
+                return (java.lang.String) ref;
+              } else {
+                com.google.protobuf.ByteString bs = 
+                    (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                name_ = s;
+                return s;
+              }
+            }
+            /**
+             * <code>string name = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+                getNameBytes() {
+              java.lang.Object ref = name_;
+              if (ref instanceof java.lang.String) {
+                com.google.protobuf.ByteString b = 
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
+                name_ = b;
+                return b;
+              } else {
+                return (com.google.protobuf.ByteString) ref;
+              }
+            }
+
+            public static final int LINENO_FIELD_NUMBER = 2;
+            private int lineno_;
+            /**
+             * <code>int32 lineno = 2;</code>
+             */
+            public int getLineno() {
+              return lineno_;
+            }
+
+            private byte memoizedIsInitialized = -1;
+            public final boolean isInitialized() {
+              byte isInitialized = memoizedIsInitialized;
+              if (isInitialized == 1) return true;
+              if (isInitialized == 0) return false;
+
+              memoizedIsInitialized = 1;
+              return true;
+            }
+
+            public void writeTo(com.google.protobuf.CodedOutputStream output)
+                                throws java.io.IOException {
+              if (!getNameBytes().isEmpty()) {
+                com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+              }
+              if (lineno_ != 0) {
+                output.writeInt32(2, lineno_);
+              }
+            }
+
+            public int getSerializedSize() {
+              int size = memoizedSize;
+              if (size != -1) return size;
+
+              size = 0;
+              if (!getNameBytes().isEmpty()) {
+                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+              }
+              if (lineno_ != 0) {
+                size += com.google.protobuf.CodedOutputStream
+                  .computeInt32Size(2, lineno_);
+              }
+              memoizedSize = size;
+              return size;
+            }
+
+            private static final long serialVersionUID = 0L;
+            @java.lang.Override
+            public boolean equals(final java.lang.Object obj) {
+              if (obj == this) {
+               return true;
+              }
+              if (!(obj instanceof fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl)) {
+                return super.equals(obj);
+              }
+              fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl other = (fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl) obj;
+
+              boolean result = true;
+              result = result && getName()
+                  .equals(other.getName());
+              result = result && (getLineno()
+                  == other.getLineno());
+              return result;
+            }
+
+            @java.lang.Override
+            public int hashCode() {
+              if (memoizedHashCode != 0) {
+                return memoizedHashCode;
+              }
+              int hash = 41;
+              hash = (19 * hash) + getDescriptor().hashCode();
+              hash = (37 * hash) + NAME_FIELD_NUMBER;
+              hash = (53 * hash) + getName().hashCode();
+              hash = (37 * hash) + LINENO_FIELD_NUMBER;
+              hash = (53 * hash) + getLineno();
+              hash = (29 * hash) + unknownFields.hashCode();
+              memoizedHashCode = hash;
+              return hash;
+            }
+
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                java.nio.ByteBuffer data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                java.nio.ByteBuffer data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                com.google.protobuf.ByteString data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                com.google.protobuf.ByteString data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(byte[] data)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                byte[] data,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+              return PARSER.parseFrom(data, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(java.io.InputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseDelimitedFrom(java.io.InputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseDelimitedWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseDelimitedFrom(
+                java.io.InputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                com.google.protobuf.CodedInputStream input)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input);
+            }
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parseFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              return com.google.protobuf.GeneratedMessageV3
+                  .parseWithIOException(PARSER, input, extensionRegistry);
+            }
+
+            public Builder newBuilderForType() { return newBuilder(); }
+            public static Builder newBuilder() {
+              return DEFAULT_INSTANCE.toBuilder();
+            }
+            public static Builder newBuilder(fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl prototype) {
+              return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+            }
+            public Builder toBuilder() {
+              return this == DEFAULT_INSTANCE
+                  ? new Builder() : new Builder().mergeFrom(this);
+            }
+
+            @java.lang.Override
+            protected Builder newBuilderForType(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              Builder builder = new Builder(parent);
+              return builder;
+            }
+            /**
+             * Protobuf type {@code fast.Slice.SourceFile.Function.Variable.FunctionDecl}
+             */
+            public static final class Builder extends
+                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+                // @@protoc_insertion_point(builder_implements:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder {
+              public static final com.google.protobuf.Descriptors.Descriptor
+                  getDescriptor() {
+                return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_descriptor;
+              }
+
+              protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                  internalGetFieldAccessorTable() {
+                return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_fieldAccessorTable
+                    .ensureFieldAccessorsInitialized(
+                        fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.class, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder.class);
+              }
+
+              // Construct using fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.newBuilder()
+              private Builder() {
+                maybeForceBuilderInitialization();
+              }
+
+              private Builder(
+                  com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                super(parent);
+                maybeForceBuilderInitialization();
+              }
+              private void maybeForceBuilderInitialization() {
+                if (com.google.protobuf.GeneratedMessageV3
+                        .alwaysUseFieldBuilders) {
+                }
+              }
+              public Builder clear() {
+                super.clear();
+                name_ = "";
+
+                lineno_ = 0;
+
+                return this;
+              }
+
+              public com.google.protobuf.Descriptors.Descriptor
+                  getDescriptorForType() {
+                return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_descriptor;
+              }
+
+              public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl getDefaultInstanceForType() {
+                return fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.getDefaultInstance();
+              }
+
+              public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl build() {
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl result = buildPartial();
+                if (!result.isInitialized()) {
+                  throw newUninitializedMessageException(result);
+                }
+                return result;
+              }
+
+              public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl buildPartial() {
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl result = new fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl(this);
+                result.name_ = name_;
+                result.lineno_ = lineno_;
+                onBuilt();
+                return result;
+              }
+
+              public Builder clone() {
+                return (Builder) super.clone();
+              }
+              public Builder setField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  Object value) {
+                return (Builder) super.setField(field, value);
+              }
+              public Builder clearField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field) {
+                return (Builder) super.clearField(field);
+              }
+              public Builder clearOneof(
+                  com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+                return (Builder) super.clearOneof(oneof);
+              }
+              public Builder setRepeatedField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  int index, Object value) {
+                return (Builder) super.setRepeatedField(field, index, value);
+              }
+              public Builder addRepeatedField(
+                  com.google.protobuf.Descriptors.FieldDescriptor field,
+                  Object value) {
+                return (Builder) super.addRepeatedField(field, value);
+              }
+              public Builder mergeFrom(com.google.protobuf.Message other) {
+                if (other instanceof fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl) {
+                  return mergeFrom((fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl)other);
+                } else {
+                  super.mergeFrom(other);
+                  return this;
+                }
+              }
+
+              public Builder mergeFrom(fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl other) {
+                if (other == fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.getDefaultInstance()) return this;
+                if (!other.getName().isEmpty()) {
+                  name_ = other.name_;
+                  onChanged();
+                }
+                if (other.getLineno() != 0) {
+                  setLineno(other.getLineno());
+                }
+                onChanged();
+                return this;
+              }
+
+              public final boolean isInitialized() {
+                return true;
+              }
+
+              public Builder mergeFrom(
+                  com.google.protobuf.CodedInputStream input,
+                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                  throws java.io.IOException {
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl parsedMessage = null;
+                try {
+                  parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                  parsedMessage = (fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl) e.getUnfinishedMessage();
+                  throw e.unwrapIOException();
+                } finally {
+                  if (parsedMessage != null) {
+                    mergeFrom(parsedMessage);
+                  }
+                }
+                return this;
+              }
+
+              private java.lang.Object name_ = "";
+              /**
+               * <code>string name = 1;</code>
+               */
+              public java.lang.String getName() {
+                java.lang.Object ref = name_;
+                if (!(ref instanceof java.lang.String)) {
+                  com.google.protobuf.ByteString bs =
+                      (com.google.protobuf.ByteString) ref;
+                  java.lang.String s = bs.toStringUtf8();
+                  name_ = s;
+                  return s;
+                } else {
+                  return (java.lang.String) ref;
+                }
+              }
+              /**
+               * <code>string name = 1;</code>
+               */
+              public com.google.protobuf.ByteString
+                  getNameBytes() {
+                java.lang.Object ref = name_;
+                if (ref instanceof String) {
+                  com.google.protobuf.ByteString b = 
+                      com.google.protobuf.ByteString.copyFromUtf8(
+                          (java.lang.String) ref);
+                  name_ = b;
+                  return b;
+                } else {
+                  return (com.google.protobuf.ByteString) ref;
+                }
+              }
+              /**
+               * <code>string name = 1;</code>
+               */
+              public Builder setName(
+                  java.lang.String value) {
+                if (value == null) {
+    throw new NullPointerException();
+  }
+  
+                name_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>string name = 1;</code>
+               */
+              public Builder clearName() {
+                
+                name_ = getDefaultInstance().getName();
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>string name = 1;</code>
+               */
+              public Builder setNameBytes(
+                  com.google.protobuf.ByteString value) {
+                if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+                
+                name_ = value;
+                onChanged();
+                return this;
+              }
+
+              private int lineno_ ;
+              /**
+               * <code>int32 lineno = 2;</code>
+               */
+              public int getLineno() {
+                return lineno_;
+              }
+              /**
+               * <code>int32 lineno = 2;</code>
+               */
+              public Builder setLineno(int value) {
+                
+                lineno_ = value;
+                onChanged();
+                return this;
+              }
+              /**
+               * <code>int32 lineno = 2;</code>
+               */
+              public Builder clearLineno() {
+                
+                lineno_ = 0;
+                onChanged();
+                return this;
+              }
+              public final Builder setUnknownFields(
+                  final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+              }
+
+              public final Builder mergeUnknownFields(
+                  final com.google.protobuf.UnknownFieldSet unknownFields) {
+                return this;
+              }
+
+
+              // @@protoc_insertion_point(builder_scope:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+            }
+
+            // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+            private static final fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl DEFAULT_INSTANCE;
+            static {
+              DEFAULT_INSTANCE = new fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl();
+            }
+
+            public static fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl getDefaultInstance() {
+              return DEFAULT_INSTANCE;
+            }
+
+            private static final com.google.protobuf.Parser<FunctionDecl>
+                PARSER = new com.google.protobuf.AbstractParser<FunctionDecl>() {
+              public FunctionDecl parsePartialFrom(
+                  com.google.protobuf.CodedInputStream input,
+                  com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                  throws com.google.protobuf.InvalidProtocolBufferException {
+                  return new FunctionDecl(input, extensionRegistry);
+              }
+            };
+
+            public static com.google.protobuf.Parser<FunctionDecl> parser() {
+              return PARSER;
+            }
+
+            @java.lang.Override
+            public com.google.protobuf.Parser<FunctionDecl> getParserForType() {
+              return PARSER;
+            }
+
+            public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl getDefaultInstanceForType() {
+              return DEFAULT_INSTANCE;
+            }
+
+          }
+
+          private int bitField0_;
+          public static final int NAME_FIELD_NUMBER = 1;
+          private volatile java.lang.Object name_;
+          /**
+           * <code>string name = 1;</code>
+           */
+          public java.lang.String getName() {
+            java.lang.Object ref = name_;
+            if (ref instanceof java.lang.String) {
+              return (java.lang.String) ref;
+            } else {
+              com.google.protobuf.ByteString bs = 
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              name_ = s;
+              return s;
+            }
+          }
+          /**
+           * <code>string name = 1;</code>
+           */
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            java.lang.Object ref = name_;
+            if (ref instanceof java.lang.String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              name_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+
+          public static final int POS_FIELD_NUMBER = 2;
+          private fast.Fast.Slice.SourceFile.Function.Variable.Position pos_;
+          /**
+           * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+           */
+          public boolean hasPos() {
+            return pos_ != null;
+          }
+          /**
+           * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.Position getPos() {
+            return pos_ == null ? fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance() : pos_;
+          }
+          /**
+           * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getPosOrBuilder() {
+            return getPos();
+          }
+
+          public static final int TYPE_FIELD_NUMBER = 3;
+          private int type_;
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public int getTypeValue() {
+            return type_;
+          }
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public fast.Fast.Slice.ChangeType getType() {
+            fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+            return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+          }
+
+          public static final int DEF_FIELD_NUMBER = 4;
+          private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> def_;
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> getDefList() {
+            return def_;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+              getDefOrBuilderList() {
+            return def_;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          public int getDefCount() {
+            return def_.size();
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.Position getDef(int index) {
+            return def_.get(index);
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getDefOrBuilder(
+              int index) {
+            return def_.get(index);
+          }
+
+          public static final int USE_FIELD_NUMBER = 5;
+          private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> use_;
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> getUseList() {
+            return use_;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+              getUseOrBuilderList() {
+            return use_;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          public int getUseCount() {
+            return use_.size();
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.Position getUse(int index) {
+            return use_.get(index);
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getUseOrBuilder(
+              int index) {
+            return use_.get(index);
+          }
+
+          public static final int DVAR_FIELD_NUMBER = 6;
+          private com.google.protobuf.LazyStringList dvar_;
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          public com.google.protobuf.ProtocolStringList
+              getDvarList() {
+            return dvar_;
+          }
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          public int getDvarCount() {
+            return dvar_.size();
+          }
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          public java.lang.String getDvar(int index) {
+            return dvar_.get(index);
+          }
+          /**
+           * <code>repeated string dvar = 6;</code>
+           */
+          public com.google.protobuf.ByteString
+              getDvarBytes(int index) {
+            return dvar_.getByteString(index);
+          }
+
+          public static final int ALIAS_FIELD_NUMBER = 7;
+          private com.google.protobuf.LazyStringList alias_;
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          public com.google.protobuf.ProtocolStringList
+              getAliasList() {
+            return alias_;
+          }
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          public int getAliasCount() {
+            return alias_.size();
+          }
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          public java.lang.String getAlias(int index) {
+            return alias_.get(index);
+          }
+          /**
+           * <code>repeated string alias = 7;</code>
+           */
+          public com.google.protobuf.ByteString
+              getAliasBytes(int index) {
+            return alias_.getByteString(index);
+          }
+
+          public static final int CFUNC_FIELD_NUMBER = 8;
+          private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl> cfunc_;
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl> getCfuncList() {
+            return cfunc_;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder> 
+              getCfuncOrBuilderList() {
+            return cfunc_;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          public int getCfuncCount() {
+            return cfunc_.size();
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl getCfunc(int index) {
+            return cfunc_.get(index);
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder getCfuncOrBuilder(
+              int index) {
+            return cfunc_.get(index);
+          }
+
+          private byte memoizedIsInitialized = -1;
+          public final boolean isInitialized() {
+            byte isInitialized = memoizedIsInitialized;
+            if (isInitialized == 1) return true;
+            if (isInitialized == 0) return false;
+
+            memoizedIsInitialized = 1;
+            return true;
+          }
+
+          public void writeTo(com.google.protobuf.CodedOutputStream output)
+                              throws java.io.IOException {
+            if (!getNameBytes().isEmpty()) {
+              com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+            }
+            if (pos_ != null) {
+              output.writeMessage(2, getPos());
+            }
+            if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+              output.writeEnum(3, type_);
+            }
+            for (int i = 0; i < def_.size(); i++) {
+              output.writeMessage(4, def_.get(i));
+            }
+            for (int i = 0; i < use_.size(); i++) {
+              output.writeMessage(5, use_.get(i));
+            }
+            for (int i = 0; i < dvar_.size(); i++) {
+              com.google.protobuf.GeneratedMessageV3.writeString(output, 6, dvar_.getRaw(i));
+            }
+            for (int i = 0; i < alias_.size(); i++) {
+              com.google.protobuf.GeneratedMessageV3.writeString(output, 7, alias_.getRaw(i));
+            }
+            for (int i = 0; i < cfunc_.size(); i++) {
+              output.writeMessage(8, cfunc_.get(i));
+            }
+          }
+
+          public int getSerializedSize() {
+            int size = memoizedSize;
+            if (size != -1) return size;
+
+            size = 0;
+            if (!getNameBytes().isEmpty()) {
+              size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+            }
+            if (pos_ != null) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(2, getPos());
+            }
+            if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeEnumSize(3, type_);
+            }
+            for (int i = 0; i < def_.size(); i++) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(4, def_.get(i));
+            }
+            for (int i = 0; i < use_.size(); i++) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(5, use_.get(i));
+            }
+            {
+              int dataSize = 0;
+              for (int i = 0; i < dvar_.size(); i++) {
+                dataSize += computeStringSizeNoTag(dvar_.getRaw(i));
+              }
+              size += dataSize;
+              size += 1 * getDvarList().size();
+            }
+            {
+              int dataSize = 0;
+              for (int i = 0; i < alias_.size(); i++) {
+                dataSize += computeStringSizeNoTag(alias_.getRaw(i));
+              }
+              size += dataSize;
+              size += 1 * getAliasList().size();
+            }
+            for (int i = 0; i < cfunc_.size(); i++) {
+              size += com.google.protobuf.CodedOutputStream
+                .computeMessageSize(8, cfunc_.get(i));
+            }
+            memoizedSize = size;
+            return size;
+          }
+
+          private static final long serialVersionUID = 0L;
+          @java.lang.Override
+          public boolean equals(final java.lang.Object obj) {
+            if (obj == this) {
+             return true;
+            }
+            if (!(obj instanceof fast.Fast.Slice.SourceFile.Function.Variable)) {
+              return super.equals(obj);
+            }
+            fast.Fast.Slice.SourceFile.Function.Variable other = (fast.Fast.Slice.SourceFile.Function.Variable) obj;
+
+            boolean result = true;
+            result = result && getName()
+                .equals(other.getName());
+            result = result && (hasPos() == other.hasPos());
+            if (hasPos()) {
+              result = result && getPos()
+                  .equals(other.getPos());
+            }
+            result = result && type_ == other.type_;
+            result = result && getDefList()
+                .equals(other.getDefList());
+            result = result && getUseList()
+                .equals(other.getUseList());
+            result = result && getDvarList()
+                .equals(other.getDvarList());
+            result = result && getAliasList()
+                .equals(other.getAliasList());
+            result = result && getCfuncList()
+                .equals(other.getCfuncList());
+            return result;
+          }
+
+          @java.lang.Override
+          public int hashCode() {
+            if (memoizedHashCode != 0) {
+              return memoizedHashCode;
+            }
+            int hash = 41;
+            hash = (19 * hash) + getDescriptor().hashCode();
+            hash = (37 * hash) + NAME_FIELD_NUMBER;
+            hash = (53 * hash) + getName().hashCode();
+            if (hasPos()) {
+              hash = (37 * hash) + POS_FIELD_NUMBER;
+              hash = (53 * hash) + getPos().hashCode();
+            }
+            hash = (37 * hash) + TYPE_FIELD_NUMBER;
+            hash = (53 * hash) + type_;
+            if (getDefCount() > 0) {
+              hash = (37 * hash) + DEF_FIELD_NUMBER;
+              hash = (53 * hash) + getDefList().hashCode();
+            }
+            if (getUseCount() > 0) {
+              hash = (37 * hash) + USE_FIELD_NUMBER;
+              hash = (53 * hash) + getUseList().hashCode();
+            }
+            if (getDvarCount() > 0) {
+              hash = (37 * hash) + DVAR_FIELD_NUMBER;
+              hash = (53 * hash) + getDvarList().hashCode();
+            }
+            if (getAliasCount() > 0) {
+              hash = (37 * hash) + ALIAS_FIELD_NUMBER;
+              hash = (53 * hash) + getAliasList().hashCode();
+            }
+            if (getCfuncCount() > 0) {
+              hash = (37 * hash) + CFUNC_FIELD_NUMBER;
+              hash = (53 * hash) + getCfuncList().hashCode();
+            }
+            hash = (29 * hash) + unknownFields.hashCode();
+            memoizedHashCode = hash;
+            return hash;
+          }
+
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              java.nio.ByteBuffer data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              java.nio.ByteBuffer data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              com.google.protobuf.ByteString data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              com.google.protobuf.ByteString data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(byte[] data)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              byte[] data,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return PARSER.parseFrom(data, extensionRegistry);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(java.io.InputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseDelimitedFrom(java.io.InputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseDelimitedFrom(
+              java.io.InputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              com.google.protobuf.CodedInputStream input)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input);
+          }
+          public static fast.Fast.Slice.SourceFile.Function.Variable parseFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            return com.google.protobuf.GeneratedMessageV3
+                .parseWithIOException(PARSER, input, extensionRegistry);
+          }
+
+          public Builder newBuilderForType() { return newBuilder(); }
+          public static Builder newBuilder() {
+            return DEFAULT_INSTANCE.toBuilder();
+          }
+          public static Builder newBuilder(fast.Fast.Slice.SourceFile.Function.Variable prototype) {
+            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+          }
+          public Builder toBuilder() {
+            return this == DEFAULT_INSTANCE
+                ? new Builder() : new Builder().mergeFrom(this);
+          }
+
+          @java.lang.Override
+          protected Builder newBuilderForType(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            Builder builder = new Builder(parent);
+            return builder;
+          }
+          /**
+           * Protobuf type {@code fast.Slice.SourceFile.Function.Variable}
+           */
+          public static final class Builder extends
+              com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+              // @@protoc_insertion_point(builder_implements:fast.Slice.SourceFile.Function.Variable)
+              fast.Fast.Slice.SourceFile.Function.VariableOrBuilder {
+            public static final com.google.protobuf.Descriptors.Descriptor
+                getDescriptor() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_descriptor;
+            }
+
+            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+                internalGetFieldAccessorTable() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_fieldAccessorTable
+                  .ensureFieldAccessorsInitialized(
+                      fast.Fast.Slice.SourceFile.Function.Variable.class, fast.Fast.Slice.SourceFile.Function.Variable.Builder.class);
+            }
+
+            // Construct using fast.Fast.Slice.SourceFile.Function.Variable.newBuilder()
+            private Builder() {
+              maybeForceBuilderInitialization();
+            }
+
+            private Builder(
+                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+              super(parent);
+              maybeForceBuilderInitialization();
+            }
+            private void maybeForceBuilderInitialization() {
+              if (com.google.protobuf.GeneratedMessageV3
+                      .alwaysUseFieldBuilders) {
+                getDefFieldBuilder();
+                getUseFieldBuilder();
+                getCfuncFieldBuilder();
+              }
+            }
+            public Builder clear() {
+              super.clear();
+              name_ = "";
+
+              if (posBuilder_ == null) {
+                pos_ = null;
+              } else {
+                pos_ = null;
+                posBuilder_ = null;
+              }
+              type_ = 0;
+
+              if (defBuilder_ == null) {
+                def_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000008);
+              } else {
+                defBuilder_.clear();
+              }
+              if (useBuilder_ == null) {
+                use_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000010);
+              } else {
+                useBuilder_.clear();
+              }
+              dvar_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              alias_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              if (cfuncBuilder_ == null) {
+                cfunc_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000080);
+              } else {
+                cfuncBuilder_.clear();
+              }
+              return this;
+            }
+
+            public com.google.protobuf.Descriptors.Descriptor
+                getDescriptorForType() {
+              return fast.Fast.internal_static_fast_Slice_SourceFile_Function_Variable_descriptor;
+            }
+
+            public fast.Fast.Slice.SourceFile.Function.Variable getDefaultInstanceForType() {
+              return fast.Fast.Slice.SourceFile.Function.Variable.getDefaultInstance();
+            }
+
+            public fast.Fast.Slice.SourceFile.Function.Variable build() {
+              fast.Fast.Slice.SourceFile.Function.Variable result = buildPartial();
+              if (!result.isInitialized()) {
+                throw newUninitializedMessageException(result);
+              }
+              return result;
+            }
+
+            public fast.Fast.Slice.SourceFile.Function.Variable buildPartial() {
+              fast.Fast.Slice.SourceFile.Function.Variable result = new fast.Fast.Slice.SourceFile.Function.Variable(this);
+              int from_bitField0_ = bitField0_;
+              int to_bitField0_ = 0;
+              result.name_ = name_;
+              if (posBuilder_ == null) {
+                result.pos_ = pos_;
+              } else {
+                result.pos_ = posBuilder_.build();
+              }
+              result.type_ = type_;
+              if (defBuilder_ == null) {
+                if (((bitField0_ & 0x00000008) == 0x00000008)) {
+                  def_ = java.util.Collections.unmodifiableList(def_);
+                  bitField0_ = (bitField0_ & ~0x00000008);
+                }
+                result.def_ = def_;
+              } else {
+                result.def_ = defBuilder_.build();
+              }
+              if (useBuilder_ == null) {
+                if (((bitField0_ & 0x00000010) == 0x00000010)) {
+                  use_ = java.util.Collections.unmodifiableList(use_);
+                  bitField0_ = (bitField0_ & ~0x00000010);
+                }
+                result.use_ = use_;
+              } else {
+                result.use_ = useBuilder_.build();
+              }
+              if (((bitField0_ & 0x00000020) == 0x00000020)) {
+                dvar_ = dvar_.getUnmodifiableView();
+                bitField0_ = (bitField0_ & ~0x00000020);
+              }
+              result.dvar_ = dvar_;
+              if (((bitField0_ & 0x00000040) == 0x00000040)) {
+                alias_ = alias_.getUnmodifiableView();
+                bitField0_ = (bitField0_ & ~0x00000040);
+              }
+              result.alias_ = alias_;
+              if (cfuncBuilder_ == null) {
+                if (((bitField0_ & 0x00000080) == 0x00000080)) {
+                  cfunc_ = java.util.Collections.unmodifiableList(cfunc_);
+                  bitField0_ = (bitField0_ & ~0x00000080);
+                }
+                result.cfunc_ = cfunc_;
+              } else {
+                result.cfunc_ = cfuncBuilder_.build();
+              }
+              result.bitField0_ = to_bitField0_;
+              onBuilt();
+              return result;
+            }
+
+            public Builder clone() {
+              return (Builder) super.clone();
+            }
+            public Builder setField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                Object value) {
+              return (Builder) super.setField(field, value);
+            }
+            public Builder clearField(
+                com.google.protobuf.Descriptors.FieldDescriptor field) {
+              return (Builder) super.clearField(field);
+            }
+            public Builder clearOneof(
+                com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+              return (Builder) super.clearOneof(oneof);
+            }
+            public Builder setRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                int index, Object value) {
+              return (Builder) super.setRepeatedField(field, index, value);
+            }
+            public Builder addRepeatedField(
+                com.google.protobuf.Descriptors.FieldDescriptor field,
+                Object value) {
+              return (Builder) super.addRepeatedField(field, value);
+            }
+            public Builder mergeFrom(com.google.protobuf.Message other) {
+              if (other instanceof fast.Fast.Slice.SourceFile.Function.Variable) {
+                return mergeFrom((fast.Fast.Slice.SourceFile.Function.Variable)other);
+              } else {
+                super.mergeFrom(other);
+                return this;
+              }
+            }
+
+            public Builder mergeFrom(fast.Fast.Slice.SourceFile.Function.Variable other) {
+              if (other == fast.Fast.Slice.SourceFile.Function.Variable.getDefaultInstance()) return this;
+              if (!other.getName().isEmpty()) {
+                name_ = other.name_;
+                onChanged();
+              }
+              if (other.hasPos()) {
+                mergePos(other.getPos());
+              }
+              if (other.type_ != 0) {
+                setTypeValue(other.getTypeValue());
+              }
+              if (defBuilder_ == null) {
+                if (!other.def_.isEmpty()) {
+                  if (def_.isEmpty()) {
+                    def_ = other.def_;
+                    bitField0_ = (bitField0_ & ~0x00000008);
+                  } else {
+                    ensureDefIsMutable();
+                    def_.addAll(other.def_);
+                  }
+                  onChanged();
+                }
+              } else {
+                if (!other.def_.isEmpty()) {
+                  if (defBuilder_.isEmpty()) {
+                    defBuilder_.dispose();
+                    defBuilder_ = null;
+                    def_ = other.def_;
+                    bitField0_ = (bitField0_ & ~0x00000008);
+                    defBuilder_ = 
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                         getDefFieldBuilder() : null;
+                  } else {
+                    defBuilder_.addAllMessages(other.def_);
+                  }
+                }
+              }
+              if (useBuilder_ == null) {
+                if (!other.use_.isEmpty()) {
+                  if (use_.isEmpty()) {
+                    use_ = other.use_;
+                    bitField0_ = (bitField0_ & ~0x00000010);
+                  } else {
+                    ensureUseIsMutable();
+                    use_.addAll(other.use_);
+                  }
+                  onChanged();
+                }
+              } else {
+                if (!other.use_.isEmpty()) {
+                  if (useBuilder_.isEmpty()) {
+                    useBuilder_.dispose();
+                    useBuilder_ = null;
+                    use_ = other.use_;
+                    bitField0_ = (bitField0_ & ~0x00000010);
+                    useBuilder_ = 
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                         getUseFieldBuilder() : null;
+                  } else {
+                    useBuilder_.addAllMessages(other.use_);
+                  }
+                }
+              }
+              if (!other.dvar_.isEmpty()) {
+                if (dvar_.isEmpty()) {
+                  dvar_ = other.dvar_;
+                  bitField0_ = (bitField0_ & ~0x00000020);
+                } else {
+                  ensureDvarIsMutable();
+                  dvar_.addAll(other.dvar_);
+                }
+                onChanged();
+              }
+              if (!other.alias_.isEmpty()) {
+                if (alias_.isEmpty()) {
+                  alias_ = other.alias_;
+                  bitField0_ = (bitField0_ & ~0x00000040);
+                } else {
+                  ensureAliasIsMutable();
+                  alias_.addAll(other.alias_);
+                }
+                onChanged();
+              }
+              if (cfuncBuilder_ == null) {
+                if (!other.cfunc_.isEmpty()) {
+                  if (cfunc_.isEmpty()) {
+                    cfunc_ = other.cfunc_;
+                    bitField0_ = (bitField0_ & ~0x00000080);
+                  } else {
+                    ensureCfuncIsMutable();
+                    cfunc_.addAll(other.cfunc_);
+                  }
+                  onChanged();
+                }
+              } else {
+                if (!other.cfunc_.isEmpty()) {
+                  if (cfuncBuilder_.isEmpty()) {
+                    cfuncBuilder_.dispose();
+                    cfuncBuilder_ = null;
+                    cfunc_ = other.cfunc_;
+                    bitField0_ = (bitField0_ & ~0x00000080);
+                    cfuncBuilder_ = 
+                      com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                         getCfuncFieldBuilder() : null;
+                  } else {
+                    cfuncBuilder_.addAllMessages(other.cfunc_);
+                  }
+                }
+              }
+              onChanged();
+              return this;
+            }
+
+            public final boolean isInitialized() {
+              return true;
+            }
+
+            public Builder mergeFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws java.io.IOException {
+              fast.Fast.Slice.SourceFile.Function.Variable parsedMessage = null;
+              try {
+                parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+                parsedMessage = (fast.Fast.Slice.SourceFile.Function.Variable) e.getUnfinishedMessage();
+                throw e.unwrapIOException();
+              } finally {
+                if (parsedMessage != null) {
+                  mergeFrom(parsedMessage);
+                }
+              }
+              return this;
+            }
+            private int bitField0_;
+
+            private java.lang.Object name_ = "";
+            /**
+             * <code>string name = 1;</code>
+             */
+            public java.lang.String getName() {
+              java.lang.Object ref = name_;
+              if (!(ref instanceof java.lang.String)) {
+                com.google.protobuf.ByteString bs =
+                    (com.google.protobuf.ByteString) ref;
+                java.lang.String s = bs.toStringUtf8();
+                name_ = s;
+                return s;
+              } else {
+                return (java.lang.String) ref;
+              }
+            }
+            /**
+             * <code>string name = 1;</code>
+             */
+            public com.google.protobuf.ByteString
+                getNameBytes() {
+              java.lang.Object ref = name_;
+              if (ref instanceof String) {
+                com.google.protobuf.ByteString b = 
+                    com.google.protobuf.ByteString.copyFromUtf8(
+                        (java.lang.String) ref);
+                name_ = b;
+                return b;
+              } else {
+                return (com.google.protobuf.ByteString) ref;
+              }
+            }
+            /**
+             * <code>string name = 1;</code>
+             */
+            public Builder setName(
+                java.lang.String value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  
+              name_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>string name = 1;</code>
+             */
+            public Builder clearName() {
+              
+              name_ = getDefaultInstance().getName();
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>string name = 1;</code>
+             */
+            public Builder setNameBytes(
+                com.google.protobuf.ByteString value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+              
+              name_ = value;
+              onChanged();
+              return this;
+            }
+
+            private fast.Fast.Slice.SourceFile.Function.Variable.Position pos_ = null;
+            private com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> posBuilder_;
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public boolean hasPos() {
+              return posBuilder_ != null || pos_ != null;
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position getPos() {
+              if (posBuilder_ == null) {
+                return pos_ == null ? fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance() : pos_;
+              } else {
+                return posBuilder_.getMessage();
+              }
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public Builder setPos(fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (posBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                pos_ = value;
+                onChanged();
+              } else {
+                posBuilder_.setMessage(value);
+              }
+
+              return this;
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public Builder setPos(
+                fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (posBuilder_ == null) {
+                pos_ = builderForValue.build();
+                onChanged();
+              } else {
+                posBuilder_.setMessage(builderForValue.build());
+              }
+
+              return this;
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public Builder mergePos(fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (posBuilder_ == null) {
+                if (pos_ != null) {
+                  pos_ =
+                    fast.Fast.Slice.SourceFile.Function.Variable.Position.newBuilder(pos_).mergeFrom(value).buildPartial();
+                } else {
+                  pos_ = value;
+                }
+                onChanged();
+              } else {
+                posBuilder_.mergeFrom(value);
+              }
+
+              return this;
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public Builder clearPos() {
+              if (posBuilder_ == null) {
+                pos_ = null;
+                onChanged();
+              } else {
+                pos_ = null;
+                posBuilder_ = null;
+              }
+
+              return this;
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder getPosBuilder() {
+              
+              onChanged();
+              return getPosFieldBuilder().getBuilder();
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getPosOrBuilder() {
+              if (posBuilder_ != null) {
+                return posBuilder_.getMessageOrBuilder();
+              } else {
+                return pos_ == null ?
+                    fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance() : pos_;
+              }
+            }
+            /**
+             * <code>.fast.Slice.SourceFile.Function.Variable.Position pos = 2;</code>
+             */
+            private com.google.protobuf.SingleFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+                getPosFieldBuilder() {
+              if (posBuilder_ == null) {
+                posBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+                    fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder>(
+                        getPos(),
+                        getParentForChildren(),
+                        isClean());
+                pos_ = null;
+              }
+              return posBuilder_;
+            }
+
+            private int type_ = 0;
+            /**
+             * <code>.fast.Slice.ChangeType type = 3;</code>
+             */
+            public int getTypeValue() {
+              return type_;
+            }
+            /**
+             * <code>.fast.Slice.ChangeType type = 3;</code>
+             */
+            public Builder setTypeValue(int value) {
+              type_ = value;
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>.fast.Slice.ChangeType type = 3;</code>
+             */
+            public fast.Fast.Slice.ChangeType getType() {
+              fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+              return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+            }
+            /**
+             * <code>.fast.Slice.ChangeType type = 3;</code>
+             */
+            public Builder setType(fast.Fast.Slice.ChangeType value) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              
+              type_ = value.getNumber();
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>.fast.Slice.ChangeType type = 3;</code>
+             */
+            public Builder clearType() {
+              
+              type_ = 0;
+              onChanged();
+              return this;
+            }
+
+            private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> def_ =
+              java.util.Collections.emptyList();
+            private void ensureDefIsMutable() {
+              if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+                def_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable.Position>(def_);
+                bitField0_ |= 0x00000008;
+               }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> defBuilder_;
+
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> getDefList() {
+              if (defBuilder_ == null) {
+                return java.util.Collections.unmodifiableList(def_);
+              } else {
+                return defBuilder_.getMessageList();
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public int getDefCount() {
+              if (defBuilder_ == null) {
+                return def_.size();
+              } else {
+                return defBuilder_.getCount();
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position getDef(int index) {
+              if (defBuilder_ == null) {
+                return def_.get(index);
+              } else {
+                return defBuilder_.getMessage(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder setDef(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (defBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureDefIsMutable();
+                def_.set(index, value);
+                onChanged();
+              } else {
+                defBuilder_.setMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder setDef(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (defBuilder_ == null) {
+                ensureDefIsMutable();
+                def_.set(index, builderForValue.build());
+                onChanged();
+              } else {
+                defBuilder_.setMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder addDef(fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (defBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureDefIsMutable();
+                def_.add(value);
+                onChanged();
+              } else {
+                defBuilder_.addMessage(value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder addDef(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (defBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureDefIsMutable();
+                def_.add(index, value);
+                onChanged();
+              } else {
+                defBuilder_.addMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder addDef(
+                fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (defBuilder_ == null) {
+                ensureDefIsMutable();
+                def_.add(builderForValue.build());
+                onChanged();
+              } else {
+                defBuilder_.addMessage(builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder addDef(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (defBuilder_ == null) {
+                ensureDefIsMutable();
+                def_.add(index, builderForValue.build());
+                onChanged();
+              } else {
+                defBuilder_.addMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder addAllDef(
+                java.lang.Iterable<? extends fast.Fast.Slice.SourceFile.Function.Variable.Position> values) {
+              if (defBuilder_ == null) {
+                ensureDefIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    values, def_);
+                onChanged();
+              } else {
+                defBuilder_.addAllMessages(values);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder clearDef() {
+              if (defBuilder_ == null) {
+                def_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000008);
+                onChanged();
+              } else {
+                defBuilder_.clear();
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public Builder removeDef(int index) {
+              if (defBuilder_ == null) {
+                ensureDefIsMutable();
+                def_.remove(index);
+                onChanged();
+              } else {
+                defBuilder_.remove(index);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder getDefBuilder(
+                int index) {
+              return getDefFieldBuilder().getBuilder(index);
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getDefOrBuilder(
+                int index) {
+              if (defBuilder_ == null) {
+                return def_.get(index);  } else {
+                return defBuilder_.getMessageOrBuilder(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+                 getDefOrBuilderList() {
+              if (defBuilder_ != null) {
+                return defBuilder_.getMessageOrBuilderList();
+              } else {
+                return java.util.Collections.unmodifiableList(def_);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder addDefBuilder() {
+              return getDefFieldBuilder().addBuilder(
+                  fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder addDefBuilder(
+                int index) {
+              return getDefFieldBuilder().addBuilder(
+                  index, fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;</code>
+             */
+            public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder> 
+                 getDefBuilderList() {
+              return getDefFieldBuilder().getBuilderList();
+            }
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+                getDefFieldBuilder() {
+              if (defBuilder_ == null) {
+                defBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                    fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder>(
+                        def_,
+                        ((bitField0_ & 0x00000008) == 0x00000008),
+                        getParentForChildren(),
+                        isClean());
+                def_ = null;
+              }
+              return defBuilder_;
+            }
+
+            private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> use_ =
+              java.util.Collections.emptyList();
+            private void ensureUseIsMutable() {
+              if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+                use_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable.Position>(use_);
+                bitField0_ |= 0x00000010;
+               }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> useBuilder_;
+
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position> getUseList() {
+              if (useBuilder_ == null) {
+                return java.util.Collections.unmodifiableList(use_);
+              } else {
+                return useBuilder_.getMessageList();
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public int getUseCount() {
+              if (useBuilder_ == null) {
+                return use_.size();
+              } else {
+                return useBuilder_.getCount();
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position getUse(int index) {
+              if (useBuilder_ == null) {
+                return use_.get(index);
+              } else {
+                return useBuilder_.getMessage(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder setUse(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (useBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureUseIsMutable();
+                use_.set(index, value);
+                onChanged();
+              } else {
+                useBuilder_.setMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder setUse(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (useBuilder_ == null) {
+                ensureUseIsMutable();
+                use_.set(index, builderForValue.build());
+                onChanged();
+              } else {
+                useBuilder_.setMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder addUse(fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (useBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureUseIsMutable();
+                use_.add(value);
+                onChanged();
+              } else {
+                useBuilder_.addMessage(value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder addUse(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position value) {
+              if (useBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureUseIsMutable();
+                use_.add(index, value);
+                onChanged();
+              } else {
+                useBuilder_.addMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder addUse(
+                fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (useBuilder_ == null) {
+                ensureUseIsMutable();
+                use_.add(builderForValue.build());
+                onChanged();
+              } else {
+                useBuilder_.addMessage(builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder addUse(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder builderForValue) {
+              if (useBuilder_ == null) {
+                ensureUseIsMutable();
+                use_.add(index, builderForValue.build());
+                onChanged();
+              } else {
+                useBuilder_.addMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder addAllUse(
+                java.lang.Iterable<? extends fast.Fast.Slice.SourceFile.Function.Variable.Position> values) {
+              if (useBuilder_ == null) {
+                ensureUseIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    values, use_);
+                onChanged();
+              } else {
+                useBuilder_.addAllMessages(values);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder clearUse() {
+              if (useBuilder_ == null) {
+                use_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000010);
+                onChanged();
+              } else {
+                useBuilder_.clear();
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public Builder removeUse(int index) {
+              if (useBuilder_ == null) {
+                ensureUseIsMutable();
+                use_.remove(index);
+                onChanged();
+              } else {
+                useBuilder_.remove(index);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder getUseBuilder(
+                int index) {
+              return getUseFieldBuilder().getBuilder(index);
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder getUseOrBuilder(
+                int index) {
+              if (useBuilder_ == null) {
+                return use_.get(index);  } else {
+                return useBuilder_.getMessageOrBuilder(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+                 getUseOrBuilderList() {
+              if (useBuilder_ != null) {
+                return useBuilder_.getMessageOrBuilderList();
+              } else {
+                return java.util.Collections.unmodifiableList(use_);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder addUseBuilder() {
+              return getUseFieldBuilder().addBuilder(
+                  fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder addUseBuilder(
+                int index) {
+              return getUseFieldBuilder().addBuilder(
+                  index, fast.Fast.Slice.SourceFile.Function.Variable.Position.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;</code>
+             */
+            public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder> 
+                 getUseBuilderList() {
+              return getUseFieldBuilder().getBuilderList();
+            }
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder> 
+                getUseFieldBuilder() {
+              if (useBuilder_ == null) {
+                useBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                    fast.Fast.Slice.SourceFile.Function.Variable.Position, fast.Fast.Slice.SourceFile.Function.Variable.Position.Builder, fast.Fast.Slice.SourceFile.Function.Variable.PositionOrBuilder>(
+                        use_,
+                        ((bitField0_ & 0x00000010) == 0x00000010),
+                        getParentForChildren(),
+                        isClean());
+                use_ = null;
+              }
+              return useBuilder_;
+            }
+
+            private com.google.protobuf.LazyStringList dvar_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            private void ensureDvarIsMutable() {
+              if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+                dvar_ = new com.google.protobuf.LazyStringArrayList(dvar_);
+                bitField0_ |= 0x00000020;
+               }
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public com.google.protobuf.ProtocolStringList
+                getDvarList() {
+              return dvar_.getUnmodifiableView();
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public int getDvarCount() {
+              return dvar_.size();
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public java.lang.String getDvar(int index) {
+              return dvar_.get(index);
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public com.google.protobuf.ByteString
+                getDvarBytes(int index) {
+              return dvar_.getByteString(index);
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public Builder setDvar(
+                int index, java.lang.String value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDvarIsMutable();
+              dvar_.set(index, value);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public Builder addDvar(
+                java.lang.String value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureDvarIsMutable();
+              dvar_.add(value);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public Builder addAllDvar(
+                java.lang.Iterable<java.lang.String> values) {
+              ensureDvarIsMutable();
+              com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                  values, dvar_);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public Builder clearDvar() {
+              dvar_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+              bitField0_ = (bitField0_ & ~0x00000020);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string dvar = 6;</code>
+             */
+            public Builder addDvarBytes(
+                com.google.protobuf.ByteString value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+              ensureDvarIsMutable();
+              dvar_.add(value);
+              onChanged();
+              return this;
+            }
+
+            private com.google.protobuf.LazyStringList alias_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+            private void ensureAliasIsMutable() {
+              if (!((bitField0_ & 0x00000040) == 0x00000040)) {
+                alias_ = new com.google.protobuf.LazyStringArrayList(alias_);
+                bitField0_ |= 0x00000040;
+               }
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public com.google.protobuf.ProtocolStringList
+                getAliasList() {
+              return alias_.getUnmodifiableView();
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public int getAliasCount() {
+              return alias_.size();
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public java.lang.String getAlias(int index) {
+              return alias_.get(index);
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public com.google.protobuf.ByteString
+                getAliasBytes(int index) {
+              return alias_.getByteString(index);
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public Builder setAlias(
+                int index, java.lang.String value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAliasIsMutable();
+              alias_.set(index, value);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public Builder addAlias(
+                java.lang.String value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureAliasIsMutable();
+              alias_.add(value);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public Builder addAllAlias(
+                java.lang.Iterable<java.lang.String> values) {
+              ensureAliasIsMutable();
+              com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                  values, alias_);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public Builder clearAlias() {
+              alias_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+              bitField0_ = (bitField0_ & ~0x00000040);
+              onChanged();
+              return this;
+            }
+            /**
+             * <code>repeated string alias = 7;</code>
+             */
+            public Builder addAliasBytes(
+                com.google.protobuf.ByteString value) {
+              if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+              ensureAliasIsMutable();
+              alias_.add(value);
+              onChanged();
+              return this;
+            }
+
+            private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl> cfunc_ =
+              java.util.Collections.emptyList();
+            private void ensureCfuncIsMutable() {
+              if (!((bitField0_ & 0x00000080) == 0x00000080)) {
+                cfunc_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl>(cfunc_);
+                bitField0_ |= 0x00000080;
+               }
+            }
+
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder> cfuncBuilder_;
+
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl> getCfuncList() {
+              if (cfuncBuilder_ == null) {
+                return java.util.Collections.unmodifiableList(cfunc_);
+              } else {
+                return cfuncBuilder_.getMessageList();
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public int getCfuncCount() {
+              if (cfuncBuilder_ == null) {
+                return cfunc_.size();
+              } else {
+                return cfuncBuilder_.getCount();
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl getCfunc(int index) {
+              if (cfuncBuilder_ == null) {
+                return cfunc_.get(index);
+              } else {
+                return cfuncBuilder_.getMessage(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder setCfunc(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl value) {
+              if (cfuncBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureCfuncIsMutable();
+                cfunc_.set(index, value);
+                onChanged();
+              } else {
+                cfuncBuilder_.setMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder setCfunc(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder builderForValue) {
+              if (cfuncBuilder_ == null) {
+                ensureCfuncIsMutable();
+                cfunc_.set(index, builderForValue.build());
+                onChanged();
+              } else {
+                cfuncBuilder_.setMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder addCfunc(fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl value) {
+              if (cfuncBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureCfuncIsMutable();
+                cfunc_.add(value);
+                onChanged();
+              } else {
+                cfuncBuilder_.addMessage(value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder addCfunc(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl value) {
+              if (cfuncBuilder_ == null) {
+                if (value == null) {
+                  throw new NullPointerException();
+                }
+                ensureCfuncIsMutable();
+                cfunc_.add(index, value);
+                onChanged();
+              } else {
+                cfuncBuilder_.addMessage(index, value);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder addCfunc(
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder builderForValue) {
+              if (cfuncBuilder_ == null) {
+                ensureCfuncIsMutable();
+                cfunc_.add(builderForValue.build());
+                onChanged();
+              } else {
+                cfuncBuilder_.addMessage(builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder addCfunc(
+                int index, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder builderForValue) {
+              if (cfuncBuilder_ == null) {
+                ensureCfuncIsMutable();
+                cfunc_.add(index, builderForValue.build());
+                onChanged();
+              } else {
+                cfuncBuilder_.addMessage(index, builderForValue.build());
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder addAllCfunc(
+                java.lang.Iterable<? extends fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl> values) {
+              if (cfuncBuilder_ == null) {
+                ensureCfuncIsMutable();
+                com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                    values, cfunc_);
+                onChanged();
+              } else {
+                cfuncBuilder_.addAllMessages(values);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder clearCfunc() {
+              if (cfuncBuilder_ == null) {
+                cfunc_ = java.util.Collections.emptyList();
+                bitField0_ = (bitField0_ & ~0x00000080);
+                onChanged();
+              } else {
+                cfuncBuilder_.clear();
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public Builder removeCfunc(int index) {
+              if (cfuncBuilder_ == null) {
+                ensureCfuncIsMutable();
+                cfunc_.remove(index);
+                onChanged();
+              } else {
+                cfuncBuilder_.remove(index);
+              }
+              return this;
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder getCfuncBuilder(
+                int index) {
+              return getCfuncFieldBuilder().getBuilder(index);
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder getCfuncOrBuilder(
+                int index) {
+              if (cfuncBuilder_ == null) {
+                return cfunc_.get(index);  } else {
+                return cfuncBuilder_.getMessageOrBuilder(index);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder> 
+                 getCfuncOrBuilderList() {
+              if (cfuncBuilder_ != null) {
+                return cfuncBuilder_.getMessageOrBuilderList();
+              } else {
+                return java.util.Collections.unmodifiableList(cfunc_);
+              }
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder addCfuncBuilder() {
+              return getCfuncFieldBuilder().addBuilder(
+                  fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder addCfuncBuilder(
+                int index) {
+              return getCfuncFieldBuilder().addBuilder(
+                  index, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.getDefaultInstance());
+            }
+            /**
+             * <code>repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;</code>
+             */
+            public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder> 
+                 getCfuncBuilderList() {
+              return getCfuncFieldBuilder().getBuilderList();
+            }
+            private com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder> 
+                getCfuncFieldBuilder() {
+              if (cfuncBuilder_ == null) {
+                cfuncBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                    fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDecl.Builder, fast.Fast.Slice.SourceFile.Function.Variable.FunctionDeclOrBuilder>(
+                        cfunc_,
+                        ((bitField0_ & 0x00000080) == 0x00000080),
+                        getParentForChildren(),
+                        isClean());
+                cfunc_ = null;
+              }
+              return cfuncBuilder_;
+            }
+            public final Builder setUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+              return this;
+            }
+
+            public final Builder mergeUnknownFields(
+                final com.google.protobuf.UnknownFieldSet unknownFields) {
+              return this;
+            }
+
+
+            // @@protoc_insertion_point(builder_scope:fast.Slice.SourceFile.Function.Variable)
+          }
+
+          // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function.Variable)
+          private static final fast.Fast.Slice.SourceFile.Function.Variable DEFAULT_INSTANCE;
+          static {
+            DEFAULT_INSTANCE = new fast.Fast.Slice.SourceFile.Function.Variable();
+          }
+
+          public static fast.Fast.Slice.SourceFile.Function.Variable getDefaultInstance() {
+            return DEFAULT_INSTANCE;
+          }
+
+          private static final com.google.protobuf.Parser<Variable>
+              PARSER = new com.google.protobuf.AbstractParser<Variable>() {
+            public Variable parsePartialFrom(
+                com.google.protobuf.CodedInputStream input,
+                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+                throws com.google.protobuf.InvalidProtocolBufferException {
+                return new Variable(input, extensionRegistry);
+            }
+          };
+
+          public static com.google.protobuf.Parser<Variable> parser() {
+            return PARSER;
+          }
+
+          @java.lang.Override
+          public com.google.protobuf.Parser<Variable> getParserForType() {
+            return PARSER;
+          }
+
+          public fast.Fast.Slice.SourceFile.Function.Variable getDefaultInstanceForType() {
+            return DEFAULT_INSTANCE;
+          }
+
+        }
+
+        private int bitField0_;
+        public static final int VARIABLE_FIELD_NUMBER = 1;
+        private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable> variable_;
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable> getVariableList() {
+          return variable_;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.VariableOrBuilder> 
+            getVariableOrBuilderList() {
+          return variable_;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        public int getVariableCount() {
+          return variable_.size();
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.Function.Variable getVariable(int index) {
+          return variable_.get(index);
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.Function.VariableOrBuilder getVariableOrBuilder(
+            int index) {
+          return variable_.get(index);
+        }
+
+        public static final int NAME_FIELD_NUMBER = 2;
+        private volatile java.lang.Object name_;
+        /**
+         * <code>string name = 2;</code>
+         */
+        public java.lang.String getName() {
+          java.lang.Object ref = name_;
+          if (ref instanceof java.lang.String) {
+            return (java.lang.String) ref;
+          } else {
+            com.google.protobuf.ByteString bs = 
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            name_ = s;
+            return s;
+          }
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          java.lang.Object ref = name_;
+          if (ref instanceof java.lang.String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            name_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+
+        public static final int TYPE_FIELD_NUMBER = 3;
+        private int type_;
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public int getTypeValue() {
+          return type_;
+        }
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public fast.Fast.Slice.ChangeType getType() {
+          fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+          return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+        }
+
+        private byte memoizedIsInitialized = -1;
+        public final boolean isInitialized() {
+          byte isInitialized = memoizedIsInitialized;
+          if (isInitialized == 1) return true;
+          if (isInitialized == 0) return false;
+
+          memoizedIsInitialized = 1;
+          return true;
+        }
+
+        public void writeTo(com.google.protobuf.CodedOutputStream output)
+                            throws java.io.IOException {
+          for (int i = 0; i < variable_.size(); i++) {
+            output.writeMessage(1, variable_.get(i));
+          }
+          if (!getNameBytes().isEmpty()) {
+            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+          }
+          if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+            output.writeEnum(3, type_);
+          }
+        }
+
+        public int getSerializedSize() {
+          int size = memoizedSize;
+          if (size != -1) return size;
+
+          size = 0;
+          for (int i = 0; i < variable_.size(); i++) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeMessageSize(1, variable_.get(i));
+          }
+          if (!getNameBytes().isEmpty()) {
+            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+          }
+          if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeEnumSize(3, type_);
+          }
+          memoizedSize = size;
+          return size;
+        }
+
+        private static final long serialVersionUID = 0L;
+        @java.lang.Override
+        public boolean equals(final java.lang.Object obj) {
+          if (obj == this) {
+           return true;
+          }
+          if (!(obj instanceof fast.Fast.Slice.SourceFile.Function)) {
+            return super.equals(obj);
+          }
+          fast.Fast.Slice.SourceFile.Function other = (fast.Fast.Slice.SourceFile.Function) obj;
+
+          boolean result = true;
+          result = result && getVariableList()
+              .equals(other.getVariableList());
+          result = result && getName()
+              .equals(other.getName());
+          result = result && type_ == other.type_;
+          return result;
+        }
+
+        @java.lang.Override
+        public int hashCode() {
+          if (memoizedHashCode != 0) {
+            return memoizedHashCode;
+          }
+          int hash = 41;
+          hash = (19 * hash) + getDescriptor().hashCode();
+          if (getVariableCount() > 0) {
+            hash = (37 * hash) + VARIABLE_FIELD_NUMBER;
+            hash = (53 * hash) + getVariableList().hashCode();
+          }
+          hash = (37 * hash) + NAME_FIELD_NUMBER;
+          hash = (53 * hash) + getName().hashCode();
+          hash = (37 * hash) + TYPE_FIELD_NUMBER;
+          hash = (53 * hash) + type_;
+          hash = (29 * hash) + unknownFields.hashCode();
+          memoizedHashCode = hash;
+          return hash;
+        }
+
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            java.nio.ByteBuffer data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            java.nio.ByteBuffer data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return PARSER.parseFrom(data, extensionRegistry);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+        }
+        public static fast.Fast.Slice.SourceFile.Function parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+        }
+
+        public Builder newBuilderForType() { return newBuilder(); }
+        public static Builder newBuilder() {
+          return DEFAULT_INSTANCE.toBuilder();
+        }
+        public static Builder newBuilder(fast.Fast.Slice.SourceFile.Function prototype) {
+          return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+        }
+        public Builder toBuilder() {
+          return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+        }
+
+        @java.lang.Override
+        protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          Builder builder = new Builder(parent);
+          return builder;
+        }
+        /**
+         * Protobuf type {@code fast.Slice.SourceFile.Function}
+         */
+        public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:fast.Slice.SourceFile.Function)
+            fast.Fast.Slice.SourceFile.FunctionOrBuilder {
+          public static final com.google.protobuf.Descriptors.Descriptor
+              getDescriptor() {
+            return fast.Fast.internal_static_fast_Slice_SourceFile_Function_descriptor;
+          }
+
+          protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+              internalGetFieldAccessorTable() {
+            return fast.Fast.internal_static_fast_Slice_SourceFile_Function_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                    fast.Fast.Slice.SourceFile.Function.class, fast.Fast.Slice.SourceFile.Function.Builder.class);
+          }
+
+          // Construct using fast.Fast.Slice.SourceFile.Function.newBuilder()
+          private Builder() {
+            maybeForceBuilderInitialization();
+          }
+
+          private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+            super(parent);
+            maybeForceBuilderInitialization();
+          }
+          private void maybeForceBuilderInitialization() {
+            if (com.google.protobuf.GeneratedMessageV3
+                    .alwaysUseFieldBuilders) {
+              getVariableFieldBuilder();
+            }
+          }
+          public Builder clear() {
+            super.clear();
+            if (variableBuilder_ == null) {
+              variable_ = java.util.Collections.emptyList();
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              variableBuilder_.clear();
+            }
+            name_ = "";
+
+            type_ = 0;
+
+            return this;
+          }
+
+          public com.google.protobuf.Descriptors.Descriptor
+              getDescriptorForType() {
+            return fast.Fast.internal_static_fast_Slice_SourceFile_Function_descriptor;
+          }
+
+          public fast.Fast.Slice.SourceFile.Function getDefaultInstanceForType() {
+            return fast.Fast.Slice.SourceFile.Function.getDefaultInstance();
+          }
+
+          public fast.Fast.Slice.SourceFile.Function build() {
+            fast.Fast.Slice.SourceFile.Function result = buildPartial();
+            if (!result.isInitialized()) {
+              throw newUninitializedMessageException(result);
+            }
+            return result;
+          }
+
+          public fast.Fast.Slice.SourceFile.Function buildPartial() {
+            fast.Fast.Slice.SourceFile.Function result = new fast.Fast.Slice.SourceFile.Function(this);
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            if (variableBuilder_ == null) {
+              if (((bitField0_ & 0x00000001) == 0x00000001)) {
+                variable_ = java.util.Collections.unmodifiableList(variable_);
+                bitField0_ = (bitField0_ & ~0x00000001);
+              }
+              result.variable_ = variable_;
+            } else {
+              result.variable_ = variableBuilder_.build();
+            }
+            result.name_ = name_;
+            result.type_ = type_;
+            result.bitField0_ = to_bitField0_;
+            onBuilt();
+            return result;
+          }
+
+          public Builder clone() {
+            return (Builder) super.clone();
+          }
+          public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.setField(field, value);
+          }
+          public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+            return (Builder) super.clearField(field);
+          }
+          public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+            return (Builder) super.clearOneof(oneof);
+          }
+          public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+            return (Builder) super.setRepeatedField(field, index, value);
+          }
+          public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+            return (Builder) super.addRepeatedField(field, value);
+          }
+          public Builder mergeFrom(com.google.protobuf.Message other) {
+            if (other instanceof fast.Fast.Slice.SourceFile.Function) {
+              return mergeFrom((fast.Fast.Slice.SourceFile.Function)other);
+            } else {
+              super.mergeFrom(other);
+              return this;
+            }
+          }
+
+          public Builder mergeFrom(fast.Fast.Slice.SourceFile.Function other) {
+            if (other == fast.Fast.Slice.SourceFile.Function.getDefaultInstance()) return this;
+            if (variableBuilder_ == null) {
+              if (!other.variable_.isEmpty()) {
+                if (variable_.isEmpty()) {
+                  variable_ = other.variable_;
+                  bitField0_ = (bitField0_ & ~0x00000001);
+                } else {
+                  ensureVariableIsMutable();
+                  variable_.addAll(other.variable_);
+                }
+                onChanged();
+              }
+            } else {
+              if (!other.variable_.isEmpty()) {
+                if (variableBuilder_.isEmpty()) {
+                  variableBuilder_.dispose();
+                  variableBuilder_ = null;
+                  variable_ = other.variable_;
+                  bitField0_ = (bitField0_ & ~0x00000001);
+                  variableBuilder_ = 
+                    com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                       getVariableFieldBuilder() : null;
+                } else {
+                  variableBuilder_.addAllMessages(other.variable_);
+                }
+              }
+            }
+            if (!other.getName().isEmpty()) {
+              name_ = other.name_;
+              onChanged();
+            }
+            if (other.type_ != 0) {
+              setTypeValue(other.getTypeValue());
+            }
+            onChanged();
+            return this;
+          }
+
+          public final boolean isInitialized() {
+            return true;
+          }
+
+          public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            fast.Fast.Slice.SourceFile.Function parsedMessage = null;
+            try {
+              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              parsedMessage = (fast.Fast.Slice.SourceFile.Function) e.getUnfinishedMessage();
+              throw e.unwrapIOException();
+            } finally {
+              if (parsedMessage != null) {
+                mergeFrom(parsedMessage);
+              }
+            }
+            return this;
+          }
+          private int bitField0_;
+
+          private java.util.List<fast.Fast.Slice.SourceFile.Function.Variable> variable_ =
+            java.util.Collections.emptyList();
+          private void ensureVariableIsMutable() {
+            if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+              variable_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function.Variable>(variable_);
+              bitField0_ |= 0x00000001;
+             }
+          }
+
+          private com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Slice.SourceFile.Function.Variable, fast.Fast.Slice.SourceFile.Function.Variable.Builder, fast.Fast.Slice.SourceFile.Function.VariableOrBuilder> variableBuilder_;
+
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable> getVariableList() {
+            if (variableBuilder_ == null) {
+              return java.util.Collections.unmodifiableList(variable_);
+            } else {
+              return variableBuilder_.getMessageList();
+            }
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public int getVariableCount() {
+            if (variableBuilder_ == null) {
+              return variable_.size();
+            } else {
+              return variableBuilder_.getCount();
+            }
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable getVariable(int index) {
+            if (variableBuilder_ == null) {
+              return variable_.get(index);
+            } else {
+              return variableBuilder_.getMessage(index);
+            }
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder setVariable(
+              int index, fast.Fast.Slice.SourceFile.Function.Variable value) {
+            if (variableBuilder_ == null) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              ensureVariableIsMutable();
+              variable_.set(index, value);
+              onChanged();
+            } else {
+              variableBuilder_.setMessage(index, value);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder setVariable(
+              int index, fast.Fast.Slice.SourceFile.Function.Variable.Builder builderForValue) {
+            if (variableBuilder_ == null) {
+              ensureVariableIsMutable();
+              variable_.set(index, builderForValue.build());
+              onChanged();
+            } else {
+              variableBuilder_.setMessage(index, builderForValue.build());
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder addVariable(fast.Fast.Slice.SourceFile.Function.Variable value) {
+            if (variableBuilder_ == null) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              ensureVariableIsMutable();
+              variable_.add(value);
+              onChanged();
+            } else {
+              variableBuilder_.addMessage(value);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder addVariable(
+              int index, fast.Fast.Slice.SourceFile.Function.Variable value) {
+            if (variableBuilder_ == null) {
+              if (value == null) {
+                throw new NullPointerException();
+              }
+              ensureVariableIsMutable();
+              variable_.add(index, value);
+              onChanged();
+            } else {
+              variableBuilder_.addMessage(index, value);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder addVariable(
+              fast.Fast.Slice.SourceFile.Function.Variable.Builder builderForValue) {
+            if (variableBuilder_ == null) {
+              ensureVariableIsMutable();
+              variable_.add(builderForValue.build());
+              onChanged();
+            } else {
+              variableBuilder_.addMessage(builderForValue.build());
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder addVariable(
+              int index, fast.Fast.Slice.SourceFile.Function.Variable.Builder builderForValue) {
+            if (variableBuilder_ == null) {
+              ensureVariableIsMutable();
+              variable_.add(index, builderForValue.build());
+              onChanged();
+            } else {
+              variableBuilder_.addMessage(index, builderForValue.build());
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder addAllVariable(
+              java.lang.Iterable<? extends fast.Fast.Slice.SourceFile.Function.Variable> values) {
+            if (variableBuilder_ == null) {
+              ensureVariableIsMutable();
+              com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                  values, variable_);
+              onChanged();
+            } else {
+              variableBuilder_.addAllMessages(values);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder clearVariable() {
+            if (variableBuilder_ == null) {
+              variable_ = java.util.Collections.emptyList();
+              bitField0_ = (bitField0_ & ~0x00000001);
+              onChanged();
+            } else {
+              variableBuilder_.clear();
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public Builder removeVariable(int index) {
+            if (variableBuilder_ == null) {
+              ensureVariableIsMutable();
+              variable_.remove(index);
+              onChanged();
+            } else {
+              variableBuilder_.remove(index);
+            }
+            return this;
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.Builder getVariableBuilder(
+              int index) {
+            return getVariableFieldBuilder().getBuilder(index);
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.VariableOrBuilder getVariableOrBuilder(
+              int index) {
+            if (variableBuilder_ == null) {
+              return variable_.get(index);  } else {
+              return variableBuilder_.getMessageOrBuilder(index);
+            }
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public java.util.List<? extends fast.Fast.Slice.SourceFile.Function.VariableOrBuilder> 
+               getVariableOrBuilderList() {
+            if (variableBuilder_ != null) {
+              return variableBuilder_.getMessageOrBuilderList();
+            } else {
+              return java.util.Collections.unmodifiableList(variable_);
+            }
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.Builder addVariableBuilder() {
+            return getVariableFieldBuilder().addBuilder(
+                fast.Fast.Slice.SourceFile.Function.Variable.getDefaultInstance());
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public fast.Fast.Slice.SourceFile.Function.Variable.Builder addVariableBuilder(
+              int index) {
+            return getVariableFieldBuilder().addBuilder(
+                index, fast.Fast.Slice.SourceFile.Function.Variable.getDefaultInstance());
+          }
+          /**
+           * <code>repeated .fast.Slice.SourceFile.Function.Variable variable = 1;</code>
+           */
+          public java.util.List<fast.Fast.Slice.SourceFile.Function.Variable.Builder> 
+               getVariableBuilderList() {
+            return getVariableFieldBuilder().getBuilderList();
+          }
+          private com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Slice.SourceFile.Function.Variable, fast.Fast.Slice.SourceFile.Function.Variable.Builder, fast.Fast.Slice.SourceFile.Function.VariableOrBuilder> 
+              getVariableFieldBuilder() {
+            if (variableBuilder_ == null) {
+              variableBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                  fast.Fast.Slice.SourceFile.Function.Variable, fast.Fast.Slice.SourceFile.Function.Variable.Builder, fast.Fast.Slice.SourceFile.Function.VariableOrBuilder>(
+                      variable_,
+                      ((bitField0_ & 0x00000001) == 0x00000001),
+                      getParentForChildren(),
+                      isClean());
+              variable_ = null;
+            }
+            return variableBuilder_;
+          }
+
+          private java.lang.Object name_ = "";
+          /**
+           * <code>string name = 2;</code>
+           */
+          public java.lang.String getName() {
+            java.lang.Object ref = name_;
+            if (!(ref instanceof java.lang.String)) {
+              com.google.protobuf.ByteString bs =
+                  (com.google.protobuf.ByteString) ref;
+              java.lang.String s = bs.toStringUtf8();
+              name_ = s;
+              return s;
+            } else {
+              return (java.lang.String) ref;
+            }
+          }
+          /**
+           * <code>string name = 2;</code>
+           */
+          public com.google.protobuf.ByteString
+              getNameBytes() {
+            java.lang.Object ref = name_;
+            if (ref instanceof String) {
+              com.google.protobuf.ByteString b = 
+                  com.google.protobuf.ByteString.copyFromUtf8(
+                      (java.lang.String) ref);
+              name_ = b;
+              return b;
+            } else {
+              return (com.google.protobuf.ByteString) ref;
+            }
+          }
+          /**
+           * <code>string name = 2;</code>
+           */
+          public Builder setName(
+              java.lang.String value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  
+            name_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string name = 2;</code>
+           */
+          public Builder clearName() {
+            
+            name_ = getDefaultInstance().getName();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>string name = 2;</code>
+           */
+          public Builder setNameBytes(
+              com.google.protobuf.ByteString value) {
+            if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+            
+            name_ = value;
+            onChanged();
+            return this;
+          }
+
+          private int type_ = 0;
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public int getTypeValue() {
+            return type_;
+          }
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public Builder setTypeValue(int value) {
+            type_ = value;
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public fast.Fast.Slice.ChangeType getType() {
+            fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+            return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+          }
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public Builder setType(fast.Fast.Slice.ChangeType value) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            
+            type_ = value.getNumber();
+            onChanged();
+            return this;
+          }
+          /**
+           * <code>.fast.Slice.ChangeType type = 3;</code>
+           */
+          public Builder clearType() {
+            
+            type_ = 0;
+            onChanged();
+            return this;
+          }
+          public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+          public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+            return this;
+          }
+
+
+          // @@protoc_insertion_point(builder_scope:fast.Slice.SourceFile.Function)
+        }
+
+        // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile.Function)
+        private static final fast.Fast.Slice.SourceFile.Function DEFAULT_INSTANCE;
+        static {
+          DEFAULT_INSTANCE = new fast.Fast.Slice.SourceFile.Function();
+        }
+
+        public static fast.Fast.Slice.SourceFile.Function getDefaultInstance() {
+          return DEFAULT_INSTANCE;
+        }
+
+        private static final com.google.protobuf.Parser<Function>
+            PARSER = new com.google.protobuf.AbstractParser<Function>() {
+          public Function parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+              return new Function(input, extensionRegistry);
+          }
+        };
+
+        public static com.google.protobuf.Parser<Function> parser() {
+          return PARSER;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Parser<Function> getParserForType() {
+          return PARSER;
+        }
+
+        public fast.Fast.Slice.SourceFile.Function getDefaultInstanceForType() {
+          return DEFAULT_INSTANCE;
+        }
+
+      }
+
+      private int bitField0_;
+      public static final int FUNCTION_FIELD_NUMBER = 1;
+      private java.util.List<fast.Fast.Slice.SourceFile.Function> function_;
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      public java.util.List<fast.Fast.Slice.SourceFile.Function> getFunctionList() {
+        return function_;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      public java.util.List<? extends fast.Fast.Slice.SourceFile.FunctionOrBuilder> 
+          getFunctionOrBuilderList() {
+        return function_;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      public int getFunctionCount() {
+        return function_.size();
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFile.Function getFunction(int index) {
+        return function_.get(index);
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFile.FunctionOrBuilder getFunctionOrBuilder(
+          int index) {
+        return function_.get(index);
+      }
+
+      public static final int NAME_FIELD_NUMBER = 2;
+      private volatile java.lang.Object name_;
+      /**
+       * <code>string name = 2;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string name = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int TYPE_FIELD_NUMBER = 3;
+      private int type_;
+      /**
+       * <code>.fast.Slice.ChangeType type = 3;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.fast.Slice.ChangeType type = 3;</code>
+       */
+      public fast.Fast.Slice.ChangeType getType() {
+        fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+        return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        for (int i = 0; i < function_.size(); i++) {
+          output.writeMessage(1, function_.get(i));
+        }
+        if (!getNameBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, name_);
+        }
+        if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+          output.writeEnum(3, type_);
+        }
+      }
+
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        for (int i = 0; i < function_.size(); i++) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeMessageSize(1, function_.get(i));
+        }
+        if (!getNameBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
+        }
+        if (type_ != fast.Fast.Slice.ChangeType.UNCHANGED.getNumber()) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeEnumSize(3, type_);
+        }
+        memoizedSize = size;
+        return size;
+      }
+
+      private static final long serialVersionUID = 0L;
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof fast.Fast.Slice.SourceFile)) {
+          return super.equals(obj);
+        }
+        fast.Fast.Slice.SourceFile other = (fast.Fast.Slice.SourceFile) obj;
+
+        boolean result = true;
+        result = result && getFunctionList()
+            .equals(other.getFunctionList());
+        result = result && getName()
+            .equals(other.getName());
+        result = result && type_ == other.type_;
+        return result;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        if (getFunctionCount() > 0) {
+          hash = (37 * hash) + FUNCTION_FIELD_NUMBER;
+          hash = (53 * hash) + getFunctionList().hashCode();
+        }
+        hash = (37 * hash) + NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getName().hashCode();
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + type_;
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Slice.SourceFile parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Slice.SourceFile parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static fast.Fast.Slice.SourceFile parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(fast.Fast.Slice.SourceFile prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code fast.Slice.SourceFile}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:fast.Slice.SourceFile)
+          fast.Fast.Slice.SourceFileOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return fast.Fast.internal_static_fast_Slice_SourceFile_descriptor;
+        }
+
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return fast.Fast.internal_static_fast_Slice_SourceFile_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  fast.Fast.Slice.SourceFile.class, fast.Fast.Slice.SourceFile.Builder.class);
+        }
+
+        // Construct using fast.Fast.Slice.SourceFile.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+            getFunctionFieldBuilder();
+          }
+        }
+        public Builder clear() {
+          super.clear();
+          if (functionBuilder_ == null) {
+            function_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            functionBuilder_.clear();
+          }
+          name_ = "";
+
+          type_ = 0;
+
+          return this;
+        }
+
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return fast.Fast.internal_static_fast_Slice_SourceFile_descriptor;
+        }
+
+        public fast.Fast.Slice.SourceFile getDefaultInstanceForType() {
+          return fast.Fast.Slice.SourceFile.getDefaultInstance();
+        }
+
+        public fast.Fast.Slice.SourceFile build() {
+          fast.Fast.Slice.SourceFile result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        public fast.Fast.Slice.SourceFile buildPartial() {
+          fast.Fast.Slice.SourceFile result = new fast.Fast.Slice.SourceFile(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (functionBuilder_ == null) {
+            if (((bitField0_ & 0x00000001) == 0x00000001)) {
+              function_ = java.util.Collections.unmodifiableList(function_);
+              bitField0_ = (bitField0_ & ~0x00000001);
+            }
+            result.function_ = function_;
+          } else {
+            result.function_ = functionBuilder_.build();
+          }
+          result.name_ = name_;
+          result.type_ = type_;
+          result.bitField0_ = to_bitField0_;
+          onBuilt();
+          return result;
+        }
+
+        public Builder clone() {
+          return (Builder) super.clone();
+        }
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.setField(field, value);
+        }
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return (Builder) super.clearField(field);
+        }
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return (Builder) super.clearOneof(oneof);
+        }
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, Object value) {
+          return (Builder) super.setRepeatedField(field, index, value);
+        }
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            Object value) {
+          return (Builder) super.addRepeatedField(field, value);
+        }
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof fast.Fast.Slice.SourceFile) {
+            return mergeFrom((fast.Fast.Slice.SourceFile)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(fast.Fast.Slice.SourceFile other) {
+          if (other == fast.Fast.Slice.SourceFile.getDefaultInstance()) return this;
+          if (functionBuilder_ == null) {
+            if (!other.function_.isEmpty()) {
+              if (function_.isEmpty()) {
+                function_ = other.function_;
+                bitField0_ = (bitField0_ & ~0x00000001);
+              } else {
+                ensureFunctionIsMutable();
+                function_.addAll(other.function_);
+              }
+              onChanged();
+            }
+          } else {
+            if (!other.function_.isEmpty()) {
+              if (functionBuilder_.isEmpty()) {
+                functionBuilder_.dispose();
+                functionBuilder_ = null;
+                function_ = other.function_;
+                bitField0_ = (bitField0_ & ~0x00000001);
+                functionBuilder_ = 
+                  com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                     getFunctionFieldBuilder() : null;
+              } else {
+                functionBuilder_.addAllMessages(other.function_);
+              }
+            }
+          }
+          if (!other.getName().isEmpty()) {
+            name_ = other.name_;
+            onChanged();
+          }
+          if (other.type_ != 0) {
+            setTypeValue(other.getTypeValue());
+          }
+          onChanged();
+          return this;
+        }
+
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          fast.Fast.Slice.SourceFile parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (fast.Fast.Slice.SourceFile) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+        private int bitField0_;
+
+        private java.util.List<fast.Fast.Slice.SourceFile.Function> function_ =
+          java.util.Collections.emptyList();
+        private void ensureFunctionIsMutable() {
+          if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+            function_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile.Function>(function_);
+            bitField0_ |= 0x00000001;
+           }
+        }
+
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            fast.Fast.Slice.SourceFile.Function, fast.Fast.Slice.SourceFile.Function.Builder, fast.Fast.Slice.SourceFile.FunctionOrBuilder> functionBuilder_;
+
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public java.util.List<fast.Fast.Slice.SourceFile.Function> getFunctionList() {
+          if (functionBuilder_ == null) {
+            return java.util.Collections.unmodifiableList(function_);
+          } else {
+            return functionBuilder_.getMessageList();
+          }
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public int getFunctionCount() {
+          if (functionBuilder_ == null) {
+            return function_.size();
+          } else {
+            return functionBuilder_.getCount();
+          }
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.Function getFunction(int index) {
+          if (functionBuilder_ == null) {
+            return function_.get(index);
+          } else {
+            return functionBuilder_.getMessage(index);
+          }
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder setFunction(
+            int index, fast.Fast.Slice.SourceFile.Function value) {
+          if (functionBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureFunctionIsMutable();
+            function_.set(index, value);
+            onChanged();
+          } else {
+            functionBuilder_.setMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder setFunction(
+            int index, fast.Fast.Slice.SourceFile.Function.Builder builderForValue) {
+          if (functionBuilder_ == null) {
+            ensureFunctionIsMutable();
+            function_.set(index, builderForValue.build());
+            onChanged();
+          } else {
+            functionBuilder_.setMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder addFunction(fast.Fast.Slice.SourceFile.Function value) {
+          if (functionBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureFunctionIsMutable();
+            function_.add(value);
+            onChanged();
+          } else {
+            functionBuilder_.addMessage(value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder addFunction(
+            int index, fast.Fast.Slice.SourceFile.Function value) {
+          if (functionBuilder_ == null) {
+            if (value == null) {
+              throw new NullPointerException();
+            }
+            ensureFunctionIsMutable();
+            function_.add(index, value);
+            onChanged();
+          } else {
+            functionBuilder_.addMessage(index, value);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder addFunction(
+            fast.Fast.Slice.SourceFile.Function.Builder builderForValue) {
+          if (functionBuilder_ == null) {
+            ensureFunctionIsMutable();
+            function_.add(builderForValue.build());
+            onChanged();
+          } else {
+            functionBuilder_.addMessage(builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder addFunction(
+            int index, fast.Fast.Slice.SourceFile.Function.Builder builderForValue) {
+          if (functionBuilder_ == null) {
+            ensureFunctionIsMutable();
+            function_.add(index, builderForValue.build());
+            onChanged();
+          } else {
+            functionBuilder_.addMessage(index, builderForValue.build());
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder addAllFunction(
+            java.lang.Iterable<? extends fast.Fast.Slice.SourceFile.Function> values) {
+          if (functionBuilder_ == null) {
+            ensureFunctionIsMutable();
+            com.google.protobuf.AbstractMessageLite.Builder.addAll(
+                values, function_);
+            onChanged();
+          } else {
+            functionBuilder_.addAllMessages(values);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder clearFunction() {
+          if (functionBuilder_ == null) {
+            function_ = java.util.Collections.emptyList();
+            bitField0_ = (bitField0_ & ~0x00000001);
+            onChanged();
+          } else {
+            functionBuilder_.clear();
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public Builder removeFunction(int index) {
+          if (functionBuilder_ == null) {
+            ensureFunctionIsMutable();
+            function_.remove(index);
+            onChanged();
+          } else {
+            functionBuilder_.remove(index);
+          }
+          return this;
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.Function.Builder getFunctionBuilder(
+            int index) {
+          return getFunctionFieldBuilder().getBuilder(index);
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.FunctionOrBuilder getFunctionOrBuilder(
+            int index) {
+          if (functionBuilder_ == null) {
+            return function_.get(index);  } else {
+            return functionBuilder_.getMessageOrBuilder(index);
+          }
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public java.util.List<? extends fast.Fast.Slice.SourceFile.FunctionOrBuilder> 
+             getFunctionOrBuilderList() {
+          if (functionBuilder_ != null) {
+            return functionBuilder_.getMessageOrBuilderList();
+          } else {
+            return java.util.Collections.unmodifiableList(function_);
+          }
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.Function.Builder addFunctionBuilder() {
+          return getFunctionFieldBuilder().addBuilder(
+              fast.Fast.Slice.SourceFile.Function.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public fast.Fast.Slice.SourceFile.Function.Builder addFunctionBuilder(
+            int index) {
+          return getFunctionFieldBuilder().addBuilder(
+              index, fast.Fast.Slice.SourceFile.Function.getDefaultInstance());
+        }
+        /**
+         * <code>repeated .fast.Slice.SourceFile.Function function = 1;</code>
+         */
+        public java.util.List<fast.Fast.Slice.SourceFile.Function.Builder> 
+             getFunctionBuilderList() {
+          return getFunctionFieldBuilder().getBuilderList();
+        }
+        private com.google.protobuf.RepeatedFieldBuilderV3<
+            fast.Fast.Slice.SourceFile.Function, fast.Fast.Slice.SourceFile.Function.Builder, fast.Fast.Slice.SourceFile.FunctionOrBuilder> 
+            getFunctionFieldBuilder() {
+          if (functionBuilder_ == null) {
+            functionBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+                fast.Fast.Slice.SourceFile.Function, fast.Fast.Slice.SourceFile.Function.Builder, fast.Fast.Slice.SourceFile.FunctionOrBuilder>(
+                    function_,
+                    ((bitField0_ & 0x00000001) == 0x00000001),
+                    getParentForChildren(),
+                    isClean());
+            function_ = null;
+          }
+          return functionBuilder_;
+        }
+
+        private java.lang.Object name_ = "";
+        /**
+         * <code>string name = 2;</code>
+         */
+        public java.lang.String getName() {
+          java.lang.Object ref = name_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            name_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public com.google.protobuf.ByteString
+            getNameBytes() {
+          java.lang.Object ref = name_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            name_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public Builder setName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          name_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public Builder clearName() {
+          
+          name_ = getDefaultInstance().getName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string name = 2;</code>
+         */
+        public Builder setNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          name_ = value;
+          onChanged();
+          return this;
+        }
+
+        private int type_ = 0;
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public int getTypeValue() {
+          return type_;
+        }
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public Builder setTypeValue(int value) {
+          type_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public fast.Fast.Slice.ChangeType getType() {
+          fast.Fast.Slice.ChangeType result = fast.Fast.Slice.ChangeType.valueOf(type_);
+          return result == null ? fast.Fast.Slice.ChangeType.UNRECOGNIZED : result;
+        }
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public Builder setType(fast.Fast.Slice.ChangeType value) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          
+          type_ = value.getNumber();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>.fast.Slice.ChangeType type = 3;</code>
+         */
+        public Builder clearType() {
+          
+          type_ = 0;
+          onChanged();
+          return this;
+        }
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return this;
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:fast.Slice.SourceFile)
+      }
+
+      // @@protoc_insertion_point(class_scope:fast.Slice.SourceFile)
+      private static final fast.Fast.Slice.SourceFile DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new fast.Fast.Slice.SourceFile();
+      }
+
+      public static fast.Fast.Slice.SourceFile getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<SourceFile>
+          PARSER = new com.google.protobuf.AbstractParser<SourceFile>() {
+        public SourceFile parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+            return new SourceFile(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<SourceFile> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<SourceFile> getParserForType() {
+        return PARSER;
+      }
+
+      public fast.Fast.Slice.SourceFile getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    private int bitField0_;
+    public static final int FILE_FIELD_NUMBER = 1;
+    private java.util.List<fast.Fast.Slice.SourceFile> file_;
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    public java.util.List<fast.Fast.Slice.SourceFile> getFileList() {
+      return file_;
+    }
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    public java.util.List<? extends fast.Fast.Slice.SourceFileOrBuilder> 
+        getFileOrBuilderList() {
+      return file_;
+    }
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    public int getFileCount() {
+      return file_.size();
+    }
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    public fast.Fast.Slice.SourceFile getFile(int index) {
+      return file_.get(index);
+    }
+    /**
+     * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+     */
+    public fast.Fast.Slice.SourceFileOrBuilder getFileOrBuilder(
+        int index) {
+      return file_.get(index);
+    }
+
+    public static final int HASH_FIELD_NUMBER = 2;
+    private volatile java.lang.Object hash_;
+    /**
+     * <code>string hash = 2;</code>
+     */
+    public java.lang.String getHash() {
+      java.lang.Object ref = hash_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        hash_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string hash = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getHashBytes() {
+      java.lang.Object ref = hash_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        hash_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < file_.size(); i++) {
+        output.writeMessage(1, file_.get(i));
+      }
+      if (!getHashBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hash_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < file_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, file_.get(i));
+      }
+      if (!getHashBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, hash_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof fast.Fast.Slice)) {
+        return super.equals(obj);
+      }
+      fast.Fast.Slice other = (fast.Fast.Slice) obj;
+
+      boolean result = true;
+      result = result && getFileList()
+          .equals(other.getFileList());
+      result = result && getHash()
+          .equals(other.getHash());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getFileCount() > 0) {
+        hash = (37 * hash) + FILE_FIELD_NUMBER;
+        hash = (53 * hash) + getFileList().hashCode();
+      }
+      hash = (37 * hash) + HASH_FIELD_NUMBER;
+      hash = (53 * hash) + getHash().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static fast.Fast.Slice parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Slice parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Slice parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Slice parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Slice parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static fast.Fast.Slice parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static fast.Fast.Slice parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Slice parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Slice parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Slice parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static fast.Fast.Slice parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static fast.Fast.Slice parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(fast.Fast.Slice prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code fast.Slice}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:fast.Slice)
+        fast.Fast.SliceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return fast.Fast.internal_static_fast_Slice_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return fast.Fast.internal_static_fast_Slice_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                fast.Fast.Slice.class, fast.Fast.Slice.Builder.class);
+      }
+
+      // Construct using fast.Fast.Slice.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFileFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (fileBuilder_ == null) {
+          file_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          fileBuilder_.clear();
+        }
+        hash_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return fast.Fast.internal_static_fast_Slice_descriptor;
+      }
+
+      public fast.Fast.Slice getDefaultInstanceForType() {
+        return fast.Fast.Slice.getDefaultInstance();
+      }
+
+      public fast.Fast.Slice build() {
+        fast.Fast.Slice result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public fast.Fast.Slice buildPartial() {
+        fast.Fast.Slice result = new fast.Fast.Slice(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (fileBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            file_ = java.util.Collections.unmodifiableList(file_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.file_ = file_;
+        } else {
+          result.file_ = fileBuilder_.build();
+        }
+        result.hash_ = hash_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof fast.Fast.Slice) {
+          return mergeFrom((fast.Fast.Slice)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(fast.Fast.Slice other) {
+        if (other == fast.Fast.Slice.getDefaultInstance()) return this;
+        if (fileBuilder_ == null) {
+          if (!other.file_.isEmpty()) {
+            if (file_.isEmpty()) {
+              file_ = other.file_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureFileIsMutable();
+              file_.addAll(other.file_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.file_.isEmpty()) {
+            if (fileBuilder_.isEmpty()) {
+              fileBuilder_.dispose();
+              fileBuilder_ = null;
+              file_ = other.file_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              fileBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFileFieldBuilder() : null;
+            } else {
+              fileBuilder_.addAllMessages(other.file_);
+            }
+          }
+        }
+        if (!other.getHash().isEmpty()) {
+          hash_ = other.hash_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        fast.Fast.Slice parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (fast.Fast.Slice) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<fast.Fast.Slice.SourceFile> file_ =
+        java.util.Collections.emptyList();
+      private void ensureFileIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          file_ = new java.util.ArrayList<fast.Fast.Slice.SourceFile>(file_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Slice.SourceFile, fast.Fast.Slice.SourceFile.Builder, fast.Fast.Slice.SourceFileOrBuilder> fileBuilder_;
+
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public java.util.List<fast.Fast.Slice.SourceFile> getFileList() {
+        if (fileBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(file_);
+        } else {
+          return fileBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public int getFileCount() {
+        if (fileBuilder_ == null) {
+          return file_.size();
+        } else {
+          return fileBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFile getFile(int index) {
+        if (fileBuilder_ == null) {
+          return file_.get(index);
+        } else {
+          return fileBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder setFile(
+          int index, fast.Fast.Slice.SourceFile value) {
+        if (fileBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFileIsMutable();
+          file_.set(index, value);
+          onChanged();
+        } else {
+          fileBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder setFile(
+          int index, fast.Fast.Slice.SourceFile.Builder builderForValue) {
+        if (fileBuilder_ == null) {
+          ensureFileIsMutable();
+          file_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          fileBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder addFile(fast.Fast.Slice.SourceFile value) {
+        if (fileBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFileIsMutable();
+          file_.add(value);
+          onChanged();
+        } else {
+          fileBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder addFile(
+          int index, fast.Fast.Slice.SourceFile value) {
+        if (fileBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFileIsMutable();
+          file_.add(index, value);
+          onChanged();
+        } else {
+          fileBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder addFile(
+          fast.Fast.Slice.SourceFile.Builder builderForValue) {
+        if (fileBuilder_ == null) {
+          ensureFileIsMutable();
+          file_.add(builderForValue.build());
+          onChanged();
+        } else {
+          fileBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder addFile(
+          int index, fast.Fast.Slice.SourceFile.Builder builderForValue) {
+        if (fileBuilder_ == null) {
+          ensureFileIsMutable();
+          file_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          fileBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder addAllFile(
+          java.lang.Iterable<? extends fast.Fast.Slice.SourceFile> values) {
+        if (fileBuilder_ == null) {
+          ensureFileIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, file_);
+          onChanged();
+        } else {
+          fileBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder clearFile() {
+        if (fileBuilder_ == null) {
+          file_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          fileBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public Builder removeFile(int index) {
+        if (fileBuilder_ == null) {
+          ensureFileIsMutable();
+          file_.remove(index);
+          onChanged();
+        } else {
+          fileBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFile.Builder getFileBuilder(
+          int index) {
+        return getFileFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFileOrBuilder getFileOrBuilder(
+          int index) {
+        if (fileBuilder_ == null) {
+          return file_.get(index);  } else {
+          return fileBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public java.util.List<? extends fast.Fast.Slice.SourceFileOrBuilder> 
+           getFileOrBuilderList() {
+        if (fileBuilder_ != null) {
+          return fileBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(file_);
+        }
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFile.Builder addFileBuilder() {
+        return getFileFieldBuilder().addBuilder(
+            fast.Fast.Slice.SourceFile.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public fast.Fast.Slice.SourceFile.Builder addFileBuilder(
+          int index) {
+        return getFileFieldBuilder().addBuilder(
+            index, fast.Fast.Slice.SourceFile.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .fast.Slice.SourceFile file = 1;</code>
+       */
+      public java.util.List<fast.Fast.Slice.SourceFile.Builder> 
+           getFileBuilderList() {
+        return getFileFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          fast.Fast.Slice.SourceFile, fast.Fast.Slice.SourceFile.Builder, fast.Fast.Slice.SourceFileOrBuilder> 
+          getFileFieldBuilder() {
+        if (fileBuilder_ == null) {
+          fileBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              fast.Fast.Slice.SourceFile, fast.Fast.Slice.SourceFile.Builder, fast.Fast.Slice.SourceFileOrBuilder>(
+                  file_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          file_ = null;
+        }
+        return fileBuilder_;
+      }
+
+      private java.lang.Object hash_ = "";
+      /**
+       * <code>string hash = 2;</code>
+       */
+      public java.lang.String getHash() {
+        java.lang.Object ref = hash_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          hash_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string hash = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getHashBytes() {
+        java.lang.Object ref = hash_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          hash_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string hash = 2;</code>
+       */
+      public Builder setHash(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        hash_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string hash = 2;</code>
+       */
+      public Builder clearHash() {
+        
+        hash_ = getDefaultInstance().getHash();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string hash = 2;</code>
+       */
+      public Builder setHashBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        hash_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:fast.Slice)
+    }
+
+    // @@protoc_insertion_point(class_scope:fast.Slice)
+    private static final fast.Fast.Slice DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new fast.Fast.Slice();
+    }
+
+    public static fast.Fast.Slice getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Slice>
+        PARSER = new com.google.protobuf.AbstractParser<Slice>() {
+      public Slice parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Slice(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Slice> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Slice> getParserForType() {
+      return PARSER;
+    }
+
+    public fast.Fast.Slice getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface DataOrBuilder extends
       // @@protoc_insertion_point(interface_extends:fast.Data)
       com.google.protobuf.MessageOrBuilder {
@@ -25327,6 +31732,15 @@ public final class Fast {
      * <code>.fast.Pairs pairs = 4;</code>
      */
     fast.Fast.PairsOrBuilder getPairsOrBuilder();
+
+    /**
+     * <code>.fast.Slice slice = 5;</code>
+     */
+    fast.Fast.Slice getSlice();
+    /**
+     * <code>.fast.Slice slice = 5;</code>
+     */
+    fast.Fast.SliceOrBuilder getSliceOrBuilder();
 
     public fast.Fast.Data.RecordTypeCase getRecordTypeCase();
   }
@@ -25425,6 +31839,20 @@ public final class Fast {
               recordTypeCase_ = 4;
               break;
             }
+            case 42: {
+              fast.Fast.Slice.Builder subBuilder = null;
+              if (recordTypeCase_ == 5) {
+                subBuilder = ((fast.Fast.Slice) recordType_).toBuilder();
+              }
+              recordType_ =
+                  input.readMessage(fast.Fast.Slice.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((fast.Fast.Slice) recordType_);
+                recordType_ = subBuilder.buildPartial();
+              }
+              recordTypeCase_ = 5;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -25456,6 +31884,7 @@ public final class Fast {
       LOG(2),
       DELTA(3),
       PAIRS(4),
+      SLICE(5),
       RECORDTYPE_NOT_SET(0);
       private final int value;
       private RecordTypeCase(int value) {
@@ -25475,6 +31904,7 @@ public final class Fast {
           case 2: return LOG;
           case 3: return DELTA;
           case 4: return PAIRS;
+          case 5: return SLICE;
           case 0: return RECORDTYPE_NOT_SET;
           default: return null;
         }
@@ -25570,6 +32000,26 @@ public final class Fast {
       return fast.Fast.Pairs.getDefaultInstance();
     }
 
+    public static final int SLICE_FIELD_NUMBER = 5;
+    /**
+     * <code>.fast.Slice slice = 5;</code>
+     */
+    public fast.Fast.Slice getSlice() {
+      if (recordTypeCase_ == 5) {
+         return (fast.Fast.Slice) recordType_;
+      }
+      return fast.Fast.Slice.getDefaultInstance();
+    }
+    /**
+     * <code>.fast.Slice slice = 5;</code>
+     */
+    public fast.Fast.SliceOrBuilder getSliceOrBuilder() {
+      if (recordTypeCase_ == 5) {
+         return (fast.Fast.Slice) recordType_;
+      }
+      return fast.Fast.Slice.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -25594,6 +32044,9 @@ public final class Fast {
       if (recordTypeCase_ == 4) {
         output.writeMessage(4, (fast.Fast.Pairs) recordType_);
       }
+      if (recordTypeCase_ == 5) {
+        output.writeMessage(5, (fast.Fast.Slice) recordType_);
+      }
     }
 
     public int getSerializedSize() {
@@ -25616,6 +32069,10 @@ public final class Fast {
       if (recordTypeCase_ == 4) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, (fast.Fast.Pairs) recordType_);
+      }
+      if (recordTypeCase_ == 5) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, (fast.Fast.Slice) recordType_);
       }
       memoizedSize = size;
       return size;
@@ -25653,6 +32110,10 @@ public final class Fast {
           result = result && getPairs()
               .equals(other.getPairs());
           break;
+        case 5:
+          result = result && getSlice()
+              .equals(other.getSlice());
+          break;
         case 0:
         default:
       }
@@ -25682,6 +32143,10 @@ public final class Fast {
         case 4:
           hash = (37 * hash) + PAIRS_FIELD_NUMBER;
           hash = (53 * hash) + getPairs().hashCode();
+          break;
+        case 5:
+          hash = (37 * hash) + SLICE_FIELD_NUMBER;
+          hash = (53 * hash) + getSlice().hashCode();
           break;
         case 0:
         default:
@@ -25867,6 +32332,13 @@ public final class Fast {
             result.recordType_ = pairsBuilder_.build();
           }
         }
+        if (recordTypeCase_ == 5) {
+          if (sliceBuilder_ == null) {
+            result.recordType_ = recordType_;
+          } else {
+            result.recordType_ = sliceBuilder_.build();
+          }
+        }
         result.recordTypeCase_ = recordTypeCase_;
         onBuilt();
         return result;
@@ -25924,6 +32396,10 @@ public final class Fast {
           }
           case PAIRS: {
             mergePairs(other.getPairs());
+            break;
+          }
+          case SLICE: {
+            mergeSlice(other.getSlice());
             break;
           }
           case RECORDTYPE_NOT_SET: {
@@ -26490,6 +32966,136 @@ public final class Fast {
         onChanged();;
         return pairsBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Slice, fast.Fast.Slice.Builder, fast.Fast.SliceOrBuilder> sliceBuilder_;
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public fast.Fast.Slice getSlice() {
+        if (sliceBuilder_ == null) {
+          if (recordTypeCase_ == 5) {
+            return (fast.Fast.Slice) recordType_;
+          }
+          return fast.Fast.Slice.getDefaultInstance();
+        } else {
+          if (recordTypeCase_ == 5) {
+            return sliceBuilder_.getMessage();
+          }
+          return fast.Fast.Slice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public Builder setSlice(fast.Fast.Slice value) {
+        if (sliceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          recordType_ = value;
+          onChanged();
+        } else {
+          sliceBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public Builder setSlice(
+          fast.Fast.Slice.Builder builderForValue) {
+        if (sliceBuilder_ == null) {
+          recordType_ = builderForValue.build();
+          onChanged();
+        } else {
+          sliceBuilder_.setMessage(builderForValue.build());
+        }
+        recordTypeCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public Builder mergeSlice(fast.Fast.Slice value) {
+        if (sliceBuilder_ == null) {
+          if (recordTypeCase_ == 5 &&
+              recordType_ != fast.Fast.Slice.getDefaultInstance()) {
+            recordType_ = fast.Fast.Slice.newBuilder((fast.Fast.Slice) recordType_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            recordType_ = value;
+          }
+          onChanged();
+        } else {
+          if (recordTypeCase_ == 5) {
+            sliceBuilder_.mergeFrom(value);
+          }
+          sliceBuilder_.setMessage(value);
+        }
+        recordTypeCase_ = 5;
+        return this;
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public Builder clearSlice() {
+        if (sliceBuilder_ == null) {
+          if (recordTypeCase_ == 5) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+            onChanged();
+          }
+        } else {
+          if (recordTypeCase_ == 5) {
+            recordTypeCase_ = 0;
+            recordType_ = null;
+          }
+          sliceBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public fast.Fast.Slice.Builder getSliceBuilder() {
+        return getSliceFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      public fast.Fast.SliceOrBuilder getSliceOrBuilder() {
+        if ((recordTypeCase_ == 5) && (sliceBuilder_ != null)) {
+          return sliceBuilder_.getMessageOrBuilder();
+        } else {
+          if (recordTypeCase_ == 5) {
+            return (fast.Fast.Slice) recordType_;
+          }
+          return fast.Fast.Slice.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>.fast.Slice slice = 5;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          fast.Fast.Slice, fast.Fast.Slice.Builder, fast.Fast.SliceOrBuilder> 
+          getSliceFieldBuilder() {
+        if (sliceBuilder_ == null) {
+          if (!(recordTypeCase_ == 5)) {
+            recordType_ = fast.Fast.Slice.getDefaultInstance();
+          }
+          sliceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              fast.Fast.Slice, fast.Fast.Slice.Builder, fast.Fast.SliceOrBuilder>(
+                  (fast.Fast.Slice) recordType_,
+                  getParentForChildren(),
+                  isClean());
+          recordType_ = null;
+        }
+        recordTypeCase_ = 5;
+        onChanged();;
+        return sliceBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return this;
@@ -26639,6 +33245,36 @@ public final class Fast {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_fast_Log_Author_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Slice_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Slice_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Slice_SourceFile_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Slice_SourceFile_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Slice_SourceFile_Function_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Slice_SourceFile_Function_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Slice_SourceFile_Function_Variable_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Slice_SourceFile_Function_Variable_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Slice_SourceFile_Function_Variable_Position_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Slice_SourceFile_Function_Variable_Position_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_fast_Data_descriptor;
   private static final 
@@ -26999,10 +33635,32 @@ public final class Fast {
       "ne\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 " +
       "\001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n" +
       "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"" +
-      "\214\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Element" +
-      "H\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030\003 " +
-      "\001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fast" +
-      ".PairsH\000B\014\n\nRecordTypeb\006proto3"
+      "\307\006\n\005Slice\022$\n\004file\030\001 \003(\0132\026.fast.Slice.Sou" +
+      "rceFile\022\014\n\004hash\030\002 \001(\t\032\332\005\n\nSourceFile\0221\n\010" +
+      "function\030\001 \003(\0132\037.fast.Slice.SourceFile.F" +
+      "unction\022\014\n\004name\030\002 \001(\t\022$\n\004type\030\003 \001(\0162\026.fa",
+      "st.Slice.ChangeType\032\344\004\n\010Function\022:\n\010vari" +
+      "able\030\001 \003(\0132(.fast.Slice.SourceFile.Funct" +
+      "ion.Variable\022\014\n\004name\030\002 \001(\t\022$\n\004type\030\003 \001(\016" +
+      "2\026.fast.Slice.ChangeType\032\347\003\n\010Variable\022\014\n" +
+      "\004name\030\001 \001(\t\022>\n\003pos\030\002 \001(\01321.fast.Slice.So" +
+      "urceFile.Function.Variable.Position\022$\n\004t" +
+      "ype\030\003 \001(\0162\026.fast.Slice.ChangeType\022>\n\003def" +
+      "\030\004 \003(\01321.fast.Slice.SourceFile.Function." +
+      "Variable.Position\022>\n\003use\030\005 \003(\01321.fast.Sl" +
+      "ice.SourceFile.Function.Variable.Positio",
+      "n\022\014\n\004dvar\030\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022D\n\005cfunc\030" +
+      "\010 \003(\01325.fast.Slice.SourceFile.Function.V" +
+      "ariable.FunctionDecl\032V\n\010Position\022\016\n\006line" +
+      "no\030\001 \001(\005\022$\n\004type\030\002 \001(\0162\026.fast.Slice.Chan" +
+      "geType\022\024\n\014delta_lineno\030\005 \001(\005\032,\n\014Function" +
+      "Decl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-\n\nCh" +
+      "angeType\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020" +
+      "\002\"\252\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Eleme" +
+      "ntH\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030" +
+      "\003 \001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fa",
+      "st.PairsH\000\022\034\n\005slice\030\005 \001(\0132\013.fast.SliceH\000" +
+      "B\014\n\nRecordTypeb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -27136,12 +33794,48 @@ public final class Fast {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Log_Author_descriptor,
         new java.lang.String[] { "Id", "Name", "Email", });
-    internal_static_fast_Data_descriptor =
+    internal_static_fast_Slice_descriptor =
       getDescriptor().getMessageTypes().get(4);
+    internal_static_fast_Slice_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Slice_descriptor,
+        new java.lang.String[] { "File", "Hash", });
+    internal_static_fast_Slice_SourceFile_descriptor =
+      internal_static_fast_Slice_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Slice_SourceFile_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Slice_SourceFile_descriptor,
+        new java.lang.String[] { "Function", "Name", "Type", });
+    internal_static_fast_Slice_SourceFile_Function_descriptor =
+      internal_static_fast_Slice_SourceFile_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Slice_SourceFile_Function_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Slice_SourceFile_Function_descriptor,
+        new java.lang.String[] { "Variable", "Name", "Type", });
+    internal_static_fast_Slice_SourceFile_Function_Variable_descriptor =
+      internal_static_fast_Slice_SourceFile_Function_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Slice_SourceFile_Function_Variable_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Slice_SourceFile_Function_Variable_descriptor,
+        new java.lang.String[] { "Name", "Pos", "Type", "Def", "Use", "Dvar", "Alias", "Cfunc", });
+    internal_static_fast_Slice_SourceFile_Function_Variable_Position_descriptor =
+      internal_static_fast_Slice_SourceFile_Function_Variable_descriptor.getNestedTypes().get(0);
+    internal_static_fast_Slice_SourceFile_Function_Variable_Position_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Slice_SourceFile_Function_Variable_Position_descriptor,
+        new java.lang.String[] { "Lineno", "Type", "DeltaLineno", });
+    internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_descriptor =
+      internal_static_fast_Slice_SourceFile_Function_Variable_descriptor.getNestedTypes().get(1);
+    internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_fast_Slice_SourceFile_Function_Variable_FunctionDecl_descriptor,
+        new java.lang.String[] { "Name", "Lineno", });
+    internal_static_fast_Data_descriptor =
+      getDescriptor().getMessageTypes().get(5);
     internal_static_fast_Data_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Data_descriptor,
-        new java.lang.String[] { "Element", "Log", "Delta", "Pairs", "RecordType", });
+        new java.lang.String[] { "Element", "Log", "Delta", "Pairs", "Slice", "RecordType", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

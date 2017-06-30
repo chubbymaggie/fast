@@ -86,6 +86,31 @@ struct Author;
 
 }  // namespace _Log
 
+struct Slice;
+
+namespace _Slice {
+
+struct SourceFile;
+
+namespace _SourceFile {
+
+struct Function;
+
+namespace _Function {
+
+struct Variable;
+
+namespace _Variable {
+
+struct Position;
+
+struct FunctionDecl;
+
+}  // namespace _Variable
+}  // namespace _Function
+}  // namespace _SourceFile
+}  // namespace _Slice
+
 struct Data;
 
 namespace _Data {
@@ -1498,6 +1523,33 @@ inline const char *EnumNameCloneType(CloneType e) {
 
 }  // namespace _Pair
 }  // namespace _Pairs
+
+namespace _Slice {
+
+enum ChangeType {
+  ChangeType_UNCHANGED = 0,
+  ChangeType_ADD = 1,
+  ChangeType_DEL = 2,
+  ChangeType_MIN = ChangeType_UNCHANGED,
+  ChangeType_MAX = ChangeType_DEL
+};
+
+inline const char **EnumNamesChangeType() {
+  static const char *names[] = {
+    "UNCHANGED",
+    "ADD",
+    "DEL",
+    nullptr
+  };
+  return names;
+}
+
+inline const char *EnumNameChangeType(ChangeType e) {
+  const size_t index = static_cast<int>(e);
+  return EnumNamesChangeType()[index];
+}
+
+}  // namespace _Slice
 
 struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
@@ -3262,6 +3314,497 @@ inline flatbuffers::Offset<Author> CreateAuthorDirect(
 
 }  // namespace _Log
 
+struct Slice FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_FILE = 4,
+    VT_HASH = 6
+  };
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>> *file() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>> *>(VT_FILE);
+  }
+  const flatbuffers::String *hash() const {
+    return GetPointer<const flatbuffers::String *>(VT_HASH);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FILE) &&
+           verifier.Verify(file()) &&
+           verifier.VerifyVectorOfTables(file()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_HASH) &&
+           verifier.Verify(hash()) &&
+           verifier.EndTable();
+  }
+};
+
+struct SliceBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_file(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>>> file) {
+    fbb_.AddOffset(Slice::VT_FILE, file);
+  }
+  void add_hash(flatbuffers::Offset<flatbuffers::String> hash) {
+    fbb_.AddOffset(Slice::VT_HASH, hash);
+  }
+  SliceBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  SliceBuilder &operator=(const SliceBuilder &);
+  flatbuffers::Offset<Slice> Finish() {
+    const auto end = fbb_.EndTable(start_, 2);
+    auto o = flatbuffers::Offset<Slice>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Slice> CreateSlice(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>>> file = 0,
+    flatbuffers::Offset<flatbuffers::String> hash = 0) {
+  SliceBuilder builder_(_fbb);
+  builder_.add_hash(hash);
+  builder_.add_file(file);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Slice> CreateSliceDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const std::vector<flatbuffers::Offset<_fast::_Slice::SourceFile>> *file = nullptr,
+    const char *hash = nullptr) {
+  return _fast::CreateSlice(
+      _fbb,
+      file ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::SourceFile>>(*file) : 0,
+      hash ? _fbb.CreateString(hash) : 0);
+}
+
+namespace _Slice {
+
+struct SourceFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_FUNCTION = 4,
+    VT_NAME = 6,
+    VT_TYPE = 8
+  };
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>> *function() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>> *>(VT_FUNCTION);
+  }
+  const flatbuffers::String *name() const {
+    return GetPointer<const flatbuffers::String *>(VT_NAME);
+  }
+  int32_t type() const {
+    return GetField<int32_t>(VT_TYPE, 0);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FUNCTION) &&
+           verifier.Verify(function()) &&
+           verifier.VerifyVectorOfTables(function()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           verifier.Verify(name()) &&
+           VerifyField<int32_t>(verifier, VT_TYPE) &&
+           verifier.EndTable();
+  }
+};
+
+struct SourceFileBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_function(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>>> function) {
+    fbb_.AddOffset(SourceFile::VT_FUNCTION, function);
+  }
+  void add_name(flatbuffers::Offset<flatbuffers::String> name) {
+    fbb_.AddOffset(SourceFile::VT_NAME, name);
+  }
+  void add_type(int32_t type) {
+    fbb_.AddElement<int32_t>(SourceFile::VT_TYPE, type, 0);
+  }
+  SourceFileBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  SourceFileBuilder &operator=(const SourceFileBuilder &);
+  flatbuffers::Offset<SourceFile> Finish() {
+    const auto end = fbb_.EndTable(start_, 3);
+    auto o = flatbuffers::Offset<SourceFile>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<SourceFile> CreateSourceFile(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>>> function = 0,
+    flatbuffers::Offset<flatbuffers::String> name = 0,
+    int32_t type = 0) {
+  SourceFileBuilder builder_(_fbb);
+  builder_.add_type(type);
+  builder_.add_name(name);
+  builder_.add_function(function);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<SourceFile> CreateSourceFileDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>> *function = nullptr,
+    const char *name = nullptr,
+    int32_t type = 0) {
+  return _fast::_Slice::CreateSourceFile(
+      _fbb,
+      function ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>>(*function) : 0,
+      name ? _fbb.CreateString(name) : 0,
+      type);
+}
+
+namespace _SourceFile {
+
+struct Function FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_VARIABLE = 4,
+    VT_NAME = 6,
+    VT_TYPE = 8
+  };
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>> *variable() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>> *>(VT_VARIABLE);
+  }
+  const flatbuffers::String *name() const {
+    return GetPointer<const flatbuffers::String *>(VT_NAME);
+  }
+  int32_t type() const {
+    return GetField<int32_t>(VT_TYPE, 0);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_VARIABLE) &&
+           verifier.Verify(variable()) &&
+           verifier.VerifyVectorOfTables(variable()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           verifier.Verify(name()) &&
+           VerifyField<int32_t>(verifier, VT_TYPE) &&
+           verifier.EndTable();
+  }
+};
+
+struct FunctionBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_variable(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>>> variable) {
+    fbb_.AddOffset(Function::VT_VARIABLE, variable);
+  }
+  void add_name(flatbuffers::Offset<flatbuffers::String> name) {
+    fbb_.AddOffset(Function::VT_NAME, name);
+  }
+  void add_type(int32_t type) {
+    fbb_.AddElement<int32_t>(Function::VT_TYPE, type, 0);
+  }
+  FunctionBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  FunctionBuilder &operator=(const FunctionBuilder &);
+  flatbuffers::Offset<Function> Finish() {
+    const auto end = fbb_.EndTable(start_, 3);
+    auto o = flatbuffers::Offset<Function>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Function> CreateFunction(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>>> variable = 0,
+    flatbuffers::Offset<flatbuffers::String> name = 0,
+    int32_t type = 0) {
+  FunctionBuilder builder_(_fbb);
+  builder_.add_type(type);
+  builder_.add_name(name);
+  builder_.add_variable(variable);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Function> CreateFunctionDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>> *variable = nullptr,
+    const char *name = nullptr,
+    int32_t type = 0) {
+  return _fast::_Slice::_SourceFile::CreateFunction(
+      _fbb,
+      variable ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>>(*variable) : 0,
+      name ? _fbb.CreateString(name) : 0,
+      type);
+}
+
+namespace _Function {
+
+struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_NAME = 4,
+    VT_POS = 6,
+    VT_TYPE = 8,
+    VT_DEF = 10,
+    VT_USE = 12,
+    VT_DVAR = 14,
+    VT_ALIAS = 16,
+    VT_CFUNC = 18
+  };
+  const flatbuffers::String *name() const {
+    return GetPointer<const flatbuffers::String *>(VT_NAME);
+  }
+  const _fast::_Slice::_SourceFile::_Function::_Variable::Position *pos() const {
+    return GetPointer<const _fast::_Slice::_SourceFile::_Function::_Variable::Position *>(VT_POS);
+  }
+  int32_t type() const {
+    return GetField<int32_t>(VT_TYPE, 0);
+  }
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *def() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *>(VT_DEF);
+  }
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *use() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *>(VT_USE);
+  }
+  const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *dvar() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *>(VT_DVAR);
+  }
+  const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *alias() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *>(VT_ALIAS);
+  }
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *cfunc() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *>(VT_CFUNC);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           verifier.Verify(name()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_POS) &&
+           verifier.VerifyTable(pos()) &&
+           VerifyField<int32_t>(verifier, VT_TYPE) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEF) &&
+           verifier.Verify(def()) &&
+           verifier.VerifyVectorOfTables(def()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_USE) &&
+           verifier.Verify(use()) &&
+           verifier.VerifyVectorOfTables(use()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DVAR) &&
+           verifier.Verify(dvar()) &&
+           verifier.VerifyVectorOfStrings(dvar()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ALIAS) &&
+           verifier.Verify(alias()) &&
+           verifier.VerifyVectorOfStrings(alias()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CFUNC) &&
+           verifier.Verify(cfunc()) &&
+           verifier.VerifyVectorOfTables(cfunc()) &&
+           verifier.EndTable();
+  }
+};
+
+struct VariableBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_name(flatbuffers::Offset<flatbuffers::String> name) {
+    fbb_.AddOffset(Variable::VT_NAME, name);
+  }
+  void add_pos(flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position> pos) {
+    fbb_.AddOffset(Variable::VT_POS, pos);
+  }
+  void add_type(int32_t type) {
+    fbb_.AddElement<int32_t>(Variable::VT_TYPE, type, 0);
+  }
+  void add_def(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> def) {
+    fbb_.AddOffset(Variable::VT_DEF, def);
+  }
+  void add_use(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> use) {
+    fbb_.AddOffset(Variable::VT_USE, use);
+  }
+  void add_dvar(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> dvar) {
+    fbb_.AddOffset(Variable::VT_DVAR, dvar);
+  }
+  void add_alias(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> alias) {
+    fbb_.AddOffset(Variable::VT_ALIAS, alias);
+  }
+  void add_cfunc(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>> cfunc) {
+    fbb_.AddOffset(Variable::VT_CFUNC, cfunc);
+  }
+  VariableBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  VariableBuilder &operator=(const VariableBuilder &);
+  flatbuffers::Offset<Variable> Finish() {
+    const auto end = fbb_.EndTable(start_, 8);
+    auto o = flatbuffers::Offset<Variable>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Variable> CreateVariable(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::String> name = 0,
+    flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position> pos = 0,
+    int32_t type = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> def = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> use = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> dvar = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> alias = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>> cfunc = 0) {
+  VariableBuilder builder_(_fbb);
+  builder_.add_cfunc(cfunc);
+  builder_.add_alias(alias);
+  builder_.add_dvar(dvar);
+  builder_.add_use(use);
+  builder_.add_def(def);
+  builder_.add_type(type);
+  builder_.add_pos(pos);
+  builder_.add_name(name);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Variable> CreateVariableDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const char *name = nullptr,
+    flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position> pos = 0,
+    int32_t type = 0,
+    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *def = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *use = nullptr,
+    const std::vector<flatbuffers::Offset<flatbuffers::String>> *dvar = nullptr,
+    const std::vector<flatbuffers::Offset<flatbuffers::String>> *alias = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *cfunc = nullptr) {
+  return _fast::_Slice::_SourceFile::_Function::CreateVariable(
+      _fbb,
+      name ? _fbb.CreateString(name) : 0,
+      pos,
+      type,
+      def ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>(*def) : 0,
+      use ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>(*use) : 0,
+      dvar ? _fbb.CreateVector<flatbuffers::Offset<flatbuffers::String>>(*dvar) : 0,
+      alias ? _fbb.CreateVector<flatbuffers::Offset<flatbuffers::String>>(*alias) : 0,
+      cfunc ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>(*cfunc) : 0);
+}
+
+namespace _Variable {
+
+struct Position FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_LINENO = 4,
+    VT_TYPE = 6,
+    VT_DELTA_LINENO = 8
+  };
+  int32_t lineno() const {
+    return GetField<int32_t>(VT_LINENO, 0);
+  }
+  int32_t type() const {
+    return GetField<int32_t>(VT_TYPE, 0);
+  }
+  int32_t delta_lineno() const {
+    return GetField<int32_t>(VT_DELTA_LINENO, 0);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<int32_t>(verifier, VT_LINENO) &&
+           VerifyField<int32_t>(verifier, VT_TYPE) &&
+           VerifyField<int32_t>(verifier, VT_DELTA_LINENO) &&
+           verifier.EndTable();
+  }
+};
+
+struct PositionBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_lineno(int32_t lineno) {
+    fbb_.AddElement<int32_t>(Position::VT_LINENO, lineno, 0);
+  }
+  void add_type(int32_t type) {
+    fbb_.AddElement<int32_t>(Position::VT_TYPE, type, 0);
+  }
+  void add_delta_lineno(int32_t delta_lineno) {
+    fbb_.AddElement<int32_t>(Position::VT_DELTA_LINENO, delta_lineno, 0);
+  }
+  PositionBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  PositionBuilder &operator=(const PositionBuilder &);
+  flatbuffers::Offset<Position> Finish() {
+    const auto end = fbb_.EndTable(start_, 3);
+    auto o = flatbuffers::Offset<Position>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Position> CreatePosition(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    int32_t lineno = 0,
+    int32_t type = 0,
+    int32_t delta_lineno = 0) {
+  PositionBuilder builder_(_fbb);
+  builder_.add_delta_lineno(delta_lineno);
+  builder_.add_type(type);
+  builder_.add_lineno(lineno);
+  return builder_.Finish();
+}
+
+struct FunctionDecl FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_NAME = 4,
+    VT_LINENO = 6
+  };
+  const flatbuffers::String *name() const {
+    return GetPointer<const flatbuffers::String *>(VT_NAME);
+  }
+  int32_t lineno() const {
+    return GetField<int32_t>(VT_LINENO, 0);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           verifier.Verify(name()) &&
+           VerifyField<int32_t>(verifier, VT_LINENO) &&
+           verifier.EndTable();
+  }
+};
+
+struct FunctionDeclBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_name(flatbuffers::Offset<flatbuffers::String> name) {
+    fbb_.AddOffset(FunctionDecl::VT_NAME, name);
+  }
+  void add_lineno(int32_t lineno) {
+    fbb_.AddElement<int32_t>(FunctionDecl::VT_LINENO, lineno, 0);
+  }
+  FunctionDeclBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  FunctionDeclBuilder &operator=(const FunctionDeclBuilder &);
+  flatbuffers::Offset<FunctionDecl> Finish() {
+    const auto end = fbb_.EndTable(start_, 2);
+    auto o = flatbuffers::Offset<FunctionDecl>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<FunctionDecl> CreateFunctionDecl(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::String> name = 0,
+    int32_t lineno = 0) {
+  FunctionDeclBuilder builder_(_fbb);
+  builder_.add_lineno(lineno);
+  builder_.add_name(name);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<FunctionDecl> CreateFunctionDeclDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const char *name = nullptr,
+    int32_t lineno = 0) {
+  return _fast::_Slice::_SourceFile::_Function::_Variable::CreateFunctionDecl(
+      _fbb,
+      name ? _fbb.CreateString(name) : 0,
+      lineno);
+}
+
+}  // namespace _Variable
+}  // namespace _Function
+}  // namespace _SourceFile
+}  // namespace _Slice
+
 struct Data FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
     VT_RECORDTYPE = 4
@@ -3310,7 +3853,8 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_ELEMENT = 4,
     VT_LOG = 6,
     VT_DELTA = 8,
-    VT_PAIRS = 10
+    VT_PAIRS = 10,
+    VT_SLICE = 12
   };
   const _fast::Element *element() const {
     return GetPointer<const _fast::Element *>(VT_ELEMENT);
@@ -3324,6 +3868,9 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const _fast::Pairs *pairs() const {
     return GetPointer<const _fast::Pairs *>(VT_PAIRS);
   }
+  const _fast::Slice *slice() const {
+    return GetPointer<const _fast::Slice *>(VT_SLICE);
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<flatbuffers::uoffset_t>(verifier, VT_ELEMENT) &&
@@ -3334,6 +3881,8 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            verifier.VerifyTable(delta()) &&
            VerifyField<flatbuffers::uoffset_t>(verifier, VT_PAIRS) &&
            verifier.VerifyTable(pairs()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICE) &&
+           verifier.VerifyTable(slice()) &&
            verifier.EndTable();
   }
 };
@@ -3353,13 +3902,16 @@ struct Anonymous3Builder {
   void add_pairs(flatbuffers::Offset<_fast::Pairs> pairs) {
     fbb_.AddOffset(Anonymous3::VT_PAIRS, pairs);
   }
+  void add_slice(flatbuffers::Offset<_fast::Slice> slice) {
+    fbb_.AddOffset(Anonymous3::VT_SLICE, slice);
+  }
   Anonymous3Builder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
   Anonymous3Builder &operator=(const Anonymous3Builder &);
   flatbuffers::Offset<Anonymous3> Finish() {
-    const auto end = fbb_.EndTable(start_, 4);
+    const auto end = fbb_.EndTable(start_, 5);
     auto o = flatbuffers::Offset<Anonymous3>(end);
     return o;
   }
@@ -3370,8 +3922,10 @@ inline flatbuffers::Offset<Anonymous3> CreateAnonymous3(
     flatbuffers::Offset<_fast::Element> element = 0,
     flatbuffers::Offset<_fast::Log> log = 0,
     flatbuffers::Offset<_fast::Delta> delta = 0,
-    flatbuffers::Offset<_fast::Pairs> pairs = 0) {
+    flatbuffers::Offset<_fast::Pairs> pairs = 0,
+    flatbuffers::Offset<_fast::Slice> slice = 0) {
   Anonymous3Builder builder_(_fbb);
+  builder_.add_slice(slice);
   builder_.add_pairs(pairs);
   builder_.add_delta(delta);
   builder_.add_log(log);
@@ -3412,6 +3966,19 @@ namespace _Hunk {
 }  // namespace _Commit
 
 }  // namespace _Log
+
+namespace _Slice {
+
+namespace _SourceFile {
+
+namespace _Function {
+
+namespace _Variable {
+
+}  // namespace _Variable
+}  // namespace _Function
+}  // namespace _SourceFile
+}  // namespace _Slice
 
 namespace _Data {
 

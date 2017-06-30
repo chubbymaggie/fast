@@ -93,11 +93,51 @@ message Pairs {
 
 #include "log.proto"
 
+message Slice {
+	enum ChangeType {
+		UNCHANGED = 0;
+		ADD = 1;
+		DEL = 2;
+	}
+	message SourceFile {
+		message Function {
+			message Variable {
+				message Position {
+					int32 lineno = 1;
+					ChangeType type = 2;
+					int32 delta_lineno = 5;
+				}
+				message FunctionDecl {
+					string name = 1;
+					int32 lineno = 2;
+				}
+				string name = 1;
+				Position pos = 2;
+				ChangeType type = 3;
+				repeated Position def = 4;
+				repeated Position use = 5;
+				repeated string dvar = 6;
+				repeated string alias = 7;
+				repeated FunctionDecl cfunc = 8;
+			}
+			repeated Variable variable = 1;
+			string name = 2;
+			ChangeType type = 3;
+		}
+		repeated Function function = 1;
+		string name = 2;
+		ChangeType type = 3;
+	}
+	repeated SourceFile file = 1;
+	string hash = 2;
+}
+
 message Data {
  oneof RecordType {
 	Element element = 1;
 	Log log = 2;
 	Delta delta = 3;
 	Pairs pairs = 4;
+	Slice slice = 5;
  }
 }

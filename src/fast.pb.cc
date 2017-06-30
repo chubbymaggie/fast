@@ -69,12 +69,25 @@ class Log_AuthorDefaultTypeInternal : public ::google::protobuf::internal::Expli
 } _Log_Author_default_instance_;
 class LogDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Log> {
 } _Log_default_instance_;
+class Slice_SourceFile_Function_Variable_PositionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function_Variable_Position> {
+} _Slice_SourceFile_Function_Variable_Position_default_instance_;
+class Slice_SourceFile_Function_Variable_FunctionDeclDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function_Variable_FunctionDecl> {
+} _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_;
+class Slice_SourceFile_Function_VariableDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function_Variable> {
+} _Slice_SourceFile_Function_Variable_default_instance_;
+class Slice_SourceFile_FunctionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function> {
+} _Slice_SourceFile_Function_default_instance_;
+class Slice_SourceFileDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile> {
+} _Slice_SourceFile_default_instance_;
+class SliceDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice> {
+} _Slice_default_instance_;
 class DataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Data> {
   public:
   const ::fast::Element* element_;
   const ::fast::Log* log_;
   const ::fast::Delta* delta_;
   const ::fast::Pairs* pairs_;
+  const ::fast::Slice* slice_;
 } _Data_default_instance_;
 
 namespace protobuf_fast_2eproto {
@@ -82,8 +95,8 @@ namespace protobuf_fast_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[21];
-const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[6];
+::google::protobuf::Metadata file_level_metadata[27];
+const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[7];
 
 }  // namespace
 
@@ -98,6 +111,12 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -303,6 +322,57 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log, commit_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log, author_),
   ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, lineno_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, delta_lineno_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_FunctionDecl, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_FunctionDecl, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_FunctionDecl, lineno_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, pos_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, def_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, use_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, dvar_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, alias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, cfunc_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, variable_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, type_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, function_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, type_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice, file_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice, hash_),
+  ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Data, _internal_metadata_),
   ~0u,  // no _extensions_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Data, _oneof_case_[0]),
@@ -311,6 +381,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), log_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), delta_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), pairs_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), slice_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Data, RecordType_),
 };
 
@@ -335,7 +406,13 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 153, -1, sizeof(Log_Commit)},
   { 165, -1, sizeof(Log_Author)},
   { 173, -1, sizeof(Log)},
-  { 180, -1, sizeof(Data)},
+  { 180, -1, sizeof(Slice_SourceFile_Function_Variable_Position)},
+  { 188, -1, sizeof(Slice_SourceFile_Function_Variable_FunctionDecl)},
+  { 195, -1, sizeof(Slice_SourceFile_Function_Variable)},
+  { 208, -1, sizeof(Slice_SourceFile_Function)},
+  { 216, -1, sizeof(Slice_SourceFile)},
+  { 224, -1, sizeof(Slice)},
+  { 231, -1, sizeof(Data)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -359,6 +436,12 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_Log_Commit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Log_Author_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Log_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_Variable_Position_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_Variable_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Data_default_instance_),
 };
 
@@ -380,7 +463,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 21);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 27);
 }
 
 }  // namespace
@@ -426,8 +509,20 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[18].reflection;
   _Log_default_instance_.Shutdown();
   delete file_level_metadata[19].reflection;
-  _Data_default_instance_.Shutdown();
+  _Slice_SourceFile_Function_Variable_Position_default_instance_.Shutdown();
   delete file_level_metadata[20].reflection;
+  _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_.Shutdown();
+  delete file_level_metadata[21].reflection;
+  _Slice_SourceFile_Function_Variable_default_instance_.Shutdown();
+  delete file_level_metadata[22].reflection;
+  _Slice_SourceFile_Function_default_instance_.Shutdown();
+  delete file_level_metadata[23].reflection;
+  _Slice_SourceFile_default_instance_.Shutdown();
+  delete file_level_metadata[24].reflection;
+  _Slice_default_instance_.Shutdown();
+  delete file_level_metadata[25].reflection;
+  _Data_default_instance_.Shutdown();
+  delete file_level_metadata[26].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -454,6 +549,12 @@ void TableStruct::InitDefaultsImpl() {
   _Log_Commit_default_instance_.DefaultConstruct();
   _Log_Author_default_instance_.DefaultConstruct();
   _Log_default_instance_.DefaultConstruct();
+  _Slice_SourceFile_Function_Variable_Position_default_instance_.DefaultConstruct();
+  _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_.DefaultConstruct();
+  _Slice_SourceFile_Function_Variable_default_instance_.DefaultConstruct();
+  _Slice_SourceFile_Function_default_instance_.DefaultConstruct();
+  _Slice_SourceFile_default_instance_.DefaultConstruct();
+  _Slice_default_instance_.DefaultConstruct();
   _Data_default_instance_.DefaultConstruct();
   _Element_default_instance_.unit_ = const_cast< ::fast::Element_Unit*>(
       ::fast::Element_Unit::internal_default_instance());
@@ -479,6 +580,8 @@ void TableStruct::InitDefaultsImpl() {
       ::fast::Pairs_Pair_Diff::internal_default_instance());
   _Log_Commit_default_instance_.committer_ = const_cast< ::fast::Log_Commit_Committer*>(
       ::fast::Log_Commit_Committer::internal_default_instance());
+  _Slice_SourceFile_Function_Variable_default_instance_.get_mutable()->pos_ = const_cast< ::fast::Slice_SourceFile_Function_Variable_Position*>(
+      ::fast::Slice_SourceFile_Function_Variable_Position::internal_default_instance());
   _Data_default_instance_.element_ = const_cast< ::fast::Element*>(
       ::fast::Element::internal_default_instance());
   _Data_default_instance_.log_ = const_cast< ::fast::Log*>(
@@ -487,6 +590,8 @@ void TableStruct::InitDefaultsImpl() {
       ::fast::Delta::internal_default_instance());
   _Data_default_instance_.pairs_ = const_cast< ::fast::Pairs*>(
       ::fast::Pairs::internal_default_instance());
+  _Data_default_instance_.slice_ = const_cast< ::fast::Slice*>(
+      ::fast::Slice::internal_default_instance());
 }
 
 void InitDefaults() {
@@ -842,13 +947,35 @@ void AddDescriptorsImpl() {
       "ne\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 "
       "\001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n"
       "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\""
-      "\214\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Element"
-      "H\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030\003 "
-      "\001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fast"
-      ".PairsH\000B\014\n\nRecordTypeb\006proto3"
+      "\307\006\n\005Slice\022$\n\004file\030\001 \003(\0132\026.fast.Slice.Sou"
+      "rceFile\022\014\n\004hash\030\002 \001(\t\032\332\005\n\nSourceFile\0221\n\010"
+      "function\030\001 \003(\0132\037.fast.Slice.SourceFile.F"
+      "unction\022\014\n\004name\030\002 \001(\t\022$\n\004type\030\003 \001(\0162\026.fa"
+      "st.Slice.ChangeType\032\344\004\n\010Function\022:\n\010vari"
+      "able\030\001 \003(\0132(.fast.Slice.SourceFile.Funct"
+      "ion.Variable\022\014\n\004name\030\002 \001(\t\022$\n\004type\030\003 \001(\016"
+      "2\026.fast.Slice.ChangeType\032\347\003\n\010Variable\022\014\n"
+      "\004name\030\001 \001(\t\022>\n\003pos\030\002 \001(\01321.fast.Slice.So"
+      "urceFile.Function.Variable.Position\022$\n\004t"
+      "ype\030\003 \001(\0162\026.fast.Slice.ChangeType\022>\n\003def"
+      "\030\004 \003(\01321.fast.Slice.SourceFile.Function."
+      "Variable.Position\022>\n\003use\030\005 \003(\01321.fast.Sl"
+      "ice.SourceFile.Function.Variable.Positio"
+      "n\022\014\n\004dvar\030\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022D\n\005cfunc\030"
+      "\010 \003(\01325.fast.Slice.SourceFile.Function.V"
+      "ariable.FunctionDecl\032V\n\010Position\022\016\n\006line"
+      "no\030\001 \001(\005\022$\n\004type\030\002 \001(\0162\026.fast.Slice.Chan"
+      "geType\022\024\n\014delta_lineno\030\005 \001(\005\032,\n\014Function"
+      "Decl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-\n\nCh"
+      "angeType\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020"
+      "\002\"\252\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Eleme"
+      "ntH\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030"
+      "\003 \001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fa"
+      "st.PairsH\000\022\034\n\005slice\030\005 \001(\0132\013.fast.SliceH\000"
+      "B\014\n\nRecordTypeb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 13990);
+      descriptor, 14862);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fast.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -2184,6 +2311,29 @@ const Pairs_Pair_CloneType Pairs_Pair::NO;
 const Pairs_Pair_CloneType Pairs_Pair::CloneType_MIN;
 const Pairs_Pair_CloneType Pairs_Pair::CloneType_MAX;
 const int Pairs_Pair::CloneType_ARRAYSIZE;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+const ::google::protobuf::EnumDescriptor* Slice_ChangeType_descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_enum_descriptors[6];
+}
+bool Slice_ChangeType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const Slice_ChangeType Slice::UNCHANGED;
+const Slice_ChangeType Slice::ADD;
+const Slice_ChangeType Slice::DEL;
+const Slice_ChangeType Slice::ChangeType_MIN;
+const Slice_ChangeType Slice::ChangeType_MAX;
+const int Slice::ChangeType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -11857,10 +12007,2777 @@ Log::author() const {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slice_SourceFile_Function_Variable_Position::kLinenoFieldNumber;
+const int Slice_SourceFile_Function_Variable_Position::kTypeFieldNumber;
+const int Slice_SourceFile_Function_Variable_Position::kDeltaLinenoFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slice_SourceFile_Function_Variable_Position::Slice_SourceFile_Function_Variable_Position()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function.Variable.Position)
+}
+Slice_SourceFile_Function_Variable_Position::Slice_SourceFile_Function_Variable_Position(const Slice_SourceFile_Function_Variable_Position& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::memcpy(&lineno_, &from.lineno_,
+    reinterpret_cast<char*>(&delta_lineno_) -
+    reinterpret_cast<char*>(&lineno_) + sizeof(delta_lineno_));
+  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function.Variable.Position)
+}
+
+void Slice_SourceFile_Function_Variable_Position::SharedCtor() {
+  ::memset(&lineno_, 0, reinterpret_cast<char*>(&delta_lineno_) -
+    reinterpret_cast<char*>(&lineno_) + sizeof(delta_lineno_));
+  _cached_size_ = 0;
+}
+
+Slice_SourceFile_Function_Variable_Position::~Slice_SourceFile_Function_Variable_Position() {
+  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function.Variable.Position)
+  SharedDtor();
+}
+
+void Slice_SourceFile_Function_Variable_Position::SharedDtor() {
+}
+
+void Slice_SourceFile_Function_Variable_Position::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slice_SourceFile_Function_Variable_Position::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable_Position::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable_Position::New(::google::protobuf::Arena* arena) const {
+  Slice_SourceFile_Function_Variable_Position* n = new Slice_SourceFile_Function_Variable_Position;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slice_SourceFile_Function_Variable_Position::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function.Variable.Position)
+  ::memset(&lineno_, 0, reinterpret_cast<char*>(&delta_lineno_) -
+    reinterpret_cast<char*>(&lineno_) + sizeof(delta_lineno_));
+}
+
+bool Slice_SourceFile_Function_Variable_Position::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function.Variable.Position)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // int32 lineno = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(8u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lineno_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Slice.ChangeType type = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 delta_lineno = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(40u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &delta_lineno_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function.Variable.Position)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function.Variable.Position)
+  return false;
+#undef DO_
+}
+
+void Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function.Variable.Position)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 lineno = 1;
+  if (this->lineno() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lineno(), output);
+  }
+
+  // .fast.Slice.ChangeType type = 2;
+  if (this->type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      2, this->type(), output);
+  }
+
+  // int32 delta_lineno = 5;
+  if (this->delta_lineno() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->delta_lineno(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function.Variable.Position)
+}
+
+::google::protobuf::uint8* Slice_SourceFile_Function_Variable_Position::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function.Variable.Position)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 lineno = 1;
+  if (this->lineno() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lineno(), target);
+  }
+
+  // .fast.Slice.ChangeType type = 2;
+  if (this->type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      2, this->type(), target);
+  }
+
+  // int32 delta_lineno = 5;
+  if (this->delta_lineno() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->delta_lineno(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function.Variable.Position)
+  return target;
+}
+
+size_t Slice_SourceFile_Function_Variable_Position::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function.Variable.Position)
+  size_t total_size = 0;
+
+  // int32 lineno = 1;
+  if (this->lineno() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lineno());
+  }
+
+  // .fast.Slice.ChangeType type = 2;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  // int32 delta_lineno = 5;
+  if (this->delta_lineno() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->delta_lineno());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slice_SourceFile_Function_Variable_Position::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slice_SourceFile_Function_Variable_Position* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function_Variable_Position>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function.Variable.Position)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function.Variable.Position)
+    MergeFrom(*source);
+  }
+}
+
+void Slice_SourceFile_Function_Variable_Position::MergeFrom(const Slice_SourceFile_Function_Variable_Position& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.lineno() != 0) {
+    set_lineno(from.lineno());
+  }
+  if (from.type() != 0) {
+    set_type(from.type());
+  }
+  if (from.delta_lineno() != 0) {
+    set_delta_lineno(from.delta_lineno());
+  }
+}
+
+void Slice_SourceFile_Function_Variable_Position::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slice_SourceFile_Function_Variable_Position::CopyFrom(const Slice_SourceFile_Function_Variable_Position& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slice_SourceFile_Function_Variable_Position::IsInitialized() const {
+  return true;
+}
+
+void Slice_SourceFile_Function_Variable_Position::Swap(Slice_SourceFile_Function_Variable_Position* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slice_SourceFile_Function_Variable_Position::InternalSwap(Slice_SourceFile_Function_Variable_Position* other) {
+  std::swap(lineno_, other->lineno_);
+  std::swap(type_, other->type_);
+  std::swap(delta_lineno_, other->delta_lineno_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slice_SourceFile_Function_Variable_Position::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slice_SourceFile_Function_Variable_Position
+
+// int32 lineno = 1;
+void Slice_SourceFile_Function_Variable_Position::clear_lineno() {
+  lineno_ = 0;
+}
+::google::protobuf::int32 Slice_SourceFile_Function_Variable_Position::lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.lineno)
+  return lineno_;
+}
+void Slice_SourceFile_Function_Variable_Position::set_lineno(::google::protobuf::int32 value) {
+  
+  lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.lineno)
+}
+
+// .fast.Slice.ChangeType type = 2;
+void Slice_SourceFile_Function_Variable_Position::clear_type() {
+  type_ = 0;
+}
+::fast::Slice_ChangeType Slice_SourceFile_Function_Variable_Position::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+void Slice_SourceFile_Function_Variable_Position::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.type)
+}
+
+// int32 delta_lineno = 5;
+void Slice_SourceFile_Function_Variable_Position::clear_delta_lineno() {
+  delta_lineno_ = 0;
+}
+::google::protobuf::int32 Slice_SourceFile_Function_Variable_Position::delta_lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.delta_lineno)
+  return delta_lineno_;
+}
+void Slice_SourceFile_Function_Variable_Position::set_delta_lineno(::google::protobuf::int32 value) {
+  
+  delta_lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.delta_lineno)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slice_SourceFile_Function_Variable_FunctionDecl::kNameFieldNumber;
+const int Slice_SourceFile_Function_Variable_FunctionDecl::kLinenoFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slice_SourceFile_Function_Variable_FunctionDecl::Slice_SourceFile_Function_Variable_FunctionDecl()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+}
+Slice_SourceFile_Function_Variable_FunctionDecl::Slice_SourceFile_Function_Variable_FunctionDecl(const Slice_SourceFile_Function_Variable_FunctionDecl& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  lineno_ = from.lineno_;
+  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::SharedCtor() {
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  lineno_ = 0;
+  _cached_size_ = 0;
+}
+
+Slice_SourceFile_Function_Variable_FunctionDecl::~Slice_SourceFile_Function_Variable_FunctionDecl() {
+  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  SharedDtor();
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slice_SourceFile_Function_Variable_FunctionDecl::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slice_SourceFile_Function_Variable_FunctionDecl& Slice_SourceFile_Function_Variable_FunctionDecl::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable_FunctionDecl::New(::google::protobuf::Arena* arena) const {
+  Slice_SourceFile_Function_Variable_FunctionDecl* n = new Slice_SourceFile_Function_Variable_FunctionDecl;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  lineno_ = 0;
+}
+
+bool Slice_SourceFile_Function_Variable_FunctionDecl::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string name = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.SourceFile.Function.Variable.FunctionDecl.name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 lineno = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
+
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &lineno_)));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  return false;
+#undef DO_
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.FunctionDecl.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->name(), output);
+  }
+
+  // int32 lineno = 2;
+  if (this->lineno() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->lineno(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+}
+
+::google::protobuf::uint8* Slice_SourceFile_Function_Variable_FunctionDecl::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.FunctionDecl.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->name(), target);
+  }
+
+  // int32 lineno = 2;
+  if (this->lineno() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->lineno(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  return target;
+}
+
+size_t Slice_SourceFile_Function_Variable_FunctionDecl::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  size_t total_size = 0;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  // int32 lineno = 2;
+  if (this->lineno() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::Int32Size(
+        this->lineno());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slice_SourceFile_Function_Variable_FunctionDecl* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function_Variable_FunctionDecl>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+    MergeFrom(*source);
+  }
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const Slice_SourceFile_Function_Variable_FunctionDecl& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.lineno() != 0) {
+    set_lineno(from.lineno());
+  }
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::CopyFrom(const Slice_SourceFile_Function_Variable_FunctionDecl& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slice_SourceFile_Function_Variable_FunctionDecl::IsInitialized() const {
+  return true;
+}
+
+void Slice_SourceFile_Function_Variable_FunctionDecl::Swap(Slice_SourceFile_Function_Variable_FunctionDecl* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slice_SourceFile_Function_Variable_FunctionDecl::InternalSwap(Slice_SourceFile_Function_Variable_FunctionDecl* other) {
+  name_.Swap(&other->name_);
+  std::swap(lineno_, other->lineno_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slice_SourceFile_Function_Variable_FunctionDecl::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slice_SourceFile_Function_Variable_FunctionDecl
+
+// string name = 1;
+void Slice_SourceFile_Function_Variable_FunctionDecl::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Slice_SourceFile_Function_Variable_FunctionDecl::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  return name_.GetNoArena();
+}
+void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+#endif
+void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+::std::string* Slice_SourceFile_Function_Variable_FunctionDecl::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Slice_SourceFile_Function_Variable_FunctionDecl::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Slice_SourceFile_Function_Variable_FunctionDecl::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+}
+
+// int32 lineno = 2;
+void Slice_SourceFile_Function_Variable_FunctionDecl::clear_lineno() {
+  lineno_ = 0;
+}
+::google::protobuf::int32 Slice_SourceFile_Function_Variable_FunctionDecl::lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
+  return lineno_;
+}
+void Slice_SourceFile_Function_Variable_FunctionDecl::set_lineno(::google::protobuf::int32 value) {
+  
+  lineno_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slice_SourceFile_Function_Variable::kNameFieldNumber;
+const int Slice_SourceFile_Function_Variable::kPosFieldNumber;
+const int Slice_SourceFile_Function_Variable::kTypeFieldNumber;
+const int Slice_SourceFile_Function_Variable::kDefFieldNumber;
+const int Slice_SourceFile_Function_Variable::kUseFieldNumber;
+const int Slice_SourceFile_Function_Variable::kDvarFieldNumber;
+const int Slice_SourceFile_Function_Variable::kAliasFieldNumber;
+const int Slice_SourceFile_Function_Variable::kCfuncFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slice_SourceFile_Function_Variable::Slice_SourceFile_Function_Variable()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function.Variable)
+}
+Slice_SourceFile_Function_Variable::Slice_SourceFile_Function_Variable(const Slice_SourceFile_Function_Variable& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      def_(from.def_),
+      use_(from.use_),
+      dvar_(from.dvar_),
+      alias_(from.alias_),
+      cfunc_(from.cfunc_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.has_pos()) {
+    pos_ = new ::fast::Slice_SourceFile_Function_Variable_Position(*from.pos_);
+  } else {
+    pos_ = NULL;
+  }
+  type_ = from.type_;
+  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function.Variable)
+}
+
+void Slice_SourceFile_Function_Variable::SharedCtor() {
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(&pos_, 0, reinterpret_cast<char*>(&type_) -
+    reinterpret_cast<char*>(&pos_) + sizeof(type_));
+  _cached_size_ = 0;
+}
+
+Slice_SourceFile_Function_Variable::~Slice_SourceFile_Function_Variable() {
+  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function.Variable)
+  SharedDtor();
+}
+
+void Slice_SourceFile_Function_Variable::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) {
+    delete pos_;
+  }
+}
+
+void Slice_SourceFile_Function_Variable::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slice_SourceFile_Function_Variable::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slice_SourceFile_Function_Variable& Slice_SourceFile_Function_Variable::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slice_SourceFile_Function_Variable* Slice_SourceFile_Function_Variable::New(::google::protobuf::Arena* arena) const {
+  Slice_SourceFile_Function_Variable* n = new Slice_SourceFile_Function_Variable;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slice_SourceFile_Function_Variable::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function.Variable)
+  def_.Clear();
+  use_.Clear();
+  dvar_.Clear();
+  alias_.Clear();
+  cfunc_.Clear();
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && pos_ != NULL) {
+    delete pos_;
+  }
+  pos_ = NULL;
+  type_ = 0;
+}
+
+bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function.Variable)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // string name = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.SourceFile.Function.Variable.name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_pos()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Slice.ChangeType type = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+      case 4: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(34u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_def()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_use()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string dvar = 6;
+      case 6: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(50u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_dvar()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->dvar(this->dvar_size() - 1).data(),
+            this->dvar(this->dvar_size() - 1).length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.SourceFile.Function.Variable.dvar"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated string alias = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_alias()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->alias(this->alias_size() - 1).data(),
+            this->alias(this->alias_size() - 1).length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.SourceFile.Function.Variable.alias"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_cfunc()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function.Variable)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function.Variable)
+  return false;
+#undef DO_
+}
+
+void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function.Variable)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->name(), output);
+  }
+
+  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  if (this->has_pos()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, *this->pos_, output);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->type(), output);
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+  for (unsigned int i = 0, n = this->def_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->def(i), output);
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  for (unsigned int i = 0, n = this->use_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->use(i), output);
+  }
+
+  // repeated string dvar = 6;
+  for (int i = 0, n = this->dvar_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->dvar(i).data(), this->dvar(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.dvar");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      6, this->dvar(i), output);
+  }
+
+  // repeated string alias = 7;
+  for (int i = 0, n = this->alias_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->alias(i).data(), this->alias(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.alias");
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      7, this->alias(i), output);
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  for (unsigned int i = 0, n = this->cfunc_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->cfunc(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function.Variable)
+}
+
+::google::protobuf::uint8* Slice_SourceFile_Function_Variable::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function.Variable)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->name(), target);
+  }
+
+  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  if (this->has_pos()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        2, *this->pos_, deterministic, target);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->type(), target);
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+  for (unsigned int i = 0, n = this->def_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        4, this->def(i), deterministic, target);
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  for (unsigned int i = 0, n = this->use_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, this->use(i), deterministic, target);
+  }
+
+  // repeated string dvar = 6;
+  for (int i = 0, n = this->dvar_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->dvar(i).data(), this->dvar(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.dvar");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(6, this->dvar(i), target);
+  }
+
+  // repeated string alias = 7;
+  for (int i = 0, n = this->alias_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->alias(i).data(), this->alias(i).length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.Variable.alias");
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(7, this->alias(i), target);
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  for (unsigned int i = 0, n = this->cfunc_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        8, this->cfunc(i), deterministic, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function.Variable)
+  return target;
+}
+
+size_t Slice_SourceFile_Function_Variable::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function.Variable)
+  size_t total_size = 0;
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+  {
+    unsigned int count = this->def_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->def(i));
+    }
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  {
+    unsigned int count = this->use_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->use(i));
+    }
+  }
+
+  // repeated string dvar = 6;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->dvar_size());
+  for (int i = 0, n = this->dvar_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->dvar(i));
+  }
+
+  // repeated string alias = 7;
+  total_size += 1 *
+      ::google::protobuf::internal::FromIntSize(this->alias_size());
+  for (int i = 0, n = this->alias_size(); i < n; i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->alias(i));
+  }
+
+  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  {
+    unsigned int count = this->cfunc_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->cfunc(i));
+    }
+  }
+
+  // string name = 1;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  if (this->has_pos()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->pos_);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slice_SourceFile_Function_Variable::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function.Variable)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slice_SourceFile_Function_Variable* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function_Variable>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function.Variable)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function.Variable)
+    MergeFrom(*source);
+  }
+}
+
+void Slice_SourceFile_Function_Variable::MergeFrom(const Slice_SourceFile_Function_Variable& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function.Variable)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  def_.MergeFrom(from.def_);
+  use_.MergeFrom(from.use_);
+  dvar_.MergeFrom(from.dvar_);
+  alias_.MergeFrom(from.alias_);
+  cfunc_.MergeFrom(from.cfunc_);
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.has_pos()) {
+    mutable_pos()->::fast::Slice_SourceFile_Function_Variable_Position::MergeFrom(from.pos());
+  }
+  if (from.type() != 0) {
+    set_type(from.type());
+  }
+}
+
+void Slice_SourceFile_Function_Variable::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function.Variable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slice_SourceFile_Function_Variable::CopyFrom(const Slice_SourceFile_Function_Variable& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function.Variable)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slice_SourceFile_Function_Variable::IsInitialized() const {
+  return true;
+}
+
+void Slice_SourceFile_Function_Variable::Swap(Slice_SourceFile_Function_Variable* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slice_SourceFile_Function_Variable::InternalSwap(Slice_SourceFile_Function_Variable* other) {
+  def_.InternalSwap(&other->def_);
+  use_.InternalSwap(&other->use_);
+  dvar_.InternalSwap(&other->dvar_);
+  alias_.InternalSwap(&other->alias_);
+  cfunc_.InternalSwap(&other->cfunc_);
+  name_.Swap(&other->name_);
+  std::swap(pos_, other->pos_);
+  std::swap(type_, other->type_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slice_SourceFile_Function_Variable::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slice_SourceFile_Function_Variable
+
+// string name = 1;
+void Slice_SourceFile_Function_Variable::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Slice_SourceFile_Function_Variable::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.name)
+  return name_.GetNoArena();
+}
+void Slice_SourceFile_Function_Variable::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.name)
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function_Variable::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.Variable.name)
+}
+#endif
+void Slice_SourceFile_Function_Variable::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.name)
+}
+void Slice_SourceFile_Function_Variable::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.name)
+}
+::std::string* Slice_SourceFile_Function_Variable::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Slice_SourceFile_Function_Variable::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Slice_SourceFile_Function_Variable::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.name)
+}
+
+// .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+bool Slice_SourceFile_Function_Variable::has_pos() const {
+  return this != internal_default_instance() && pos_ != NULL;
+}
+void Slice_SourceFile_Function_Variable::clear_pos() {
+  if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
+  pos_ = NULL;
+}
+const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::pos() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.pos)
+  return pos_ != NULL ? *pos_
+                         : *::fast::Slice_SourceFile_Function_Variable_Position::internal_default_instance();
+}
+::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_pos() {
+  
+  if (pos_ == NULL) {
+    pos_ = new ::fast::Slice_SourceFile_Function_Variable_Position;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.pos)
+  return pos_;
+}
+::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::release_pos() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.pos)
+  
+  ::fast::Slice_SourceFile_Function_Variable_Position* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+void Slice_SourceFile_Function_Variable::set_allocated_pos(::fast::Slice_SourceFile_Function_Variable_Position* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.pos)
+}
+
+// .fast.Slice.ChangeType type = 3;
+void Slice_SourceFile_Function_Variable::clear_type() {
+  type_ = 0;
+}
+::fast::Slice_ChangeType Slice_SourceFile_Function_Variable::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+void Slice_SourceFile_Function_Variable::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.type)
+}
+
+// repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+int Slice_SourceFile_Function_Variable::def_size() const {
+  return def_.size();
+}
+void Slice_SourceFile_Function_Variable::clear_def() {
+  def_.Clear();
+}
+const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::def(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.def)
+  return def_.Get(index);
+}
+::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_def(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.def)
+  return def_.Mutable(index);
+}
+::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::add_def() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.def)
+  return def_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
+Slice_SourceFile_Function_Variable::mutable_def() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.def)
+  return &def_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
+Slice_SourceFile_Function_Variable::def() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.def)
+  return def_;
+}
+
+// repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+int Slice_SourceFile_Function_Variable::use_size() const {
+  return use_.size();
+}
+void Slice_SourceFile_Function_Variable::clear_use() {
+  use_.Clear();
+}
+const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::use(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.use)
+  return use_.Get(index);
+}
+::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_use(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.use)
+  return use_.Mutable(index);
+}
+::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::add_use() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.use)
+  return use_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
+Slice_SourceFile_Function_Variable::mutable_use() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.use)
+  return &use_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
+Slice_SourceFile_Function_Variable::use() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.use)
+  return use_;
+}
+
+// repeated string dvar = 6;
+int Slice_SourceFile_Function_Variable::dvar_size() const {
+  return dvar_.size();
+}
+void Slice_SourceFile_Function_Variable::clear_dvar() {
+  dvar_.Clear();
+}
+const ::std::string& Slice_SourceFile_Function_Variable::dvar(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_.Get(index);
+}
+::std::string* Slice_SourceFile_Function_Variable::mutable_dvar(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_.Mutable(index);
+}
+void Slice_SourceFile_Function_Variable::set_dvar(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.dvar)
+  dvar_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function_Variable::set_dvar(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.dvar)
+  dvar_.Mutable(index)->assign(std::move(value));
+}
+#endif
+void Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  dvar_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+void Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value, size_t size) {
+  dvar_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+::std::string* Slice_SourceFile_Function_Variable::add_dvar() {
+  // @@protoc_insertion_point(field_add_mutable:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_.Add();
+}
+void Slice_SourceFile_Function_Variable::add_dvar(const ::std::string& value) {
+  dvar_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function_Variable::add_dvar(::std::string&& value) {
+  dvar_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+#endif
+void Slice_SourceFile_Function_Variable::add_dvar(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  dvar_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+void Slice_SourceFile_Function_Variable::add_dvar(const char* value, size_t size) {
+  dvar_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fast.Slice.SourceFile.Function.Variable.dvar)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+Slice_SourceFile_Function_Variable::dvar() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.dvar)
+  return dvar_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+Slice_SourceFile_Function_Variable::mutable_dvar() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.dvar)
+  return &dvar_;
+}
+
+// repeated string alias = 7;
+int Slice_SourceFile_Function_Variable::alias_size() const {
+  return alias_.size();
+}
+void Slice_SourceFile_Function_Variable::clear_alias() {
+  alias_.Clear();
+}
+const ::std::string& Slice_SourceFile_Function_Variable::alias(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_.Get(index);
+}
+::std::string* Slice_SourceFile_Function_Variable::mutable_alias(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_.Mutable(index);
+}
+void Slice_SourceFile_Function_Variable::set_alias(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.alias)
+  alias_.Mutable(index)->assign(value);
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function_Variable::set_alias(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.alias)
+  alias_.Mutable(index)->assign(std::move(value));
+}
+#endif
+void Slice_SourceFile_Function_Variable::set_alias(int index, const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  alias_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.alias)
+}
+void Slice_SourceFile_Function_Variable::set_alias(int index, const char* value, size_t size) {
+  alias_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.alias)
+}
+::std::string* Slice_SourceFile_Function_Variable::add_alias() {
+  // @@protoc_insertion_point(field_add_mutable:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_.Add();
+}
+void Slice_SourceFile_Function_Variable::add_alias(const ::std::string& value) {
+  alias_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.alias)
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function_Variable::add_alias(::std::string&& value) {
+  alias_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.alias)
+}
+#endif
+void Slice_SourceFile_Function_Variable::add_alias(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  alias_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:fast.Slice.SourceFile.Function.Variable.alias)
+}
+void Slice_SourceFile_Function_Variable::add_alias(const char* value, size_t size) {
+  alias_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:fast.Slice.SourceFile.Function.Variable.alias)
+}
+const ::google::protobuf::RepeatedPtrField< ::std::string>&
+Slice_SourceFile_Function_Variable::alias() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.alias)
+  return alias_;
+}
+::google::protobuf::RepeatedPtrField< ::std::string>*
+Slice_SourceFile_Function_Variable::mutable_alias() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.alias)
+  return &alias_;
+}
+
+// repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+int Slice_SourceFile_Function_Variable::cfunc_size() const {
+  return cfunc_.size();
+}
+void Slice_SourceFile_Function_Variable::clear_cfunc() {
+  cfunc_.Clear();
+}
+const ::fast::Slice_SourceFile_Function_Variable_FunctionDecl& Slice_SourceFile_Function_Variable::cfunc(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_.Get(index);
+}
+::fast::Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable::mutable_cfunc(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_.Mutable(index);
+}
+::fast::Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable::add_cfunc() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >*
+Slice_SourceFile_Function_Variable::mutable_cfunc() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return &cfunc_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >&
+Slice_SourceFile_Function_Variable::cfunc() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.cfunc)
+  return cfunc_;
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slice_SourceFile_Function::kVariableFieldNumber;
+const int Slice_SourceFile_Function::kNameFieldNumber;
+const int Slice_SourceFile_Function::kTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slice_SourceFile_Function::Slice_SourceFile_Function()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function)
+}
+Slice_SourceFile_Function::Slice_SourceFile_Function(const Slice_SourceFile_Function& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      variable_(from.variable_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  type_ = from.type_;
+  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function)
+}
+
+void Slice_SourceFile_Function::SharedCtor() {
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
+  _cached_size_ = 0;
+}
+
+Slice_SourceFile_Function::~Slice_SourceFile_Function() {
+  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function)
+  SharedDtor();
+}
+
+void Slice_SourceFile_Function::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Slice_SourceFile_Function::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slice_SourceFile_Function::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slice_SourceFile_Function& Slice_SourceFile_Function::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slice_SourceFile_Function* Slice_SourceFile_Function::New(::google::protobuf::Arena* arena) const {
+  Slice_SourceFile_Function* n = new Slice_SourceFile_Function;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slice_SourceFile_Function::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function)
+  variable_.Clear();
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
+}
+
+bool Slice_SourceFile_Function::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_variable()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.SourceFile.Function.name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Slice.ChangeType type = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function)
+  return false;
+#undef DO_
+}
+
+void Slice_SourceFile_Function::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  for (unsigned int i = 0, n = this->variable_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->variable(i), output);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->name(), output);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->type(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function)
+}
+
+::google::protobuf::uint8* Slice_SourceFile_Function::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  for (unsigned int i = 0, n = this->variable_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->variable(i), deterministic, target);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.Function.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->name(), target);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->type(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function)
+  return target;
+}
+
+size_t Slice_SourceFile_Function::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function)
+  size_t total_size = 0;
+
+  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  {
+    unsigned int count = this->variable_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->variable(i));
+    }
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slice_SourceFile_Function::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slice_SourceFile_Function* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function)
+    MergeFrom(*source);
+  }
+}
+
+void Slice_SourceFile_Function::MergeFrom(const Slice_SourceFile_Function& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  variable_.MergeFrom(from.variable_);
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.type() != 0) {
+    set_type(from.type());
+  }
+}
+
+void Slice_SourceFile_Function::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slice_SourceFile_Function::CopyFrom(const Slice_SourceFile_Function& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slice_SourceFile_Function::IsInitialized() const {
+  return true;
+}
+
+void Slice_SourceFile_Function::Swap(Slice_SourceFile_Function* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slice_SourceFile_Function::InternalSwap(Slice_SourceFile_Function* other) {
+  variable_.InternalSwap(&other->variable_);
+  name_.Swap(&other->name_);
+  std::swap(type_, other->type_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slice_SourceFile_Function::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slice_SourceFile_Function
+
+// repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+int Slice_SourceFile_Function::variable_size() const {
+  return variable_.size();
+}
+void Slice_SourceFile_Function::clear_variable() {
+  variable_.Clear();
+}
+const ::fast::Slice_SourceFile_Function_Variable& Slice_SourceFile_Function::variable(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.variable)
+  return variable_.Get(index);
+}
+::fast::Slice_SourceFile_Function_Variable* Slice_SourceFile_Function::mutable_variable(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.variable)
+  return variable_.Mutable(index);
+}
+::fast::Slice_SourceFile_Function_Variable* Slice_SourceFile_Function::add_variable() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.variable)
+  return variable_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >*
+Slice_SourceFile_Function::mutable_variable() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.variable)
+  return &variable_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >&
+Slice_SourceFile_Function::variable() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.variable)
+  return variable_;
+}
+
+// string name = 2;
+void Slice_SourceFile_Function::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Slice_SourceFile_Function::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.name)
+  return name_.GetNoArena();
+}
+void Slice_SourceFile_Function::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.name)
+}
+#if LANG_CXX11
+void Slice_SourceFile_Function::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.name)
+}
+#endif
+void Slice_SourceFile_Function::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.name)
+}
+void Slice_SourceFile_Function::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.name)
+}
+::std::string* Slice_SourceFile_Function::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Slice_SourceFile_Function::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Slice_SourceFile_Function::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.name)
+}
+
+// .fast.Slice.ChangeType type = 3;
+void Slice_SourceFile_Function::clear_type() {
+  type_ = 0;
+}
+::fast::Slice_ChangeType Slice_SourceFile_Function::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+void Slice_SourceFile_Function::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slice_SourceFile::kFunctionFieldNumber;
+const int Slice_SourceFile::kNameFieldNumber;
+const int Slice_SourceFile::kTypeFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slice_SourceFile::Slice_SourceFile()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile)
+}
+Slice_SourceFile::Slice_SourceFile(const Slice_SourceFile& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      function_(from.function_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.name().size() > 0) {
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  type_ = from.type_;
+  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile)
+}
+
+void Slice_SourceFile::SharedCtor() {
+  name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
+  _cached_size_ = 0;
+}
+
+Slice_SourceFile::~Slice_SourceFile() {
+  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile)
+  SharedDtor();
+}
+
+void Slice_SourceFile::SharedDtor() {
+  name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Slice_SourceFile::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slice_SourceFile::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slice_SourceFile& Slice_SourceFile::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slice_SourceFile* Slice_SourceFile::New(::google::protobuf::Arena* arena) const {
+  Slice_SourceFile* n = new Slice_SourceFile;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slice_SourceFile::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile)
+  function_.Clear();
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  type_ = 0;
+}
+
+bool Slice_SourceFile::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .fast.Slice.SourceFile.Function function = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_function()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string name = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_name()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->name().data(), this->name().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.SourceFile.name"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // .fast.Slice.ChangeType type = 3;
+      case 3: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(24u)) {
+          int value;
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
+                 input, &value)));
+          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile)
+  return false;
+#undef DO_
+}
+
+void Slice_SourceFile::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slice.SourceFile.Function function = 1;
+  for (unsigned int i = 0, n = this->function_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->function(i), output);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.name");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->name(), output);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteEnum(
+      3, this->type(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile)
+}
+
+::google::protobuf::uint8* Slice_SourceFile::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slice.SourceFile.Function function = 1;
+  for (unsigned int i = 0, n = this->function_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->function(i), deterministic, target);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->name().data(), this->name().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.SourceFile.name");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->name(), target);
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
+      3, this->type(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile)
+  return target;
+}
+
+size_t Slice_SourceFile::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile)
+  size_t total_size = 0;
+
+  // repeated .fast.Slice.SourceFile.Function function = 1;
+  {
+    unsigned int count = this->function_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->function(i));
+    }
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->name());
+  }
+
+  // .fast.Slice.ChangeType type = 3;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slice_SourceFile::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slice_SourceFile* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile)
+    MergeFrom(*source);
+  }
+}
+
+void Slice_SourceFile::MergeFrom(const Slice_SourceFile& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  function_.MergeFrom(from.function_);
+  if (from.name().size() > 0) {
+
+    name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
+  }
+  if (from.type() != 0) {
+    set_type(from.type());
+  }
+}
+
+void Slice_SourceFile::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slice_SourceFile::CopyFrom(const Slice_SourceFile& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slice_SourceFile::IsInitialized() const {
+  return true;
+}
+
+void Slice_SourceFile::Swap(Slice_SourceFile* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slice_SourceFile::InternalSwap(Slice_SourceFile* other) {
+  function_.InternalSwap(&other->function_);
+  name_.Swap(&other->name_);
+  std::swap(type_, other->type_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slice_SourceFile::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slice_SourceFile
+
+// repeated .fast.Slice.SourceFile.Function function = 1;
+int Slice_SourceFile::function_size() const {
+  return function_.size();
+}
+void Slice_SourceFile::clear_function() {
+  function_.Clear();
+}
+const ::fast::Slice_SourceFile_Function& Slice_SourceFile::function(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.function)
+  return function_.Get(index);
+}
+::fast::Slice_SourceFile_Function* Slice_SourceFile::mutable_function(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.function)
+  return function_.Mutable(index);
+}
+::fast::Slice_SourceFile_Function* Slice_SourceFile::add_function() {
+  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.function)
+  return function_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >*
+Slice_SourceFile::mutable_function() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.function)
+  return &function_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >&
+Slice_SourceFile::function() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.function)
+  return function_;
+}
+
+// string name = 2;
+void Slice_SourceFile::clear_name() {
+  name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Slice_SourceFile::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.name)
+  return name_.GetNoArena();
+}
+void Slice_SourceFile::set_name(const ::std::string& value) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.name)
+}
+#if LANG_CXX11
+void Slice_SourceFile::set_name(::std::string&& value) {
+  
+  name_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.name)
+}
+#endif
+void Slice_SourceFile::set_name(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.name)
+}
+void Slice_SourceFile::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.name)
+}
+::std::string* Slice_SourceFile::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.name)
+  return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Slice_SourceFile::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.name)
+  
+  return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Slice_SourceFile::set_allocated_name(::std::string* name) {
+  if (name != NULL) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.name)
+}
+
+// .fast.Slice.ChangeType type = 3;
+void Slice_SourceFile::clear_type() {
+  type_ = 0;
+}
+::fast::Slice_ChangeType Slice_SourceFile::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.type)
+  return static_cast< ::fast::Slice_ChangeType >(type_);
+}
+void Slice_SourceFile::set_type(::fast::Slice_ChangeType value) {
+  
+  type_ = value;
+  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.type)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slice::kFileFieldNumber;
+const int Slice::kHashFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slice::Slice()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slice)
+}
+Slice::Slice(const Slice& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      file_(from.file_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.hash().size() > 0) {
+    hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
+  }
+  // @@protoc_insertion_point(copy_constructor:fast.Slice)
+}
+
+void Slice::SharedCtor() {
+  hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+Slice::~Slice() {
+  // @@protoc_insertion_point(destructor:fast.Slice)
+  SharedDtor();
+}
+
+void Slice::SharedDtor() {
+  hash_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void Slice::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slice::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slice& Slice::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slice* Slice::New(::google::protobuf::Arena* arena) const {
+  Slice* n = new Slice;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slice::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slice)
+  file_.Clear();
+  hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool Slice::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slice)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .fast.Slice.SourceFile file = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_file()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string hash = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(18u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_hash()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->hash().data(), this->hash().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Slice.hash"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slice)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slice)
+  return false;
+#undef DO_
+}
+
+void Slice::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slice)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slice.SourceFile file = 1;
+  for (unsigned int i = 0, n = this->file_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->file(i), output);
+  }
+
+  // string hash = 2;
+  if (this->hash().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->hash().data(), this->hash().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.hash");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->hash(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slice)
+}
+
+::google::protobuf::uint8* Slice::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slice.SourceFile file = 1;
+  for (unsigned int i = 0, n = this->file_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->file(i), deterministic, target);
+  }
+
+  // string hash = 2;
+  if (this->hash().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->hash().data(), this->hash().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Slice.hash");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->hash(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice)
+  return target;
+}
+
+size_t Slice::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slice)
+  size_t total_size = 0;
+
+  // repeated .fast.Slice.SourceFile file = 1;
+  {
+    unsigned int count = this->file_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->file(i));
+    }
+  }
+
+  // string hash = 2;
+  if (this->hash().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->hash());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slice::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slice* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slice>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice)
+    MergeFrom(*source);
+  }
+}
+
+void Slice::MergeFrom(const Slice& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  file_.MergeFrom(from.file_);
+  if (from.hash().size() > 0) {
+
+    hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
+  }
+}
+
+void Slice::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slice::CopyFrom(const Slice& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slice::IsInitialized() const {
+  return true;
+}
+
+void Slice::Swap(Slice* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slice::InternalSwap(Slice* other) {
+  file_.InternalSwap(&other->file_);
+  hash_.Swap(&other->hash_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slice::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slice
+
+// repeated .fast.Slice.SourceFile file = 1;
+int Slice::file_size() const {
+  return file_.size();
+}
+void Slice::clear_file() {
+  file_.Clear();
+}
+const ::fast::Slice_SourceFile& Slice::file(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slice.file)
+  return file_.Get(index);
+}
+::fast::Slice_SourceFile* Slice::mutable_file(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slice.file)
+  return file_.Mutable(index);
+}
+::fast::Slice_SourceFile* Slice::add_file() {
+  // @@protoc_insertion_point(field_add:fast.Slice.file)
+  return file_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >*
+Slice::mutable_file() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slice.file)
+  return &file_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >&
+Slice::file() const {
+  // @@protoc_insertion_point(field_list:fast.Slice.file)
+  return file_;
+}
+
+// string hash = 2;
+void Slice::clear_hash() {
+  hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Slice::hash() const {
+  // @@protoc_insertion_point(field_get:fast.Slice.hash)
+  return hash_.GetNoArena();
+}
+void Slice::set_hash(const ::std::string& value) {
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Slice.hash)
+}
+#if LANG_CXX11
+void Slice::set_hash(::std::string&& value) {
+  
+  hash_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.hash)
+}
+#endif
+void Slice::set_hash(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Slice.hash)
+}
+void Slice::set_hash(const char* value, size_t size) {
+  
+  hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Slice.hash)
+}
+::std::string* Slice::mutable_hash() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Slice.hash)
+  return hash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Slice::release_hash() {
+  // @@protoc_insertion_point(field_release:fast.Slice.hash)
+  
+  return hash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Slice::set_allocated_hash(::std::string* hash) {
+  if (hash != NULL) {
+    
+  } else {
+    
+  }
+  hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hash);
+  // @@protoc_insertion_point(field_set_allocated:fast.Slice.hash)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Data::kElementFieldNumber;
 const int Data::kLogFieldNumber;
 const int Data::kDeltaFieldNumber;
 const int Data::kPairsFieldNumber;
+const int Data::kSliceFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Data::Data()
@@ -11892,6 +14809,10 @@ Data::Data(const Data& from)
     }
     case kPairs: {
       mutable_pairs()->::fast::Pairs::MergeFrom(from.pairs());
+      break;
+    }
+    case kSlice: {
+      mutable_slice()->::fast::Slice::MergeFrom(from.slice());
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -11957,6 +14878,10 @@ void Data::clear_RecordType() {
     }
     case kPairs: {
       delete RecordType_.pairs_;
+      break;
+    }
+    case kSlice: {
+      delete RecordType_.slice_;
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -12030,6 +14955,18 @@ bool Data::MergePartialFromCodedStream(
         break;
       }
 
+      // .fast.Slice slice = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_slice()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -12081,6 +15018,12 @@ void Data::SerializeWithCachedSizes(
       4, *RecordType_.pairs_, output);
   }
 
+  // .fast.Slice slice = 5;
+  if (has_slice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, *RecordType_.slice_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:fast.Data)
 }
 
@@ -12118,6 +15061,13 @@ void Data::SerializeWithCachedSizes(
         4, *RecordType_.pairs_, deterministic, target);
   }
 
+  // .fast.Slice slice = 5;
+  if (has_slice()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, *RecordType_.slice_, deterministic, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:fast.Data)
   return target;
 }
@@ -12153,6 +15103,13 @@ size_t Data::ByteSizeLong() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
           *RecordType_.pairs_);
+      break;
+    }
+    // .fast.Slice slice = 5;
+    case kSlice: {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          *RecordType_.slice_);
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -12203,6 +15160,10 @@ void Data::MergeFrom(const Data& from) {
     }
     case kPairs: {
       mutable_pairs()->::fast::Pairs::MergeFrom(from.pairs());
+      break;
+    }
+    case kSlice: {
+      mutable_slice()->::fast::Slice::MergeFrom(from.slice());
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -12437,6 +15398,54 @@ void Data::set_allocated_pairs(::fast::Pairs* pairs) {
     RecordType_.pairs_ = pairs;
   }
   // @@protoc_insertion_point(field_set_allocated:fast.Data.pairs)
+}
+
+// .fast.Slice slice = 5;
+bool Data::has_slice() const {
+  return RecordType_case() == kSlice;
+}
+void Data::set_has_slice() {
+  _oneof_case_[0] = kSlice;
+}
+void Data::clear_slice() {
+  if (has_slice()) {
+    delete RecordType_.slice_;
+    clear_has_RecordType();
+  }
+}
+ const ::fast::Slice& Data::slice() const {
+  // @@protoc_insertion_point(field_get:fast.Data.slice)
+  return has_slice()
+      ? *RecordType_.slice_
+      : ::fast::Slice::default_instance();
+}
+::fast::Slice* Data::mutable_slice() {
+  if (!has_slice()) {
+    clear_RecordType();
+    set_has_slice();
+    RecordType_.slice_ = new ::fast::Slice;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Data.slice)
+  return RecordType_.slice_;
+}
+::fast::Slice* Data::release_slice() {
+  // @@protoc_insertion_point(field_release:fast.Data.slice)
+  if (has_slice()) {
+    clear_has_RecordType();
+    ::fast::Slice* temp = RecordType_.slice_;
+    RecordType_.slice_ = NULL;
+    return temp;
+  } else {
+    return NULL;
+  }
+}
+void Data::set_allocated_slice(::fast::Slice* slice) {
+  clear_RecordType();
+  if (slice) {
+    set_has_slice();
+    RecordType_.slice_ = slice;
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.slice)
 }
 
 bool Data::has_RecordType() const {

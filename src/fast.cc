@@ -53,7 +53,7 @@ int decode = 0;
 int encode = 0; 
 int position = 0; 
 int slice = 0; 
-int Slice = 0; 
+int mySlice = 0; 
 int load_only = 0; 
 int antlr = 0; 
 #endif
@@ -136,7 +136,7 @@ int loadXML(int load_only, int argc, char**argv) {
 
 #ifdef FBS_fast
 void sliceFBS(srcSliceHandler& handler, const struct Element *element);
-void srcSliceToCsv(const srcSlice& handler);
+void srcSliceToCsv(const srcSlice& handler, const char* output_file);
 
 int loadFBS(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
@@ -153,7 +153,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 	fread(data, sizeof(char), length, file);
 	fclose(file);
 	const struct _fast::Data *d = flatbuffers::GetRoot<Data>(data);
-	if (d != NULL && !load_only && !Slice) {
+	if (d != NULL && !load_only && !mySlice) {
 		//string xml_filename = tmpnam(NULL);
 		char buf[100];
 		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -190,7 +190,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 		argv[1] = (char*) xml_filename.c_str();
 		mainRoutine(argc, argv);
 		return remove(xml_filename.c_str());
-	} else if (d != NULL && !load_only && Slice) {
+	} else if (d != NULL && !load_only && mySlice) {
 		srcSlice sslice;
 		srcSliceHandler handler(&sslice.dictionary);
 		handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
@@ -198,7 +198,10 @@ int loadFBS(int load_only, int argc, char **argv) {
 		sliceFBS(handler, element);
 		handler.endRoot(NULL, NULL, NULL);
 		DoComputation(handler, handler.sysDict->ffvMap);
-		srcSliceToCsv(sslice);
+		if (argc > 2)
+			srcSliceToCsv(sslice, argv[argc-1]);
+		else
+			srcSliceToCsv(sslice, NULL);
 	}
  	return 0;
 }
@@ -224,7 +227,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
 	char *input_filename = argv[1];
 	fast::Data data = readData(input_filename);
-    if (data.has_element() && !load_only && !Slice) {
+    if (data.has_element() && !load_only && !mySlice) {
 	// string xml_filename = tmpnam(NULL);
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -260,7 +263,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	argv[1] = (char*) xml_filename.c_str();
 	mainRoutine(argc, argv);
 	return remove(xml_filename.c_str());
-    } else if (data.has_element() && !load_only && Slice) {
+    } else if (data.has_element() && !load_only && mySlice) {
 	srcSlice sslice;
 	srcSliceHandler handler(&sslice.dictionary);
 	handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
@@ -268,7 +271,11 @@ int loadPB(int load_only, int argc, char **argv) {
 	slicePB(handler, &unit);
 	handler.endRoot(NULL, NULL, NULL);
 	DoComputation(handler, handler.sysDict->ffvMap);
-	srcSliceToCsv(sslice);
+	// cout << "argc = " << argc << " last arg = " << argv[argc-1] << endl;
+	if (argc > 2)
+		srcSliceToCsv(sslice, argv[argc-1]);
+	else
+		srcSliceToCsv(sslice, NULL);
     } 
   // Optional:  Delete all global objects allocated by libprotobuf.
   google::protobuf::ShutdownProtobufLibrary();
@@ -1018,7 +1025,7 @@ int main(int argc, char* argv[]) {
   decode = 0;
   position = 0;
   slice = 0;
-  Slice = 0;
+  mySlice = 0;
   encode = 0;
   antlr = 0;
   while ((c = getopt (argc, argv, "acdehpsSv")) != -1)
@@ -1036,7 +1043,7 @@ int main(int argc, char* argv[]) {
 	    encode = 1;
 	    break;
       case 'S':
-	    Slice = 1;
+	    mySlice = 1;
 	    position = 1; // slicing requires positions
 	    break;
       case 's':

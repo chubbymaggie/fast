@@ -23,6 +23,9 @@
 #include <time.h> 
 #include <map>
 #include <iostream>
+#include <fstream>
+#include "fast.pb.h"
+using namespace std;
 
 void TestSlice2(const VarMap& mp){
 	for(VarMap::const_iterator vmIt = mp.begin(); vmIt != mp.end(); ++vmIt){
@@ -96,35 +99,62 @@ void TestSlice(const FileFunctionVarMap& mp, srcSliceHandler handler){
 	}
 }
 
-void srcSliceToCsv(const srcSlice& handler){
+void srcSliceToCsv(const srcSlice& handler, const char *output_file){
+	GOOGLE_PROTOBUF_VERIFY_VERSION;
+	fast::Data *data = new fast::Data();
+	fast::Slice *slice = new fast::Slice();
 	std::string str;
 	for(FileFunctionVarMap::const_iterator ffvmIt = handler.dictionary.ffvMap.begin(); ffvmIt != handler.dictionary.ffvMap.end(); ++ffvmIt){
 		//auto fileNameIt = handler.dictionary.fileTable.find(ffvmIt->first);
 		//if(fileNameIt != handler.dictionary.fileTable.end())
+		fast::Slice_SourceFile *file = slice->add_file();
+		if (output_file != NULL) {
+			file->set_name(ffvmIt->first);
+		}
 		for(FunctionVarMap::const_iterator fvmIt = ffvmIt->second.begin(); fvmIt != ffvmIt->second.end(); ++fvmIt){
 			//auto functionNameIt = handler.dictionary.functionTable.find();
-			for(VarMap::const_iterator vmIt = fvmIt->second.begin(); vmIt != fvmIt->second.end(); ++vmIt){
+			fast::Slice_SourceFile_Function *function = file->add_function();
+			if (output_file != NULL) {
+				function->set_name(fvmIt->first);
+			}
+			for(VarMap::const_iterator vmIt = fvmIt->second.begin(); vmIt != fvmIt->second.end(); ++vmIt) {
+				fast::Slice_SourceFile_Function_Variable *variable = function->add_variable();
+				if (output_file != NULL) {
+					variable->set_name(vmIt->first);
+				}
 				str.append(ffvmIt->first).append(",").append(fvmIt->first).append(",").append(vmIt->first);
 				str.append(",def{");
 				for(unsigned int def : vmIt->second.def){
-            		std::stringstream ststrm;
-            		ststrm<<def;
+					fast::Slice_SourceFile_Function_Variable_Position *pos = variable->add_def();
+					if (output_file != NULL) {
+						pos->set_lineno(def);
+					}
+					std::stringstream ststrm;
+					ststrm<<def;
 					str.append(ststrm.str()).append(",");
 				}
 				if(str.at(str.length()-1) == ',')
 					str.erase(str.length()-1);
 				str.append("},");
-                str.append("use{");
-                for(unsigned int use : vmIt->second.use){
-                    std::stringstream ststrm;
-                    ststrm<<use;
-                    str.append(ststrm.str()).append(",");
-                }
-                if(str.at(str.length()-1) == ',')
-                    str.erase(str.length()-1);
-                str.append("},");
+				str.append("use{");
+				for(unsigned int use : vmIt->second.use){
+					fast::Slice_SourceFile_Function_Variable_Position *pos = variable->add_use();
+					if (output_file != NULL) {
+						pos->set_lineno(use);
+					}
+					
+				    std::stringstream ststrm;
+				    ststrm<<use;
+				    str.append(ststrm.str()).append(",");
+				}
+				if(str.at(str.length()-1) == ',')
+				    str.erase(str.length()-1);
+				str.append("},");
 				str.append("dvars{");
 				for(std::string dv : vmIt->second.dvars){
+					if (output_file != NULL) {
+						variable->add_dvar(dv);
+					}
 					str.append(dv.append(","));
 				}
 				if(str.at(str.length()-1) == ',')
@@ -132,6 +162,9 @@ void srcSliceToCsv(const srcSlice& handler){
 				str.append("},");
 				str.append("pointers{");
 				for(std::string al : vmIt->second.aliases){
+					if (output_file != NULL) {
+						variable->add_alias(al);
+					}
 					str.append(al.append(","));
 				}
 				if(str.at(str.length()-1) == ',')
@@ -139,9 +172,14 @@ void srcSliceToCsv(const srcSlice& handler){
 				str.append("},");
 				str.append("cfuncs{");
 				for(auto cfunc : vmIt->second.cfunctions){
-            			std::stringstream ststrm;
-            			ststrm<<cfunc.second;
-						str.append(cfunc.first).append("{").append(ststrm.str()).append("},");
+					fast::Slice_SourceFile_Function_Variable_FunctionDecl *decl = variable->add_cfunc();
+					if (output_file != NULL) {
+						decl->set_name(cfunc.first);
+						decl->set_lineno(cfunc.second);
+					}
+					std::stringstream ststrm;
+					ststrm<<cfunc.second;
+					str.append(cfunc.first).append("{").append(ststrm.str()).append("},");
 				}
 				if(str.at(str.length()-1) == ',')
 					str.erase(str.length()-1);
@@ -150,6 +188,13 @@ void srcSliceToCsv(const srcSlice& handler){
 				str.clear();
 			}
 		}
+	}
+	if (output_file != NULL && data != NULL) {
+		ofstream output(output_file, ios::out | ios::trunc | ios::binary);
+		data->set_allocated_slice(slice);
+		data->SerializeToOstream(&output);
+  		google::protobuf::ShutdownProtobufLibrary();
+		output.close();
 	}
 }
 /**
@@ -184,6 +229,6 @@ int slice_main(int argc, char * argv[]) {
   //handler.ComputeInterprocedural("SlicerTestSample.cpp");
   //TestSlice(handler.sysDict-> handler);
   //TestSlice2(handler.sysDict->globalMap);
-  srcSliceToCsv(sslice);
+  srcSliceToCsv(sslice, NULL);
   return 0;
 }
