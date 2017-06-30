@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <unit xmlns="http://www.srcML.org/srcML/src" revision="0.9.5">
 
-<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C++" filename="example.cc" hash="9e8d299806cf10f28fafe0659a50ce14db4eb41e"><function><type><name>int</name></type> <name>f</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>x</name></decl></parameter>)</parameter_list> <block>{
-	  <decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><operator>(</operator><name>x</name> <operator>/</operator> <literal type="number">42</literal><operator>)</operator></expr></init></decl>;</decl_stmt>
-	    <return>return <expr><name>result</name></expr>;</return>
-}</block></function>
-</unit>
-
 <unit revision="0.9.5" language="Java" filename="Hello.java" hash="bfd57ebde1054a4752ce4bacccf3fc0c46814e94">
 <class><specifier>public</specifier> class <name>Hello</name> <block>{
 	<function><specifier>public</specifier> <specifier>static</specifier> <type><name>void</name></type> <name>main</name><parameter_list>(<parameter><decl><type><name>String</name></type> <name><name>args</name><index>[]</index></name></decl></parameter>)</parameter_list> <block>{
@@ -15,13 +9,19 @@
 }</block></class>
 </unit>
 
+<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C++" filename="example.cc" hash="9e8d299806cf10f28fafe0659a50ce14db4eb41e"><function><type><name>int</name></type> <name>f</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>x</name></decl></parameter>)</parameter_list> <block>{
+	  <decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><operator>(</operator><name>x</name> <operator>/</operator> <literal type="number">42</literal><operator>)</operator></expr></init></decl>;</decl_stmt>
+	    <return>return <expr><name>result</name></expr>;</return>
+}</block></function>
+</unit>
+
 <unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C++" filename="example.pb.cc" hash="9e8d299806cf10f28fafe0659a50ce14db4eb41e"><function><type><name>int</name></type> <name>f</name><parameter_list>(<parameter><decl><type><name>int</name></type> <name>x</name></decl></parameter>)</parameter_list> <block>{
 	  <decl_stmt><decl><type><name>int</name></type> <name>result</name> <init>= <expr><operator>(</operator><name>x</name> <operator>/</operator> <literal type="number">42</literal><operator>)</operator></expr></init></decl>;</decl_stmt>
 	    <return>return <expr><name>result</name></expr>;</return>
 }</block></function>
 </unit>
 
-<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.pb.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
+<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.fbs.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
 return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 		<comment type="line">// --------------------------------------------------------------------</comment>
@@ -3115,7 +3115,7 @@ return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 </unit>
 
-<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.fbs.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
+<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.pb.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
 return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 		<comment type="line">// --------------------------------------------------------------------</comment>
