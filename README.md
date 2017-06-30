@@ -2,8 +2,22 @@
 [Coverage](https://htmlpreview.github.io/?https://github.com/yijunyu/fast/blob/master/test/src/index.html)
 
 # `fast` -- Flat Abstract Syntax Trees
-[Once installed](doc/installation.md), [this tool](doc/options.md) [manipulates](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
-Your software development projects may benefit directly from `fast` if you use the following related projects:
+
+Usually abstract syntax trees (AST) are considered as hierarchical, recursive
+structures for program code.  Parsing code to obtain AST, however, typically
+requires a full traverse of such structures.  Can we think differently?
+Instead of parsing the code structures, why cannot they be loaded into the memory
+before any further analysis? This project adopts flatbuffers, a more efficient
+binary structure to represent the ASTs, and demonstates its wide applicability
+to various software development tasks.
+
+[Once installed](doc/installation.md), [this tool](doc/options.md)
+[manipulates](doc/usage.md) [source code](doc/example.md) [10x
+faster](doc/performance.md). 
+
+Your software development projects may benefit directly from `fast` if you have
+used one of the following related tools:
+
 * [antlr3](https://github.com/antlr/antlr3)
 * [biyacc](http://biyacc.yozora.moe)
 * [flatbuffers](https://github.com/google/flatbuffers)
