@@ -13,6 +13,7 @@
 * CST With positions: [Hello.pb](../test/Hello.position.pb) 
 * AST: [DuplicateVirtualMethods.pb](../test/DuplicateVirtualMethods.pb)
 * Editing Script: [DuplicateVirtualMethods-diff.pb](../test/DuplicateVirtualMethods-diff.pb)
+* Program Slices: [Hello.slice.pb](../test/Hello.slice.pb) [example.slice.pb](../test/example.slice.pb)
 ### FlatBuffers 1.6.0
 * Without positions: [example.fbs](../test/example.fbs)
 * With positions: [example.fbs](../test/example.position.fbs)
