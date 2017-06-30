@@ -16,7 +16,7 @@ This project adopts flatbuffers, a more efficient binary structure to represent
 the ASTs, and demonstates its wide applicability to various software
 development tasks.
 
-[Once installed](doc/installation.md), [this tool](doc/options.md)
+[Once installed](doc/installation.md), [our tool](doc/options.md)
 [manipulates](doc/usage.md) [source code](doc/example.md) [10x
 faster](doc/performance.md). 
 
