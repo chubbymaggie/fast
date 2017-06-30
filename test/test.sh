@@ -1716,13 +1716,13 @@ testFastSlice() {
 	$fast -p Hello.java Hello.position.xml
 	same_all 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec -S Hello.position.pb
 	$fast -S Hello.position.pb Hello.slice.pb
-	fast=cat same e8a7f3816b1a7cab1e8e19df60740e04a8159ed87bbc4b72d9d059d8ff938d1e Hello.slice.pb
+	fast=cat same 3b89f50af2b9d6c1b1a9947324def412b718bc7bd857a9a5d0309fbb93dba67f Hello.slice.pb
 	$fast -p example.cc example.position.fbs
 	$fast -s example.position.fbs example-s.slice
 	fast=cat same 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example-s.slice
 	same_all e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -S example.position.fbs
 	$fast -S example.position.pb example.slice.pb
-	fast=cat same ffbd97b2a84699168c429f917969c4a442aac1868aa58a942b7422f39f49c49e example.slice.pb
+	fast=cat same 1a5f26bf8f2be74082736ad14beb2b14c8ef5797a4c33832500a4a6dd72f8d08 example.slice.pb
 }
 
 testNoneExistingFile() {

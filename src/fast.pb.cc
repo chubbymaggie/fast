@@ -69,25 +69,27 @@ class Log_AuthorDefaultTypeInternal : public ::google::protobuf::internal::Expli
 } _Log_Author_default_instance_;
 class LogDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Log> {
 } _Log_default_instance_;
-class Slice_SourceFile_Function_Variable_PositionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function_Variable_Position> {
-} _Slice_SourceFile_Function_Variable_Position_default_instance_;
-class Slice_SourceFile_Function_Variable_FunctionDeclDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function_Variable_FunctionDecl> {
-} _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_;
-class Slice_SourceFile_Function_VariableDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function_Variable> {
-} _Slice_SourceFile_Function_Variable_default_instance_;
-class Slice_SourceFile_FunctionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile_Function> {
-} _Slice_SourceFile_Function_default_instance_;
-class Slice_SourceFileDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice_SourceFile> {
-} _Slice_SourceFile_default_instance_;
-class SliceDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slice> {
-} _Slice_default_instance_;
+class Slices_Slice_SourceFile_Function_Variable_PositionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices_Slice_SourceFile_Function_Variable_Position> {
+} _Slices_Slice_SourceFile_Function_Variable_Position_default_instance_;
+class Slices_Slice_SourceFile_Function_Variable_FunctionDeclDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices_Slice_SourceFile_Function_Variable_FunctionDecl> {
+} _Slices_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_;
+class Slices_Slice_SourceFile_Function_VariableDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices_Slice_SourceFile_Function_Variable> {
+} _Slices_Slice_SourceFile_Function_Variable_default_instance_;
+class Slices_Slice_SourceFile_FunctionDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices_Slice_SourceFile_Function> {
+} _Slices_Slice_SourceFile_Function_default_instance_;
+class Slices_Slice_SourceFileDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices_Slice_SourceFile> {
+} _Slices_Slice_SourceFile_default_instance_;
+class Slices_SliceDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices_Slice> {
+} _Slices_Slice_default_instance_;
+class SlicesDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Slices> {
+} _Slices_default_instance_;
 class DataDefaultTypeInternal : public ::google::protobuf::internal::ExplicitlyConstructed<Data> {
   public:
   const ::fast::Element* element_;
   const ::fast::Log* log_;
   const ::fast::Delta* delta_;
   const ::fast::Pairs* pairs_;
-  const ::fast::Slice* slice_;
+  const ::fast::Slices* slices_;
 } _Data_default_instance_;
 
 namespace protobuf_fast_2eproto {
@@ -95,7 +97,7 @@ namespace protobuf_fast_2eproto {
 
 namespace {
 
-::google::protobuf::Metadata file_level_metadata[27];
+::google::protobuf::Metadata file_level_metadata[28];
 const ::google::protobuf::EnumDescriptor* file_level_enum_descriptors[7];
 
 }  // namespace
@@ -111,6 +113,7 @@ PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::AuxillaryParseTableField
 };
 PROTOBUF_CONSTEXPR_VAR ::google::protobuf::internal::ParseTable const
     TableStruct::schema[] = {
+  { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
   { NULL, NULL, 0, -1, -1, false },
@@ -322,56 +325,62 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log, commit_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log, author_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_Position, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, lineno_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, type_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_Position, delta_lineno_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_Position, lineno_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_Position, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_Position, delta_lineno_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_FunctionDecl, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_FunctionDecl, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_FunctionDecl, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable_FunctionDecl, lineno_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_FunctionDecl, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable_FunctionDecl, lineno_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, pos_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, type_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, def_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, use_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, dvar_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, alias_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function_Variable, cfunc_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, pos_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, defn_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, use_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, dvar_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, alias_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function_Variable, cfunc_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, variable_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile_Function, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function, variable_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile_Function, type_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, function_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, name_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice_SourceFile, type_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile, function_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile, name_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice_SourceFile, type_),
   ~0u,  // no _has_bits_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice, _internal_metadata_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice, file_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slice, hash_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice, file_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices_Slice, hash_),
+  ~0u,  // no _has_bits_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Slices, slice_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Data, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -381,7 +390,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), log_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), delta_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), pairs_),
-  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), slice_),
+  GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Data_default_instance_), slices_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Data, RecordType_),
 };
 
@@ -406,13 +415,14 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 153, -1, sizeof(Log_Commit)},
   { 165, -1, sizeof(Log_Author)},
   { 173, -1, sizeof(Log)},
-  { 180, -1, sizeof(Slice_SourceFile_Function_Variable_Position)},
-  { 188, -1, sizeof(Slice_SourceFile_Function_Variable_FunctionDecl)},
-  { 195, -1, sizeof(Slice_SourceFile_Function_Variable)},
-  { 208, -1, sizeof(Slice_SourceFile_Function)},
-  { 216, -1, sizeof(Slice_SourceFile)},
-  { 224, -1, sizeof(Slice)},
-  { 231, -1, sizeof(Data)},
+  { 180, -1, sizeof(Slices_Slice_SourceFile_Function_Variable_Position)},
+  { 188, -1, sizeof(Slices_Slice_SourceFile_Function_Variable_FunctionDecl)},
+  { 195, -1, sizeof(Slices_Slice_SourceFile_Function_Variable)},
+  { 208, -1, sizeof(Slices_Slice_SourceFile_Function)},
+  { 216, -1, sizeof(Slices_Slice_SourceFile)},
+  { 224, -1, sizeof(Slices_Slice)},
+  { 231, -1, sizeof(Slices)},
+  { 237, -1, sizeof(Data)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -436,12 +446,13 @@ static ::google::protobuf::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::google::protobuf::Message*>(&_Log_Commit_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Log_Author_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Log_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_Variable_Position_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_Variable_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_Function_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_SourceFile_default_instance_),
-  reinterpret_cast<const ::google::protobuf::Message*>(&_Slice_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_Slice_SourceFile_Function_Variable_Position_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_Slice_SourceFile_Function_Variable_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_Slice_SourceFile_Function_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_Slice_SourceFile_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_Slice_default_instance_),
+  reinterpret_cast<const ::google::protobuf::Message*>(&_Slices_default_instance_),
   reinterpret_cast<const ::google::protobuf::Message*>(&_Data_default_instance_),
 };
 
@@ -463,7 +474,7 @@ void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) GOOGLE_ATTRIBUTE_COLD;
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 27);
+  ::google::protobuf::internal::RegisterAllTypes(file_level_metadata, 28);
 }
 
 }  // namespace
@@ -509,20 +520,22 @@ void TableStruct::Shutdown() {
   delete file_level_metadata[18].reflection;
   _Log_default_instance_.Shutdown();
   delete file_level_metadata[19].reflection;
-  _Slice_SourceFile_Function_Variable_Position_default_instance_.Shutdown();
+  _Slices_Slice_SourceFile_Function_Variable_Position_default_instance_.Shutdown();
   delete file_level_metadata[20].reflection;
-  _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_.Shutdown();
+  _Slices_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_.Shutdown();
   delete file_level_metadata[21].reflection;
-  _Slice_SourceFile_Function_Variable_default_instance_.Shutdown();
+  _Slices_Slice_SourceFile_Function_Variable_default_instance_.Shutdown();
   delete file_level_metadata[22].reflection;
-  _Slice_SourceFile_Function_default_instance_.Shutdown();
+  _Slices_Slice_SourceFile_Function_default_instance_.Shutdown();
   delete file_level_metadata[23].reflection;
-  _Slice_SourceFile_default_instance_.Shutdown();
+  _Slices_Slice_SourceFile_default_instance_.Shutdown();
   delete file_level_metadata[24].reflection;
-  _Slice_default_instance_.Shutdown();
+  _Slices_Slice_default_instance_.Shutdown();
   delete file_level_metadata[25].reflection;
-  _Data_default_instance_.Shutdown();
+  _Slices_default_instance_.Shutdown();
   delete file_level_metadata[26].reflection;
+  _Data_default_instance_.Shutdown();
+  delete file_level_metadata[27].reflection;
 }
 
 void TableStruct::InitDefaultsImpl() {
@@ -549,12 +562,13 @@ void TableStruct::InitDefaultsImpl() {
   _Log_Commit_default_instance_.DefaultConstruct();
   _Log_Author_default_instance_.DefaultConstruct();
   _Log_default_instance_.DefaultConstruct();
-  _Slice_SourceFile_Function_Variable_Position_default_instance_.DefaultConstruct();
-  _Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_.DefaultConstruct();
-  _Slice_SourceFile_Function_Variable_default_instance_.DefaultConstruct();
-  _Slice_SourceFile_Function_default_instance_.DefaultConstruct();
-  _Slice_SourceFile_default_instance_.DefaultConstruct();
-  _Slice_default_instance_.DefaultConstruct();
+  _Slices_Slice_SourceFile_Function_Variable_Position_default_instance_.DefaultConstruct();
+  _Slices_Slice_SourceFile_Function_Variable_FunctionDecl_default_instance_.DefaultConstruct();
+  _Slices_Slice_SourceFile_Function_Variable_default_instance_.DefaultConstruct();
+  _Slices_Slice_SourceFile_Function_default_instance_.DefaultConstruct();
+  _Slices_Slice_SourceFile_default_instance_.DefaultConstruct();
+  _Slices_Slice_default_instance_.DefaultConstruct();
+  _Slices_default_instance_.DefaultConstruct();
   _Data_default_instance_.DefaultConstruct();
   _Element_default_instance_.unit_ = const_cast< ::fast::Element_Unit*>(
       ::fast::Element_Unit::internal_default_instance());
@@ -580,8 +594,8 @@ void TableStruct::InitDefaultsImpl() {
       ::fast::Pairs_Pair_Diff::internal_default_instance());
   _Log_Commit_default_instance_.committer_ = const_cast< ::fast::Log_Commit_Committer*>(
       ::fast::Log_Commit_Committer::internal_default_instance());
-  _Slice_SourceFile_Function_Variable_default_instance_.get_mutable()->pos_ = const_cast< ::fast::Slice_SourceFile_Function_Variable_Position*>(
-      ::fast::Slice_SourceFile_Function_Variable_Position::internal_default_instance());
+  _Slices_Slice_SourceFile_Function_Variable_default_instance_.get_mutable()->pos_ = const_cast< ::fast::Slices_Slice_SourceFile_Function_Variable_Position*>(
+      ::fast::Slices_Slice_SourceFile_Function_Variable_Position::internal_default_instance());
   _Data_default_instance_.element_ = const_cast< ::fast::Element*>(
       ::fast::Element::internal_default_instance());
   _Data_default_instance_.log_ = const_cast< ::fast::Log*>(
@@ -590,8 +604,8 @@ void TableStruct::InitDefaultsImpl() {
       ::fast::Delta::internal_default_instance());
   _Data_default_instance_.pairs_ = const_cast< ::fast::Pairs*>(
       ::fast::Pairs::internal_default_instance());
-  _Data_default_instance_.slice_ = const_cast< ::fast::Slice*>(
-      ::fast::Slice::internal_default_instance());
+  _Data_default_instance_.slices_ = const_cast< ::fast::Slices*>(
+      ::fast::Slices::internal_default_instance());
 }
 
 void InitDefaults() {
@@ -601,7 +615,7 @@ void InitDefaults() {
 void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] = {
-      "\n\nfast.proto\022\004fast\"\275^\n\007Element\022 \n\004kind\030\001"
+      "\n\nfast.proto\022\004fast\"\274^\n\007Element\022 \n\004kind\030\001"
       " \001(\0162\022.fast.Element.Kind\022\014\n\004text\030\002 \001(\t\022\014"
       "\n\004tail\030\003 \001(\t\022\013\n\003pos\030\004 \001(\005\022\016\n\006length\030\005 \001("
       "\005\022\034\n\005child\030\006 \003(\0132\r.fast.Element\022\"\n\004unit\030"
@@ -616,7 +630,7 @@ void AddDescriptorsImpl() {
       "ral\022/\n\004type\030\001 \001(\0162!.fast.Element.Literal"
       ".LiteralType\"_\n\013LiteralType\022\017\n\013number_ty"
       "pe\020\000\022\r\n\tchar_type\020\001\022\017\n\013string_type\020\002\022\020\n\014"
-      "boolean_type\020\003\022\r\n\tnull_type\020\004\"\2572\n\004Kind\022\r"
+      "boolean_type\020\003\022\r\n\tnull_type\020\004\"\2562\n\004Kind\022\r"
       "\n\tUNIT_KIND\020\000\022\010\n\004DECL\020\001\022\r\n\tDECL_STMT\020\002\022\010"
       "\n\004INIT\020\003\022\010\n\004EXPR\020\004\022\r\n\tEXPR_STMT\020\005\022\013\n\007COM"
       "MENT\020\006\022\010\n\004CALL\020\007\022\013\n\007CONTROL\020\010\022\010\n\004INCR\020\t\022"
@@ -648,334 +662,337 @@ void AddDescriptorsImpl() {
       "H_STATEMENT\020I\022\017\n\013FOR_CONTROL\020J\022\026\n\022FOR_IN"
       "ITIALIZATION\020K\022\021\n\rFOR_CONDITION\020L\022\021\n\rFOR"
       "_INCREMENT\020M\022\024\n\020FOR_LIKE_CONTROL\020N\022\030\n\024EX"
-      "PRESSION_STATEMENT\020O\022\021\n\rFUNCTION_CALL\020Q\022"
-      "\031\n\025DECLARATION_STATEMENT\020R\022\017\n\013DECLARATIO"
-      "N\020S\022\036\n\032DECLARATION_INITIALIZATION\020T\022\025\n\021D"
-      "ECLARATION_RANGE\020U\022\t\n\005RANGE\020V\022\022\n\016GOTO_ST"
-      "ATEMENT\020W\022\026\n\022CONTINUE_STATEMENT\020X\022\023\n\017BRE"
-      "AK_STATEMENT\020Y\022\023\n\017LABEL_STATEMENT\020Z\022\t\n\005L"
-      "ABEL\020[\022\n\n\006SWITCH\020\\\022\010\n\004CASE\020]\022\013\n\007DEFAULT\020"
-      "^\022\027\n\023FUNCTION_DEFINITION\020_\022\030\n\024FUNCTION_D"
-      "ECLARATION\020`\022\n\n\006LAMBDA\020a\022\023\n\017FUNCTION_LAM"
-      "BDA\020b\022\026\n\022FUNCTION_SPECIFIER\020c\022\024\n\020RETURN_"
-      "STATEMENT\020d\022\022\n\016PARAMETER_LIST\020e\022\r\n\tPARAM"
-      "ETER\020f\022\024\n\020KRPARAMETER_LIST\020g\022\017\n\013KRPARAME"
-      "TER\020h\022\021\n\rARGUMENT_LIST\020i\022\014\n\010ARGUMENT\020j\022\031"
-      "\n\025PSEUDO_PARAMETER_LIST\020k\022\032\n\026INDEXER_PAR"
-      "AMETER_LIST\020l\022\t\n\005CLASS\020m\022\025\n\021CLASS_DECLAR"
-      "ATION\020n\022\n\n\006STRUCT\020o\022\026\n\022STRUCT_DECLARATIO"
-      "N\020p\022\t\n\005UNION\020q\022\025\n\021UNION_DECLARATION\020r\022\023\n"
-      "\017DERIVATION_LIST\020s\022\021\n\rPUBLIC_ACCESS\020t\022\031\n"
-      "\025PUBLIC_ACCESS_DEFAULT\020u\022\022\n\016PRIVATE_ACCE"
-      "SS\020v\022\032\n\026PRIVATE_ACCESS_DEFAULT\020w\022\024\n\020PROT"
-      "ECTED_ACCESS\020x\022\034\n\030PROTECTED_ACCESS_DEFAU"
-      "LT\020y\022\024\n\020MEMBER_INIT_LIST\020z\022\036\n\032MEMBER_INI"
-      "TIALIZATION_LIST\020{\022\031\n\025MEMBER_INITIALIZAT"
-      "ION\020|\022\032\n\026CONSTRUCTOR_DEFINITION\020}\022\033\n\027CON"
-      "STRUCTOR_DECLARATION\020~\022\031\n\025DESTRUCTOR_DEF"
-      "INITION\020\177\022\033\n\026DESTRUCTOR_DECLARATION\020\200\001\022\013"
-      "\n\006FRIEND\020\201\001\022\024\n\017CLASS_SPECIFIER\020\202\001\022\016\n\tTRY"
-      "_BLOCK\020\203\001\022\020\n\013CATCH_BLOCK\020\204\001\022\022\n\rFINALLY_B"
-      "LOCK\020\205\001\022\024\n\017THROW_STATEMENT\020\206\001\022\024\n\017THROW_S"
-      "PECIFIER\020\207\001\022\031\n\024THROW_SPECIFIER_JAVA\020\210\001\022\r"
-      "\n\010TEMPLATE\020\211\001\022\025\n\020GENERIC_ARGUMENT\020\212\001\022\032\n\025"
-      "GENERIC_ARGUMENT_LIST\020\213\001\022\027\n\022TEMPLATE_PAR"
-      "AMETER\020\214\001\022\034\n\027TEMPLATE_PARAMETER_LIST\020\215\001\022"
-      "\026\n\021GENERIC_PARAMETER\020\216\001\022\033\n\026GENERIC_PARAM"
-      "ETER_LIST\020\217\001\022\014\n\007TYPEDEF\020\220\001\022\010\n\003ASM\020\221\001\022\017\n\n"
-      "MACRO_CALL\020\222\001\022\020\n\013SIZEOF_CALL\020\223\001\022\013\n\006EXTER"
-      "N\020\224\001\022\016\n\tNAMESPACE\020\225\001\022\024\n\017USING_DIRECTIVE\020"
-      "\226\001\022\016\n\tDIRECTIVE\020\227\001\022\013\n\006ATOMIC\020\230\001\022\034\n\027STATI"
-      "C_ASSERT_STATEMENT\020\231\001\022\026\n\021GENERIC_SELECTI"
-      "ON\020\232\001\022\025\n\020GENERIC_SELECTOR\020\233\001\022\035\n\030GENERIC_"
-      "ASSOCIATION_LIST\020\234\001\022\030\n\023GENERIC_ASSOCIATI"
-      "ON\020\235\001\022\014\n\007ALIGNAS\020\236\001\022\r\n\010DECLTYPE\020\237\001\022\014\n\007CA"
-      "PTURE\020\240\001\022\023\n\016LAMBDA_CAPTURE\020\241\001\022\r\n\010NOEXCEP"
-      "T\020\242\001\022\r\n\010TYPENAME\020\243\001\022\014\n\007ALIGNOF\020\244\001\022\013\n\006TYP"
-      "EID\020\245\001\022\020\n\013SIZEOF_PACK\020\246\001\022\017\n\nENUM_CLASS\020\247"
-      "\001\022\033\n\026ENUM_CLASS_DECLARATION\020\250\001\022\022\n\rREF_QU"
-      "ALIFIER\020\253\001\022\022\n\rSIGNAL_ACCESS\020\254\001\022\026\n\021FOREVE"
-      "R_STATEMENT\020\255\001\022\023\n\016EMIT_STATEMENT\020\256\001\022\022\n\rC"
-      "PP_DIRECTIVE\020\257\001\022\021\n\014CPP_FILENAME\020\260\001\022\t\n\004FI"
-      "LE\020\261\001\022\013\n\006NUMBER\020\262\001\022\017\n\nCPP_NUMBER\020\263\001\022\020\n\013C"
-      "PP_LITERAL\020\264\001\022\023\n\016CPP_MACRO_DEFN\020\265\001\022\024\n\017CP"
-      "P_MACRO_VALUE\020\266\001\022\n\n\005ERROR\020\267\001\022\016\n\tCPP_ERRO"
-      "R\020\270\001\022\020\n\013CPP_WARNING\020\271\001\022\017\n\nCPP_PRAGMA\020\272\001\022"
-      "\020\n\013CPP_INCLUDE\020\273\001\022\017\n\nCPP_DEFINE\020\274\001\022\016\n\tCP"
-      "P_UNDEF\020\275\001\022\r\n\010CPP_LINE\020\276\001\022\013\n\006CPP_IF\020\277\001\022\016"
-      "\n\tCPP_IFDEF\020\300\001\022\017\n\nCPP_IFNDEF\020\301\001\022\r\n\010CPP_T"
-      "HEN\020\302\001\022\r\n\010CPP_ELSE\020\303\001\022\r\n\010CPP_ELIF\020\304\001\022\016\n\t"
-      "CPP_EMPTY\020\305\001\022\017\n\nCPP_REGION\020\306\001\022\022\n\rCPP_END"
-      "REGION\020\307\001\022\017\n\nUSING_STMT\020\310\001\022\013\n\006ESCAPE\020\311\001\022"
-      "\n\n\005VALUE\020\312\001\022\017\n\nCPP_IMPORT\020\313\001\022\016\n\tCPP_ENDI"
-      "F\020\314\001\022\013\n\006MARKER\020\315\001\022\020\n\013ERROR_PARSE\020\316\001\022\017\n\nE"
-      "RROR_MODE\020\317\001\022\017\n\nIMPLEMENTS\020\320\001\022\014\n\007EXTENDS"
-      "\020\321\001\022\013\n\006IMPORT\020\322\001\022\014\n\007PACKAGE\020\323\001\022\025\n\020ASSERT"
-      "_STATEMENT\020\324\001\022\016\n\tINTERFACE\020\325\001\022\032\n\025INTERFA"
-      "CE_DECLARATION\020\326\001\022\033\n\026SYNCHRONIZED_STATEM"
-      "ENT\020\327\001\022\017\n\nANNOTATION\020\330\001\022\021\n\014STATIC_BLOCK\020"
-      "\332\001\022\026\n\021CHECKED_STATEMENT\020\333\001\022\030\n\023UNCHECKED_"
-      "STATEMENT\020\334\001\022\016\n\tATTRIBUTE\020\335\001\022\013\n\006TARGET\020\336"
-      "\001\022\025\n\020UNSAFE_STATEMENT\020\337\001\022\023\n\016LOCK_STATEME"
-      "NT\020\340\001\022\024\n\017FIXED_STATEMENT\020\341\001\022\013\n\006TYPEOF\020\342\001"
-      "\022\024\n\017USING_STATEMENT\020\343\001\022\026\n\021FUNCTION_DELEG"
-      "ATE\020\344\001\022\017\n\nCONSTRAINT\020\346\001\022\t\n\004LINQ\020\347\001\022\t\n\004FR"
-      "OM\020\350\001\022\n\n\005WHERE\020\351\001\022\013\n\006SELECT\020\352\001\022\010\n\003LET\020\353\001"
-      "\022\014\n\007ORDERBY\020\354\001\022\t\n\004JOIN\020\355\001\022\n\n\005GROUP\020\356\001\022\007\n"
-      "\002IN\020\357\001\022\007\n\002ON\020\360\001\022\013\n\006EQUALS\020\361\001\022\007\n\002BY\020\362\001\022\t\n"
-      "\004INTO\020\363\001\022\n\n\005EMPTY\020\364\001\022\017\n\nEMPTY_STMT\020\365\001\022\r\n"
-      "\010RECEIVER\020\366\001\022\014\n\007MESSAGE\020\367\001\022\r\n\010SELECTOR\020\370"
-      "\001\022\022\n\rPROTOCOL_LIST\020\371\001\022\r\n\010CATEGORY\020\372\001\022\r\n\010"
-      "PROTOCOL\020\373\001\022\025\n\020REQUIRED_DEFAULT\020\374\001\022\r\n\010RE"
-      "QUIRED\020\375\001\022\r\n\010OPTIONAL\020\376\001\022\023\n\016ATTRIBUTE_LI"
-      "ST\020\200\002\022\017\n\nSYNTHESIZE\020\201\002\022\014\n\007DYNAMIC\020\202\002\022\013\n\006"
-      "ENCODE\020\203\002\022\024\n\017AUTORELEASEPOOL\020\204\002\022\030\n\023COMPA"
-      "TIBILITY_ALIAS\020\205\002\022\010\n\003NIL\020\206\002\022\024\n\017CLASS_INT"
-      "ERFACE\020\207\002\022\031\n\024CLASS_IMPLEMENTATION\020\210\002\022\031\n\024"
-      "PROTOCOL_DECLARATION\020\211\002\022\t\n\004CAST\020\212\002\022\017\n\nCO"
-      "NST_CAST\020\213\002\022\021\n\014DYNAMIC_CAST\020\214\002\022\025\n\020REINTE"
-      "RPRET_CAST\020\215\002\022\020\n\013STATIC_CAST\020\216\002\022\r\n\010POSIT"
-      "ION\020\217\002\022\027\n\022CUDA_ARGUMENT_LIST\020\220\002\022\022\n\rOMP_D"
-      "IRECTIVE\020\221\002\022\r\n\010OMP_NAME\020\222\002\022\017\n\nOMP_CLAUSE"
-      "\020\223\002\022\026\n\021OMP_ARGUMENT_LIST\020\224\002\022\021\n\014OMP_ARGUM"
-      "ENT\020\225\002\022\023\n\016OMP_EXPRESSION\020\226\002\022\026\n\021END_ELEME"
-      "NT_TOKEN\020\227\002\022\t\n\004MAIN\020\230\002\022\n\n\005BREAK\020\231\002\022\r\n\010CO"
-      "NTINUE\020\232\002\022\n\n\005WHILE\020\233\002\022\007\n\002DO\020\234\002\022\010\n\003FOR\020\235\002"
-      "\022\007\n\002IF\020\236\002\022\t\n\004GOTO\020\245\002\022\023\n\016VISUAL_CXX_ASM\020\247"
-      "\002\022\013\n\006SIZEOF\020\250\002\022\t\n\004AUTO\020\252\002\022\r\n\010REGISTER\020\253\002"
-      "\022\r\n\010RESTRICT\020\254\002\022\016\n\tIMAGINARY\020\260\002\022\r\n\010NORET"
-      "URN\020\261\002\022\022\n\rSTATIC_ASSERT\020\262\002\022\016\n\tCRESTRICT\020"
-      "\263\002\022\014\n\007CXX_TRY\020\264\002\022\016\n\tCXX_CATCH\020\265\002\022\016\n\tCXX_"
-      "CLASS\020\266\002\022\016\n\tCONSTEXPR\020\267\002\022\021\n\014THREAD_LOCAL"
-      "\020\271\002\022\014\n\007NULLPTR\020\272\002\022\t\n\004VOID\020\306\002\022\013\n\006RETURN\020\307"
-      "\002\022\014\n\007INCLUDE\020\310\002\022\013\n\006DEFINE\020\311\002\022\t\n\004ELIF\020\312\002\022"
-      "\n\n\005ENDIF\020\313\002\022\016\n\tERRORPREC\020\314\002\022\014\n\007WARNING\020\315"
-      "\002\022\n\n\005IFDEF\020\316\002\022\013\n\006IFNDEF\020\317\002\022\t\n\004LINE\020\320\002\022\013\n"
-      "\006PRAGMA\020\321\002\022\n\n\005UNDEF\020\322\002\022\013\n\006INLINE\020\323\002\022\024\n\017M"
-      "ACRO_TYPE_NAME\020\324\002\022\017\n\nMACRO_CASE\020\325\002\022\020\n\013MA"
-      "CRO_LABEL\020\326\002\022\016\n\tSPECIFIER\020\330\002\022\010\n\003TRY\020\331\002\022\n"
-      "\n\005CATCH\020\332\002\022\n\n\005THROW\020\333\002\022\013\n\006THROWS\020\334\002\022\013\n\006P"
-      "UBLIC\020\336\002\022\014\n\007PRIVATE\020\337\002\022\016\n\tPROTECTED\020\340\002\022\014"
-      "\n\007VIRTUAL\020\341\002\022\r\n\010EXPLICIT\020\344\002\022\014\n\007FOREVER\020\345"
-      "\002\022\013\n\006SIGNAL\020\346\002\022\t\n\004EMIT\020\347\002\022\010\n\003NEW\020\353\002\022\013\n\006D"
-      "ELETE\020\354\002\022\013\n\006STATIC\020\355\002\022\n\n\005CONST\020\356\002\022\014\n\007MUT"
-      "ABLE\020\357\002\022\r\n\010VOLATILE\020\360\002\022\016\n\tTRANSIENT\020\361\002\022\014"
-      "\n\007FINALLY\020\364\002\022\n\n\005FINAL\020\370\002\022\r\n\010ABSTRACT\020\371\002\022"
-      "\n\n\005SUPER\020\372\002\022\021\n\014SYNCHRONIZED\020\373\002\022\013\n\006NATIVE"
-      "\020\374\002\022\r\n\010STRICTFP\020\375\002\022\020\n\013NULLLITERAL\020\376\002\022\013\n\006"
-      "ASSERT\020\377\002\022\014\n\007FOREACH\020\200\003\022\010\n\003REF\020\201\003\022\010\n\003OUT"
-      "\020\202\003\022\t\n\004LOCK\020\204\003\022\007\n\002IS\020\205\003\022\r\n\010INTERNAL\020\206\003\022\013"
-      "\n\006SEALED\020\207\003\022\r\n\010OVERRIDE\020\210\003\022\r\n\010IMPLICIT\020\211"
-      "\003\022\017\n\nSTACKALLOC\020\212\003\022\007\n\002AS\020\213\003\022\r\n\010DELEGATE\020"
-      "\214\003\022\n\n\005FIXED\020\215\003\022\014\n\007CHECKED\020\216\003\022\016\n\tUNCHECKE"
-      "D\020\217\003\022\013\n\006REGION\020\220\003\022\016\n\tENDREGION\020\221\003\022\013\n\006UNS"
-      "AFE\020\222\003\022\r\n\010READONLY\020\223\003\022\010\n\003GET\020\224\003\022\010\n\003SET\020\225"
-      "\003\022\010\n\003ADD\020\226\003\022\013\n\006REMOVE\020\227\003\022\n\n\005YIELD\020\230\003\022\014\n\007"
-      "PARTIAL\020\231\003\022\n\n\005AWAIT\020\232\003\022\n\n\005ASYNC\020\234\003\022\t\n\004TH"
-      "IS\020\235\003\022\013\n\006PARAMS\020\236\003\022\n\n\005ALIAS\020\240\003\022\016\n\tASCEND"
-      "ING\020\246\003\022\017\n\nDESCENDING\020\247\003\022\020\n\013ATINTERFACE\020\256"
-      "\003\022\025\n\020ATIMPLEMENTATION\020\257\003\022\n\n\005ATEND\020\260\003\022\017\n\n"
-      "ATPROTOCOL\020\261\003\022\017\n\nATREQUIRED\020\262\003\022\017\n\nATOPTI"
-      "ONAL\020\263\003\022\014\n\007ATCLASS\020\271\003\022\t\n\004WEAK\020\273\003\022\013\n\006STRO"
-      "NG\020\274\003\022\014\n\007OMP_OMP\020\300\003\022\022\n\rSPECIAL_CHARS\020\301\003\""
-      "\237\'\n\tSmaliKind\022\013\n\007INVALID\020\000\022\007\n\003EOR\020\001\022\010\n\004D"
-      "OWN\020\002\022\006\n\002UP\020\003\022\017\n\013ACCESS_SPEC\020\004\022\030\n\024ANNOTA"
-      "TION_DIRECTIVE\020\005\022\031\n\025ANNOTATION_VISIBILIT"
-      "Y\020\006\022\030\n\024ARRAY_DATA_DIRECTIVE\020\007\022\025\n\021ARRAY_T"
-      "YPE_PREFIX\020\010\022\t\n\005ARROW\020\t\022\020\n\014BOOL_LITERAL\020"
-      "\n\022\020\n\014BYTE_LITERAL\020\013\022\026\n\022CATCHALL_DIRECTIV"
-      "E\020\014\022\023\n\017CATCH_DIRECTIVE\020\r\022\020\n\014CHAR_LITERAL"
-      "\020\016\022\024\n\020CLASS_DESCRIPTOR\020\017\022\023\n\017CLASS_DIRECT"
-      "IVE\020\020\022\017\n\013CLOSE_BRACE\020\021\022\017\n\013CLOSE_PAREN\020\022\022"
-      "\t\n\005COLON\020\023\022\t\n\005COMMA\020\024\022\n\n\006DOTDOT\020\025\022\022\n\016DOU"
-      "BLE_LITERAL\020\026\022\030\n\024DOUBLE_LITERAL_OR_ID\020\027\022"
-      "\034\n\030END_ANNOTATION_DIRECTIVE\020\030\022\034\n\030END_ARR"
-      "AY_DATA_DIRECTIVE\020\031\022\027\n\023END_FIELD_DIRECTI"
-      "VE\020\032\022\027\n\023END_LOCAL_DIRECTIVE\020\033\022\030\n\024END_MET"
-      "HOD_DIRECTIVE\020\034\022\037\n\033END_PACKED_SWITCH_DIR"
-      "ECTIVE\020\035\022\033\n\027END_PARAMETER_DIRECTIVE\020\036\022\037\n"
-      "\033END_SPARSE_SWITCH_DIRECTIVE\020\037\022\037\n\033END_SU"
-      "BANNOTATION_DIRECTIVE\020 \022\022\n\016ENUM_DIRECTIV"
-      "E\020!\022\026\n\022EPILOGUE_DIRECTIVE\020\"\022\t\n\005EQUAL\020#\022\023"
-      "\n\017FIELD_DIRECTIVE\020$\022\020\n\014FIELD_OFFSET\020%\022\021\n"
-      "\rFLOAT_LITERAL\020&\022\027\n\023FLOAT_LITERAL_OR_ID\020"
-      "\'\022\030\n\024IMPLEMENTS_DIRECTIVE\020(\022\020\n\014INLINE_IN"
-      "DEX\020)\022\031\n\025INSTRUCTION_FORMAT10t\020*\022\031\n\025INST"
-      "RUCTION_FORMAT10x\020+\022\036\n\032INSTRUCTION_FORMA"
-      "T10x_ODEX\020,\022\031\n\025INSTRUCTION_FORMAT11n\020-\022\031"
-      "\n\025INSTRUCTION_FORMAT11x\020.\022\031\n\025INSTRUCTION"
-      "_FORMAT12x\020/\022\037\n\033INSTRUCTION_FORMAT12x_OR"
-      "_ID\0200\022\032\n\026INSTRUCTION_FORMAT20bc\0201\022\031\n\025INS"
-      "TRUCTION_FORMAT20t\0202\022\037\n\033INSTRUCTION_FORM"
-      "AT21c_FIELD\0203\022$\n INSTRUCTION_FORMAT21c_F"
-      "IELD_ODEX\0204\022 \n\034INSTRUCTION_FORMAT21c_STR"
-      "ING\0205\022\036\n\032INSTRUCTION_FORMAT21c_TYPE\0206\022\032\n"
-      "\026INSTRUCTION_FORMAT21ih\0207\022\032\n\026INSTRUCTION"
-      "_FORMAT21lh\0208\022\031\n\025INSTRUCTION_FORMAT21s\0209"
-      "\022\031\n\025INSTRUCTION_FORMAT21t\020:\022\031\n\025INSTRUCTI"
-      "ON_FORMAT22b\020;\022\037\n\033INSTRUCTION_FORMAT22c_"
-      "FIELD\020<\022$\n INSTRUCTION_FORMAT22c_FIELD_O"
-      "DEX\020=\022\036\n\032INSTRUCTION_FORMAT22c_TYPE\020>\022 \n"
-      "\034INSTRUCTION_FORMAT22cs_FIELD\020\?\022\031\n\025INSTR"
-      "UCTION_FORMAT22s\020@\022\037\n\033INSTRUCTION_FORMAT"
-      "22s_OR_ID\020A\022\031\n\025INSTRUCTION_FORMAT22t\020B\022\031"
-      "\n\025INSTRUCTION_FORMAT22x\020C\022\031\n\025INSTRUCTION"
-      "_FORMAT23x\020D\022\031\n\025INSTRUCTION_FORMAT30t\020E\022"
-      "\031\n\025INSTRUCTION_FORMAT31c\020F\022\031\n\025INSTRUCTIO"
-      "N_FORMAT31i\020G\022\037\n\033INSTRUCTION_FORMAT31i_O"
-      "R_ID\020H\022\031\n\025INSTRUCTION_FORMAT31t\020I\022\031\n\025INS"
-      "TRUCTION_FORMAT32x\020J\022 \n\034INSTRUCTION_FORM"
-      "AT35c_METHOD\020K\022%\n!INSTRUCTION_FORMAT35c_"
-      "METHOD_ODEX\020L\022\036\n\032INSTRUCTION_FORMAT35c_T"
-      "YPE\020M\022!\n\035INSTRUCTION_FORMAT35mi_METHOD\020N"
-      "\022!\n\035INSTRUCTION_FORMAT35ms_METHOD\020O\022 \n\034I"
-      "NSTRUCTION_FORMAT3rc_METHOD\020P\022%\n!INSTRUC"
-      "TION_FORMAT3rc_METHOD_ODEX\020Q\022\036\n\032INSTRUCT"
-      "ION_FORMAT3rc_TYPE\020R\022!\n\035INSTRUCTION_FORM"
-      "AT3rmi_METHOD\020S\022!\n\035INSTRUCTION_FORMAT3rm"
-      "s_METHOD\020T\022!\n\035INSTRUCTION_FORMAT45cc_MET"
-      "HOD\020U\022!\n\035INSTRUCTION_FORMAT4rcc_METHOD\020V"
-      "\022\031\n\025INSTRUCTION_FORMAT51l\020W\022\023\n\017INTEGER_L"
-      "ITERAL\020X\022\021\n\rINVALID_TOKEN\020Y\022\021\n\rI_ACCESS_"
-      "LIST\020Z\022\020\n\014I_ANNOTATION\020[\022\021\n\rI_ANNOTATION"
-      "S\020\\\022\030\n\024I_ANNOTATION_ELEMENT\020]\022\024\n\020I_ARRAY"
-      "_ELEMENTS\020^\022\030\n\024I_ARRAY_ELEMENT_SIZE\020_\022\013\n"
-      "\007I_CATCH\020`\022\016\n\nI_CATCHALL\020a\022\r\n\tI_CATCHES\020"
-      "b\022\017\n\013I_CLASS_DEF\020c\022\023\n\017I_ENCODED_ARRAY\020d\022"
-      "\022\n\016I_ENCODED_ENUM\020e\022\023\n\017I_ENCODED_FIELD\020f"
-      "\022\024\n\020I_ENCODED_METHOD\020g\022\017\n\013I_END_LOCAL\020h\022"
-      "\016\n\nI_EPILOGUE\020i\022\013\n\007I_FIELD\020j\022\014\n\010I_FIELDS"
-      "\020k\022\031\n\025I_FIELD_INITIAL_VALUE\020l\022\020\n\014I_FIELD"
-      "_TYPE\020m\022\020\n\014I_IMPLEMENTS\020n\022\013\n\007I_LABEL\020o\022\n"
-      "\n\006I_LINE\020p\022\013\n\007I_LOCAL\020q\022\014\n\010I_LOCALS\020r\022\014\n"
-      "\010I_METHOD\020s\022\r\n\tI_METHODS\020t\022\026\n\022I_METHOD_P"
-      "ROTOTYPE\020u\022\030\n\024I_METHOD_RETURN_TYPE\020v\022\032\n\026"
-      "I_ORDERED_METHOD_ITEMS\020w\022\034\n\030I_PACKED_SWI"
-      "TCH_ELEMENTS\020x\022\035\n\031I_PACKED_SWITCH_START_"
-      "KEY\020y\022\017\n\013I_PARAMETER\020z\022\020\n\014I_PARAMETERS\020{"
-      "\022\035\n\031I_PARAMETER_NOT_SPECIFIED\020|\022\016\n\nI_PRO"
-      "LOGUE\020}\022\017\n\013I_REGISTERS\020~\022\023\n\017I_REGISTER_L"
-      "IST\020\177\022\025\n\020I_REGISTER_RANGE\020\200\001\022\024\n\017I_RESTAR"
-      "T_LOCAL\020\201\001\022\r\n\010I_SOURCE\020\202\001\022\035\n\030I_SPARSE_SW"
-      "ITCH_ELEMENTS\020\203\001\022\033\n\026I_STATEMENT_ARRAY_DA"
-      "TA\020\204\001\022\032\n\025I_STATEMENT_FORMAT10t\020\205\001\022\032\n\025I_S"
-      "TATEMENT_FORMAT10x\020\206\001\022\032\n\025I_STATEMENT_FOR"
-      "MAT11n\020\207\001\022\032\n\025I_STATEMENT_FORMAT11x\020\210\001\022\032\n"
-      "\025I_STATEMENT_FORMAT12x\020\211\001\022\033\n\026I_STATEMENT"
-      "_FORMAT20bc\020\212\001\022\032\n\025I_STATEMENT_FORMAT20t\020"
-      "\213\001\022 \n\033I_STATEMENT_FORMAT21c_FIELD\020\214\001\022!\n\034"
-      "I_STATEMENT_FORMAT21c_STRING\020\215\001\022\037\n\032I_STA"
-      "TEMENT_FORMAT21c_TYPE\020\216\001\022\033\n\026I_STATEMENT_"
-      "FORMAT21ih\020\217\001\022\033\n\026I_STATEMENT_FORMAT21lh\020"
-      "\220\001\022\032\n\025I_STATEMENT_FORMAT21s\020\221\001\022\032\n\025I_STAT"
-      "EMENT_FORMAT21t\020\222\001\022\032\n\025I_STATEMENT_FORMAT"
-      "22b\020\223\001\022 \n\033I_STATEMENT_FORMAT22c_FIELD\020\224\001"
-      "\022\037\n\032I_STATEMENT_FORMAT22c_TYPE\020\225\001\022\032\n\025I_S"
-      "TATEMENT_FORMAT22s\020\226\001\022\032\n\025I_STATEMENT_FOR"
-      "MAT22t\020\227\001\022\032\n\025I_STATEMENT_FORMAT22x\020\230\001\022\032\n"
-      "\025I_STATEMENT_FORMAT23x\020\231\001\022\032\n\025I_STATEMENT"
-      "_FORMAT30t\020\232\001\022\032\n\025I_STATEMENT_FORMAT31c\020\233"
-      "\001\022\032\n\025I_STATEMENT_FORMAT31i\020\234\001\022\032\n\025I_STATE"
-      "MENT_FORMAT31t\020\235\001\022\032\n\025I_STATEMENT_FORMAT3"
-      "2x\020\236\001\022!\n\034I_STATEMENT_FORMAT35c_METHOD\020\237\001"
-      "\022\037\n\032I_STATEMENT_FORMAT35c_TYPE\020\240\001\022!\n\034I_S"
-      "TATEMENT_FORMAT3rc_METHOD\020\241\001\022\037\n\032I_STATEM"
-      "ENT_FORMAT3rc_TYPE\020\242\001\022\"\n\035I_STATEMENT_FOR"
-      "MAT45cc_METHOD\020\243\001\022\"\n\035I_STATEMENT_FORMAT4"
-      "rcc_METHOD\020\244\001\022\032\n\025I_STATEMENT_FORMAT51l\020\245"
-      "\001\022\036\n\031I_STATEMENT_PACKED_SWITCH\020\246\001\022\036\n\031I_S"
-      "TATEMENT_SPARSE_SWITCH\020\247\001\022\024\n\017I_SUBANNOTA"
-      "TION\020\250\001\022\014\n\007I_SUPER\020\251\001\022\021\n\014LINE_COMMENT\020\252\001"
-      "\022\023\n\016LINE_DIRECTIVE\020\253\001\022\025\n\020LOCALS_DIRECTIV"
-      "E\020\254\001\022\024\n\017LOCAL_DIRECTIVE\020\255\001\022\021\n\014LONG_LITER"
-      "AL\020\256\001\022\020\n\013MEMBER_NAME\020\257\001\022\025\n\020METHOD_DIRECT"
-      "IVE\020\260\001\022\035\n\030NEGATIVE_INTEGER_LITERAL\020\261\001\022\021\n"
-      "\014NULL_LITERAL\020\262\001\022\017\n\nOPEN_BRACE\020\263\001\022\017\n\nOPE"
-      "N_PAREN\020\264\001\022\034\n\027PACKED_SWITCH_DIRECTIVE\020\265\001"
-      "\022\030\n\023PARAMETER_DIRECTIVE\020\266\001\022$\n\037PARAM_LIST"
-      "_OR_ID_PRIMITIVE_TYPE\020\267\001\022\035\n\030POSITIVE_INT"
-      "EGER_LITERAL\020\270\001\022\023\n\016PRIMITIVE_TYPE\020\271\001\022\027\n\022"
-      "PROLOGUE_DIRECTIVE\020\272\001\022\023\n\016SMALI_REGISTER\020"
-      "\273\001\022\030\n\023REGISTERS_DIRECTIVE\020\274\001\022\034\n\027RESTART_"
-      "LOCAL_DIRECTIVE\020\275\001\022\022\n\rSHORT_LITERAL\020\276\001\022\020"
-      "\n\013SIMPLE_NAME\020\277\001\022\025\n\020SOURCE_DIRECTIVE\020\300\001\022"
-      "\034\n\027SPARSE_SWITCH_DIRECTIVE\020\301\001\022\023\n\016STRING_"
-      "LITERAL\020\302\001\022\034\n\027SUBANNOTATION_DIRECTIVE\020\303\001"
-      "\022\024\n\017SUPER_DIRECTIVE\020\304\001\022\034\n\027VERIFICATION_E"
-      "RROR_TYPE\020\305\001\022\016\n\tVOID_TYPE\020\306\001\022\021\n\014VTABLE_I"
-      "NDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extra\"\306\004\n\005D"
-      "elta\022\013\n\003src\030\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003"
-      " \003(\0132\020.fast.Delta.Diff\032\202\004\n\004Diff\022(\n\004type\030"
-      "\001 \001(\0162\032.fast.Delta.Diff.DeltaType\022\'\n\005mat"
-      "ch\030\002 \001(\0132\026.fast.Delta.Diff.MatchH\000\022#\n\003ad"
-      "d\030\003 \001(\0132\024.fast.Delta.Diff.AddH\000\022#\n\003del\030\004"
-      " \001(\0132\024.fast.Delta.Diff.DelH\000\022%\n\004move\030\005 \001"
-      "(\0132\025.fast.Delta.Diff.MoveH\000\022)\n\006update\030\006 "
-      "\001(\0132\027.fast.Delta.Diff.UpdateH\000\032!\n\005Match\022"
-      "\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030"
-      "\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003"
-      "Del\022\013\n\003src\030\001 \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n"
-      "\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032$\n\006Update\022\013"
-      "\n\003src\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\">\n\tDeltaType\022"
-      "\t\n\005MATCH\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n"
-      "\n\006UPDATE\020\004B\007\n\005delta\"\374\002\n\005Pairs\022\036\n\004pair\030\001 "
-      "\003(\0132\020.fast.Pairs.Pair\032\322\002\n\004Pair\022\017\n\007projec"
-      "t\030\001 \001(\t\022#\n\004left\030\002 \001(\0132\025.fast.Pairs.Pair."
-      "Diff\022$\n\005right\030\003 \001(\0132\025.fast.Pairs.Pair.Di"
-      "ff\022(\n\004type\030\004 \001(\0162\032.fast.Pairs.Pair.Clone"
-      "Type\032\232\001\n\004Diff\022\021\n\tleft_line\030\001 \001(\005\022\023\n\013left"
-      "_column\030\002 \001(\005\022\022\n\nright_line\030\003 \001(\005\022\024\n\014rig"
-      "ht_column\030\004 \001(\005\022\037\n\010old_code\030\005 \001(\0132\r.fast"
-      ".Element\022\037\n\010new_code\030\006 \001(\0132\r.fast.Elemen"
-      "t\"\'\n\tCloneType\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO"
-      "\020\002\"\362\005\n\003Log\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Co"
-      "mmit\022 \n\006author\030\002 \003(\0132\020.fast.Log.Author\032\363"
-      "\004\n\006Commit\022\n\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\ta"
-      "uthor_id\030\003 \001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tc"
-      "ommitter\030\005 \001(\0132\032.fast.Log.Commit.Committ"
-      "erH\000\022#\n\004diff\030\006 \003(\0132\025.fast.Log.Commit.Dif"
-      "f\0326\n\tCommitter\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013"
-      "commit_date\030\002 \001(\t\032\217\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n"
-      "\001b\030\002 \001(\t\022\016\n\006is_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001("
-      "\t\022\022\n\nindex_from\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022"
-      "\014\n\004mode\030\007 \001(\t\022(\n\004hunk\030\010 \003(\0132\032.fast.Log.C"
-      "ommit.Diff.Hunk\032\361\001\n\004Hunk\022\023\n\013from_lineno\030"
-      "\001 \001(\005\022\023\n\013from_column\030\002 \001(\005\022\021\n\tto_lineno\030"
-      "\003 \001(\005\022\021\n\tto_column\030\004 \001(\005\022\017\n\007context\030\005 \001("
-      "\t\022\036\n\007element\030\006 \003(\0132\r.fast.Element\022/\n\003mod"
-      "\030\007 \003(\0132\".fast.Log.Commit.Diff.Hunk.ModLi"
-      "ne\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 "
-      "\001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n"
-      "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\""
-      "\307\006\n\005Slice\022$\n\004file\030\001 \003(\0132\026.fast.Slice.Sou"
-      "rceFile\022\014\n\004hash\030\002 \001(\t\032\332\005\n\nSourceFile\0221\n\010"
-      "function\030\001 \003(\0132\037.fast.Slice.SourceFile.F"
-      "unction\022\014\n\004name\030\002 \001(\t\022$\n\004type\030\003 \001(\0162\026.fa"
-      "st.Slice.ChangeType\032\344\004\n\010Function\022:\n\010vari"
-      "able\030\001 \003(\0132(.fast.Slice.SourceFile.Funct"
-      "ion.Variable\022\014\n\004name\030\002 \001(\t\022$\n\004type\030\003 \001(\016"
-      "2\026.fast.Slice.ChangeType\032\347\003\n\010Variable\022\014\n"
-      "\004name\030\001 \001(\t\022>\n\003pos\030\002 \001(\01321.fast.Slice.So"
-      "urceFile.Function.Variable.Position\022$\n\004t"
-      "ype\030\003 \001(\0162\026.fast.Slice.ChangeType\022>\n\003def"
-      "\030\004 \003(\01321.fast.Slice.SourceFile.Function."
-      "Variable.Position\022>\n\003use\030\005 \003(\01321.fast.Sl"
-      "ice.SourceFile.Function.Variable.Positio"
-      "n\022\014\n\004dvar\030\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022D\n\005cfunc\030"
-      "\010 \003(\01325.fast.Slice.SourceFile.Function.V"
-      "ariable.FunctionDecl\032V\n\010Position\022\016\n\006line"
-      "no\030\001 \001(\005\022$\n\004type\030\002 \001(\0162\026.fast.Slice.Chan"
-      "geType\022\024\n\014delta_lineno\030\005 \001(\005\032,\n\014Function"
-      "Decl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-\n\nCh"
-      "angeType\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020"
-      "\002\"\252\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Eleme"
-      "ntH\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030"
-      "\003 \001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fa"
-      "st.PairsH\000\022\034\n\005slice\030\005 \001(\0132\013.fast.SliceH\000"
-      "B\014\n\nRecordTypeb\006proto3"
+      "PRESSION_STATEMENT\020O\022\021\n\rFUNCTION_CALL\020P\022"
+      "\031\n\025DECLARATION_STATEMENT\020Q\022\017\n\013DECLARATIO"
+      "N\020R\022\036\n\032DECLARATION_INITIALIZATION\020S\022\025\n\021D"
+      "ECLARATION_RANGE\020T\022\t\n\005RANGE\020U\022\022\n\016GOTO_ST"
+      "ATEMENT\020V\022\026\n\022CONTINUE_STATEMENT\020W\022\023\n\017BRE"
+      "AK_STATEMENT\020X\022\023\n\017LABEL_STATEMENT\020Y\022\t\n\005L"
+      "ABEL\020Z\022\n\n\006SWITCH\020[\022\010\n\004CASE\020\\\022\013\n\007DEFAULT\020"
+      "]\022\027\n\023FUNCTION_DEFINITION\020^\022\030\n\024FUNCTION_D"
+      "ECLARATION\020_\022\n\n\006LAMBDA\020`\022\023\n\017FUNCTION_LAM"
+      "BDA\020a\022\026\n\022FUNCTION_SPECIFIER\020b\022\024\n\020RETURN_"
+      "STATEMENT\020c\022\022\n\016PARAMETER_LIST\020d\022\r\n\tPARAM"
+      "ETER\020e\022\024\n\020KRPARAMETER_LIST\020f\022\017\n\013KRPARAME"
+      "TER\020g\022\021\n\rARGUMENT_LIST\020h\022\014\n\010ARGUMENT\020i\022\031"
+      "\n\025PSEUDO_PARAMETER_LIST\020j\022\032\n\026INDEXER_PAR"
+      "AMETER_LIST\020k\022\t\n\005CLASS\020l\022\025\n\021CLASS_DECLAR"
+      "ATION\020m\022\n\n\006STRUCT\020n\022\026\n\022STRUCT_DECLARATIO"
+      "N\020o\022\t\n\005UNION\020p\022\025\n\021UNION_DECLARATION\020q\022\023\n"
+      "\017DERIVATION_LIST\020r\022\021\n\rPUBLIC_ACCESS\020s\022\031\n"
+      "\025PUBLIC_ACCESS_DEFAULT\020t\022\022\n\016PRIVATE_ACCE"
+      "SS\020u\022\032\n\026PRIVATE_ACCESS_DEFAULT\020v\022\024\n\020PROT"
+      "ECTED_ACCESS\020w\022\034\n\030PROTECTED_ACCESS_DEFAU"
+      "LT\020x\022\024\n\020MEMBER_INIT_LIST\020y\022\036\n\032MEMBER_INI"
+      "TIALIZATION_LIST\020z\022\031\n\025MEMBER_INITIALIZAT"
+      "ION\020{\022\032\n\026CONSTRUCTOR_DEFINITION\020|\022\033\n\027CON"
+      "STRUCTOR_DECLARATION\020}\022\031\n\025DESTRUCTOR_DEF"
+      "INITION\020~\022\032\n\026DESTRUCTOR_DECLARATION\020\177\022\013\n"
+      "\006FRIEND\020\200\001\022\024\n\017CLASS_SPECIFIER\020\201\001\022\016\n\tTRY_"
+      "BLOCK\020\202\001\022\020\n\013CATCH_BLOCK\020\203\001\022\022\n\rFINALLY_BL"
+      "OCK\020\204\001\022\024\n\017THROW_STATEMENT\020\205\001\022\024\n\017THROW_SP"
+      "ECIFIER\020\206\001\022\031\n\024THROW_SPECIFIER_JAVA\020\207\001\022\r\n"
+      "\010TEMPLATE\020\210\001\022\025\n\020GENERIC_ARGUMENT\020\211\001\022\032\n\025G"
+      "ENERIC_ARGUMENT_LIST\020\212\001\022\027\n\022TEMPLATE_PARA"
+      "METER\020\213\001\022\034\n\027TEMPLATE_PARAMETER_LIST\020\214\001\022\026"
+      "\n\021GENERIC_PARAMETER\020\215\001\022\033\n\026GENERIC_PARAME"
+      "TER_LIST\020\216\001\022\014\n\007TYPEDEF\020\217\001\022\010\n\003ASM\020\220\001\022\017\n\nM"
+      "ACRO_CALL\020\221\001\022\020\n\013SIZEOF_CALL\020\222\001\022\013\n\006EXTERN"
+      "\020\223\001\022\016\n\tNAMESPACE\020\224\001\022\024\n\017USING_DIRECTIVE\020\225"
+      "\001\022\016\n\tDIRECTIVE\020\226\001\022\013\n\006ATOMIC\020\227\001\022\034\n\027STATIC"
+      "_ASSERT_STATEMENT\020\230\001\022\026\n\021GENERIC_SELECTIO"
+      "N\020\231\001\022\025\n\020GENERIC_SELECTOR\020\232\001\022\035\n\030GENERIC_A"
+      "SSOCIATION_LIST\020\233\001\022\030\n\023GENERIC_ASSOCIATIO"
+      "N\020\234\001\022\014\n\007ALIGNAS\020\235\001\022\r\n\010DECLTYPE\020\236\001\022\014\n\007CAP"
+      "TURE\020\237\001\022\023\n\016LAMBDA_CAPTURE\020\240\001\022\r\n\010NOEXCEPT"
+      "\020\241\001\022\r\n\010TYPENAME\020\242\001\022\014\n\007ALIGNOF\020\243\001\022\013\n\006TYPE"
+      "ID\020\244\001\022\020\n\013SIZEOF_PACK\020\245\001\022\017\n\nENUM_CLASS\020\246\001"
+      "\022\033\n\026ENUM_CLASS_DECLARATION\020\247\001\022\022\n\rREF_QUA"
+      "LIFIER\020\250\001\022\022\n\rSIGNAL_ACCESS\020\251\001\022\026\n\021FOREVER"
+      "_STATEMENT\020\252\001\022\023\n\016EMIT_STATEMENT\020\253\001\022\022\n\rCP"
+      "P_DIRECTIVE\020\254\001\022\021\n\014CPP_FILENAME\020\255\001\022\t\n\004FIL"
+      "E\020\256\001\022\013\n\006NUMBER\020\257\001\022\017\n\nCPP_NUMBER\020\260\001\022\020\n\013CP"
+      "P_LITERAL\020\261\001\022\023\n\016CPP_MACRO_DEFN\020\262\001\022\024\n\017CPP"
+      "_MACRO_VALUE\020\263\001\022\n\n\005ERROR\020\264\001\022\016\n\tCPP_ERROR"
+      "\020\265\001\022\020\n\013CPP_WARNING\020\266\001\022\017\n\nCPP_PRAGMA\020\267\001\022\020"
+      "\n\013CPP_INCLUDE\020\270\001\022\017\n\nCPP_DEFINE\020\271\001\022\016\n\tCPP"
+      "_UNDEF\020\272\001\022\r\n\010CPP_LINE\020\273\001\022\013\n\006CPP_IF\020\274\001\022\016\n"
+      "\tCPP_IFDEF\020\275\001\022\017\n\nCPP_IFNDEF\020\276\001\022\r\n\010CPP_TH"
+      "EN\020\277\001\022\r\n\010CPP_ELSE\020\300\001\022\r\n\010CPP_ELIF\020\301\001\022\016\n\tC"
+      "PP_EMPTY\020\302\001\022\017\n\nCPP_REGION\020\303\001\022\022\n\rCPP_ENDR"
+      "EGION\020\304\001\022\017\n\nUSING_STMT\020\305\001\022\013\n\006ESCAPE\020\306\001\022\n"
+      "\n\005VALUE\020\307\001\022\017\n\nCPP_IMPORT\020\310\001\022\016\n\tCPP_ENDIF"
+      "\020\311\001\022\013\n\006MARKER\020\312\001\022\020\n\013ERROR_PARSE\020\313\001\022\017\n\nER"
+      "ROR_MODE\020\314\001\022\017\n\nIMPLEMENTS\020\315\001\022\014\n\007EXTENDS\020"
+      "\316\001\022\013\n\006IMPORT\020\317\001\022\014\n\007PACKAGE\020\320\001\022\025\n\020ASSERT_"
+      "STATEMENT\020\321\001\022\016\n\tINTERFACE\020\322\001\022\032\n\025INTERFAC"
+      "E_DECLARATION\020\323\001\022\033\n\026SYNCHRONIZED_STATEME"
+      "NT\020\324\001\022\017\n\nANNOTATION\020\325\001\022\021\n\014STATIC_BLOCK\020\326"
+      "\001\022\026\n\021CHECKED_STATEMENT\020\327\001\022\030\n\023UNCHECKED_S"
+      "TATEMENT\020\330\001\022\016\n\tATTRIBUTE\020\331\001\022\013\n\006TARGET\020\332\001"
+      "\022\025\n\020UNSAFE_STATEMENT\020\333\001\022\023\n\016LOCK_STATEMEN"
+      "T\020\334\001\022\024\n\017FIXED_STATEMENT\020\335\001\022\013\n\006TYPEOF\020\336\001\022"
+      "\024\n\017USING_STATEMENT\020\337\001\022\026\n\021FUNCTION_DELEGA"
+      "TE\020\340\001\022\017\n\nCONSTRAINT\020\341\001\022\t\n\004LINQ\020\342\001\022\t\n\004FRO"
+      "M\020\343\001\022\n\n\005WHERE\020\344\001\022\013\n\006SELECT\020\345\001\022\010\n\003LET\020\346\001\022"
+      "\014\n\007ORDERBY\020\347\001\022\t\n\004JOIN\020\350\001\022\n\n\005GROUP\020\351\001\022\007\n\002"
+      "IN\020\352\001\022\007\n\002ON\020\353\001\022\013\n\006EQUALS\020\354\001\022\007\n\002BY\020\355\001\022\t\n\004"
+      "INTO\020\356\001\022\n\n\005EMPTY\020\357\001\022\017\n\nEMPTY_STMT\020\360\001\022\r\n\010"
+      "RECEIVER\020\361\001\022\014\n\007MESSAGE\020\362\001\022\r\n\010SELECTOR\020\363\001"
+      "\022\022\n\rPROTOCOL_LIST\020\364\001\022\r\n\010CATEGORY\020\365\001\022\r\n\010P"
+      "ROTOCOL\020\366\001\022\025\n\020REQUIRED_DEFAULT\020\367\001\022\r\n\010REQ"
+      "UIRED\020\370\001\022\r\n\010OPTIONAL\020\371\001\022\023\n\016ATTRIBUTE_LIS"
+      "T\020\372\001\022\017\n\nSYNTHESIZE\020\373\001\022\014\n\007DYNAMIC\020\374\001\022\013\n\006E"
+      "NCODE\020\375\001\022\024\n\017AUTORELEASEPOOL\020\376\001\022\030\n\023COMPAT"
+      "IBILITY_ALIAS\020\377\001\022\010\n\003NIL\020\200\002\022\024\n\017CLASS_INTE"
+      "RFACE\020\201\002\022\031\n\024CLASS_IMPLEMENTATION\020\202\002\022\031\n\024P"
+      "ROTOCOL_DECLARATION\020\203\002\022\t\n\004CAST\020\204\002\022\017\n\nCON"
+      "ST_CAST\020\205\002\022\021\n\014DYNAMIC_CAST\020\206\002\022\025\n\020REINTER"
+      "PRET_CAST\020\207\002\022\020\n\013STATIC_CAST\020\210\002\022\r\n\010POSITI"
+      "ON\020\211\002\022\027\n\022CUDA_ARGUMENT_LIST\020\212\002\022\022\n\rOMP_DI"
+      "RECTIVE\020\213\002\022\r\n\010OMP_NAME\020\214\002\022\017\n\nOMP_CLAUSE\020"
+      "\215\002\022\026\n\021OMP_ARGUMENT_LIST\020\216\002\022\021\n\014OMP_ARGUME"
+      "NT\020\217\002\022\023\n\016OMP_EXPRESSION\020\220\002\022\026\n\021END_ELEMEN"
+      "T_TOKEN\020\221\002\022\t\n\004MAIN\020\222\002\022\n\n\005BREAK\020\223\002\022\r\n\010CON"
+      "TINUE\020\224\002\022\n\n\005WHILE\020\225\002\022\007\n\002DO\020\226\002\022\010\n\003FOR\020\227\002\022"
+      "\007\n\002IF\020\230\002\022\t\n\004GOTO\020\231\002\022\023\n\016VISUAL_CXX_ASM\020\232\002"
+      "\022\013\n\006SIZEOF\020\233\002\022\t\n\004AUTO\020\234\002\022\r\n\010REGISTER\020\235\002\022"
+      "\r\n\010RESTRICT\020\236\002\022\016\n\tIMAGINARY\020\237\002\022\r\n\010NORETU"
+      "RN\020\240\002\022\022\n\rSTATIC_ASSERT\020\241\002\022\016\n\tCRESTRICT\020\242"
+      "\002\022\014\n\007CXX_TRY\020\243\002\022\016\n\tCXX_CATCH\020\244\002\022\016\n\tCXX_C"
+      "LASS\020\245\002\022\016\n\tCONSTEXPR\020\246\002\022\021\n\014THREAD_LOCAL\020"
+      "\247\002\022\014\n\007NULLPTR\020\250\002\022\t\n\004VOID\020\251\002\022\013\n\006RETURN\020\252\002"
+      "\022\014\n\007INCLUDE\020\253\002\022\013\n\006DEFINE\020\254\002\022\t\n\004ELIF\020\255\002\022\n"
+      "\n\005ENDIF\020\256\002\022\016\n\tERRORPREC\020\257\002\022\014\n\007WARNING\020\260\002"
+      "\022\n\n\005IFDEF\020\261\002\022\013\n\006IFNDEF\020\262\002\022\t\n\004LINE\020\263\002\022\013\n\006"
+      "PRAGMA\020\264\002\022\n\n\005UNDEF\020\265\002\022\013\n\006INLINE\020\266\002\022\024\n\017MA"
+      "CRO_TYPE_NAME\020\267\002\022\017\n\nMACRO_CASE\020\270\002\022\020\n\013MAC"
+      "RO_LABEL\020\271\002\022\016\n\tSPECIFIER\020\272\002\022\010\n\003TRY\020\273\002\022\n\n"
+      "\005CATCH\020\274\002\022\n\n\005THROW\020\275\002\022\013\n\006THROWS\020\276\002\022\013\n\006PU"
+      "BLIC\020\277\002\022\014\n\007PRIVATE\020\300\002\022\016\n\tPROTECTED\020\301\002\022\014\n"
+      "\007VIRTUAL\020\302\002\022\r\n\010EXPLICIT\020\303\002\022\014\n\007FOREVER\020\304\002"
+      "\022\013\n\006SIGNAL\020\305\002\022\t\n\004EMIT\020\306\002\022\010\n\003NEW\020\307\002\022\013\n\006DE"
+      "LETE\020\310\002\022\013\n\006STATIC\020\311\002\022\n\n\005CONST\020\312\002\022\014\n\007MUTA"
+      "BLE\020\313\002\022\r\n\010VOLATILE\020\314\002\022\016\n\tTRANSIENT\020\315\002\022\014\n"
+      "\007FINALLY\020\316\002\022\n\n\005FINAL\020\317\002\022\r\n\010ABSTRACT\020\320\002\022\n"
+      "\n\005SUPER\020\321\002\022\021\n\014SYNCHRONIZED\020\322\002\022\013\n\006NATIVE\020"
+      "\323\002\022\r\n\010STRICTFP\020\324\002\022\020\n\013NULLLITERAL\020\325\002\022\013\n\006A"
+      "SSERT\020\326\002\022\014\n\007FOREACH\020\327\002\022\010\n\003REF\020\330\002\022\010\n\003OUT\020"
+      "\331\002\022\t\n\004LOCK\020\332\002\022\007\n\002IS\020\333\002\022\r\n\010INTERNAL\020\334\002\022\013\n"
+      "\006SEALED\020\335\002\022\r\n\010OVERRIDE\020\336\002\022\r\n\010IMPLICIT\020\337\002"
+      "\022\017\n\nSTACKALLOC\020\340\002\022\007\n\002AS\020\341\002\022\r\n\010DELEGATE\020\342"
+      "\002\022\n\n\005FIXED\020\343\002\022\014\n\007CHECKED\020\344\002\022\016\n\tUNCHECKED"
+      "\020\345\002\022\013\n\006REGION\020\346\002\022\016\n\tENDREGION\020\347\002\022\013\n\006UNSA"
+      "FE\020\350\002\022\r\n\010READONLY\020\351\002\022\010\n\003GET\020\352\002\022\010\n\003SET\020\353\002"
+      "\022\010\n\003ADD\020\354\002\022\013\n\006REMOVE\020\355\002\022\n\n\005YIELD\020\356\002\022\014\n\007P"
+      "ARTIAL\020\357\002\022\n\n\005AWAIT\020\360\002\022\n\n\005ASYNC\020\361\002\022\t\n\004THI"
+      "S\020\362\002\022\013\n\006PARAMS\020\363\002\022\n\n\005ALIAS\020\364\002\022\016\n\tASCENDI"
+      "NG\020\365\002\022\017\n\nDESCENDING\020\366\002\022\020\n\013ATINTERFACE\020\367\002"
+      "\022\025\n\020ATIMPLEMENTATION\020\370\002\022\n\n\005ATEND\020\371\002\022\017\n\nA"
+      "TPROTOCOL\020\372\002\022\017\n\nATREQUIRED\020\373\002\022\017\n\nATOPTIO"
+      "NAL\020\374\002\022\014\n\007ATCLASS\020\375\002\022\t\n\004WEAK\020\376\002\022\013\n\006STRON"
+      "G\020\377\002\022\014\n\007OMP_OMP\020\200\003\022\022\n\rSPECIAL_CHARS\020\201\003\"\237"
+      "\'\n\tSmaliKind\022\013\n\007INVALID\020\000\022\007\n\003EOR\020\001\022\010\n\004DO"
+      "WN\020\002\022\006\n\002UP\020\003\022\017\n\013ACCESS_SPEC\020\004\022\030\n\024ANNOTAT"
+      "ION_DIRECTIVE\020\005\022\031\n\025ANNOTATION_VISIBILITY"
+      "\020\006\022\030\n\024ARRAY_DATA_DIRECTIVE\020\007\022\025\n\021ARRAY_TY"
+      "PE_PREFIX\020\010\022\t\n\005ARROW\020\t\022\020\n\014BOOL_LITERAL\020\n"
+      "\022\020\n\014BYTE_LITERAL\020\013\022\026\n\022CATCHALL_DIRECTIVE"
+      "\020\014\022\023\n\017CATCH_DIRECTIVE\020\r\022\020\n\014CHAR_LITERAL\020"
+      "\016\022\024\n\020CLASS_DESCRIPTOR\020\017\022\023\n\017CLASS_DIRECTI"
+      "VE\020\020\022\017\n\013CLOSE_BRACE\020\021\022\017\n\013CLOSE_PAREN\020\022\022\t"
+      "\n\005COLON\020\023\022\t\n\005COMMA\020\024\022\n\n\006DOTDOT\020\025\022\022\n\016DOUB"
+      "LE_LITERAL\020\026\022\030\n\024DOUBLE_LITERAL_OR_ID\020\027\022\034"
+      "\n\030END_ANNOTATION_DIRECTIVE\020\030\022\034\n\030END_ARRA"
+      "Y_DATA_DIRECTIVE\020\031\022\027\n\023END_FIELD_DIRECTIV"
+      "E\020\032\022\027\n\023END_LOCAL_DIRECTIVE\020\033\022\030\n\024END_METH"
+      "OD_DIRECTIVE\020\034\022\037\n\033END_PACKED_SWITCH_DIRE"
+      "CTIVE\020\035\022\033\n\027END_PARAMETER_DIRECTIVE\020\036\022\037\n\033"
+      "END_SPARSE_SWITCH_DIRECTIVE\020\037\022\037\n\033END_SUB"
+      "ANNOTATION_DIRECTIVE\020 \022\022\n\016ENUM_DIRECTIVE"
+      "\020!\022\026\n\022EPILOGUE_DIRECTIVE\020\"\022\t\n\005EQUAL\020#\022\023\n"
+      "\017FIELD_DIRECTIVE\020$\022\020\n\014FIELD_OFFSET\020%\022\021\n\r"
+      "FLOAT_LITERAL\020&\022\027\n\023FLOAT_LITERAL_OR_ID\020\'"
+      "\022\030\n\024IMPLEMENTS_DIRECTIVE\020(\022\020\n\014INLINE_IND"
+      "EX\020)\022\031\n\025INSTRUCTION_FORMAT10t\020*\022\031\n\025INSTR"
+      "UCTION_FORMAT10x\020+\022\036\n\032INSTRUCTION_FORMAT"
+      "10x_ODEX\020,\022\031\n\025INSTRUCTION_FORMAT11n\020-\022\031\n"
+      "\025INSTRUCTION_FORMAT11x\020.\022\031\n\025INSTRUCTION_"
+      "FORMAT12x\020/\022\037\n\033INSTRUCTION_FORMAT12x_OR_"
+      "ID\0200\022\032\n\026INSTRUCTION_FORMAT20bc\0201\022\031\n\025INST"
+      "RUCTION_FORMAT20t\0202\022\037\n\033INSTRUCTION_FORMA"
+      "T21c_FIELD\0203\022$\n INSTRUCTION_FORMAT21c_FI"
+      "ELD_ODEX\0204\022 \n\034INSTRUCTION_FORMAT21c_STRI"
+      "NG\0205\022\036\n\032INSTRUCTION_FORMAT21c_TYPE\0206\022\032\n\026"
+      "INSTRUCTION_FORMAT21ih\0207\022\032\n\026INSTRUCTION_"
+      "FORMAT21lh\0208\022\031\n\025INSTRUCTION_FORMAT21s\0209\022"
+      "\031\n\025INSTRUCTION_FORMAT21t\020:\022\031\n\025INSTRUCTIO"
+      "N_FORMAT22b\020;\022\037\n\033INSTRUCTION_FORMAT22c_F"
+      "IELD\020<\022$\n INSTRUCTION_FORMAT22c_FIELD_OD"
+      "EX\020=\022\036\n\032INSTRUCTION_FORMAT22c_TYPE\020>\022 \n\034"
+      "INSTRUCTION_FORMAT22cs_FIELD\020\?\022\031\n\025INSTRU"
+      "CTION_FORMAT22s\020@\022\037\n\033INSTRUCTION_FORMAT2"
+      "2s_OR_ID\020A\022\031\n\025INSTRUCTION_FORMAT22t\020B\022\031\n"
+      "\025INSTRUCTION_FORMAT22x\020C\022\031\n\025INSTRUCTION_"
+      "FORMAT23x\020D\022\031\n\025INSTRUCTION_FORMAT30t\020E\022\031"
+      "\n\025INSTRUCTION_FORMAT31c\020F\022\031\n\025INSTRUCTION"
+      "_FORMAT31i\020G\022\037\n\033INSTRUCTION_FORMAT31i_OR"
+      "_ID\020H\022\031\n\025INSTRUCTION_FORMAT31t\020I\022\031\n\025INST"
+      "RUCTION_FORMAT32x\020J\022 \n\034INSTRUCTION_FORMA"
+      "T35c_METHOD\020K\022%\n!INSTRUCTION_FORMAT35c_M"
+      "ETHOD_ODEX\020L\022\036\n\032INSTRUCTION_FORMAT35c_TY"
+      "PE\020M\022!\n\035INSTRUCTION_FORMAT35mi_METHOD\020N\022"
+      "!\n\035INSTRUCTION_FORMAT35ms_METHOD\020O\022 \n\034IN"
+      "STRUCTION_FORMAT3rc_METHOD\020P\022%\n!INSTRUCT"
+      "ION_FORMAT3rc_METHOD_ODEX\020Q\022\036\n\032INSTRUCTI"
+      "ON_FORMAT3rc_TYPE\020R\022!\n\035INSTRUCTION_FORMA"
+      "T3rmi_METHOD\020S\022!\n\035INSTRUCTION_FORMAT3rms"
+      "_METHOD\020T\022!\n\035INSTRUCTION_FORMAT45cc_METH"
+      "OD\020U\022!\n\035INSTRUCTION_FORMAT4rcc_METHOD\020V\022"
+      "\031\n\025INSTRUCTION_FORMAT51l\020W\022\023\n\017INTEGER_LI"
+      "TERAL\020X\022\021\n\rINVALID_TOKEN\020Y\022\021\n\rI_ACCESS_L"
+      "IST\020Z\022\020\n\014I_ANNOTATION\020[\022\021\n\rI_ANNOTATIONS"
+      "\020\\\022\030\n\024I_ANNOTATION_ELEMENT\020]\022\024\n\020I_ARRAY_"
+      "ELEMENTS\020^\022\030\n\024I_ARRAY_ELEMENT_SIZE\020_\022\013\n\007"
+      "I_CATCH\020`\022\016\n\nI_CATCHALL\020a\022\r\n\tI_CATCHES\020b"
+      "\022\017\n\013I_CLASS_DEF\020c\022\023\n\017I_ENCODED_ARRAY\020d\022\022"
+      "\n\016I_ENCODED_ENUM\020e\022\023\n\017I_ENCODED_FIELD\020f\022"
+      "\024\n\020I_ENCODED_METHOD\020g\022\017\n\013I_END_LOCAL\020h\022\016"
+      "\n\nI_EPILOGUE\020i\022\013\n\007I_FIELD\020j\022\014\n\010I_FIELDS\020"
+      "k\022\031\n\025I_FIELD_INITIAL_VALUE\020l\022\020\n\014I_FIELD_"
+      "TYPE\020m\022\020\n\014I_IMPLEMENTS\020n\022\013\n\007I_LABEL\020o\022\n\n"
+      "\006I_LINE\020p\022\013\n\007I_LOCAL\020q\022\014\n\010I_LOCALS\020r\022\014\n\010"
+      "I_METHOD\020s\022\r\n\tI_METHODS\020t\022\026\n\022I_METHOD_PR"
+      "OTOTYPE\020u\022\030\n\024I_METHOD_RETURN_TYPE\020v\022\032\n\026I"
+      "_ORDERED_METHOD_ITEMS\020w\022\034\n\030I_PACKED_SWIT"
+      "CH_ELEMENTS\020x\022\035\n\031I_PACKED_SWITCH_START_K"
+      "EY\020y\022\017\n\013I_PARAMETER\020z\022\020\n\014I_PARAMETERS\020{\022"
+      "\035\n\031I_PARAMETER_NOT_SPECIFIED\020|\022\016\n\nI_PROL"
+      "OGUE\020}\022\017\n\013I_REGISTERS\020~\022\023\n\017I_REGISTER_LI"
+      "ST\020\177\022\025\n\020I_REGISTER_RANGE\020\200\001\022\024\n\017I_RESTART"
+      "_LOCAL\020\201\001\022\r\n\010I_SOURCE\020\202\001\022\035\n\030I_SPARSE_SWI"
+      "TCH_ELEMENTS\020\203\001\022\033\n\026I_STATEMENT_ARRAY_DAT"
+      "A\020\204\001\022\032\n\025I_STATEMENT_FORMAT10t\020\205\001\022\032\n\025I_ST"
+      "ATEMENT_FORMAT10x\020\206\001\022\032\n\025I_STATEMENT_FORM"
+      "AT11n\020\207\001\022\032\n\025I_STATEMENT_FORMAT11x\020\210\001\022\032\n\025"
+      "I_STATEMENT_FORMAT12x\020\211\001\022\033\n\026I_STATEMENT_"
+      "FORMAT20bc\020\212\001\022\032\n\025I_STATEMENT_FORMAT20t\020\213"
+      "\001\022 \n\033I_STATEMENT_FORMAT21c_FIELD\020\214\001\022!\n\034I"
+      "_STATEMENT_FORMAT21c_STRING\020\215\001\022\037\n\032I_STAT"
+      "EMENT_FORMAT21c_TYPE\020\216\001\022\033\n\026I_STATEMENT_F"
+      "ORMAT21ih\020\217\001\022\033\n\026I_STATEMENT_FORMAT21lh\020\220"
+      "\001\022\032\n\025I_STATEMENT_FORMAT21s\020\221\001\022\032\n\025I_STATE"
+      "MENT_FORMAT21t\020\222\001\022\032\n\025I_STATEMENT_FORMAT2"
+      "2b\020\223\001\022 \n\033I_STATEMENT_FORMAT22c_FIELD\020\224\001\022"
+      "\037\n\032I_STATEMENT_FORMAT22c_TYPE\020\225\001\022\032\n\025I_ST"
+      "ATEMENT_FORMAT22s\020\226\001\022\032\n\025I_STATEMENT_FORM"
+      "AT22t\020\227\001\022\032\n\025I_STATEMENT_FORMAT22x\020\230\001\022\032\n\025"
+      "I_STATEMENT_FORMAT23x\020\231\001\022\032\n\025I_STATEMENT_"
+      "FORMAT30t\020\232\001\022\032\n\025I_STATEMENT_FORMAT31c\020\233\001"
+      "\022\032\n\025I_STATEMENT_FORMAT31i\020\234\001\022\032\n\025I_STATEM"
+      "ENT_FORMAT31t\020\235\001\022\032\n\025I_STATEMENT_FORMAT32"
+      "x\020\236\001\022!\n\034I_STATEMENT_FORMAT35c_METHOD\020\237\001\022"
+      "\037\n\032I_STATEMENT_FORMAT35c_TYPE\020\240\001\022!\n\034I_ST"
+      "ATEMENT_FORMAT3rc_METHOD\020\241\001\022\037\n\032I_STATEME"
+      "NT_FORMAT3rc_TYPE\020\242\001\022\"\n\035I_STATEMENT_FORM"
+      "AT45cc_METHOD\020\243\001\022\"\n\035I_STATEMENT_FORMAT4r"
+      "cc_METHOD\020\244\001\022\032\n\025I_STATEMENT_FORMAT51l\020\245\001"
+      "\022\036\n\031I_STATEMENT_PACKED_SWITCH\020\246\001\022\036\n\031I_ST"
+      "ATEMENT_SPARSE_SWITCH\020\247\001\022\024\n\017I_SUBANNOTAT"
+      "ION\020\250\001\022\014\n\007I_SUPER\020\251\001\022\021\n\014LINE_COMMENT\020\252\001\022"
+      "\023\n\016LINE_DIRECTIVE\020\253\001\022\025\n\020LOCALS_DIRECTIVE"
+      "\020\254\001\022\024\n\017LOCAL_DIRECTIVE\020\255\001\022\021\n\014LONG_LITERA"
+      "L\020\256\001\022\020\n\013MEMBER_NAME\020\257\001\022\025\n\020METHOD_DIRECTI"
+      "VE\020\260\001\022\035\n\030NEGATIVE_INTEGER_LITERAL\020\261\001\022\021\n\014"
+      "NULL_LITERAL\020\262\001\022\017\n\nOPEN_BRACE\020\263\001\022\017\n\nOPEN"
+      "_PAREN\020\264\001\022\034\n\027PACKED_SWITCH_DIRECTIVE\020\265\001\022"
+      "\030\n\023PARAMETER_DIRECTIVE\020\266\001\022$\n\037PARAM_LIST_"
+      "OR_ID_PRIMITIVE_TYPE\020\267\001\022\035\n\030POSITIVE_INTE"
+      "GER_LITERAL\020\270\001\022\023\n\016PRIMITIVE_TYPE\020\271\001\022\027\n\022P"
+      "ROLOGUE_DIRECTIVE\020\272\001\022\023\n\016SMALI_REGISTER\020\273"
+      "\001\022\030\n\023REGISTERS_DIRECTIVE\020\274\001\022\034\n\027RESTART_L"
+      "OCAL_DIRECTIVE\020\275\001\022\022\n\rSHORT_LITERAL\020\276\001\022\020\n"
+      "\013SIMPLE_NAME\020\277\001\022\025\n\020SOURCE_DIRECTIVE\020\300\001\022\034"
+      "\n\027SPARSE_SWITCH_DIRECTIVE\020\301\001\022\023\n\016STRING_L"
+      "ITERAL\020\302\001\022\034\n\027SUBANNOTATION_DIRECTIVE\020\303\001\022"
+      "\024\n\017SUPER_DIRECTIVE\020\304\001\022\034\n\027VERIFICATION_ER"
+      "ROR_TYPE\020\305\001\022\016\n\tVOID_TYPE\020\306\001\022\021\n\014VTABLE_IN"
+      "DEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extra\"\306\004\n\005De"
+      "lta\022\013\n\003src\030\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003 "
+      "\003(\0132\020.fast.Delta.Diff\032\202\004\n\004Diff\022(\n\004type\030\001"
+      " \001(\0162\032.fast.Delta.Diff.DeltaType\022\'\n\005matc"
+      "h\030\002 \001(\0132\026.fast.Delta.Diff.MatchH\000\022#\n\003add"
+      "\030\003 \001(\0132\024.fast.Delta.Diff.AddH\000\022#\n\003del\030\004 "
+      "\001(\0132\024.fast.Delta.Diff.DelH\000\022%\n\004move\030\005 \001("
+      "\0132\025.fast.Delta.Diff.MoveH\000\022)\n\006update\030\006 \001"
+      "(\0132\027.fast.Delta.Diff.UpdateH\000\032!\n\005Match\022\013"
+      "\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030\001"
+      " \001(\005\022\013\n\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003D"
+      "el\022\013\n\003src\030\001 \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n\003"
+      "dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032$\n\006Update\022\013\n"
+      "\003src\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\">\n\tDeltaType\022\t"
+      "\n\005MATCH\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n\n"
+      "\006UPDATE\020\004B\007\n\005delta\"\374\002\n\005Pairs\022\036\n\004pair\030\001 \003"
+      "(\0132\020.fast.Pairs.Pair\032\322\002\n\004Pair\022\017\n\007project"
+      "\030\001 \001(\t\022#\n\004left\030\002 \001(\0132\025.fast.Pairs.Pair.D"
+      "iff\022$\n\005right\030\003 \001(\0132\025.fast.Pairs.Pair.Dif"
+      "f\022(\n\004type\030\004 \001(\0162\032.fast.Pairs.Pair.CloneT"
+      "ype\032\232\001\n\004Diff\022\021\n\tleft_line\030\001 \001(\005\022\023\n\013left_"
+      "column\030\002 \001(\005\022\022\n\nright_line\030\003 \001(\005\022\024\n\014righ"
+      "t_column\030\004 \001(\005\022\037\n\010old_code\030\005 \001(\0132\r.fast."
+      "Element\022\037\n\010new_code\030\006 \001(\0132\r.fast.Element"
+      "\"\'\n\tCloneType\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020"
+      "\002\"\362\005\n\003Log\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Com"
+      "mit\022 \n\006author\030\002 \003(\0132\020.fast.Log.Author\032\363\004"
+      "\n\006Commit\022\n\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\tau"
+      "thor_id\030\003 \001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tco"
+      "mmitter\030\005 \001(\0132\032.fast.Log.Commit.Committe"
+      "rH\000\022#\n\004diff\030\006 \003(\0132\025.fast.Log.Commit.Diff"
+      "\0326\n\tCommitter\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013c"
+      "ommit_date\030\002 \001(\t\032\217\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n\001"
+      "b\030\002 \001(\t\022\016\n\006is_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001(\t"
+      "\022\022\n\nindex_from\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022\014"
+      "\n\004mode\030\007 \001(\t\022(\n\004hunk\030\010 \003(\0132\032.fast.Log.Co"
+      "mmit.Diff.Hunk\032\361\001\n\004Hunk\022\023\n\013from_lineno\030\001"
+      " \001(\005\022\023\n\013from_column\030\002 \001(\005\022\021\n\tto_lineno\030\003"
+      " \001(\005\022\021\n\tto_column\030\004 \001(\005\022\017\n\007context\030\005 \001(\t"
+      "\022\036\n\007element\030\006 \003(\0132\r.fast.Element\022/\n\003mod\030"
+      "\007 \003(\0132\".fast.Log.Commit.Diff.Hunk.ModLin"
+      "e\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 \001"
+      "(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n\n"
+      "\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"\303"
+      "\007\n\006Slices\022!\n\005slice\030\001 \003(\0132\022.fast.Slices.S"
+      "lice\032\225\007\n\005Slice\022+\n\004file\030\001 \003(\0132\035.fast.Slic"
+      "es.Slice.SourceFile\022\014\n\004hash\030\002 \001(\t\032\241\006\n\nSo"
+      "urceFile\0228\n\010function\030\001 \003(\0132&.fast.Slices"
+      ".Slice.SourceFile.Function\022\014\n\004name\030\002 \001(\t"
+      "\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Slice.Chang"
+      "eType\032\235\005\n\010Function\022A\n\010variable\030\001 \003(\0132/.f"
+      "ast.Slices.Slice.SourceFile.Function.Var"
+      "iable\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fast"
+      ".Slices.Slice.ChangeType\032\222\004\n\010Variable\022\014\n"
+      "\004name\030\001 \001(\t\022E\n\003pos\030\002 \001(\01328.fast.Slices.S"
+      "lice.SourceFile.Function.Variable.Positi"
+      "on\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Slice.Cha"
+      "ngeType\022F\n\004defn\030\004 \003(\01328.fast.Slices.Slic"
+      "e.SourceFile.Function.Variable.Position\022"
+      "E\n\003use\030\005 \003(\01328.fast.Slices.Slice.SourceF"
+      "ile.Function.Variable.Position\022\014\n\004dvar\030\006"
+      " \003(\t\022\r\n\005alias\030\007 \003(\t\022K\n\005cfunc\030\010 \003(\0132<.fas"
+      "t.Slices.Slice.SourceFile.Function.Varia"
+      "ble.FunctionDecl\032]\n\010Position\022\016\n\006lineno\030\001"
+      " \001(\005\022+\n\004type\030\002 \001(\0162\035.fast.Slices.Slice.C"
+      "hangeType\022\024\n\014delta_lineno\030\005 \001(\005\032,\n\014Funct"
+      "ionDecl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-\n"
+      "\nChangeType\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003D"
+      "EL\020\002\"\254\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.El"
+      "ementH\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005del"
+      "ta\030\003 \001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013"
+      ".fast.PairsH\000\022\036\n\006slices\030\005 \001(\0132\014.fast.Sli"
+      "cesH\000B\014\n\nRecordTypeb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 14862);
+      descriptor, 14987);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fast.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -1140,6 +1157,7 @@ bool Element_Kind_IsValid(int value) {
     case 77:
     case 78:
     case 79:
+    case 80:
     case 81:
     case 82:
     case 83:
@@ -1228,6 +1246,8 @@ bool Element_Kind_IsValid(int value) {
     case 166:
     case 167:
     case 168:
+    case 169:
+    case 170:
     case 171:
     case 172:
     case 173:
@@ -1274,6 +1294,7 @@ bool Element_Kind_IsValid(int value) {
     case 214:
     case 215:
     case 216:
+    case 217:
     case 218:
     case 219:
     case 220:
@@ -1285,6 +1306,7 @@ bool Element_Kind_IsValid(int value) {
     case 226:
     case 227:
     case 228:
+    case 229:
     case 230:
     case 231:
     case 232:
@@ -1310,6 +1332,7 @@ bool Element_Kind_IsValid(int value) {
     case 252:
     case 253:
     case 254:
+    case 255:
     case 256:
     case 257:
     case 258:
@@ -1341,12 +1364,23 @@ bool Element_Kind_IsValid(int value) {
     case 284:
     case 285:
     case 286:
+    case 287:
+    case 288:
+    case 289:
+    case 290:
+    case 291:
+    case 292:
     case 293:
+    case 294:
     case 295:
     case 296:
+    case 297:
     case 298:
     case 299:
     case 300:
+    case 301:
+    case 302:
+    case 303:
     case 304:
     case 305:
     case 306:
@@ -1355,8 +1389,20 @@ bool Element_Kind_IsValid(int value) {
     case 309:
     case 310:
     case 311:
+    case 312:
     case 313:
     case 314:
+    case 315:
+    case 316:
+    case 317:
+    case 318:
+    case 319:
+    case 320:
+    case 321:
+    case 322:
+    case 323:
+    case 324:
+    case 325:
     case 326:
     case 327:
     case 328:
@@ -1374,19 +1420,26 @@ bool Element_Kind_IsValid(int value) {
     case 340:
     case 341:
     case 342:
+    case 343:
     case 344:
     case 345:
     case 346:
     case 347:
     case 348:
+    case 349:
     case 350:
     case 351:
     case 352:
     case 353:
+    case 354:
+    case 355:
     case 356:
     case 357:
     case 358:
     case 359:
+    case 360:
+    case 361:
+    case 362:
     case 363:
     case 364:
     case 365:
@@ -1394,7 +1447,12 @@ bool Element_Kind_IsValid(int value) {
     case 367:
     case 368:
     case 369:
+    case 370:
+    case 371:
     case 372:
+    case 373:
+    case 374:
+    case 375:
     case 376:
     case 377:
     case 378:
@@ -1405,47 +1463,6 @@ bool Element_Kind_IsValid(int value) {
     case 383:
     case 384:
     case 385:
-    case 386:
-    case 388:
-    case 389:
-    case 390:
-    case 391:
-    case 392:
-    case 393:
-    case 394:
-    case 395:
-    case 396:
-    case 397:
-    case 398:
-    case 399:
-    case 400:
-    case 401:
-    case 402:
-    case 403:
-    case 404:
-    case 405:
-    case 406:
-    case 407:
-    case 408:
-    case 409:
-    case 410:
-    case 412:
-    case 413:
-    case 414:
-    case 416:
-    case 422:
-    case 423:
-    case 430:
-    case 431:
-    case 432:
-    case 433:
-    case 434:
-    case 435:
-    case 441:
-    case 443:
-    case 444:
-    case 448:
-    case 449:
       return true;
     default:
       return false;
@@ -2312,11 +2329,11 @@ const Pairs_Pair_CloneType Pairs_Pair::CloneType_MIN;
 const Pairs_Pair_CloneType Pairs_Pair::CloneType_MAX;
 const int Pairs_Pair::CloneType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
-const ::google::protobuf::EnumDescriptor* Slice_ChangeType_descriptor() {
+const ::google::protobuf::EnumDescriptor* Slices_Slice_ChangeType_descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_enum_descriptors[6];
 }
-bool Slice_ChangeType_IsValid(int value) {
+bool Slices_Slice_ChangeType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -2328,12 +2345,12 @@ bool Slice_ChangeType_IsValid(int value) {
 }
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const Slice_ChangeType Slice::UNCHANGED;
-const Slice_ChangeType Slice::ADD;
-const Slice_ChangeType Slice::DEL;
-const Slice_ChangeType Slice::ChangeType_MIN;
-const Slice_ChangeType Slice::ChangeType_MAX;
-const int Slice::ChangeType_ARRAYSIZE;
+const Slices_Slice_ChangeType Slices_Slice::UNCHANGED;
+const Slices_Slice_ChangeType Slices_Slice::ADD;
+const Slices_Slice_ChangeType Slices_Slice::DEL;
+const Slices_Slice_ChangeType Slices_Slice::ChangeType_MIN;
+const Slices_Slice_ChangeType Slices_Slice::ChangeType_MAX;
+const int Slices_Slice::ChangeType_ARRAYSIZE;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 // ===================================================================
@@ -12007,20 +12024,20 @@ Log::author() const {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Slice_SourceFile_Function_Variable_Position::kLinenoFieldNumber;
-const int Slice_SourceFile_Function_Variable_Position::kTypeFieldNumber;
-const int Slice_SourceFile_Function_Variable_Position::kDeltaLinenoFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable_Position::kLinenoFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable_Position::kTypeFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable_Position::kDeltaLinenoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Slice_SourceFile_Function_Variable_Position::Slice_SourceFile_Function_Variable_Position()
+Slices_Slice_SourceFile_Function_Variable_Position::Slices_Slice_SourceFile_Function_Variable_Position()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fast_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(constructor:fast.Slices.Slice.SourceFile.Function.Variable.Position)
 }
-Slice_SourceFile_Function_Variable_Position::Slice_SourceFile_Function_Variable_Position(const Slice_SourceFile_Function_Variable_Position& from)
+Slices_Slice_SourceFile_Function_Variable_Position::Slices_Slice_SourceFile_Function_Variable_Position(const Slices_Slice_SourceFile_Function_Variable_Position& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
@@ -12028,57 +12045,57 @@ Slice_SourceFile_Function_Variable_Position::Slice_SourceFile_Function_Variable_
   ::memcpy(&lineno_, &from.lineno_,
     reinterpret_cast<char*>(&delta_lineno_) -
     reinterpret_cast<char*>(&lineno_) + sizeof(delta_lineno_));
-  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(copy_constructor:fast.Slices.Slice.SourceFile.Function.Variable.Position)
 }
 
-void Slice_SourceFile_Function_Variable_Position::SharedCtor() {
+void Slices_Slice_SourceFile_Function_Variable_Position::SharedCtor() {
   ::memset(&lineno_, 0, reinterpret_cast<char*>(&delta_lineno_) -
     reinterpret_cast<char*>(&lineno_) + sizeof(delta_lineno_));
   _cached_size_ = 0;
 }
 
-Slice_SourceFile_Function_Variable_Position::~Slice_SourceFile_Function_Variable_Position() {
-  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function.Variable.Position)
+Slices_Slice_SourceFile_Function_Variable_Position::~Slices_Slice_SourceFile_Function_Variable_Position() {
+  // @@protoc_insertion_point(destructor:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   SharedDtor();
 }
 
-void Slice_SourceFile_Function_Variable_Position::SharedDtor() {
+void Slices_Slice_SourceFile_Function_Variable_Position::SharedDtor() {
 }
 
-void Slice_SourceFile_Function_Variable_Position::SetCachedSize(int size) const {
+void Slices_Slice_SourceFile_Function_Variable_Position::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Slice_SourceFile_Function_Variable_Position::descriptor() {
+const ::google::protobuf::Descriptor* Slices_Slice_SourceFile_Function_Variable_Position::descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable_Position::default_instance() {
+const Slices_Slice_SourceFile_Function_Variable_Position& Slices_Slice_SourceFile_Function_Variable_Position::default_instance() {
   protobuf_fast_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable_Position::New(::google::protobuf::Arena* arena) const {
-  Slice_SourceFile_Function_Variable_Position* n = new Slice_SourceFile_Function_Variable_Position;
+Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable_Position::New(::google::protobuf::Arena* arena) const {
+  Slices_Slice_SourceFile_Function_Variable_Position* n = new Slices_Slice_SourceFile_Function_Variable_Position;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Slice_SourceFile_Function_Variable_Position::Clear() {
-// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function.Variable.Position)
+void Slices_Slice_SourceFile_Function_Variable_Position::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   ::memset(&lineno_, 0, reinterpret_cast<char*>(&delta_lineno_) -
     reinterpret_cast<char*>(&lineno_) + sizeof(delta_lineno_));
 }
 
-bool Slice_SourceFile_Function_Variable_Position::MergePartialFromCodedStream(
+bool Slices_Slice_SourceFile_Function_Variable_Position::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(parse_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -12098,7 +12115,7 @@ bool Slice_SourceFile_Function_Variable_Position::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Slice.ChangeType type = 2;
+      // .fast.Slices.Slice.ChangeType type = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(16u)) {
@@ -12106,7 +12123,7 @@ bool Slice_SourceFile_Function_Variable_Position::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+          set_type(static_cast< ::fast::Slices_Slice_ChangeType >(value));
         } else {
           goto handle_unusual;
         }
@@ -12140,17 +12157,17 @@ bool Slice_SourceFile_Function_Variable_Position::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(parse_success:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(parse_failure:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   return false;
 #undef DO_
 }
 
-void Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
+void Slices_Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(serialize_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12159,7 +12176,7 @@ void Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->lineno(), output);
   }
 
-  // .fast.Slice.ChangeType type = 2;
+  // .fast.Slices.Slice.ChangeType type = 2;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       2, this->type(), output);
@@ -12170,12 +12187,12 @@ void Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->delta_lineno(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(serialize_end:fast.Slices.Slice.SourceFile.Function.Variable.Position)
 }
 
-::google::protobuf::uint8* Slice_SourceFile_Function_Variable_Position::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Slices_Slice_SourceFile_Function_Variable_Position::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12184,7 +12201,7 @@ void Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->lineno(), target);
   }
 
-  // .fast.Slice.ChangeType type = 2;
+  // .fast.Slices.Slice.ChangeType type = 2;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       2, this->type(), target);
@@ -12195,12 +12212,12 @@ void Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->delta_lineno(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   return target;
 }
 
-size_t Slice_SourceFile_Function_Variable_Position::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function.Variable.Position)
+size_t Slices_Slice_SourceFile_Function_Variable_Position::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   size_t total_size = 0;
 
   // int32 lineno = 1;
@@ -12210,7 +12227,7 @@ size_t Slice_SourceFile_Function_Variable_Position::ByteSizeLong() const {
         this->lineno());
   }
 
-  // .fast.Slice.ChangeType type = 2;
+  // .fast.Slices.Slice.ChangeType type = 2;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -12230,23 +12247,23 @@ size_t Slice_SourceFile_Function_Variable_Position::ByteSizeLong() const {
   return total_size;
 }
 
-void Slice_SourceFile_Function_Variable_Position::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+void Slices_Slice_SourceFile_Function_Variable_Position::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   GOOGLE_DCHECK_NE(&from, this);
-  const Slice_SourceFile_Function_Variable_Position* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function_Variable_Position>(
+  const Slices_Slice_SourceFile_Function_Variable_Position* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices_Slice_SourceFile_Function_Variable_Position>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices.Slice.SourceFile.Function.Variable.Position)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function.Variable.Position)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices.Slice.SourceFile.Function.Variable.Position)
     MergeFrom(*source);
   }
 }
 
-void Slice_SourceFile_Function_Variable_Position::MergeFrom(const Slice_SourceFile_Function_Variable_Position& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+void Slices_Slice_SourceFile_Function_Variable_Position::MergeFrom(const Slices_Slice_SourceFile_Function_Variable_Position& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -12263,83 +12280,83 @@ void Slice_SourceFile_Function_Variable_Position::MergeFrom(const Slice_SourceFi
   }
 }
 
-void Slice_SourceFile_Function_Variable_Position::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+void Slices_Slice_SourceFile_Function_Variable_Position::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Slice_SourceFile_Function_Variable_Position::CopyFrom(const Slice_SourceFile_Function_Variable_Position& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function.Variable.Position)
+void Slices_Slice_SourceFile_Function_Variable_Position::CopyFrom(const Slices_Slice_SourceFile_Function_Variable_Position& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Slice_SourceFile_Function_Variable_Position::IsInitialized() const {
+bool Slices_Slice_SourceFile_Function_Variable_Position::IsInitialized() const {
   return true;
 }
 
-void Slice_SourceFile_Function_Variable_Position::Swap(Slice_SourceFile_Function_Variable_Position* other) {
+void Slices_Slice_SourceFile_Function_Variable_Position::Swap(Slices_Slice_SourceFile_Function_Variable_Position* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Slice_SourceFile_Function_Variable_Position::InternalSwap(Slice_SourceFile_Function_Variable_Position* other) {
+void Slices_Slice_SourceFile_Function_Variable_Position::InternalSwap(Slices_Slice_SourceFile_Function_Variable_Position* other) {
   std::swap(lineno_, other->lineno_);
   std::swap(type_, other->type_);
   std::swap(delta_lineno_, other->delta_lineno_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Slice_SourceFile_Function_Variable_Position::GetMetadata() const {
+::google::protobuf::Metadata Slices_Slice_SourceFile_Function_Variable_Position::GetMetadata() const {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Slice_SourceFile_Function_Variable_Position
+// Slices_Slice_SourceFile_Function_Variable_Position
 
 // int32 lineno = 1;
-void Slice_SourceFile_Function_Variable_Position::clear_lineno() {
+void Slices_Slice_SourceFile_Function_Variable_Position::clear_lineno() {
   lineno_ = 0;
 }
-::google::protobuf::int32 Slice_SourceFile_Function_Variable_Position::lineno() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.lineno)
+::google::protobuf::int32 Slices_Slice_SourceFile_Function_Variable_Position::lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.Position.lineno)
   return lineno_;
 }
-void Slice_SourceFile_Function_Variable_Position::set_lineno(::google::protobuf::int32 value) {
+void Slices_Slice_SourceFile_Function_Variable_Position::set_lineno(::google::protobuf::int32 value) {
   
   lineno_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.lineno)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.Position.lineno)
 }
 
-// .fast.Slice.ChangeType type = 2;
-void Slice_SourceFile_Function_Variable_Position::clear_type() {
+// .fast.Slices.Slice.ChangeType type = 2;
+void Slices_Slice_SourceFile_Function_Variable_Position::clear_type() {
   type_ = 0;
 }
-::fast::Slice_ChangeType Slice_SourceFile_Function_Variable_Position::type() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.type)
-  return static_cast< ::fast::Slice_ChangeType >(type_);
+::fast::Slices_Slice_ChangeType Slices_Slice_SourceFile_Function_Variable_Position::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.Position.type)
+  return static_cast< ::fast::Slices_Slice_ChangeType >(type_);
 }
-void Slice_SourceFile_Function_Variable_Position::set_type(::fast::Slice_ChangeType value) {
+void Slices_Slice_SourceFile_Function_Variable_Position::set_type(::fast::Slices_Slice_ChangeType value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.type)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.Position.type)
 }
 
 // int32 delta_lineno = 5;
-void Slice_SourceFile_Function_Variable_Position::clear_delta_lineno() {
+void Slices_Slice_SourceFile_Function_Variable_Position::clear_delta_lineno() {
   delta_lineno_ = 0;
 }
-::google::protobuf::int32 Slice_SourceFile_Function_Variable_Position::delta_lineno() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.Position.delta_lineno)
+::google::protobuf::int32 Slices_Slice_SourceFile_Function_Variable_Position::delta_lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.Position.delta_lineno)
   return delta_lineno_;
 }
-void Slice_SourceFile_Function_Variable_Position::set_delta_lineno(::google::protobuf::int32 value) {
+void Slices_Slice_SourceFile_Function_Variable_Position::set_delta_lineno(::google::protobuf::int32 value) {
   
   delta_lineno_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.Position.delta_lineno)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.Position.delta_lineno)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -12347,19 +12364,19 @@ void Slice_SourceFile_Function_Variable_Position::set_delta_lineno(::google::pro
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Slice_SourceFile_Function_Variable_FunctionDecl::kNameFieldNumber;
-const int Slice_SourceFile_Function_Variable_FunctionDecl::kLinenoFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable_FunctionDecl::kNameFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable_FunctionDecl::kLinenoFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Slice_SourceFile_Function_Variable_FunctionDecl::Slice_SourceFile_Function_Variable_FunctionDecl()
+Slices_Slice_SourceFile_Function_Variable_FunctionDecl::Slices_Slice_SourceFile_Function_Variable_FunctionDecl()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fast_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(constructor:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
 }
-Slice_SourceFile_Function_Variable_FunctionDecl::Slice_SourceFile_Function_Variable_FunctionDecl(const Slice_SourceFile_Function_Variable_FunctionDecl& from)
+Slices_Slice_SourceFile_Function_Variable_FunctionDecl::Slices_Slice_SourceFile_Function_Variable_FunctionDecl(const Slices_Slice_SourceFile_Function_Variable_FunctionDecl& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       _cached_size_(0) {
@@ -12369,58 +12386,58 @@ Slice_SourceFile_Function_Variable_FunctionDecl::Slice_SourceFile_Function_Varia
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   lineno_ = from.lineno_;
-  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(copy_constructor:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::SharedCtor() {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   lineno_ = 0;
   _cached_size_ = 0;
 }
 
-Slice_SourceFile_Function_Variable_FunctionDecl::~Slice_SourceFile_Function_Variable_FunctionDecl() {
-  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+Slices_Slice_SourceFile_Function_Variable_FunctionDecl::~Slices_Slice_SourceFile_Function_Variable_FunctionDecl() {
+  // @@protoc_insertion_point(destructor:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   SharedDtor();
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::SharedDtor() {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::SetCachedSize(int size) const {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Slice_SourceFile_Function_Variable_FunctionDecl::descriptor() {
+const ::google::protobuf::Descriptor* Slices_Slice_SourceFile_Function_Variable_FunctionDecl::descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Slice_SourceFile_Function_Variable_FunctionDecl& Slice_SourceFile_Function_Variable_FunctionDecl::default_instance() {
+const Slices_Slice_SourceFile_Function_Variable_FunctionDecl& Slices_Slice_SourceFile_Function_Variable_FunctionDecl::default_instance() {
   protobuf_fast_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable_FunctionDecl::New(::google::protobuf::Arena* arena) const {
-  Slice_SourceFile_Function_Variable_FunctionDecl* n = new Slice_SourceFile_Function_Variable_FunctionDecl;
+Slices_Slice_SourceFile_Function_Variable_FunctionDecl* Slices_Slice_SourceFile_Function_Variable_FunctionDecl::New(::google::protobuf::Arena* arena) const {
+  Slices_Slice_SourceFile_Function_Variable_FunctionDecl* n = new Slices_Slice_SourceFile_Function_Variable_FunctionDecl;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::Clear() {
-// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   lineno_ = 0;
 }
 
-bool Slice_SourceFile_Function_Variable_FunctionDecl::MergePartialFromCodedStream(
+bool Slices_Slice_SourceFile_Function_Variable_FunctionDecl::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(parse_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -12435,7 +12452,7 @@ bool Slice_SourceFile_Function_Variable_FunctionDecl::MergePartialFromCodedStrea
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.SourceFile.Function.Variable.FunctionDecl.name"));
+            "fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name"));
         } else {
           goto handle_unusual;
         }
@@ -12469,17 +12486,17 @@ bool Slice_SourceFile_Function_Variable_FunctionDecl::MergePartialFromCodedStrea
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(parse_success:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(parse_failure:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   return false;
 #undef DO_
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(serialize_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12488,7 +12505,7 @@ void Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.FunctionDecl.name");
+      "fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
@@ -12498,12 +12515,12 @@ void Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->lineno(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(serialize_end:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
 }
 
-::google::protobuf::uint8* Slice_SourceFile_Function_Variable_FunctionDecl::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Slices_Slice_SourceFile_Function_Variable_FunctionDecl::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12512,7 +12529,7 @@ void Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.FunctionDecl.name");
+      "fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
@@ -12523,12 +12540,12 @@ void Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->lineno(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   return target;
 }
 
-size_t Slice_SourceFile_Function_Variable_FunctionDecl::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+size_t Slices_Slice_SourceFile_Function_Variable_FunctionDecl::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   size_t total_size = 0;
 
   // string name = 1;
@@ -12552,23 +12569,23 @@ size_t Slice_SourceFile_Function_Variable_FunctionDecl::ByteSizeLong() const {
   return total_size;
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   GOOGLE_DCHECK_NE(&from, this);
-  const Slice_SourceFile_Function_Variable_FunctionDecl* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function_Variable_FunctionDecl>(
+  const Slices_Slice_SourceFile_Function_Variable_FunctionDecl* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices_Slice_SourceFile_Function_Variable_FunctionDecl>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
     MergeFrom(*source);
   }
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const Slice_SourceFile_Function_Variable_FunctionDecl& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const Slices_Slice_SourceFile_Function_Variable_FunctionDecl& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -12583,107 +12600,107 @@ void Slice_SourceFile_Function_Variable_FunctionDecl::MergeFrom(const Slice_Sour
   }
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::CopyFrom(const Slice_SourceFile_Function_Variable_FunctionDecl& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function.Variable.FunctionDecl)
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::CopyFrom(const Slices_Slice_SourceFile_Function_Variable_FunctionDecl& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Slice_SourceFile_Function_Variable_FunctionDecl::IsInitialized() const {
+bool Slices_Slice_SourceFile_Function_Variable_FunctionDecl::IsInitialized() const {
   return true;
 }
 
-void Slice_SourceFile_Function_Variable_FunctionDecl::Swap(Slice_SourceFile_Function_Variable_FunctionDecl* other) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::Swap(Slices_Slice_SourceFile_Function_Variable_FunctionDecl* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Slice_SourceFile_Function_Variable_FunctionDecl::InternalSwap(Slice_SourceFile_Function_Variable_FunctionDecl* other) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::InternalSwap(Slices_Slice_SourceFile_Function_Variable_FunctionDecl* other) {
   name_.Swap(&other->name_);
   std::swap(lineno_, other->lineno_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Slice_SourceFile_Function_Variable_FunctionDecl::GetMetadata() const {
+::google::protobuf::Metadata Slices_Slice_SourceFile_Function_Variable_FunctionDecl::GetMetadata() const {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Slice_SourceFile_Function_Variable_FunctionDecl
+// Slices_Slice_SourceFile_Function_Variable_FunctionDecl
 
 // string name = 1;
-void Slice_SourceFile_Function_Variable_FunctionDecl::clear_name() {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& Slice_SourceFile_Function_Variable_FunctionDecl::name() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+const ::std::string& Slices_Slice_SourceFile_Function_Variable_FunctionDecl::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
   return name_.GetNoArena();
 }
-void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const ::std::string& value) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(::std::string&& value) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::set_name(::std::string&& value) {
   
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
 }
 #endif
-void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
 }
-void Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
 }
-::std::string* Slice_SourceFile_Function_Variable_FunctionDecl::mutable_name() {
+::std::string* Slices_Slice_SourceFile_Function_Variable_FunctionDecl::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Slice_SourceFile_Function_Variable_FunctionDecl::release_name() {
-  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+::std::string* Slices_Slice_SourceFile_Function_Variable_FunctionDecl::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Slice_SourceFile_Function_Variable_FunctionDecl::set_allocated_name(::std::string* name) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.FunctionDecl.name)
+  // @@protoc_insertion_point(field_set_allocated:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.name)
 }
 
 // int32 lineno = 2;
-void Slice_SourceFile_Function_Variable_FunctionDecl::clear_lineno() {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::clear_lineno() {
   lineno_ = 0;
 }
-::google::protobuf::int32 Slice_SourceFile_Function_Variable_FunctionDecl::lineno() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
+::google::protobuf::int32 Slices_Slice_SourceFile_Function_Variable_FunctionDecl::lineno() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
   return lineno_;
 }
-void Slice_SourceFile_Function_Variable_FunctionDecl::set_lineno(::google::protobuf::int32 value) {
+void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::set_lineno(::google::protobuf::int32 value) {
   
   lineno_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl.lineno)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -12691,28 +12708,28 @@ void Slice_SourceFile_Function_Variable_FunctionDecl::set_lineno(::google::proto
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Slice_SourceFile_Function_Variable::kNameFieldNumber;
-const int Slice_SourceFile_Function_Variable::kPosFieldNumber;
-const int Slice_SourceFile_Function_Variable::kTypeFieldNumber;
-const int Slice_SourceFile_Function_Variable::kDefFieldNumber;
-const int Slice_SourceFile_Function_Variable::kUseFieldNumber;
-const int Slice_SourceFile_Function_Variable::kDvarFieldNumber;
-const int Slice_SourceFile_Function_Variable::kAliasFieldNumber;
-const int Slice_SourceFile_Function_Variable::kCfuncFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kNameFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kPosFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kTypeFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kDefnFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kUseFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kDvarFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kAliasFieldNumber;
+const int Slices_Slice_SourceFile_Function_Variable::kCfuncFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Slice_SourceFile_Function_Variable::Slice_SourceFile_Function_Variable()
+Slices_Slice_SourceFile_Function_Variable::Slices_Slice_SourceFile_Function_Variable()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fast_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(constructor:fast.Slices.Slice.SourceFile.Function.Variable)
 }
-Slice_SourceFile_Function_Variable::Slice_SourceFile_Function_Variable(const Slice_SourceFile_Function_Variable& from)
+Slices_Slice_SourceFile_Function_Variable::Slices_Slice_SourceFile_Function_Variable(const Slices_Slice_SourceFile_Function_Variable& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
-      def_(from.def_),
+      defn_(from.defn_),
       use_(from.use_),
       dvar_(from.dvar_),
       alias_(from.alias_),
@@ -12724,59 +12741,59 @@ Slice_SourceFile_Function_Variable::Slice_SourceFile_Function_Variable(const Sli
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   if (from.has_pos()) {
-    pos_ = new ::fast::Slice_SourceFile_Function_Variable_Position(*from.pos_);
+    pos_ = new ::fast::Slices_Slice_SourceFile_Function_Variable_Position(*from.pos_);
   } else {
     pos_ = NULL;
   }
   type_ = from.type_;
-  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(copy_constructor:fast.Slices.Slice.SourceFile.Function.Variable)
 }
 
-void Slice_SourceFile_Function_Variable::SharedCtor() {
+void Slices_Slice_SourceFile_Function_Variable::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&pos_, 0, reinterpret_cast<char*>(&type_) -
     reinterpret_cast<char*>(&pos_) + sizeof(type_));
   _cached_size_ = 0;
 }
 
-Slice_SourceFile_Function_Variable::~Slice_SourceFile_Function_Variable() {
-  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function.Variable)
+Slices_Slice_SourceFile_Function_Variable::~Slices_Slice_SourceFile_Function_Variable() {
+  // @@protoc_insertion_point(destructor:fast.Slices.Slice.SourceFile.Function.Variable)
   SharedDtor();
 }
 
-void Slice_SourceFile_Function_Variable::SharedDtor() {
+void Slices_Slice_SourceFile_Function_Variable::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) {
     delete pos_;
   }
 }
 
-void Slice_SourceFile_Function_Variable::SetCachedSize(int size) const {
+void Slices_Slice_SourceFile_Function_Variable::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Slice_SourceFile_Function_Variable::descriptor() {
+const ::google::protobuf::Descriptor* Slices_Slice_SourceFile_Function_Variable::descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Slice_SourceFile_Function_Variable& Slice_SourceFile_Function_Variable::default_instance() {
+const Slices_Slice_SourceFile_Function_Variable& Slices_Slice_SourceFile_Function_Variable::default_instance() {
   protobuf_fast_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Slice_SourceFile_Function_Variable* Slice_SourceFile_Function_Variable::New(::google::protobuf::Arena* arena) const {
-  Slice_SourceFile_Function_Variable* n = new Slice_SourceFile_Function_Variable;
+Slices_Slice_SourceFile_Function_Variable* Slices_Slice_SourceFile_Function_Variable::New(::google::protobuf::Arena* arena) const {
+  Slices_Slice_SourceFile_Function_Variable* n = new Slices_Slice_SourceFile_Function_Variable;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Slice_SourceFile_Function_Variable::Clear() {
-// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function.Variable)
-  def_.Clear();
+void Slices_Slice_SourceFile_Function_Variable::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices.Slice.SourceFile.Function.Variable)
+  defn_.Clear();
   use_.Clear();
   dvar_.Clear();
   alias_.Clear();
@@ -12789,11 +12806,11 @@ void Slice_SourceFile_Function_Variable::Clear() {
   type_ = 0;
 }
 
-bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
+bool Slices_Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(parse_start:fast.Slices.Slice.SourceFile.Function.Variable)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
@@ -12808,14 +12825,14 @@ bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.SourceFile.Function.Variable.name"));
+            "fast.Slices.Slice.SourceFile.Function.Variable.name"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+      // .fast.Slices.Slice.SourceFile.Function.Variable.Position pos = 2;
       case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(18u)) {
@@ -12827,7 +12844,7 @@ bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Slice.ChangeType type = 3;
+      // .fast.Slices.Slice.ChangeType type = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u)) {
@@ -12835,26 +12852,26 @@ bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+          set_type(static_cast< ::fast::Slices_Slice_ChangeType >(value));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+      // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position defn = 4;
       case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(34u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_def()));
+                input, add_defn()));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+      // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position use = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u)) {
@@ -12876,7 +12893,7 @@ bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
             this->dvar(this->dvar_size() - 1).data(),
             this->dvar(this->dvar_size() - 1).length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.SourceFile.Function.Variable.dvar"));
+            "fast.Slices.Slice.SourceFile.Function.Variable.dvar"));
         } else {
           goto handle_unusual;
         }
@@ -12893,14 +12910,14 @@ bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
             this->alias(this->alias_size() - 1).data(),
             this->alias(this->alias_size() - 1).length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.SourceFile.Function.Variable.alias"));
+            "fast.Slices.Slice.SourceFile.Function.Variable.alias"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+      // repeated .fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
       case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(66u)) {
@@ -12925,17 +12942,17 @@ bool Slice_SourceFile_Function_Variable::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(parse_success:fast.Slices.Slice.SourceFile.Function.Variable)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(parse_failure:fast.Slices.Slice.SourceFile.Function.Variable)
   return false;
 #undef DO_
 }
 
-void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
+void Slices_Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(serialize_start:fast.Slices.Slice.SourceFile.Function.Variable)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -12944,30 +12961,30 @@ void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.name");
+      "fast.Slices.Slice.SourceFile.Function.Variable.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       1, this->name(), output);
   }
 
-  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  // .fast.Slices.Slice.SourceFile.Function.Variable.Position pos = 2;
   if (this->has_pos()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       2, *this->pos_, output);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       3, this->type(), output);
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
-  for (unsigned int i = 0, n = this->def_size(); i < n; i++) {
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position defn = 4;
+  for (unsigned int i = 0, n = this->defn_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->def(i), output);
+      4, this->defn(i), output);
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position use = 5;
   for (unsigned int i = 0, n = this->use_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       5, this->use(i), output);
@@ -12978,7 +12995,7 @@ void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->dvar(i).data(), this->dvar(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.dvar");
+      "fast.Slices.Slice.SourceFile.Function.Variable.dvar");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       6, this->dvar(i), output);
   }
@@ -12988,23 +13005,23 @@ void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->alias(i).data(), this->alias(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.alias");
+      "fast.Slices.Slice.SourceFile.Function.Variable.alias");
     ::google::protobuf::internal::WireFormatLite::WriteString(
       7, this->alias(i), output);
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
   for (unsigned int i = 0, n = this->cfunc_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       8, this->cfunc(i), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(serialize_end:fast.Slices.Slice.SourceFile.Function.Variable)
 }
 
-::google::protobuf::uint8* Slice_SourceFile_Function_Variable::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Slices_Slice_SourceFile_Function_Variable::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function.Variable)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -13013,33 +13030,33 @@ void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.name");
+      "fast.Slices.Slice.SourceFile.Function.Variable.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         1, this->name(), target);
   }
 
-  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  // .fast.Slices.Slice.SourceFile.Function.Variable.Position pos = 2;
   if (this->has_pos()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         2, *this->pos_, deterministic, target);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       3, this->type(), target);
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
-  for (unsigned int i = 0, n = this->def_size(); i < n; i++) {
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position defn = 4;
+  for (unsigned int i = 0, n = this->defn_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        4, this->def(i), deterministic, target);
+        4, this->defn(i), deterministic, target);
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position use = 5;
   for (unsigned int i = 0, n = this->use_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -13051,7 +13068,7 @@ void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->dvar(i).data(), this->dvar(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.dvar");
+      "fast.Slices.Slice.SourceFile.Function.Variable.dvar");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(6, this->dvar(i), target);
   }
@@ -13061,38 +13078,38 @@ void Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->alias(i).data(), this->alias(i).length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.Variable.alias");
+      "fast.Slices.Slice.SourceFile.Function.Variable.alias");
     target = ::google::protobuf::internal::WireFormatLite::
       WriteStringToArray(7, this->alias(i), target);
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
   for (unsigned int i = 0, n = this->cfunc_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
         8, this->cfunc(i), deterministic, target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices.Slice.SourceFile.Function.Variable)
   return target;
 }
 
-size_t Slice_SourceFile_Function_Variable::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function.Variable)
+size_t Slices_Slice_SourceFile_Function_Variable::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices.Slice.SourceFile.Function.Variable)
   size_t total_size = 0;
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position defn = 4;
   {
-    unsigned int count = this->def_size();
+    unsigned int count = this->defn_size();
     total_size += 1UL * count;
     for (unsigned int i = 0; i < count; i++) {
       total_size +=
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->def(i));
+          this->defn(i));
     }
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position use = 5;
   {
     unsigned int count = this->use_size();
     total_size += 1UL * count;
@@ -13119,7 +13136,7 @@ size_t Slice_SourceFile_Function_Variable::ByteSizeLong() const {
       this->alias(i));
   }
 
-  // repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
   {
     unsigned int count = this->cfunc_size();
     total_size += 1UL * count;
@@ -13137,14 +13154,14 @@ size_t Slice_SourceFile_Function_Variable::ByteSizeLong() const {
         this->name());
   }
 
-  // .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
+  // .fast.Slices.Slice.SourceFile.Function.Variable.Position pos = 2;
   if (this->has_pos()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->pos_);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -13157,29 +13174,29 @@ size_t Slice_SourceFile_Function_Variable::ByteSizeLong() const {
   return total_size;
 }
 
-void Slice_SourceFile_Function_Variable::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function.Variable)
+void Slices_Slice_SourceFile_Function_Variable::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices.Slice.SourceFile.Function.Variable)
   GOOGLE_DCHECK_NE(&from, this);
-  const Slice_SourceFile_Function_Variable* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function_Variable>(
+  const Slices_Slice_SourceFile_Function_Variable* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices_Slice_SourceFile_Function_Variable>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices.Slice.SourceFile.Function.Variable)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function.Variable)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices.Slice.SourceFile.Function.Variable)
     MergeFrom(*source);
   }
 }
 
-void Slice_SourceFile_Function_Variable::MergeFrom(const Slice_SourceFile_Function_Variable& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function.Variable)
+void Slices_Slice_SourceFile_Function_Variable::MergeFrom(const Slices_Slice_SourceFile_Function_Variable& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices.Slice.SourceFile.Function.Variable)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  def_.MergeFrom(from.def_);
+  defn_.MergeFrom(from.defn_);
   use_.MergeFrom(from.use_);
   dvar_.MergeFrom(from.dvar_);
   alias_.MergeFrom(from.alias_);
@@ -13189,37 +13206,37 @@ void Slice_SourceFile_Function_Variable::MergeFrom(const Slice_SourceFile_Functi
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   if (from.has_pos()) {
-    mutable_pos()->::fast::Slice_SourceFile_Function_Variable_Position::MergeFrom(from.pos());
+    mutable_pos()->::fast::Slices_Slice_SourceFile_Function_Variable_Position::MergeFrom(from.pos());
   }
   if (from.type() != 0) {
     set_type(from.type());
   }
 }
 
-void Slice_SourceFile_Function_Variable::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function.Variable)
+void Slices_Slice_SourceFile_Function_Variable::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices.Slice.SourceFile.Function.Variable)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Slice_SourceFile_Function_Variable::CopyFrom(const Slice_SourceFile_Function_Variable& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function.Variable)
+void Slices_Slice_SourceFile_Function_Variable::CopyFrom(const Slices_Slice_SourceFile_Function_Variable& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices.Slice.SourceFile.Function.Variable)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Slice_SourceFile_Function_Variable::IsInitialized() const {
+bool Slices_Slice_SourceFile_Function_Variable::IsInitialized() const {
   return true;
 }
 
-void Slice_SourceFile_Function_Variable::Swap(Slice_SourceFile_Function_Variable* other) {
+void Slices_Slice_SourceFile_Function_Variable::Swap(Slices_Slice_SourceFile_Function_Variable* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Slice_SourceFile_Function_Variable::InternalSwap(Slice_SourceFile_Function_Variable* other) {
-  def_.InternalSwap(&other->def_);
+void Slices_Slice_SourceFile_Function_Variable::InternalSwap(Slices_Slice_SourceFile_Function_Variable* other) {
+  defn_.InternalSwap(&other->defn_);
   use_.InternalSwap(&other->use_);
   dvar_.InternalSwap(&other->dvar_);
   alias_.InternalSwap(&other->alias_);
@@ -13230,96 +13247,96 @@ void Slice_SourceFile_Function_Variable::InternalSwap(Slice_SourceFile_Function_
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Slice_SourceFile_Function_Variable::GetMetadata() const {
+::google::protobuf::Metadata Slices_Slice_SourceFile_Function_Variable::GetMetadata() const {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Slice_SourceFile_Function_Variable
+// Slices_Slice_SourceFile_Function_Variable
 
 // string name = 1;
-void Slice_SourceFile_Function_Variable::clear_name() {
+void Slices_Slice_SourceFile_Function_Variable::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& Slice_SourceFile_Function_Variable::name() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.name)
+const ::std::string& Slices_Slice_SourceFile_Function_Variable::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.name)
   return name_.GetNoArena();
 }
-void Slice_SourceFile_Function_Variable::set_name(const ::std::string& value) {
+void Slices_Slice_SourceFile_Function_Variable::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.name)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.name)
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function_Variable::set_name(::std::string&& value) {
+void Slices_Slice_SourceFile_Function_Variable::set_name(::std::string&& value) {
   
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.Variable.name)
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slices.Slice.SourceFile.Function.Variable.name)
 }
 #endif
-void Slice_SourceFile_Function_Variable::set_name(const char* value) {
+void Slices_Slice_SourceFile_Function_Variable::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.name)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.SourceFile.Function.Variable.name)
 }
-void Slice_SourceFile_Function_Variable::set_name(const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function_Variable::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.name)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.SourceFile.Function.Variable.name)
 }
-::std::string* Slice_SourceFile_Function_Variable::mutable_name() {
+::std::string* Slices_Slice_SourceFile_Function_Variable::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.name)
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Slice_SourceFile_Function_Variable::release_name() {
-  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.name)
+::std::string* Slices_Slice_SourceFile_Function_Variable::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slices.Slice.SourceFile.Function.Variable.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Slice_SourceFile_Function_Variable::set_allocated_name(::std::string* name) {
+void Slices_Slice_SourceFile_Function_Variable::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.name)
+  // @@protoc_insertion_point(field_set_allocated:fast.Slices.Slice.SourceFile.Function.Variable.name)
 }
 
-// .fast.Slice.SourceFile.Function.Variable.Position pos = 2;
-bool Slice_SourceFile_Function_Variable::has_pos() const {
+// .fast.Slices.Slice.SourceFile.Function.Variable.Position pos = 2;
+bool Slices_Slice_SourceFile_Function_Variable::has_pos() const {
   return this != internal_default_instance() && pos_ != NULL;
 }
-void Slice_SourceFile_Function_Variable::clear_pos() {
+void Slices_Slice_SourceFile_Function_Variable::clear_pos() {
   if (GetArenaNoVirtual() == NULL && pos_ != NULL) delete pos_;
   pos_ = NULL;
 }
-const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::pos() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.pos)
+const ::fast::Slices_Slice_SourceFile_Function_Variable_Position& Slices_Slice_SourceFile_Function_Variable::pos() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.pos)
   return pos_ != NULL ? *pos_
-                         : *::fast::Slice_SourceFile_Function_Variable_Position::internal_default_instance();
+                         : *::fast::Slices_Slice_SourceFile_Function_Variable_Position::internal_default_instance();
 }
-::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_pos() {
+::fast::Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable::mutable_pos() {
   
   if (pos_ == NULL) {
-    pos_ = new ::fast::Slice_SourceFile_Function_Variable_Position;
+    pos_ = new ::fast::Slices_Slice_SourceFile_Function_Variable_Position;
   }
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.pos)
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.pos)
   return pos_;
 }
-::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::release_pos() {
-  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.Variable.pos)
+::fast::Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable::release_pos() {
+  // @@protoc_insertion_point(field_release:fast.Slices.Slice.SourceFile.Function.Variable.pos)
   
-  ::fast::Slice_SourceFile_Function_Variable_Position* temp = pos_;
+  ::fast::Slices_Slice_SourceFile_Function_Variable_Position* temp = pos_;
   pos_ = NULL;
   return temp;
 }
-void Slice_SourceFile_Function_Variable::set_allocated_pos(::fast::Slice_SourceFile_Function_Variable_Position* pos) {
+void Slices_Slice_SourceFile_Function_Variable::set_allocated_pos(::fast::Slices_Slice_SourceFile_Function_Variable_Position* pos) {
   delete pos_;
   pos_ = pos;
   if (pos) {
@@ -13327,248 +13344,248 @@ void Slice_SourceFile_Function_Variable::set_allocated_pos(::fast::Slice_SourceF
   } else {
     
   }
-  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.Variable.pos)
+  // @@protoc_insertion_point(field_set_allocated:fast.Slices.Slice.SourceFile.Function.Variable.pos)
 }
 
-// .fast.Slice.ChangeType type = 3;
-void Slice_SourceFile_Function_Variable::clear_type() {
+// .fast.Slices.Slice.ChangeType type = 3;
+void Slices_Slice_SourceFile_Function_Variable::clear_type() {
   type_ = 0;
 }
-::fast::Slice_ChangeType Slice_SourceFile_Function_Variable::type() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.type)
-  return static_cast< ::fast::Slice_ChangeType >(type_);
+::fast::Slices_Slice_ChangeType Slices_Slice_SourceFile_Function_Variable::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.type)
+  return static_cast< ::fast::Slices_Slice_ChangeType >(type_);
 }
-void Slice_SourceFile_Function_Variable::set_type(::fast::Slice_ChangeType value) {
+void Slices_Slice_SourceFile_Function_Variable::set_type(::fast::Slices_Slice_ChangeType value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.type)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.type)
 }
 
-// repeated .fast.Slice.SourceFile.Function.Variable.Position def = 4;
-int Slice_SourceFile_Function_Variable::def_size() const {
-  return def_.size();
+// repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position defn = 4;
+int Slices_Slice_SourceFile_Function_Variable::defn_size() const {
+  return defn_.size();
 }
-void Slice_SourceFile_Function_Variable::clear_def() {
-  def_.Clear();
+void Slices_Slice_SourceFile_Function_Variable::clear_defn() {
+  defn_.Clear();
 }
-const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::def(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.def)
-  return def_.Get(index);
+const ::fast::Slices_Slice_SourceFile_Function_Variable_Position& Slices_Slice_SourceFile_Function_Variable::defn(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.defn)
+  return defn_.Get(index);
 }
-::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_def(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.def)
-  return def_.Mutable(index);
+::fast::Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable::mutable_defn(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.defn)
+  return defn_.Mutable(index);
 }
-::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::add_def() {
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.def)
-  return def_.Add();
+::fast::Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable::add_defn() {
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.defn)
+  return defn_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
-Slice_SourceFile_Function_Variable::mutable_def() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.def)
-  return &def_;
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable_Position >*
+Slices_Slice_SourceFile_Function_Variable::mutable_defn() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.Function.Variable.defn)
+  return &defn_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
-Slice_SourceFile_Function_Variable::def() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.def)
-  return def_;
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable_Position >&
+Slices_Slice_SourceFile_Function_Variable::defn() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.Function.Variable.defn)
+  return defn_;
 }
 
-// repeated .fast.Slice.SourceFile.Function.Variable.Position use = 5;
-int Slice_SourceFile_Function_Variable::use_size() const {
+// repeated .fast.Slices.Slice.SourceFile.Function.Variable.Position use = 5;
+int Slices_Slice_SourceFile_Function_Variable::use_size() const {
   return use_.size();
 }
-void Slice_SourceFile_Function_Variable::clear_use() {
+void Slices_Slice_SourceFile_Function_Variable::clear_use() {
   use_.Clear();
 }
-const ::fast::Slice_SourceFile_Function_Variable_Position& Slice_SourceFile_Function_Variable::use(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.use)
+const ::fast::Slices_Slice_SourceFile_Function_Variable_Position& Slices_Slice_SourceFile_Function_Variable::use(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.use)
   return use_.Get(index);
 }
-::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::mutable_use(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.use)
+::fast::Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable::mutable_use(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.use)
   return use_.Mutable(index);
 }
-::fast::Slice_SourceFile_Function_Variable_Position* Slice_SourceFile_Function_Variable::add_use() {
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.use)
+::fast::Slices_Slice_SourceFile_Function_Variable_Position* Slices_Slice_SourceFile_Function_Variable::add_use() {
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.use)
   return use_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >*
-Slice_SourceFile_Function_Variable::mutable_use() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.use)
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable_Position >*
+Slices_Slice_SourceFile_Function_Variable::mutable_use() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.Function.Variable.use)
   return &use_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_Position >&
-Slice_SourceFile_Function_Variable::use() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.use)
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable_Position >&
+Slices_Slice_SourceFile_Function_Variable::use() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.Function.Variable.use)
   return use_;
 }
 
 // repeated string dvar = 6;
-int Slice_SourceFile_Function_Variable::dvar_size() const {
+int Slices_Slice_SourceFile_Function_Variable::dvar_size() const {
   return dvar_.size();
 }
-void Slice_SourceFile_Function_Variable::clear_dvar() {
+void Slices_Slice_SourceFile_Function_Variable::clear_dvar() {
   dvar_.Clear();
 }
-const ::std::string& Slice_SourceFile_Function_Variable::dvar(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.dvar)
+const ::std::string& Slices_Slice_SourceFile_Function_Variable::dvar(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   return dvar_.Get(index);
 }
-::std::string* Slice_SourceFile_Function_Variable::mutable_dvar(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.dvar)
+::std::string* Slices_Slice_SourceFile_Function_Variable::mutable_dvar(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   return dvar_.Mutable(index);
 }
-void Slice_SourceFile_Function_Variable::set_dvar(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.dvar)
+void Slices_Slice_SourceFile_Function_Variable::set_dvar(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   dvar_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function_Variable::set_dvar(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.dvar)
+void Slices_Slice_SourceFile_Function_Variable::set_dvar(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   dvar_.Mutable(index)->assign(std::move(value));
 }
 #endif
-void Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value) {
+void Slices_Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
   dvar_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.dvar)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
 }
-void Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function_Variable::set_dvar(int index, const char* value, size_t size) {
   dvar_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.dvar)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
 }
-::std::string* Slice_SourceFile_Function_Variable::add_dvar() {
-  // @@protoc_insertion_point(field_add_mutable:fast.Slice.SourceFile.Function.Variable.dvar)
+::std::string* Slices_Slice_SourceFile_Function_Variable::add_dvar() {
+  // @@protoc_insertion_point(field_add_mutable:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   return dvar_.Add();
 }
-void Slice_SourceFile_Function_Variable::add_dvar(const ::std::string& value) {
+void Slices_Slice_SourceFile_Function_Variable::add_dvar(const ::std::string& value) {
   dvar_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.dvar)
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function_Variable::add_dvar(::std::string&& value) {
+void Slices_Slice_SourceFile_Function_Variable::add_dvar(::std::string&& value) {
   dvar_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.dvar)
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
 }
 #endif
-void Slice_SourceFile_Function_Variable::add_dvar(const char* value) {
+void Slices_Slice_SourceFile_Function_Variable::add_dvar(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   dvar_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:fast.Slice.SourceFile.Function.Variable.dvar)
+  // @@protoc_insertion_point(field_add_char:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
 }
-void Slice_SourceFile_Function_Variable::add_dvar(const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function_Variable::add_dvar(const char* value, size_t size) {
   dvar_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:fast.Slice.SourceFile.Function.Variable.dvar)
+  // @@protoc_insertion_point(field_add_pointer:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
 }
 const ::google::protobuf::RepeatedPtrField< ::std::string>&
-Slice_SourceFile_Function_Variable::dvar() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.dvar)
+Slices_Slice_SourceFile_Function_Variable::dvar() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   return dvar_;
 }
 ::google::protobuf::RepeatedPtrField< ::std::string>*
-Slice_SourceFile_Function_Variable::mutable_dvar() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.dvar)
+Slices_Slice_SourceFile_Function_Variable::mutable_dvar() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.Function.Variable.dvar)
   return &dvar_;
 }
 
 // repeated string alias = 7;
-int Slice_SourceFile_Function_Variable::alias_size() const {
+int Slices_Slice_SourceFile_Function_Variable::alias_size() const {
   return alias_.size();
 }
-void Slice_SourceFile_Function_Variable::clear_alias() {
+void Slices_Slice_SourceFile_Function_Variable::clear_alias() {
   alias_.Clear();
 }
-const ::std::string& Slice_SourceFile_Function_Variable::alias(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.alias)
+const ::std::string& Slices_Slice_SourceFile_Function_Variable::alias(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   return alias_.Get(index);
 }
-::std::string* Slice_SourceFile_Function_Variable::mutable_alias(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.alias)
+::std::string* Slices_Slice_SourceFile_Function_Variable::mutable_alias(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   return alias_.Mutable(index);
 }
-void Slice_SourceFile_Function_Variable::set_alias(int index, const ::std::string& value) {
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.alias)
+void Slices_Slice_SourceFile_Function_Variable::set_alias(int index, const ::std::string& value) {
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   alias_.Mutable(index)->assign(value);
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function_Variable::set_alias(int index, ::std::string&& value) {
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.Variable.alias)
+void Slices_Slice_SourceFile_Function_Variable::set_alias(int index, ::std::string&& value) {
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   alias_.Mutable(index)->assign(std::move(value));
 }
 #endif
-void Slice_SourceFile_Function_Variable::set_alias(int index, const char* value) {
+void Slices_Slice_SourceFile_Function_Variable::set_alias(int index, const char* value) {
   GOOGLE_DCHECK(value != NULL);
   alias_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.Variable.alias)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.SourceFile.Function.Variable.alias)
 }
-void Slice_SourceFile_Function_Variable::set_alias(int index, const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function_Variable::set_alias(int index, const char* value, size_t size) {
   alias_.Mutable(index)->assign(
     reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.Variable.alias)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.SourceFile.Function.Variable.alias)
 }
-::std::string* Slice_SourceFile_Function_Variable::add_alias() {
-  // @@protoc_insertion_point(field_add_mutable:fast.Slice.SourceFile.Function.Variable.alias)
+::std::string* Slices_Slice_SourceFile_Function_Variable::add_alias() {
+  // @@protoc_insertion_point(field_add_mutable:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   return alias_.Add();
 }
-void Slice_SourceFile_Function_Variable::add_alias(const ::std::string& value) {
+void Slices_Slice_SourceFile_Function_Variable::add_alias(const ::std::string& value) {
   alias_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.alias)
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.alias)
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function_Variable::add_alias(::std::string&& value) {
+void Slices_Slice_SourceFile_Function_Variable::add_alias(::std::string&& value) {
   alias_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.alias)
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.alias)
 }
 #endif
-void Slice_SourceFile_Function_Variable::add_alias(const char* value) {
+void Slices_Slice_SourceFile_Function_Variable::add_alias(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   alias_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:fast.Slice.SourceFile.Function.Variable.alias)
+  // @@protoc_insertion_point(field_add_char:fast.Slices.Slice.SourceFile.Function.Variable.alias)
 }
-void Slice_SourceFile_Function_Variable::add_alias(const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function_Variable::add_alias(const char* value, size_t size) {
   alias_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:fast.Slice.SourceFile.Function.Variable.alias)
+  // @@protoc_insertion_point(field_add_pointer:fast.Slices.Slice.SourceFile.Function.Variable.alias)
 }
 const ::google::protobuf::RepeatedPtrField< ::std::string>&
-Slice_SourceFile_Function_Variable::alias() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.alias)
+Slices_Slice_SourceFile_Function_Variable::alias() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   return alias_;
 }
 ::google::protobuf::RepeatedPtrField< ::std::string>*
-Slice_SourceFile_Function_Variable::mutable_alias() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.alias)
+Slices_Slice_SourceFile_Function_Variable::mutable_alias() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.Function.Variable.alias)
   return &alias_;
 }
 
-// repeated .fast.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
-int Slice_SourceFile_Function_Variable::cfunc_size() const {
+// repeated .fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl cfunc = 8;
+int Slices_Slice_SourceFile_Function_Variable::cfunc_size() const {
   return cfunc_.size();
 }
-void Slice_SourceFile_Function_Variable::clear_cfunc() {
+void Slices_Slice_SourceFile_Function_Variable::clear_cfunc() {
   cfunc_.Clear();
 }
-const ::fast::Slice_SourceFile_Function_Variable_FunctionDecl& Slice_SourceFile_Function_Variable::cfunc(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.Variable.cfunc)
+const ::fast::Slices_Slice_SourceFile_Function_Variable_FunctionDecl& Slices_Slice_SourceFile_Function_Variable::cfunc(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.Variable.cfunc)
   return cfunc_.Get(index);
 }
-::fast::Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable::mutable_cfunc(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.Variable.cfunc)
+::fast::Slices_Slice_SourceFile_Function_Variable_FunctionDecl* Slices_Slice_SourceFile_Function_Variable::mutable_cfunc(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.Variable.cfunc)
   return cfunc_.Mutable(index);
 }
-::fast::Slice_SourceFile_Function_Variable_FunctionDecl* Slice_SourceFile_Function_Variable::add_cfunc() {
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.Variable.cfunc)
+::fast::Slices_Slice_SourceFile_Function_Variable_FunctionDecl* Slices_Slice_SourceFile_Function_Variable::add_cfunc() {
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.Variable.cfunc)
   return cfunc_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >*
-Slice_SourceFile_Function_Variable::mutable_cfunc() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.Variable.cfunc)
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable_FunctionDecl >*
+Slices_Slice_SourceFile_Function_Variable::mutable_cfunc() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.Function.Variable.cfunc)
   return &cfunc_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable_FunctionDecl >&
-Slice_SourceFile_Function_Variable::cfunc() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.Variable.cfunc)
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable_FunctionDecl >&
+Slices_Slice_SourceFile_Function_Variable::cfunc() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.Function.Variable.cfunc)
   return cfunc_;
 }
 
@@ -13577,20 +13594,20 @@ Slice_SourceFile_Function_Variable::cfunc() const {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Slice_SourceFile_Function::kVariableFieldNumber;
-const int Slice_SourceFile_Function::kNameFieldNumber;
-const int Slice_SourceFile_Function::kTypeFieldNumber;
+const int Slices_Slice_SourceFile_Function::kVariableFieldNumber;
+const int Slices_Slice_SourceFile_Function::kNameFieldNumber;
+const int Slices_Slice_SourceFile_Function::kTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Slice_SourceFile_Function::Slice_SourceFile_Function()
+Slices_Slice_SourceFile_Function::Slices_Slice_SourceFile_Function()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fast_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(constructor:fast.Slices.Slice.SourceFile.Function)
 }
-Slice_SourceFile_Function::Slice_SourceFile_Function(const Slice_SourceFile_Function& from)
+Slices_Slice_SourceFile_Function::Slices_Slice_SourceFile_Function(const Slices_Slice_SourceFile_Function& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       variable_(from.variable_),
@@ -13601,65 +13618,65 @@ Slice_SourceFile_Function::Slice_SourceFile_Function(const Slice_SourceFile_Func
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   type_ = from.type_;
-  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(copy_constructor:fast.Slices.Slice.SourceFile.Function)
 }
 
-void Slice_SourceFile_Function::SharedCtor() {
+void Slices_Slice_SourceFile_Function::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
   _cached_size_ = 0;
 }
 
-Slice_SourceFile_Function::~Slice_SourceFile_Function() {
-  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile.Function)
+Slices_Slice_SourceFile_Function::~Slices_Slice_SourceFile_Function() {
+  // @@protoc_insertion_point(destructor:fast.Slices.Slice.SourceFile.Function)
   SharedDtor();
 }
 
-void Slice_SourceFile_Function::SharedDtor() {
+void Slices_Slice_SourceFile_Function::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void Slice_SourceFile_Function::SetCachedSize(int size) const {
+void Slices_Slice_SourceFile_Function::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Slice_SourceFile_Function::descriptor() {
+const ::google::protobuf::Descriptor* Slices_Slice_SourceFile_Function::descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Slice_SourceFile_Function& Slice_SourceFile_Function::default_instance() {
+const Slices_Slice_SourceFile_Function& Slices_Slice_SourceFile_Function::default_instance() {
   protobuf_fast_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Slice_SourceFile_Function* Slice_SourceFile_Function::New(::google::protobuf::Arena* arena) const {
-  Slice_SourceFile_Function* n = new Slice_SourceFile_Function;
+Slices_Slice_SourceFile_Function* Slices_Slice_SourceFile_Function::New(::google::protobuf::Arena* arena) const {
+  Slices_Slice_SourceFile_Function* n = new Slices_Slice_SourceFile_Function;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Slice_SourceFile_Function::Clear() {
-// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile.Function)
+void Slices_Slice_SourceFile_Function::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices.Slice.SourceFile.Function)
   variable_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
 }
 
-bool Slice_SourceFile_Function::MergePartialFromCodedStream(
+bool Slices_Slice_SourceFile_Function::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(parse_start:fast.Slices.Slice.SourceFile.Function)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+      // repeated .fast.Slices.Slice.SourceFile.Function.Variable variable = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u)) {
@@ -13680,14 +13697,14 @@ bool Slice_SourceFile_Function::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.SourceFile.Function.name"));
+            "fast.Slices.Slice.SourceFile.Function.name"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .fast.Slice.ChangeType type = 3;
+      // .fast.Slices.Slice.ChangeType type = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u)) {
@@ -13695,7 +13712,7 @@ bool Slice_SourceFile_Function::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+          set_type(static_cast< ::fast::Slices_Slice_ChangeType >(value));
         } else {
           goto handle_unusual;
         }
@@ -13715,21 +13732,21 @@ bool Slice_SourceFile_Function::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(parse_success:fast.Slices.Slice.SourceFile.Function)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(parse_failure:fast.Slices.Slice.SourceFile.Function)
   return false;
 #undef DO_
 }
 
-void Slice_SourceFile_Function::SerializeWithCachedSizes(
+void Slices_Slice_SourceFile_Function::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(serialize_start:fast.Slices.Slice.SourceFile.Function)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable variable = 1;
   for (unsigned int i = 0, n = this->variable_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->variable(i), output);
@@ -13740,27 +13757,27 @@ void Slice_SourceFile_Function::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.name");
+      "fast.Slices.Slice.SourceFile.Function.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->name(), output);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       3, this->type(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(serialize_end:fast.Slices.Slice.SourceFile.Function)
 }
 
-::google::protobuf::uint8* Slice_SourceFile_Function::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Slices_Slice_SourceFile_Function::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable variable = 1;
   for (unsigned int i = 0, n = this->variable_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -13772,27 +13789,27 @@ void Slice_SourceFile_Function::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.Function.name");
+      "fast.Slices.Slice.SourceFile.Function.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->name(), target);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       3, this->type(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices.Slice.SourceFile.Function)
   return target;
 }
 
-size_t Slice_SourceFile_Function::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile.Function)
+size_t Slices_Slice_SourceFile_Function::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices.Slice.SourceFile.Function)
   size_t total_size = 0;
 
-  // repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
+  // repeated .fast.Slices.Slice.SourceFile.Function.Variable variable = 1;
   {
     unsigned int count = this->variable_size();
     total_size += 1UL * count;
@@ -13810,7 +13827,7 @@ size_t Slice_SourceFile_Function::ByteSizeLong() const {
         this->name());
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -13823,23 +13840,23 @@ size_t Slice_SourceFile_Function::ByteSizeLong() const {
   return total_size;
 }
 
-void Slice_SourceFile_Function::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile.Function)
+void Slices_Slice_SourceFile_Function::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices.Slice.SourceFile.Function)
   GOOGLE_DCHECK_NE(&from, this);
-  const Slice_SourceFile_Function* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile_Function>(
+  const Slices_Slice_SourceFile_Function* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices_Slice_SourceFile_Function>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices.Slice.SourceFile.Function)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile.Function)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices.Slice.SourceFile.Function)
     MergeFrom(*source);
   }
 }
 
-void Slice_SourceFile_Function::MergeFrom(const Slice_SourceFile_Function& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile.Function)
+void Slices_Slice_SourceFile_Function::MergeFrom(const Slices_Slice_SourceFile_Function& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices.Slice.SourceFile.Function)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -13855,138 +13872,138 @@ void Slice_SourceFile_Function::MergeFrom(const Slice_SourceFile_Function& from)
   }
 }
 
-void Slice_SourceFile_Function::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile.Function)
+void Slices_Slice_SourceFile_Function::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices.Slice.SourceFile.Function)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Slice_SourceFile_Function::CopyFrom(const Slice_SourceFile_Function& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile.Function)
+void Slices_Slice_SourceFile_Function::CopyFrom(const Slices_Slice_SourceFile_Function& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices.Slice.SourceFile.Function)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Slice_SourceFile_Function::IsInitialized() const {
+bool Slices_Slice_SourceFile_Function::IsInitialized() const {
   return true;
 }
 
-void Slice_SourceFile_Function::Swap(Slice_SourceFile_Function* other) {
+void Slices_Slice_SourceFile_Function::Swap(Slices_Slice_SourceFile_Function* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Slice_SourceFile_Function::InternalSwap(Slice_SourceFile_Function* other) {
+void Slices_Slice_SourceFile_Function::InternalSwap(Slices_Slice_SourceFile_Function* other) {
   variable_.InternalSwap(&other->variable_);
   name_.Swap(&other->name_);
   std::swap(type_, other->type_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Slice_SourceFile_Function::GetMetadata() const {
+::google::protobuf::Metadata Slices_Slice_SourceFile_Function::GetMetadata() const {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Slice_SourceFile_Function
+// Slices_Slice_SourceFile_Function
 
-// repeated .fast.Slice.SourceFile.Function.Variable variable = 1;
-int Slice_SourceFile_Function::variable_size() const {
+// repeated .fast.Slices.Slice.SourceFile.Function.Variable variable = 1;
+int Slices_Slice_SourceFile_Function::variable_size() const {
   return variable_.size();
 }
-void Slice_SourceFile_Function::clear_variable() {
+void Slices_Slice_SourceFile_Function::clear_variable() {
   variable_.Clear();
 }
-const ::fast::Slice_SourceFile_Function_Variable& Slice_SourceFile_Function::variable(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.variable)
+const ::fast::Slices_Slice_SourceFile_Function_Variable& Slices_Slice_SourceFile_Function::variable(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.variable)
   return variable_.Get(index);
 }
-::fast::Slice_SourceFile_Function_Variable* Slice_SourceFile_Function::mutable_variable(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.variable)
+::fast::Slices_Slice_SourceFile_Function_Variable* Slices_Slice_SourceFile_Function::mutable_variable(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.variable)
   return variable_.Mutable(index);
 }
-::fast::Slice_SourceFile_Function_Variable* Slice_SourceFile_Function::add_variable() {
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.Function.variable)
+::fast::Slices_Slice_SourceFile_Function_Variable* Slices_Slice_SourceFile_Function::add_variable() {
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.Function.variable)
   return variable_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >*
-Slice_SourceFile_Function::mutable_variable() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.Function.variable)
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable >*
+Slices_Slice_SourceFile_Function::mutable_variable() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.Function.variable)
   return &variable_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function_Variable >&
-Slice_SourceFile_Function::variable() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.Function.variable)
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function_Variable >&
+Slices_Slice_SourceFile_Function::variable() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.Function.variable)
   return variable_;
 }
 
 // string name = 2;
-void Slice_SourceFile_Function::clear_name() {
+void Slices_Slice_SourceFile_Function::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& Slice_SourceFile_Function::name() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.name)
+const ::std::string& Slices_Slice_SourceFile_Function::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.name)
   return name_.GetNoArena();
 }
-void Slice_SourceFile_Function::set_name(const ::std::string& value) {
+void Slices_Slice_SourceFile_Function::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.name)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.name)
 }
 #if LANG_CXX11
-void Slice_SourceFile_Function::set_name(::std::string&& value) {
+void Slices_Slice_SourceFile_Function::set_name(::std::string&& value) {
   
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.Function.name)
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slices.Slice.SourceFile.Function.name)
 }
 #endif
-void Slice_SourceFile_Function::set_name(const char* value) {
+void Slices_Slice_SourceFile_Function::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.Function.name)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.SourceFile.Function.name)
 }
-void Slice_SourceFile_Function::set_name(const char* value, size_t size) {
+void Slices_Slice_SourceFile_Function::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.Function.name)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.SourceFile.Function.name)
 }
-::std::string* Slice_SourceFile_Function::mutable_name() {
+::std::string* Slices_Slice_SourceFile_Function::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.Function.name)
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.Function.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Slice_SourceFile_Function::release_name() {
-  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.Function.name)
+::std::string* Slices_Slice_SourceFile_Function::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slices.Slice.SourceFile.Function.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Slice_SourceFile_Function::set_allocated_name(::std::string* name) {
+void Slices_Slice_SourceFile_Function::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.Function.name)
+  // @@protoc_insertion_point(field_set_allocated:fast.Slices.Slice.SourceFile.Function.name)
 }
 
-// .fast.Slice.ChangeType type = 3;
-void Slice_SourceFile_Function::clear_type() {
+// .fast.Slices.Slice.ChangeType type = 3;
+void Slices_Slice_SourceFile_Function::clear_type() {
   type_ = 0;
 }
-::fast::Slice_ChangeType Slice_SourceFile_Function::type() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.Function.type)
-  return static_cast< ::fast::Slice_ChangeType >(type_);
+::fast::Slices_Slice_ChangeType Slices_Slice_SourceFile_Function::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.Function.type)
+  return static_cast< ::fast::Slices_Slice_ChangeType >(type_);
 }
-void Slice_SourceFile_Function::set_type(::fast::Slice_ChangeType value) {
+void Slices_Slice_SourceFile_Function::set_type(::fast::Slices_Slice_ChangeType value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.Function.type)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.Function.type)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -13994,20 +14011,20 @@ void Slice_SourceFile_Function::set_type(::fast::Slice_ChangeType value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Slice_SourceFile::kFunctionFieldNumber;
-const int Slice_SourceFile::kNameFieldNumber;
-const int Slice_SourceFile::kTypeFieldNumber;
+const int Slices_Slice_SourceFile::kFunctionFieldNumber;
+const int Slices_Slice_SourceFile::kNameFieldNumber;
+const int Slices_Slice_SourceFile::kTypeFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Slice_SourceFile::Slice_SourceFile()
+Slices_Slice_SourceFile::Slices_Slice_SourceFile()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fast_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(constructor:fast.Slices.Slice.SourceFile)
 }
-Slice_SourceFile::Slice_SourceFile(const Slice_SourceFile& from)
+Slices_Slice_SourceFile::Slices_Slice_SourceFile(const Slices_Slice_SourceFile& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       function_(from.function_),
@@ -14018,65 +14035,65 @@ Slice_SourceFile::Slice_SourceFile(const Slice_SourceFile& from)
     name_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.name_);
   }
   type_ = from.type_;
-  // @@protoc_insertion_point(copy_constructor:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(copy_constructor:fast.Slices.Slice.SourceFile)
 }
 
-void Slice_SourceFile::SharedCtor() {
+void Slices_Slice_SourceFile::SharedCtor() {
   name_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
   _cached_size_ = 0;
 }
 
-Slice_SourceFile::~Slice_SourceFile() {
-  // @@protoc_insertion_point(destructor:fast.Slice.SourceFile)
+Slices_Slice_SourceFile::~Slices_Slice_SourceFile() {
+  // @@protoc_insertion_point(destructor:fast.Slices.Slice.SourceFile)
   SharedDtor();
 }
 
-void Slice_SourceFile::SharedDtor() {
+void Slices_Slice_SourceFile::SharedDtor() {
   name_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void Slice_SourceFile::SetCachedSize(int size) const {
+void Slices_Slice_SourceFile::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Slice_SourceFile::descriptor() {
+const ::google::protobuf::Descriptor* Slices_Slice_SourceFile::descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Slice_SourceFile& Slice_SourceFile::default_instance() {
+const Slices_Slice_SourceFile& Slices_Slice_SourceFile::default_instance() {
   protobuf_fast_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Slice_SourceFile* Slice_SourceFile::New(::google::protobuf::Arena* arena) const {
-  Slice_SourceFile* n = new Slice_SourceFile;
+Slices_Slice_SourceFile* Slices_Slice_SourceFile::New(::google::protobuf::Arena* arena) const {
+  Slices_Slice_SourceFile* n = new Slices_Slice_SourceFile;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Slice_SourceFile::Clear() {
-// @@protoc_insertion_point(message_clear_start:fast.Slice.SourceFile)
+void Slices_Slice_SourceFile::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices.Slice.SourceFile)
   function_.Clear();
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   type_ = 0;
 }
 
-bool Slice_SourceFile::MergePartialFromCodedStream(
+bool Slices_Slice_SourceFile::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(parse_start:fast.Slices.Slice.SourceFile)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .fast.Slice.SourceFile.Function function = 1;
+      // repeated .fast.Slices.Slice.SourceFile.Function function = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u)) {
@@ -14097,14 +14114,14 @@ bool Slice_SourceFile::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->name().data(), this->name().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.SourceFile.name"));
+            "fast.Slices.Slice.SourceFile.name"));
         } else {
           goto handle_unusual;
         }
         break;
       }
 
-      // .fast.Slice.ChangeType type = 3;
+      // .fast.Slices.Slice.ChangeType type = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(24u)) {
@@ -14112,7 +14129,7 @@ bool Slice_SourceFile::MergePartialFromCodedStream(
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          set_type(static_cast< ::fast::Slice_ChangeType >(value));
+          set_type(static_cast< ::fast::Slices_Slice_ChangeType >(value));
         } else {
           goto handle_unusual;
         }
@@ -14132,21 +14149,21 @@ bool Slice_SourceFile::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(parse_success:fast.Slices.Slice.SourceFile)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(parse_failure:fast.Slices.Slice.SourceFile)
   return false;
 #undef DO_
 }
 
-void Slice_SourceFile::SerializeWithCachedSizes(
+void Slices_Slice_SourceFile::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(serialize_start:fast.Slices.Slice.SourceFile)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .fast.Slice.SourceFile.Function function = 1;
+  // repeated .fast.Slices.Slice.SourceFile.Function function = 1;
   for (unsigned int i = 0, n = this->function_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->function(i), output);
@@ -14157,27 +14174,27 @@ void Slice_SourceFile::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.name");
+      "fast.Slices.Slice.SourceFile.name");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->name(), output);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
       3, this->type(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(serialize_end:fast.Slices.Slice.SourceFile)
 }
 
-::google::protobuf::uint8* Slice_SourceFile::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Slices_Slice_SourceFile::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .fast.Slice.SourceFile.Function function = 1;
+  // repeated .fast.Slices.Slice.SourceFile.Function function = 1;
   for (unsigned int i = 0, n = this->function_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -14189,27 +14206,27 @@ void Slice_SourceFile::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->name().data(), this->name().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.SourceFile.name");
+      "fast.Slices.Slice.SourceFile.name");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->name(), target);
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
       3, this->type(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices.Slice.SourceFile)
   return target;
 }
 
-size_t Slice_SourceFile::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fast.Slice.SourceFile)
+size_t Slices_Slice_SourceFile::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices.Slice.SourceFile)
   size_t total_size = 0;
 
-  // repeated .fast.Slice.SourceFile.Function function = 1;
+  // repeated .fast.Slices.Slice.SourceFile.Function function = 1;
   {
     unsigned int count = this->function_size();
     total_size += 1UL * count;
@@ -14227,7 +14244,7 @@ size_t Slice_SourceFile::ByteSizeLong() const {
         this->name());
   }
 
-  // .fast.Slice.ChangeType type = 3;
+  // .fast.Slices.Slice.ChangeType type = 3;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -14240,23 +14257,23 @@ size_t Slice_SourceFile::ByteSizeLong() const {
   return total_size;
 }
 
-void Slice_SourceFile::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice.SourceFile)
+void Slices_Slice_SourceFile::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices.Slice.SourceFile)
   GOOGLE_DCHECK_NE(&from, this);
-  const Slice_SourceFile* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Slice_SourceFile>(
+  const Slices_Slice_SourceFile* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices_Slice_SourceFile>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices.Slice.SourceFile)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice.SourceFile)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices.Slice.SourceFile)
     MergeFrom(*source);
   }
 }
 
-void Slice_SourceFile::MergeFrom(const Slice_SourceFile& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice.SourceFile)
+void Slices_Slice_SourceFile::MergeFrom(const Slices_Slice_SourceFile& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices.Slice.SourceFile)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -14272,138 +14289,138 @@ void Slice_SourceFile::MergeFrom(const Slice_SourceFile& from) {
   }
 }
 
-void Slice_SourceFile::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice.SourceFile)
+void Slices_Slice_SourceFile::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices.Slice.SourceFile)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Slice_SourceFile::CopyFrom(const Slice_SourceFile& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice.SourceFile)
+void Slices_Slice_SourceFile::CopyFrom(const Slices_Slice_SourceFile& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices.Slice.SourceFile)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Slice_SourceFile::IsInitialized() const {
+bool Slices_Slice_SourceFile::IsInitialized() const {
   return true;
 }
 
-void Slice_SourceFile::Swap(Slice_SourceFile* other) {
+void Slices_Slice_SourceFile::Swap(Slices_Slice_SourceFile* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Slice_SourceFile::InternalSwap(Slice_SourceFile* other) {
+void Slices_Slice_SourceFile::InternalSwap(Slices_Slice_SourceFile* other) {
   function_.InternalSwap(&other->function_);
   name_.Swap(&other->name_);
   std::swap(type_, other->type_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Slice_SourceFile::GetMetadata() const {
+::google::protobuf::Metadata Slices_Slice_SourceFile::GetMetadata() const {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Slice_SourceFile
+// Slices_Slice_SourceFile
 
-// repeated .fast.Slice.SourceFile.Function function = 1;
-int Slice_SourceFile::function_size() const {
+// repeated .fast.Slices.Slice.SourceFile.Function function = 1;
+int Slices_Slice_SourceFile::function_size() const {
   return function_.size();
 }
-void Slice_SourceFile::clear_function() {
+void Slices_Slice_SourceFile::clear_function() {
   function_.Clear();
 }
-const ::fast::Slice_SourceFile_Function& Slice_SourceFile::function(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.function)
+const ::fast::Slices_Slice_SourceFile_Function& Slices_Slice_SourceFile::function(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.function)
   return function_.Get(index);
 }
-::fast::Slice_SourceFile_Function* Slice_SourceFile::mutable_function(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.function)
+::fast::Slices_Slice_SourceFile_Function* Slices_Slice_SourceFile::mutable_function(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.function)
   return function_.Mutable(index);
 }
-::fast::Slice_SourceFile_Function* Slice_SourceFile::add_function() {
-  // @@protoc_insertion_point(field_add:fast.Slice.SourceFile.function)
+::fast::Slices_Slice_SourceFile_Function* Slices_Slice_SourceFile::add_function() {
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.SourceFile.function)
   return function_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >*
-Slice_SourceFile::mutable_function() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.SourceFile.function)
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function >*
+Slices_Slice_SourceFile::mutable_function() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.SourceFile.function)
   return &function_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile_Function >&
-Slice_SourceFile::function() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.SourceFile.function)
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile_Function >&
+Slices_Slice_SourceFile::function() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.SourceFile.function)
   return function_;
 }
 
 // string name = 2;
-void Slice_SourceFile::clear_name() {
+void Slices_Slice_SourceFile::clear_name() {
   name_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& Slice_SourceFile::name() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.name)
+const ::std::string& Slices_Slice_SourceFile::name() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.name)
   return name_.GetNoArena();
 }
-void Slice_SourceFile::set_name(const ::std::string& value) {
+void Slices_Slice_SourceFile::set_name(const ::std::string& value) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.name)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.name)
 }
 #if LANG_CXX11
-void Slice_SourceFile::set_name(::std::string&& value) {
+void Slices_Slice_SourceFile::set_name(::std::string&& value) {
   
   name_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.SourceFile.name)
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slices.Slice.SourceFile.name)
 }
 #endif
-void Slice_SourceFile::set_name(const char* value) {
+void Slices_Slice_SourceFile::set_name(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fast.Slice.SourceFile.name)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.SourceFile.name)
 }
-void Slice_SourceFile::set_name(const char* value, size_t size) {
+void Slices_Slice_SourceFile::set_name(const char* value, size_t size) {
   
   name_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.SourceFile.name)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.SourceFile.name)
 }
-::std::string* Slice_SourceFile::mutable_name() {
+::std::string* Slices_Slice_SourceFile::mutable_name() {
   
-  // @@protoc_insertion_point(field_mutable:fast.Slice.SourceFile.name)
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.SourceFile.name)
   return name_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Slice_SourceFile::release_name() {
-  // @@protoc_insertion_point(field_release:fast.Slice.SourceFile.name)
+::std::string* Slices_Slice_SourceFile::release_name() {
+  // @@protoc_insertion_point(field_release:fast.Slices.Slice.SourceFile.name)
   
   return name_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Slice_SourceFile::set_allocated_name(::std::string* name) {
+void Slices_Slice_SourceFile::set_allocated_name(::std::string* name) {
   if (name != NULL) {
     
   } else {
     
   }
   name_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), name);
-  // @@protoc_insertion_point(field_set_allocated:fast.Slice.SourceFile.name)
+  // @@protoc_insertion_point(field_set_allocated:fast.Slices.Slice.SourceFile.name)
 }
 
-// .fast.Slice.ChangeType type = 3;
-void Slice_SourceFile::clear_type() {
+// .fast.Slices.Slice.ChangeType type = 3;
+void Slices_Slice_SourceFile::clear_type() {
   type_ = 0;
 }
-::fast::Slice_ChangeType Slice_SourceFile::type() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.SourceFile.type)
-  return static_cast< ::fast::Slice_ChangeType >(type_);
+::fast::Slices_Slice_ChangeType Slices_Slice_SourceFile::type() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.SourceFile.type)
+  return static_cast< ::fast::Slices_Slice_ChangeType >(type_);
 }
-void Slice_SourceFile::set_type(::fast::Slice_ChangeType value) {
+void Slices_Slice_SourceFile::set_type(::fast::Slices_Slice_ChangeType value) {
   
   type_ = value;
-  // @@protoc_insertion_point(field_set:fast.Slice.SourceFile.type)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.SourceFile.type)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -14411,19 +14428,19 @@ void Slice_SourceFile::set_type(::fast::Slice_ChangeType value) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Slice::kFileFieldNumber;
-const int Slice::kHashFieldNumber;
+const int Slices_Slice::kFileFieldNumber;
+const int Slices_Slice::kHashFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-Slice::Slice()
+Slices_Slice::Slices_Slice()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
     protobuf_fast_2eproto::InitDefaults();
   }
   SharedCtor();
-  // @@protoc_insertion_point(constructor:fast.Slice)
+  // @@protoc_insertion_point(constructor:fast.Slices.Slice)
 }
-Slice::Slice(const Slice& from)
+Slices_Slice::Slices_Slice(const Slices_Slice& from)
   : ::google::protobuf::Message(),
       _internal_metadata_(NULL),
       file_(from.file_),
@@ -14433,63 +14450,63 @@ Slice::Slice(const Slice& from)
   if (from.hash().size() > 0) {
     hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
   }
-  // @@protoc_insertion_point(copy_constructor:fast.Slice)
+  // @@protoc_insertion_point(copy_constructor:fast.Slices.Slice)
 }
 
-void Slice::SharedCtor() {
+void Slices_Slice::SharedCtor() {
   hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
-Slice::~Slice() {
-  // @@protoc_insertion_point(destructor:fast.Slice)
+Slices_Slice::~Slices_Slice() {
+  // @@protoc_insertion_point(destructor:fast.Slices.Slice)
   SharedDtor();
 }
 
-void Slice::SharedDtor() {
+void Slices_Slice::SharedDtor() {
   hash_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void Slice::SetCachedSize(int size) const {
+void Slices_Slice::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Slice::descriptor() {
+const ::google::protobuf::Descriptor* Slices_Slice::descriptor() {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
 }
 
-const Slice& Slice::default_instance() {
+const Slices_Slice& Slices_Slice::default_instance() {
   protobuf_fast_2eproto::InitDefaults();
   return *internal_default_instance();
 }
 
-Slice* Slice::New(::google::protobuf::Arena* arena) const {
-  Slice* n = new Slice;
+Slices_Slice* Slices_Slice::New(::google::protobuf::Arena* arena) const {
+  Slices_Slice* n = new Slices_Slice;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void Slice::Clear() {
-// @@protoc_insertion_point(message_clear_start:fast.Slice)
+void Slices_Slice::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices.Slice)
   file_.Clear();
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-bool Slice::MergePartialFromCodedStream(
+bool Slices_Slice::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:fast.Slice)
+  // @@protoc_insertion_point(parse_start:fast.Slices.Slice)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated .fast.Slice.SourceFile file = 1;
+      // repeated .fast.Slices.Slice.SourceFile file = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u)) {
@@ -14510,7 +14527,7 @@ bool Slice::MergePartialFromCodedStream(
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
             this->hash().data(), this->hash().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Slice.hash"));
+            "fast.Slices.Slice.hash"));
         } else {
           goto handle_unusual;
         }
@@ -14530,21 +14547,21 @@ bool Slice::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:fast.Slice)
+  // @@protoc_insertion_point(parse_success:fast.Slices.Slice)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:fast.Slice)
+  // @@protoc_insertion_point(parse_failure:fast.Slices.Slice)
   return false;
 #undef DO_
 }
 
-void Slice::SerializeWithCachedSizes(
+void Slices_Slice::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:fast.Slice)
+  // @@protoc_insertion_point(serialize_start:fast.Slices.Slice)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .fast.Slice.SourceFile file = 1;
+  // repeated .fast.Slices.Slice.SourceFile file = 1;
   for (unsigned int i = 0, n = this->file_size(); i < n; i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
       1, this->file(i), output);
@@ -14555,21 +14572,21 @@ void Slice::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hash().data(), this->hash().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.hash");
+      "fast.Slices.Slice.hash");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
       2, this->hash(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:fast.Slice)
+  // @@protoc_insertion_point(serialize_end:fast.Slices.Slice)
 }
 
-::google::protobuf::uint8* Slice::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Slices_Slice::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
-  // @@protoc_insertion_point(serialize_to_array_start:fast.Slice)
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .fast.Slice.SourceFile file = 1;
+  // repeated .fast.Slices.Slice.SourceFile file = 1;
   for (unsigned int i = 0, n = this->file_size(); i < n; i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
@@ -14581,21 +14598,21 @@ void Slice::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hash().data(), this->hash().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Slice.hash");
+      "fast.Slices.Slice.hash");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         2, this->hash(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:fast.Slice)
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices.Slice)
   return target;
 }
 
-size_t Slice::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:fast.Slice)
+size_t Slices_Slice::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices.Slice)
   size_t total_size = 0;
 
-  // repeated .fast.Slice.SourceFile file = 1;
+  // repeated .fast.Slices.Slice.SourceFile file = 1;
   {
     unsigned int count = this->file_size();
     total_size += 1UL * count;
@@ -14620,23 +14637,23 @@ size_t Slice::ByteSizeLong() const {
   return total_size;
 }
 
-void Slice::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:fast.Slice)
+void Slices_Slice::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices.Slice)
   GOOGLE_DCHECK_NE(&from, this);
-  const Slice* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const Slice>(
+  const Slices_Slice* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices_Slice>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slice)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices.Slice)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slice)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices.Slice)
     MergeFrom(*source);
   }
 }
 
-void Slice::MergeFrom(const Slice& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slice)
+void Slices_Slice::MergeFrom(const Slices_Slice& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices.Slice)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::google::protobuf::uint32 cached_has_bits = 0;
@@ -14649,123 +14666,375 @@ void Slice::MergeFrom(const Slice& from) {
   }
 }
 
-void Slice::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:fast.Slice)
+void Slices_Slice::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices.Slice)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Slice::CopyFrom(const Slice& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slice)
+void Slices_Slice::CopyFrom(const Slices_Slice& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices.Slice)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Slice::IsInitialized() const {
+bool Slices_Slice::IsInitialized() const {
   return true;
 }
 
-void Slice::Swap(Slice* other) {
+void Slices_Slice::Swap(Slices_Slice* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void Slice::InternalSwap(Slice* other) {
+void Slices_Slice::InternalSwap(Slices_Slice* other) {
   file_.InternalSwap(&other->file_);
   hash_.Swap(&other->hash_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata Slice::GetMetadata() const {
+::google::protobuf::Metadata Slices_Slice::GetMetadata() const {
   protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
   return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// Slice
+// Slices_Slice
 
-// repeated .fast.Slice.SourceFile file = 1;
-int Slice::file_size() const {
+// repeated .fast.Slices.Slice.SourceFile file = 1;
+int Slices_Slice::file_size() const {
   return file_.size();
 }
-void Slice::clear_file() {
+void Slices_Slice::clear_file() {
   file_.Clear();
 }
-const ::fast::Slice_SourceFile& Slice::file(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Slice.file)
+const ::fast::Slices_Slice_SourceFile& Slices_Slice::file(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.file)
   return file_.Get(index);
 }
-::fast::Slice_SourceFile* Slice::mutable_file(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Slice.file)
+::fast::Slices_Slice_SourceFile* Slices_Slice::mutable_file(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.file)
   return file_.Mutable(index);
 }
-::fast::Slice_SourceFile* Slice::add_file() {
-  // @@protoc_insertion_point(field_add:fast.Slice.file)
+::fast::Slices_Slice_SourceFile* Slices_Slice::add_file() {
+  // @@protoc_insertion_point(field_add:fast.Slices.Slice.file)
   return file_.Add();
 }
-::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >*
-Slice::mutable_file() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Slice.file)
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile >*
+Slices_Slice::mutable_file() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.Slice.file)
   return &file_;
 }
-const ::google::protobuf::RepeatedPtrField< ::fast::Slice_SourceFile >&
-Slice::file() const {
-  // @@protoc_insertion_point(field_list:fast.Slice.file)
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice_SourceFile >&
+Slices_Slice::file() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.Slice.file)
   return file_;
 }
 
 // string hash = 2;
-void Slice::clear_hash() {
+void Slices_Slice::clear_hash() {
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& Slice::hash() const {
-  // @@protoc_insertion_point(field_get:fast.Slice.hash)
+const ::std::string& Slices_Slice::hash() const {
+  // @@protoc_insertion_point(field_get:fast.Slices.Slice.hash)
   return hash_.GetNoArena();
 }
-void Slice::set_hash(const ::std::string& value) {
+void Slices_Slice::set_hash(const ::std::string& value) {
   
   hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fast.Slice.hash)
+  // @@protoc_insertion_point(field_set:fast.Slices.Slice.hash)
 }
 #if LANG_CXX11
-void Slice::set_hash(::std::string&& value) {
+void Slices_Slice::set_hash(::std::string&& value) {
   
   hash_.SetNoArena(
     &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fast.Slice.hash)
+  // @@protoc_insertion_point(field_set_rvalue:fast.Slices.Slice.hash)
 }
 #endif
-void Slice::set_hash(const char* value) {
+void Slices_Slice::set_hash(const char* value) {
   GOOGLE_DCHECK(value != NULL);
   
   hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fast.Slice.hash)
+  // @@protoc_insertion_point(field_set_char:fast.Slices.Slice.hash)
 }
-void Slice::set_hash(const char* value, size_t size) {
+void Slices_Slice::set_hash(const char* value, size_t size) {
   
   hash_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fast.Slice.hash)
+  // @@protoc_insertion_point(field_set_pointer:fast.Slices.Slice.hash)
 }
-::std::string* Slice::mutable_hash() {
+::std::string* Slices_Slice::mutable_hash() {
   
-  // @@protoc_insertion_point(field_mutable:fast.Slice.hash)
+  // @@protoc_insertion_point(field_mutable:fast.Slices.Slice.hash)
   return hash_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* Slice::release_hash() {
-  // @@protoc_insertion_point(field_release:fast.Slice.hash)
+::std::string* Slices_Slice::release_hash() {
+  // @@protoc_insertion_point(field_release:fast.Slices.Slice.hash)
   
   return hash_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void Slice::set_allocated_hash(::std::string* hash) {
+void Slices_Slice::set_allocated_hash(::std::string* hash) {
   if (hash != NULL) {
     
   } else {
     
   }
   hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hash);
-  // @@protoc_insertion_point(field_set_allocated:fast.Slice.hash)
+  // @@protoc_insertion_point(field_set_allocated:fast.Slices.Slice.hash)
+}
+
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Slices::kSliceFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+Slices::Slices()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (GOOGLE_PREDICT_TRUE(this != internal_default_instance())) {
+    protobuf_fast_2eproto::InitDefaults();
+  }
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:fast.Slices)
+}
+Slices::Slices(const Slices& from)
+  : ::google::protobuf::Message(),
+      _internal_metadata_(NULL),
+      slice_(from.slice_),
+      _cached_size_(0) {
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:fast.Slices)
+}
+
+void Slices::SharedCtor() {
+  _cached_size_ = 0;
+}
+
+Slices::~Slices() {
+  // @@protoc_insertion_point(destructor:fast.Slices)
+  SharedDtor();
+}
+
+void Slices::SharedDtor() {
+}
+
+void Slices::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Slices::descriptor() {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages].descriptor;
+}
+
+const Slices& Slices::default_instance() {
+  protobuf_fast_2eproto::InitDefaults();
+  return *internal_default_instance();
+}
+
+Slices* Slices::New(::google::protobuf::Arena* arena) const {
+  Slices* n = new Slices;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void Slices::Clear() {
+// @@protoc_insertion_point(message_clear_start:fast.Slices)
+  slice_.Clear();
+}
+
+bool Slices::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:fast.Slices)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoffNoLastTag(127u);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .fast.Slices.Slice slice = 1;
+      case 1: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_slice()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:fast.Slices)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:fast.Slices)
+  return false;
+#undef DO_
+}
+
+void Slices::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:fast.Slices)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slices.Slice slice = 1;
+  for (unsigned int i = 0, n = this->slice_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->slice(i), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:fast.Slices)
+}
+
+::google::protobuf::uint8* Slices::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:fast.Slices)
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .fast.Slices.Slice slice = 1;
+  for (unsigned int i = 0, n = this->slice_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        1, this->slice(i), deterministic, target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:fast.Slices)
+  return target;
+}
+
+size_t Slices::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:fast.Slices)
+  size_t total_size = 0;
+
+  // repeated .fast.Slices.Slice slice = 1;
+  {
+    unsigned int count = this->slice_size();
+    total_size += 1UL * count;
+    for (unsigned int i = 0; i < count; i++) {
+      total_size +=
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->slice(i));
+    }
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Slices::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:fast.Slices)
+  GOOGLE_DCHECK_NE(&from, this);
+  const Slices* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const Slices>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:fast.Slices)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:fast.Slices)
+    MergeFrom(*source);
+  }
+}
+
+void Slices::MergeFrom(const Slices& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:fast.Slices)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom(from._internal_metadata_);
+  ::google::protobuf::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  slice_.MergeFrom(from.slice_);
+}
+
+void Slices::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:fast.Slices)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Slices::CopyFrom(const Slices& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:fast.Slices)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Slices::IsInitialized() const {
+  return true;
+}
+
+void Slices::Swap(Slices* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void Slices::InternalSwap(Slices* other) {
+  slice_.InternalSwap(&other->slice_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata Slices::GetMetadata() const {
+  protobuf_fast_2eproto::protobuf_AssignDescriptorsOnce();
+  return protobuf_fast_2eproto::file_level_metadata[kIndexInFileMessages];
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// Slices
+
+// repeated .fast.Slices.Slice slice = 1;
+int Slices::slice_size() const {
+  return slice_.size();
+}
+void Slices::clear_slice() {
+  slice_.Clear();
+}
+const ::fast::Slices_Slice& Slices::slice(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Slices.slice)
+  return slice_.Get(index);
+}
+::fast::Slices_Slice* Slices::mutable_slice(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Slices.slice)
+  return slice_.Mutable(index);
+}
+::fast::Slices_Slice* Slices::add_slice() {
+  // @@protoc_insertion_point(field_add:fast.Slices.slice)
+  return slice_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice >*
+Slices::mutable_slice() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Slices.slice)
+  return &slice_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Slices_Slice >&
+Slices::slice() const {
+  // @@protoc_insertion_point(field_list:fast.Slices.slice)
+  return slice_;
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -14777,7 +15046,7 @@ const int Data::kElementFieldNumber;
 const int Data::kLogFieldNumber;
 const int Data::kDeltaFieldNumber;
 const int Data::kPairsFieldNumber;
-const int Data::kSliceFieldNumber;
+const int Data::kSlicesFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Data::Data()
@@ -14811,8 +15080,8 @@ Data::Data(const Data& from)
       mutable_pairs()->::fast::Pairs::MergeFrom(from.pairs());
       break;
     }
-    case kSlice: {
-      mutable_slice()->::fast::Slice::MergeFrom(from.slice());
+    case kSlices: {
+      mutable_slices()->::fast::Slices::MergeFrom(from.slices());
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -14880,8 +15149,8 @@ void Data::clear_RecordType() {
       delete RecordType_.pairs_;
       break;
     }
-    case kSlice: {
-      delete RecordType_.slice_;
+    case kSlices: {
+      delete RecordType_.slices_;
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -14955,12 +15224,12 @@ bool Data::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Slice slice = 5;
+      // .fast.Slices slices = 5;
       case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(42u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_slice()));
+               input, mutable_slices()));
         } else {
           goto handle_unusual;
         }
@@ -15018,10 +15287,10 @@ void Data::SerializeWithCachedSizes(
       4, *RecordType_.pairs_, output);
   }
 
-  // .fast.Slice slice = 5;
-  if (has_slice()) {
+  // .fast.Slices slices = 5;
+  if (has_slices()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *RecordType_.slice_, output);
+      5, *RecordType_.slices_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:fast.Data)
@@ -15061,11 +15330,11 @@ void Data::SerializeWithCachedSizes(
         4, *RecordType_.pairs_, deterministic, target);
   }
 
-  // .fast.Slice slice = 5;
-  if (has_slice()) {
+  // .fast.Slices slices = 5;
+  if (has_slices()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        5, *RecordType_.slice_, deterministic, target);
+        5, *RecordType_.slices_, deterministic, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:fast.Data)
@@ -15105,11 +15374,11 @@ size_t Data::ByteSizeLong() const {
           *RecordType_.pairs_);
       break;
     }
-    // .fast.Slice slice = 5;
-    case kSlice: {
+    // .fast.Slices slices = 5;
+    case kSlices: {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          *RecordType_.slice_);
+          *RecordType_.slices_);
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -15162,8 +15431,8 @@ void Data::MergeFrom(const Data& from) {
       mutable_pairs()->::fast::Pairs::MergeFrom(from.pairs());
       break;
     }
-    case kSlice: {
-      mutable_slice()->::fast::Slice::MergeFrom(from.slice());
+    case kSlices: {
+      mutable_slices()->::fast::Slices::MergeFrom(from.slices());
       break;
     }
     case RECORDTYPE_NOT_SET: {
@@ -15400,52 +15669,52 @@ void Data::set_allocated_pairs(::fast::Pairs* pairs) {
   // @@protoc_insertion_point(field_set_allocated:fast.Data.pairs)
 }
 
-// .fast.Slice slice = 5;
-bool Data::has_slice() const {
-  return RecordType_case() == kSlice;
+// .fast.Slices slices = 5;
+bool Data::has_slices() const {
+  return RecordType_case() == kSlices;
 }
-void Data::set_has_slice() {
-  _oneof_case_[0] = kSlice;
+void Data::set_has_slices() {
+  _oneof_case_[0] = kSlices;
 }
-void Data::clear_slice() {
-  if (has_slice()) {
-    delete RecordType_.slice_;
+void Data::clear_slices() {
+  if (has_slices()) {
+    delete RecordType_.slices_;
     clear_has_RecordType();
   }
 }
- const ::fast::Slice& Data::slice() const {
-  // @@protoc_insertion_point(field_get:fast.Data.slice)
-  return has_slice()
-      ? *RecordType_.slice_
-      : ::fast::Slice::default_instance();
+ const ::fast::Slices& Data::slices() const {
+  // @@protoc_insertion_point(field_get:fast.Data.slices)
+  return has_slices()
+      ? *RecordType_.slices_
+      : ::fast::Slices::default_instance();
 }
-::fast::Slice* Data::mutable_slice() {
-  if (!has_slice()) {
+::fast::Slices* Data::mutable_slices() {
+  if (!has_slices()) {
     clear_RecordType();
-    set_has_slice();
-    RecordType_.slice_ = new ::fast::Slice;
+    set_has_slices();
+    RecordType_.slices_ = new ::fast::Slices;
   }
-  // @@protoc_insertion_point(field_mutable:fast.Data.slice)
-  return RecordType_.slice_;
+  // @@protoc_insertion_point(field_mutable:fast.Data.slices)
+  return RecordType_.slices_;
 }
-::fast::Slice* Data::release_slice() {
-  // @@protoc_insertion_point(field_release:fast.Data.slice)
-  if (has_slice()) {
+::fast::Slices* Data::release_slices() {
+  // @@protoc_insertion_point(field_release:fast.Data.slices)
+  if (has_slices()) {
     clear_has_RecordType();
-    ::fast::Slice* temp = RecordType_.slice_;
-    RecordType_.slice_ = NULL;
+    ::fast::Slices* temp = RecordType_.slices_;
+    RecordType_.slices_ = NULL;
     return temp;
   } else {
     return NULL;
   }
 }
-void Data::set_allocated_slice(::fast::Slice* slice) {
+void Data::set_allocated_slices(::fast::Slices* slices) {
   clear_RecordType();
-  if (slice) {
-    set_has_slice();
-    RecordType_.slice_ = slice;
+  if (slices) {
+    set_has_slices();
+    RecordType_.slices_ = slices;
   }
-  // @@protoc_insertion_point(field_set_allocated:fast.Data.slice)
+  // @@protoc_insertion_point(field_set_allocated:fast.Data.slices)
 }
 
 bool Data::has_RecordType() const {

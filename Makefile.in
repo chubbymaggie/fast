@@ -19,6 +19,7 @@ OPT=-g
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
+PB_LIB=-L/usr/local/lib -lprotobuf
 
 all: $(target)
 

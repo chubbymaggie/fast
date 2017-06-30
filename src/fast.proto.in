@@ -93,7 +93,8 @@ message Pairs {
 
 #include "log.proto"
 
-message Slice {
+message Slices {
+    message Slice {
 	enum ChangeType {
 		UNCHANGED = 0;
 		ADD = 1;
@@ -114,7 +115,7 @@ message Slice {
 				string name = 1;
 				Position pos = 2;
 				ChangeType type = 3;
-				repeated Position def = 4;
+				repeated Position defn = 4;
 				repeated Position use = 5;
 				repeated string dvar = 6;
 				repeated string alias = 7;
@@ -130,6 +131,8 @@ message Slice {
 	}
 	repeated SourceFile file = 1;
 	string hash = 2;
+      }
+      repeated Slice slice = 1;
 }
 
 message Data {
@@ -138,6 +141,6 @@ message Data {
 	Log log = 2;
 	Delta delta = 3;
 	Pairs pairs = 4;
-	Slice slice = 5;
+	Slices slices = 5;
  }
 }

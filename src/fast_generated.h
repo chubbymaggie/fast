@@ -86,6 +86,10 @@ struct Author;
 
 }  // namespace _Log
 
+struct Slices;
+
+namespace _Slices {
+
 struct Slice;
 
 namespace _Slice {
@@ -110,6 +114,7 @@ struct FunctionDecl;
 }  // namespace _Function
 }  // namespace _SourceFile
 }  // namespace _Slice
+}  // namespace _Slices
 
 struct Data;
 
@@ -202,312 +207,312 @@ enum Kind {
   Kind_FOR_INCREMENT = 77,
   Kind_FOR_LIKE_CONTROL = 78,
   Kind_EXPRESSION_STATEMENT = 79,
-  Kind_FUNCTION_CALL = 81,
-  Kind_DECLARATION_STATEMENT = 82,
-  Kind_DECLARATION = 83,
-  Kind_DECLARATION_INITIALIZATION = 84,
-  Kind_DECLARATION_RANGE = 85,
-  Kind_RANGE = 86,
-  Kind_GOTO_STATEMENT = 87,
-  Kind_CONTINUE_STATEMENT = 88,
-  Kind_BREAK_STATEMENT = 89,
-  Kind_LABEL_STATEMENT = 90,
-  Kind_LABEL = 91,
-  Kind_SWITCH = 92,
-  Kind_CASE = 93,
-  Kind_DEFAULT = 94,
-  Kind_FUNCTION_DEFINITION = 95,
-  Kind_FUNCTION_DECLARATION = 96,
-  Kind_LAMBDA = 97,
-  Kind_FUNCTION_LAMBDA = 98,
-  Kind_FUNCTION_SPECIFIER = 99,
-  Kind_RETURN_STATEMENT = 100,
-  Kind_PARAMETER_LIST = 101,
-  Kind_PARAMETER = 102,
-  Kind_KRPARAMETER_LIST = 103,
-  Kind_KRPARAMETER = 104,
-  Kind_ARGUMENT_LIST = 105,
-  Kind_ARGUMENT = 106,
-  Kind_PSEUDO_PARAMETER_LIST = 107,
-  Kind_INDEXER_PARAMETER_LIST = 108,
-  Kind_CLASS = 109,
-  Kind_CLASS_DECLARATION = 110,
-  Kind_STRUCT = 111,
-  Kind_STRUCT_DECLARATION = 112,
-  Kind_UNION = 113,
-  Kind_UNION_DECLARATION = 114,
-  Kind_DERIVATION_LIST = 115,
-  Kind_PUBLIC_ACCESS = 116,
-  Kind_PUBLIC_ACCESS_DEFAULT = 117,
-  Kind_PRIVATE_ACCESS = 118,
-  Kind_PRIVATE_ACCESS_DEFAULT = 119,
-  Kind_PROTECTED_ACCESS = 120,
-  Kind_PROTECTED_ACCESS_DEFAULT = 121,
-  Kind_MEMBER_INIT_LIST = 122,
-  Kind_MEMBER_INITIALIZATION_LIST = 123,
-  Kind_MEMBER_INITIALIZATION = 124,
-  Kind_CONSTRUCTOR_DEFINITION = 125,
-  Kind_CONSTRUCTOR_DECLARATION = 126,
-  Kind_DESTRUCTOR_DEFINITION = 127,
-  Kind_DESTRUCTOR_DECLARATION = 128,
-  Kind_FRIEND = 129,
-  Kind_CLASS_SPECIFIER = 130,
-  Kind_TRY_BLOCK = 131,
-  Kind_CATCH_BLOCK = 132,
-  Kind_FINALLY_BLOCK = 133,
-  Kind_THROW_STATEMENT = 134,
-  Kind_THROW_SPECIFIER = 135,
-  Kind_THROW_SPECIFIER_JAVA = 136,
-  Kind_TEMPLATE = 137,
-  Kind_GENERIC_ARGUMENT = 138,
-  Kind_GENERIC_ARGUMENT_LIST = 139,
-  Kind_TEMPLATE_PARAMETER = 140,
-  Kind_TEMPLATE_PARAMETER_LIST = 141,
-  Kind_GENERIC_PARAMETER = 142,
-  Kind_GENERIC_PARAMETER_LIST = 143,
-  Kind_TYPEDEF = 144,
-  Kind_ASM = 145,
-  Kind_MACRO_CALL = 146,
-  Kind_SIZEOF_CALL = 147,
-  Kind_EXTERN = 148,
-  Kind_NAMESPACE = 149,
-  Kind_USING_DIRECTIVE = 150,
-  Kind_DIRECTIVE = 151,
-  Kind_ATOMIC = 152,
-  Kind_STATIC_ASSERT_STATEMENT = 153,
-  Kind_GENERIC_SELECTION = 154,
-  Kind_GENERIC_SELECTOR = 155,
-  Kind_GENERIC_ASSOCIATION_LIST = 156,
-  Kind_GENERIC_ASSOCIATION = 157,
-  Kind_ALIGNAS = 158,
-  Kind_DECLTYPE = 159,
-  Kind_CAPTURE = 160,
-  Kind_LAMBDA_CAPTURE = 161,
-  Kind_NOEXCEPT = 162,
-  Kind_TYPENAME = 163,
-  Kind_ALIGNOF = 164,
-  Kind_TYPEID = 165,
-  Kind_SIZEOF_PACK = 166,
-  Kind_ENUM_CLASS = 167,
-  Kind_ENUM_CLASS_DECLARATION = 168,
-  Kind_REF_QUALIFIER = 171,
-  Kind_SIGNAL_ACCESS = 172,
-  Kind_FOREVER_STATEMENT = 173,
-  Kind_EMIT_STATEMENT = 174,
-  Kind_CPP_DIRECTIVE = 175,
-  Kind_CPP_FILENAME = 176,
-  Kind_FILE = 177,
-  Kind_NUMBER = 178,
-  Kind_CPP_NUMBER = 179,
-  Kind_CPP_LITERAL = 180,
-  Kind_CPP_MACRO_DEFN = 181,
-  Kind_CPP_MACRO_VALUE = 182,
-  Kind_ERROR = 183,
-  Kind_CPP_ERROR = 184,
-  Kind_CPP_WARNING = 185,
-  Kind_CPP_PRAGMA = 186,
-  Kind_CPP_INCLUDE = 187,
-  Kind_CPP_DEFINE = 188,
-  Kind_CPP_UNDEF = 189,
-  Kind_CPP_LINE = 190,
-  Kind_CPP_IF = 191,
-  Kind_CPP_IFDEF = 192,
-  Kind_CPP_IFNDEF = 193,
-  Kind_CPP_THEN = 194,
-  Kind_CPP_ELSE = 195,
-  Kind_CPP_ELIF = 196,
-  Kind_CPP_EMPTY = 197,
-  Kind_CPP_REGION = 198,
-  Kind_CPP_ENDREGION = 199,
-  Kind_USING_STMT = 200,
-  Kind_ESCAPE = 201,
-  Kind_VALUE = 202,
-  Kind_CPP_IMPORT = 203,
-  Kind_CPP_ENDIF = 204,
-  Kind_MARKER = 205,
-  Kind_ERROR_PARSE = 206,
-  Kind_ERROR_MODE = 207,
-  Kind_IMPLEMENTS = 208,
-  Kind_EXTENDS = 209,
-  Kind_IMPORT = 210,
-  Kind_PACKAGE = 211,
-  Kind_ASSERT_STATEMENT = 212,
-  Kind_INTERFACE = 213,
-  Kind_INTERFACE_DECLARATION = 214,
-  Kind_SYNCHRONIZED_STATEMENT = 215,
-  Kind_ANNOTATION = 216,
-  Kind_STATIC_BLOCK = 218,
-  Kind_CHECKED_STATEMENT = 219,
-  Kind_UNCHECKED_STATEMENT = 220,
-  Kind_ATTRIBUTE = 221,
-  Kind_TARGET = 222,
-  Kind_UNSAFE_STATEMENT = 223,
-  Kind_LOCK_STATEMENT = 224,
-  Kind_FIXED_STATEMENT = 225,
-  Kind_TYPEOF = 226,
-  Kind_USING_STATEMENT = 227,
-  Kind_FUNCTION_DELEGATE = 228,
-  Kind_CONSTRAINT = 230,
-  Kind_LINQ = 231,
-  Kind_FROM = 232,
-  Kind_WHERE = 233,
-  Kind_SELECT = 234,
-  Kind_LET = 235,
-  Kind_ORDERBY = 236,
-  Kind_JOIN = 237,
-  Kind_GROUP = 238,
-  Kind_IN = 239,
-  Kind_ON = 240,
-  Kind_EQUALS = 241,
-  Kind_BY = 242,
-  Kind_INTO = 243,
-  Kind_EMPTY = 244,
-  Kind_EMPTY_STMT = 245,
-  Kind_RECEIVER = 246,
-  Kind_MESSAGE = 247,
-  Kind_SELECTOR = 248,
-  Kind_PROTOCOL_LIST = 249,
-  Kind_CATEGORY = 250,
-  Kind_PROTOCOL = 251,
-  Kind_REQUIRED_DEFAULT = 252,
-  Kind_REQUIRED = 253,
-  Kind_OPTIONAL = 254,
-  Kind_ATTRIBUTE_LIST = 256,
-  Kind_SYNTHESIZE = 257,
-  Kind_DYNAMIC = 258,
-  Kind_ENCODE = 259,
-  Kind_AUTORELEASEPOOL = 260,
-  Kind_COMPATIBILITY_ALIAS = 261,
-  Kind_NIL = 262,
-  Kind_CLASS_INTERFACE = 263,
-  Kind_CLASS_IMPLEMENTATION = 264,
-  Kind_PROTOCOL_DECLARATION = 265,
-  Kind_CAST = 266,
-  Kind_CONST_CAST = 267,
-  Kind_DYNAMIC_CAST = 268,
-  Kind_REINTERPRET_CAST = 269,
-  Kind_STATIC_CAST = 270,
-  Kind_POSITION = 271,
-  Kind_CUDA_ARGUMENT_LIST = 272,
-  Kind_OMP_DIRECTIVE = 273,
-  Kind_OMP_NAME = 274,
-  Kind_OMP_CLAUSE = 275,
-  Kind_OMP_ARGUMENT_LIST = 276,
-  Kind_OMP_ARGUMENT = 277,
-  Kind_OMP_EXPRESSION = 278,
-  Kind_END_ELEMENT_TOKEN = 279,
-  Kind_MAIN = 280,
-  Kind_BREAK = 281,
-  Kind_CONTINUE = 282,
-  Kind_WHILE = 283,
-  Kind_DO = 284,
-  Kind_FOR = 285,
-  Kind_IF = 286,
-  Kind_GOTO = 293,
-  Kind_VISUAL_CXX_ASM = 295,
-  Kind_SIZEOF = 296,
-  Kind_AUTO = 298,
-  Kind_REGISTER = 299,
-  Kind_RESTRICT = 300,
-  Kind_IMAGINARY = 304,
-  Kind_NORETURN = 305,
-  Kind_STATIC_ASSERT = 306,
-  Kind_CRESTRICT = 307,
-  Kind_CXX_TRY = 308,
-  Kind_CXX_CATCH = 309,
-  Kind_CXX_CLASS = 310,
-  Kind_CONSTEXPR = 311,
-  Kind_THREAD_LOCAL = 313,
-  Kind_NULLPTR = 314,
-  Kind_VOID = 326,
-  Kind_RETURN = 327,
-  Kind_INCLUDE = 328,
-  Kind_DEFINE = 329,
-  Kind_ELIF = 330,
-  Kind_ENDIF = 331,
-  Kind_ERRORPREC = 332,
-  Kind_WARNING = 333,
-  Kind_IFDEF = 334,
-  Kind_IFNDEF = 335,
-  Kind_LINE = 336,
-  Kind_PRAGMA = 337,
-  Kind_UNDEF = 338,
-  Kind_INLINE = 339,
-  Kind_MACRO_TYPE_NAME = 340,
-  Kind_MACRO_CASE = 341,
-  Kind_MACRO_LABEL = 342,
-  Kind_SPECIFIER = 344,
-  Kind_TRY = 345,
-  Kind_CATCH = 346,
-  Kind_THROW = 347,
-  Kind_THROWS = 348,
-  Kind_PUBLIC = 350,
-  Kind_PRIVATE = 351,
-  Kind_PROTECTED = 352,
-  Kind_VIRTUAL = 353,
-  Kind_EXPLICIT = 356,
-  Kind_FOREVER = 357,
-  Kind_SIGNAL = 358,
-  Kind_EMIT = 359,
-  Kind_NEW = 363,
-  Kind_DELETE = 364,
-  Kind_STATIC = 365,
-  Kind_CONST = 366,
-  Kind_MUTABLE = 367,
-  Kind_VOLATILE = 368,
-  Kind_TRANSIENT = 369,
-  Kind_FINALLY = 372,
-  Kind_FINAL = 376,
-  Kind_ABSTRACT = 377,
-  Kind_SUPER = 378,
-  Kind_SYNCHRONIZED = 379,
-  Kind_NATIVE = 380,
-  Kind_STRICTFP = 381,
-  Kind_NULLLITERAL = 382,
-  Kind_ASSERT = 383,
-  Kind_FOREACH = 384,
-  Kind_REF = 385,
-  Kind_OUT = 386,
-  Kind_LOCK = 388,
-  Kind_IS = 389,
-  Kind_INTERNAL = 390,
-  Kind_SEALED = 391,
-  Kind_OVERRIDE = 392,
-  Kind_IMPLICIT = 393,
-  Kind_STACKALLOC = 394,
-  Kind_AS = 395,
-  Kind_DELEGATE = 396,
-  Kind_FIXED = 397,
-  Kind_CHECKED = 398,
-  Kind_UNCHECKED = 399,
-  Kind_REGION = 400,
-  Kind_ENDREGION = 401,
-  Kind_UNSAFE = 402,
-  Kind_READONLY = 403,
-  Kind_GET = 404,
-  Kind_SET = 405,
-  Kind_ADD = 406,
-  Kind_REMOVE = 407,
-  Kind_YIELD = 408,
-  Kind_PARTIAL = 409,
-  Kind_AWAIT = 410,
-  Kind_ASYNC = 412,
-  Kind_THIS = 413,
-  Kind_PARAMS = 414,
-  Kind_ALIAS = 416,
-  Kind_ASCENDING = 422,
-  Kind_DESCENDING = 423,
-  Kind_ATINTERFACE = 430,
-  Kind_ATIMPLEMENTATION = 431,
-  Kind_ATEND = 432,
-  Kind_ATPROTOCOL = 433,
-  Kind_ATREQUIRED = 434,
-  Kind_ATOPTIONAL = 435,
-  Kind_ATCLASS = 441,
-  Kind_WEAK = 443,
-  Kind_STRONG = 444,
-  Kind_OMP_OMP = 448,
-  Kind_SPECIAL_CHARS = 449,
+  Kind_FUNCTION_CALL = 80,
+  Kind_DECLARATION_STATEMENT = 81,
+  Kind_DECLARATION = 82,
+  Kind_DECLARATION_INITIALIZATION = 83,
+  Kind_DECLARATION_RANGE = 84,
+  Kind_RANGE = 85,
+  Kind_GOTO_STATEMENT = 86,
+  Kind_CONTINUE_STATEMENT = 87,
+  Kind_BREAK_STATEMENT = 88,
+  Kind_LABEL_STATEMENT = 89,
+  Kind_LABEL = 90,
+  Kind_SWITCH = 91,
+  Kind_CASE = 92,
+  Kind_DEFAULT = 93,
+  Kind_FUNCTION_DEFINITION = 94,
+  Kind_FUNCTION_DECLARATION = 95,
+  Kind_LAMBDA = 96,
+  Kind_FUNCTION_LAMBDA = 97,
+  Kind_FUNCTION_SPECIFIER = 98,
+  Kind_RETURN_STATEMENT = 99,
+  Kind_PARAMETER_LIST = 100,
+  Kind_PARAMETER = 101,
+  Kind_KRPARAMETER_LIST = 102,
+  Kind_KRPARAMETER = 103,
+  Kind_ARGUMENT_LIST = 104,
+  Kind_ARGUMENT = 105,
+  Kind_PSEUDO_PARAMETER_LIST = 106,
+  Kind_INDEXER_PARAMETER_LIST = 107,
+  Kind_CLASS = 108,
+  Kind_CLASS_DECLARATION = 109,
+  Kind_STRUCT = 110,
+  Kind_STRUCT_DECLARATION = 111,
+  Kind_UNION = 112,
+  Kind_UNION_DECLARATION = 113,
+  Kind_DERIVATION_LIST = 114,
+  Kind_PUBLIC_ACCESS = 115,
+  Kind_PUBLIC_ACCESS_DEFAULT = 116,
+  Kind_PRIVATE_ACCESS = 117,
+  Kind_PRIVATE_ACCESS_DEFAULT = 118,
+  Kind_PROTECTED_ACCESS = 119,
+  Kind_PROTECTED_ACCESS_DEFAULT = 120,
+  Kind_MEMBER_INIT_LIST = 121,
+  Kind_MEMBER_INITIALIZATION_LIST = 122,
+  Kind_MEMBER_INITIALIZATION = 123,
+  Kind_CONSTRUCTOR_DEFINITION = 124,
+  Kind_CONSTRUCTOR_DECLARATION = 125,
+  Kind_DESTRUCTOR_DEFINITION = 126,
+  Kind_DESTRUCTOR_DECLARATION = 127,
+  Kind_FRIEND = 128,
+  Kind_CLASS_SPECIFIER = 129,
+  Kind_TRY_BLOCK = 130,
+  Kind_CATCH_BLOCK = 131,
+  Kind_FINALLY_BLOCK = 132,
+  Kind_THROW_STATEMENT = 133,
+  Kind_THROW_SPECIFIER = 134,
+  Kind_THROW_SPECIFIER_JAVA = 135,
+  Kind_TEMPLATE = 136,
+  Kind_GENERIC_ARGUMENT = 137,
+  Kind_GENERIC_ARGUMENT_LIST = 138,
+  Kind_TEMPLATE_PARAMETER = 139,
+  Kind_TEMPLATE_PARAMETER_LIST = 140,
+  Kind_GENERIC_PARAMETER = 141,
+  Kind_GENERIC_PARAMETER_LIST = 142,
+  Kind_TYPEDEF = 143,
+  Kind_ASM = 144,
+  Kind_MACRO_CALL = 145,
+  Kind_SIZEOF_CALL = 146,
+  Kind_EXTERN = 147,
+  Kind_NAMESPACE = 148,
+  Kind_USING_DIRECTIVE = 149,
+  Kind_DIRECTIVE = 150,
+  Kind_ATOMIC = 151,
+  Kind_STATIC_ASSERT_STATEMENT = 152,
+  Kind_GENERIC_SELECTION = 153,
+  Kind_GENERIC_SELECTOR = 154,
+  Kind_GENERIC_ASSOCIATION_LIST = 155,
+  Kind_GENERIC_ASSOCIATION = 156,
+  Kind_ALIGNAS = 157,
+  Kind_DECLTYPE = 158,
+  Kind_CAPTURE = 159,
+  Kind_LAMBDA_CAPTURE = 160,
+  Kind_NOEXCEPT = 161,
+  Kind_TYPENAME = 162,
+  Kind_ALIGNOF = 163,
+  Kind_TYPEID = 164,
+  Kind_SIZEOF_PACK = 165,
+  Kind_ENUM_CLASS = 166,
+  Kind_ENUM_CLASS_DECLARATION = 167,
+  Kind_REF_QUALIFIER = 168,
+  Kind_SIGNAL_ACCESS = 169,
+  Kind_FOREVER_STATEMENT = 170,
+  Kind_EMIT_STATEMENT = 171,
+  Kind_CPP_DIRECTIVE = 172,
+  Kind_CPP_FILENAME = 173,
+  Kind_FILE = 174,
+  Kind_NUMBER = 175,
+  Kind_CPP_NUMBER = 176,
+  Kind_CPP_LITERAL = 177,
+  Kind_CPP_MACRO_DEFN = 178,
+  Kind_CPP_MACRO_VALUE = 179,
+  Kind_ERROR = 180,
+  Kind_CPP_ERROR = 181,
+  Kind_CPP_WARNING = 182,
+  Kind_CPP_PRAGMA = 183,
+  Kind_CPP_INCLUDE = 184,
+  Kind_CPP_DEFINE = 185,
+  Kind_CPP_UNDEF = 186,
+  Kind_CPP_LINE = 187,
+  Kind_CPP_IF = 188,
+  Kind_CPP_IFDEF = 189,
+  Kind_CPP_IFNDEF = 190,
+  Kind_CPP_THEN = 191,
+  Kind_CPP_ELSE = 192,
+  Kind_CPP_ELIF = 193,
+  Kind_CPP_EMPTY = 194,
+  Kind_CPP_REGION = 195,
+  Kind_CPP_ENDREGION = 196,
+  Kind_USING_STMT = 197,
+  Kind_ESCAPE = 198,
+  Kind_VALUE = 199,
+  Kind_CPP_IMPORT = 200,
+  Kind_CPP_ENDIF = 201,
+  Kind_MARKER = 202,
+  Kind_ERROR_PARSE = 203,
+  Kind_ERROR_MODE = 204,
+  Kind_IMPLEMENTS = 205,
+  Kind_EXTENDS = 206,
+  Kind_IMPORT = 207,
+  Kind_PACKAGE = 208,
+  Kind_ASSERT_STATEMENT = 209,
+  Kind_INTERFACE = 210,
+  Kind_INTERFACE_DECLARATION = 211,
+  Kind_SYNCHRONIZED_STATEMENT = 212,
+  Kind_ANNOTATION = 213,
+  Kind_STATIC_BLOCK = 214,
+  Kind_CHECKED_STATEMENT = 215,
+  Kind_UNCHECKED_STATEMENT = 216,
+  Kind_ATTRIBUTE = 217,
+  Kind_TARGET = 218,
+  Kind_UNSAFE_STATEMENT = 219,
+  Kind_LOCK_STATEMENT = 220,
+  Kind_FIXED_STATEMENT = 221,
+  Kind_TYPEOF = 222,
+  Kind_USING_STATEMENT = 223,
+  Kind_FUNCTION_DELEGATE = 224,
+  Kind_CONSTRAINT = 225,
+  Kind_LINQ = 226,
+  Kind_FROM = 227,
+  Kind_WHERE = 228,
+  Kind_SELECT = 229,
+  Kind_LET = 230,
+  Kind_ORDERBY = 231,
+  Kind_JOIN = 232,
+  Kind_GROUP = 233,
+  Kind_IN = 234,
+  Kind_ON = 235,
+  Kind_EQUALS = 236,
+  Kind_BY = 237,
+  Kind_INTO = 238,
+  Kind_EMPTY = 239,
+  Kind_EMPTY_STMT = 240,
+  Kind_RECEIVER = 241,
+  Kind_MESSAGE = 242,
+  Kind_SELECTOR = 243,
+  Kind_PROTOCOL_LIST = 244,
+  Kind_CATEGORY = 245,
+  Kind_PROTOCOL = 246,
+  Kind_REQUIRED_DEFAULT = 247,
+  Kind_REQUIRED = 248,
+  Kind_OPTIONAL = 249,
+  Kind_ATTRIBUTE_LIST = 250,
+  Kind_SYNTHESIZE = 251,
+  Kind_DYNAMIC = 252,
+  Kind_ENCODE = 253,
+  Kind_AUTORELEASEPOOL = 254,
+  Kind_COMPATIBILITY_ALIAS = 255,
+  Kind_NIL = 256,
+  Kind_CLASS_INTERFACE = 257,
+  Kind_CLASS_IMPLEMENTATION = 258,
+  Kind_PROTOCOL_DECLARATION = 259,
+  Kind_CAST = 260,
+  Kind_CONST_CAST = 261,
+  Kind_DYNAMIC_CAST = 262,
+  Kind_REINTERPRET_CAST = 263,
+  Kind_STATIC_CAST = 264,
+  Kind_POSITION = 265,
+  Kind_CUDA_ARGUMENT_LIST = 266,
+  Kind_OMP_DIRECTIVE = 267,
+  Kind_OMP_NAME = 268,
+  Kind_OMP_CLAUSE = 269,
+  Kind_OMP_ARGUMENT_LIST = 270,
+  Kind_OMP_ARGUMENT = 271,
+  Kind_OMP_EXPRESSION = 272,
+  Kind_END_ELEMENT_TOKEN = 273,
+  Kind_MAIN = 274,
+  Kind_BREAK = 275,
+  Kind_CONTINUE = 276,
+  Kind_WHILE = 277,
+  Kind_DO = 278,
+  Kind_FOR = 279,
+  Kind_IF = 280,
+  Kind_GOTO = 281,
+  Kind_VISUAL_CXX_ASM = 282,
+  Kind_SIZEOF = 283,
+  Kind_AUTO = 284,
+  Kind_REGISTER = 285,
+  Kind_RESTRICT = 286,
+  Kind_IMAGINARY = 287,
+  Kind_NORETURN = 288,
+  Kind_STATIC_ASSERT = 289,
+  Kind_CRESTRICT = 290,
+  Kind_CXX_TRY = 291,
+  Kind_CXX_CATCH = 292,
+  Kind_CXX_CLASS = 293,
+  Kind_CONSTEXPR = 294,
+  Kind_THREAD_LOCAL = 295,
+  Kind_NULLPTR = 296,
+  Kind_VOID = 297,
+  Kind_RETURN = 298,
+  Kind_INCLUDE = 299,
+  Kind_DEFINE = 300,
+  Kind_ELIF = 301,
+  Kind_ENDIF = 302,
+  Kind_ERRORPREC = 303,
+  Kind_WARNING = 304,
+  Kind_IFDEF = 305,
+  Kind_IFNDEF = 306,
+  Kind_LINE = 307,
+  Kind_PRAGMA = 308,
+  Kind_UNDEF = 309,
+  Kind_INLINE = 310,
+  Kind_MACRO_TYPE_NAME = 311,
+  Kind_MACRO_CASE = 312,
+  Kind_MACRO_LABEL = 313,
+  Kind_SPECIFIER = 314,
+  Kind_TRY = 315,
+  Kind_CATCH = 316,
+  Kind_THROW = 317,
+  Kind_THROWS = 318,
+  Kind_PUBLIC = 319,
+  Kind_PRIVATE = 320,
+  Kind_PROTECTED = 321,
+  Kind_VIRTUAL = 322,
+  Kind_EXPLICIT = 323,
+  Kind_FOREVER = 324,
+  Kind_SIGNAL = 325,
+  Kind_EMIT = 326,
+  Kind_NEW = 327,
+  Kind_DELETE = 328,
+  Kind_STATIC = 329,
+  Kind_CONST = 330,
+  Kind_MUTABLE = 331,
+  Kind_VOLATILE = 332,
+  Kind_TRANSIENT = 333,
+  Kind_FINALLY = 334,
+  Kind_FINAL = 335,
+  Kind_ABSTRACT = 336,
+  Kind_SUPER = 337,
+  Kind_SYNCHRONIZED = 338,
+  Kind_NATIVE = 339,
+  Kind_STRICTFP = 340,
+  Kind_NULLLITERAL = 341,
+  Kind_ASSERT = 342,
+  Kind_FOREACH = 343,
+  Kind_REF = 344,
+  Kind_OUT = 345,
+  Kind_LOCK = 346,
+  Kind_IS = 347,
+  Kind_INTERNAL = 348,
+  Kind_SEALED = 349,
+  Kind_OVERRIDE = 350,
+  Kind_IMPLICIT = 351,
+  Kind_STACKALLOC = 352,
+  Kind_AS = 353,
+  Kind_DELEGATE = 354,
+  Kind_FIXED = 355,
+  Kind_CHECKED = 356,
+  Kind_UNCHECKED = 357,
+  Kind_REGION = 358,
+  Kind_ENDREGION = 359,
+  Kind_UNSAFE = 360,
+  Kind_READONLY = 361,
+  Kind_GET = 362,
+  Kind_SET = 363,
+  Kind_ADD = 364,
+  Kind_REMOVE = 365,
+  Kind_YIELD = 366,
+  Kind_PARTIAL = 367,
+  Kind_AWAIT = 368,
+  Kind_ASYNC = 369,
+  Kind_THIS = 370,
+  Kind_PARAMS = 371,
+  Kind_ALIAS = 372,
+  Kind_ASCENDING = 373,
+  Kind_DESCENDING = 374,
+  Kind_ATINTERFACE = 375,
+  Kind_ATIMPLEMENTATION = 376,
+  Kind_ATEND = 377,
+  Kind_ATPROTOCOL = 378,
+  Kind_ATREQUIRED = 379,
+  Kind_ATOPTIONAL = 380,
+  Kind_ATCLASS = 381,
+  Kind_WEAK = 382,
+  Kind_STRONG = 383,
+  Kind_OMP_OMP = 384,
+  Kind_SPECIAL_CHARS = 385,
   Kind_MIN = Kind_UNIT_KIND,
   Kind_MAX = Kind_SPECIAL_CHARS
 };
@@ -594,7 +599,6 @@ inline const char **EnumNamesKind() {
     "FOR_INCREMENT",
     "FOR_LIKE_CONTROL",
     "EXPRESSION_STATEMENT",
-    "",
     "FUNCTION_CALL",
     "DECLARATION_STATEMENT",
     "DECLARATION",
@@ -683,8 +687,6 @@ inline const char **EnumNamesKind() {
     "SIZEOF_PACK",
     "ENUM_CLASS",
     "ENUM_CLASS_DECLARATION",
-    "",
-    "",
     "REF_QUALIFIER",
     "SIGNAL_ACCESS",
     "FOREVER_STATEMENT",
@@ -731,7 +733,6 @@ inline const char **EnumNamesKind() {
     "INTERFACE_DECLARATION",
     "SYNCHRONIZED_STATEMENT",
     "ANNOTATION",
-    "",
     "STATIC_BLOCK",
     "CHECKED_STATEMENT",
     "UNCHECKED_STATEMENT",
@@ -743,7 +744,6 @@ inline const char **EnumNamesKind() {
     "TYPEOF",
     "USING_STATEMENT",
     "FUNCTION_DELEGATE",
-    "",
     "CONSTRAINT",
     "LINQ",
     "FROM",
@@ -769,7 +769,6 @@ inline const char **EnumNamesKind() {
     "REQUIRED_DEFAULT",
     "REQUIRED",
     "OPTIONAL",
-    "",
     "ATTRIBUTE_LIST",
     "SYNTHESIZE",
     "DYNAMIC",
@@ -801,23 +800,12 @@ inline const char **EnumNamesKind() {
     "DO",
     "FOR",
     "IF",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     "GOTO",
-    "",
     "VISUAL_CXX_ASM",
     "SIZEOF",
-    "",
     "AUTO",
     "REGISTER",
     "RESTRICT",
-    "",
-    "",
-    "",
     "IMAGINARY",
     "NORETURN",
     "STATIC_ASSERT",
@@ -826,20 +814,8 @@ inline const char **EnumNamesKind() {
     "CXX_CATCH",
     "CXX_CLASS",
     "CONSTEXPR",
-    "",
     "THREAD_LOCAL",
     "NULLPTR",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     "VOID",
     "RETURN",
     "INCLUDE",
@@ -857,26 +833,19 @@ inline const char **EnumNamesKind() {
     "MACRO_TYPE_NAME",
     "MACRO_CASE",
     "MACRO_LABEL",
-    "",
     "SPECIFIER",
     "TRY",
     "CATCH",
     "THROW",
     "THROWS",
-    "",
     "PUBLIC",
     "PRIVATE",
     "PROTECTED",
     "VIRTUAL",
-    "",
-    "",
     "EXPLICIT",
     "FOREVER",
     "SIGNAL",
     "EMIT",
-    "",
-    "",
-    "",
     "NEW",
     "DELETE",
     "STATIC",
@@ -884,12 +853,7 @@ inline const char **EnumNamesKind() {
     "MUTABLE",
     "VOLATILE",
     "TRANSIENT",
-    "",
-    "",
     "FINALLY",
-    "",
-    "",
-    "",
     "FINAL",
     "ABSTRACT",
     "SUPER",
@@ -901,7 +865,6 @@ inline const char **EnumNamesKind() {
     "FOREACH",
     "REF",
     "OUT",
-    "",
     "LOCK",
     "IS",
     "INTERNAL",
@@ -925,43 +888,21 @@ inline const char **EnumNamesKind() {
     "YIELD",
     "PARTIAL",
     "AWAIT",
-    "",
     "ASYNC",
     "THIS",
     "PARAMS",
-    "",
     "ALIAS",
-    "",
-    "",
-    "",
-    "",
-    "",
     "ASCENDING",
     "DESCENDING",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
     "ATINTERFACE",
     "ATIMPLEMENTATION",
     "ATEND",
     "ATPROTOCOL",
     "ATREQUIRED",
     "ATOPTIONAL",
-    "",
-    "",
-    "",
-    "",
-    "",
     "ATCLASS",
-    "",
     "WEAK",
     "STRONG",
-    "",
-    "",
-    "",
     "OMP_OMP",
     "SPECIAL_CHARS",
     nullptr
@@ -1524,6 +1465,7 @@ inline const char *EnumNameCloneType(CloneType e) {
 }  // namespace _Pair
 }  // namespace _Pairs
 
+namespace _Slices {
 namespace _Slice {
 
 enum ChangeType {
@@ -1550,6 +1492,7 @@ inline const char *EnumNameChangeType(ChangeType e) {
 }
 
 }  // namespace _Slice
+}  // namespace _Slices
 
 struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
@@ -3314,13 +3257,65 @@ inline flatbuffers::Offset<Author> CreateAuthorDirect(
 
 }  // namespace _Log
 
+struct Slices FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
+  enum {
+    VT_SLICE = 4
+  };
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::Slice>> *slice() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::Slice>> *>(VT_SLICE);
+  }
+  bool Verify(flatbuffers::Verifier &verifier) const {
+    return VerifyTableStart(verifier) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICE) &&
+           verifier.Verify(slice()) &&
+           verifier.VerifyVectorOfTables(slice()) &&
+           verifier.EndTable();
+  }
+};
+
+struct SlicesBuilder {
+  flatbuffers::FlatBufferBuilder &fbb_;
+  flatbuffers::uoffset_t start_;
+  void add_slice(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::Slice>>> slice) {
+    fbb_.AddOffset(Slices::VT_SLICE, slice);
+  }
+  SlicesBuilder(flatbuffers::FlatBufferBuilder &_fbb)
+        : fbb_(_fbb) {
+    start_ = fbb_.StartTable();
+  }
+  SlicesBuilder &operator=(const SlicesBuilder &);
+  flatbuffers::Offset<Slices> Finish() {
+    const auto end = fbb_.EndTable(start_, 1);
+    auto o = flatbuffers::Offset<Slices>(end);
+    return o;
+  }
+};
+
+inline flatbuffers::Offset<Slices> CreateSlices(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::Slice>>> slice = 0) {
+  SlicesBuilder builder_(_fbb);
+  builder_.add_slice(slice);
+  return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Slices> CreateSlicesDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    const std::vector<flatbuffers::Offset<_fast::_Slices::Slice>> *slice = nullptr) {
+  return _fast::CreateSlices(
+      _fbb,
+      slice ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::Slice>>(*slice) : 0);
+}
+
+namespace _Slices {
+
 struct Slice FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
     VT_FILE = 4,
     VT_HASH = 6
   };
-  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>> *file() const {
-    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>> *>(VT_FILE);
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::SourceFile>> *file() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::SourceFile>> *>(VT_FILE);
   }
   const flatbuffers::String *hash() const {
     return GetPointer<const flatbuffers::String *>(VT_HASH);
@@ -3339,7 +3334,7 @@ struct Slice FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct SliceBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
-  void add_file(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>>> file) {
+  void add_file(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::SourceFile>>> file) {
     fbb_.AddOffset(Slice::VT_FILE, file);
   }
   void add_hash(flatbuffers::Offset<flatbuffers::String> hash) {
@@ -3359,7 +3354,7 @@ struct SliceBuilder {
 
 inline flatbuffers::Offset<Slice> CreateSlice(
     flatbuffers::FlatBufferBuilder &_fbb,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::SourceFile>>> file = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::SourceFile>>> file = 0,
     flatbuffers::Offset<flatbuffers::String> hash = 0) {
   SliceBuilder builder_(_fbb);
   builder_.add_hash(hash);
@@ -3369,11 +3364,11 @@ inline flatbuffers::Offset<Slice> CreateSlice(
 
 inline flatbuffers::Offset<Slice> CreateSliceDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
-    const std::vector<flatbuffers::Offset<_fast::_Slice::SourceFile>> *file = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slices::_Slice::SourceFile>> *file = nullptr,
     const char *hash = nullptr) {
-  return _fast::CreateSlice(
+  return _fast::_Slices::CreateSlice(
       _fbb,
-      file ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::SourceFile>>(*file) : 0,
+      file ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::_Slice::SourceFile>>(*file) : 0,
       hash ? _fbb.CreateString(hash) : 0);
 }
 
@@ -3385,8 +3380,8 @@ struct SourceFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_NAME = 6,
     VT_TYPE = 8
   };
-  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>> *function() const {
-    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>> *>(VT_FUNCTION);
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::Function>> *function() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::Function>> *>(VT_FUNCTION);
   }
   const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
@@ -3409,7 +3404,7 @@ struct SourceFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct SourceFileBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
-  void add_function(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>>> function) {
+  void add_function(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::Function>>> function) {
     fbb_.AddOffset(SourceFile::VT_FUNCTION, function);
   }
   void add_name(flatbuffers::Offset<flatbuffers::String> name) {
@@ -3432,7 +3427,7 @@ struct SourceFileBuilder {
 
 inline flatbuffers::Offset<SourceFile> CreateSourceFile(
     flatbuffers::FlatBufferBuilder &_fbb,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>>> function = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::Function>>> function = 0,
     flatbuffers::Offset<flatbuffers::String> name = 0,
     int32_t type = 0) {
   SourceFileBuilder builder_(_fbb);
@@ -3444,12 +3439,12 @@ inline flatbuffers::Offset<SourceFile> CreateSourceFile(
 
 inline flatbuffers::Offset<SourceFile> CreateSourceFileDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
-    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>> *function = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::Function>> *function = nullptr,
     const char *name = nullptr,
     int32_t type = 0) {
-  return _fast::_Slice::CreateSourceFile(
+  return _fast::_Slices::_Slice::CreateSourceFile(
       _fbb,
-      function ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::Function>>(*function) : 0,
+      function ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::Function>>(*function) : 0,
       name ? _fbb.CreateString(name) : 0,
       type);
 }
@@ -3462,8 +3457,8 @@ struct Function FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_NAME = 6,
     VT_TYPE = 8
   };
-  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>> *variable() const {
-    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>> *>(VT_VARIABLE);
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::Variable>> *variable() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::Variable>> *>(VT_VARIABLE);
   }
   const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
@@ -3486,7 +3481,7 @@ struct Function FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct FunctionBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
-  void add_variable(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>>> variable) {
+  void add_variable(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::Variable>>> variable) {
     fbb_.AddOffset(Function::VT_VARIABLE, variable);
   }
   void add_name(flatbuffers::Offset<flatbuffers::String> name) {
@@ -3509,7 +3504,7 @@ struct FunctionBuilder {
 
 inline flatbuffers::Offset<Function> CreateFunction(
     flatbuffers::FlatBufferBuilder &_fbb,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>>> variable = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::Variable>>> variable = 0,
     flatbuffers::Offset<flatbuffers::String> name = 0,
     int32_t type = 0) {
   FunctionBuilder builder_(_fbb);
@@ -3521,12 +3516,12 @@ inline flatbuffers::Offset<Function> CreateFunction(
 
 inline flatbuffers::Offset<Function> CreateFunctionDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
-    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>> *variable = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::Variable>> *variable = nullptr,
     const char *name = nullptr,
     int32_t type = 0) {
-  return _fast::_Slice::_SourceFile::CreateFunction(
+  return _fast::_Slices::_Slice::_SourceFile::CreateFunction(
       _fbb,
-      variable ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::Variable>>(*variable) : 0,
+      variable ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::Variable>>(*variable) : 0,
       name ? _fbb.CreateString(name) : 0,
       type);
 }
@@ -3538,7 +3533,7 @@ struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_NAME = 4,
     VT_POS = 6,
     VT_TYPE = 8,
-    VT_DEF = 10,
+    VT_DEFN = 10,
     VT_USE = 12,
     VT_DVAR = 14,
     VT_ALIAS = 16,
@@ -3547,17 +3542,17 @@ struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::String *name() const {
     return GetPointer<const flatbuffers::String *>(VT_NAME);
   }
-  const _fast::_Slice::_SourceFile::_Function::_Variable::Position *pos() const {
-    return GetPointer<const _fast::_Slice::_SourceFile::_Function::_Variable::Position *>(VT_POS);
+  const _fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position *pos() const {
+    return GetPointer<const _fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position *>(VT_POS);
   }
   int32_t type() const {
     return GetField<int32_t>(VT_TYPE, 0);
   }
-  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *def() const {
-    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *>(VT_DEF);
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>> *defn() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>> *>(VT_DEFN);
   }
-  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *use() const {
-    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *>(VT_USE);
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>> *use() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>> *>(VT_USE);
   }
   const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *dvar() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *>(VT_DVAR);
@@ -3565,8 +3560,8 @@ struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *alias() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>> *>(VT_ALIAS);
   }
-  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *cfunc() const {
-    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *>(VT_CFUNC);
+  const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *cfunc() const {
+    return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *>(VT_CFUNC);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -3575,9 +3570,9 @@ struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<flatbuffers::uoffset_t>(verifier, VT_POS) &&
            verifier.VerifyTable(pos()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEF) &&
-           verifier.Verify(def()) &&
-           verifier.VerifyVectorOfTables(def()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEFN) &&
+           verifier.Verify(defn()) &&
+           verifier.VerifyVectorOfTables(defn()) &&
            VerifyField<flatbuffers::uoffset_t>(verifier, VT_USE) &&
            verifier.Verify(use()) &&
            verifier.VerifyVectorOfTables(use()) &&
@@ -3600,16 +3595,16 @@ struct VariableBuilder {
   void add_name(flatbuffers::Offset<flatbuffers::String> name) {
     fbb_.AddOffset(Variable::VT_NAME, name);
   }
-  void add_pos(flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position> pos) {
+  void add_pos(flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position> pos) {
     fbb_.AddOffset(Variable::VT_POS, pos);
   }
   void add_type(int32_t type) {
     fbb_.AddElement<int32_t>(Variable::VT_TYPE, type, 0);
   }
-  void add_def(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> def) {
-    fbb_.AddOffset(Variable::VT_DEF, def);
+  void add_defn(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>>> defn) {
+    fbb_.AddOffset(Variable::VT_DEFN, defn);
   }
-  void add_use(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> use) {
+  void add_use(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>>> use) {
     fbb_.AddOffset(Variable::VT_USE, use);
   }
   void add_dvar(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> dvar) {
@@ -3618,7 +3613,7 @@ struct VariableBuilder {
   void add_alias(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> alias) {
     fbb_.AddOffset(Variable::VT_ALIAS, alias);
   }
-  void add_cfunc(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>> cfunc) {
+  void add_cfunc(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>> cfunc) {
     fbb_.AddOffset(Variable::VT_CFUNC, cfunc);
   }
   VariableBuilder(flatbuffers::FlatBufferBuilder &_fbb)
@@ -3636,19 +3631,19 @@ struct VariableBuilder {
 inline flatbuffers::Offset<Variable> CreateVariable(
     flatbuffers::FlatBufferBuilder &_fbb,
     flatbuffers::Offset<flatbuffers::String> name = 0,
-    flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position> pos = 0,
+    flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position> pos = 0,
     int32_t type = 0,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> def = 0,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>> use = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>>> defn = 0,
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>>> use = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> dvar = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<flatbuffers::String>>> alias = 0,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>> cfunc = 0) {
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>> cfunc = 0) {
   VariableBuilder builder_(_fbb);
   builder_.add_cfunc(cfunc);
   builder_.add_alias(alias);
   builder_.add_dvar(dvar);
   builder_.add_use(use);
-  builder_.add_def(def);
+  builder_.add_defn(defn);
   builder_.add_type(type);
   builder_.add_pos(pos);
   builder_.add_name(name);
@@ -3658,23 +3653,23 @@ inline flatbuffers::Offset<Variable> CreateVariable(
 inline flatbuffers::Offset<Variable> CreateVariableDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
     const char *name = nullptr,
-    flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position> pos = 0,
+    flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position> pos = 0,
     int32_t type = 0,
-    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *def = nullptr,
-    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>> *use = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>> *defn = nullptr,
+    const std::vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>> *use = nullptr,
     const std::vector<flatbuffers::Offset<flatbuffers::String>> *dvar = nullptr,
     const std::vector<flatbuffers::Offset<flatbuffers::String>> *alias = nullptr,
-    const std::vector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *cfunc = nullptr) {
-  return _fast::_Slice::_SourceFile::_Function::CreateVariable(
+    const std::vector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>> *cfunc = nullptr) {
+  return _fast::_Slices::_Slice::_SourceFile::_Function::CreateVariable(
       _fbb,
       name ? _fbb.CreateString(name) : 0,
       pos,
       type,
-      def ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>(*def) : 0,
-      use ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::Position>>(*use) : 0,
+      defn ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>>(*defn) : 0,
+      use ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::Position>>(*use) : 0,
       dvar ? _fbb.CreateVector<flatbuffers::Offset<flatbuffers::String>>(*dvar) : 0,
       alias ? _fbb.CreateVector<flatbuffers::Offset<flatbuffers::String>>(*alias) : 0,
-      cfunc ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>(*cfunc) : 0);
+      cfunc ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Slices::_Slice::_SourceFile::_Function::_Variable::FunctionDecl>>(*cfunc) : 0);
 }
 
 namespace _Variable {
@@ -3794,7 +3789,7 @@ inline flatbuffers::Offset<FunctionDecl> CreateFunctionDeclDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
     const char *name = nullptr,
     int32_t lineno = 0) {
-  return _fast::_Slice::_SourceFile::_Function::_Variable::CreateFunctionDecl(
+  return _fast::_Slices::_Slice::_SourceFile::_Function::_Variable::CreateFunctionDecl(
       _fbb,
       name ? _fbb.CreateString(name) : 0,
       lineno);
@@ -3804,6 +3799,7 @@ inline flatbuffers::Offset<FunctionDecl> CreateFunctionDeclDirect(
 }  // namespace _Function
 }  // namespace _SourceFile
 }  // namespace _Slice
+}  // namespace _Slices
 
 struct Data FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
@@ -3854,7 +3850,7 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_LOG = 6,
     VT_DELTA = 8,
     VT_PAIRS = 10,
-    VT_SLICE = 12
+    VT_SLICES = 12
   };
   const _fast::Element *element() const {
     return GetPointer<const _fast::Element *>(VT_ELEMENT);
@@ -3868,8 +3864,8 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const _fast::Pairs *pairs() const {
     return GetPointer<const _fast::Pairs *>(VT_PAIRS);
   }
-  const _fast::Slice *slice() const {
-    return GetPointer<const _fast::Slice *>(VT_SLICE);
+  const _fast::Slices *slices() const {
+    return GetPointer<const _fast::Slices *>(VT_SLICES);
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
@@ -3881,8 +3877,8 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            verifier.VerifyTable(delta()) &&
            VerifyField<flatbuffers::uoffset_t>(verifier, VT_PAIRS) &&
            verifier.VerifyTable(pairs()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICE) &&
-           verifier.VerifyTable(slice()) &&
+           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICES) &&
+           verifier.VerifyTable(slices()) &&
            verifier.EndTable();
   }
 };
@@ -3902,8 +3898,8 @@ struct Anonymous3Builder {
   void add_pairs(flatbuffers::Offset<_fast::Pairs> pairs) {
     fbb_.AddOffset(Anonymous3::VT_PAIRS, pairs);
   }
-  void add_slice(flatbuffers::Offset<_fast::Slice> slice) {
-    fbb_.AddOffset(Anonymous3::VT_SLICE, slice);
+  void add_slices(flatbuffers::Offset<_fast::Slices> slices) {
+    fbb_.AddOffset(Anonymous3::VT_SLICES, slices);
   }
   Anonymous3Builder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
@@ -3923,9 +3919,9 @@ inline flatbuffers::Offset<Anonymous3> CreateAnonymous3(
     flatbuffers::Offset<_fast::Log> log = 0,
     flatbuffers::Offset<_fast::Delta> delta = 0,
     flatbuffers::Offset<_fast::Pairs> pairs = 0,
-    flatbuffers::Offset<_fast::Slice> slice = 0) {
+    flatbuffers::Offset<_fast::Slices> slices = 0) {
   Anonymous3Builder builder_(_fbb);
-  builder_.add_slice(slice);
+  builder_.add_slices(slices);
   builder_.add_pairs(pairs);
   builder_.add_delta(delta);
   builder_.add_log(log);
@@ -3967,6 +3963,8 @@ namespace _Hunk {
 
 }  // namespace _Log
 
+namespace _Slices {
+
 namespace _Slice {
 
 namespace _SourceFile {
@@ -3979,6 +3977,7 @@ namespace _Variable {
 }  // namespace _Function
 }  // namespace _SourceFile
 }  // namespace _Slice
+}  // namespace _Slices
 
 namespace _Data {
 
