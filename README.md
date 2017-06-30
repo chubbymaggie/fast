@@ -3,13 +3,18 @@
 
 # `fast` -- Flat Abstract Syntax Trees
 
-Usually abstract syntax trees (AST) are considered as hierarchical, recursive
-structures for program code.  Parsing code to obtain AST, however, typically
-requires a full traverse of such structures.  Can we think differently?
-Instead of parsing the code structures, why cannot they be loaded into the memory
-before any further analysis? This project adopts flatbuffers, a more efficient
-binary structure to represent the ASTs, and demonstates its wide applicability
-to various software development tasks.
+Usually abstract syntax trees (ASTs) are considered as hierarchical, recursive
+structures for representing source code.  Parsing code into ASTs, however,
+typically requires a full traversal of such trees.  
+
+Can we think differently?
+
+Instead of parsing the code structures, why cannot they be loaded into the
+memory before any further analysis? 
+
+This project adopts flatbuffers, a more efficient binary structure to represent
+the ASTs, and demonstates its wide applicability to various software
+development tasks.
 
 [Once installed](doc/installation.md), [this tool](doc/options.md)
 [manipulates](doc/usage.md) [source code](doc/example.md) [10x
