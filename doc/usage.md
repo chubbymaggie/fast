@@ -6,6 +6,8 @@
 
   $ fast [/usr/local/share/example.cc](../test/example.cc) [example.xml](../test/example.xml)
 
+  $ fast ../test [all.xml](../test/all.xml)
+
 ### Convert SrcML back to source code
 
   $ fast [Hello.xml](../test/Hello.xml) [Hello.java](../test/Hello.java)
@@ -15,6 +17,10 @@
   $ fast [Hello.xml](../test/Hello.xml) [Hello.pb](../test/Hello.pb)
 
   $ fast [example.xml](../test/example.xml) [example.fbs](../test/example.fbs)
+
+  $ fast ../test [all.pb](../test/all.pb)
+
+  $ fast ../test [all.pb](../test/all.fbs)
 
 ### Convert binary AST back to SrcML
 

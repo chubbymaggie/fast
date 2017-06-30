@@ -1750,6 +1750,9 @@ testLoadPB() {
 	fast=cat same eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d test.txt
 	$fast -e test.txt test.pb
 	$fast -e test.txt > test.pb
+	$fast . all.xml
+	$fast . all.pb
+	$fast . all.fbs
 }
 
 testFinalReport() {
