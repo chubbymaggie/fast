@@ -56,6 +56,8 @@ int slice = 0;
 int mySlice = 0; 
 int load_only = 0; 
 int antlr = 0; 
+int git = 0; 
+string head = "HEAD";
 #endif
 
 int loadSrcML(int load_only, int argc, char **argv);
@@ -929,6 +931,11 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
 		if (!is_xml) {
 			string srcmlCommand = "srcml";
+			if (git) {
+				string command = "git --work-tree=" + head + " checkout -f " + head + " -- .";
+				system(command.c_str());
+				srcmlCommand = srcmlCommand + " " + head;
+			}
 			for (int i = 1; i < argc - 1; i++)
 				srcmlCommand = srcmlCommand + " " + argv[1];
 			if (position)
@@ -962,11 +969,12 @@ int loadSrcML(int load_only, int argc, char **argv) {
 }
 
 void usage() {
-    cerr << "Usage: fast [-acdehpsSv] input_file output_file"  << endl
+    cerr << "Usage: fast [-acdeg:hpsSv] input_file output_file"  << endl
 	 << "-a\tuse Antlr's AST instead of srcML's" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-e\tEncode text format into protobuf" << endl
+	 << "-g <head>\tCheckout Git <head> for analysis" << endl
 	 << "-h\tPrint this help message" << endl
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
@@ -1028,7 +1036,7 @@ int main(int argc, char* argv[]) {
   mySlice = 0;
   encode = 0;
   antlr = 0;
-  while ((c = getopt (argc, argv, "acdehpsSv")) != -1)
+  while ((c = getopt (argc, argv, "acdeg:hpsSv")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -1036,6 +1044,10 @@ int main(int argc, char* argv[]) {
       case 'v':
 	    cerr << "fast 0.0.2"  << endl;
 	    return 0;
+      case 'g':
+	    git = 1;
+	    head = optarg;
+	    break;
       case 'a':
 	    antlr = 1;
 	    break;
