@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/yijunyu/fast.svg?branch=master)](https://travis-ci.org/yijunyu/fast)
 [Coverage](https://htmlpreview.github.io/?https://github.com/yijunyu/fast/blob/master/test/src/index.html)
 
-# `fast` -- Flatten Abstract Syntax Trees
+# `fast` -- Flat Abstract Syntax Trees
 [Once installed](doc/installation.md), [this tool](doc/options.md) [manipulates](doc/usage.md) [source code](doc/example.md) [10x faster](doc/performance.md). 
 Your software development projects may benefit directly from `fast` if you use the following related projects:
 * [antlr3](https://github.com/antlr/antlr3)
