@@ -41,8 +41,8 @@ stdouterr() {
 export -f stdouterr
 
 testhello() {
-	stderr 1eaad015f4b53d020bf30f1840feabcf1acc5c6134053f39b935188854f6bf22
-	stderr 1eaad015f4b53d020bf30f1840feabcf1acc5c6134053f39b935188854f6bf22 -h
+	stderr 76a9db58ebfda14a56d6c536b59322d069dfa8a4f9d76ee2c41803d7f8c036c5
+	stderr 76a9db58ebfda14a56d6c536b59322d069dfa8a4f9d76ee2c41803d7f8c036c5 -h
 	stderr 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 Hello.java Hello.java
 }
 

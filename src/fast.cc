@@ -27,7 +27,7 @@
 #include <sys/stat.h> 
 #include <srcSliceHandler.hpp>
 #include <srcSlice.hpp>
-
+#include <array>
 using namespace std;
 using namespace rapidxml;
 
@@ -57,6 +57,7 @@ int mySlice = 0;
 int load_only = 0; 
 int antlr = 0; 
 int git = 0; 
+bool delta = false; 
 string head = "HEAD";
 #endif
 
@@ -860,15 +861,14 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 }
 #endif
 
+string preprocess_git(string head, bool delta);
+
 int loadSrcML(int load_only, int argc, char **argv) {
 	if (load_only && argc != 2 && argc != 3 && argc != 4) 
 		// we only accept maximally three command line arguments
 		return 1;
-	if (git) { // checkout from the current git repository
-		string command = "mkdir -p " + head;
-		system(command.c_str());
-		command = "git --work-tree=" + head + " checkout -f " + head + " -- .";
-		system(command.c_str());
+	if (git) { 
+		head = preprocess_git(head, delta);
 	}
 	string srcmlCommand = "srcml";
 	string antlrCommand = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar:/usr/local/lib/client-2.1.0-SNAPSHOT.jar:/usr/local/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/local/lib/rendersnake-1.9.0.jar:/usr/local/lib/trove4j-3.0.3.jar:/usr/local/lib/simmetrics-core-3.2.3.jar:/usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar Smali";
@@ -892,10 +892,10 @@ int loadSrcML(int load_only, int argc, char **argv) {
 				cerr << "Skipping " << argv[i]
 				     << ": currently only .smali input is supported if -a option is on for antlr grammars" << endl;
 		} else {
-			if (git && i==1)
-				srcmlCommand = srcmlCommand + " " + head + "/" + argv[i];
-			else
-				srcmlCommand = srcmlCommand + " " + argv[i];
+			if (git && i==1 && head != "") {
+				chdir(head.c_str());
+			}
+			srcmlCommand = srcmlCommand + " " + argv[i];
 		} 
 	}
 	if (!antlr) {
@@ -944,12 +944,13 @@ int loadSrcML(int load_only, int argc, char **argv) {
 }
 
 void usage() {
-    cerr << "Usage: fast [-acdeg:hpsSv] input_file output_file"  << endl
+    cerr << "Usage: fast [-acdeDg:hpsSv] input_file output_file"  << endl
 	 << "-a\tuse Antlr's AST instead of srcML's" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
+	 << "-D \tDelta slicing" << endl
 	 << "-e\tEncode text format into protobuf" << endl
-	 << "-g <hash>\tCheckout Git <hash> for analysis" << endl
+	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
 	 << "-h\tPrint this help message" << endl
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
@@ -1011,7 +1012,7 @@ int main(int argc, char* argv[]) {
   mySlice = 0;
   encode = 0;
   antlr = 0;
-  while ((c = getopt (argc, argv, "acdeg:hpsSv")) != -1)
+  while ((c = getopt (argc, argv, "acdDeg:hpsSv")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -1019,10 +1020,12 @@ int main(int argc, char* argv[]) {
       case 'v':
 	    cerr << "fast 0.0.2"  << endl;
 	    return 0;
+      case 'D':
+	    delta = true;
+	    break;
       case 'g':
 	    git = 1;
 	    head = optarg;
-	    // cout << git << " " << optarg << endl;
 	    break;
       case 'a':
 	    antlr = 1;

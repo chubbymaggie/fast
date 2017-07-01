@@ -11,6 +11,7 @@ endif
 
 target+=fast
 target+=process
+target+=slice-diff
 CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
@@ -25,6 +26,9 @@ PB_LIB=-L/usr/local/lib -lprotobuf
 all: $(target)
 
 ./process: process.o fast.pb.o
+	c++ $(OPT) $^ $(PB_LIB) -o $@
+
+./slice-diff: slice-diff.o fast.pb.o
 	c++ $(OPT) $^ $(PB_LIB) -o $@
 
 src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h
@@ -46,7 +50,7 @@ CFLAGS=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/us
 CFLAGS+=$(shell xml2-config --cflags)
 
 prefix=/usr/local
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o src/cpp/output.cpp
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
 	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
 
 install: fast process fast.proto
@@ -82,7 +86,7 @@ endif
 CFLAGS=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
 CFLAGS+=$(shell xml2-config --cflags)
 
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
 	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
 
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
