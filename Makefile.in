@@ -217,7 +217,7 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 
 clean:
 	rm -f fast.cc fast_pb2.py fast.fbs
-	rm -rf $(target) *.proto *.dSYM	_fast/
+	rm -rf $(target) *.proto *.dSYM	_fast/ *.o HEAD
 	rm -rf Makefile Release autom4te.cache config.h config.log config.status configure.scan
 	rm -rf protobuf-3.3.0 protobuf-cpp-3.3.0.tar.gz
 	rm -rf fast_*-1* fast-*
