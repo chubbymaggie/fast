@@ -482,7 +482,7 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 	} else {
 		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s",
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
-		cout << buf << endl;
+		// cout << buf << endl;
 		system(buf);
 	} 
 }
@@ -864,56 +864,65 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	if (load_only && argc != 2 && argc != 3 && argc != 4) 
 		// we only accept maximally three command line arguments
 		return 1;
-	if (argc == 3 || argc == 4) {
-		if (!check_exists(argv[1])) return 1;
-  		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
-		if (!is_xml && !antlr) {
-			// string xml_filename = tmpnam(NULL);
-			char buf[100];
-			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
-			mkstemp(buf);
-			remove(buf);
-			string xml_filename = buf;
-			xml_filename +=	".xml";
-			string srcmlCommand = "srcml ";
-			srcmlCommand = srcmlCommand + argv[1] + " -o " + xml_filename;
-			if (position)
-				srcmlCommand = srcmlCommand + " --position";
-			system(srcmlCommand.c_str());
-			// call the command again, using the generated temporary XML file
-			argv[1] = (char *)xml_filename.c_str();
-			mainRoutine(argc, argv);
-			return remove(xml_filename.c_str());
-		} else if (!is_xml && antlr) {
-			if (strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0) {
-				string cmd = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar:/usr/local/lib/client-2.1.0-SNAPSHOT.jar:/usr/local/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/local/lib/rendersnake-1.9.0.jar:/usr/local/lib/trove4j-3.0.3.jar:/usr/local/lib/simmetrics-core-3.2.3.jar:/usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar Smali";
-				if (argc == 3)
-					cmd = cmd + " " + argv[1] + " " + argv[2];
-				else if (argc == 4)
-					cmd = cmd + " " + argv[1] + " " + argv[2] + " " + argv[3];
-				system(cmd.c_str());
-			} else {
-				cerr << "Please add the ANTLR3 grammar support for the language " << (strstr(argv[1], ".smali")+1) << endl;
-				exit(1);
-			}
+	if (git) { // checkout from the current git repository
+		string command = "mkdir -p " + head;
+		system(command.c_str());
+		command = "git --work-tree=" + head + " checkout -f " + head + " -- .";
+		system(command.c_str());
+	}
+	string srcmlCommand = "srcml";
+	string antlrCommand = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar:/usr/local/lib/client-2.1.0-SNAPSHOT.jar:/usr/local/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/local/lib/rendersnake-1.9.0.jar:/usr/local/lib/trove4j-3.0.3.jar:/usr/local/lib/simmetrics-core-3.2.3.jar:/usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar Smali";
+	bool input_is_xml = false;
+	bool output_is_xml = false;
+	string xml_filename;
+	for (int i = 1; i < (argc == 2? 2 : argc - 1); i++) { // process the inputs, and reserve the last argument as output
+		if (!check_exists(argv[i])) {
+			cerr << "file or folder " << argv[i] << "does not exist!" << endl;
+			return 1;
+		}
+		input_is_xml = strcmp(argv[i]+strlen(argv[i])-4, ".xml")==0;
+		if (input_is_xml) {
+			xml_filename = argv[i];
+		}
+		bool is_smali = antlr && strcmp(argv[i]+strlen(argv[i])-6, ".smali")==0;
+		if (antlr) {
+			if (is_smali)
+				antlrCommand = antlrCommand + " " + argv[i];
+			else
+				cerr << "Skipping " << argv[i]
+				     << ": currently only .smali input is supported if -a option is on for antlr grammars" << endl;
 		} else {
-			string srcmlCommand = "srcml ";
-			srcmlCommand = srcmlCommand + argv[1] + " -o " + argv[2];
+			if (git && i==1)
+				srcmlCommand = srcmlCommand + " " + head + "/" + argv[i];
+			else
+				srcmlCommand = srcmlCommand + " " + argv[i];
+		} 
+	}
+	if (!antlr) {
+		if (position)
+			srcmlCommand = srcmlCommand + " --position";
+		bool is_tmp = false;
+		if (!input_is_xml) { // input is not yet xml, first convert it into xml using srcml
+			output_is_xml = argc == 2 || strcmp(argv[argc-1]+strlen(argv[argc-1])-4, ".xml")==0;
+			if (!slice && output_is_xml) {
+				if (argc == 2)
+					xml_filename = "stdout://-";
+				else
+					xml_filename = argv[argc - 1];
+			} else {
+				char buf[100];
+				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+				mkstemp(buf);
+				remove(buf);
+				xml_filename = buf;
+				xml_filename +=	".xml";
+				is_tmp = true;
+			}
+			srcmlCommand = srcmlCommand + " -o " + xml_filename;
+			// cout << srcmlCommand << endl;
 			system(srcmlCommand.c_str());
 		}
-	} else if (argc == 2) {
-		// invoke srcml and print to standard output
-		string srcmlCommand = "srcml ";
-		srcmlCommand = srcmlCommand + argv[1];
 		if (slice) {
-			char buf[100];
-			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
-			mkstemp(buf);
-			remove(buf);
-			string xml_filename = buf;
-			xml_filename +=	".xml";
-			srcmlCommand = srcmlCommand + " --position" + " -o " + xml_filename;
-			system(srcmlCommand.c_str());
 			string sliceCommand = "srcSlice ";
 			sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
 			system(sliceCommand.c_str());
@@ -921,49 +930,15 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			catCommand = catCommand + xml_filename + ".slice";
 			system(catCommand.c_str());
 			remove((xml_filename + ".slice").c_str());
+		} else if (!input_is_xml && !output_is_xml) { // target is not xml
+			argv[argc-2] = strdup(xml_filename.c_str());
+			loadXML(load_only, 3, argv + argc-3);
+		}
+		if (is_tmp)
 			remove(xml_filename.c_str());
-		} else {
-			if (position)
-				srcmlCommand = srcmlCommand + " --position";
-			system(srcmlCommand.c_str());
-		}
 	} else {
-		bool is_xml = strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0;
-		if (!is_xml) {
-			string srcmlCommand = "srcml";
-			if (git) {
-				string command = "git --work-tree=" + head + " checkout -f " + head + " -- .";
-				system(command.c_str());
-				srcmlCommand = srcmlCommand + " " + head;
-			}
-			for (int i = 1; i < argc - 1; i++)
-				srcmlCommand = srcmlCommand + " " + argv[1];
-			if (position)
-				srcmlCommand = srcmlCommand + " --position";
-			system(srcmlCommand.c_str());
-			string xml_filename;
-			if (!slice) 
-				xml_filename = argv[argc - 1];
-			else {
-				char buf[100];
-				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
-				mkstemp(buf);
-				remove(buf);
-				string xml_filename = buf;
-				xml_filename +=	".xml";
-			}
-			srcmlCommand = srcmlCommand + " -o " + xml_filename;
-			if (slice) {
-				string sliceCommand = "srcSlice ";
-				sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
-				system(sliceCommand.c_str());
-				string catCommand = "cat ";
-				catCommand = catCommand + xml_filename + ".slice";
-				system(catCommand.c_str());
-				remove((xml_filename + ".slice").c_str());
-				remove(xml_filename.c_str());
-			}
-		}
+		antlrCommand = antlrCommand + " " + argv[argc - 1];
+		system(antlrCommand.c_str());
 	}
 	return 0;
 }
@@ -974,7 +949,7 @@ void usage() {
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-e\tEncode text format into protobuf" << endl
-	 << "-g <head>\tCheckout Git <head> for analysis" << endl
+	 << "-g <hash>\tCheckout Git <hash> for analysis" << endl
 	 << "-h\tPrint this help message" << endl
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
@@ -1047,6 +1022,7 @@ int main(int argc, char* argv[]) {
       case 'g':
 	    git = 1;
 	    head = optarg;
+	    // cout << git << " " << optarg << endl;
 	    break;
       case 'a':
 	    antlr = 1;

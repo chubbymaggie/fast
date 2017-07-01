@@ -10,7 +10,7 @@ int n_srcML_invoked = 0;
 /** 
  * convert text into a protobuf element
  */
-bool srcML(fast::Element *unit, std::string text, std::string ext) {
+bool srcML(fast::Data *data, std::string text, std::string ext) {
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXX");
 	int id = mkstemp(buf);
@@ -48,8 +48,9 @@ bool srcML(fast::Element *unit, std::string text, std::string ext) {
 			if (pb_file != NULL) {
 				fclose(pb_file);
 				std::fstream input(pb_filename.c_str(), std::ios::in | std::ios::binary);
-				unit->ParseFromIstream(&input);
+				data->ParseFromIstream(&input);
 				input.close();
+				fast::Element *unit = data->mutable_element();
 				unit->mutable_unit()->set_filename(ext + "." + ext);
 				remove(pb_filename.c_str());
 			}
@@ -100,28 +101,28 @@ bool process_hunk_xml(fast::Element **old_code, fast::Element **new_code, std::s
 	    }
 	} while (linePos != std::string::npos);
 	if (text_old != "") {
-		fast::Element *unit = new fast::Element();
-		bool success = srcML(unit, text_old, ext);
-		if (!success) {
-			std::cerr << "Error found in processing the old text" << std::endl;
-			return false;
-		}
-		// ignore the filename field
-		if (unit!=NULL)
-			unit->mutable_unit()->set_filename("");
-		*old_code = unit;
-	}
-	if (text_new != "") {
-		fast::Element *unit = new fast::Element();
-		bool success = srcML(unit, text_new, ext);
+		fast::Data *data = new fast::Data();
+		bool success = srcML(data, text_old, ext);
 		if (!success) {
 			std::cerr << "Error found in processing the new text" << std::endl;
 			return false;
 		}
 		// ignore the filename field
-		if (unit!=NULL)
-			unit->mutable_unit()->set_filename("");
-		*new_code = unit;
+		if (data!=NULL)
+			data->mutable_element()->mutable_unit()->set_filename("");
+		*old_code = data->mutable_element();
+	}
+	if (text_new != "") {
+		fast::Data *data = new fast::Data();
+		bool success = srcML(data, text_new, ext);
+		if (!success) {
+			std::cerr << "Error found in processing the new text" << std::endl;
+			return false;
+		}
+		// ignore the filename field
+		if (data!=NULL)
+			data->mutable_element()->mutable_unit()->set_filename("");
+		*new_code = data->mutable_element();
 	}
 	return true;
 }

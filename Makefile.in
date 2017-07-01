@@ -16,7 +16,7 @@ protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
 OPT=-O3
-OPT=-g
+OPT=-g -O0 -coverage
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
@@ -25,7 +25,7 @@ PB_LIB=-L/usr/local/lib -lprotobuf
 all: $(target)
 
 ./process: process.o fast.pb.o
-	c++ $^ $(PB_LIB) -o $@
+	c++ $(OPT) $^ $(PB_LIB) -o $@
 
 src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h
 	touch $@
@@ -129,10 +129,10 @@ srcML-src: srcML-src.tar.gz
 	python $^ $@
 
 %.o: src/%.cc
-	c++ -c $(CFLAGS) $^ -o $@
+	c++ $(OPT) -c $(CFLAGS) $^ -o $@
 
 %.o: src/cpp/%.cpp
-	c++ -c $(CFLAGS) $^ -o $@
+	c++ $(OPT) -c $(CFLAGS) $^ -o $@
 
 __main__.py: fast_pb2.py
 

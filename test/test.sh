@@ -14,31 +14,36 @@ fi
 fast=${fast:=../fast}
 process=${process:=../process}
 
-same() {
+stdout() {
 	hash=$1
 	shift
 	assertSame $hash $($fast $@ | shasum -a 256 | awk '{print $1}')
 } 
-export -f same
+export -f stdout
 
-same_error() {
+catout() {
+	fast=cat stdout $@
+}
+export -f catout
+
+stderr() {
 	hash=$1
 	shift
 	assertSame $hash $($fast $@ 2>&1 > /dev/null | shasum -a 256 | awk '{print $1}')
 } 
-export -f same_error
+export -f stderr
 
-same_all() {
+stdouterr() {
 	hash=$1
 	shift
 	assertSame $hash $($fast $@ 2>&1 | shasum -a 256 | awk '{print $1}')
 } 
-export -f same_all
+export -f stdouterr
 
 testhello() {
-	same_error b55664f68e727198bb0bcd5b4ec31c5cfcf47203614855e7ab3d02114d972b56
-	same_error b55664f68e727198bb0bcd5b4ec31c5cfcf47203614855e7ab3d02114d972b56 -h
-	same_error 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 Hello.java Hello.java
+	stderr 1eaad015f4b53d020bf30f1840feabcf1acc5c6134053f39b935188854f6bf22
+	stderr 1eaad015f4b53d020bf30f1840feabcf1acc5c6134053f39b935188854f6bf22 -h
+	stderr 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 Hello.java Hello.java
 }
 
 testJava() 
@@ -51,13 +56,13 @@ public class Hello {
 	}
 }
 EOF
-	fast=cat same a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e Hello.java
+	catout a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e Hello.java
 	$fast Hello.java Hello.xml
-	fast=cat same 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 Hello.xml
+	catout 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 Hello.xml
 	$fast Hello.java Hello.pb
-	same 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 -d Hello.pb
+	stdout 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 -d Hello.pb
 	$fast -d Hello.pb Hello.txt
-	fast=cat same 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 Hello.txt
+	catout 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 Hello.txt
 }
 testCC() 
 {
@@ -67,22 +72,22 @@ int f(int x) {
 	    return result;
 }
 EOF
-	fast=cat same 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.cc
+	catout 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.cc
 	$fast example.cc example.xml
-	fast=cat same 2368362bbad04bf0f9d0b9d010de277f1d6932636dc64756bc23a9abc61a784e example.xml
+	catout 2368362bbad04bf0f9d0b9d010de277f1d6932636dc64756bc23a9abc61a784e example.xml
 	$fast example.xml example.pb
 	$fast example.pb example.pb.cc
-	fast=cat same 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.pb.cc
+	catout 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.pb.cc
 	$fast -p example.cc example.position.xml
-	fast=cat same 873145704786c3f0671984705735f8c7415caf274414cf5fbf82be6bc6ba60cf example.position.xml
+	catout 873145704786c3f0671984705735f8c7415caf274414cf5fbf82be6bc6ba60cf example.position.xml
 	$fast example.cc example.fbs
 	$fast -p example.cc example.position.fbs
-	same c287b1162d8b3d9e44dac808ec4edaf9dbd49282e0d0853db3f08a54ec5e3aea example.position.fbs
+	stdout c287b1162d8b3d9e44dac808ec4edaf9dbd49282e0d0853db3f08a54ec5e3aea example.position.fbs
 	$fast -p example.cc example.position.pb
-	same 8a506738ebb0692f64e6dbaf620e77c52f6e7d6d6e382684869c56ac5f0d5077 -d example.position.pb
-	same 734a67198a2d244f056a4d6a47495972523b94ab184e1f54feece64ca9627da2 -d example.pb
+	stdout 8a506738ebb0692f64e6dbaf620e77c52f6e7d6d6e382684869c56ac5f0d5077 -d example.position.pb
+	stdout 734a67198a2d244f056a4d6a47495972523b94ab184e1f54feece64ca9627da2 -d example.pb
 	$fast example.pb example.txt
-	fast=cat same 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.txt
+	catout 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.txt
 }
 testSmali() 
 {
@@ -134,14 +139,14 @@ EOF
     return-void
 .end method
 EOF
-	fast=cat same 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 DuplicateVirtualMethods.smali
-	fast=cat same 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a DuplicateVirtualMethods-v2.smali
+	catout 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 DuplicateVirtualMethods.smali
+	catout 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a DuplicateVirtualMethods-v2.smali
 	$fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
 	$fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
-	fast=cat same 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 DuplicateVirtualMethods.xml
-	same 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 -a DuplicateVirtualMethods.pb
+	catout 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 DuplicateVirtualMethods.xml
+	stdout 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 -a DuplicateVirtualMethods.pb
 	$fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
-	same 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 -d DuplicateVirtualMethods.pb
+	stdout 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 -d DuplicateVirtualMethods.pb
 }
 
 testCS() {
@@ -1692,66 +1697,66 @@ else
 }
 }
 EOF
-	fast=cat same 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.cs
+	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.cs
 	$fast test.cs test.pb
-	same eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d -d test.pb
+	stdout eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d -d test.pb
 }
 
 ### rather lengthy test :-) 
 notestFastPairs() {
 	cat codelabel_new.csv > a.csv
 	$process a.csv a.pb
-	same 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 -d a.pb
+	stdout 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 -d a.pb
 }
 
 testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
-	fast=cat same f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
+	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
 	$process a.csv a.pb
-	same 93877c435249da5df80a4247d847370ffd32b44459e3b2246cff5e10a560c280 -d a.pb
+	stdout 19c54e630c3b481b9e7a68da8406b3a2140a01ca548ee0a7aa394d0c8a82d6e6 -d a.pb
 }
 
 testFastSlice() {
 	$fast -p Hello.java Hello.position.pb
 	$fast -p Hello.java Hello.position.xml
-	same_all 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec -S Hello.position.pb
+	stdouterr 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec -S Hello.position.pb
 	$fast -S Hello.position.pb Hello.slice.pb
-	fast=cat same 3b89f50af2b9d6c1b1a9947324def412b718bc7bd857a9a5d0309fbb93dba67f Hello.slice.pb
+	catout 3b89f50af2b9d6c1b1a9947324def412b718bc7bd857a9a5d0309fbb93dba67f Hello.slice.pb
 	$fast -p example.cc example.position.fbs
 	$fast -S example.position.pb > example-s.slice
-	fast=cat same dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 example-S.slice
-	same_all e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -S example.position.fbs
+	catout dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 example-S.slice
+	stdouterr e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -S example.position.fbs
 	$fast -S example.position.pb example.slice.pb
-	fast=cat same 1a5f26bf8f2be74082736ad14beb2b14c8ef5797a4c33832500a4a6dd72f8d08 example.slice.pb
+	catout 1a5f26bf8f2be74082736ad14beb2b14c8ef5797a4c33832500a4a6dd72f8d08 example.slice.pb
 }
 
 testNoneExistingFile() {
-	same_error 814df14a1d53133526ec28dc5cba556bdd4effaa9e711ad614567058a7c0b315 Hello.fancy.java
-	same_error edb2be541087eb4f3064ae2120900a62fa03294e85af0b01481ecfa4b863067c Hello.fancy.xml
-	same_error 5197a6c6c7406cfa4b12321d846b23019535a955c836fa48553c15de97ded243 Hello.fancy.fbs
+	stderr 11fc423843b5ca25232bb2e03a0fb97c09ba5a6b38cdb353debe6ab8b39d82f0 Hello.fancy.java
+	stderr edb2be541087eb4f3064ae2120900a62fa03294e85af0b01481ecfa4b863067c Hello.fancy.xml
+	stderr 5197a6c6c7406cfa4b12321d846b23019535a955c836fa48553c15de97ded243 Hello.fancy.fbs
 }
 
 testLoadFBS() {
 	$fast Hello.java Hello.fbs
 	$fast Hello.fbs Hello.xml
-	fast=cat same 43e589acc3b5381dcdac9699c4f7c344779f742d1f9f86a1bc8fe4aba81c3633 Hello.xml
-	same 43e589acc3b5381dcdac9699c4f7c344779f742d1f9f86a1bc8fe4aba81c3633 Hello.fbs
+	catout 43e589acc3b5381dcdac9699c4f7c344779f742d1f9f86a1bc8fe4aba81c3633 Hello.xml
+	stdout 43e589acc3b5381dcdac9699c4f7c344779f742d1f9f86a1bc8fe4aba81c3633 Hello.fbs
 	$fast test.cs test.fbs
 	$fast test.fbs test.fbs.cs
-	fast=cat same 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.fbs.cs
+	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.fbs.cs
 }
 
 testLoadPB() {
 	$fast Hello.java Hello.pb
-	same e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -c Hello.pb
+	stdout e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -c Hello.pb
 	$fast Hello.pb Hello.pb.xml
-	fast=cat same c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 Hello.pb.xml
-	same c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 Hello.pb
+	catout c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 Hello.pb.xml
+	stdout c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 Hello.pb
 	$fast test.cs test.pb
 	$fast test.pb test.pb.cs
-	fast=cat same 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.pb.cs
+	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.pb.cs
 	$fast -d test.pb test.txt
-	fast=cat same eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d test.txt
+	catout eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d test.txt
 	$fast -e test.txt test.pb
 	$fast -e test.txt > test.pb
 	$fast . all.xml
