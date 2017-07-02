@@ -1,0 +1,1632 @@
+src/srcSliceHandler.hpp,endElement,func,def{983},use{984,985},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endElement,lineNum,def{974},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endElement,lnspace,def{973},use{976,978},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endElement,URI,def{972},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endElement,prefix,def{972},use{975,976},dvars{},pointers{k},cfuncs{append{1}}
+src/srcSliceHandler.hpp,endElement,kind,def{972},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endRoot,URI,def{966},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endRoot,prefix,def{966},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endRoot,localname,def{966},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,dereferenced,def{931},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,exprop,def{926,932},use{932,943},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,exprassign,def{925},use{936},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,str,def{920},use{924,927,930,934,938,940,944,946,950},dvars{},pointers{},cfuncs{make_pair{1},append{1}}
+src/srcSliceHandler.hpp,charactersUnit,currentParamType,def{887},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,strLine,def{946},use{947},dvars{},pointers{},cfuncs{push_back{1}}
+src/srcSliceHandler.hpp,charactersUnit,currentFunctionReturnType,def{872},use{874},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,len,def{856},use{860,865,872,874,879,883,887,890,896,899,902,907,913,916,920,954,958,961},dvars{currentDeclType,currentParamType,currentFunctionReturnType},pointers{},cfuncs{string{2},append{2}}
+src/srcSliceHandler.hpp,charactersUnit,currentDeclType,def{890},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,charactersUnit,ch,def{856},use{860,865,872,874,879,883,887,890,896,899,902,907,913,916,920,954,958,961},dvars{currentDeclType,currentParamType,currentFunctionReturnType},pointers{},cfuncs{string{1},append{1}}
+src/srcSliceHandler.hpp,startElement,func,def{844},use{845,846},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,prefix,def{826},use{835,836},dvars{},pointers{k},cfuncs{append{1}}
+src/srcSliceHandler.hpp,startElement,lineNum,def{831},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,sawgeneric,def{842},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,URI,def{826},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,lnspace,def{834},use{836,838},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,num_namespaces,def{827},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,name,def{829,832},use{841},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,attributes,def{828},use{831,832},dvars{name,lineNum},pointers{},cfuncs{strtoul{1}}
+src/srcSliceHandler.hpp,startElement,num_attributes,def{827},use{830},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,namespaces,def{827},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startElement,kind,def{826},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endUnit,URI,def{969},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endUnit,prefix,def{969},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,endUnit,localname,def{969},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,FunctionIt,def{810},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,num_namespaces,def{803},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,fileName,def{806},use{807},dvars{FileIt},pointers{},cfuncs{make_pair{1}}
+src/srcSliceHandler.hpp,startUnit,URI,def{802},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,FileIt,def{807},use{810},dvars{FunctionIt},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,prefix,def{802},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,attributes,def{804},use{806},dvars{fileName},pointers{},cfuncs{string{2}}
+src/srcSliceHandler.hpp,startUnit,num_attributes,def{803},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,namespaces,def{803},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startUnit,localname,def{802},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,currentSliceProfile,def{689},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,lhsName,def{611},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,lhsLine,def{439,481},use{481},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,numArgs,def{166,494},use{263,372,494,507},dvars{process_map},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,foundexprlhs,def{182,432,473},use{432,473},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,inGlobalScope,def{188,280,514,531,540},use{271,280,309,514,531,540},dvars{process_map},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,sysDict,def{165},use{516},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,inFor,def{184,230},use{230,584},dvars{process_map3},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,exprop,def{181,337,433,474,614,744},use{337,433,474,614,744},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,isACallName,def{186,253,265},use{252,253,265},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,opassign,def{174,428},use{428},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,exprassign,def{180,434,475},use{434,475,608,722},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,sawinit,def{176,364,418,622,654},use{364,418,622,654,678},dvars{process_map3},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,memberAccess,def{178,366,595,743},use{366,595,737,739,743},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,sawnew,def{175,599},use{599},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,dereferenced,def{173,429},use{429},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,process_map,def{190,195,199,221,227,234,240,248,260,269,275,284,289,294,299,303,307,312,317,321,325,329,333,349,359,370,377,381,385,389,393,397,403,407},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,isConstructor,def{187,279},use{279,528},dvars{process_map3},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,sawgeneric,def{177,495},use{495,618,650},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,constructorNum,def{169},use{277},dvars{process_map},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,potentialAlias,def{171,417,569,666,668},use{417,569,666,668},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,lineNum,def{170},use{401},dvars{functionTmplt},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,triggerField,def{189},use{193,197,201,204,207,211,214,218,223,229,236,245,250,251,262,266,273,282,287,292,297,301,305,310,314,319,323,327,331,335,336,340,343,351,352,354,355,357,362,368,375,379,383,387,391,395,399,405,409,420,425,451,456,461,466,471,491,497,505,506,520,524,533,542,547,552,557,562,566,570,574,580,585,589,594,604,618,629,633,634,636,637,639,643,650,657,661,665,667,670,674,678,683,687,692,695,700,704,708,712,716,721,735,736,737,739,745,751,755},dvars{process_map3,process_map},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,functionTmplt,def{212,272,400,697,702},use{516,518,532,541},dvars{},pointers{},cfuncs{make_pair{3},make_pair{2}}
+src/srcSliceHandler.hpp,srcSliceHandler7,FunctionIt,def{205},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,declIndex,def{167,529},use{192,315,513,529,538},dvars{process_map3,process_map},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,process_map3,def{412,423,449,454,459,464,469,489,500,511,526,536,544,549,554,559,564,572,576,582,587,591,631,641,645,659,663,672,676,685,706,710,747,753},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,srcSliceHandler7,dict,def{164},use{165},dvars{sysDict},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,num_namespaces,def{783},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,URI,def{782},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,prefix,def{782},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,attributes,def{784},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,num_attributes,def{783},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,namespaces,def{783},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,startRoot,localname,def{782},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,DoComputation,begin,def{990},use{},dvars{},pointers{handler},cfuncs{}
+src/srcSliceHandler.hpp,DoComputation,ffvmIt,def{990},use{990,991},dvars{},pointers{handler,mp},cfuncs{ComputeInterprocedural{1}}
+src/srcSliceHandler.hpp,DoComputation,mp,def{989},use{990},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,DoComputation,h,def{989},use{991},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,GLOBAL,varName,def{159},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,GLOBAL,int,def{158},use{},dvars{},pointers{},cfuncs{}
+src/srcSliceHandler.hpp,GLOBAL,,def{158,161},use{},dvars{varName,},pointers{},cfuncs{}
+src/srcSlice.hpp,Insert,it,def{128,130},use{129},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,Insert,fvmIt,def{92,109},use{93,94,95,99,110,111,112,116},dvars{vtmIt},pointers{},cfuncs{}
+src/srcSlice.hpp,Insert,vtmIt,def{94,96,111,113},use{95,112},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,Insert,ffvmIt,def{90},use{91,92,93},dvars{fvmIt},pointers{},cfuncs{}
+src/srcSlice.hpp,Insert,np,def{89,107,124},use{94,96,99,111,113,116,128,130,133},dvars{it,vtmIt},pointers{},cfuncs{make_pair{2},make_pair{1},find{1}}
+src/srcSlice.hpp,Insert,funcname,def{89,107},use{92,109},dvars{},pointers{},cfuncs{find{1}}
+src/srcSlice.hpp,Insert,flename,def{89},use{90},dvars{},pointers{},cfuncs{find{1}}
+src/srcSlice.hpp,Find,it,def{82},use{83,84},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,Find,fvmIt,def{55,68},use{56,57,58,69,70,71},dvars{vtmIt},pointers{},cfuncs{}
+src/srcSlice.hpp,Find,flename,def{52},use{53},dvars{},pointers{},cfuncs{find{1}}
+src/srcSlice.hpp,Find,lineNumber,def{52,67},use{},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,Find,funcname,def{52,67},use{55,68},dvars{},pointers{},cfuncs{find{1}}
+src/srcSlice.hpp,Find,varname,def{52,67,78},use{57,70,82},dvars{},pointers{},cfuncs{find{1}}
+src/srcSlice.hpp,Find,vtmIt,def{57,70},use{58,59,71,72},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,Find,ffvmIt,def{53},use{54,55,56},dvars{fvmIt},pointers{},cfuncs{}
+src/srcSlice.hpp,srcSlice6,fd,def{12},use{},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,srcSlice6,file,def{11},use{},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,srcSlice6,buffer,def{10},use{},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,srcSlice6,filename,def{13},use{},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,srcSlice6,encoding,def{10,11,12},use{},dvars{},pointers{},cfuncs{}
+src/srcSlice.hpp,srcSlice6,,def{9},use{},dvars{encoding,},pointers{},cfuncs{}
+src/srcSlice.hpp,SetContext,dictionary,def{21,22,23,24,25,36,37,38,46},use{33,34,35,45},dvars{fnIt},pointers{},cfuncs{}
+src/srcSlice.hpp,SetContext,fleIt,def{17},use{18,19,20,21},dvars{dictionary,fnIt},pointers{},cfuncs{}
+src/srcSlice.hpp,SetContext,fle,def{16},use{17,24},dvars{dictionary},pointers{},cfuncs{find{1}}
+src/srcSlice.hpp,SetContext,linenumber,def{16,32,44},use{23,37,46},dvars{dictionary},pointers{},cfuncs{}
+src/srcSlice.hpp,SetContext,fnIt,def{19,34},use{20,22,35,36},dvars{dictionary},pointers{},cfuncs{}
+src/srcSlice.hpp,SetContext,fn,def{16,32},use{19,25,34,38},dvars{dictionary},pointers{},cfuncs{find{1}}
+src/srcsax.h,GLOBAL,input,def{84},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,len,def{83},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,read_callbackcontext,def{83},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,context,def{87,90,91,94},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,close_callbackcontext,def{83},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,encoding,def{79,80,81,82,83},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,srcml_context,def{83},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,srcml_fd,def{82},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,buffer_size,def{80},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,message,def{45},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,error_code,def{45},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,buffer,def{80,83},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,handler,def{91},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,,def{83},use{},dvars{handler,context,input,encoding,},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,srcml_file,def{81},use{},dvars{},pointers{},cfuncs{}
+src/srcsax.h,GLOBAL,filename,def{79},use{},dvars{},pointers{},cfuncs{}
+src/process.cc,replaceAll,replace,def{153},use{160},dvars{},pointers{},cfuncs{insert{2}}
+src/process.cc,replaceAll,pos,def{154,156},use{156,157,159,160},dvars{},pointers{code1,code2,search,s},cfuncs{insert{1},erase{1},find{2}}
+src/process.cc,replaceAll,search,def{153},use{156,159},dvars{},pointers{},cfuncs{erase{1},find{1}}
+src/process.cc,replaceAll,s,def{153},use{156,159,160},dvars{},pointers{},cfuncs{}
+src/process.cc,main,output,def{209},use{210,211},dvars{},pointers{},cfuncs{SerializeToOstream{1}}
+src/process.cc,main,data,def{207},use{208,210},dvars{},pointers{},cfuncs{}
+src/process.cc,main,code1,def{185},use{154,156,157,159,160,186,188},dvars{},pointers{},cfuncs{erase{1},find{2},set_diff{2},insert{1},replaceAll{1}}
+src/process.cc,main,linePos4,def{193},use{194,195},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,main,index,def{192},use{193,194,195},dvars{code2,index2,linePos4},pointers{},cfuncs{}
+src/process.cc,main,diff1,def{188},use{189},dvars{},pointers{},cfuncs{set_allocated_left{1}}
+src/process.cc,main,linePos3,def{184},use{185,192},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,main,code,def{183},use{184,185,192},dvars{index,code1,linePos3},pointers{},cfuncs{}
+src/process.cc,main,linePos2,def{181},use{182,183},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,main,pairs,def{170},use{175,208},dvars{},pointers{},cfuncs{set_allocated_pairs{1}}
+src/process.cc,main,code2,def{195},use{50,51,52,104,105,111,112,113,116,117,123,124,125,144,146,147,154,156,157,159,160,196,197,199,201},dvars{old_code,new_code,lastPos},pointers{},cfuncs{find{2},ParseFromIstream{1},erase{1},set_allocated_old_code{1},insert{1},srcML{1},process_hunk_xml{1},atoi{0},set_diff{1},replaceAll{1}}
+src/process.cc,main,linePos1,def{179},use{180},dvars{},pointers{},cfuncs{substr{1}}
+src/process.cc,main,pair,def{175},use{177,189,200,202,203,204},dvars{},pointers{pairs},cfuncs{}
+src/process.cc,main,index2,def{194},use{50,51,52,104,105,111,112,113,116,117,123,124,125,144,146,147,199},dvars{new_code,old_code},pointers{},cfuncs{ParseFromIstream{1},srcML{1},set_allocated_old_code{1},process_hunk_xml{1},set_diff{1}}
+src/process.cc,main,type,def{201},use{202,203,204},dvars{},pointers{},cfuncs{}
+src/process.cc,main,diff2,def{199},use{200},dvars{},pointers{},cfuncs{set_allocated_right{1}}
+src/process.cc,main,line,def{169},use{172,173,176,179,180},dvars{line2,linePos1,project,linePos0},pointers{},cfuncs{getline{2}}
+src/process.cc,main,linePos0,def{173},use{174,176,179,180},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,main,project,def{176},use{177},dvars{},pointers{},cfuncs{set_project{1}}
+src/process.cc,main,argv,def{166},use{},dvars{},pointers{},cfuncs{}
+src/process.cc,main,input,def{168},use{171,172},dvars{},pointers{},cfuncs{getline{1}}
+src/process.cc,main,index1,def{182},use{50,51,52,104,105,111,112,113,116,117,123,124,125,144,146,147,188},dvars{new_code,old_code},pointers{},cfuncs{ParseFromIstream{1},srcML{1},set_allocated_old_code{1},process_hunk_xml{1},set_diff{1}}
+src/process.cc,main,line2,def{180},use{181,182,183},dvars{code,index1,linePos2},pointers{},cfuncs{}
+src/process.cc,main,lastPos,def{197},use{199,201},dvars{},pointers{},cfuncs{substr{1},substr{3}}
+src/process.cc,main,argc,def{166},use{},dvars{},pointers{},cfuncs{}
+src/process.cc,set_diff,old_code,def{144},use{50,51,52,104,105,111,112,113,116,117,123,124,125,146,147},dvars{old_code,new_code},pointers{index1,index2,code2,old_code},cfuncs{ParseFromIstream{1},srcML{1},set_allocated_old_code{1},process_hunk_xml{1}}
+src/process.cc,set_diff,left_line,def{135},use{139},dvars{},pointers{},cfuncs{set_left_line{1}}
+src/process.cc,set_diff,rightCommaPos,def{134},use{137,138},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,set_diff,new_code,def{145},use{21,22,27,37,41,62,70,84,97,103,105,146,148},dvars{},pointers{},cfuncs{sprintf{2},fopen{0},srcML{2},set_allocated_new_code{1},process_hunk_xml{2}}
+src/process.cc,set_diff,leftCommaPos,def{133},use{135,136},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,set_diff,right_column,def{138},use{142},dvars{},pointers{},cfuncs{set_right_column{1}}
+src/process.cc,set_diff,code,def{130},use{68,105,117,146},dvars{},pointers{},cfuncs{srcML{3},process_hunk_xml{3}}
+src/process.cc,set_diff,spacePos,def{132},use{136,137},dvars{},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,set_diff,right_line,def{137},use{141},dvars{},pointers{},cfuncs{set_right_line{1}}
+src/process.cc,set_diff,ext,def{130},use{146},dvars{},pointers{},cfuncs{process_hunk_xml{4}}
+src/process.cc,set_diff,left_column,def{136},use{140},dvars{},pointers{},cfuncs{set_left_column{1}}
+src/process.cc,set_diff,diff,def{131},use{139,140,141,142,147,148,150},dvars{},pointers{},cfuncs{}
+src/process.cc,set_diff,index,def{130},use{132,133,134,135,136,137,138},dvars{rightCommaPos,leftCommaPos,spacePos},pointers{},cfuncs{atoi{0}}
+src/process.cc,process_hunk_xml,data,def{104,116},use{50,51,52,105,111,112,113,117,123,124,125},dvars{new_code,old_code},pointers{old_code},cfuncs{ParseFromIstream{1},srcML{1}}
+src/process.cc,process_hunk_xml,prefix,def{80,88},use{81,89},dvars{},pointers{},cfuncs{}
+src/process.cc,process_hunk_xml,negPos,def{76},use{79,80,83},dvars{line},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,process_hunk_xml,posPos,def{77},use{87,88,91},dvars{line},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,process_hunk_xml,ext,def{68},use{105,117},dvars{},pointers{},cfuncs{srcML{3}}
+src/process.cc,process_hunk_xml,line,def{75,83,91},use{76,77,80,84,88,92,95,97,98},dvars{prefix,posPos,negPos},pointers{},cfuncs{}
+src/process.cc,process_hunk_xml,text_old,def{70},use{21,22,27,37,41,62,84,97,103,105},dvars{},pointers{},cfuncs{sprintf{2},fopen{0},srcML{2}}
+src/process.cc,process_hunk_xml,text_new,def{71},use{21,22,27,37,41,62,92,98,115,117},dvars{},pointers{},cfuncs{sprintf{2},fopen{0},srcML{2}}
+src/process.cc,process_hunk_xml,success,def{105,117},use{106,118},dvars{},pointers{},cfuncs{}
+src/process.cc,process_hunk_xml,old_code,def{68,113},use{},dvars{},pointers{},cfuncs{}
+src/process.cc,process_hunk_xml,linePos,def{69,73},use{74,75,100,102},dvars{text},pointers{},cfuncs{substr{1},substr{2}}
+src/process.cc,process_hunk_xml,text,def{68,100},use{73,75},dvars{line,linePos},pointers{},cfuncs{}
+src/process.cc,process_hunk_xml,is_special,def{78,82,90},use{82,90,95},dvars{},pointers{},cfuncs{}
+src/process.cc,process_hunk_xml,new_code,def{68,125},use{},dvars{},pointers{},cfuncs{}
+src/process.cc,srcML,input,def{50},use{51,52},dvars{},pointers{},cfuncs{ParseFromIstream{1}}
+src/process.cc,srcML,pb_file,def{47},use{48,49},dvars{},pointers{},cfuncs{fclose{1}}
+src/process.cc,srcML,cmd,def{36},use{41,44},dvars{},pointers{},cfuncs{system{1},sprintf{1}}
+src/process.cc,srcML,id,def{16,31},use{17,32},dvars{},pointers{},cfuncs{close{1}}
+src/process.cc,srcML,ret_val,def{44},use{45},dvars{},pointers{},cfuncs{}
+src/process.cc,srcML,pb_filename,def{35},use{41,47,55},dvars{},pointers{},cfuncs{remove{0},fopen{0},sprintf{1}}
+src/process.cc,srcML,output,def{22},use{23,24,25},dvars{},pointers{},cfuncs{fclose{1},fprintf{1}}
+src/process.cc,srcML,src_filename,def{21},use{22,27,37,41,62},dvars{},pointers{},cfuncs{sprintf{2},fopen{0}}
+src/process.cc,srcML,data,def{13},use{51,53},dvars{},pointers{},cfuncs{}
+src/process.cc,srcML,ext,def{13},use{20,54},dvars{},pointers{},cfuncs{set_filename{1},strcat{1}}
+src/process.cc,srcML,src_file,def{37},use{38,39},dvars{},pointers{},cfuncs{fclose{1}}
+src/process.cc,srcML,buf,def{14},use{15,16,18,19,20,21,30,31,33,34,35},dvars{pb_filename,id,src_filename},pointers{},cfuncs{mkstemp{1},strcat{1},remove{1},strcpy{1}}
+src/process.cc,srcML,unit,def{53},use{54},dvars{},pointers{data},cfuncs{}
+src/process.cc,srcML,text,def{13},use{24,28},dvars{},pointers{},cfuncs{fprintf{2}}
+test/test.fbs.cs,Rule47,result,def{1485,1497},use{1497,1499},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule47,list,def{1483},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule47,errorHandler,def{1475,1483},use{1478,1481,1493},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule47,nodeIndex,def{1475},use{1477,1478,1481},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule47,basis,def{1487},use{1489,1490,1491,1495},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule47,name,def{1475,1483},use{1478,1481,1495},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule45,receiver,def{1431},use{1433,1435},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,payer,def{1430},use{1433,1434},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,seller,def{1429},use{1432,1435},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,buyer,def{1428},use{1432,1434},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,result,def{1426,1441},use{1441,1443},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,list,def{1424},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,errorHandler,def{1413,1424},use{1417,1418,1421,1437},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,nodeIndex,def{1413},use{1415,1417,1418,1421},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule45,name,def{1413,1424},use{1417,1418,1421,1439},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule42,inner,def{1330},use{1330},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,count,def{1327},use{1327},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,dates,def{1326,1339},use{1331,1339},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,nodes,def{1324},use{1325,1328,1332,1334},dvars{dates ,limit},pointers{},cfuncs{ToToken {5},errorHandler {2},ToDate {1}}
+test/test.fbs.cs,Rule42,outer,def{1329},use{1329,1330},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,dates ,def{1328},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,result,def{1322,1336},use{1336,1342},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,list,def{1320},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,limit,def{1325},use{1327,1329,1330},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,errorHandler,def{1309,1320},use{1313,1314,1317,1332},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,nodeIndex,def{1309},use{1311,1313,1314,1317},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule42,name,def{1309,1320},use{1313,1314,1317,1334},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule40,value1Date,def{1247},use{1257,1258,1261},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule40,tradeDate,def{1243},use{1249,1251,1258,1265},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule40,result,def{1240,1255,1262,1269},use{1255,1262,1269,1275},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule40,list,def{1238},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule40,valueDate,def{1246},use{1250,1251,1254},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule40,errorHandler,def{1229,1238},use{1232,1235,1252,1259,1266},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule40,legs,def{1244},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule40,nodeIndex,def{1229},use{1231,1232,1235},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule40,value2Date,def{1248},use{1264,1265,1268},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule40,name,def{1229,1238},use{1232,1235,1254,1261,1268},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule39,value1Date,def{1191},use{1203,1204,1208},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule39,tradeDate,def{1189},use{1194,1196,1204,1214},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule39,result,def{1186,1201,1210,1220},use{1201,1210,1220,1224},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule39,list,def{1184},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule39,valueDate,def{1190},use{1195,1196,1199},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule39,errorHandler,def{1176,1184},use{1179,1181,1197,1206,1216},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule39,nodeIndex,def{1176},use{1178,1179,1181},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule39,value2Date,def{1192},use{1213,1214,1218},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule39,name,def{1176,1184},use{1179,1181,1199,1208,1218},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule33,start,def{1017},use{1019,1020},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule33,maturity,def{1018},use{1019,1020,1024},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule33,result,def{1014,1026},use{1026,1028},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule33,list,def{1012},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule33,errorHandler,def{1004,1012},use{1007,1009,1022},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule33,nodeIndex,def{1004},use{1006,1007,1009},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule33,name,def{1004,1012},use{1007,1009,1024},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule38,expiryDate,def{1161},use{1162,1163,1167},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule38,tradeDate,def{1160},use{1162,1163},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule38,result,def{1157,1169},use{1169,1171},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule38,list,def{1155},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule38,errorHandler,def{1146,1155},use{1149,1152,1165},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule38,nodeIndex,def{1146},use{1148,1149,1152},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule38,name,def{1146,1155},use{1149,1152,1167},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule35,result,def{1066,1077},use{1077,1079},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule35,rate,def{1069},use{1071,1075},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule35,list,def{1064},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule35,errorHandler,def{1056,1064},use{1059,1062,1073},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule35,nodeIndex,def{1056},use{1058,1059,1062},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule35,name,def{1056,1064},use{1059,1062,1075},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule32,receiver,def{988},use{990,992},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule32,payer,def{987},use{990,991,995},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule32,result,def{984,997},use{997,999},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule32,list,def{982},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule32,errorHandler,def{974,982},use{977,979,993},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule32,nodeIndex,def{974},use{976,977,979},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule32,name,def{974,982},use{977,979,995},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule14,end,def{436},use{437,438},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule14,start,def{435},use{437,438},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule14,result,def{433,443},use{443,446},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule14,list,def{431},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule14,errorHandler,def{420,431},use{424,425,428,440},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule14,nodeIndex,def{420},use{422,424,425,428},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule14,name,def{420,431},use{424,425,428,442},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule29,spot,def{894},use{895},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule29,result,def{890,901},use{901,903},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule29,list,def{888},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule29,errorHandler,def{879,888},use{882,884,885,897},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule29,nodeIndex,def{879},use{881,882,884,885},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule29,forward,def{893},use{895},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule29,name,def{879,888},use{882,884,885,899},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule28,result,def{864,872},use{872,874},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule28,rate,def{866},use{867,871},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule28,list,def{862},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule28,errorHandler,def{853,862},use{856,858,859,869},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule28,nodeIndex,def{853},use{855,856,858,859},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule28,name,def{853,862},use{856,858,859,871},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule04,ccy1,def{76},use{81},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule04,baseCcy,def{75},use{79,81,84},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule04,result,def{72,85},use{85,88},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule04,list,def{70},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule04,errorHandler,def{62,70},use{65,67,82},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule04,nodeIndex,def{62},use{64,65,67},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule04,ccy2,def{77},use{79,81},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule04,name,def{62,70},use{65,67,84},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule27,ccy1,def{839},use{841},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule27,result,def{836,847},use{847,849},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule27,list,def{834},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule27,errorHandler,def{826,834},use{829,831,843},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule27,nodeIndex,def{826},use{828,829,831},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule27,ccy2,def{840},use{841},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule27,name,def{826,834},use{829,831,845},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule37,expiryDate,def{1129},use{1131,1133,1137},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule37,tradeDate,def{1128},use{1131,1133},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule37,result,def{1125,1139},use{1139,1141},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule37,list,def{1123},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule37,errorHandler,def{1114,1123},use{1117,1120,1135},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule37,nodeIndex,def{1114},use{1116,1117,1120},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule37,name,def{1114,1123},use{1117,1120,1137},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule24,result,def{748,756},use{756,759},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule24,rate,def{750},use{751,755},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule24,list,def{746},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule24,errorHandler,def{735,746},use{739,740,743,753},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule24,nodeIndex,def{735},use{737,739,740,743},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule24,name,def{735,746},use{739,740,743,755},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule44,receiver,def{1395},use{1397,1399},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,payer,def{1394},use{1397,1398},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,seller,def{1393},use{1396,1399},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,buyer,def{1392},use{1396,1398},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,result,def{1390,1405},use{1405,1408},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,list,def{1388},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,errorHandler,def{1377,1388},use{1381,1382,1385,1401},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,nodeIndex,def{1377},use{1379,1381,1382,1385},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule44,name,def{1377,1388},use{1381,1382,1385,1403},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule08,end,def{196},use{197,198},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule08,start,def{195},use{197,198},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule08,result,def{193,203},use{203,206},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule08,list,def{191},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule08,errorHandler,def{180,191},use{184,185,188,200},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule08,nodeIndex,def{180},use{182,184,185,188},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule08,name,def{180,191},use{184,185,188,202},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule43,ccy1,def{1362},use{1364},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule43,result,def{1360,1369},use{1369,1372},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule43,list,def{1358},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule43,errorHandler,def{1347,1358},use{1351,1352,1355,1366},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule43,nodeIndex,def{1347},use{1349,1351,1352,1355},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule43,ccy2,def{1363},use{1364},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule43,name,def{1347,1358},use{1351,1352,1355,1368},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule34,amount,def{1043},use{1044,1047},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule34,result,def{1041,1048},use{1048,1051},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule34,list,def{1039},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule34,errorHandler,def{1031,1039},use{1034,1036,1045},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule34,nodeIndex,def{1031},use{1033,1034,1036},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule34,name,def{1031,1039},use{1034,1036,1047},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule31,ccy1,def{957},use{960,961},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule31,baseCcy,def{956},use{960,961,965},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule31,result,def{953,967},use{967,969},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule31,list,def{951},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule31,errorHandler,def{942,951},use{945,948,963},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule31,nodeIndex,def{942},use{944,945,948},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule31,ccy2,def{958},use{960,961},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule31,name,def{942,951},use{945,948,965},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule05,ccy1,def{107},use{108,110},dvars{},pointers{},cfuncs{ ToToken {3}}
+test/test.fbs.cs,Rule05,ccy,def{106},use{108,111},dvars{},pointers{},cfuncs{ ToToken {1}}
+test/test.fbs.cs,Rule05,result,def{103,114},use{114,116},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule05,list,def{101},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule05,errorHandler,def{93,101},use{96,98,109},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule05,nodeIndex,def{93},use{95,96,98},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule05,name,def{93,101},use{96,98,112},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.fbs.cs,Rule10,period,def{259},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,end,def{258},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,start,def{257},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,result,def{255,265},use{265,268},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,list,def{253},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,errorHandler,def{242,253},use{246,247,250,262},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,nodeIndex,def{242},use{244,246,247,250},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule10,name,def{242,253},use{246,247,250,264},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule21,ndf,def{653},use{655},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule21,result,def{651,660},use{660,663},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule21,list,def{649},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule21,errorHandler,def{638,649},use{642,643,646,657},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule21,fwd,def{654},use{655},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule21,nodeIndex,def{638},use{640,642,643,646},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule21,name,def{638,649},use{642,643,646,659},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule20,result,def{620,630},use{630,633},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule20,list,def{618},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule20,errorHandler,def{607,618},use{611,612,615,627},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule20,date1,def{622},use{624,625},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule20,nodeIndex,def{607},use{609,611,612,615},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule20,date2,def{623},use{624,625},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule20,name,def{607,618},use{611,612,615,629},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule17,result,def{520,531},use{531,534},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule17,rate,def{523},use{525,529},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule17,list,def{518},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule17,errorHandler,def{508,518},use{512,513,515,527},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule17,nodeIndex,def{508},use{510,512,513,515},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule17,name,def{508,518},use{512,513,515,529},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule19,ccy1,def{592},use{595},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule19,result,def{589,600},use{600,603},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule19,list,def{587},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule19,errorHandler,def{577,587},use{581,582,584,597},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule19,nodeIndex,def{577},use{579,581,582,584},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule19,ccy2,def{593},use{595},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule19,name,def{577,587},use{581,582,584,599},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule07,result,def{164,172},use{172,175},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule07,rate,def{166},use{167,171},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule07,list,def{162},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule07,errorHandler,def{151,162},use{155,156,159,169},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule07,nodeIndex,def{151},use{153,155,156,159},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule07,name,def{151,162},use{155,156,159,171},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule18,ccy2Pay,def{557},use{561,564},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,result,def{552,570},use{570,572},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,list,def{550},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,ccy1Pay,def{555},use{560,563},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,errorHandler,def{539,550},use{543,544,547,566},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,ccy1Rec,def{556},use{560,564},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,nodeIndex,def{539},use{541,543,544,547},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,ccy2Rec,def{558},use{561,563},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule18,name,def{539,550},use{543,544,547,568},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule16,result,def{493,501},use{501,503},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule16,rate,def{495},use{496,500},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule16,list,def{491},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule16,errorHandler,def{480,491},use{484,485,488,498},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule16,nodeIndex,def{480},use{482,484,485,488},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule16,name,def{480,491},use{484,485,488,500},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule23,ccy1,def{720},use{722},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule23,result,def{718,727},use{727,730},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule23,list,def{716},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule23,errorHandler,def{704,716},use{708,709,712,713,724},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule23,nodeIndex,def{704},use{706,708,709,712,713},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule23,ccy2,def{721},use{722},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule23,name,def{704,716},use{708,709,712,713,726},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule12,date,def{343},use{346},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,nodes,def{340},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,end,def{331},use{335,337},dvars{},pointers{},cfuncs{ToDate {2}}
+test/test.fbs.cs,Rule12,dates,def{337,360},use{360},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,roll,def{333},use{335,338},dvars{},pointers{},cfuncs{ToToken {2}}
+test/test.fbs.cs,Rule12,start,def{330},use{335,337},dvars{},pointers{},cfuncs{ToDate {1}}
+test/test.fbs.cs,Rule12,schedule,def{327},use{328,330,331,332},dvars{},pointers{},cfuncs{Path {1}}
+test/test.fbs.cs,Rule12,result,def{325,357},use{357,363},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,freq,def{332},use{333,335,338},dvars{},pointers{},cfuncs{ToInterval {2},Path {1}}
+test/test.fbs.cs,Rule12,list,def{323},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,found,def{344,347},use{347,352},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,errorHandler,def{312,323},use{316,317,320,353},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,nodeIndex,def{312},use{314,316,317,320},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule12,name,def{312,323},use{316,317,320,356},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.fbs.cs,Rule36,expiryDate,def{1098},use{1099,1101,1105},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule36,tradeDate,def{1097},use{1099,1101},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule36,result,def{1094,1107},use{1107,1110},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule36,list,def{1092},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule36,errorHandler,def{1084,1092},use{1087,1089,1103},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule36,nodeIndex,def{1084},use{1086,1087,1089},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule36,name,def{1084,1092},use{1087,1089,1105},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule15,result,def{464,472},use{472,475},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule15,rate,def{466},use{467,471},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule15,list,def{462},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule15,errorHandler,def{451,462},use{455,456,459,469},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule15,nodeIndex,def{451},use{453,455,456,459},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule15,name,def{451,462},use{455,456,459,471},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule41,result,def{1293,1301},use{1301,1304},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule41,rate,def{1295},use{1296,1300},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule41,list,def{1291},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule41,errorHandler,def{1280,1291},use{1284,1285,1288,1298},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule41,nodeIndex,def{1280},use{1282,1284,1285,1288},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule41,name,def{1280,1291},use{1284,1285,1288,1300},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule11,inner,def{296},use{296},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,count,def{292},use{292},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,dates,def{290,304},use{297,304},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,nodes,def{288},use{289,293,298,300},dvars{dates ,limit},pointers{},cfuncs{ToToken {5},errorHandler {2},ToDate {1}}
+test/test.fbs.cs,Rule11,outer,def{295},use{295,296},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,dates ,def{293},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,result,def{286,301},use{301,307},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,list,def{284},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,limit,def{289},use{292,295,296},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,errorHandler,def{273,284},use{277,278,281,298},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,nodeIndex,def{273},use{275,277,278,281},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule11,name,def{273,284},use{277,278,281,300},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule22,receiver,def{687},use{689,692},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,payer,def{686},use{689,691},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,seller,def{685},use{688,692},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,buyer,def{684},use{688,691},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,result,def{682,697},use{697,700},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,list,def{680},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,errorHandler,def{668,680},use{672,673,676,677,694},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,nodeIndex,def{668},use{670,672,673,676,677},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule22,name,def{668,680},use{672,673,676,677,696},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule13,match,def{397},use{397},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,date,def{395},use{398},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,nodes,def{392},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,count,def{389},use{389},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,dates,def{387,412},use{397,398,412},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,dates ,def{390},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,schedule,def{383},use{384,390},dvars{dates ,limit},pointers{},cfuncs{ToDate {1}}
+test/test.fbs.cs,Rule13,result,def{381,409},use{409,415},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,list,def{379},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,found,def{396,399},use{399,403},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,limit,def{384},use{385,389},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,errorHandler,def{368,379},use{372,373,376,404},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,nodeIndex,def{368},use{370,372,373,376},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule13,name,def{368,379},use{372,373,376,407},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.fbs.cs,Rule09,end,def{227},use{228,229},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule09,start,def{226},use{228,229},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule09,result,def{224,234},use{234,237},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule09,list,def{222},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule09,errorHandler,def{211,222},use{215,216,219,231},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule09,nodeIndex,def{211},use{213,215,216,219},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule09,name,def{211,222},use{215,216,219,233},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule06,ccy1,def{135},use{136,139},dvars{},pointers{},cfuncs{ ToToken {3}}
+test/test.fbs.cs,Rule06,ccy,def{134},use{136,140},dvars{},pointers{},cfuncs{ ToToken {1}}
+test/test.fbs.cs,Rule06,result,def{131,143},use{143,146},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule06,list,def{129},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule06,errorHandler,def{121,129},use{124,126,138},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule06,nodeIndex,def{121},use{123,124,126},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule06,name,def{121,129},use{124,126,141},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.fbs.cs,Rule26,result,def{806,819},use{819,821},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule26,list,def{804},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule26,errorHandler,def{793,804},use{797,798,801,815},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule26,date1,def{810},use{813},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule26,legs,def{808},use{809,810,811},dvars{},pointers{},cfuncs{Path {1}}
+test/test.fbs.cs,Rule26,nodeIndex,def{793},use{795,797,798,801},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule26,date2,def{811},use{813},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule26,name,def{793,804},use{797,798,801,817},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule30,spot,def{923},use{926,928},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule30,result,def{919,934},use{934,937},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule30,rate,def{924},use{926,928,933},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule30,list,def{917},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule30,errorHandler,def{908,917},use{911,913,914,931},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule30,nodeIndex,def{908},use{910,911,913,914},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule30,forward,def{922},use{926,928},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule30,name,def{908,917},use{911,913,914,933},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule03,spot,def{45},use{47,48},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule03,result,def{42,55},use{55,57},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule03,rate,def{46},use{47,48,53},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule03,list,def{40},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule03,errorHandler,def{32,40},use{35,37,51},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule03,nodeIndex,def{32},use{34,35,37},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule03,forward,def{44},use{47,48},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule03,name,def{32,40},use{35,37,53},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,GenerateSchedule,founddates,def{1541},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,GenerateSchedule,dates,def{1519},use{1541,1542},dvars{},pointers{},cfuncs{CopyTo {1}}
+test/test.fbs.cs,GenerateSchedule,found,def{1518},use{1528,1529},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,GenerateSchedule,calendar,def{1515},use{1524},dvars{adjusted},pointers{},cfuncs{Adjust {1}}
+test/test.fbs.cs,GenerateSchedule,roll,def{1515},use{1523,1524},dvars{adjusted},pointers{},cfuncs{}
+test/test.fbs.cs,GenerateSchedule,end,def{1514},use{1520,1533},dvars{current},pointers{},cfuncs{}
+test/test.fbs.cs,GenerateSchedule,adjusted,def{1521,1524,1526},use{1528,1529},dvars{},pointers{},cfuncs{Add {1}}
+test/test.fbs.cs,GenerateSchedule,current,def{1517,1533,1538},use{1520,1524,1526,1532},dvars{adjusted},pointers{},cfuncs{Adjust {2}}
+test/test.fbs.cs,GenerateSchedule,frequency,def{1515},use{1531,1538},dvars{current},pointers{},cfuncs{Plus {1}}
+test/test.fbs.cs,GenerateSchedule,start,def{1514},use{1517,1532},dvars{current},pointers{},cfuncs{}
+test/test.fbs.cs,Rule46,result,def{1458,1468},use{1468,1471},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule46,list,def{1456},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule46,errorHandler,def{1448,1456},use{1451,1453,1465},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule46,nodeIndex,def{1448},use{1450,1451,1453},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule46,basis,def{1460},use{1461,1462,1463,1467},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.fbs.cs,Rule46,name,def{1448,1456},use{1451,1453,1467},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule25,result,def{777,785},use{785,788},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule25,list,def{775},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule25,errorHandler,def{764,775},use{768,769,772,782},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule25,legs,def{779},use{780},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule25,nodeIndex,def{764},use{766,768,769,772},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule25,name,def{764,775},use{768,769,772,784},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.fbs.cs,Rule02,spot,def{19},use{20},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule02,result,def{16,25},use{25,27},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule02,list,def{14},use{},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule02,errorHandler,def{5,14},use{8,11,21},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule02,nodeIndex,def{5},use{7,8,11},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule02,forward,def{18},use{20},dvars{},pointers{},cfuncs{}
+test/test.fbs.cs,Rule02,name,def{5,14},use{8,11,23},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule47,result,def{1485,1497},use{1497,1499},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule47,list,def{1483},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule47,errorHandler,def{1475,1483},use{1478,1481,1493},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule47,nodeIndex,def{1475},use{1477,1478,1481},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule47,basis,def{1487},use{1489,1490,1491,1495},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule47,name,def{1475,1483},use{1478,1481,1495},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule45,receiver,def{1431},use{1433,1435},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,payer,def{1430},use{1433,1434},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,seller,def{1429},use{1432,1435},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,buyer,def{1428},use{1432,1434},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,result,def{1426,1441},use{1441,1443},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,list,def{1424},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,errorHandler,def{1413,1424},use{1417,1418,1421,1437},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,nodeIndex,def{1413},use{1415,1417,1418,1421},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule45,name,def{1413,1424},use{1417,1418,1421,1439},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule42,inner,def{1330},use{1330},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,count,def{1327},use{1327},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,dates,def{1326,1339},use{1331,1339},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,nodes,def{1324},use{1325,1328,1332,1334},dvars{dates ,limit},pointers{},cfuncs{ToToken {5},errorHandler {2},ToDate {1}}
+test/test.cs,Rule42,outer,def{1329},use{1329,1330},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,dates ,def{1328},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,result,def{1322,1336},use{1336,1342},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,list,def{1320},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,limit,def{1325},use{1327,1329,1330},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,errorHandler,def{1309,1320},use{1313,1314,1317,1332},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,nodeIndex,def{1309},use{1311,1313,1314,1317},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule42,name,def{1309,1320},use{1313,1314,1317,1334},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule40,value1Date,def{1247},use{1257,1258,1261},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule40,tradeDate,def{1243},use{1249,1251,1258,1265},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule40,result,def{1240,1255,1262,1269},use{1255,1262,1269,1275},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule40,list,def{1238},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule40,valueDate,def{1246},use{1250,1251,1254},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule40,errorHandler,def{1229,1238},use{1232,1235,1252,1259,1266},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule40,legs,def{1244},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule40,nodeIndex,def{1229},use{1231,1232,1235},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule40,value2Date,def{1248},use{1264,1265,1268},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule40,name,def{1229,1238},use{1232,1235,1254,1261,1268},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule39,value1Date,def{1191},use{1203,1204,1208},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule39,tradeDate,def{1189},use{1194,1196,1204,1214},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule39,result,def{1186,1201,1210,1220},use{1201,1210,1220,1224},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule39,list,def{1184},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule39,valueDate,def{1190},use{1195,1196,1199},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule39,errorHandler,def{1176,1184},use{1179,1181,1197,1206,1216},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule39,nodeIndex,def{1176},use{1178,1179,1181},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule39,value2Date,def{1192},use{1213,1214,1218},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule39,name,def{1176,1184},use{1179,1181,1199,1208,1218},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule33,start,def{1017},use{1019,1020},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule33,maturity,def{1018},use{1019,1020,1024},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule33,result,def{1014,1026},use{1026,1028},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule33,list,def{1012},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule33,errorHandler,def{1004,1012},use{1007,1009,1022},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule33,nodeIndex,def{1004},use{1006,1007,1009},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule33,name,def{1004,1012},use{1007,1009,1024},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule38,expiryDate,def{1161},use{1162,1163,1167},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule38,tradeDate,def{1160},use{1162,1163},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule38,result,def{1157,1169},use{1169,1171},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule38,list,def{1155},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule38,errorHandler,def{1146,1155},use{1149,1152,1165},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule38,nodeIndex,def{1146},use{1148,1149,1152},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule38,name,def{1146,1155},use{1149,1152,1167},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule35,result,def{1066,1077},use{1077,1079},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule35,rate,def{1069},use{1071,1075},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule35,list,def{1064},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule35,errorHandler,def{1056,1064},use{1059,1062,1073},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule35,nodeIndex,def{1056},use{1058,1059,1062},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule35,name,def{1056,1064},use{1059,1062,1075},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule32,receiver,def{988},use{990,992},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule32,payer,def{987},use{990,991,995},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule32,result,def{984,997},use{997,999},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule32,list,def{982},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule32,errorHandler,def{974,982},use{977,979,993},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule32,nodeIndex,def{974},use{976,977,979},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule32,name,def{974,982},use{977,979,995},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule14,end,def{436},use{437,438},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule14,start,def{435},use{437,438},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule14,result,def{433,443},use{443,446},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule14,list,def{431},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule14,errorHandler,def{420,431},use{424,425,428,440},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule14,nodeIndex,def{420},use{422,424,425,428},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule14,name,def{420,431},use{424,425,428,442},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule29,spot,def{894},use{895},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule29,result,def{890,901},use{901,903},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule29,list,def{888},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule29,errorHandler,def{879,888},use{882,884,885,897},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule29,nodeIndex,def{879},use{881,882,884,885},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule29,forward,def{893},use{895},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule29,name,def{879,888},use{882,884,885,899},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule28,result,def{864,872},use{872,874},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule28,rate,def{866},use{867,871},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule28,list,def{862},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule28,errorHandler,def{853,862},use{856,858,859,869},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule28,nodeIndex,def{853},use{855,856,858,859},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule28,name,def{853,862},use{856,858,859,871},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule04,ccy1,def{76},use{81},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule04,baseCcy,def{75},use{79,81,84},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule04,result,def{72,85},use{85,88},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule04,list,def{70},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule04,errorHandler,def{62,70},use{65,67,82},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule04,nodeIndex,def{62},use{64,65,67},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule04,ccy2,def{77},use{79,81},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule04,name,def{62,70},use{65,67,84},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule27,ccy1,def{839},use{841},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule27,result,def{836,847},use{847,849},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule27,list,def{834},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule27,errorHandler,def{826,834},use{829,831,843},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule27,nodeIndex,def{826},use{828,829,831},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule27,ccy2,def{840},use{841},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule27,name,def{826,834},use{829,831,845},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule37,expiryDate,def{1129},use{1131,1133,1137},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule37,tradeDate,def{1128},use{1131,1133},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule37,result,def{1125,1139},use{1139,1141},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule37,list,def{1123},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule37,errorHandler,def{1114,1123},use{1117,1120,1135},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule37,nodeIndex,def{1114},use{1116,1117,1120},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule37,name,def{1114,1123},use{1117,1120,1137},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule24,result,def{748,756},use{756,759},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule24,rate,def{750},use{751,755},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule24,list,def{746},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule24,errorHandler,def{735,746},use{739,740,743,753},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule24,nodeIndex,def{735},use{737,739,740,743},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule24,name,def{735,746},use{739,740,743,755},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule44,receiver,def{1395},use{1397,1399},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,payer,def{1394},use{1397,1398},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,seller,def{1393},use{1396,1399},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,buyer,def{1392},use{1396,1398},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,result,def{1390,1405},use{1405,1408},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,list,def{1388},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,errorHandler,def{1377,1388},use{1381,1382,1385,1401},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,nodeIndex,def{1377},use{1379,1381,1382,1385},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule44,name,def{1377,1388},use{1381,1382,1385,1403},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule08,end,def{196},use{197,198},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule08,start,def{195},use{197,198},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule08,result,def{193,203},use{203,206},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule08,list,def{191},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule08,errorHandler,def{180,191},use{184,185,188,200},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule08,nodeIndex,def{180},use{182,184,185,188},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule08,name,def{180,191},use{184,185,188,202},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule43,ccy1,def{1362},use{1364},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule43,result,def{1360,1369},use{1369,1372},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule43,list,def{1358},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule43,errorHandler,def{1347,1358},use{1351,1352,1355,1366},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule43,nodeIndex,def{1347},use{1349,1351,1352,1355},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule43,ccy2,def{1363},use{1364},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule43,name,def{1347,1358},use{1351,1352,1355,1368},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule34,amount,def{1043},use{1044,1047},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule34,result,def{1041,1048},use{1048,1051},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule34,list,def{1039},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule34,errorHandler,def{1031,1039},use{1034,1036,1045},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule34,nodeIndex,def{1031},use{1033,1034,1036},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule34,name,def{1031,1039},use{1034,1036,1047},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule31,ccy1,def{957},use{960,961},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule31,baseCcy,def{956},use{960,961,965},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule31,result,def{953,967},use{967,969},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule31,list,def{951},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule31,errorHandler,def{942,951},use{945,948,963},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule31,nodeIndex,def{942},use{944,945,948},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule31,ccy2,def{958},use{960,961},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule31,name,def{942,951},use{945,948,965},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule05,ccy1,def{107},use{108,110},dvars{},pointers{},cfuncs{ ToToken {3}}
+test/test.cs,Rule05,ccy,def{106},use{108,111},dvars{},pointers{},cfuncs{ ToToken {1}}
+test/test.cs,Rule05,result,def{103,114},use{114,116},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule05,list,def{101},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule05,errorHandler,def{93,101},use{96,98,109},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule05,nodeIndex,def{93},use{95,96,98},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule05,name,def{93,101},use{96,98,112},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.cs,Rule10,period,def{259},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,end,def{258},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,start,def{257},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,result,def{255,265},use{265,268},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,list,def{253},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,errorHandler,def{242,253},use{246,247,250,262},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,nodeIndex,def{242},use{244,246,247,250},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule10,name,def{242,253},use{246,247,250,264},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule21,ndf,def{653},use{655},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule21,result,def{651,660},use{660,663},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule21,list,def{649},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule21,errorHandler,def{638,649},use{642,643,646,657},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule21,fwd,def{654},use{655},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule21,nodeIndex,def{638},use{640,642,643,646},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule21,name,def{638,649},use{642,643,646,659},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule20,result,def{620,630},use{630,633},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule20,list,def{618},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule20,errorHandler,def{607,618},use{611,612,615,627},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule20,date1,def{622},use{624,625},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule20,nodeIndex,def{607},use{609,611,612,615},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule20,date2,def{623},use{624,625},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule20,name,def{607,618},use{611,612,615,629},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule17,result,def{520,531},use{531,534},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule17,rate,def{523},use{525,529},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule17,list,def{518},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule17,errorHandler,def{508,518},use{512,513,515,527},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule17,nodeIndex,def{508},use{510,512,513,515},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule17,name,def{508,518},use{512,513,515,529},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule19,ccy1,def{592},use{595},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule19,result,def{589,600},use{600,603},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule19,list,def{587},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule19,errorHandler,def{577,587},use{581,582,584,597},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule19,nodeIndex,def{577},use{579,581,582,584},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule19,ccy2,def{593},use{595},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule19,name,def{577,587},use{581,582,584,599},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule07,result,def{164,172},use{172,175},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule07,rate,def{166},use{167,171},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule07,list,def{162},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule07,errorHandler,def{151,162},use{155,156,159,169},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule07,nodeIndex,def{151},use{153,155,156,159},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule07,name,def{151,162},use{155,156,159,171},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule18,ccy2Pay,def{557},use{561,564},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,result,def{552,570},use{570,572},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,list,def{550},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,ccy1Pay,def{555},use{560,563},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,errorHandler,def{539,550},use{543,544,547,566},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,ccy1Rec,def{556},use{560,564},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,nodeIndex,def{539},use{541,543,544,547},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,ccy2Rec,def{558},use{561,563},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule18,name,def{539,550},use{543,544,547,568},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule16,result,def{493,501},use{501,503},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule16,rate,def{495},use{496,500},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule16,list,def{491},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule16,errorHandler,def{480,491},use{484,485,488,498},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule16,nodeIndex,def{480},use{482,484,485,488},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule16,name,def{480,491},use{484,485,488,500},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule23,ccy1,def{720},use{722},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule23,result,def{718,727},use{727,730},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule23,list,def{716},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule23,errorHandler,def{704,716},use{708,709,712,713,724},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule23,nodeIndex,def{704},use{706,708,709,712,713},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule23,ccy2,def{721},use{722},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule23,name,def{704,716},use{708,709,712,713,726},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule12,date,def{343},use{346},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,nodes,def{340},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,end,def{331},use{335,337},dvars{},pointers{},cfuncs{ToDate {2}}
+test/test.cs,Rule12,dates,def{337,360},use{360},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,roll,def{333},use{335,338},dvars{},pointers{},cfuncs{ToToken {2}}
+test/test.cs,Rule12,start,def{330},use{335,337},dvars{},pointers{},cfuncs{ToDate {1}}
+test/test.cs,Rule12,schedule,def{327},use{328,330,331,332},dvars{},pointers{},cfuncs{Path {1}}
+test/test.cs,Rule12,result,def{325,357},use{357,363},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,freq,def{332},use{333,335,338},dvars{},pointers{},cfuncs{ToInterval {2},Path {1}}
+test/test.cs,Rule12,list,def{323},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,found,def{344,347},use{347,352},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,errorHandler,def{312,323},use{316,317,320,353},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,nodeIndex,def{312},use{314,316,317,320},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule12,name,def{312,323},use{316,317,320,356},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.cs,Rule36,expiryDate,def{1098},use{1099,1101,1105},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule36,tradeDate,def{1097},use{1099,1101},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule36,result,def{1094,1107},use{1107,1110},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule36,list,def{1092},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule36,errorHandler,def{1084,1092},use{1087,1089,1103},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule36,nodeIndex,def{1084},use{1086,1087,1089},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule36,name,def{1084,1092},use{1087,1089,1105},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule15,result,def{464,472},use{472,475},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule15,rate,def{466},use{467,471},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule15,list,def{462},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule15,errorHandler,def{451,462},use{455,456,459,469},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule15,nodeIndex,def{451},use{453,455,456,459},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule15,name,def{451,462},use{455,456,459,471},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule41,result,def{1293,1301},use{1301,1304},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule41,rate,def{1295},use{1296,1300},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule41,list,def{1291},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule41,errorHandler,def{1280,1291},use{1284,1285,1288,1298},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule41,nodeIndex,def{1280},use{1282,1284,1285,1288},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule41,name,def{1280,1291},use{1284,1285,1288,1300},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule11,inner,def{296},use{296},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,count,def{292},use{292},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,dates,def{290,304},use{297,304},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,nodes,def{288},use{289,293,298,300},dvars{dates ,limit},pointers{},cfuncs{ToToken {5},errorHandler {2},ToDate {1}}
+test/test.cs,Rule11,outer,def{295},use{295,296},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,dates ,def{293},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,result,def{286,301},use{301,307},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,list,def{284},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,limit,def{289},use{292,295,296},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,errorHandler,def{273,284},use{277,278,281,298},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,nodeIndex,def{273},use{275,277,278,281},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule11,name,def{273,284},use{277,278,281,300},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule22,receiver,def{687},use{689,692},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,payer,def{686},use{689,691},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,seller,def{685},use{688,692},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,buyer,def{684},use{688,691},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,result,def{682,697},use{697,700},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,list,def{680},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,errorHandler,def{668,680},use{672,673,676,677,694},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,nodeIndex,def{668},use{670,672,673,676,677},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule22,name,def{668,680},use{672,673,676,677,696},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule13,match,def{397},use{397},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,date,def{395},use{398},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,nodes,def{392},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,count,def{389},use{389},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,dates,def{387,412},use{397,398,412},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,dates ,def{390},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,schedule,def{383},use{384,390},dvars{dates ,limit},pointers{},cfuncs{ToDate {1}}
+test/test.cs,Rule13,result,def{381,409},use{409,415},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,list,def{379},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,found,def{396,399},use{399,403},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,limit,def{384},use{385,389},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,errorHandler,def{368,379},use{372,373,376,404},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,nodeIndex,def{368},use{370,372,373,376},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule13,name,def{368,379},use{372,373,376,407},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.cs,Rule09,end,def{227},use{228,229},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule09,start,def{226},use{228,229},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule09,result,def{224,234},use{234,237},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule09,list,def{222},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule09,errorHandler,def{211,222},use{215,216,219,231},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule09,nodeIndex,def{211},use{213,215,216,219},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule09,name,def{211,222},use{215,216,219,233},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule06,ccy1,def{135},use{136,139},dvars{},pointers{},cfuncs{ ToToken {3}}
+test/test.cs,Rule06,ccy,def{134},use{136,140},dvars{},pointers{},cfuncs{ ToToken {1}}
+test/test.cs,Rule06,result,def{131,143},use{143,146},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule06,list,def{129},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule06,errorHandler,def{121,129},use{124,126,138},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule06,nodeIndex,def{121},use{123,124,126},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule06,name,def{121,129},use{124,126,141},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.cs,Rule26,result,def{806,819},use{819,821},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule26,list,def{804},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule26,errorHandler,def{793,804},use{797,798,801,815},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule26,date1,def{810},use{813},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule26,legs,def{808},use{809,810,811},dvars{},pointers{},cfuncs{Path {1}}
+test/test.cs,Rule26,nodeIndex,def{793},use{795,797,798,801},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule26,date2,def{811},use{813},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule26,name,def{793,804},use{797,798,801,817},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule30,spot,def{923},use{926,928},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule30,result,def{919,934},use{934,937},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule30,rate,def{924},use{926,928,933},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule30,list,def{917},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule30,errorHandler,def{908,917},use{911,913,914,931},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule30,nodeIndex,def{908},use{910,911,913,914},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule30,forward,def{922},use{926,928},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule30,name,def{908,917},use{911,913,914,933},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule03,spot,def{45},use{47,48},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule03,result,def{42,55},use{55,57},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule03,rate,def{46},use{47,48,53},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule03,list,def{40},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule03,errorHandler,def{32,40},use{35,37,51},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule03,nodeIndex,def{32},use{34,35,37},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule03,forward,def{44},use{47,48},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule03,name,def{32,40},use{35,37,53},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,GenerateSchedule,founddates,def{1541},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,GenerateSchedule,dates,def{1519},use{1541,1542},dvars{},pointers{},cfuncs{CopyTo {1}}
+test/test.cs,GenerateSchedule,found,def{1518},use{1528,1529},dvars{},pointers{},cfuncs{}
+test/test.cs,GenerateSchedule,calendar,def{1515},use{1524},dvars{adjusted},pointers{},cfuncs{Adjust {1}}
+test/test.cs,GenerateSchedule,roll,def{1515},use{1523,1524},dvars{adjusted},pointers{},cfuncs{}
+test/test.cs,GenerateSchedule,end,def{1514},use{1520,1533},dvars{current},pointers{},cfuncs{}
+test/test.cs,GenerateSchedule,adjusted,def{1521,1524,1526},use{1528,1529},dvars{},pointers{},cfuncs{Add {1}}
+test/test.cs,GenerateSchedule,current,def{1517,1533,1538},use{1520,1524,1526,1532},dvars{adjusted},pointers{},cfuncs{Adjust {2}}
+test/test.cs,GenerateSchedule,frequency,def{1515},use{1531,1538},dvars{current},pointers{},cfuncs{Plus {1}}
+test/test.cs,GenerateSchedule,start,def{1514},use{1517,1532},dvars{current},pointers{},cfuncs{}
+test/test.cs,Rule46,result,def{1458,1468},use{1468,1471},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule46,list,def{1456},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule46,errorHandler,def{1448,1456},use{1451,1453,1465},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule46,nodeIndex,def{1448},use{1450,1451,1453},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule46,basis,def{1460},use{1461,1462,1463,1467},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.cs,Rule46,name,def{1448,1456},use{1451,1453,1467},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule25,result,def{777,785},use{785,788},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule25,list,def{775},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule25,errorHandler,def{764,775},use{768,769,772,782},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule25,legs,def{779},use{780},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule25,nodeIndex,def{764},use{766,768,769,772},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule25,name,def{764,775},use{768,769,772,784},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.cs,Rule02,spot,def{19},use{20},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule02,result,def{16,25},use{25,27},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule02,list,def{14},use{},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule02,errorHandler,def{5,14},use{8,11,21},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule02,nodeIndex,def{5},use{7,8,11},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule02,forward,def{18},use{20},dvars{},pointers{},cfuncs{}
+test/test.cs,Rule02,name,def{5,14},use{8,11,23},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule47,result,def{1485,1497},use{1497,1499},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule47,list,def{1483},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule47,errorHandler,def{1475,1483},use{1478,1481,1493},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule47,nodeIndex,def{1475},use{1477,1478,1481},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule47,basis,def{1487},use{1489,1490,1491,1495},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule47,name,def{1475,1483},use{1478,1481,1495},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule45,receiver,def{1431},use{1433,1435},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,payer,def{1430},use{1433,1434},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,seller,def{1429},use{1432,1435},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,buyer,def{1428},use{1432,1434},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,result,def{1426,1441},use{1441,1443},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,list,def{1424},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,errorHandler,def{1413,1424},use{1417,1418,1421,1437},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,nodeIndex,def{1413},use{1415,1417,1418,1421},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule45,name,def{1413,1424},use{1417,1418,1421,1439},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule42,inner,def{1330},use{1330},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,count,def{1327},use{1327},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,dates,def{1326,1339},use{1331,1339},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,nodes,def{1324},use{1325,1328,1332,1334},dvars{dates ,limit},pointers{},cfuncs{ToToken {5},errorHandler {2},ToDate {1}}
+test/test.pb.cs,Rule42,outer,def{1329},use{1329,1330},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,dates ,def{1328},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,result,def{1322,1336},use{1336,1342},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,list,def{1320},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,limit,def{1325},use{1327,1329,1330},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,errorHandler,def{1309,1320},use{1313,1314,1317,1332},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,nodeIndex,def{1309},use{1311,1313,1314,1317},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule42,name,def{1309,1320},use{1313,1314,1317,1334},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule40,value1Date,def{1247},use{1257,1258,1261},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule40,tradeDate,def{1243},use{1249,1251,1258,1265},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule40,result,def{1240,1255,1262,1269},use{1255,1262,1269,1275},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule40,list,def{1238},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule40,valueDate,def{1246},use{1250,1251,1254},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule40,errorHandler,def{1229,1238},use{1232,1235,1252,1259,1266},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule40,legs,def{1244},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule40,nodeIndex,def{1229},use{1231,1232,1235},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule40,value2Date,def{1248},use{1264,1265,1268},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule40,name,def{1229,1238},use{1232,1235,1254,1261,1268},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule39,value1Date,def{1191},use{1203,1204,1208},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule39,tradeDate,def{1189},use{1194,1196,1204,1214},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule39,result,def{1186,1201,1210,1220},use{1201,1210,1220,1224},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule39,list,def{1184},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule39,valueDate,def{1190},use{1195,1196,1199},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule39,errorHandler,def{1176,1184},use{1179,1181,1197,1206,1216},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule39,nodeIndex,def{1176},use{1178,1179,1181},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule39,value2Date,def{1192},use{1213,1214,1218},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule39,name,def{1176,1184},use{1179,1181,1199,1208,1218},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule33,start,def{1017},use{1019,1020},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule33,maturity,def{1018},use{1019,1020,1024},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule33,result,def{1014,1026},use{1026,1028},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule33,list,def{1012},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule33,errorHandler,def{1004,1012},use{1007,1009,1022},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule33,nodeIndex,def{1004},use{1006,1007,1009},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule33,name,def{1004,1012},use{1007,1009,1024},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule38,expiryDate,def{1161},use{1162,1163,1167},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule38,tradeDate,def{1160},use{1162,1163},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule38,result,def{1157,1169},use{1169,1171},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule38,list,def{1155},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule38,errorHandler,def{1146,1155},use{1149,1152,1165},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule38,nodeIndex,def{1146},use{1148,1149,1152},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule38,name,def{1146,1155},use{1149,1152,1167},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule35,result,def{1066,1077},use{1077,1079},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule35,rate,def{1069},use{1071,1075},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule35,list,def{1064},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule35,errorHandler,def{1056,1064},use{1059,1062,1073},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule35,nodeIndex,def{1056},use{1058,1059,1062},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule35,name,def{1056,1064},use{1059,1062,1075},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule32,receiver,def{988},use{990,992},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule32,payer,def{987},use{990,991,995},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule32,result,def{984,997},use{997,999},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule32,list,def{982},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule32,errorHandler,def{974,982},use{977,979,993},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule32,nodeIndex,def{974},use{976,977,979},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule32,name,def{974,982},use{977,979,995},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule14,end,def{436},use{437,438},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule14,start,def{435},use{437,438},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule14,result,def{433,443},use{443,446},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule14,list,def{431},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule14,errorHandler,def{420,431},use{424,425,428,440},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule14,nodeIndex,def{420},use{422,424,425,428},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule14,name,def{420,431},use{424,425,428,442},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule29,spot,def{894},use{895},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule29,result,def{890,901},use{901,903},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule29,list,def{888},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule29,errorHandler,def{879,888},use{882,884,885,897},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule29,nodeIndex,def{879},use{881,882,884,885},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule29,forward,def{893},use{895},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule29,name,def{879,888},use{882,884,885,899},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule28,result,def{864,872},use{872,874},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule28,rate,def{866},use{867,871},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule28,list,def{862},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule28,errorHandler,def{853,862},use{856,858,859,869},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule28,nodeIndex,def{853},use{855,856,858,859},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule28,name,def{853,862},use{856,858,859,871},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule04,ccy1,def{76},use{81},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule04,baseCcy,def{75},use{79,81,84},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule04,result,def{72,85},use{85,88},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule04,list,def{70},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule04,errorHandler,def{62,70},use{65,67,82},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule04,nodeIndex,def{62},use{64,65,67},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule04,ccy2,def{77},use{79,81},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule04,name,def{62,70},use{65,67,84},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule27,ccy1,def{839},use{841},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule27,result,def{836,847},use{847,849},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule27,list,def{834},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule27,errorHandler,def{826,834},use{829,831,843},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule27,nodeIndex,def{826},use{828,829,831},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule27,ccy2,def{840},use{841},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule27,name,def{826,834},use{829,831,845},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule37,expiryDate,def{1129},use{1131,1133,1137},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule37,tradeDate,def{1128},use{1131,1133},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule37,result,def{1125,1139},use{1139,1141},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule37,list,def{1123},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule37,errorHandler,def{1114,1123},use{1117,1120,1135},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule37,nodeIndex,def{1114},use{1116,1117,1120},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule37,name,def{1114,1123},use{1117,1120,1137},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule24,result,def{748,756},use{756,759},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule24,rate,def{750},use{751,755},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule24,list,def{746},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule24,errorHandler,def{735,746},use{739,740,743,753},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule24,nodeIndex,def{735},use{737,739,740,743},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule24,name,def{735,746},use{739,740,743,755},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule44,receiver,def{1395},use{1397,1399},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,payer,def{1394},use{1397,1398},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,seller,def{1393},use{1396,1399},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,buyer,def{1392},use{1396,1398},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,result,def{1390,1405},use{1405,1408},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,list,def{1388},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,errorHandler,def{1377,1388},use{1381,1382,1385,1401},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,nodeIndex,def{1377},use{1379,1381,1382,1385},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule44,name,def{1377,1388},use{1381,1382,1385,1403},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule08,end,def{196},use{197,198},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule08,start,def{195},use{197,198},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule08,result,def{193,203},use{203,206},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule08,list,def{191},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule08,errorHandler,def{180,191},use{184,185,188,200},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule08,nodeIndex,def{180},use{182,184,185,188},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule08,name,def{180,191},use{184,185,188,202},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule43,ccy1,def{1362},use{1364},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule43,result,def{1360,1369},use{1369,1372},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule43,list,def{1358},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule43,errorHandler,def{1347,1358},use{1351,1352,1355,1366},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule43,nodeIndex,def{1347},use{1349,1351,1352,1355},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule43,ccy2,def{1363},use{1364},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule43,name,def{1347,1358},use{1351,1352,1355,1368},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule34,amount,def{1043},use{1044,1047},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule34,result,def{1041,1048},use{1048,1051},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule34,list,def{1039},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule34,errorHandler,def{1031,1039},use{1034,1036,1045},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule34,nodeIndex,def{1031},use{1033,1034,1036},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule34,name,def{1031,1039},use{1034,1036,1047},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule31,ccy1,def{957},use{960,961},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule31,baseCcy,def{956},use{960,961,965},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule31,result,def{953,967},use{967,969},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule31,list,def{951},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule31,errorHandler,def{942,951},use{945,948,963},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule31,nodeIndex,def{942},use{944,945,948},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule31,ccy2,def{958},use{960,961},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule31,name,def{942,951},use{945,948,965},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule05,ccy1,def{107},use{108,110},dvars{},pointers{},cfuncs{ ToToken {3}}
+test/test.pb.cs,Rule05,ccy,def{106},use{108,111},dvars{},pointers{},cfuncs{ ToToken {1}}
+test/test.pb.cs,Rule05,result,def{103,114},use{114,116},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule05,list,def{101},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule05,errorHandler,def{93,101},use{96,98,109},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule05,nodeIndex,def{93},use{95,96,98},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule05,name,def{93,101},use{96,98,112},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.pb.cs,Rule10,period,def{259},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,end,def{258},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,start,def{257},use{260,261},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,result,def{255,265},use{265,268},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,list,def{253},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,errorHandler,def{242,253},use{246,247,250,262},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,nodeIndex,def{242},use{244,246,247,250},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule10,name,def{242,253},use{246,247,250,264},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule21,ndf,def{653},use{655},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule21,result,def{651,660},use{660,663},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule21,list,def{649},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule21,errorHandler,def{638,649},use{642,643,646,657},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule21,fwd,def{654},use{655},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule21,nodeIndex,def{638},use{640,642,643,646},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule21,name,def{638,649},use{642,643,646,659},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule20,result,def{620,630},use{630,633},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule20,list,def{618},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule20,errorHandler,def{607,618},use{611,612,615,627},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule20,date1,def{622},use{624,625},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule20,nodeIndex,def{607},use{609,611,612,615},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule20,date2,def{623},use{624,625},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule20,name,def{607,618},use{611,612,615,629},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule17,result,def{520,531},use{531,534},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule17,rate,def{523},use{525,529},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule17,list,def{518},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule17,errorHandler,def{508,518},use{512,513,515,527},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule17,nodeIndex,def{508},use{510,512,513,515},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule17,name,def{508,518},use{512,513,515,529},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule19,ccy1,def{592},use{595},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule19,result,def{589,600},use{600,603},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule19,list,def{587},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule19,errorHandler,def{577,587},use{581,582,584,597},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule19,nodeIndex,def{577},use{579,581,582,584},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule19,ccy2,def{593},use{595},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule19,name,def{577,587},use{581,582,584,599},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule07,result,def{164,172},use{172,175},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule07,rate,def{166},use{167,171},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule07,list,def{162},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule07,errorHandler,def{151,162},use{155,156,159,169},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule07,nodeIndex,def{151},use{153,155,156,159},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule07,name,def{151,162},use{155,156,159,171},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule18,ccy2Pay,def{557},use{561,564},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,result,def{552,570},use{570,572},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,list,def{550},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,ccy1Pay,def{555},use{560,563},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,errorHandler,def{539,550},use{543,544,547,566},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,ccy1Rec,def{556},use{560,564},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,nodeIndex,def{539},use{541,543,544,547},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,ccy2Rec,def{558},use{561,563},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule18,name,def{539,550},use{543,544,547,568},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule16,result,def{493,501},use{501,503},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule16,rate,def{495},use{496,500},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule16,list,def{491},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule16,errorHandler,def{480,491},use{484,485,488,498},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule16,nodeIndex,def{480},use{482,484,485,488},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule16,name,def{480,491},use{484,485,488,500},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule23,ccy1,def{720},use{722},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule23,result,def{718,727},use{727,730},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule23,list,def{716},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule23,errorHandler,def{704,716},use{708,709,712,713,724},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule23,nodeIndex,def{704},use{706,708,709,712,713},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule23,ccy2,def{721},use{722},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule23,name,def{704,716},use{708,709,712,713,726},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule12,date,def{343},use{346},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,nodes,def{340},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,end,def{331},use{335,337},dvars{},pointers{},cfuncs{ToDate {2}}
+test/test.pb.cs,Rule12,dates,def{337,360},use{360},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,roll,def{333},use{335,338},dvars{},pointers{},cfuncs{ToToken {2}}
+test/test.pb.cs,Rule12,start,def{330},use{335,337},dvars{},pointers{},cfuncs{ToDate {1}}
+test/test.pb.cs,Rule12,schedule,def{327},use{328,330,331,332},dvars{},pointers{},cfuncs{Path {1}}
+test/test.pb.cs,Rule12,result,def{325,357},use{357,363},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,freq,def{332},use{333,335,338},dvars{},pointers{},cfuncs{ToInterval {2},Path {1}}
+test/test.pb.cs,Rule12,list,def{323},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,found,def{344,347},use{347,352},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,errorHandler,def{312,323},use{316,317,320,353},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,nodeIndex,def{312},use{314,316,317,320},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule12,name,def{312,323},use{316,317,320,356},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.pb.cs,Rule36,expiryDate,def{1098},use{1099,1101,1105},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule36,tradeDate,def{1097},use{1099,1101},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule36,result,def{1094,1107},use{1107,1110},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule36,list,def{1092},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule36,errorHandler,def{1084,1092},use{1087,1089,1103},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule36,nodeIndex,def{1084},use{1086,1087,1089},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule36,name,def{1084,1092},use{1087,1089,1105},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule15,result,def{464,472},use{472,475},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule15,rate,def{466},use{467,471},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule15,list,def{462},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule15,errorHandler,def{451,462},use{455,456,459,469},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule15,nodeIndex,def{451},use{453,455,456,459},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule15,name,def{451,462},use{455,456,459,471},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule41,result,def{1293,1301},use{1301,1304},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule41,rate,def{1295},use{1296,1300},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule41,list,def{1291},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule41,errorHandler,def{1280,1291},use{1284,1285,1288,1298},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule41,nodeIndex,def{1280},use{1282,1284,1285,1288},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule41,name,def{1280,1291},use{1284,1285,1288,1300},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule11,inner,def{296},use{296},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,count,def{292},use{292},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,dates,def{290,304},use{297,304},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,nodes,def{288},use{289,293,298,300},dvars{dates ,limit},pointers{},cfuncs{ToToken {5},errorHandler {2},ToDate {1}}
+test/test.pb.cs,Rule11,outer,def{295},use{295,296},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,dates ,def{293},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,result,def{286,301},use{301,307},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,list,def{284},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,limit,def{289},use{292,295,296},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,errorHandler,def{273,284},use{277,278,281,298},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,nodeIndex,def{273},use{275,277,278,281},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule11,name,def{273,284},use{277,278,281,300},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule22,receiver,def{687},use{689,692},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,payer,def{686},use{689,691},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,seller,def{685},use{688,692},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,buyer,def{684},use{688,691},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,result,def{682,697},use{697,700},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,list,def{680},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,errorHandler,def{668,680},use{672,673,676,677,694},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,nodeIndex,def{668},use{670,672,673,676,677},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule22,name,def{668,680},use{672,673,676,677,696},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule13,match,def{397},use{397},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,date,def{395},use{398},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,nodes,def{392},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,count,def{389},use{389},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,dates,def{387,412},use{397,398,412},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,dates ,def{390},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,schedule,def{383},use{384,390},dvars{dates ,limit},pointers{},cfuncs{ToDate {1}}
+test/test.pb.cs,Rule13,result,def{381,409},use{409,415},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,list,def{379},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,found,def{396,399},use{399,403},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,limit,def{384},use{385,389},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,errorHandler,def{368,379},use{372,373,376,404},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,nodeIndex,def{368},use{370,372,373,376},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule13,name,def{368,379},use{372,373,376,407},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.pb.cs,Rule09,end,def{227},use{228,229},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule09,start,def{226},use{228,229},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule09,result,def{224,234},use{234,237},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule09,list,def{222},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule09,errorHandler,def{211,222},use{215,216,219,231},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule09,nodeIndex,def{211},use{213,215,216,219},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule09,name,def{211,222},use{215,216,219,233},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule06,ccy1,def{135},use{136,139},dvars{},pointers{},cfuncs{ ToToken {3}}
+test/test.pb.cs,Rule06,ccy,def{134},use{136,140},dvars{},pointers{},cfuncs{ ToToken {1}}
+test/test.pb.cs,Rule06,result,def{131,143},use{143,146},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule06,list,def{129},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule06,errorHandler,def{121,129},use{124,126,138},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule06,nodeIndex,def{121},use{123,124,126},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule06,name,def{121,129},use{124,126,141},dvars{},pointers{},cfuncs{errorHandler {2}}
+test/test.pb.cs,Rule26,result,def{806,819},use{819,821},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule26,list,def{804},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule26,errorHandler,def{793,804},use{797,798,801,815},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule26,date1,def{810},use{813},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule26,legs,def{808},use{809,810,811},dvars{},pointers{},cfuncs{Path {1}}
+test/test.pb.cs,Rule26,nodeIndex,def{793},use{795,797,798,801},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule26,date2,def{811},use{813},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule26,name,def{793,804},use{797,798,801,817},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule30,spot,def{923},use{926,928},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule30,result,def{919,934},use{934,937},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule30,rate,def{924},use{926,928,933},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule30,list,def{917},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule30,errorHandler,def{908,917},use{911,913,914,931},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule30,nodeIndex,def{908},use{910,911,913,914},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule30,forward,def{922},use{926,928},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule30,name,def{908,917},use{911,913,914,933},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule03,spot,def{45},use{47,48},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule03,result,def{42,55},use{55,57},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule03,rate,def{46},use{47,48,53},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule03,list,def{40},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule03,errorHandler,def{32,40},use{35,37,51},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule03,nodeIndex,def{32},use{34,35,37},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule03,forward,def{44},use{47,48},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule03,name,def{32,40},use{35,37,53},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,GenerateSchedule,founddates,def{1541},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,GenerateSchedule,dates,def{1519},use{1541,1542},dvars{},pointers{},cfuncs{CopyTo {1}}
+test/test.pb.cs,GenerateSchedule,found,def{1518},use{1528,1529},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,GenerateSchedule,calendar,def{1515},use{1524},dvars{adjusted},pointers{},cfuncs{Adjust {1}}
+test/test.pb.cs,GenerateSchedule,roll,def{1515},use{1523,1524},dvars{adjusted},pointers{},cfuncs{}
+test/test.pb.cs,GenerateSchedule,end,def{1514},use{1520,1533},dvars{current},pointers{},cfuncs{}
+test/test.pb.cs,GenerateSchedule,adjusted,def{1521,1524,1526},use{1528,1529},dvars{},pointers{},cfuncs{Add {1}}
+test/test.pb.cs,GenerateSchedule,current,def{1517,1533,1538},use{1520,1524,1526,1532},dvars{adjusted},pointers{},cfuncs{Adjust {2}}
+test/test.pb.cs,GenerateSchedule,frequency,def{1515},use{1531,1538},dvars{current},pointers{},cfuncs{Plus {1}}
+test/test.pb.cs,GenerateSchedule,start,def{1514},use{1517,1532},dvars{current},pointers{},cfuncs{}
+test/test.pb.cs,Rule46,result,def{1458,1468},use{1468,1471},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule46,list,def{1456},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule46,errorHandler,def{1448,1456},use{1451,1453,1465},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule46,nodeIndex,def{1448},use{1450,1451,1453},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule46,basis,def{1460},use{1461,1462,1463,1467},dvars{},pointers{},cfuncs{ToToken {5}}
+test/test.pb.cs,Rule46,name,def{1448,1456},use{1451,1453,1467},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule25,result,def{777,785},use{785,788},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule25,list,def{775},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule25,errorHandler,def{764,775},use{768,769,772,782},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule25,legs,def{779},use{780},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule25,nodeIndex,def{764},use{766,768,769,772},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule25,name,def{764,775},use{768,769,772,784},dvars{},pointers{},cfuncs{errorHandler {4}}
+test/test.pb.cs,Rule02,spot,def{19},use{20},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule02,result,def{16,25},use{25,27},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule02,list,def{14},use{},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule02,errorHandler,def{5,14},use{8,11,21},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule02,nodeIndex,def{5},use{7,8,11},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule02,forward,def{18},use{20},dvars{},pointers{},cfuncs{}
+test/test.pb.cs,Rule02,name,def{5,14},use{8,11,23},dvars{},pointers{},cfuncs{errorHandler {4}}
+src/Smali.java,saveITreeFromPB,c,def{91},use{91,92},dvars{},pointers{},cfuncs{saveITreeFromPB{1}}
+src/Smali.java,saveITreeFromPB,length,def{82},use{84},dvars{},pointers{},cfuncs{setLength{1}}
+src/Smali.java,saveITreeFromPB,getChildList,def{91},use{},dvars{},pointers{},cfuncs{}
+src/Smali.java,saveITreeFromPB,element,def{75},use{77,78,81,82,89,91},dvars{,pos,label,length,kind},pointers{},cfuncs{}
+src/Smali.java,saveITreeFromPB,t,def{79},use{83,84,87,90,95},dvars{},pointers{},cfuncs{push{1}}
+src/Smali.java,saveITreeFromPB,label,def{78},use{79},dvars{},pointers{},cfuncs{createTree{2}}
+src/Smali.java,saveITreeFromPB,List,def{91},use{},dvars{},pointers{},cfuncs{}
+src/Smali.java,saveITreeFromPB,pos,def{81},use{83},dvars{},pointers{},cfuncs{setPos{1}}
+src/Smali.java,saveITreeFromPB,kind,def{77},use{79},dvars{},pointers{},cfuncs{createTree{1}}
+src/Smali.java,saveITreeFromPB,context,def{75},use{75,77,78,79,81,82,89,91,92},dvars{length,label,kind,,pos,t},pointers{},cfuncs{saveITreeFromPB{2}}
+src/Smali.java,savePBfromITree,getChildren,def{65},use{},dvars{},pointers{},cfuncs{}
+src/Smali.java,savePBfromITree,it,def{65},use{65,67},dvars{},pointers{},cfuncs{savePBfromITree{2}}
+src/Smali.java,savePBfromITree,label,def{56},use{57,58},dvars{},pointers{},cfuncs{setText{1}}
+src/Smali.java,savePBfromITree,child,def{66},use{56,57,58,67,68},dvars{},pointers{},cfuncs{setText{1},addChild{1},savePBfromITree{1}}
+src/Smali.java,savePBfromITree,List,def{65},use{},dvars{},pointers{},cfuncs{}
+src/Smali.java,savePBfromITree,kind,def{55},use{61},dvars{},pointers{},cfuncs{setKindValue{1}}
+src/Smali.java,savePBfromITree,t,def{54},use{55,56,62,63,64,65},dvars{,label,kind},pointers{},cfuncs{setLength{0},setPos{0}}
+src/Smali.java,savePBfromITree,element,def{54},use{58,61,62,63,68},dvars{},pointers{},cfuncs{}
+src/Smali.java,indexfilefunctionpotentialAliasvariableNameisGlobalinitGenerators,reflections,def{40},use{41},dvars{},pointers{},cfuncs{}
+src/Smali.java,main,delta,def{139},use{140,141,142},dvars{},pointers{},cfuncs{toPB{2}}
+src/Smali.java,main,output,def{120,143},use{121,122,144,145},dvars{},pointers{},cfuncs{writeTo{1}}
+src/Smali.java,main,unit,def{113},use{114},dvars{},pointers{},cfuncs{}
+src/Smali.java,main,g,def{134},use{135,136},dvars{actions},pointers{},cfuncs{}
+src/Smali.java,main,actions,def{136},use{142},dvars{},pointers{},cfuncs{toPB{2}}
+src/Smali.java,main,element,def{116},use{56,57,58,117,118},dvars{},pointers{},cfuncs{setText{1},addChild{1},savePBfromITree{1}}
+src/Smali.java,main,data_element,def{111},use{112,121},dvars{root_element},pointers{},cfuncs{}
+src/Smali.java,main,t,def{109},use{},dvars{},pointers{},cfuncs{}
+src/Smali.java,main,matcher,def{131},use{133,134,142},dvars{},pointers{},cfuncs{toPB{2},ActionGenerator{1}}
+src/Smali.java,main,args[],def{105},use{},dvars{},pointers{},cfuncs{}
+src/Smali.java,main,root_element,def{112},use{113,118},dvars{unit},pointers{},cfuncs{}
+src/Smali.java,main,dst,def{126},use{131,134},dvars{},pointers{},cfuncs{ActionGenerator{1},getMatcher{1}}
+src/Smali.java,main,data_builder,def{138},use{139,144},dvars{delta},pointers{},cfuncs{}
+src/Smali.java,main,src,def{108,125},use{56,57,58,109,117,131,134,142},dvars{t},pointers{},cfuncs{toPB{1},setText{1},ActionGenerator{0},getMatcher{1},savePBfromITree{1}}
+src/fast.cc,main,load_only,def{1048},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,antlr,def{1013,1028},use{1028},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,git,def{1023},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,encode,def{1012,1031},use{1031},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,mySlice,def{1011,1034},use{1034},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,loadXMLload_onlyargcargvloadSrcMLload_onlyargcargvopterr,def{1007},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,decode,def{1008,1045},use{1045},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,position,def{1009,1035,1039,1042},use{1035,1039,1042},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,slice,def{1010,1038},use{1038},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,head,def{1024},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,argc,def{1004},use{1014,1061},dvars{c},pointers{},cfuncs{}
+src/fast.cc,main,c,def{1005,1014},use{1015},dvars{},pointers{},cfuncs{}
+src/fast.cc,main,argv[],def{1004},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,mainRoutine,argv[],def{960},use{},dvars{},pointers{argv},cfuncs{}
+src/fast.cc,mainRoutine,argc,def{960},use{961,965,971,974,977,980,984,987,989,997,1000,1001},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadPB,sslice,def{269},use{278,280},dvars{},pointers{},cfuncs{srcSliceToCsv{1}}
+src/fast.cc,loadPB,handler,def{270},use{271,273,274,275,290,291,298,306,309,826,835,836,972,975,976,990,991},dvars{},pointers{},cfuncs{append{1},endElement{1},startElement{1},ComputeInterprocedural{1},DoComputation{2},DoComputation{1},slicePB{1}}
+src/fast.cc,loadPB,c_strargv,def{265},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadPB,catCommand,def{254,255,259,260},use{256,261},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadPB,sliceCommand,def{251,252},use{253},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadPB,buf,def{234},use{235,236,237,238},dvars{xml_filename},pointers{},cfuncs{mkstemp{1},remove{1},strcpy{1}}
+src/fast.cc,loadPB,input_filename,def{230},use{231},dvars{},pointers{argv},cfuncs{readData{1}}
+src/fast.cc,loadPB,data,def{231},use{232,246,268,272},dvars{unit},pointers{},cfuncs{}
+src/fast.cc,loadPB,out,def{241,243},use{243,245,247,248,443,444,445},dvars{attr,out},pointers{},cfuncs{substr{1},Element_Literal_LiteralType_Name{0},saveXMLfromPB{1}}
+src/fast.cc,loadPB,xml_filename,def{238},use{239,243,252,255,257,260,263,265,267},dvars{catCommand,c_strargv,sliceCommand,out},pointers{},cfuncs{remove{1}}
+src/fast.cc,loadPB,argv,def{228},use{229,230,266,278,960},dvars{},pointers{},cfuncs{srcSliceToCsv{2},mainRoutine{2}}
+src/fast.cc,loadPB,unit,def{246,272},use{247,273,304,305,456,457},dvars{},pointers{},cfuncs{mutable_child{2},slicePB{2},saveXMLfromPB{2}}
+src/fast.cc,loadPB,argc,def{228},use{249,266,277,960,961,965,971,974,977,980,984,987,989,997,1000,1001},dvars{},pointers{},cfuncs{mainRoutine{1}}
+src/fast.cc,loadPB,load_only,def{228},use{232,268},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,child,def{748,757},use{748,749,750,752,753,754,757},dvars{},pointers{child,node},cfuncs{savePBfromXML{1},set_text{0}}
+src/fast.cc,savePBfromXML,str,def{744},use{745,746},dvars{},pointers{},cfuncs{Element_Kind_Parse{1},transform{1},transform{0}}
+src/fast.cc,savePBfromXML,value,def{727,728},use{727,729,734,737,750,760},dvars{value},pointers{},cfuncs{set_tail{0},atoi{0},set_text{0},Element_Literal_LiteralType_Parse{1}}
+src/fast.cc,savePBfromXML,tag,def{691,695},use{692,697,700,744},dvars{str,is_literal,is_unit},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,lang,def{709},use{716,718},dvars{},pointers{},cfuncs{set_language{1},Element_Unit_LanguageType_Parse{2}}
+src/fast.cc,savePBfromXML,attr,def{701},use{701,704,705,706,707,708,710,720,721,725,727,733,734,736,737},dvars{value,lan},pointers{},cfuncs{atoi{0},set_revision{0},set_filename{0}}
+src/fast.cc,savePBfromXML,first_attribute,def{701},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,child_element,def{754},use{755},dvars{},pointers{},cfuncs{CopyFrom{1}}
+src/fast.cc,savePBfromXML,is_literal,def{697},use{698,724,742},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,lan,def{710,713,715},use{711,712,713,714,715,716},dvars{},pointers{},cfuncs{Element_Unit_LanguageType_Parse{1},transform{1},transform{0}}
+src/fast.cc,savePBfromXML,success,def{716,729},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,is_unit,def{692},use{693,703,741},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,kind,def{743},use{746,747},dvars{},pointers{},cfuncs{set_kind{1},Element_Kind_Parse{2}}
+src/fast.cc,savePBfromXML,element,def{688},use{734,737,741,742,747,750,755,760,763},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromXML,type,def{726},use{729,730},dvars{},pointers{},cfuncs{set_type{1},Element_Literal_LiteralType_Parse{2}}
+src/fast.cc,savePBfromXML,literal,def{690,699},use{730,742},dvars{},pointers{},cfuncs{set_allocated_literal{1}}
+src/fast.cc,savePBfromXML,unit,def{689,694},use{705,707,718,721,741},dvars{},pointers{},cfuncs{set_allocated_unit{1}}
+src/fast.cc,savePBfromXML,node,def{686},use{691,701,748,759,760},dvars{,tag},pointers{},cfuncs{set_tail{0}}
+src/fast.cc,loadSrcML,catCommand,def{929,930},use{931},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadSrcML,buf,def{913},use{914,915,916,917},dvars{xml_filename},pointers{},cfuncs{mkstemp{1},remove{1},strcpy{1}}
+src/fast.cc,loadSrcML,sliceCommand,def{926,927},use{928},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadSrcML,is_tmp,def{904,919},use{919,937},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadSrcML,argc,def{863},use{141,864,878,906,908,935},dvars{output_is_xml},pointers{},cfuncs{loadXML{3}}
+src/fast.cc,loadSrcML,is_smali,def{887},use{889},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadSrcML,output_is_xml,def{876,906},use{907,933},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadSrcML,input_is_xml,def{875,883},use{884,905,933},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadSrcML,antlrCommand,def{874,890,940},use{941},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadSrcML,i,def{878},use{878,895},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadSrcML,srcmlCommand,def{873,896,898,903,921},use{923},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadSrcML,xml_filename,def{877,885,909,911,917},use{909,918,921,927,930,932,934,938,940},dvars{catCommand,sliceCommand,antlrCommand,srcmlCommand},pointers{},cfuncs{strdup{0},remove{0},remove{1}}
+src/fast.cc,loadSrcML,argv,def{863,934},use{141,879,880,883,885,887,890,892,896,898,906,911,935,940},dvars{srcmlCommand,antlrCommand,xml_filename,output_is_xml,input_is_xml},pointers{xml_filename},cfuncs{loadXML{3},strlen{1},strcmp{1}}
+src/fast.cc,loadSrcML,command,def{868,870},use{869,871},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadSrcML,load_only,def{863},use{140,864,935},dvars{},pointers{},cfuncs{loadXML{1}}
+src/fast.cc,exists_test,buffer,def{68},use{69},dvars{},pointers{},cfuncs{}
+src/fast.cc,exists_test,name,def{67},use{69},dvars{},pointers{},cfuncs{}
+src/fast.cc,printMarkups,output,def{615},use{623,624,628,630,632,640,644},dvars{},pointers{file,output},cfuncs{}
+src/fast.cc,printMarkups,n_end,def{593,625},use{601,605,609,633,637,641},dvars{},pointers{},cfuncs{}
+src/fast.cc,printMarkups,pos,def{590,622},use{595,599,603,606,607,627,631,635,638,639},dvars{},pointers{},cfuncs{}
+src/fast.cc,printMarkups,c,def{589,594,621,626},use{598,630},dvars{},pointers{},cfuncs{}
+src/fast.cc,printMarkups,map_begin,def{583,616},use{545,546,547,548,553,555,586,595,596,618,627,628},dvars{map},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0},markupElementBegin{1}}
+src/fast.cc,printMarkups,map_end,def{584,617},use{564,565,566,567,572,574,587,593,599,600,607,608,619,625,631,632,639,640},dvars{map,n_end},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0},markupElementEnd{1}}
+src/fast.cc,printMarkups,unit,def{582,615},use{558,559,577,578,585,586,587,618,619},dvars{},pointers{unit,file},cfuncs{mutable_child{2},markupElementEnd{2},markupElementBegin{2},expandElement{2}}
+src/fast.cc,printMarkups,file,def{582,615},use{594,626},dvars{c},pointers{},cfuncs{}
+src/fast.cc,markupElementEnd,p,def{569},use{571},dvars{},pointers{},cfuncs{}
+src/fast.cc,markupElementEnd,i,def{577},use{577,578},dvars{},pointers{},cfuncs{mutable_child{2}}
+src/fast.cc,markupElementEnd,kind,def{564,567},use{564,565,566,567,572,574},dvars{map},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0}}
+src/fast.cc,markupElementEnd,node,def{563},use{564,565,566,567,569,570,572,574,577,578},dvars{map,p},pointers{},cfuncs{transform{1},transform{0},markupElementEnd{1},Element_SmaliKind_Name{0}}
+src/fast.cc,markupElementEnd,map,def{563,572,574},use{564,565,566,567,571,572,574,578},dvars{map},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0},markupElementEnd{1}}
+src/fast.cc,markupElementBegin,p,def{550},use{552},dvars{},pointers{},cfuncs{}
+src/fast.cc,markupElementBegin,i,def{558},use{558,559},dvars{},pointers{},cfuncs{mutable_child{2}}
+src/fast.cc,markupElementBegin,kind,def{545,548},use{545,546,547,553,555},dvars{map},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0}}
+src/fast.cc,markupElementBegin,node,def{544},use{545,546,547,548,550,551,553,555,558,559},dvars{map,p,kind},pointers{},cfuncs{transform{1},transform{0},markupElementBegin{1},Element_SmaliKind_Name{0}}
+src/fast.cc,markupElementBegin,map,def{544,553,555},use{545,546,547,548,552,553,555,559},dvars{map},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0},markupElementBegin{1}}
+src/fast.cc,saveMarkupFromPB,output,def{676},use{615,623,624,628,630,632,640,644,677,678},dvars{},pointers{},cfuncs{printMarkups{1}}
+src/fast.cc,saveMarkupFromPB,file,def{652,670},use{558,559,577,578,582,585,586,587,615,618,619,623,624,628,630,632,640,644,653,658,662,671,677,682},dvars{},pointers{},cfuncs{markupElementEnd{2},markupElementBegin{2},fclose{1},expandElement{2},mutable_child{2},printMarkups{2},printMarkups{1}}
+src/fast.cc,saveMarkupFromPB,unit,def{650,668},use{558,559,577,578,582,585,586,587,615,618,619,651,658,669,677},dvars{},pointers{},cfuncs{markupElementEnd{2},markupElementBegin{2},expandElement{2},mutable_child{2},printMarkups{3},printMarkups{2}}
+src/fast.cc,saveMarkupFromPB,input_file,def{647,665},use{649,667},dvars{},pointers{},cfuncs{readData{1}}
+src/fast.cc,saveMarkupFromPB,filename,def{651,669},use{652,654,657,660,670,672,675,680},dvars{},pointers{unit},cfuncs{strstr{1},fopen{1}}
+src/fast.cc,saveMarkupFromPB,output_file,def{665},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveMarkupFromPB,buf,def{648,666},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveMarkupFromPB,data,def{649,667},use{650,668},dvars{unit},pointers{},cfuncs{}
+src/fast.cc,saveFBSfromXML,child,def{849},use{855},dvars{},pointers{},cfuncs{CreateElement{7}}
+src/fast.cc,saveFBSfromXML,child_element,def{844},use{845},dvars{},pointers{},cfuncs{push_back{1}}
+src/fast.cc,saveFBSfromXML,vec,def{841},use{845,849},dvars{},pointers{},cfuncs{CreateVector{1}}
+src/fast.cc,saveFBSfromXML,extra,def{829,831},use{855},dvars{},pointers{},cfuncs{CreateElement{8}}
+src/fast.cc,saveFBSfromXML,revision,def{780,794},use{832},dvars{extra},pointers{},cfuncs{CreateUnit{4}}
+src/fast.cc,saveFBSfromXML,kind,def{826},use{827,855},dvars{},pointers{},cfuncs{CreateElement{2}}
+src/fast.cc,saveFBSfromXML,str,def{824,837,851},use{825,826,828,838,839,852,853},dvars{tail,text},pointers{},cfuncs{CreateString{1},LookupEnum{1},transform{1},transform{0}}
+src/fast.cc,saveFBSfromXML,is_unit,def{771},use{772,790,830},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveFBSfromXML,t,def{812,813},use{814},dvars{type},pointers{},cfuncs{LookupEnum{1}}
+src/fast.cc,saveFBSfromXML,child_node,def{835,847},use{826,827,836,837,842,843,844,855},dvars{},pointers{node},cfuncs{CreateElement{2},saveFBSfromXML{2},string{0}}
+src/fast.cc,saveFBSfromXML,attr,def{788},use{788,791,792,793,794,795,796,806,807,811,812,817,818,820,821},dvars{column,filename,lan,item,line,t,revision},pointers{},cfuncs{atoi{0},string{0}}
+src/fast.cc,saveFBSfromXML,item,def{782,807},use{832},dvars{extra},pointers{},cfuncs{CreateUnit{6}}
+src/fast.cc,saveFBSfromXML,length,def{786},use{839,852,855,856},dvars{},pointers{},cfuncs{CreateElement{6}}
+src/fast.cc,saveFBSfromXML,line,def{784,818},use{855},dvars{},pointers{},cfuncs{CreateElement{9}}
+src/fast.cc,saveFBSfromXML,text,def{777,838},use{855},dvars{},pointers{},cfuncs{CreateElement{3}}
+src/fast.cc,saveFBSfromXML,type,def{783,814},use{833},dvars{extra},pointers{},cfuncs{CreateLiteral{3}}
+src/fast.cc,saveFBSfromXML,column,def{785,821},use{855},dvars{},pointers{},cfuncs{CreateElement{10}}
+src/fast.cc,saveFBSfromXML,language,def{781,804},use{832},dvars{extra},pointers{},cfuncs{CreateUnit{5}}
+src/fast.cc,saveFBSfromXML,tail,def{778,853},use{855},dvars{},pointers{},cfuncs{CreateElement{4}}
+src/fast.cc,saveFBSfromXML,lan,def{796,799,801,803},use{797,798,799,800,801,802,803,804},dvars{language},pointers{},cfuncs{LookupEnum{1},transform{1},transform{0}}
+src/fast.cc,saveFBSfromXML,is_literal,def{776},use{810,830},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveFBSfromXML,node,def{769},use{770,788,835,850,851},dvars{,tag},pointers{},cfuncs{string{0}}
+src/fast.cc,saveFBSfromXML,first_attribute,def{788},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveFBSfromXML,element,def{855},use{857},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveFBSfromXML,filename,def{779,792},use{832},dvars{extra},pointers{},cfuncs{CreateUnit{3}}
+src/fast.cc,saveFBSfromXML,tag,def{770,774},use{771,776,787,824},dvars{str,is_literal,is_unit},pointers{},cfuncs{}
+src/fast.cc,saveFBSfromXML,builder,def{769},use{792,794,831,832,833,838,844,845,849,853,855},dvars{child,revision,tail,text,extra,filename},pointers{},cfuncs{CreateElement{1},push_back{1},saveFBSfromXML{1},CreateLiteral{2},CreateUnit{2},CreateAnonymous0{1}}
+src/fast.cc,saveXMLfromFBS,i,def{404},use{404,405},dvars{},pointers{},cfuncs{Get{1}}
+src/fast.cc,saveXMLfromFBS,type,def{385,386},use{386,387},dvars{attr},pointers{},cfuncs{substr{1}}
+src/fast.cc,saveXMLfromFBS,str,def{365,369,373},use{366,367,368,369,372,373,376},dvars{attr,lang},pointers{},cfuncs{transform{1},transform{0}}
+src/fast.cc,saveXMLfromFBS,lang,def{366,370,374},use{370,374,380},dvars{attr},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromFBS,tail,def{361,408,410},use{407,410,411},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromFBS,text,def{360,401},use{400,403},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromFBS,attr,def{359,376,378,379,380,382,387,389,393,398},use{403},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromFBS,out,def{357},use{403,404,405,411},dvars{},pointers{},cfuncs{Get{1},saveXMLfromFBS{1}}
+src/fast.cc,saveXMLfromFBS,tag,def{358,364,384,391,396},use{364,384,402,403,411},dvars{},pointers{},cfuncs{transform{1},transform{0}}
+src/fast.cc,saveXMLfromFBS,element,def{357},use{362,363,379,381,382,383,388,389,392,393,397,398,400,401,404,405,407,408},dvars{tail,text,attr},pointers{},cfuncs{Get{1},saveXMLfromFBS{1},to_string{0}}
+src/fast.cc,saveTxtFromPB,output_file,def{464},use{474,479,484},dvars{},pointers{},cfuncs{sprintf{5},sprintf{4}}
+src/fast.cc,saveTxtFromPB,buf,def{465},use{471,472,473,475,478,480,483,486},dvars{},pointers{},cfuncs{system{1},sprintf{1}}
+src/fast.cc,saveTxtFromPB,unit,def{468},use{469},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveTxtFromPB,data,def{466},use{467,468},dvars{unit},pointers{},cfuncs{}
+src/fast.cc,saveTxtFromPB,filename,def{469},use{470},dvars{},pointers{unit},cfuncs{}
+src/fast.cc,saveTxtFromPB,input_file,def{464,489},use{465,466,471,472,473,474,475,478,479,480,483,484,486,490},dvars{},pointers{},cfuncs{system{1},saveTxtFromPB{1},sprintf{1},sprintf{3},readData{1}}
+src/fast.cc,sliceFBS,attrs,def{324,326,334,335},use{327,336},dvars{},pointers{},cfuncs{startElement{7},startUnit{7}}
+src/fast.cc,sliceFBS,k,def{321},use{336,350,352,826,835,836,972,975,976},dvars{},pointers{},cfuncs{append{1},endElement{1},startElement{1}}
+src/fast.cc,sliceFBS,tail,def{320,343,345},use{342,345,353,354},dvars{},pointers{},cfuncs{strlen{1},charactersUnit{0}}
+src/fast.cc,sliceFBS,text,def{319,332},use{331,338,339},dvars{},pointers{},cfuncs{strlen{1},charactersUnit{0}}
+src/fast.cc,sliceFBS,element,def{318},use{321,322,323,325,326,331,332,333,335,336,338,340,341,342,343,346,347,350,352,353,826,835,836,972,975,976},dvars{tail,text,attrs,k},pointers{},cfuncs{endElement{1},startElement{1},sliceFBS{1},append{1},to_string{0}}
+src/fast.cc,sliceFBS,i,def{340},use{340,341},dvars{},pointers{},cfuncs{Get{1}}
+src/fast.cc,sliceFBS,handler,def{318},use{321,327,336,339,341,348,350,352,354,826,835,836,972,975,976},dvars{},pointers{},cfuncs{append{1},endElement{1},startElement{1},sliceFBS{1}}
+src/fast.cc,readData,input,def{220},use{221,224},dvars{},pointers{},cfuncs{}
+src/fast.cc,readData,data,def{219},use{221,225},dvars{},pointers{},cfuncs{}
+src/fast.cc,readData,input_filename,def{215},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromPB,i,def{456},use{456,457},dvars{},pointers{},cfuncs{mutable_child{2}}
+src/fast.cc,saveXMLfromPB,type,def{443,444},use{443,444,445},dvars{attr},pointers{},cfuncs{substr{1},Element_Literal_LiteralType_Name{0}}
+src/fast.cc,saveXMLfromPB,str,def{423,427,431},use{424,425,426,427,430,431,437},dvars{attr,lang},pointers{},cfuncs{transform{1},transform{0}}
+src/fast.cc,saveXMLfromPB,lang,def{424,428,432},use{428,432,439},dvars{attr},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromPB,tail,def{420,459},use{460},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromPB,text,def{419,453},use{455},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromPB,attr,def{418,434,436,437,438,439,440,445,447,451},use{455},dvars{},pointers{},cfuncs{}
+src/fast.cc,saveXMLfromPB,out,def{416},use{443,444,445,455,457,460},dvars{attr},pointers{},cfuncs{substr{1},Element_Literal_LiteralType_Name{0},saveXMLfromPB{1}}
+src/fast.cc,saveXMLfromPB,tag,def{417,422,442,449},use{422,442,454,455,460},dvars{},pointers{},cfuncs{transform{1},transform{0}}
+src/fast.cc,saveXMLfromPB,element,def{416},use{421,423,438,440,441,443,444,445,446,447,449,450,451,453,456,457,459},dvars{tail,text,tag,attr},pointers{},cfuncs{substr{1},saveXMLfromPB{1},Element_Unit_LanguageType_Name{0},Element_Kind_Name{0},to_string{0},Element_Literal_LiteralType_Name{0}}
+src/fast.cc,loadFBS,sslice,def{196},use{204,206},dvars{},pointers{},cfuncs{srcSliceToCsv{1}}
+src/fast.cc,loadFBS,handler,def{197,213},use{198,200,201,202,321,336,350,352,826,835,836,972,975,976,990,991},dvars{},pointers{},cfuncs{append{1},endElement{1},startElement{1},ComputeInterprocedural{1},DoComputation{2},DoComputation{1},sliceFBS{1}}
+src/fast.cc,loadFBS,c_strargv,def{192},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadFBS,catCommand,def{179,180,185,186},use{181,187},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadFBS,sliceCommand,def{176,177},use{178},dvars{},pointers{},cfuncs{system{0}}
+src/fast.cc,loadFBS,out,def{167},use{168,171,173,182,189,404,405},dvars{},pointers{},cfuncs{Get{1},saveXMLfromFBS{1}}
+src/fast.cc,loadFBS,buf,def{160},use{161,162,163,164},dvars{xml_filename},pointers{},cfuncs{mkstemp{1},remove{1},strcpy{1}}
+src/fast.cc,loadFBS,d,def{157},use{158,169,195,199},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadFBS,element,def{169,199,213},use{169,170,171,199,200},dvars{},pointers{element,d},cfuncs{sliceFBS{2},saveXMLfromFBS{2}}
+src/fast.cc,loadFBS,data,def{154},use{155,157},dvars{},pointers{},cfuncs{GetRoot{1},fread{1}}
+src/fast.cc,loadFBS,filename,def{145},use{146,148},dvars{},pointers{argv},cfuncs{fopen{1}}
+src/fast.cc,loadFBS,xml_filename,def{164},use{165,166,177,180,183,186,190,192,194},dvars{catCommand,c_strargv,sliceCommand},pointers{},cfuncs{remove{1},remove{0}}
+src/fast.cc,loadFBS,length,def{152},use{155},dvars{},pointers{},cfuncs{fread{1}}
+src/fast.cc,loadFBS,argv,def{143},use{144,145,193,204,960},dvars{},pointers{},cfuncs{srcSliceToCsv{2},mainRoutine{2}}
+src/fast.cc,loadFBS,file,def{146},use{147,151,152,153,155,156},dvars{},pointers{},cfuncs{fclose{1},fread{2},ftell{1},fseek{1}}
+src/fast.cc,loadFBS,argc,def{143},use{174,193,203,960,961,965,971,974,977,980,984,987,989,997,1000,1001},dvars{},pointers{},cfuncs{mainRoutine{1}}
+src/fast.cc,loadFBS,load_only,def{143},use{158,195},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromTxt,node,def{502,503},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromTxt,output_file,def{497},use{499},dvars{},pointers{},cfuncs{sprintf{4}}
+src/fast.cc,savePBfromTxt,map,def{502,503},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,savePBfromTxt,buf,def{493,498},use{494,495,499,500},dvars{},pointers{},cfuncs{system{1},sprintf{1}}
+src/fast.cc,savePBfromTxt,input_file,def{492,497},use{494,499},dvars{},pointers{},cfuncs{sprintf{3}}
+src/fast.cc,GLOBAL,argv[],def{65},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,argv,def{63},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,argc,def{63,65},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,load_only,def{63},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,element,def{48},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,builder,def{47},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,out,def{43,48},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,GLOBAL,node,def{42,43,47},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,handler,def{141},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,eehandler,def{140},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,size,def{123},use{124},dvars{},pointers{},cfuncs{write{2}}
+src/fast.cc,loadXML,builder,def{117},use{118,119,120,121,123,124,844,845},dvars{size},pointers{},cfuncs{write{0},CreateData{1},push_back{1},CreateAnonymous3{1},saveFBSfromXML{1}}
+src/fast.cc,loadXML,output,def{105,122},use{110,112,122,124,125},dvars{},pointers{},cfuncs{SerializeToOstream{1}}
+src/fast.cc,loadXML,xmlFile,def{101},use{102},dvars{},pointers{},cfuncs{parse{0}}
+src/fast.cc,loadXML,output_file,def{141},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,doc,def{99},use{102,108,118,727,728,729,734,737,750,760,844,845},dvars{value},pointers{},cfuncs{set_tail{0},atoi{0},savePBfromXML{0},set_text{0},Element_Literal_LiteralType_Parse{1},push_back{1},saveFBSfromXML{1}}
+src/fast.cc,loadXML,cmd,def{94,95},use{96},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,is_flatbuffers,def{91},use{98,116},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,output_filename,def{89},use{90,91,92,95,122},dvars{output,cmd},pointers{argv},cfuncs{strlen{1},strcmp{1}}
+src/fast.cc,loadXML,load_only,def{86},use{93,134,913,914,915,916,917},dvars{xml_filename},pointers{},cfuncs{remove{1},strcpy{1},mkstemp{1},loadSrcML{1}}
+src/fast.cc,loadXML,is_xml,def{92},use{93},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,anonymous,def{119},use{120},dvars{},pointers{},cfuncs{CreateData{2}}
+src/fast.cc,loadXML,is_protobuf,def{90},use{98,104},dvars{},pointers{},cfuncs{}
+src/fast.cc,loadXML,element,def{108,118,140},use{109,119},dvars{},pointers{},cfuncs{CreateAnonymous3{2},set_allocated_element{1}}
+src/fast.cc,loadXML,data,def{107,120},use{109,110,121},dvars{},pointers{},cfuncs{Finish{1}}
+src/fast.cc,loadXML,input_filename,def{88},use{95},dvars{cmd},pointers{argv},cfuncs{}
+src/fast.cc,loadXML,argv,def{86},use{87,88,89,95,134,141,863,864,878,906,908,935},dvars{output_is_xml,cmd},pointers{},cfuncs{loadXML{3},loadSrcML{3}}
+src/fast.cc,loadXML,argc,def{86},use{90,91,92,134},dvars{is_xml,is_flatbuffers,is_protobuf},pointers{},cfuncs{loadSrcML{2}}
+src/fast.cc,check_exists,output_file,def{81,84},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,check_exists,input_file,def{80,81,83,84},use{},dvars{},pointers{},cfuncs{}
+src/fast.cc,check_exists,name,def{72},use{73,74},dvars{},pointers{},cfuncs{}
+src/fast.cc,slicePB,attrs,def{292,293,296,297},use{294,298},dvars{},pointers{},cfuncs{startElement{7},startUnit{7}}
+src/fast.cc,slicePB,k,def{290},use{291,298,306,309,826,835,836,972,975,976},dvars{},pointers{k},cfuncs{append{1},endElement{1},startElement{1}}
+src/fast.cc,slicePB,tail,def{289,310},use{311,312},dvars{},pointers{},cfuncs{strlen{1},charactersUnit{0}}
+src/fast.cc,slicePB,text,def{288,300},use{301,302},dvars{},pointers{},cfuncs{strlen{1},charactersUnit{0}}
+src/fast.cc,slicePB,element,def{287},use{290,291,293,297,298,300,304,305,306,309,310,826,835,836,972,975,976},dvars{tail,text,attrs,k},pointers{},cfuncs{endElement{1},startElement{1},append{1},slicePB{1},to_string{0}}
+src/fast.cc,slicePB,i,def{304},use{304,305},dvars{},pointers{},cfuncs{mutable_child{2}}
+src/fast.cc,slicePB,handler,def{287},use{290,291,294,298,302,305,306,307,309,312,826,835,836,972,975,976},dvars{},pointers{},cfuncs{endElement{1},startElement{1},append{1},slicePB{1}}
+src/fast.cc,expandElement,e,def{531},use{532,536},dvars{l},pointers{},cfuncs{set_pos{1}}
+src/fast.cc,expandElement,j,def{526},use{527,528,530,531,535},dvars{e},pointers{},cfuncs{mutable_child{1}}
+src/fast.cc,expandElement,i,def{516},use{516,517,535,536,537},dvars{e},pointers{},cfuncs{mutable_child{1},mutable_child{2}}
+src/fast.cc,expandElement,k,def{520},use{521,522,524,525,527,530},dvars{p},pointers{},cfuncs{mutable_child{1}}
+src/fast.cc,expandElement,n,def{515},use{516,519,521,524,526,535},dvars{j},pointers{},cfuncs{}
+src/fast.cc,expandElement,kind,def{506,509},use{506,507,508},dvars{},pointers{},cfuncs{transform{1},transform{0},Element_SmaliKind_Name{0}}
+src/fast.cc,expandElement,node,def{505},use{506,508,509,513,514,515,517,521,525,527,531,532,533,534,536,537},dvars{n,l,p,e,kind},pointers{},cfuncs{set_pos{1},expandElement{1},Element_SmaliKind_Name{0}}
+src/fast.cc,expandElement,l,def{514,532},use{519,534},dvars{},pointers{},cfuncs{set_length{1}}
+src/fast.cc,expandElement,p,def{513,525},use{519,532,533},dvars{l},pointers{},cfuncs{set_pos{1}}
+src/fast.cc,expandElement,level,def{505},use{517,519,531,532,536},dvars{l},pointers{},cfuncs{set_pos{1},expandElement{1}}
+src/Utility.hpp,SplitOnTok,curPos,def{91,95},use{92},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,SplitOnTok,result,def{90},use{93,98},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,SplitOnTok,nextPos,def{91,94},use{93,96},dvars{tokPos},pointers{},cfuncs{find_first_of{2},substr{2},substr{1}}
+src/Utility.hpp,SplitOnTok,tokPos,def{89,96},use{93,94,95},dvars{curPos,nextPos},pointers{},cfuncs{substr{2}}
+src/Utility.hpp,SplitOnTok,tok,def{88},use{89,96},dvars{tokPos},pointers{},cfuncs{find_first_of{1}}
+src/Utility.hpp,SplitOnTok,str,def{88},use{89,93,96},dvars{tokPos},pointers{},cfuncs{push_back{0}}
+src/Utility.hpp,SplitLhsRhs,expr,def{74},use{75,78,81,84},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,SplitLhsRhs,i,def{76},use{76,78},dvars{},pointers{},cfuncs{substr{1}}
+src/Utility.hpp,SplitLhsRhs,str,def{73},use{76,77,78,81},dvars{},pointers{},cfuncs{substr{1},push_back{0}}
+src/Utility.hpp,SetUnion,begin,def{54},use{61,68},dvars{set2},pointers{},cfuncs{}
+src/Utility.hpp,SetUnion,set2,def{53,60,67},use{54,61,68},dvars{set2,},pointers{},cfuncs{}
+src/Utility.hpp,SetUnion,itr,def{54},use{54,55,61,62,68,69},dvars{set2},pointers{},cfuncs{insert{1}}
+src/Utility.hpp,SetUnion,set1,def{53,60,67},use{55,62,69},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,Context5,func,def{42},use{},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,Context5,funcIt,def{42},use{},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,Context5,fileIt,def{42},use{},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,Context5,line,def{42},use{},dvars{},pointers{},cfuncs{}
+src/Utility.hpp,Context5,efile,def{42},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,data,def{258},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,value,def{238,248},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,len,def{203,212,248},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,namespaces,def{105,122,151,228},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,num_attributes,def{105,122,151,228},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,ch,def{203,212},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,attributes,def{106,123,152,229},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,num_namespaces,def{105,122,151,228},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,context,def{81,89,104,121,150,163,174,193,203,212,227,238,248,258},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,URI,def{104,121,150,163,174,193,227},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,target,def{258},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,prefix,def{104,121,150,163,174,193,227},use{},dvars{},pointers{},cfuncs{}
+src/srcsax_handler.h,GLOBAL,localname,def{104,121,150,163,174,193,227},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,visited,def{72},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,dereferenced,def{71},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,global,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,alias,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,name,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,sline,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,fcn,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,fle,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,indexvisitedpotentialAliasdereferencedisGlobalSliceProfile3,idx,def{69},use{},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,operator(),x,def{38},use{40},dvars{},pointers{},cfuncs{}
+src/SliceProfile.hpp,FunctionData1,firstfunctionLineNumber,def{45},use{},dvars{},pointers{},cfuncs{}
+test/example.pb.cc,f,result,def{2},use{3},dvars{},pointers{},cfuncs{}
+test/example.pb.cc,f,x,def{1},use{2},dvars{result},pointers{},cfuncs{}
+test/example.cc,f,result,def{2},use{3},dvars{},pointers{},cfuncs{}
+test/example.cc,f,x,def{1},use{2},dvars{result},pointers{},cfuncs{}
+src/testLiteral.cc,main,success,def{7},use{8},dvars{},pointers{},cfuncs{}
+src/testLiteral.cc,main,type,def{6},use{7,8},dvars{},pointers{},cfuncs{Element_Literal_LiteralType_Parse{2}}
+src/testLiteral.cc,main,argv,def{5},use{},dvars{},pointers{},cfuncs{}
+src/testLiteral.cc,main,argc,def{5},use{},dvars{},pointers{},cfuncs{}
+,EnumNameDeltaType,index,def{1496},use{},dvars{},pointers{},cfuncs{}
+,EnumNameDeltaType,e,def{1495},use{1496},dvars{index},pointers{},cfuncs{}
+,EnumNameDeltaType,EnumNamesDeltaType,def{1497},use{1497},dvars{},pointers{},cfuncs{}
+,EnumNameDeltaType,namesEnumNameDeltaTypee,def{1495},use{},dvars{},pointers{},cfuncs{}
+,EnumNameLiteralType,EnumNamesLiteralType,def{1464},use{1464},dvars{},pointers{},cfuncs{}
+,EnumNameLiteralType,index,def{1463},use{},dvars{},pointers{},cfuncs{}
+,EnumNameLiteralType,e,def{1462},use{1463},dvars{index},pointers{},cfuncs{}
+,EnumNameLiteralType,namesEnumNameLiteralTypee,def{1462},use{},dvars{},pointers{},cfuncs{}
+,EnumNameCloneType,index,def{1525},use{},dvars{},pointers{},cfuncs{}
+,EnumNameCloneType,EnumNamesCloneType,def{1526},use{1526},dvars{},pointers{},cfuncs{}
+,EnumNameCloneType,e,def{1524},use{1525},dvars{index},pointers{},cfuncs{}
+,EnumNameCloneType,namesEnumNameCloneTypee,def{1524},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesDeltaType,EnumNamesDeltaTypenames,def{1484},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesLiteralType,EnumNamesLiteralTypenames,def{1451},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesChangeType,EnumNamesChangeTypenames,def{1544},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesLanguageType,EnumNamesLanguageTypenames,def{1417},use{},dvars{},pointers{},cfuncs{}
+,EnumNameSmaliKind,EnumNamesSmaliKind,def{1398},use{1398},dvars{},pointers{},cfuncs{}
+,EnumNameSmaliKind,index,def{1397},use{},dvars{},pointers{},cfuncs{}
+,EnumNameSmaliKind,e,def{1396},use{1397},dvars{index},pointers{},cfuncs{}
+,EnumNameSmaliKind,namesEnumNameSmaliKinde,def{1396},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesCloneType,EnumNamesCloneTypenames,def{1515},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesSmaliKind,EnumNamesSmaliKindnames,def{1189},use{},dvars{},pointers{},cfuncs{}
+,EnumNameChangeType,EnumNamesChangeType,def{1555},use{1555},dvars{},pointers{},cfuncs{}
+,EnumNameChangeType,index,def{1554},use{},dvars{},pointers{},cfuncs{}
+,EnumNameChangeType,e,def{1553},use{1554},dvars{index},pointers{},cfuncs{}
+,EnumNameChangeType,namesEnumNameChangeTypee,def{1553},use{},dvars{},pointers{},cfuncs{}
+,EnumNameLanguageType,index,def{1432},use{},dvars{},pointers{},cfuncs{}
+,EnumNameLanguageType,EnumNamesLanguageType,def{1433},use{1433},dvars{},pointers{},cfuncs{}
+,EnumNameLanguageType,e,def{1431},use{1432},dvars{index},pointers{},cfuncs{}
+,EnumNameLanguageType,namesEnumNameLanguageTypee,def{1431},use{},dvars{},pointers{},cfuncs{}
+,EnumNameKind,EnumNamesKind,def{979},use{979},dvars{},pointers{},cfuncs{}
+,EnumNameKind,index,def{978},use{},dvars{},pointers{},cfuncs{}
+,EnumNameKind,e,def{977},use{978},dvars{index},pointers{},cfuncs{}
+,EnumNameKind,namesEnumNameKinde,def{977},use{},dvars{},pointers{},cfuncs{}
+,EnumNamesKind,EnumNamesKindnames,def{521},use{},dvars{},pointers{},cfuncs{}
+test/Hello.java,main,args[],def{3},use{},dvars{},pointers{},cfuncs{}
+src/PB.java,main,unit,def{11},use{12},dvars{},pointers{},cfuncs{println{1}}
+src/PB.java,main,args,def{10},use{11},dvars{},pointers{},cfuncs{ FileInputStream{2}}
