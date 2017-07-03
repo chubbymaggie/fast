@@ -1,0 +1,205 @@
+syntax="proto3";
+package fast;
+import "smali.proto";
+message Element {
+   Kind kind = 1;
+   string text = 2;
+   string tail = 3;
+   int32 pos = 4;
+   int32 length = 5;
+   repeated Element child = 6;
+   oneof extra {
+     Unit unit = 7;
+     Literal literal = 8;
+   }
+   message Unit {
+enum LanguageType {
+ALL = 0;
+OO = 1;
+CXX = 2;
+C = 3;
+C_FAMILY = 4;
+JAVA = 5;
+CSHARP = 6;
+OBJECTIVE_C = 7;
+}
+   	string filename = 1;
+   	string revision = 2;
+	LanguageType language = 3;
+	int32 item = 4;
+   }
+   message Literal {
+enum LiteralType {
+number_type = 0;
+char_type = 1;
+string_type = 2;
+boolean_type = 3;
+null_type = 4;
+}
+   	LiteralType type = 1;
+   }
+   int32 line = 9;
+   int32 column = 10;
+}
+message Delta {
+   string src = 1;
+   string dst = 2;
+   repeated Diff diff = 3;
+   message Diff {
+	enum DeltaType {
+	    MATCH = 0;
+	    ADD = 1;
+	    DEL = 2;
+	    MOVE = 3;
+	    UPDATE = 4;
+        }
+	DeltaType type = 1;
+   	oneof delta {
+		Match match = 2;
+		Add add = 3;
+		Del del = 4;
+		Move move = 5;
+		Update update = 6;
+	}
+	message Match {
+		int32 src = 1;
+		int32 dst = 2;
+	}
+	message Add {
+		int32 src = 1;
+		int32 dst = 2;
+		int32 position = 3;
+	}
+	message Del {
+		int32 src = 1;
+	}
+	message Move {
+		int32 src = 1;
+		int32 dst = 2;
+		int32 position = 3;
+	}
+	message Update {
+		int32 src = 1;
+		string label = 2;
+	}
+   }
+}
+message Pairs {
+   message Pair {
+	enum CloneType {
+	  MAYBE = 0;
+	  YES = 1;
+	  NO = 2;
+	}
+	string project = 1;
+	Diff left = 2;
+	Diff right = 3;
+	CloneType type = 4;
+	message Diff {
+		int32 left_line = 1;
+		int32 left_column = 2;
+		int32 right_line = 3;
+		int32 right_column = 4;
+		Element old_code = 5;
+		Element new_code = 6;
+	}
+   } 
+   repeated Pair pair = 1;
+}
+message Log {
+	message Commit {
+string id = 1;
+bytes text = 2;
+int32 author_id = 3;
+string author_date = 4;
+oneof extra {
+  	Committer committer = 5;
+}
+message Committer {
+	int32 committer_id = 1;
+	string commit_date = 2;
+}
+message Diff {
+string a = 1;
+string b = 2;
+bool is_new = 3;
+string is_code = 4;
+string index_from = 5;
+string index_to = 6;
+string mode = 7;
+message Hunk {
+int32 from_lineno = 1;
+int32 from_column = 2;
+int32 to_lineno = 3;
+int32 to_column = 4;
+string context = 5;
+message ModLine {
+bytes line = 1;
+bool is_add = 2;
+bool is_del = 3;
+}
+repeated Element element = 6;
+repeated ModLine mod = 7;
+}
+repeated Hunk hunk = 8;
+}
+repeated Diff diff = 6;
+	}
+	message Author {
+	int32 id = 1;
+	string name = 2;
+	string email = 3;
+	}
+	repeated Commit commit = 1;
+	repeated Author author = 2;
+}
+message Slices {
+    message Slice {
+	enum ChangeType {
+		UNCHANGED = 0;
+		ADD = 1;
+		DEL = 2;
+	}
+	message SourceFile {
+		message Function {
+			message Variable {
+				message Position {
+					int32 lineno = 1;
+					ChangeType type = 2;
+					int32 delta_lineno = 5;
+				}
+				message FunctionDecl {
+					string name = 1;
+					int32 lineno = 2;
+				}
+				string name = 1;
+				Position pos = 2;
+				ChangeType type = 3;
+				repeated Position defn = 4;
+				repeated Position use = 5;
+				repeated string dvar = 6;
+				repeated string alias = 7;
+				repeated FunctionDecl cfunc = 8;
+			}
+			repeated Variable variable = 1;
+			string name = 2;
+			ChangeType type = 3;
+		}
+		repeated Function function = 1;
+		string name = 2;
+		ChangeType type = 3;
+	}
+	repeated SourceFile file = 1;
+	string hash = 2;
+      }
+      repeated Slice slice = 1;
+}
+message Data {
+ oneof RecordType {
+	Element element = 1;
+	Log log = 2;
+	Delta delta = 3;
+	Pairs pairs = 4;
+	Slices slices = 5;
+ }
+}

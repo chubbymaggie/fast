@@ -1,11 +1,18 @@
-fast-smali: smaliLexer.o smaliParser.o smaliListener.o smaliBaseListener.o smali.o 
-	c++ -o $@ $^ /usr/local/lib/libantlr4-runtime.a
+OPT=-g -O0 -coverage
+OPT=-O3
+CFLAGS+=-I../../ -I/usr/local/include -Ismali -I/usr/local/include/antlr4-runtime -std=c++11
+
+fast-smali: smaliLexer.o smaliParser.o smaliListener.o smaliBaseListener.o smali.o fast.pb.o
+	c++ $(OPT) $(CFLAGS) -o $@ $^ /usr/local/lib/libantlr4-runtime.a /usr/local/lib/libprotobuf.a
+
+fast.pb.o: ../../fast.pb.cc 
+	c++ $(OPT) $(CFLAGS) -c $^
 
 %.o: smali/%.cpp
-	c++ -c -std=c++11 -Ismali -I/usr/local/include/antlr4-runtime $^
+	c++ $(OPT) $(CFLAGS) -c $^
 
 %.o: %.cpp
-	c++ -c -std=c++11 -Ismali -I/usr/local/include/antlr4-runtime $^
+	c++ $(OPT) $(CFLAGS) -c $^
 
 smali/smaliParser.cpp smali/smaliParser.h smali/smaliListener.cpp smali/smaliBaseListener.cpp: smali.g4
 	antlr4 -o smali -Dlanguage=Cpp $^
