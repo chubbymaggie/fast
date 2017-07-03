@@ -12,6 +12,7 @@ endif
 target+=fast
 target+=process
 target+=slice-diff
+target+=fast-smali
 CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
@@ -22,6 +23,9 @@ OPT=-g -O0 -coverage
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 PB_LIB=-L/usr/local/lib -lprotobuf
+ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
+
+CFLAGS+=-Isrc -I/usr/local/include -Ismali/src/antlr4/smali -I/usr/local/include/antlr4-runtime -std=c++11
 
 all: $(target)
 
@@ -30,6 +34,28 @@ all: $(target)
 
 ./slice-diff: slice-diff.o fast.pb.o
 	c++ $(OPT) $^ $(PB_LIB) -o $@
+
+./fast-smali: smaliLexer.o smaliParser.o smaliListener.o smaliBaseListener.o smali.o fast.pb.o
+	c++ $(OPT) $(CFLAGS) -o $@ $^ $(ANTLR4_LIB) $(PB_LIB)
+
+fast.pb.o: src/fast.pb.cc 
+	c++ $(OPT) $(CFLAGS) -c $^
+
+%.o: smali/src/antlr4/smali/%.cpp
+	c++ $(OPT) $(CFLAGS) -c $^
+
+%.o: src/antlr4/smali/%.cpp
+	c++ $(OPT) $(CFLAGS) -c $^
+
+smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliListener.cpp smali/src/antlr4/smali/smaliBaseListener.cpp: src/antlr4/smali/smali.g4
+	antlr4 -o smali -Dlanguage=Cpp $^
+
+smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
+	antlr4 -o smali -Dlanguage=Cpp $^
+	cat src/antlr4/smali/smaliLexer.patch >> smali/src/antlr4/smali/smaliLexer.cpp 
+	sed -i -e 's/_modeNames;/_modeNames; static std::vector<std::string> _channelNames; const std::vector<std::string>\& getChannelNames() const override;/' smali/src/antlr4/smali/smaliLexer.h
+
+src/antlr/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
 
 src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h
 	touch $@
@@ -46,18 +72,19 @@ endif
 DESTDIR=
 
 ifeq ($(UNAME_S),Linux)
-CFLAGS=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp
+CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp
 CFLAGS+=$(shell xml2-config --cflags)
 
 prefix=/usr/local
 fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
 	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
 
-install: fast process fast.proto
+install: fast fast-smali process fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
+	install -m 0755 fast-smali $(DESTDIR)$(prefix)/bin/fast-smali
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
@@ -83,7 +110,7 @@ ifeq ($(prefix),)
 prefix=/usr/local
 endif
 
-CFLAGS=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
+CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
 CFLAGS+=$(shell xml2-config --cflags)
 
 fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
@@ -97,6 +124,7 @@ install: fast process fast.proto dist/smali.jar
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
+	install -m 0755 fast-smali $(DESTDIR)$(prefix)/bin/fast-smali
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/

@@ -213,6 +213,7 @@ int main(int argc, const char* argv[]) {
 		  struct stat buf;
 		  if (stat("smali.proto", &buf) == -1) {
 			  fstream proto_output("smali.proto", ios::out);
+			  proto_output << "syntax=\"proto3\";" << endl;
 			  proto_output << "enum Kind {" << endl;
 			  for (int i =0; i < parser.getRuleNames().size(); i++) {
 				string name = parser.getRuleNames()[i];

@@ -2,6 +2,7 @@
 
 fast=$(which fast)
 process=$(which process)
+fast_smali=$(which fast-smali)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast -o ! -f ../process ]; then
 		cd .. 
@@ -13,6 +14,7 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 fi
 fast=${fast:=../fast}
 process=${process:=../process}
+fast_smali=${fast_smali:=../fast-smali}
 
 stdout() {
 	hash=$1
@@ -147,6 +149,12 @@ EOF
 	stdout 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 -a DuplicateVirtualMethods.pb
 	$fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
 	stdout 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 -d DuplicateVirtualMethods.pb
+	$fast_smali DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
+	#catout e107c32b47c4c78e8b761a136df9796bdd063a7e1eb658b268a6ef80e4a9a434 DuplicateVirtualMethods.smali.pb
+	catout 6ed7e11200def362490c5d8f35743798a646f7bc48ddff7a1304940b0d6f8956 smali.proto
+	cp ../src/antlr4/smali/fast.proto .
+	$fast_smali -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
+	catout e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 DuplicateVirtualMethods.smali.pb.txt
 }
 
 testCS() {
@@ -1766,7 +1774,7 @@ testLoadPB() {
 
 testFinalReport() {
 	lcov --directory .. --capture --output-file ../fast.info
-	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' > fast.info
+	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/smali/src/antlr4/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' > fast.info
 	genhtml fast.info
 }
 
