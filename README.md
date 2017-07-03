@@ -9,7 +9,7 @@ the code.
 
 But, can we think differently?
 
-Instead of parsing code structures, why cannot we load them before any further
+Instead of [parsing code structures](doc/architecture.md), why cannot we load them before any further
 analysis? 
 
 This project adopts flatbuffers, a one diemnsional array to represent the ASTs
