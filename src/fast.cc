@@ -509,8 +509,6 @@ void expandElement(int level, fast::Element *node) {
 	if (node->kind() == 0) { // override the 0 case
 		kind = "unit filename=\"" + node->unit().filename() + "\"";
 	}
-	// cout << endl; for (int j=0; j<level; j++) cout << " ";
-	// cout << "old =" << node->pos() << ":" << node->length();
 	int p = node->pos();
 	int l = node->length();
 	int n = node->child().size();
