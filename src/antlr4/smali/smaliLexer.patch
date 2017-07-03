@@ -1,0 +1,7 @@
+std::vector<std::string> smaliLexer::_channelNames = { 
+	"C__0"
+};
+
+const std::vector<std::string>& smaliLexer::getChannelNames() const {
+	return _channelNames;
+}
