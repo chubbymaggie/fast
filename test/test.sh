@@ -149,8 +149,9 @@ EOF
 	stdout 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 -a DuplicateVirtualMethods.pb
 	$fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
 	stdout 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 -d DuplicateVirtualMethods.pb
+	$fast_smali DuplicateVirtualMethods.smali > DuplicateVirtualMethods.smali.xml
+	catout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.smali.xml
 	$fast_smali DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
-	#catout e107c32b47c4c78e8b761a136df9796bdd063a7e1eb658b268a6ef80e4a9a434 DuplicateVirtualMethods.smali.pb
 	catout 6ed7e11200def362490c5d8f35743798a646f7bc48ddff7a1304940b0d6f8956 smali.proto
 	cp ../src/antlr4/smali/fast.proto .
 	$fast_smali -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt

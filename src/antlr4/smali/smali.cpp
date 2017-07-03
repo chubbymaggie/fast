@@ -199,8 +199,11 @@ int main(int argc, const char* argv[]) {
   tag_map.clear();
   ifstream stream;
   bool is_smali = strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0;
-  bool is_pb = strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0;
+  bool input_is_pb = strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0;
+  bool output_is_pb = argc > 2 && strcmp(argv[2]+strlen(argv[2])-3, ".pb")==0;
   if (is_smali) {
+	  if (!output_is_pb)
+		  xml_output = true;
 	  stream.open(argv[1]);
 	  ANTLRInputStream input(stream);
 	  smaliLexer lexer(&input);
@@ -228,13 +231,13 @@ int main(int argc, const char* argv[]) {
 	  TreeShapeListener listener;
 	  tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
 	  FILE *file = fopen(argv[1], "r");
-	  if (argc == 2) 
+	  if (argc == 2) {
 		  printMarkups(file);
-	  else { // assume that the second argument for FAST representation
+	  } else { // assume that the second argument for FAST representation
 		  printMarkups(file, argv[2]);
 	  }
 	  fclose(file);
-  } else if (is_pb) {
+  } else if (input_is_pb) {
 	  string command = "cat ";
 	  command = command + argv[1] + " | protoc --decode=fast.Data fast.proto";
 	  system(command.c_str());

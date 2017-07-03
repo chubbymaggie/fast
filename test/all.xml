@@ -1568,7 +1568,7 @@ return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 </unit>
 
-<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
+<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.pb.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
 return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 		<comment type="line">// --------------------------------------------------------------------</comment>
@@ -3115,7 +3115,7 @@ return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 </unit>
 
-<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.pb.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
+<unit xmlns:cpp="http://www.srcML.org/srcML/cpp" revision="0.9.5" language="C#" filename="test.cs" hash="68a1c8913f4705872412499fd69670bfd2213a67">@ <namespace>namespace <name><name>HandCoded</name><operator>.</operator><name>FpML</name><operator>.</operator><name>Validation</name></name>
 return (<name>result</name></namespace>)<empty_stmt>;</empty_stmt>
 }
 		<comment type="line">// --------------------------------------------------------------------</comment>
