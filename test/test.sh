@@ -151,11 +151,15 @@ EOF
 	stdout 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 -d DuplicateVirtualMethods.pb
 	$fast_smali DuplicateVirtualMethods.smali > DuplicateVirtualMethods.smali.xml
 	catout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.smali.xml
+	rm -f smali.proto
 	$fast_smali DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
 	catout 6ed7e11200def362490c5d8f35743798a646f7bc48ddff7a1304940b0d6f8956 smali.proto
+	$fast_smali DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
 	cp ../src/antlr4/smali/fast.proto .
-	$fast_smali -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
-	catout e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 DuplicateVirtualMethods.smali.pb.txt
+	$fast DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.xml
+	catout a18f85af50492da9942a5e68de2e9aca4764889c61a80f6d6a48d7f4d56272a5 DuplicateVirtualMethods.smali.pb.xml
+	$fast_smali DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
+	catout 265ac95a4ba86df779f144f512c33c29fb80bd4135ed04e374fdc50c5a8b4bc4 DuplicateVirtualMethods.smali.pb.txt
 }
 
 testCS() {

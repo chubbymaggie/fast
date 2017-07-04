@@ -31,13 +31,13 @@
             <td class="headerValue">fast.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">144</td>
+            <td class="headerCovTableEntry">159</td>
             <td class="headerCovTableEntry">191</td>
-            <td class="headerCovTableEntryMed">75.4 %</td>
+            <td class="headerCovTableEntryMed">83.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-04 00:31:00</td>
+            <td class="headerValue">2017-07-04 10:17:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -76,7 +76,7 @@
 <span class="lineNum">      14 </span>            : using namespace std;
 <a name="15"><span class="lineNum">      15 </span>            : using namespace antlr4;</a>
 <span class="lineNum">      16 </span>            : 
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          6 : static vector&lt;std::string&gt; ruleNames;</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">          8 : static vector&lt;std::string&gt; ruleNames;</span></a>
 <span class="lineNum">      18 </span>            : 
 <span class="lineNum">      19 </span>            : string ctxName(ParserRuleContext *ctx) 
 <span class="lineNum">      20 </span>            : {
@@ -85,40 +85,40 @@
 <span class="lineNum">      23 </span><span class="lineCov">         57 :         return name;</span>
 <a name="24"><span class="lineNum">      24 </span><span class="lineCov">        114 : }</span></a>
 <a name="25"><span class="lineNum">      25 </span>            : </a>
-<span class="lineNum">      26 </span><span class="lineCov">          6 : static map&lt;int, string&gt; tag_map;</span>
-<span class="lineNum">      27 </span><span class="lineCov">          6 : static map&lt;int, vector&lt;int&gt;&gt; type_map;</span>
+<span class="lineNum">      26 </span><span class="lineCov">          8 : static map&lt;int, string&gt; tag_map;</span>
+<span class="lineNum">      27 </span><span class="lineCov">          8 : static map&lt;int, vector&lt;int&gt;&gt; type_map;</span>
 <a name="28"><span class="lineNum">      28 </span>            : static bool xml_output = false;</a>
 <span class="lineNum">      29 </span>            : 
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">          8 : class TreeShapeListener : public smaliBaseListener {</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">         12 : class TreeShapeListener : public smaliBaseListener {</span></a>
 <span class="lineNum">      31 </span>            : public:
 <span class="lineNum">      32 </span>            :         void exitEveryRule(ParserRuleContext *ctx) {
-<span class="lineNum">      33 </span><span class="lineCov">        342 :                 if (dynamic_cast&lt;antlr4::tree::TerminalNode*&gt;(ctx-&gt;getStop()))</span>
+<span class="lineNum">      33 </span><span class="lineCov">        513 :                 if (dynamic_cast&lt;antlr4::tree::TerminalNode*&gt;(ctx-&gt;getStop()))</span>
 <span class="lineNum">      34 </span><span class="lineNoCov">          0 :                         return;</span>
-<span class="lineNum">      35 </span><span class="lineCov">        114 :                 if (!xml_output) {</span>
-<span class="lineNum">      36 </span><span class="lineCov">         57 :                         int tag = ctx-&gt;getRuleIndex();</span>
-<span class="lineNum">      37 </span><span class="lineCov">         57 :                         int open_tag = tag; </span>
-<span class="lineNum">      38 </span><span class="lineCov">         57 :                         int close_tag = -tag; </span>
-<span class="lineNum">      39 </span><span class="lineCov">         57 :                         int open_pos = ctx-&gt;getStart()-&gt;getStartIndex();</span>
-<span class="lineNum">      40 </span><span class="lineCov">         57 :                         int close_pos = ctx-&gt;getStop()-&gt;getStopIndex() + 1;</span>
-<span class="lineNum">      41 </span><span class="lineCov">         57 :                         if (close_pos == open_pos) {</span>
-<span class="lineNum">      42 </span><span class="lineCov">          4 :                                 type_map[open_pos].push_back(open_tag); </span>
-<span class="lineNum">      43 </span><span class="lineCov">          4 :                                 type_map[open_pos].push_back(close_tag); </span>
-<span class="lineNum">      44 </span><span class="lineCov">          4 :                         } else {</span>
-<span class="lineNum">      45 </span><span class="lineCov">         53 :                                 if (type_map[open_pos].empty()) </span>
-<span class="lineNum">      46 </span><span class="lineCov">         29 :                                         type_map[open_pos].push_back(open_tag);</span>
-<span class="lineNum">      47 </span><span class="lineCov">         24 :                                 else if (type_map[open_pos][0] &gt; 0)</span>
-<span class="lineNum">      48 </span><span class="lineCov">         20 :                                         type_map[open_pos].insert(type_map[open_pos].begin(), open_tag);</span>
+<span class="lineNum">      35 </span><span class="lineCov">        171 :                 if (!xml_output) {</span>
+<span class="lineNum">      36 </span><span class="lineCov">        114 :                         int tag = ctx-&gt;getRuleIndex();</span>
+<span class="lineNum">      37 </span><span class="lineCov">        114 :                         int open_tag = tag; </span>
+<span class="lineNum">      38 </span><span class="lineCov">        114 :                         int close_tag = -tag; </span>
+<span class="lineNum">      39 </span><span class="lineCov">        114 :                         int open_pos = ctx-&gt;getStart()-&gt;getStartIndex();</span>
+<span class="lineNum">      40 </span><span class="lineCov">        114 :                         int close_pos = ctx-&gt;getStop()-&gt;getStopIndex() + 1;</span>
+<span class="lineNum">      41 </span><span class="lineCov">        114 :                         if (close_pos == open_pos) {</span>
+<span class="lineNum">      42 </span><span class="lineCov">          8 :                                 type_map[open_pos].push_back(open_tag); </span>
+<span class="lineNum">      43 </span><span class="lineCov">          8 :                                 type_map[open_pos].push_back(close_tag); </span>
+<span class="lineNum">      44 </span><span class="lineCov">          8 :                         } else {</span>
+<span class="lineNum">      45 </span><span class="lineCov">        106 :                                 if (type_map[open_pos].empty()) </span>
+<span class="lineNum">      46 </span><span class="lineCov">         58 :                                         type_map[open_pos].push_back(open_tag);</span>
+<span class="lineNum">      47 </span><span class="lineCov">         48 :                                 else if (type_map[open_pos][0] &gt; 0)</span>
+<span class="lineNum">      48 </span><span class="lineCov">         40 :                                         type_map[open_pos].insert(type_map[open_pos].begin(), open_tag);</span>
 <span class="lineNum">      49 </span>            :                                 else
-<span class="lineNum">      50 </span><span class="lineCov">          4 :                                         type_map[open_pos].push_back(open_tag);</span>
-<span class="lineNum">      51 </span><span class="lineCov">         53 :                                 if (type_map[close_pos].empty()) </span>
-<span class="lineNum">      52 </span><span class="lineCov">         27 :                                         type_map[close_pos].push_back(close_tag);</span>
-<span class="lineNum">      53 </span><span class="lineCov">         26 :                                 else if (type_map[close_pos].back() &gt; 0) { </span>
+<span class="lineNum">      50 </span><span class="lineCov">          8 :                                         type_map[open_pos].push_back(open_tag);</span>
+<span class="lineNum">      51 </span><span class="lineCov">        106 :                                 if (type_map[close_pos].empty()) </span>
+<span class="lineNum">      52 </span><span class="lineCov">         54 :                                         type_map[close_pos].push_back(close_tag);</span>
+<span class="lineNum">      53 </span><span class="lineCov">         52 :                                 else if (type_map[close_pos].back() &gt; 0) { </span>
 <span class="lineNum">      54 </span><span class="lineNoCov">          0 :                                         type_map[close_pos].insert(type_map[close_pos].begin(), close_tag);</span>
 <span class="lineNum">      55 </span><span class="lineNoCov">          0 :                                 } else {</span>
-<span class="lineNum">      56 </span><span class="lineCov">         26 :                                         type_map[close_pos].push_back(close_tag);</span>
+<span class="lineNum">      56 </span><span class="lineCov">         52 :                                         type_map[close_pos].push_back(close_tag);</span>
 <span class="lineNum">      57 </span>            :                                 }
 <span class="lineNum">      58 </span>            :                         }
-<span class="lineNum">      59 </span><span class="lineCov">         57 :                 } else {</span>
+<span class="lineNum">      59 </span><span class="lineCov">        114 :                 } else {</span>
 <span class="lineNum">      60 </span><span class="lineCov">         57 :                         string name = ctxName(ctx);</span>
 <span class="lineNum">      61 </span><span class="lineCov">        171 :                         string open_tag = &quot;&lt;&quot; + name + &quot;&gt;&quot;; </span>
 <span class="lineNum">      62 </span><span class="lineCov">        171 :                         string close_tag = &quot;&lt;/&quot; + name + &quot;&gt;&quot;; </span>
@@ -148,7 +148,7 @@
 <span class="lineNum">      86 </span>            :                                 }
 <span class="lineNum">      87 </span>            :                         }
 <span class="lineNum">      88 </span><span class="lineCov">         57 :                 }</span>
-<span class="lineNum">      89 </span><span class="lineCov">        114 :         }</span>
+<span class="lineNum">      89 </span><span class="lineCov">        171 :         }</span>
 <a name="90"><span class="lineNum">      90 </span>            : };</a>
 <span class="lineNum">      91 </span>            : 
 <span class="lineNum">      92 </span>            : void printMarkups(FILE *file) {
@@ -179,50 +179,50 @@
 <a name="117"><span class="lineNum">     117 </span>            :  * Generate the parsing tree into a protobuf representation</a>
 <span class="lineNum">     118 </span>            :  */
 <span class="lineNum">     119 </span>            : void printMarkups(FILE *file, const char *output_file) {
-<span class="lineNum">     120 </span><span class="lineCov">          1 :         GOOGLE_PROTOBUF_VERIFY_VERSION;</span>
-<span class="lineNum">     121 </span><span class="lineCov">          2 :         fast::Data *data = new fast::Data();</span>
-<span class="lineNum">     122 </span><span class="lineCov">          1 :         fast::Element *element = data-&gt;mutable_element();</span>
-<span class="lineNum">     123 </span><span class="lineCov">          2 :         fast::Element::Unit *unit = new fast::Element_Unit();</span>
-<span class="lineNum">     124 </span><span class="lineCov">          1 :         element-&gt;set_allocated_unit(unit);</span>
+<span class="lineNum">     120 </span><span class="lineCov">          2 :         GOOGLE_PROTOBUF_VERIFY_VERSION;</span>
+<span class="lineNum">     121 </span><span class="lineCov">          4 :         fast::Data *data = new fast::Data();</span>
+<span class="lineNum">     122 </span><span class="lineCov">          2 :         fast::Element *element = data-&gt;mutable_element();</span>
+<span class="lineNum">     123 </span><span class="lineCov">          4 :         fast::Element::Unit *unit = new fast::Element_Unit();</span>
+<span class="lineNum">     124 </span><span class="lineCov">          2 :         element-&gt;set_allocated_unit(unit);</span>
 <span class="lineNum">     125 </span>            :         unsigned int c;
-<span class="lineNum">     126 </span><span class="lineCov">          1 :         int pos = -1;</span>
-<span class="lineNum">     127 </span><span class="lineCov">          1 :         int n_end = tag_map.size();</span>
-<span class="lineNum">     128 </span><span class="lineCov">          1 :         vector&lt;fast::Element*&gt; path;</span>
-<span class="lineNum">     129 </span><span class="lineCov">          1 :         path.push_back(element);</span>
-<span class="lineNum">     130 </span><span class="lineCov">          1 :         string text = &quot;&quot;;</span>
-<span class="lineNum">     131 </span><span class="lineCov">          1 :         string tail = &quot;&quot;;</span>
-<span class="lineNum">     132 </span><span class="lineCov">          1 :         fast::Element *prev_element = NULL;</span>
-<span class="lineNum">     133 </span><span class="lineCov">        978 :         while ((c = fgetc(file))!= -1) {</span>
-<span class="lineNum">     134 </span><span class="lineCov">        325 :                 pos++;</span>
-<span class="lineNum">     135 </span><span class="lineCov">        975 :                 if (type_map.find(pos) != type_map.end()) {</span>
-<span class="lineNum">     136 </span><span class="lineCov">        118 :                         vector&lt;int&gt; v = type_map[pos];</span>
-<span class="lineNum">     137 </span><span class="lineCov">        344 :                         for (int i = 0; i &lt; v.size(); i++) {</span>
-<span class="lineNum">     138 </span><span class="lineCov">        226 :                                 if (v[i] &lt; 0) { // closing tag</span>
-<span class="lineNum">     139 </span><span class="lineCov">         82 :                                         if (i == 0 &amp;&amp; prev_element!=NULL) {</span>
-<span class="lineNum">     140 </span><span class="lineCov">         26 :                                                 prev_element-&gt;set_text(text);        </span>
-<span class="lineNum">     141 </span><span class="lineCov">         26 :                                                 prev_element = NULL;</span>
-<span class="lineNum">     142 </span><span class="lineCov">         26 :                                         }</span>
-<span class="lineNum">     143 </span><span class="lineCov">         82 :                                         if (i == v.size()-1 &amp;&amp; prev_element == NULL) {</span>
-<span class="lineNum">     144 </span><span class="lineCov">         44 :                                                 prev_element = path.back();</span>
-<span class="lineNum">     145 </span><span class="lineCov">         22 :                                         }</span>
-<span class="lineNum">     146 </span><span class="lineCov">         56 :                                         path.pop_back();</span>
-<span class="lineNum">     147 </span><span class="lineCov">         56 :                                 } else { // openning tag</span>
-<span class="lineNum">     148 </span><span class="lineCov">         57 :                                         if (prev_element!=NULL) </span>
-<span class="lineNum">     149 </span><span class="lineCov">        102 :                                                 prev_element-&gt;set_tail(text);</span>
-<span class="lineNum">     150 </span><span class="lineCov">        171 :                                         fast::Element *child = path.back()-&gt;add_child();</span>
-<span class="lineNum">     151 </span><span class="lineCov">        114 :                                         child-&gt;set_kind((fast::Element_Kind)v[i]);</span>
-<span class="lineNum">     152 </span><span class="lineCov">         57 :                                         path.push_back(child);</span>
-<span class="lineNum">     153 </span><span class="lineCov">         57 :                                         if (i == v.size()-1) {</span>
-<span class="lineNum">     154 </span><span class="lineCov">         33 :                                                 prev_element = child;</span>
-<span class="lineNum">     155 </span><span class="lineCov">         33 :                                         }</span>
+<span class="lineNum">     126 </span><span class="lineCov">          2 :         int pos = -1;</span>
+<span class="lineNum">     127 </span><span class="lineCov">          2 :         int n_end = tag_map.size();</span>
+<span class="lineNum">     128 </span><span class="lineCov">          2 :         vector&lt;fast::Element*&gt; path;</span>
+<span class="lineNum">     129 </span><span class="lineCov">          2 :         path.push_back(element);</span>
+<span class="lineNum">     130 </span><span class="lineCov">          2 :         string text = &quot;&quot;;</span>
+<span class="lineNum">     131 </span><span class="lineCov">          2 :         string tail = &quot;&quot;;</span>
+<span class="lineNum">     132 </span><span class="lineCov">          2 :         fast::Element *prev_element = NULL;</span>
+<span class="lineNum">     133 </span><span class="lineCov">       1956 :         while ((c = fgetc(file))!= -1) {</span>
+<span class="lineNum">     134 </span><span class="lineCov">        650 :                 pos++;</span>
+<span class="lineNum">     135 </span><span class="lineCov">       1950 :                 if (type_map.find(pos) != type_map.end()) {</span>
+<span class="lineNum">     136 </span><span class="lineCov">        236 :                         vector&lt;int&gt; v = type_map[pos];</span>
+<span class="lineNum">     137 </span><span class="lineCov">        688 :                         for (int i = 0; i &lt; v.size(); i++) {</span>
+<span class="lineNum">     138 </span><span class="lineCov">        452 :                                 if (v[i] &lt; 0) { // closing tag</span>
+<span class="lineNum">     139 </span><span class="lineCov">        164 :                                         if (i == 0 &amp;&amp; prev_element!=NULL) {</span>
+<span class="lineNum">     140 </span><span class="lineCov">         52 :                                                 prev_element-&gt;set_text(text);        </span>
+<span class="lineNum">     141 </span><span class="lineCov">         52 :                                                 prev_element = NULL;</span>
+<span class="lineNum">     142 </span><span class="lineCov">         52 :                                         }</span>
+<span class="lineNum">     143 </span><span class="lineCov">        164 :                                         if (i == v.size()-1 &amp;&amp; prev_element == NULL) {</span>
+<span class="lineNum">     144 </span><span class="lineCov">         88 :                                                 prev_element = path.back();</span>
+<span class="lineNum">     145 </span><span class="lineCov">         44 :                                         }</span>
+<span class="lineNum">     146 </span><span class="lineCov">        112 :                                         path.pop_back();</span>
+<span class="lineNum">     147 </span><span class="lineCov">        112 :                                 } else { // openning tag</span>
+<span class="lineNum">     148 </span><span class="lineCov">        114 :                                         if (prev_element!=NULL) </span>
+<span class="lineNum">     149 </span><span class="lineCov">        204 :                                                 prev_element-&gt;set_tail(text);</span>
+<span class="lineNum">     150 </span><span class="lineCov">        342 :                                         fast::Element *child = path.back()-&gt;add_child();</span>
+<span class="lineNum">     151 </span><span class="lineCov">        228 :                                         child-&gt;set_kind((fast::Element_Kind)v[i]);</span>
+<span class="lineNum">     152 </span><span class="lineCov">        114 :                                         path.push_back(child);</span>
+<span class="lineNum">     153 </span><span class="lineCov">        114 :                                         if (i == v.size()-1) {</span>
+<span class="lineNum">     154 </span><span class="lineCov">         66 :                                                 prev_element = child;</span>
+<span class="lineNum">     155 </span><span class="lineCov">         66 :                                         }</span>
 <span class="lineNum">     156 </span>            :                                 }
-<span class="lineNum">     157 </span><span class="lineCov">        113 :                                 text = &quot;&quot;;</span>
-<span class="lineNum">     158 </span><span class="lineCov">        113 :                         }</span>
-<span class="lineNum">     159 </span><span class="lineCov">         59 :                         n_end --;</span>
-<span class="lineNum">     160 </span><span class="lineCov">         59 :                 }</span>
-<span class="lineNum">     161 </span><span class="lineCov">        325 :                 text += c;</span>
+<span class="lineNum">     157 </span><span class="lineCov">        226 :                                 text = &quot;&quot;;</span>
+<span class="lineNum">     158 </span><span class="lineCov">        226 :                         }</span>
+<span class="lineNum">     159 </span><span class="lineCov">        118 :                         n_end --;</span>
+<span class="lineNum">     160 </span><span class="lineCov">        118 :                 }</span>
+<span class="lineNum">     161 </span><span class="lineCov">        650 :                 text += c;</span>
 <span class="lineNum">     162 </span>            :         }
-<span class="lineNum">     163 </span><span class="lineCov">          2 :         while (n_end &gt; 0) {</span>
+<span class="lineNum">     163 </span><span class="lineCov">          4 :         while (n_end &gt; 0) {</span>
 <span class="lineNum">     164 </span><span class="lineNoCov">          0 :                 pos++;</span>
 <span class="lineNum">     165 </span><span class="lineNoCov">          0 :                 if (type_map.find(pos) != type_map.end()) {</span>
 <span class="lineNum">     166 </span><span class="lineNoCov">          0 :                         vector&lt;int&gt; v = type_map[pos];</span>
@@ -251,61 +251,61 @@
 <span class="lineNum">     189 </span><span class="lineNoCov">          0 :                         n_end--;</span>
 <span class="lineNum">     190 </span><span class="lineNoCov">          0 :                 } </span>
 <span class="lineNum">     191 </span>            :         }
-<span class="lineNum">     192 </span><span class="lineCov">          1 :         fstream output(output_file, ios::out | ios::trunc | ios::binary);</span>
-<span class="lineNum">     193 </span><span class="lineCov">          3 :         data-&gt;SerializeToOstream(&amp;output);</span>
-<span class="lineNum">     194 </span><span class="lineCov">          1 :         google::protobuf::ShutdownProtobufLibrary();</span>
-<span class="lineNum">     195 </span><span class="lineCov">          1 :         output.close();</span>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">          1 : }</span></a>
+<span class="lineNum">     192 </span><span class="lineCov">          2 :         fstream output(output_file, ios::out | ios::trunc | ios::binary);</span>
+<span class="lineNum">     193 </span><span class="lineCov">          6 :         data-&gt;SerializeToOstream(&amp;output);</span>
+<span class="lineNum">     194 </span><span class="lineCov">          2 :         google::protobuf::ShutdownProtobufLibrary();</span>
+<span class="lineNum">     195 </span><span class="lineCov">          2 :         output.close();</span>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">          2 : }</span></a>
 <span class="lineNum">     197 </span>            : 
 <span class="lineNum">     198 </span>            : int main(int argc, const char* argv[]) {
-<span class="lineNum">     199 </span><span class="lineCov">          3 :   tag_map.clear();</span>
-<span class="lineNum">     200 </span><span class="lineCov">          3 :   ifstream stream;</span>
-<span class="lineNum">     201 </span><span class="lineCov">          9 :   bool is_smali = strcmp(argv[1]+strlen(argv[1])-6, &quot;.smali&quot;)==0;</span>
-<span class="lineNum">     202 </span><span class="lineCov">          9 :   bool input_is_pb = strcmp(argv[1]+strlen(argv[1])-3, &quot;.pb&quot;)==0;</span>
-<span class="lineNum">     203 </span><span class="lineCov">         12 :   bool output_is_pb = argc &gt; 2 &amp;&amp; strcmp(argv[2]+strlen(argv[2])-3, &quot;.pb&quot;)==0;</span>
-<span class="lineNum">     204 </span><span class="lineCov">          3 :   if (is_smali) {</span>
-<span class="lineNum">     205 </span><span class="lineCov">          2 :           if (!output_is_pb)</span>
+<span class="lineNum">     199 </span><span class="lineCov">          4 :   tag_map.clear();</span>
+<span class="lineNum">     200 </span><span class="lineCov">          4 :   ifstream stream;</span>
+<span class="lineNum">     201 </span><span class="lineCov">         12 :   bool is_smali = strcmp(argv[1]+strlen(argv[1])-6, &quot;.smali&quot;)==0;</span>
+<span class="lineNum">     202 </span><span class="lineCov">         12 :   bool input_is_pb = strcmp(argv[1]+strlen(argv[1])-3, &quot;.pb&quot;)==0;</span>
+<span class="lineNum">     203 </span><span class="lineCov">         14 :   bool output_is_pb = argc &gt; 2 &amp;&amp; strcmp(argv[2]+strlen(argv[2])-3, &quot;.pb&quot;)==0;</span>
+<span class="lineNum">     204 </span><span class="lineCov">          4 :   if (is_smali) {</span>
+<span class="lineNum">     205 </span><span class="lineCov">          3 :           if (!output_is_pb)</span>
 <span class="lineNum">     206 </span><span class="lineCov">          1 :                   xml_output = true;</span>
-<span class="lineNum">     207 </span><span class="lineCov">          2 :           stream.open(argv[1]);</span>
-<span class="lineNum">     208 </span><span class="lineCov">          2 :           ANTLRInputStream input(stream);</span>
-<span class="lineNum">     209 </span><span class="lineCov">          2 :           smaliLexer lexer(&amp;input);</span>
+<span class="lineNum">     207 </span><span class="lineCov">          3 :           stream.open(argv[1]);</span>
+<span class="lineNum">     208 </span><span class="lineCov">          3 :           ANTLRInputStream input(stream);</span>
+<span class="lineNum">     209 </span><span class="lineCov">          3 :           smaliLexer lexer(&amp;input);</span>
 <span class="lineNum">     210 </span>            :           // voc = &amp; (lexer.getVocabulary());
-<span class="lineNum">     211 </span><span class="lineCov">          6 :           CommonTokenStream tokens(&amp;lexer);</span>
-<span class="lineNum">     212 </span><span class="lineCov">          2 :           smaliParser parser(&amp;tokens);</span>
-<span class="lineNum">     213 </span><span class="lineCov">          2 :           if (argc == 2)</span>
+<span class="lineNum">     211 </span><span class="lineCov">          9 :           CommonTokenStream tokens(&amp;lexer);</span>
+<span class="lineNum">     212 </span><span class="lineCov">          3 :           smaliParser parser(&amp;tokens);</span>
+<span class="lineNum">     213 </span><span class="lineCov">          3 :           if (argc == 2)</span>
 <span class="lineNum">     214 </span><span class="lineCov">          3 :                   ruleNames = parser.getRuleNames();</span>
 <span class="lineNum">     215 </span>            :           else {
 <span class="lineNum">     216 </span>            :                   struct stat buf;
-<span class="lineNum">     217 </span><span class="lineCov">          2 :                   if (stat(&quot;smali.proto&quot;, &amp;buf) == -1) {</span>
-<span class="lineNum">     218 </span><span class="lineNoCov">          0 :                           fstream proto_output(&quot;smali.proto&quot;, ios::out);</span>
-<span class="lineNum">     219 </span><span class="lineNoCov">          0 :                           proto_output &lt;&lt; &quot;syntax=\&quot;proto3\&quot;;&quot; &lt;&lt; endl;</span>
-<span class="lineNum">     220 </span><span class="lineNoCov">          0 :                           proto_output &lt;&lt; &quot;enum Kind {&quot; &lt;&lt; endl;</span>
-<span class="lineNum">     221 </span><span class="lineNoCov">          0 :                           for (int i =0; i &lt; parser.getRuleNames().size(); i++) {</span>
-<span class="lineNum">     222 </span><span class="lineNoCov">          0 :                                 string name = parser.getRuleNames()[i];</span>
-<span class="lineNum">     223 </span><span class="lineNoCov">          0 :                                 transform(name.begin(), name.end(),name.begin(), ::tolower);</span>
-<span class="lineNum">     224 </span><span class="lineNoCov">          0 :                                 proto_output &lt;&lt; &quot;\t&quot; &lt;&lt; name &lt;&lt; &quot; = &quot; &lt;&lt; i &lt;&lt; &quot;;&quot; &lt;&lt; endl; </span>
-<span class="lineNum">     225 </span><span class="lineNoCov">          0 :                           }</span>
-<span class="lineNum">     226 </span><span class="lineNoCov">          0 :                           proto_output &lt;&lt; &quot;}&quot; &lt;&lt; endl;</span>
-<span class="lineNum">     227 </span><span class="lineNoCov">          0 :                           proto_output.close();</span>
-<span class="lineNum">     228 </span><span class="lineNoCov">          0 :                   }</span>
+<span class="lineNum">     217 </span><span class="lineCov">          4 :                   if (stat(&quot;smali.proto&quot;, &amp;buf) == -1) {</span>
+<span class="lineNum">     218 </span><span class="lineCov">          1 :                           fstream proto_output(&quot;smali.proto&quot;, ios::out);</span>
+<span class="lineNum">     219 </span><span class="lineCov">          2 :                           proto_output &lt;&lt; &quot;syntax=\&quot;proto3\&quot;;&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     220 </span><span class="lineCov">          2 :                           proto_output &lt;&lt; &quot;enum Kind {&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     221 </span><span class="lineCov">        312 :                           for (int i =0; i &lt; parser.getRuleNames().size(); i++) {</span>
+<span class="lineNum">     222 </span><span class="lineCov">        309 :                                 string name = parser.getRuleNames()[i];</span>
+<span class="lineNum">     223 </span><span class="lineCov">        206 :                                 transform(name.begin(), name.end(),name.begin(), ::tolower);</span>
+<span class="lineNum">     224 </span><span class="lineCov">        618 :                                 proto_output &lt;&lt; &quot;\t&quot; &lt;&lt; name &lt;&lt; &quot; = &quot; &lt;&lt; i &lt;&lt; &quot;;&quot; &lt;&lt; endl; </span>
+<span class="lineNum">     225 </span><span class="lineCov">        103 :                           }</span>
+<span class="lineNum">     226 </span><span class="lineCov">          2 :                           proto_output &lt;&lt; &quot;}&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     227 </span><span class="lineCov">          1 :                           proto_output.close();</span>
+<span class="lineNum">     228 </span><span class="lineCov">          1 :                   }</span>
 <span class="lineNum">     229 </span>            :           }
-<span class="lineNum">     230 </span><span class="lineCov">          4 :           tree::ParseTree *tree = parser.smali_file();</span>
-<span class="lineNum">     231 </span><span class="lineCov">          2 :           TreeShapeListener listener;</span>
-<span class="lineNum">     232 </span><span class="lineCov">          2 :           tree::ParseTreeWalker::DEFAULT.walk(&amp;listener, tree);</span>
-<span class="lineNum">     233 </span><span class="lineCov">          4 :           FILE *file = fopen(argv[1], &quot;r&quot;);</span>
-<span class="lineNum">     234 </span><span class="lineCov">          2 :           if (argc == 2) {</span>
+<span class="lineNum">     230 </span><span class="lineCov">          6 :           tree::ParseTree *tree = parser.smali_file();</span>
+<span class="lineNum">     231 </span><span class="lineCov">          3 :           TreeShapeListener listener;</span>
+<span class="lineNum">     232 </span><span class="lineCov">          3 :           tree::ParseTreeWalker::DEFAULT.walk(&amp;listener, tree);</span>
+<span class="lineNum">     233 </span><span class="lineCov">          6 :           FILE *file = fopen(argv[1], &quot;r&quot;);</span>
+<span class="lineNum">     234 </span><span class="lineCov">          3 :           if (argc == 2) {</span>
 <span class="lineNum">     235 </span><span class="lineCov">          1 :                   printMarkups(file);</span>
 <span class="lineNum">     236 </span><span class="lineCov">          1 :           } else { // assume that the second argument for FAST representation</span>
-<span class="lineNum">     237 </span><span class="lineCov">          1 :                   printMarkups(file, argv[2]);</span>
+<span class="lineNum">     237 </span><span class="lineCov">          2 :                   printMarkups(file, argv[2]);</span>
 <span class="lineNum">     238 </span>            :           }
-<span class="lineNum">     239 </span><span class="lineCov">          2 :           fclose(file);</span>
-<span class="lineNum">     240 </span><span class="lineCov">          3 :   } else if (input_is_pb) {</span>
-<span class="lineNum">     241 </span><span class="lineNoCov">          0 :           string command = &quot;cat &quot;;</span>
-<span class="lineNum">     242 </span><span class="lineNoCov">          0 :           command = command + argv[1] + &quot; | protoc --decode=fast.Data fast.proto&quot;;</span>
-<span class="lineNum">     243 </span><span class="lineNoCov">          0 :           system(command.c_str());</span>
-<span class="lineNum">     244 </span><span class="lineNoCov">          0 :   }</span>
-<span class="lineNum">     245 </span><span class="lineCov">          3 :   return 0;</span>
-<span class="lineNum">     246 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">     239 </span><span class="lineCov">          3 :           fclose(file);</span>
+<span class="lineNum">     240 </span><span class="lineCov">          4 :   } else if (input_is_pb) {</span>
+<span class="lineNum">     241 </span><span class="lineCov">          1 :           string command = &quot;cat &quot;;</span>
+<span class="lineNum">     242 </span><span class="lineCov">          3 :           command = command + argv[1] + &quot; | protoc --decode=fast.Data fast.proto&quot;;</span>
+<span class="lineNum">     243 </span><span class="lineCov">          1 :           system(command.c_str());</span>
+<span class="lineNum">     244 </span><span class="lineCov">          1 :   }</span>
+<span class="lineNum">     245 </span><span class="lineCov">          4 :   return 0;</span>
+<span class="lineNum">     246 </span><span class="lineCov">          4 : }</span>
 </pre>
       </td>
     </tr>

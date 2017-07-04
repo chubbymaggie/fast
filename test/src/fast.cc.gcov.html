@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-04 00:31:00</td>
+            <td class="headerValue">2017-07-04 10:17:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">28</td>
@@ -120,7 +120,7 @@
 <span class="lineNum">      58 </span>            : int antlr = 0; 
 <a name="59"><span class="lineNum">      59 </span>            : int git = 0; </a>
 <span class="lineNum">      60 </span>            : bool delta = false; 
-<span class="lineNum">      61 </span><span class="lineCov">        116 : string head = &quot;HEAD&quot;;</span>
+<span class="lineNum">      61 </span><span class="lineCov">        118 : string head = &quot;HEAD&quot;;</span>
 <span class="lineNum">      62 </span>            : #endif
 <span class="lineNum">      63 </span>            : 
 <span class="lineNum">      64 </span>            : int loadSrcML(int load_only, int argc, char **argv);
@@ -129,16 +129,16 @@
 <span class="lineNum">      67 </span>            : 
 <span class="lineNum">      68 </span>            : inline bool exists_test (const std::string&amp; name) {
 <span class="lineNum">      69 </span>            :         struct stat buffer;   
-<span class="lineNum">      70 </span><span class="lineCov">         71 :         return (stat (name.c_str(), &amp;buffer) == 0); </span>
+<span class="lineNum">      70 </span><span class="lineCov">         72 :         return (stat (name.c_str(), &amp;buffer) == 0); </span>
 <a name="71"><span class="lineNum">      71 </span>            : }</a>
 <span class="lineNum">      72 </span>            : 
 <span class="lineNum">      73 </span>            : bool check_exists(const std::string&amp; name) {
-<span class="lineNum">      74 </span><span class="lineCov">         71 :         if (!exists_test(name)) {</span>
+<span class="lineNum">      74 </span><span class="lineCov">         72 :         if (!exists_test(name)) {</span>
 <span class="lineNum">      75 </span><span class="lineCov">          3 :                 cerr &lt;&lt; &quot;Please check the input file &quot; &lt;&lt; name &lt;&lt; &quot; exists&quot; &lt;&lt; endl;</span>
 <span class="lineNum">      76 </span><span class="lineCov">          3 :                 return false;</span>
 <span class="lineNum">      77 </span>            :         }
-<span class="lineNum">      78 </span><span class="lineCov">         68 :         return true;</span>
-<span class="lineNum">      79 </span><span class="lineCov">         71 : }</span>
+<span class="lineNum">      78 </span><span class="lineCov">         69 :         return true;</span>
+<span class="lineNum">      79 </span><span class="lineCov">         72 : }</span>
 <span class="lineNum">      80 </span>            : 
 <span class="lineNum">      81 </span>            : void saveTxtFromPB(char *input_file);
 <span class="lineNum">      82 </span>            : void saveTxtFromPB(char *input_file, char *output_file);
@@ -278,39 +278,39 @@
 <span class="lineNum">     216 </span>            : fast::Data readData(char *input_filename) {
 <span class="lineNum">     217 </span>            :         // Verify that the version of the library that we linked against is
 <span class="lineNum">     218 </span>            :         // compatible with the version of the headers we compiled against.
-<span class="lineNum">     219 </span><span class="lineCov">         20 :         GOOGLE_PROTOBUF_VERIFY_VERSION;</span>
-<span class="lineNum">     220 </span><span class="lineCov">         20 :         fast::Data data;</span>
-<span class="lineNum">     221 </span><span class="lineCov">         20 :         ifstream input(input_filename, ios::in | ios::binary);</span>
-<span class="lineNum">     222 </span><span class="lineCov">         40 :         if (!data.ParseFromIstream(&amp;input)) {</span>
+<span class="lineNum">     219 </span><span class="lineCov">         21 :         GOOGLE_PROTOBUF_VERIFY_VERSION;</span>
+<span class="lineNum">     220 </span><span class="lineCov">         21 :         fast::Data data;</span>
+<span class="lineNum">     221 </span><span class="lineCov">         21 :         ifstream input(input_filename, ios::in | ios::binary);</span>
+<span class="lineNum">     222 </span><span class="lineCov">         42 :         if (!data.ParseFromIstream(&amp;input)) {</span>
 <span class="lineNum">     223 </span><span class="lineNoCov">          0 :               cerr &lt;&lt; &quot;Failed to parse compilation unit.&quot; &lt;&lt; endl;</span>
 <span class="lineNum">     224 </span><span class="lineNoCov">          0 :         }</span>
-<span class="lineNum">     225 </span><span class="lineCov">         20 :         input.close();</span>
-<span class="lineNum">     226 </span><span class="lineCov">         20 :         return data;</span>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">         40 : }</span></a>
+<span class="lineNum">     225 </span><span class="lineCov">         21 :         input.close();</span>
+<span class="lineNum">     226 </span><span class="lineCov">         21 :         return data;</span>
+<a name="227"><span class="lineNum">     227 </span><span class="lineCov">         42 : }</span></a>
 <span class="lineNum">     228 </span>            : 
 <span class="lineNum">     229 </span>            : int loadPB(int load_only, int argc, char **argv) {
-<span class="lineNum">     230 </span><span class="lineCov">         20 :         if (!check_exists(argv[1])) return 1;</span>
-<span class="lineNum">     231 </span><span class="lineCov">         10 :         char *input_filename = argv[1];</span>
-<span class="lineNum">     232 </span><span class="lineCov">         10 :         fast::Data data = readData(input_filename);</span>
-<span class="lineNum">     233 </span><span class="lineCov">         39 :     if (data.has_element() &amp;&amp; !load_only &amp;&amp; !mySlice) {</span>
+<span class="lineNum">     230 </span><span class="lineCov">         22 :         if (!check_exists(argv[1])) return 1;</span>
+<span class="lineNum">     231 </span><span class="lineCov">         11 :         char *input_filename = argv[1];</span>
+<span class="lineNum">     232 </span><span class="lineCov">         11 :         fast::Data data = readData(input_filename);</span>
+<span class="lineNum">     233 </span><span class="lineCov">         43 :     if (data.has_element() &amp;&amp; !load_only &amp;&amp; !mySlice) {</span>
 <span class="lineNum">     234 </span>            :         // string xml_filename = tmpnam(NULL);
 <span class="lineNum">     235 </span>            :         char buf[100];
-<span class="lineNum">     236 </span><span class="lineCov">          5 :         strcpy(buf, &quot;/tmp/temp.XXXXXXXX&quot;); </span>
-<span class="lineNum">     237 </span><span class="lineCov">          5 :         mkstemp(buf);</span>
-<span class="lineNum">     238 </span><span class="lineCov">          5 :         remove(buf);</span>
-<span class="lineNum">     239 </span><span class="lineCov">          5 :         string xml_filename = buf;</span>
-<span class="lineNum">     240 </span><span class="lineCov">          5 :         xml_filename += &quot;.xml&quot;;</span>
+<span class="lineNum">     236 </span><span class="lineCov">          6 :         strcpy(buf, &quot;/tmp/temp.XXXXXXXX&quot;); </span>
+<span class="lineNum">     237 </span><span class="lineCov">          6 :         mkstemp(buf);</span>
+<span class="lineNum">     238 </span><span class="lineCov">          6 :         remove(buf);</span>
+<span class="lineNum">     239 </span><span class="lineCov">          6 :         string xml_filename = buf;</span>
+<span class="lineNum">     240 </span><span class="lineCov">          6 :         xml_filename += &quot;.xml&quot;;</span>
 <span class="lineNum">     241 </span>            : #if !defined(FBS_fast)
 <span class="lineNum">     242 </span>            :         fstream out(xml_filename.c_str(), ios::out | ios::trunc);
 <span class="lineNum">     243 </span>            : #else
-<span class="lineNum">     244 </span><span class="lineCov">          5 :         fstream out(xml_filename, ios::out | ios::trunc);</span>
+<span class="lineNum">     244 </span><span class="lineCov">          6 :         fstream out(xml_filename, ios::out | ios::trunc);</span>
 <span class="lineNum">     245 </span>            : #endif
-<span class="lineNum">     246 </span><span class="lineCov">         10 :         out &lt;&lt; &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; &lt;&lt; endl;</span>
-<span class="lineNum">     247 </span><span class="lineCov">         10 :         fast::Element unit = data.element();</span>
-<span class="lineNum">     248 </span><span class="lineCov">          5 :         saveXMLfromPB(out, &amp;unit);</span>
-<span class="lineNum">     249 </span><span class="lineCov">          5 :         out &lt;&lt; endl;</span>
-<span class="lineNum">     250 </span><span class="lineCov">          5 :         if (argc == 2) {</span>
-<span class="lineNum">     251 </span><span class="lineCov">          1 :                 if (slice) {</span>
+<span class="lineNum">     246 </span><span class="lineCov">         12 :         out &lt;&lt; &quot;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot; standalone=\&quot;yes\&quot;?&gt;&quot; &lt;&lt; endl;</span>
+<span class="lineNum">     247 </span><span class="lineCov">         12 :         fast::Element unit = data.element();</span>
+<span class="lineNum">     248 </span><span class="lineCov">          6 :         saveXMLfromPB(out, &amp;unit);</span>
+<span class="lineNum">     249 </span><span class="lineCov">          6 :         out &lt;&lt; endl;</span>
+<span class="lineNum">     250 </span><span class="lineCov">          6 :         if (argc == 2) {</span>
+<span class="lineNum">     251 </span><span class="lineCov">          2 :                 if (slice) {</span>
 <span class="lineNum">     252 </span><span class="lineNoCov">          0 :                         string sliceCommand = &quot;srcSlice &quot;;</span>
 <span class="lineNum">     253 </span><span class="lineNoCov">          0 :                         sliceCommand = sliceCommand + xml_filename + &quot; &gt; &quot; + xml_filename + &quot;.slice&quot;;</span>
 <span class="lineNum">     254 </span><span class="lineNoCov">          0 :                         system(sliceCommand.c_str());</span>
@@ -319,16 +319,16 @@
 <span class="lineNum">     257 </span><span class="lineNoCov">          0 :                         system(catCommand.c_str());</span>
 <span class="lineNum">     258 </span><span class="lineNoCov">          0 :                         remove((xml_filename + &quot;.slice&quot;).c_str());</span>
 <span class="lineNum">     259 </span><span class="lineNoCov">          0 :                 } else {</span>
-<span class="lineNum">     260 </span><span class="lineCov">          1 :                         string catCommand = &quot;cat &quot;;</span>
-<span class="lineNum">     261 </span><span class="lineCov">          2 :                         catCommand = catCommand + xml_filename;</span>
-<span class="lineNum">     262 </span><span class="lineCov">          1 :                         system(catCommand.c_str());</span>
-<span class="lineNum">     263 </span><span class="lineCov">          1 :                 }</span>
-<span class="lineNum">     264 </span><span class="lineCov">          2 :                 return remove(xml_filename.c_str());</span>
+<span class="lineNum">     260 </span><span class="lineCov">          2 :                         string catCommand = &quot;cat &quot;;</span>
+<span class="lineNum">     261 </span><span class="lineCov">          4 :                         catCommand = catCommand + xml_filename;</span>
+<span class="lineNum">     262 </span><span class="lineCov">          2 :                         system(catCommand.c_str());</span>
+<span class="lineNum">     263 </span><span class="lineCov">          2 :                 }</span>
+<span class="lineNum">     264 </span><span class="lineCov">          4 :                 return remove(xml_filename.c_str());</span>
 <span class="lineNum">     265 </span>            :         }
 <span class="lineNum">     266 </span><span class="lineCov">          4 :         argv[1] = (char*) xml_filename.c_str();</span>
 <span class="lineNum">     267 </span><span class="lineCov">          4 :         mainRoutine(argc, argv);</span>
 <span class="lineNum">     268 </span><span class="lineCov">          8 :         return remove(xml_filename.c_str());</span>
-<span class="lineNum">     269 </span><span class="lineCov">         24 :     } else if (data.has_element() &amp;&amp; !load_only &amp;&amp; mySlice) {</span>
+<span class="lineNum">     269 </span><span class="lineCov">         25 :     } else if (data.has_element() &amp;&amp; !load_only &amp;&amp; mySlice) {</span>
 <span class="lineNum">     270 </span><span class="lineCov">          4 :         srcSlice sslice;</span>
 <span class="lineNum">     271 </span><span class="lineCov">          4 :         srcSliceHandler handler(&amp;sslice.dictionary);</span>
 <span class="lineNum">     272 </span><span class="lineCov">          4 :         handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);</span>
@@ -345,7 +345,7 @@
 <span class="lineNum">     283 </span>            :   // Optional:  Delete all global objects allocated by libprotobuf.
 <span class="lineNum">     284 </span><span class="lineCov">          5 :   google::protobuf::ShutdownProtobufLibrary();</span>
 <span class="lineNum">     285 </span><span class="lineCov">          5 :   return 0;</span>
-<a name="286"><span class="lineNum">     286 </span><span class="lineCov">         20 : }</span></a>
+<a name="286"><span class="lineNum">     286 </span><span class="lineCov">         22 : }</span></a>
 <span class="lineNum">     287 </span>            : 
 <span class="lineNum">     288 </span>            : void slicePB(srcSliceHandler&amp; handler, fast::Element *element) {
 <span class="lineNum">     289 </span><span class="lineCov">        192 :         string text = &quot;&quot;;</span>
@@ -477,31 +477,31 @@
 <a name="415"><span class="lineNum">     415 </span>            : </a>
 <span class="lineNum">     416 </span>            : #ifdef PB_fast
 <span class="lineNum">     417 </span>            : void saveXMLfromPB(fstream &amp; out, fast::Element *element) {
-<span class="lineNum">     418 </span><span class="lineCov">      13333 :         string tag;</span>
-<span class="lineNum">     419 </span><span class="lineCov">      13333 :         string attr;</span>
-<span class="lineNum">     420 </span><span class="lineCov">      13333 :         string text = &quot;&quot;;</span>
-<span class="lineNum">     421 </span><span class="lineCov">      13333 :         string tail = &quot;&quot;;</span>
-<span class="lineNum">     422 </span><span class="lineCov">      26666 :         if (element-&gt;kind() == fast::Element_Kind_UNIT_KIND) {</span>
-<span class="lineNum">     423 </span><span class="lineCov">          5 :                 tag = &quot;unit&quot;;</span>
-<span class="lineNum">     424 </span><span class="lineCov">         20 :                 string str = fast::Element_Unit_LanguageType_Name(element-&gt;unit().language());</span>
-<span class="lineNum">     425 </span><span class="lineCov">          5 :                 string lang = str;</span>
-<span class="lineNum">     426 </span><span class="lineCov">         10 :                 transform(str.begin(), str.end(),str.begin(), ::tolower);</span>
-<span class="lineNum">     427 </span><span class="lineCov">          5 :                 if (str == &quot;cxx&quot;) {</span>
+<span class="lineNum">     418 </span><span class="lineCov">      13391 :         string tag;</span>
+<span class="lineNum">     419 </span><span class="lineCov">      13391 :         string attr;</span>
+<span class="lineNum">     420 </span><span class="lineCov">      13391 :         string text = &quot;&quot;;</span>
+<span class="lineNum">     421 </span><span class="lineCov">      13391 :         string tail = &quot;&quot;;</span>
+<span class="lineNum">     422 </span><span class="lineCov">      26782 :         if (element-&gt;kind() == fast::Element_Kind_UNIT_KIND) {</span>
+<span class="lineNum">     423 </span><span class="lineCov">          7 :                 tag = &quot;unit&quot;;</span>
+<span class="lineNum">     424 </span><span class="lineCov">         28 :                 string str = fast::Element_Unit_LanguageType_Name(element-&gt;unit().language());</span>
+<span class="lineNum">     425 </span><span class="lineCov">          7 :                 string lang = str;</span>
+<span class="lineNum">     426 </span><span class="lineCov">         14 :                 transform(str.begin(), str.end(),str.begin(), ::tolower);</span>
+<span class="lineNum">     427 </span><span class="lineCov">          7 :                 if (str == &quot;cxx&quot;) {</span>
 <span class="lineNum">     428 </span><span class="lineCov">          2 :                         str = &quot;cpp&quot;;</span>
 <span class="lineNum">     429 </span><span class="lineCov">          2 :                         lang = &quot;C++&quot;;</span>
 <span class="lineNum">     430 </span><span class="lineCov">          2 :                 }</span>
-<span class="lineNum">     431 </span><span class="lineCov">          5 :                 if (str == &quot;csharp&quot;) {</span>
+<span class="lineNum">     431 </span><span class="lineCov">          7 :                 if (str == &quot;csharp&quot;) {</span>
 <span class="lineNum">     432 </span><span class="lineCov">          1 :                         str = &quot;cpp&quot;;</span>
 <span class="lineNum">     433 </span><span class="lineCov">          1 :                         lang = &quot;C#&quot;;</span>
 <span class="lineNum">     434 </span><span class="lineCov">          1 :                 }</span>
-<span class="lineNum">     435 </span><span class="lineCov">         10 :                 attr = attr + &quot; xmlns=\&quot;http://www.srcML.org/srcML/src\&quot;&quot;;</span>
-<span class="lineNum">     436 </span><span class="lineCov">          5 :                 if (position)</span>
+<span class="lineNum">     435 </span><span class="lineCov">         14 :                 attr = attr + &quot; xmlns=\&quot;http://www.srcML.org/srcML/src\&quot;&quot;;</span>
+<span class="lineNum">     436 </span><span class="lineCov">          7 :                 if (position)</span>
 <span class="lineNum">     437 </span><span class="lineNoCov">          0 :                         attr = attr + &quot; xmlns:pos=\&quot;http://www.srcML.org/srcML/position\&quot;&quot;;</span>
-<span class="lineNum">     438 </span><span class="lineCov">         30 :                 attr = attr + &quot; xmlns:&quot; + str + &quot;=\&quot;http://www.srcML.org/srcML/&quot; + str + &quot;\&quot;&quot;;</span>
-<span class="lineNum">     439 </span><span class="lineCov">         30 :                 attr = attr + &quot; revision=\&quot;&quot; + element-&gt;unit().revision().c_str() + &quot;\&quot;&quot;;</span>
-<span class="lineNum">     440 </span><span class="lineCov">         20 :                 attr = attr + &quot; language=\&quot;&quot; + lang + &quot;\&quot;&quot;;</span>
-<span class="lineNum">     441 </span><span class="lineCov">         30 :                 attr = attr + &quot; filename=\&quot;&quot; + element-&gt;unit().filename().c_str() + &quot;\&quot;&quot;;</span>
-<span class="lineNum">     442 </span><span class="lineCov">      26661 :         } else if (element-&gt;kind() == fast::Element_Kind_LITERAL) {</span>
+<span class="lineNum">     438 </span><span class="lineCov">         42 :                 attr = attr + &quot; xmlns:&quot; + str + &quot;=\&quot;http://www.srcML.org/srcML/&quot; + str + &quot;\&quot;&quot;;</span>
+<span class="lineNum">     439 </span><span class="lineCov">         42 :                 attr = attr + &quot; revision=\&quot;&quot; + element-&gt;unit().revision().c_str() + &quot;\&quot;&quot;;</span>
+<span class="lineNum">     440 </span><span class="lineCov">         28 :                 attr = attr + &quot; language=\&quot;&quot; + lang + &quot;\&quot;&quot;;</span>
+<span class="lineNum">     441 </span><span class="lineCov">         42 :                 attr = attr + &quot; filename=\&quot;&quot; + element-&gt;unit().filename().c_str() + &quot;\&quot;&quot;;</span>
+<span class="lineNum">     442 </span><span class="lineCov">      26775 :         } else if (element-&gt;kind() == fast::Element_Kind_LITERAL) {</span>
 <span class="lineNum">     443 </span><span class="lineCov">        643 :                 tag = &quot;literal&quot;;</span>
 <span class="lineNum">     444 </span><span class="lineCov">       2572 :                 string type = fast::Element_Literal_LiteralType_Name(element-&gt;literal().type());</span>
 <span class="lineNum">     445 </span><span class="lineCov">       1286 :                 type = type.substr(0, type.length() - 5);</span>
@@ -509,19 +509,19 @@
 <span class="lineNum">     447 </span><span class="lineCov">        643 :                 if (position &amp;&amp; (element-&gt;line()!=0 || element-&gt;column()!=0))</span>
 <span class="lineNum">     448 </span><span class="lineNoCov">          0 :                         attr = attr + &quot; pos:line=\&quot;&quot; + std::to_string(element-&gt;line()) + &quot;\&quot;&quot; + &quot; pos:column=\&quot;&quot; + std::to_string(element-&gt;column()) + &quot;\&quot;&quot;;</span>
 <span class="lineNum">     449 </span><span class="lineCov">        643 :         } else {</span>
-<span class="lineNum">     450 </span><span class="lineCov">      38055 :                 tag = fast::Element_Kind_Name(element-&gt;kind());</span>
-<span class="lineNum">     451 </span><span class="lineCov">      12685 :                 if (position &amp;&amp; (element-&gt;line()!=0 || element-&gt;column()!=0))</span>
+<span class="lineNum">     450 </span><span class="lineCov">      38223 :                 tag = fast::Element_Kind_Name(element-&gt;kind());</span>
+<span class="lineNum">     451 </span><span class="lineCov">      12741 :                 if (position &amp;&amp; (element-&gt;line()!=0 || element-&gt;column()!=0))</span>
 <span class="lineNum">     452 </span><span class="lineNoCov">          0 :                         attr = attr + &quot; pos:line=\&quot;&quot; + std::to_string(element-&gt;line()) + &quot;\&quot;&quot; + &quot; pos:column=\&quot;&quot; + std::to_string(element-&gt;column()) + &quot;\&quot;&quot;;</span>
 <span class="lineNum">     453 </span>            :         }
-<span class="lineNum">     454 </span><span class="lineCov">      26666 :         text = element-&gt;text();</span>
-<span class="lineNum">     455 </span><span class="lineCov">      26666 :         transform(tag.begin(), tag.end(), tag.begin(), ::tolower);</span>
-<span class="lineNum">     456 </span><span class="lineCov">      66665 :         out &lt;&lt; &quot;&lt;&quot; &lt;&lt;  tag &lt;&lt;  attr &lt;&lt; &quot;&gt;&quot; &lt;&lt; text;</span>
-<span class="lineNum">     457 </span><span class="lineCov">     106644 :         for (int i=0; i&lt;element-&gt;child().size(); i++) {</span>
-<span class="lineNum">     458 </span><span class="lineCov">      13328 :                 saveXMLfromPB(out, element-&gt;mutable_child(i));</span>
-<span class="lineNum">     459 </span><span class="lineCov">      13328 :         }</span>
-<span class="lineNum">     460 </span><span class="lineCov">      26666 :         tail = element-&gt;tail();</span>
-<span class="lineNum">     461 </span><span class="lineCov">      53332 :         out &lt;&lt; &quot;&lt;/&quot; &lt;&lt; tag &lt;&lt; &quot;&gt;&quot; &lt;&lt; tail;</span>
-<span class="lineNum">     462 </span><span class="lineCov">      13333 : }</span>
+<span class="lineNum">     454 </span><span class="lineCov">      26782 :         text = element-&gt;text();</span>
+<span class="lineNum">     455 </span><span class="lineCov">      26782 :         transform(tag.begin(), tag.end(), tag.begin(), ::tolower);</span>
+<span class="lineNum">     456 </span><span class="lineCov">      66955 :         out &lt;&lt; &quot;&lt;&quot; &lt;&lt;  tag &lt;&lt;  attr &lt;&lt; &quot;&gt;&quot; &lt;&lt; text;</span>
+<span class="lineNum">     457 </span><span class="lineCov">     107104 :         for (int i=0; i&lt;element-&gt;child().size(); i++) {</span>
+<span class="lineNum">     458 </span><span class="lineCov">      13385 :                 saveXMLfromPB(out, element-&gt;mutable_child(i));</span>
+<span class="lineNum">     459 </span><span class="lineCov">      13385 :         }</span>
+<span class="lineNum">     460 </span><span class="lineCov">      26782 :         tail = element-&gt;tail();</span>
+<span class="lineNum">     461 </span><span class="lineCov">      53564 :         out &lt;&lt; &quot;&lt;/&quot; &lt;&lt; tag &lt;&lt; &quot;&gt;&quot; &lt;&lt; tail;</span>
+<span class="lineNum">     462 </span><span class="lineCov">      13391 : }</span>
 <a name="463"><span class="lineNum">     463 </span>            : #endif</a>
 <span class="lineNum">     464 </span>            : 
 <span class="lineNum">     465 </span>            : void saveTxtFromPB(char *input_file, char *output_file) {
@@ -1019,30 +1019,30 @@
 <a name="957"><span class="lineNum">     957 </span><span class="lineCov">          2 : }</span></a>
 <span class="lineNum">     958 </span>            : 
 <span class="lineNum">     959 </span>            : int mainRoutine(int argc, char* argv[]) {
-<span class="lineNum">     960 </span><span class="lineCov">         63 :    if (argc &lt; 2) {</span>
+<span class="lineNum">     960 </span><span class="lineCov">         64 :    if (argc &lt; 2) {</span>
 <span class="lineNum">     961 </span><span class="lineCov">          1 :            usage();</span>
 <span class="lineNum">     962 </span><span class="lineCov">          1 :            return 1;</span>
 <span class="lineNum">     963 </span>            :    }
-<span class="lineNum">     964 </span><span class="lineCov">        105 :    if (argc == 3 &amp;&amp; strcmp(argv[1], argv[2])==0) {</span>
+<span class="lineNum">     964 </span><span class="lineCov">        106 :    if (argc == 3 &amp;&amp; strcmp(argv[1], argv[2])==0) {</span>
 <span class="lineNum">     965 </span><span class="lineCov">          1 :            cerr &lt;&lt; &quot;Warning: input and output file name are the same, no change is needed&quot; &lt;&lt; endl;</span>
 <span class="lineNum">     966 </span><span class="lineCov">          1 :            return 1;</span>
 <span class="lineNum">     967 </span>            :    }
 <span class="lineNum">     968 </span>            : #ifdef PB_fast
-<span class="lineNum">     969 </span><span class="lineCov">         61 :    if (strcmp(argv[1]+strlen(argv[1])-3, &quot;.pb&quot;)==0) {</span>
-<span class="lineNum">     970 </span><span class="lineCov">         28 :           if (decode &amp;&amp; argc == 2) {</span>
+<span class="lineNum">     969 </span><span class="lineCov">         62 :    if (strcmp(argv[1]+strlen(argv[1])-3, &quot;.pb&quot;)==0) {</span>
+<span class="lineNum">     970 </span><span class="lineCov">         29 :           if (decode &amp;&amp; argc == 2) {</span>
 <span class="lineNum">     971 </span><span class="lineCov">          6 :             saveTxtFromPB(argv[1]);</span>
 <span class="lineNum">     972 </span><span class="lineCov">          6 :             return 0;</span>
-<span class="lineNum">     973 </span><span class="lineCov">         16 :           } else if (decode &amp;&amp; argc == 3) {</span>
+<span class="lineNum">     973 </span><span class="lineCov">         17 :           } else if (decode &amp;&amp; argc == 3) {</span>
 <span class="lineNum">     974 </span><span class="lineCov">          2 :             saveTxtFromPB(argv[1], argv[2]);</span>
 <span class="lineNum">     975 </span><span class="lineCov">          2 :             return 0;</span>
-<span class="lineNum">     976 </span><span class="lineCov">         14 :           } else if (antlr &amp;&amp; argc == 2) {</span>
+<span class="lineNum">     976 </span><span class="lineCov">         15 :           } else if (antlr &amp;&amp; argc == 2) {</span>
 <span class="lineNum">     977 </span><span class="lineCov">          1 :             saveMarkupFromPB(argv[1]);</span>
 <span class="lineNum">     978 </span><span class="lineCov">          1 :             return 0;</span>
-<span class="lineNum">     979 </span><span class="lineCov">         12 :           } else if (antlr &amp;&amp; argc == 3) {</span>
+<span class="lineNum">     979 </span><span class="lineCov">         13 :           } else if (antlr &amp;&amp; argc == 3) {</span>
 <span class="lineNum">     980 </span><span class="lineCov">          1 :             saveMarkupFromPB(argv[1], argv[2]);</span>
 <span class="lineNum">     981 </span><span class="lineCov">          1 :             return 0;</span>
 <span class="lineNum">     982 </span>            :           }
-<span class="lineNum">     983 </span><span class="lineCov">         10 :           return loadPB(load_only, argc, argv);</span>
+<span class="lineNum">     983 </span><span class="lineCov">         11 :           return loadPB(load_only, argc, argv);</span>
 <span class="lineNum">     984 </span>            :    }
 <span class="lineNum">     985 </span><span class="lineCov">         41 :    if (strcmp(argv[1]+strlen(argv[1])-4, &quot;.txt&quot;)==0) {</span>
 <span class="lineNum">     986 </span><span class="lineCov">          4 :           if (encode &amp;&amp; argc == 3) {</span>
@@ -1060,19 +1060,19 @@
 <span class="lineNum">     998 </span><span class="lineCov">         33 :    if (strcmp(argv[1]+strlen(argv[1])-4, &quot;.xml&quot;)==0)</span>
 <span class="lineNum">     999 </span><span class="lineCov">          8 :            return loadXML(load_only, argc, argv);</span>
 <span class="lineNum">    1000 </span><span class="lineCov">         25 :    return loadSrcML(load_only, argc, argv);</span>
-<a name="1001"><span class="lineNum">    1001 </span><span class="lineCov">         63 : }</span></a>
+<a name="1001"><span class="lineNum">    1001 </span><span class="lineCov">         64 : }</span></a>
 <span class="lineNum">    1002 </span>            : 
 <span class="lineNum">    1003 </span>            : int main(int argc, char* argv[]) {
 <span class="lineNum">    1004 </span>            :   int c;
 <span class="lineNum">    1005 </span>            : 
-<span class="lineNum">    1006 </span><span class="lineCov">         58 :   opterr = 0;</span>
-<span class="lineNum">    1007 </span><span class="lineCov">         58 :   decode = 0;</span>
-<span class="lineNum">    1008 </span><span class="lineCov">         58 :   position = 0;</span>
-<span class="lineNum">    1009 </span><span class="lineCov">         58 :   slice = 0;</span>
-<span class="lineNum">    1010 </span><span class="lineCov">         58 :   mySlice = 0;</span>
-<span class="lineNum">    1011 </span><span class="lineCov">         58 :   encode = 0;</span>
-<span class="lineNum">    1012 </span><span class="lineCov">         58 :   antlr = 0;</span>
-<span class="lineNum">    1013 </span><span class="lineCov">        168 :   while ((c = getopt (argc, argv, &quot;acdDeg:hpsSv&quot;)) != -1)</span>
+<span class="lineNum">    1006 </span><span class="lineCov">         59 :   opterr = 0;</span>
+<span class="lineNum">    1007 </span><span class="lineCov">         59 :   decode = 0;</span>
+<span class="lineNum">    1008 </span><span class="lineCov">         59 :   position = 0;</span>
+<span class="lineNum">    1009 </span><span class="lineCov">         59 :   slice = 0;</span>
+<span class="lineNum">    1010 </span><span class="lineCov">         59 :   mySlice = 0;</span>
+<span class="lineNum">    1011 </span><span class="lineCov">         59 :   encode = 0;</span>
+<span class="lineNum">    1012 </span><span class="lineCov">         59 :   antlr = 0;</span>
+<span class="lineNum">    1013 </span><span class="lineCov">        170 :   while ((c = getopt (argc, argv, &quot;acdDeg:hpsSv&quot;)) != -1)</span>
 <span class="lineNum">    1014 </span><span class="lineCov">         27 :     switch (c) {</span>
 <span class="lineNum">    1015 </span>            :       case 'h':
 <span class="lineNum">    1016 </span><span class="lineCov">          1 :             usage();</span>
@@ -1121,8 +1121,8 @@
 <span class="lineNum">    1059 </span>            :       default:
 <span class="lineNum">    1060 </span><span class="lineNoCov">          0 :         abort ();</span>
 <span class="lineNum">    1061 </span>            :     }
-<span class="lineNum">    1062 </span><span class="lineCov">         57 :     return mainRoutine(argc - optind + 1, argv + optind - 1);</span>
-<span class="lineNum">    1063 </span><span class="lineCov">         58 : }</span>
+<span class="lineNum">    1062 </span><span class="lineCov">         58 :     return mainRoutine(argc - optind + 1, argv + optind - 1);</span>
+<span class="lineNum">    1063 </span><span class="lineCov">         59 : }</span>
 </pre>
       </td>
     </tr>
