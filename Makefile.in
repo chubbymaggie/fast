@@ -53,7 +53,11 @@ smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smal
 smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
 	antlr4 -o smali -Dlanguage=Cpp $^
 	cat src/antlr4/smali/smaliLexer.patch >> smali/src/antlr4/smali/smaliLexer.cpp 
+ifeq ($(UNAME_S),Darwin)
+	cat src/antlr4/smali/smaliLexer.patch >> smali/src/antlr4/smali/smaliLexer.cpp 
 	sed -i -e 's/_modeNames;/_modeNames; static std::vector<std::string> _channelNames; const std::vector<std::string>\& getChannelNames() const override;/' smali/src/antlr4/smali/smaliLexer.h
+endif
+
 
 src/antlr/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
 
