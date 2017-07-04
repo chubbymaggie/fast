@@ -11,6 +11,7 @@ before_install:
     brew install lcov; 
     brew tap yijunyu/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers;
+    brew install antlr4; brew install antlr4-cpp-runtime;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
@@ -30,6 +31,9 @@ before_install:
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     sudo apt-get install lcov;
     pip install --user cpp-coveralls;
+    sudo apt-get install antlr4;
+    wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; cmake .; make; sudo make install; cd ..;
+    git clone https://github.com/antlr/antlr4; cd antlr4; mvn package; sudo cp ./tool/target/antlr4-4.7.1-SNAPSHOT.jar /usr/share/java/antlr4.jar; sudo cp ./runtime/Java/lib/org.abego.treelayout.core.jar /usr/share/java/; sudo cp ./runtime/Java/target/antlr4-runtime-4.7.1-SNAPSHOT.jar /usr/share/java/antlr4-runtime.jar; cd ..;
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib

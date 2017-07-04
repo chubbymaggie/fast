@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <set>
+#include <algorithm>
 #include "fast.pb.h"
 using namespace std;
 

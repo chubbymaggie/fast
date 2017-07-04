@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <vector>
 #include <sstream>
+#include <memory>
 using namespace std;
 string exec(string command)
 {
