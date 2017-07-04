@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.srcML.org/srcML/src" xmlns:all="http://www.srcML.org/srcML/all" revision="" language="ALL" filename=""><unit xmlns="http://www.srcML.org/srcML/src" xmlns:all="http://www.srcML.org/srcML/all" revision="" language="ALL" filename=""><decl><expr_stmt> LDuplicateVirtualMethods;</expr_stmt></decl>
+<decl_stmt>.super Ljava/lang/Object;</decl_stmt>
+
+<call><expr_stmt>public</expr_stmt><function_decl><function>alah</function></function_decl><constructor><destructor></destructor><macro>V</macro></constructor><control>
+.end method<none><expression><enum_defn>1</enum_defn></expression></none><incr><cname><typeprev>return-void</typeprev></cname></incr></control></call>
+
+<call><expr_stmt>public</expr_stmt><function_decl><function>blah</function></function_decl><constructor><destructor></destructor><macro>V</macro></constructor><control>
+.end method<incr><cname><typeprev>return-void</typeprev></cname></incr></control></call>
+
+<call><expr_stmt>public</expr_stmt><function_decl><function>blah</function></function_decl><constructor><destructor></destructor><macro>V</macro></constructor><control>
+.end method<none><expression><enum_defn>1</enum_defn></expression></none><incr><cname><typeprev>return-void</typeprev></cname></incr></control></call>
+
+<call><expr_stmt>public</expr_stmt><function_decl><function>clah</function></function_decl><constructor><destructor></destructor><macro>V</macro></constructor><control>
+.end method<none><expression><enum_defn>1</enum_defn></expression></none><incr><cname><typeprev>return-void</typeprev></cname></incr></control></call>.method </unit></unit>

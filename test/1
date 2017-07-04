@@ -1,0 +1,269 @@
+line 3:8 token recognition error at: '"'
+line 3:27 token recognition error at: '.j'
+line 3:9 mismatched input 'MediaSessionCompat' expecting STRING_LITERAL
+line 3:32 token recognition error at: '"'
+line 22:0 extraneous input '#' expecting {<EOF>, ANNOTATION_DIRECTIVE, CLASS_DIRECTIVE, FIELD_DIRECTIVE, IMPLEMENTS_DIRECTIVE, METHOD_DIRECTIVE, SOURCE_DIRECTIVE, SUPER_DIRECTIVE}
+line 23:64 token recognition error at: '"'
+line 23:72 token recognition error at: '.supp'
+line 23:80 token recognition error at: '.v'
+line 23:89 token recognition error at: '.se'
+line 23:97 token recognition error at: '.ac'
+line 23:104 token recognition error at: '.A'
+line 23:120 token recognition error at: '"'
+line 25:66 token recognition error at: '"'
+line 25:74 token recognition error at: '.supp'
+line 25:82 token recognition error at: '.v'
+line 25:91 token recognition error at: '.se'
+line 25:99 token recognition error at: '.ac'
+line 25:106 token recognition error at: '.A'
+line 25:124 token recognition error at: '"'
+line 27:63 token recognition error at: '"'
+line 27:71 token recognition error at: '.supp'
+line 27:79 token recognition error at: '.v'
+line 27:88 token recognition error at: '.se'
+line 27:96 token recognition error at: '.ac'
+line 27:103 token recognition error at: '.A'
+line 27:118 token recognition error at: '"'
+line 29:61 token recognition error at: '"'
+line 29:69 token recognition error at: '.supp'
+line 29:77 token recognition error at: '.v'
+line 29:86 token recognition error at: '.se'
+line 29:94 token recognition error at: '.ac'
+line 29:101 token recognition error at: '.A'
+line 29:114 token recognition error at: '"'
+line 31:62 token recognition error at: '"'
+line 31:70 token recognition error at: '.supp'
+line 31:78 token recognition error at: '.v'
+line 31:87 token recognition error at: '.se'
+line 31:95 token recognition error at: '.ac'
+line 31:102 token recognition error at: '.P'
+line 31:116 token recognition error at: '"'
+line 33:56 token recognition error at: '"'
+line 33:64 token recognition error at: '.supp'
+line 33:72 token recognition error at: '.v'
+line 33:81 token recognition error at: '.se'
+line 33:89 token recognition error at: '.ac'
+line 33:96 token recognition error at: '.P'
+line 33:104 token recognition error at: '"'
+line 35:70 token recognition error at: '"'
+line 35:78 token recognition error at: '.supp'
+line 35:86 token recognition error at: '.v'
+line 35:95 token recognition error at: '.se'
+line 35:103 token recognition error at: '.ac'
+line 35:110 token recognition error at: '.P'
+line 35:132 token recognition error at: '"'
+line 37:68 token recognition error at: '"'
+line 37:76 token recognition error at: '.supp'
+line 37:84 token recognition error at: '.v'
+line 37:93 token recognition error at: '.se'
+line 37:101 token recognition error at: '.ac'
+line 37:108 token recognition error at: '.P'
+line 37:128 token recognition error at: '"'
+line 39:65 token recognition error at: '"'
+line 39:73 token recognition error at: '.supp'
+line 39:81 token recognition error at: '.v'
+line 39:90 token recognition error at: '.se'
+line 39:98 token recognition error at: '.ac'
+line 39:105 token recognition error at: '.P'
+line 39:122 token recognition error at: '"'
+line 45:53 token recognition error at: '"'
+line 45:72 token recognition error at: '"'
+line 52:12 token recognition error at: '"'
+line 52:18 token recognition error at: '/'
+line 52:23 token recognition error at: '/'
+line 52:33 token recognition error at: '"'
+line 53:12 token recognition error at: '"'
+line 53:13 token recognition error at: '<"'
+line 54:12 token recognition error at: '"'
+line 54:89 token recognition error at: '"'
+line 55:12 token recognition error at: '"'
+line 55:13 token recognition error at: '>'
+line 55:14 token recognition error at: ';'
+line 55:15 token recognition error at: '"'
+line 68:15 token recognition error at: '"'
+line 68:23 token recognition error at: '"'
+line 69:15 token recognition error at: '"'
+line 69:20 token recognition error at: '"'
+line 98:15 token recognition error at: '"'
+line 98:23 token recognition error at: '"'
+line 99:15 token recognition error at: '"'
+line 99:19 token recognition error at: '"'
+line 113:15 token recognition error at: '"'
+line 113:23 token recognition error at: '"'
+line 114:15 token recognition error at: '"'
+line 114:19 token recognition error at: '"'
+line 115:15 token recognition error at: '"'
+line 115:28 token recognition error at: '"'
+line 116:15 token recognition error at: '"'
+line 116:25 token recognition error at: '"'
+line 135:21 token recognition error at: '"'
+line 135:46 token recognition error at: '"'
+line 152:21 token recognition error at: '"'
+line 152:51 token recognition error at: '"'
+line 197:15 token recognition error at: '"'
+line 197:23 token recognition error at: '"'
+line 198:15 token recognition error at: '"'
+line 198:28 token recognition error at: '"'
+line 217:15 token recognition error at: '"'
+line 217:24 token recognition error at: '"'
+line 226:21 token recognition error at: '"'
+line 226:46 token recognition error at: '"'
+line 337:15 token recognition error at: '"'
+line 337:24 token recognition error at: '"'
+line 346:21 token recognition error at: '"'
+line 346:46 token recognition error at: '"'
+line 364:15 token recognition error at: '"'
+line 364:21 token recognition error at: '"'
+line 365:15 token recognition error at: '"'
+line 365:22 token recognition error at: '"'
+line 378:21 token recognition error at: '"'
+line 378:51 token recognition error at: '"'
+line 396:15 token recognition error at: '"'
+line 396:22 token recognition error at: '"'
+line 425:15 token recognition error at: '"'
+line 425:24 token recognition error at: '"'
+line 431:23 token recognition error at: '"'
+line 431:32 token recognition error at: '"'
+line 438:15 token recognition error at: '"'
+line 438:24 token recognition error at: '"'
+line 452:15 token recognition error at: '"'
+line 452:24 token recognition error at: '"'
+line 453:15 token recognition error at: '"'
+line 453:23 token recognition error at: '"'
+line 461:23 token recognition error at: '"'
+line 461:31 token recognition error at: '"'
+line 469:27 token recognition error at: '"'
+line 469:35 token recognition error at: '"'
+line 473:23 token recognition error at: '"'
+line 473:31 token recognition error at: '"'
+line 481:15 token recognition error at: '"'
+line 481:22 token recognition error at: '"'
+line 495:15 token recognition error at: '"'
+line 495:21 token recognition error at: '"'
+line 509:15 token recognition error at: '"'
+line 509:19 token recognition error at: '"'
+line 523:15 token recognition error at: '"'
+line 523:24 token recognition error at: '"'
+line 537:15 token recognition error at: '"'
+line 537:21 token recognition error at: '"'
+line 551:15 token recognition error at: '"'
+line 551:22 token recognition error at: '"'
+line 565:15 token recognition error at: '"'
+line 565:30 token recognition error at: '"'
+line 574:21 token recognition error at: '"'
+line 574:52 token recognition error at: '!'
+line 574:53 token recognition error at: '"'
+line 594:12 token recognition error at: '"'
+line 594:14 token recognition error at: '"'
+line 595:12 token recognition error at: '"'
+line 595:18 token recognition error at: '/'
+line 595:23 token recognition error at: '/'
+line 595:28 token recognition error at: '"'
+line 596:12 token recognition error at: '"'
+line 596:13 token recognition error at: '<"'
+line 597:12 token recognition error at: '"'
+line 597:76 token recognition error at: '"'
+line 598:12 token recognition error at: '"'
+line 598:13 token recognition error at: '>'
+line 598:14 token recognition error at: ';'
+line 598:17 token recognition error at: '"'
+line 604:15 token recognition error at: '"'
+line 604:21 token recognition error at: '"'
+line 604:41 token recognition error at: '"'
+line 604:47 token recognition error at: '/'
+line 604:52 token recognition error at: '/'
+line 604:57 token recognition error at: '<Landroid/'
+line 604:74 token recognition error at: '/'
+line 604:77 token recognition error at: '/'
+line 604:83 token recognition error at: '/'
+line 604:91 token recognition error at: '/'
+line 604:120 token recognition error at: ';'
+line 604:121 token recognition error at: '>'
+line 604:122 token recognition error at: ';'
+line 604:123 token recognition error at: '"'
+line 615:15 token recognition error at: '"'
+line 615:21 token recognition error at: '"'
+line 629:15 token recognition error at: '"'
+line 629:20 token recognition error at: '"'
+line 643:15 token recognition error at: '"'
+line 643:18 token recognition error at: '"'
+line 23:77 no viable alternative at input 'androidort'
+line 25:79 no viable alternative at input 'androidort'
+line 27:76 no viable alternative at input 'androidort'
+line 29:74 no viable alternative at input 'androidort'
+line 31:75 no viable alternative at input 'androidort'
+line 33:69 no viable alternative at input 'androidort'
+line 35:83 no viable alternative at input 'androidort'
+line 37:81 no viable alternative at input 'androidort'
+line 39:78 no viable alternative at input 'androidort'
+line 41:54 mismatched input 'I' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE}
+line 43:59 mismatched input 'I' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE}
+line 48:0 no viable alternative at input 'MediaSessionCompat\n\n\n#'
+line 52:19 no viable alternative at input 'Ljavautil'
+line 52:19 missing EQUAL at 'util'
+line 52:24 missing EQUAL at 'ArrayList'
+line 52:34 mismatched input ',' expecting EQUAL
+line 58:0 extraneous input '.end field' expecting {<EOF>, ANNOTATION_DIRECTIVE, CLASS_DIRECTIVE, FIELD_DIRECTIVE, IMPLEMENTS_DIRECTIVE, METHOD_DIRECTIVE, SOURCE_DIRECTIVE, SUPER_DIRECTIVE}
+line 65:0 no viable alternative at input '#'
+line 68:16 mismatched input 'context' expecting STRING_LITERAL
+line 69:16 mismatched input 'impl' expecting STRING_LITERAL
+line 98:16 mismatched input 'context' expecting STRING_LITERAL
+line 99:16 mismatched input 'tag' expecting STRING_LITERAL
+line 113:16 mismatched input 'context' expecting STRING_LITERAL
+line 114:16 mismatched input 'tag' expecting STRING_LITERAL
+line 115:16 mismatched input 'mbrComponent' expecting STRING_LITERAL
+line 116:16 mismatched input 'mbrIntent' expecting STRING_LITERAL
+line 135:22 mismatched input 'context' expecting STRING_LITERAL
+line 143:83 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 152:22 mismatched input 'tag' expecting STRING_LITERAL
+line 160:49 mismatched input 'I' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE}
+line 197:16 mismatched input 'context' expecting STRING_LITERAL
+line 198:16 mismatched input 'mediaSession' expecting STRING_LITERAL
+line 214:0 extraneous input '#' expecting {<EOF>, ANNOTATION_DIRECTIVE, CLASS_DIRECTIVE, FIELD_DIRECTIVE, IMPLEMENTS_DIRECTIVE, METHOD_DIRECTIVE, SOURCE_DIRECTIVE, SUPER_DIRECTIVE}
+line 217:16 mismatched input 'listener' expecting STRING_LITERAL
+line 226:22 mismatched input 'Listener' expecting STRING_LITERAL
+line 236:75 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 308:25 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 315:109 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 337:16 mismatched input 'listener' expecting STRING_LITERAL
+line 346:22 mismatched input 'Listener' expecting STRING_LITERAL
+line 356:78 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 364:16 mismatched input 'event' expecting STRING_LITERAL
+line 365:16 mismatched input 'extras' expecting STRING_LITERAL
+line 369:83 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 378:22 mismatched input 'event' expecting STRING_LITERAL
+line 394:25 no viable alternative at input 'Z'
+line 396:16 mismatched input 'active' expecting STRING_LITERAL
+line 402:113 no viable alternative at input 'Z'
+line 412:58 mismatched input 'Z' expecting {ARRAY_TYPE_PREFIX, CLASS_DESCRIPTOR, PRIMITIVE_TYPE, VOID_TYPE}
+line 425:16 mismatched input 'listener' expecting {NULL_LITERAL, STRING_LITERAL}
+line 425:26 extraneous input 'Landroid/support/v4/media/session/MediaSessionCompat$OnActiveChangeListener;' expecting {ACCESS_SPEC, ANNOTATION_VISIBILITY, BOOL_LITERAL, DOUBLE_LITERAL_OR_ID, FLOAT_LITERAL_OR_ID, INSTRUCTION_FORMAT10t, INSTRUCTION_FORMAT10x, INSTRUCTION_FORMAT10x_ODEX, INSTRUCTION_FORMAT11x, INSTRUCTION_FORMAT12x_OR_ID, INSTRUCTION_FORMAT21c_FIELD, INSTRUCTION_FORMAT21c_FIELD_ODEX, INSTRUCTION_FORMAT21c_STRING, INSTRUCTION_FORMAT21c_TYPE, INSTRUCTION_FORMAT21t, INSTRUCTION_FORMAT22c_FIELD, INSTRUCTION_FORMAT22c_FIELD_ODEX, INSTRUCTION_FORMAT22c_TYPE, INSTRUCTION_FORMAT22cs_FIELD, INSTRUCTION_FORMAT22s_OR_ID, INSTRUCTION_FORMAT22t, INSTRUCTION_FORMAT23x, INSTRUCTION_FORMAT31i_OR_ID, INSTRUCTION_FORMAT31t, INSTRUCTION_FORMAT35c_METHOD, INSTRUCTION_FORMAT35c_METHOD_ODEX, INSTRUCTION_FORMAT35c_TYPE, INSTRUCTION_FORMAT35mi_METHOD, INSTRUCTION_FORMAT35ms_METHOD, INSTRUCTION_FORMAT45cc_METHOD, INSTRUCTION_FORMAT4rcc_METHOD, INSTRUCTION_FORMAT51l, NEGATIVE_INTEGER_LITERAL, NULL_LITERAL, PARAM_LIST_OR_ID_PRIMITIVE_TYPE, POSITIVE_INTEGER_LITERAL, PRIMITIVE_TYPE, REGISTER, SIMPLE_NAME, VERIFICATION_ERROR_TYPE, VOID_TYPE}
+line 426:21 mismatched input '{' expecting END_METHOD_DIRECTIVE
+line 438:16 mismatched input 'callback' expecting STRING_LITERAL
+line 452:16 mismatched input 'callback' expecting STRING_LITERAL
+line 453:16 mismatched input 'handler' expecting STRING_LITERAL
+line 461:21 mismatched input '#' expecting END_METHOD_DIRECTIVE
+line 481:16 mismatched input 'extras' expecting STRING_LITERAL
+line 493:24 no viable alternative at input 'I'
+line 495:16 mismatched input 'flags' expecting STRING_LITERAL
+line 501:112 no viable alternative at input 'I'
+line 509:16 mismatched input 'mbr' expecting STRING_LITERAL
+line 523:16 mismatched input 'metadata' expecting STRING_LITERAL
+line 537:16 mismatched input 'state' expecting STRING_LITERAL
+line 549:34 no viable alternative at input 'I'
+line 551:16 mismatched input 'stream' expecting STRING_LITERAL
+line 557:122 no viable alternative at input 'I'
+line 565:16 mismatched input 'volumeProvider' expecting STRING_LITERAL
+line 574:22 mismatched input 'volumeProvider' expecting STRING_LITERAL
+line 594:13 mismatched input '(' expecting {ACCESS_SPEC, ANNOTATION_VISIBILITY, ARRAY_TYPE_PREFIX, BOOL_LITERAL, BYTE_LITERAL, CHAR_LITERAL, CLASS_DESCRIPTOR, CLOSE_BRACE, DOUBLE_LITERAL, DOUBLE_LITERAL_OR_ID, ENUM_DIRECTIVE, FLOAT_LITERAL, FLOAT_LITERAL_OR_ID, INSTRUCTION_FORMAT10t, INSTRUCTION_FORMAT10x, INSTRUCTION_FORMAT10x_ODEX, INSTRUCTION_FORMAT11x, INSTRUCTION_FORMAT12x_OR_ID, INSTRUCTION_FORMAT21c_FIELD, INSTRUCTION_FORMAT21c_FIELD_ODEX, INSTRUCTION_FORMAT21c_STRING, INSTRUCTION_FORMAT21c_TYPE, INSTRUCTION_FORMAT21t, INSTRUCTION_FORMAT22c_FIELD, INSTRUCTION_FORMAT22c_FIELD_ODEX, INSTRUCTION_FORMAT22c_TYPE, INSTRUCTION_FORMAT22cs_FIELD, INSTRUCTION_FORMAT22s_OR_ID, INSTRUCTION_FORMAT22t, INSTRUCTION_FORMAT23x, INSTRUCTION_FORMAT31i_OR_ID, INSTRUCTION_FORMAT31t, INSTRUCTION_FORMAT35c_METHOD, INSTRUCTION_FORMAT35c_METHOD_ODEX, INSTRUCTION_FORMAT35c_TYPE, INSTRUCTION_FORMAT35mi_METHOD, INSTRUCTION_FORMAT35ms_METHOD, INSTRUCTION_FORMAT45cc_METHOD, INSTRUCTION_FORMAT4rcc_METHOD, INSTRUCTION_FORMAT51l, LONG_LITERAL, MEMBER_NAME, NEGATIVE_INTEGER_LITERAL, NULL_LITERAL, OPEN_BRACE, PARAM_LIST_OR_ID_PRIMITIVE_TYPE, POSITIVE_INTEGER_LITERAL, PRIMITIVE_TYPE, REGISTER, SHORT_LITERAL, SIMPLE_NAME, STRING_LITERAL, SUBANNOTATION_DIRECTIVE, VERIFICATION_ERROR_TYPE, VOID_TYPE}
+line 595:19 missing EQUAL at 'util'
+line 595:24 missing EQUAL at 'List'
+line 595:29 mismatched input ',' expecting EQUAL
+line 599:8 mismatched input '}' expecting EQUAL
+line 604:16 mismatched input 'queue' expecting {NULL_LITERAL, STRING_LITERAL}
+line 604:23 mismatched input 'Ljava/util/List;' expecting {ACCESS_SPEC, ANNOTATION_VISIBILITY, BOOL_LITERAL, DOUBLE_LITERAL_OR_ID, FLOAT_LITERAL_OR_ID, INSTRUCTION_FORMAT10t, INSTRUCTION_FORMAT10x, INSTRUCTION_FORMAT10x_ODEX, INSTRUCTION_FORMAT11x, INSTRUCTION_FORMAT12x_OR_ID, INSTRUCTION_FORMAT21c_FIELD, INSTRUCTION_FORMAT21c_FIELD_ODEX, INSTRUCTION_FORMAT21c_STRING, INSTRUCTION_FORMAT21c_TYPE, INSTRUCTION_FORMAT21t, INSTRUCTION_FORMAT22c_FIELD, INSTRUCTION_FORMAT22c_FIELD_ODEX, INSTRUCTION_FORMAT22c_TYPE, INSTRUCTION_FORMAT22cs_FIELD, INSTRUCTION_FORMAT22s_OR_ID, INSTRUCTION_FORMAT22t, INSTRUCTION_FORMAT23x, INSTRUCTION_FORMAT31i_OR_ID, INSTRUCTION_FORMAT31t, INSTRUCTION_FORMAT35c_METHOD, INSTRUCTION_FORMAT35c_METHOD_ODEX, INSTRUCTION_FORMAT35c_TYPE, INSTRUCTION_FORMAT35mi_METHOD, INSTRUCTION_FORMAT35ms_METHOD, INSTRUCTION_FORMAT45cc_METHOD, INSTRUCTION_FORMAT4rcc_METHOD, INSTRUCTION_FORMAT51l, NEGATIVE_INTEGER_LITERAL, NULL_LITERAL, PARAM_LIST_OR_ID_PRIMITIVE_TYPE, POSITIVE_INTEGER_LITERAL, PRIMITIVE_TYPE, REGISTER, SIMPLE_NAME, VERIFICATION_ERROR_TYPE, VOID_TYPE}
+line 615:16 mismatched input 'title' expecting STRING_LITERAL
+line 627:29 no viable alternative at input 'I'
+line 629:16 mismatched input 'type' expecting STRING_LITERAL
+line 635:117 no viable alternative at input 'I'
+line 643:16 mismatched input 'pi' expecting STRING_LITERAL

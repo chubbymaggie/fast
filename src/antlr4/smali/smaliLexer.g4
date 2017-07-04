@@ -291,7 +291,7 @@ INLINE_INDEX: 'inline@0x' HexDigit+;
 VTABLE_INDEX: 'vtable@0x' HexDigit+;
 FIELD_OFFSET: 'field@0x' HexDigit+;
 
-LINE_COMMENT:  '#' [^\r\n]*;
+LINE_COMMENT : ('#' ~('\r' | '\n')* '\r'? '\n') -> skip;
 
 INSTRUCTION_FORMAT10t: 'goto'; 
 INSTRUCTION_FORMAT10x: 'return-void' | 'nop';
@@ -391,6 +391,7 @@ EQUAL: '=';
 COLON: ':';
 COMMA: ',';
 
+PRIMITIVE_TYPE: [ZBSCIJFD];
 VOID_TYPE: 'V';
 HighSurrogate: [\uD800-\uDBFF];
 LowSurrogate: [\uDC00-\uDFFF];
@@ -400,9 +401,115 @@ MEMBER_NAME: '<' SIMPLE_NAME '>';
 ARRAY_DESCRIPTOR: PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
 CLASS_DESCRIPTOR: 'L' (SIMPLE_NAME '/')* SIMPLE_NAME ';';
 ARRAY_TYPE_PREFIX: '['+;
-PRIMITIVE_TYPE: [ZBSCIJFD];
 TYPE: PRIMITIVE_TYPE | CLASS_DESCRIPTOR | ARRAY_TYPE_PREFIX (CLASS_DESCRIPTOR | PRIMITIVE_TYPE);
 
 PARAM_LIST_OR_ID: PRIMITIVE_TYPE [^] EOF;
 PARAM_LIST: PRIMITIVE_TYPE CLASS_DESCRIPTOR ARRAY_TYPE_PREFIX [^] EOF;
+
+fragment
+OctalDigitsAndUnderscores
+        :       OctalDigitOrUnderscore+
+        ;
+
+fragment
+OctalDigitOrUnderscore
+        :       OctalDigit
+        |       '_'
+        ;
+
+// §3.10.3 Boolean Literals
+
+BooleanLiteral
+	:	'true'
+	|	'false'
+	;
+
+// §3.10.4 Character Literals
+
+CharacterLiteral
+	:	'\'' SingleCharacter '\''
+	|	'\'' EscapeSequence '\''
+	;
+
+fragment
+SingleCharacter
+	:	~['\\]
+	;
+
+// §3.10.5 String Literals
+
+STRING_LITERAL
+	:	'"' StringCharacters? '"'
+	;
+
+fragment
+StringCharacters
+	:	StringCharacter+
+	;
+
+fragment
+StringCharacter
+	:	~["\\]
+	|	EscapeSequence
+	;
+
+// §3.10.6 Escape Sequences for Character and String Literals
+
+fragment
+EscapeSequence
+	:	'\\' [btnfr"'\\]
+	|	OctalEscape
+    |   UnicodeEscape // This is not in the spec but prevents having to preprocess the input
+	;
+
+fragment
+HexDigitOrUnderscore
+	:	HexDigit
+	|	'_'
+	;
+
+fragment
+OctalNumeral
+	:	'0' Underscores? OctalDigits
+	;
+
+fragment
+OctalDigits
+	:	OctalDigit (OctalDigitsAndUnderscores? OctalDigit)?
+	;
+
+fragment
+OctalDigit
+	:	[0-7]
+	;
+
+fragment
+OctalEscape
+	:	'\\' OctalDigit
+	|	'\\' OctalDigit OctalDigit
+	|	'\\' ZeroToThree OctalDigit OctalDigit
+	;
+
+fragment
+ZeroToThree
+	:	[0-3]
+	;
+
+fragment
+Underscores
+        :       '_'+
+        ;
+
+// This is not in the spec but prevents having to preprocess the input
+fragment
+UnicodeEscape
+    :   '\\' 'u' HexDigit HexDigit HexDigit HexDigit
+    ;
+
+// §3.10.7 The Null Literal
+
+NullLiteral
+	:	'null'
+	;
+
 WS: [ \t\r\n]+ -> channel(99);

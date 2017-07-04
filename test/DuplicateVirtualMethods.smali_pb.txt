@@ -1,0 +1,205 @@
+element {
+  child {
+    child {
+      kind: class_spec
+      tail: "\n"
+      child {
+        kind: access_list
+        text: " LDuplicateVirtualMethods;"
+      }
+    }
+    child {
+      kind: super_spec
+      text: ".super Ljava/lang/Object;"
+      tail: "\n\n"
+    }
+    child {
+      kind: method
+      tail: "\n\n"
+      child {
+        kind: access_list
+        text: "public"
+      }
+      child {
+        kind: member_name
+        child {
+          kind: simple_name
+          text: "alah"
+        }
+      }
+      child {
+        kind: method_prototype
+        child {
+          kind: param_list
+        }
+        child {
+          kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          kind: registers_directive
+          child {
+            kind: integral_literal
+            child {
+              kind: integer_literal
+              text: "1"
+            }
+          }
+        }
+        child {
+          kind: ordered_method_item
+          child {
+            kind: instruction
+            child {
+              kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+    }
+    child {
+      kind: method
+      tail: "\n\n"
+      child {
+        kind: access_list
+        text: "public"
+      }
+      child {
+        kind: member_name
+        child {
+          kind: simple_name
+          text: "blah"
+        }
+      }
+      child {
+        kind: method_prototype
+        child {
+          kind: param_list
+        }
+        child {
+          kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          kind: ordered_method_item
+          child {
+            kind: instruction
+            child {
+              kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+    }
+    child {
+      kind: method
+      tail: "\n\n"
+      child {
+        kind: access_list
+        text: "public"
+      }
+      child {
+        kind: member_name
+        child {
+          kind: simple_name
+          text: "blah"
+        }
+      }
+      child {
+        kind: method_prototype
+        child {
+          kind: param_list
+        }
+        child {
+          kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          kind: registers_directive
+          child {
+            kind: integral_literal
+            child {
+              kind: integer_literal
+              text: "1"
+            }
+          }
+        }
+        child {
+          kind: ordered_method_item
+          child {
+            kind: instruction
+            child {
+              kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+    }
+    child {
+      kind: method
+      tail: ".method "
+      child {
+        kind: access_list
+        text: "public"
+      }
+      child {
+        kind: member_name
+        child {
+          kind: simple_name
+          text: "clah"
+        }
+      }
+      child {
+        kind: method_prototype
+        child {
+          kind: param_list
+        }
+        child {
+          kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          kind: registers_directive
+          child {
+            kind: integral_literal
+            child {
+              kind: integer_literal
+              text: "1"
+            }
+          }
+        }
+        child {
+          kind: ordered_method_item
+          child {
+            kind: instruction
+            child {
+              kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+    }
+  }
+  unit {
+  }
+}

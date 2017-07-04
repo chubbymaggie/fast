@@ -19,8 +19,6 @@ smali/smaliParser.cpp smali/smaliParser.h smali/smaliListener.cpp smali/smaliBas
 
 smali/smaliLexer.cpp smali/smaliLexer.h smali/smaliLexer.tokens: smaliLexer.g4
 	antlr4 -o smali -Dlanguage=Cpp $^
-	cat smaliLexer.patch >> smali/smaliLexer.cpp 
-	sed -i -e 's/_modeNames;/_modeNames; static std::vector<std::string> _channelNames; const std::vector<std::string>\& getChannelNames() const override;/' smali/smaliLexer.h
 
 smali.cpp: smali/smaliLexer.h
 

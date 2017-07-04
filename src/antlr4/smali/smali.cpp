@@ -227,8 +227,8 @@ int main(int argc, const char* argv[]) {
 			  proto_output.close();
 		  }
 	  }
-	  tree::ParseTree *tree = parser.smali_file();
 	  TreeShapeListener listener;
+	  tree::ParseTree *tree = parser.smali_file();
 	  tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
 	  FILE *file = fopen(argv[1], "r");
 	  if (argc == 2) {
