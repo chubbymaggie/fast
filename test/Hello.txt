@@ -2,7 +2,6 @@ element {
   text: "\n"
   child {
     kind: CLASS
-    tail: "\n"
     child {
       kind: SPECIFIER
       text: "public"
@@ -18,7 +17,6 @@ element {
       text: "{\n\t"
       child {
         kind: FUNCTION
-        tail: "\n}"
         child {
           kind: SPECIFIER
           text: "public"
@@ -31,11 +29,11 @@ element {
         }
         child {
           kind: TYPE
-          tail: " "
           child {
             kind: NAME
             text: "void"
           }
+          tail: " "
         }
         child {
           kind: NAME
@@ -44,19 +42,17 @@ element {
         child {
           kind: PARAMETER_LIST
           text: "("
-          tail: " "
           child {
             kind: PARAMETER
-            tail: ")"
             child {
               kind: DECL
               child {
                 kind: TYPE
-                tail: " "
                 child {
                   kind: NAME
                   text: "String"
                 }
+                tail: " "
               }
               child {
                 kind: NAME
@@ -70,17 +66,17 @@ element {
                 }
               }
             }
+            tail: ")"
           }
+          tail: " "
         }
         child {
           kind: BLOCK
           text: "{\n\t\t"
           child {
             kind: EXPR_STMT
-            tail: "\n\t}"
             child {
               kind: EXPR
-              tail: ";"
               child {
                 kind: CALL
                 child {
@@ -111,7 +107,6 @@ element {
                   text: "("
                   child {
                     kind: ARGUMENT
-                    tail: ")"
                     child {
                       kind: EXPR
                       child {
@@ -122,14 +117,19 @@ element {
                         }
                       }
                     }
+                    tail: ")"
                   }
                 }
               }
+              tail: ";"
             }
+            tail: "\n\t}"
           }
         }
+        tail: "\n}"
       }
     }
+    tail: "\n"
   }
   unit {
     filename: "Hello.java"

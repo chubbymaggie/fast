@@ -1,1958 +1,1958 @@
 
-Ω@ 2dï
-namespace )2D6	
-return (26	HandCoded24.26FpML24.26
-Validation2
-6result2ı;
+Ω@ *dï
+namespace *D6*6	HandCoded*4.*6FpML*4.*6
+Validation2	
+return (*
+6result2)*ı;2
 }
-		2XG// --------------------------------------------------------------------
-		private 2
+		*XG// --------------------------------------------------------------------2
+		private **ÿstatic2 *9*6bool2 *6Rule022 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*é<{
+			*ëûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*øC
+				*≥<*Æ«return *ü*4(*â*6Rule022 *ıi(*j**6name2, *∫j*±*¨*26*6	nodeIndex*4.*6GetElementsByType2 *ti(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *!j**0"ExchangeRate"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿstatic 29 26bool26Rule02 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2é<{
-			2ëûif 
+			*Ó«return *Ÿ*4(2
+				  *∫*6Rule022 *¶i(*j**6name2, *lj*d*`*26*6	nodeIndex*4.*6GetElementsByName2 *(i(*!j**0"exchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2øC
-				2≥<2Æ«return 2ü;24(2â26Rule02 2ıi(2j, 226name2∫j, 2±2¨226 26	nodeIndex24.26GetElementsByType2ti(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2!j)220"ExchangeRate"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-				  2∫26Rule02 2¶i(2j, 226name2lj, 2d2`226 26	nodeIndex24.26GetElementsByName2(i(2!j)220"exchangeRate"B2j)226errorHandler24)2Õ
-
+		*Õ
+*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule022 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*›<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*–Äforeach *Q(*G*@*9*6
+XmlElement2	*6context2 *Vin **6list2)2 *Á<{
+				*∞*§*9*6
+XmlElement2 	*6forward2 *u= *m*i*!6*	6XPath*4.*6Path2 *Bi(*j**6context2, *"j**0"forwardPoints"B2)2;2
+				*ß*õ*9*6
+XmlElement2	*6spot2	*p= *h*d*!6*	6XPath*4.*6Path2 *=i(*j**6context2, *j**0
+"spotRate"B2)2;2
+				*–ûif *£;(*õ*4!*4(*4(*6forward2 *	4!=2 *0nullB*4)2 *4
+&amp;&amp;2 *4(*6spot2 *	4==2 *0nullB*4)*4)2)*C *<*ö	continue;2
+				*Û*Ê*ﬁ*6errorHandler2 *ƒi(*j**0"305"B2, *j**6context2,
+						*Tj*F*B0:"If forwardPoints exists then spotRate should also exist."B2,
+						*j**6name2, *j**0nullB2)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule02 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2›<{
-			2J
-			2@;29		26bool26result	2= 220trueB2–Äforeach 
-			2Q( 2G)2@29	26
-XmlElement26context 2Vin 226list2Á<{
-				2∞
-				2§;29 	26
-XmlElement26forward 2u= 2m2i2!6 2	6XPath24.26Path2Bi(2j, 226context2"j)220"forwardPoints"B2ß
-				2õ;29	26
-XmlElement26spot	2p= 2h2d2!6 2	6XPath24.26Path2=i(2j, 226context2j)220
-"spotRate"B2–ûif 
-				2£;(2õ)24!24(24(26forward 2	4!= 20nullB24) 24
-&amp;&amp; 24(26spot 2	4== 20nullB24)24)2C 2<2ö	continue;2Û
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-				2Ê;2ﬁ26errorHandler 2ƒi(2j, 220"305"B2j,
-						226context2Tj,
-						2F2B0:"If forwardPoints exists then spotRate should also exist."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*QG// --------------------------------------------------------------------2
 
-		2Ä
+		*Ä*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule032 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ç<{
+			*êûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*øC
+				*≥<*Æ«return *ü*4(*â*6Rule032 *ıi(*j**6name2, *∫j*±*¨*26*6	nodeIndex*4.*6GetElementsByType2 *ti(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *!j**0"ExchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+				  *∫*6Rule032 *¶i(*j**6name2, *lj*d*`*26*6	nodeIndex*4.*6GetElementsByName2 *(i(*!j**0"exchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule03 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ç<{
-			2êûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2øC
-				2≥<2Æ«return 2ü;24(2â26Rule03 2ıi(2j, 226name2∫j, 2±2¨226 26	nodeIndex24.26GetElementsByType2ti(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2!j)220"ExchangeRate"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-				  2∫26Rule03 2¶i(2j, 226name2lj, 2d2`226 26	nodeIndex24.26GetElementsByName2(i(2!j)220"exchangeRate"B2j)226errorHandler24)2œ
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule03 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ﬂ<{
-			2J
-			2@;29		26bool26result	2= 220trueB2“Äforeach 
-			2Q( 2G)2@29	26
-XmlElement26context 2Vin 226list2È
+		*œ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule032 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ﬂ<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*“Äforeach *Q(*G*@*9*6
+XmlElement2	*6context2 *Vin **6list2)2 *È
 <{
-				2∞
-				2§;29 	26
-XmlElement26forward 2u= 2m2i2!6 2	6XPath24.26Path2Bi(2j, 226context2"j)220"forwardPoints"B2ß
-				2õ;29	26
-XmlElement26spot	2p= 2h2d2!6 2	6XPath24.26Path2=i(2j, 226context2j)220
-"spotRate"B2£
-				2ó;29	26
-XmlElement26rate	2l= 2d2`2!6 2	6XPath24.26Path29i(2j, 226context2j)220"rate"B2ıûif 
-				2»;(2¿)24(26rate 2	4== 20nullB24) 2	4|| 24(26forward 2	4== 20nullB24) 2	4|| 24(26spot 2	4== 20nullB24)2C 2<2ö	continue;2îûif 
+				*∞*§*9*6
+XmlElement2 	*6forward2 *u= *m*i*!6*	6XPath*4.*6Path2 *Bi(*j**6context2, *"j**0"forwardPoints"B2)2;2
+				*ß*õ*9*6
+XmlElement2	*6spot2	*p= *h*d*!6*	6XPath*4.*6Path2 *=i(*j**6context2, *j**0
+"spotRate"B2)2;2
+				*£*ó*9*6
+XmlElement2	*6rate2	*l= *d*`*!6*	6XPath*4.*6Path2 *9i(*j**6context2, *j**0"rate"B2)2;2
+				*ıûif *»;(*¿*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *4(*6forward2 *	4==2 *0nullB*4)2 *	4||2 *4(*6spot2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
+				*îûif *·;(*Ÿ*0*6	ToDecimal2 *i(*j**6rate2)*4.*ò*6Equals2 *Ñi(*}j*v*3*6	ToDecimal2 *i(*j**6spot2)2 *4+2 *3*6	ToDecimal2 *i(*j**6forward2)2)2)*C
+					*<*ö	continue;2
 
-				2·;(2Ÿ)2026	ToDecimal 2i(2j)226rate24.2ò26Equals 2Ñi(2}j)2v23 26	ToDecimal 2i(2j)226spot24+ 2326	ToDecimal 2i(2j)226forward2C
-					2<2ö	continue;2ì
+				*ì*Ü*˛*6errorHandler2 *‰i(*j**0"305"B2, *j**6context2,
+						*Rj*D*@08"Sum of spotRate and forwardPoints does not equal rate."B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
 
-				2Ü;2˛26errorHandler 2‰i(2j, 220"305"B2j,
-						226context2Rj,
-						2D2@08"Sum of spotRate and forwardPoints does not equal rate."B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2Ä
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule04 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ç<{
-			2êûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2øC
-				2≥<2Æ«return 2ü;24(2â26Rule04 2ıi(2j, 226name2∫j, 2±2¨226 26	nodeIndex24.26GetElementsByType2ti(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2!j)220"ExchangeRate"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-				  2∫26Rule04 2¶i(2j, 226name2lj, 2d2`226 26	nodeIndex24.26GetElementsByName2(i(2!j)220"exchangeRate"B2j)226errorHandler24)2ù
+		*Ä*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule042 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ç<{
+			*êûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*øC
+				*≥<*Æ«return *ü*4(*â*6Rule042 *ıi(*j**6name2, *∫j*±*¨*26*6	nodeIndex*4.*6GetElementsByType2 *ti(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *!j**0"ExchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+				  *∫*6Rule042 *¶i(*j**6name2, *lj*d*`*26*6	nodeIndex*4.*6GetElementsByName2 *(i(*!j**0"exchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule04 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2≠<{
-			2K
+		*ù*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule042 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*≠<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-			2@;29		26bool26result	2= 220trueB2üÄforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2∂<{
-				2”
-				2«;29 	26
-XmlElement26baseCcy 2ó= 2é2â2!6 2	6XPath24.26Path2bi(2j, 226context2j, 220"sideRates"B2!j)220"baseCurrency"B2’
-				2…;29	26
-XmlElement26ccy1	2ù= 2î2è2!6 2	6XPath24.26Path2hi(2j, 226context2(j, 2 20"quotedCurrencyPair"B2j)220"currency1"B2÷
+			*üÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *∂<{
+				*”*«*9*6
+XmlElement2 	*6baseCcy2 *ó= *é*â*!6*	6XPath*4.*6Path2 *bi(*j**6context2, *j**0"sideRates"B2, *!j**0"baseCurrency"B2)2;2
+				*’*…*9*6
+XmlElement2	*6ccy12	*ù= *î*è*!6*	6XPath*4.*6Path2 *hi(*j**6context2, *(j* *0"quotedCurrencyPair"B2, *j**0"currency1"B2)2;2
+				*÷*…*9*6
+XmlElement2	*6ccy22	*ù= *î*è*!6*	6XPath*4.*6Path2 *hi(*j**6context2, *(j* *0"quotedCurrencyPair"B2, *j**0"currency2"B2)2;2
 
-				2…;29	26
-XmlElement26ccy2	2ù= 2î2è2!6 2	6XPath24.26Path2hi(2j, 226context2(j, 2 20"quotedCurrencyPair"B2j)220"currency2"B2ˆûif 
+				*ˆûif *»;(*¿*4(*6baseCcy2 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
 
-				2»;(2¿)24(26baseCcy 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24)2C 2<2ö	continue;2©ûif 
-}2©;(2°)2H 26Equal 23i(2j, 226baseCcy2j)226ccy12	4|| 2E26Equal 23i(2j, 226baseCcy2j)226ccy22ÓC 2Ê<{
-					2°
-2ô;2ë26errorHandler 2˜i(2j, 220"305"B2j	,
-							226context2aj	,
-							2R2N0F"The side rate base currency must not be one of the trade currencies."B2j, 226name2<j)252126ToToken 2i(2j)226baseCcy25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*©ûif *©;(*°*H*6Equal2 *3i(*j**6baseCcy2, *j**6ccy12)2 *	4||2 *E*6Equal2 *3i(*j**6baseCcy2, *j**6ccy22)2)*ÓC *Ê<{
+					*°*ô*ë*6errorHandler2 *˜i(*j**0"305"B2, *j**6context2	,
+							*aj*R*N0F"The side rate base currency must not be one of the trade currencies."B2	,
+							*j**6name2, *<j*5*1*6ToToken2 *i(*j**6baseCcy2)2)2;2
+*5*-*6result2 *4=2 *0falseB2;2
+}2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2Ä
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule05 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ç<{
-			2êûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2øC
-				2≥<2Æ«return 2ü;24(2â26Rule05 2ıi(2j, 226name2∫j, 2±2¨226 26	nodeIndex24.26GetElementsByType2ti(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2!j)220"ExchangeRate"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-				  2∫26Rule05 2¶i(2j, 226name2lj, 2d2`226 26	nodeIndex24.26GetElementsByName2(i(2!j)220"exchangeRate"B2j)226errorHandler24)2∞
+		*Ä*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule052 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ç<{
+			*êûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*øC
+				*≥<*Æ«return *ü*4(*â*6Rule052 *ıi(*j**6name2, *∫j*±*¨*26*6	nodeIndex*4.*6GetElementsByType2 *ti(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *!j**0"ExchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+				  *∫*6Rule052 *¶i(*j**6name2, *lj*d*`*26*6	nodeIndex*4.*6GetElementsByName2 *(i(*!j**0"exchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule05 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2¿<{
-			2K
+		*∞*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule052 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*¿<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-			2@;29		26bool26result	2= 220trueB2≤
-Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2…	<{
-				2’
-				2…;29	26
-XmlElement26ccy		2ù= 2î2è2!6 2	6XPath24.26Path2hi(2j, 226context2(j, 2 20"quotedCurrencyPair"B2j)220"currency1"B2˜
-				2Î;29 	26
-XmlElement26ccy1 	2Ω= 2¥2Ø2!6 2	6XPath24.26Path2ái(2j, 226context2j, 220"sideRates"B2'j, 220"currency1SideRate"B2j)220
-"currency"B2Äûif 
-				2”;(2À)24(2
-6ccy 2	4== 20nullB24) 2	4|| 24(26ccy1 2	4== 20nullB24) 2	4|| 2A26Equal 2/i(2j, 226ccy2j)226ccy12C 2<2ö	continue;2∞
+			*≤
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *…	<{
+				*’*…*9*6
+XmlElement2	*6ccy2		*ù= *î*è*!6*	6XPath*4.*6Path2 *hi(*j**6context2, *(j* *0"quotedCurrencyPair"B2, *j**0"currency1"B2)2;2
+				*˜*Î*9*6
+XmlElement2 	*6ccy12 	*Ω= *¥*Ø*!6*	6XPath*4.*6Path2 *ái(*j**6context2, *j**0"sideRates"B2, *'j**0"currency1SideRate"B2, *j**0
+"currency"B2)2;2
+				*Äûif *”;(*À*4(*
+6ccy2 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *A*6Equal2 */i(*j**6ccy2, *j**6ccy12)2)*C *<*ö	continue;2
+				*∞*£*õ*6errorHandler2 *Åi(*j**0"305"B2, *j**6context2,
+						*êj*Å*&0"The side rate currency1 '"2 B*4+2 *1*6ToToken2 *i(*j**6ccy12)2 *4+2
+						*40)"' must be the same as trade currency1 '"2 B*4+2 *0*6ToToken2 *i(*j**6ccy2)2 *4+2 *0"'."B2,
+						*j**6name2, *j**0nullB2)2;2
 
-				2£;2õ26errorHandler 2Åi(2j, 220"305"B2j,
-						226context2êj,
-						2Å2&0"The side rate currency1 '" B24+ 21 26ToToken 2i(2j)226ccy124+
-						240)"' must be the same as trade currency1 '" B24+ 20 26ToToken 2i(2j)226ccy24+ 20"'."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2Ä
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule06 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ç<{
-			2êûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2øC
-				2≥<2Æ«return 2ü;24(2â26Rule06 2ıi(2j, 226name2∫j, 2±2¨226 26	nodeIndex24.26GetElementsByType2ti(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2!j)220"ExchangeRate"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-				  2∫26Rule06 2¶i(2j, 226name2lj, 2d2`226 26	nodeIndex24.26GetElementsByName2(i(2!j)220"exchangeRate"B2j)226errorHandler24)2≤
+		*Ä*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule062 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ç<{
+			*êûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*øC
+				*≥<*Æ«return *ü*4(*â*6Rule062 *ıi(*j**6name2, *∫j*±*¨*26*6	nodeIndex*4.*6GetElementsByType2 *ti(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *!j**0"ExchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+				  *∫*6Rule062 *¶i(*j**6name2, *lj*d*`*26*6	nodeIndex*4.*6GetElementsByName2 *(i(*!j**0"exchangeRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule06 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2¬<{
-			2K
+		*≤*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule062 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*¬<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-			2@;29		26bool26result	2= 220trueB2¥
-Äforeach 
+			*¥
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 * 	<{
+				*’*…*9*6
+XmlElement2	*6ccy2		*ù= *î*è*!6*	6XPath*4.*6Path2 *hi(*j**6context2, *(j* *0"quotedCurrencyPair"B2, *j**0"currency2"B2)2;2
+				*˜*Î*9*6
+XmlElement2 	*6ccy12 	*Ω= *¥*Ø*!6*	6XPath*4.*6Path2 *ái(*j**6context2, *j**0"sideRates"B2, *'j**0"currency2SideRate"B2, *j**0
+"currency"B2)2;2
+				*Åûif *”;(*À*4(*
+6ccy2 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *A*6Equal2 */i(*j**6ccy2, *j**6ccy12)2)*C *<*ö	continue;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2 	<{
-				2’
-				2…;29	26
-XmlElement26ccy		2ù= 2î2è2!6 2	6XPath24.26Path2hi(2j, 226context2(j, 2 20"quotedCurrencyPair"B2j)220"currency2"B2˜
-				2Î;29 	26
-XmlElement26ccy1 	2Ω= 2¥2Ø2!6 2	6XPath24.26Path2ái(2j, 226context2j, 220"sideRates"B2'j, 220"currency2SideRate"B2j)220
-"currency"B2Åûif 
+				*∞*£*õ*6errorHandler2 *Åi(*j**0"305"B2, *j**6context2,
+						*êj*Å*&0"The side rate currency2 '"2 B*4+2 *1*6ToToken2 *i(*j**6ccy12)2 *4+2
+						*40)"' must be the same as trade currency2 '"2 B*4+2 *0*6ToToken2 *i(*j**6ccy2)2 *4+2 *0"'."B2,
+						*j**6name2, *j**0nullB2)2;2
 
-				2”;(2À)24(2
-6ccy 2	4== 20nullB24) 2	4|| 24(26ccy1 2	4== 20nullB24) 2	4|| 2A26Equal 2/i(2j, 226ccy2j)226ccy12C 2<2ö	continue;2∞
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-				2£;2õ26errorHandler 2Åi(2j, 220"305"B2j,
-						226context2êj,
-						2Å2&0"The side rate currency2 '" B24+ 21 26ToToken 2i(2j)226ccy124+
-						240)"' must be the same as trade currency2 '" B24+ 20 26ToToken 2i(2j)226ccy24+ 20"'."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2∏	
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule07 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2≈<{
-			2√ûif 
+		*∏	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule072 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*≈<{
+			*√ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÒC
+*È<*‰«return *’*4(2
+					  *ñ*6Rule072 *˙i(*j**6name2, *øj*∂*±*26*6	nodeIndex*4.*6GetElementsByType2 *yi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *&j**0"FXAmericanTrigger"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *é*6Rule072 *˙i(*j**6name2, *øj*∂*±*26*6	nodeIndex*4.*6GetElementsByType2 *yi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *&j**0"FxAmericanTrigger"B2)2, *j**6errorHandler2)*4)2;2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÒC
-2È<2‰«return 2’;24(
-					  2ñ
-					26Rule07 2˙i(2j, 226name2øj, 2∂2±226 26	nodeIndex24.26GetElementsByType2yi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2&j)220"FXAmericanTrigger"B2j)226errorHandler24&amp; 2é26Rule07 2˙i(2j, 226name2øj, 2∂2±226 26	nodeIndex24.26GetElementsByType2yi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2&j)220"FxAmericanTrigger"B2j)226errorHandler24)2Û«return 
-		}2ﬁ;24(
-				  2ø26Rule07 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"fxAmericanTrigger"B2j)226errorHandler24)2à	
+			*Û«return *ﬁ*4(2
+				  *ø*6Rule072 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"fxAmericanTrigger"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule07 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ò<{
-			2J
-			2@;29		26bool26result	2= 220trueB2ãÄforeach 
+		*à	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule072 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ò<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*ãÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *°<{
+				*´*ü*9*6
+XmlElement2		*6rate2	*s= *k*g*!6*	6XPath*4.*6Path2 *@i(*j**6context2, * j**0"triggerRate"B2)2;2
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2°<{
-				2´
-				2ü;29		26
-XmlElement26rate	2s= 2k2g2!6 2	6XPath24.26Path2@i(2j, 226context2 j)220"triggerRate"B2Øûif 
+				*˝*Ò*È*6errorHandler2 *œi(*j**0"305"B2, *j**6context2,
+						*=j*/*+0#"The trigger rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2˝
-				2Ò;2È26errorHandler 2œi(2j, 220"305"B2j,
-						226context2=j,
-						2/2+0#"The trigger rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2∏	
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule08 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2≈<{
-			2√ûif 
+		*∏	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule082 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*≈<{
+			*√ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÒC
+*È<*‰«return *’*4(2
+					  *ñ*6Rule082 *˙i(*j**6name2, *øj*∂*±*26*6	nodeIndex*4.*6GetElementsByType2 *yi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *&j**0"FXAmericanTrigger"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *é*6Rule082 *˙i(*j**6name2, *øj*∂*±*26*6	nodeIndex*4.*6GetElementsByType2 *yi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *&j**0"FxAmericanTrigger"B2)2, *j**6errorHandler2)*4)2;2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÒC
-2È<2‰«return 2’;24(
-					  2ñ
-					26Rule08 2˙i(2j, 226name2øj, 2∂2±226 26	nodeIndex24.26GetElementsByType2yi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2&j)220"FXAmericanTrigger"B2j)226errorHandler24&amp; 2é26Rule08 2˙i(2j, 226name2øj, 2∂2±226 26	nodeIndex24.26GetElementsByType2yi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2&j)220"FxAmericanTrigger"B2j)226errorHandler24)2Û«return 
-		}2ﬁ;24(
-				  2ø26Rule08 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"fxAmericanTrigger"B2j)226errorHandler24)2Ì
+			*Û«return *ﬁ*4(2
+				  *ø*6Rule082 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"fxAmericanTrigger"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule08 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2˝	<{
-			2J
-			2@;29		26bool26result	2= 220trueB2Äforeach 
+		*Ì*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule082 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*˝	<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ü<{
+				*¥*®*9*6
+XmlElement2	*6start2	*|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"observationStartDate"B2)2;2
+				*±*•*9*6
+XmlElement2	*6end2		*z= *r*n*!6*	6XPath*4.*6Path2 *Gi(*j**6context2, *'j* *0"observationEndDate"B2)2;2
+				*Ÿûif *´;(*£*4(*6start2 *	4==2 *0nullB*4)2 *	4||2 *4(*
+6end2 *	4==2 *0nullB*4)2 *4||2
+					*í*6LessOrEqual2 *zi(*:j*2*.*6ToDate2 *i(*j**	6start2)2, *7j*0*,*6ToDate2 *i(*j**6end2)2)2)*C *<*ö	continue;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ü<{
-				2¥
-				2®;29	26
-XmlElement26start	2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"observationStartDate"B2±
-				2•;29	26
-XmlElement26end		2z= 2r2n2!6 2	6XPath24.26Path2Gi(2j, 226context2'j)2 20"observationEndDate"B2Ÿûif 
+				*˚*Ô*Á*6errorHandler2 *Õi(*j**0"305"B2, *j**6context2,
+						*]j*O*K0C"The observationStartDate must not be after the observationEndDate"B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-				2´;(2£)24(26start 2	4== 20nullB24) 2	4|| 24(2
-6end 2	4== 20nullB24) 24||
-					2í26LessOrEqual 2zi(2:j, 222.26ToDate 2i(2j)22	6start27j)202,26ToDate 2i(2j)226end2C 2<2ö	continue;2˚
-				2Ô;2Á26errorHandler 2Õi(2j, 220"305"B2j,
-						226context2]j,
-						2O2K0C"The observationStartDate must not be after the observationEndDate"B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2Â	
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule09 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Ú<{
-			2„ûif 
+		*Â	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule092 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ú<{
+			*„ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ëC
+*â<*Ñ«return *ı*4(2
+					  *¶*6Rule092 *äi(*j**6name2, *œj*∆*¡*26*6	nodeIndex*4.*6GetElementsByType2 *ài(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *5j*.**0""FXAverageRateObservationSchedule"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *û*6Rule092 *äi(*j**6name2, *œj*∆*¡*26*6	nodeIndex*4.*6GetElementsByType2 *ài(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *5j*.**0""FxAverageRateObservationSchedule"B2)2, *j**6errorHandler2)*4)2;2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ëC
-2â<2Ñ«return 2ı;24(
-					  2¶
-					26Rule09 2äi(2j, 226name2œj, 2∆2¡226 26	nodeIndex24.26GetElementsByType2ài(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex25j)2.2*0""FXAverageRateObservationSchedule"B2j)226errorHandler24&amp; 2û26Rule09 2äi(2j, 226name2œj, 2∆2¡226 26	nodeIndex24.26GetElementsByType2ài(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex25j)2.2*0""FxAverageRateObservationSchedule"B2j)226errorHandler24)2Ä«return 
-		}2Î;24(
-				  2Ã26Rule09 2∏i(2j, 226name2~j, 2v2r226 26	nodeIndex24.26GetElementsByName2:i(23j)2,2(0 "averageRateObservationSchedule"B2j)226errorHandler24)2Ì
+			*Ä«return *Î*4(2
+				  *Ã*6Rule092 *∏i(*j**6name2, *~j*v*r*26*6	nodeIndex*4.*6GetElementsByName2 *:i(*3j*,*(0 "averageRateObservationSchedule"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule09 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2˝	<{
-			2J
-			2@;29		26bool26result	2= 220trueB2Äforeach 
+		*Ì*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule092 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*˝	<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ü<{
+				*¥*®*9*6
+XmlElement2	*6start2	*|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"observationStartDate"B2)2;2
+				*±*•*9*6
+XmlElement2	*6end2		*z= *r*n*!6*	6XPath*4.*6Path2 *Gi(*j**6context2, *'j* *0"observationEndDate"B2)2;2
+				*Ÿûif *´;(*£*4(*6start2 *	4==2 *0nullB*4)2 *	4||2 *4(*
+6end2 *	4==2 *0nullB*4)2 *4||2
+					*í*6LessOrEqual2 *zi(*:j*2*.*6ToDate2 *i(*j**	6start2)2, *7j*0*,*6ToDate2 *i(*j**6end2)2)2)*C *<*ö	continue;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ü<{
-				2¥
-				2®;29	26
-XmlElement26start	2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"observationStartDate"B2±
-				2•;29	26
-XmlElement26end		2z= 2r2n2!6 2	6XPath24.26Path2Gi(2j, 226context2'j)2 20"observationEndDate"B2Ÿûif 
+				*˚*Ô*Á*6errorHandler2 *Õi(*j**0"305"B2, *j**6context2,
+						*]j*O*K0C"The observationStartDate must not be after the observationEndDate"B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-				2´;(2£)24(26start 2	4== 20nullB24) 2	4|| 24(2
-6end 2	4== 20nullB24) 24||
-					2í26LessOrEqual 2zi(2:j, 222.26ToDate 2i(2j)22	6start27j)202,26ToDate 2i(2j)226end2C 2<2ö	continue;2˚
-				2Ô;2Á26errorHandler 2Õi(2j, 220"305"B2j,
-						226context2]j,
-						2O2K0C"The observationStartDate must not be after the observationEndDate"B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2Â	
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule10 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Ú<{
-			2„ûif 
+		*Â	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule102 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ú<{
+			*„ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ëC
+*â<*Ñ«return *ı*4(2
+					  *¶*6Rule102 *äi(*j**6name2, *œj*∆*¡*26*6	nodeIndex*4.*6GetElementsByType2 *ài(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *5j*.**0""FXAverageRateObservationSchedule"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *û*6Rule102 *äi(*j**6name2, *œj*∆*¡*26*6	nodeIndex*4.*6GetElementsByType2 *ài(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *5j*.**0""FxAverageRateObservationSchedule"B2)2, *j**6errorHandler2)*4)2;2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ëC
-2â<2Ñ«return 2ı;24(
-					  2¶
-					26Rule10 2äi(2j, 226name2œj, 2∆2¡226 26	nodeIndex24.26GetElementsByType2ài(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex25j)2.2*0""FXAverageRateObservationSchedule"B2j)226errorHandler24&amp; 2û26Rule10 2äi(2j, 226name2œj, 2∆2¡226 26	nodeIndex24.26GetElementsByType2ài(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex25j)2.2*0""FxAverageRateObservationSchedule"B2j)226errorHandler24)2Ä«return 
-		}2Î;24(
-				  2Ã26Rule10 2∏i(2j, 226name2~j, 2v2r226 26	nodeIndex24.26GetElementsByName2:i(23j)2,2(0 "averageRateObservationSchedule"B2j)226errorHandler24)2≥
+			*Ä«return *Î*4(2
+				  *Ã*6Rule102 *∏i(*j**6name2, *~j*v*r*26*6	nodeIndex*4.*6GetElementsByName2 *:i(*3j*,*(0 "averageRateObservationSchedule"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule10 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2√<{
-			2J
-			2@;29		26bool26result	2= 220trueB2∂Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ã
+		*≥*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule102 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*√<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*∂Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ã
 <{
-				2¥
-				2®;29	26
-XmlElement26start	2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"observationStartDate"B2±
-				2•;29	26
-XmlElement26end		2z= 2r2n2!6 2	6XPath24.26Path2Gi(2j, 226context2'j)2 20"observationEndDate"B2º
-				2∞;29	26
-XmlElement26period	2Ç= 2z2v2!6 2	6XPath24.26Path2Oi(2j, 226context2/j)2(2$0"calculationPeriodFrequency"B2◊ûif 
-				2™;(2¢)24(26start 2	4== 20nullB24) 2	4|| 24(2
-6end 2	4== 20nullB24) 2	4|| 24(26period 2	4== 20nullB24) 24||
-						2326
-ToInterval 2i(2j)22
-6period24.2ê26DividesDates2zi(2:j, 222.26ToDate 2i(2j)22	6start27j)202,26ToDate 2i(2j)226end2C 2<2ö	continue;2Ñ
-				2¯;226errorHandler 2÷i(2j, 220"305"B2j,
-						226context2fj,
-						2X2T0L"The observation period is not a multiple of the calculationPeriodFrequency"B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*¥*®*9*6
+XmlElement2	*6start2	*|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"observationStartDate"B2)2;2
+				*±*•*9*6
+XmlElement2	*6end2		*z= *r*n*!6*	6XPath*4.*6Path2 *Gi(*j**6context2, *'j* *0"observationEndDate"B2)2;2
+				*º*∞*9*6
+XmlElement2	*6period2	*Ç= *z*v*!6*	6XPath*4.*6Path2 *Oi(*j**6context2, */j*(*$0"calculationPeriodFrequency"B2)2;2
+				*◊ûif *™;(*¢*4(*6start2 *	4==2 *0nullB*4)2 *	4||2 *4(*
+6end2 *	4==2 *0nullB*4)2 *	4||2 *4(*6period2 *	4==2 *0nullB*4)2 *4||2
+						*3*6
+ToInterval2 *i(*j**
+6period2)*4.*ê*6DividesDates*zi(*:j*2*.*6ToDate2 *i(*j**	6start2)2, *7j*0*,*6ToDate2 *i(*j**6end2)2)2)*C *<*ö	continue;2
+				*Ñ*¯**6errorHandler2 *÷i(*j**0"305"B2, *j**6context2,
+						*fj*X*T0L"The observation period is not a multiple of the calculationPeriodFrequency"B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2æ	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule11 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2À<{
-			2«ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-2Ì<2Ë«return 2Ÿ;24(
-					  2ò
-					26Rule11 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FXAverageRateOption"B2j)226errorHandler24&amp; 2ê26Rule11 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FxAverageRateOption"B2j)226errorHandler24)2ı«return 
-		}2‡;24(
-				  2¡26Rule11 2≠i(2j, 226name2sj, 2k2g226 26	nodeIndex24.26GetElementsByName2/i(2(j)2!20"fxAverageRateOption"B2j)226errorHandler24)2ú
+		*æ	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule112 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*À<{
+			*«ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+*Ì<*Ë«return *Ÿ*4(2
+					  *ò*6Rule112 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FXAverageRateOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ê*6Rule112 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule11 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2¨<{
-			2J
-			2@;29		26bool26result	2= 220trueB2üÄforeach 
+			*ı«return *‡*4(2
+				  *¡*6Rule112 *≠i(*j**6name2, *sj*k*g*26*6	nodeIndex*4.*6GetElementsByName2 */i(*(j*!*0"fxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2µ<{
-				2Ÿ
-				2Õ;29	26XmlNodeList26nodes	2ü= 2ñ2ë2"6 2	6XPath24.2	6Paths2ii(2j, 226context2#j, 220"observedRates"B2$j)220"observationDate"B2]
-				2R;29			26int26limit	2+= 2#262	6nodes24.2	6Count2Ç
+		*ú*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule112 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*¨<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*üÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *µ<{
+				*Ÿ*Õ*9*6XmlNodeList2	*6nodes2	*ü= *ñ*ë*"6*	6XPath*4.*	6Paths2 *ii(*j**6context2, *#j**0"observedRates"B2, *$j**0"observationDate"B2)2;2
+				*]*R*9*6int2			*6limit2	*+= *#*6*	6nodes*4.*	6Count2;2
+				*Ç*v*9*6*6Date2 *>[]2		*6dates2	*@= *8*
+4new2 *(6*6Date2 *>[**	6limit2]2;2
 
-				2v;29		2626Date 2>[]26dates	2@= 282
-4new 2(626Date 2>[2]2	6limit2Œùfor 
+				*Œùfor *†(*?*8*9*6int2 *6count2 *= **00B 2;2 *2;*+*6count2 *4&lt;2 *	6limit2;2 *	**4++*	6count2)2
+					*ó<*í*ç*,6*6dates2 *>[**	6count2]2 *4=2 *N*6ToDate2 *;i(*4j*-*)6*6nodes2 *>[**	6count2]2)2;2
 
-				2†(
-					2? 28;29 26int26count 2= 2200B 22; 2+;26count 24&lt; 2	6limit2	)224++2	6count2ó<2í2ç;2,6 26dates 2>[2]2	6count24= 2N26ToDate 2;i(24j)2-2)626nodes 2>[2]2	6count2‚ùfor 
-				2ø( 2? 28;29 26int26outer 2= 2200B 2V; 2O;26outer 24&lt; 24(26limit 24- 201B 24)2	)224++2	6outer2ç<{
-					2ˇùfor 
-}2≥( 2W 2P;29 26int26inner 2+= 2#26outer 24+ 201B 22; 2+;26inner 24&lt; 2	6limit2	)224++2	6inner2π<{
-						2Ûûif 
-						2î;(2å)2Ñ26Equal 2ri(25j, 2-2)626dates 2>[2]2	6outer24j)2-2)626dates 2>[2]2	6inner2»C
-							2π<2¥2Ø;2ß26errorHandler 2çi(2j, 220"305"B2>j,
-									2-2)626nodes 2>[2]2	6inner29j,
-									2(2$0"Duplicate observation date"B2j, 226name2Zj)2S2O26ToToken 2;i(24j)2-2)626nodes 2>[2]2	6inner25
-}2-;26result 24= 20falseB23
-}2+;26dates 24= 20nullB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*‚ùfor *ø(*?*8*9*6int2 *6outer2 *= **00B 2;2 *V;*O*6outer2 *4&lt;2 *4(*6limit2 *4-2 *01B *4)2;2 *	**4++*	6outer2)2 *ç<{
+					*ˇùfor *≥(*W*P*9*6int2 *6inner2 *+= *#*6outer2 *4+2 *01B 2;2 *2;*+*6inner2 *4&lt;2 *	6limit2;2 *	**4++*	6inner2)2 *π<{
+						*Ûûif *î;(*å*Ñ*6Equal2 *ri(*5j*-*)6*6dates2 *>[**	6outer2]2, *4j*-*)6*6dates2 *>[**	6inner2]2)2)*»C
+							*π<*¥*Ø*ß*6errorHandler2 *çi(*j**0"305"B2, *>j*-*)6*6nodes2 *>[**	6inner2]2,
+									*9j*(*$0"Duplicate observation date"B2,
+									*j**6name2, *Zj*S*O*6ToToken2 *;i(*4j*-*)6*6nodes2 *>[**	6inner2]2)2)2;2
+						*5*-*6result2 *4=2 *0falseB2;2
+}2
+}2
+				*3*+*6dates2 *4=2 *0nullB2;2
+}2
 
-		2æ	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule12 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2À<{
-			2«ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-2Ì<2Ë«return 2Ÿ;24(
-					  2ò
-					26Rule12 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FXAverageRateOption"B2j)226errorHandler24&amp; 2ê26Rule12 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FxAverageRateOption"B2j)226errorHandler24)2ı«return 
-		}2‡;24(
-				  2¡26Rule12 2≠i(2j, 226name2sj, 2k2g226 26	nodeIndex24.26GetElementsByName2/i(2(j)2!20"fxAverageRateOption"B2j)226errorHandler24)2˝
+		*æ	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule122 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*À<{
+			*«ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+*Ì<*Ë«return *Ÿ*4(2
+					  *ò*6Rule122 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FXAverageRateOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ê*6Rule122 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule12 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ç<{
-			2J
-			2@;29		26bool26result	2= 220trueB2ÄÄforeach 
+			*ı«return *‡*4(2
+				  *¡*6Rule122 *≠i(*j**6name2, *sj*k*g*26*6	nodeIndex*4.*6GetElementsByName2 */i(*(j*!*0"fxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2ñ<{
-				2¬
-				2∂;29	26
-XmlElement26schedule	2Ü= 2~2z2!6 2	6XPath24.26Path2Si(2j, 226context23j)2,2(0 "averageRateObservationSchedule"B2cûif 
+		*˝*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule122 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ç<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*ÄÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *ñ<{
+				*¬*∂*9*6
+XmlElement2	*6schedule2	*Ü= *~*z*!6*	6XPath*4.*6Path2 *Si(*j**6context2, *3j*,*(0 "averageRateObservationSchedule"B2)2;2
+				*cûif *6;(*/*6schedule2 *	4==2 *0nullB2)*C *<*ö	continue;2
 
-				26;(2/)26schedule 2	4== 20nullB2C 2<2ö	continue;2µ
-				2©;29	26
-XmlElement26start	2}= 2u2q2!6 2	6XPath24.26Path2Ji(2j, 226schedule2)j)2"20"observationStartDate"B2≤
-				2¶;29	26
-XmlElement26end		2{= 2s2o2!6 2	6XPath24.26Path2Hi(2j, 226schedule2'j)2 20"observationEndDate"B2ª
-				2Ø;29	26
-XmlElement26freq	2É= 2{2w2!6 2	6XPath24.26Path2Pi(2j, 226schedule2/j)2(2$0"calculationPeriodFrequency"B2´
+				*µ*©*9*6
+XmlElement2	*6start2	*}= *u*q*!6*	6XPath*4.*6Path2 *Ji(*j**6schedule2, *)j*"*0"observationStartDate"B2)2;2
+				*≤*¶*9*6
+XmlElement2	*6end2		*{= *s*o*!6*	6XPath*4.*6Path2 *Hi(*j**6schedule2, *'j* *0"observationEndDate"B2)2;2
+				*ª*Ø*9*6
+XmlElement2	*6freq2	*É= *{*w*!6*	6XPath*4.*6Path2 *Pi(*j**6schedule2, */j*(*$0"calculationPeriodFrequency"B2)2;2
+				*´*û*9*6
+XmlElement2	*6roll2	*s= *k*g*!6*	6XPath*4.*6Path2 *@i(*j**6freq2, *#j**0"rollConvention"B2)2;2
 
-				2û;29	26
-XmlElement26roll	2s= 2k2g2!6 2	6XPath24.26Path2@i(2j, 226freq2#j)220"rollConvention"B2µûif 
+				*µûif *á;(*ˇ*4(*6start2 *	4==2 *0nullB*4)2 *	4||2 *4(*
+6end2 *	4==2 *0nullB*4)2 *	4||2 *4(*6freq2 *	4==2 *0nullB*4)2 *	4||2 *4(*6roll2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
 
-				2á;(2ˇ)24(26start 2	4== 20nullB24) 2	4|| 24(2
-6end 2	4== 20nullB24) 2	4|| 24(26freq 2	4== 20nullB24) 2	4|| 24(26roll 2	4== 20nullB24)2C 2<2ö	continue;2ƒ
+				*ƒ*∑*9*6*6Date2 *>[]2 	*6dates2	*Ä= *˜*Ú*6GenerateSchedule2 *‘i(*:j*2*.*6ToDate2 *i(*j**	6start2)2, *>j*0*,*6ToDate2 *i(*j**6end2)2,
+						*=j*5*1*6
+ToInterval2 *i(*j**6freq2)2, *yj*q*m*'6*6DateRoll*4.*6ForName2 *@i(*9j*2*.*6ToToken2 *i(*j**6roll2)2)2, *j**0nullB2)2;2
 
-				2∑;29 	2626Date 2>[]26dates	2Ä= 2˜2Ú26GenerateSchedule 2‘i(2:j, 222.26ToDate 2i(2j)22	6start2>j,
-						202,26ToDate 2i(2j)226end2=j, 252126
-ToInterval 2i(2j)226freq2yj, 2q2m2'6 26DateRoll24.26ForName2@i(29j)222.26ToToken 2i(2j)226roll2j)220nullB2⁄
+				*⁄*Õ*9*6XmlNodeList2	*6nodes2	*ü= *ñ*ë*"6*	6XPath*4.*	6Paths2 *ii(*j**6context2, *#j**0"observedRates"B2, *$j**0"observationDate"B2)2;2
 
-				2Õ;29	26XmlNodeList26nodes	2ü= 2ñ2ë2"6 2	6XPath24.2	6Paths2ii(2j, 226context2#j, 220"observedRates"B2$j)220"observationDate"B2ıÄforeach 
-				2S( 2I)2B29 26
-XmlElement26observed 2Vin 22	6nodes2â<{
-					2q
-					2e;29		26Date26date 	 2== 252126ToDate 2i(2j)226observed2L
-					2@;29		26bool26found 2= 220falseB2∫Äforeach 
+				*ıÄforeach *S(*I*B*9*6
+XmlElement2 *6observed2 *Vin **	6nodes2)2 *â<{
+					*q*e*9*6Date2		*6date2 	 *== *5*1*6ToDate2 *i(*j**6observed2)2;2
+					*L*@*9*6bool2		*6found2 *= **0falseB2;2
+					*∫Äforeach *J(*@*9*9*6Date2 *6match2 *Vin **	6dates2)2 *’<{
+						*∆ûif *Q;(*J*C*6Equal2 *1i(*j**6date2, *j**	6match2)2)*`C *Y<	{
+							*9*+*6found2 *4=2 *0trueB2;2
+							*ôbreak;2
+}2
+					}2
 
-					2J( 2@)2929 26Date26match 2Vin 22	6dates2’<{
-						2∆ûif 
-					}2Q;(2J)2C26Equal 21i(2j, 226date2j)22	6match2`C 2Y<	{
-							29
-							2+;26found 24= 20trueB2ôbreak;
-}2˝ûif 
-}2;(2)24!2	6found2ŒC 2∆<{
-						2Ä
-						2Ú;2Í26errorHandler 2–i(2j, 220"305"B2 j
+					*˝ûif *;(**4!*	6found2)*ŒC *∆<{
+						*Ä*Ú*Í*6errorHandler2 *–i(*j**0"305"B2, * j**6observed2
 ,
-								226observed2∂j
+								*∂j*•*0"Observation date '"2 B*4+2 *5*6ToToken2 *i(*j**6observed2)2 *4+2	
+								*-0%"' does not match with the schedule."B2
 ,
-								2•20"Observation date '" B24+ 25 26ToToken 2i(2j)226observed24+	
-								2-0%"' does not match with the schedule."B2j, 226name2=j)262226ToToken 2i(2j)226observed25
-}2-;26result 24= 20falseB23
-}2+;26dates 24= 20nullB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+								*j**6name2, *=j*6*2*6ToToken2 *i(*j**6observed2)2)2;2
+						*5*-*6result2 *4=2 *0falseB2;2
+}2
+}2
+				*3*+*6dates2 *4=2 *0nullB2;2
+}2
 
-		2æ	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule13 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2À<{
-			2«ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-2Ì<2Ë«return 2Ÿ;24(
-					  2ò
-					26Rule13 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FXAverageRateOption"B2j)226errorHandler24&amp; 2ê26Rule13 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FxAverageRateOption"B2j)226errorHandler24)2ı«return 
-		}2‡;24(
-				  2¡26Rule13 2≠i(2j, 226name2sj, 2k2g226 26	nodeIndex24.26GetElementsByName2/i(2(j)2!20"fxAverageRateOption"B2j)226errorHandler24)2ç
+		*æ	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule132 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*À<{
+			*«ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+*Ì<*Ë«return *Ÿ*4(2
+					  *ò*6Rule132 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FXAverageRateOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ê*6Rule132 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule13 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ù<{
-			2J
-			2@;29		26bool26result	2= 220trueB2êÄforeach 
+			*ı«return *‡*4(2
+				  *¡*6Rule132 *≠i(*j**6name2, *sj*k*g*26*6	nodeIndex*4.*6GetElementsByName2 */i(*(j*!*0"fxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2¶<{
-				2È
-				2›;29	26XmlNodeList26schedule	2¨= 2£2û2"6 2	6XPath24.2	6Paths2vi(2j, 226context20j, 2(2$0"averageRateObservationDate"B2$j)220"observationDate"B2–
-				2ƒ;29			26int26limit		2õ= 2í2çB2B;2> ?24(26schedule 2	4!= 20nullB24)20C 2) 2"626schedule24.2	6Count2D: 2200B 2[ûif 
+		*ç*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule132 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ù<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*êÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *¶<{
+				*È*›*9*6XmlNodeList2	*6schedule2	*¨= *£*û*"6*	6XPath*4.*	6Paths2 *vi(*j**6context2, *0j*(*$0"averageRateObservationDate"B2, *$j**0"observationDate"B2)2;2
+				*–*ƒ*9*6int2			*6limit2		*õ= *í*çB*B;*>*4(*6schedule2 *	4!=2 *0nullB*4)2 ?*0C *)*"6*6schedule*4.*	6Count2 *D: **00B 2;2
+				*[ûif *.;(*'*6limit2 *	4==2 *00B 2)*C *<*ö	continue;2
 
-				2.;(2')26limit 2	4== 200B 2C 2<2ö	continue;2Ç
+				*Ç*v*9*6*6Date2 *>[]2		*6dates2	*@= *8*
+4new2 *(6*6Date2 *>[**	6limit2]2;2
 
-				2v;29		2626Date 2>[]26dates	2@= 282
-4new 2(626Date 2>[2]2	6limit2—ùfor 
+				*—ùfor *†(*?*8*9*6int2 *6count2 *= **00B 2;2 *2;*+*6count2 *4&lt;2 *	6limit2;2 *	**4++*	6count2)2
+					*ö<*ï*ê*,6*6dates2 *>[**	6count2]2 *4=2 *Q*6ToDate2 *>i(*7j*0*,6*6schedule2 *>[**	6count2]2)2;2
 
-				2†(
-					2? 28;29 26int26count 2= 2200B 22; 2+;26count 24&lt; 2	6limit2	)224++2	6count2ö<2ï2ê;2,6 26dates 2>[2]2	6count24= 2Q26ToDate 2>i(27j)202,626schedule 2>[2]2	6count2⁄
+				*⁄*Õ*9*6XmlNodeList2	*6nodes2	*ü= *ñ*ë*"6*	6XPath*4.*	6Paths2 *ii(*j**6context2, *#j**0"observedRates"B2, *$j**0"observationDate"B2)2;2
 
-				2Õ;29	26XmlNodeList26nodes	2ü= 2ñ2ë2"6 2	6XPath24.2	6Paths2ii(2j, 226context2#j, 220"observedRates"B2$j)220"observationDate"B2í
-Äforeach 
-				2S( 2I)2B29 26
-XmlElement26observed 2Vin 22	6nodes2¶	<{
-					2q
-					2e;29		26Date26date 	 2== 252126ToDate 2i(2j)226observed2L
-					2@;29		26bool26found 2= 220falseB2ƒùfor 
-					2≤( 2? 28;29 26int26match 2= 2200B 2I; 2B;26match 24&lt; 2 62	6dates24.2
-6Length2	)224++2	6match2˚<{
-						2Ïûif 
-					}2q;(2j)2c26Equal 2Qi(2j, 226date24j)2-2)626dates 2>[2]2	6match2fC 2_<	{
-							29
-							2+;26found 24= 20trueB2ôbreak;
-						}2êûif 
-}2;(2)24!2	6found2·C 2Ÿ<{
-						2é
-
-						2ˇ;2˜26errorHandler 2›i(2j, 220"305"B2 j
+				*í
+Äforeach *S(*I*B*9*6
+XmlElement2 *6observed2 *Vin **	6nodes2)2 *¶	<{
+					*q*e*9*6Date2		*6date2 	 *== *5*1*6ToDate2 *i(*j**6observed2)2;2
+					*L*@*9*6bool2		*6found2 *= **0falseB2;2
+					*ƒùfor *≤(*?*8*9*6int2 *6match2 *= **00B 2;2 *I;*B*6match2 *4&lt;2 * 6*	6dates*4.*
+6Length2;2 *	**4++*	6match2)2 *˚<{
+						*Ïûif *q;(*j*c*6Equal2 *Qi(*j**6date2, *4j*-*)6*6dates2 *>[**	6match2]2)2)*fC *_<	{
+							*9*+*6found2 *4=2 *0trueB2;2
+							*ôbreak;2
+						}2
+					}2
+					*êûif *;(**4!*	6found2)*·C *Ÿ<{
+						*é*ˇ*˜*6errorHandler2 *›i(*j**0"305"B2, * j**6observed2
 ,
-								226observed2√j
+								*√j*≤*0"Observation date '"2 B*4+2 *5*6ToToken2 *i(*j**6observed2)2 *4+2	
+								*:02"' does not match with a defined observationDate."B2
 ,
-								2≤20"Observation date '" B24+ 25 26ToToken 2i(2j)226observed24+	
-								2:02"' does not match with a defined observationDate."B2j, 226name2=j)262226ToToken 2i(2j)226observed2:
-					}2-;26result 24= 20falseB23
-}2+;26dates 24= 20nullB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+								*j**6name2, *=j*6*2*6ToToken2 *i(*j**6observed2)2)2;2
 
-		2†	
+						*:*-*6result2 *4=2 *0falseB2;2
+					}2
+}2
+				*3*+*6dates2 *4=2 *0nullB2;2
+}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule14 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2≠<{
-			2≥ûif 
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2·C
-2Ÿ<2‘«return 2≈;24(
-					  2é
-					26Rule14 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXBarrier"B2j)226errorHandler24&amp; 2Ü26Rule14 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxBarrier"B2j)226errorHandler24)2Î«return 
-		}2÷;24(
-				  2∑26Rule14 2£i(2j, 226name2ij, 2a2]226 26	nodeIndex24.26GetElementsByName2%i(2j)220"fxBarrier"B2j)226errorHandler24)2Ì
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule14 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2˝	<{
-			2J
-			2@;29		26bool26result	2= 220trueB2Äforeach 
+		*†	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule142 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*≠<{
+			*≥ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*·C
+*Ÿ<*‘«return *≈*4(2
+					  *é*6Rule142 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXBarrier"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *Ü*6Rule142 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxBarrier"B2)2, *j**6errorHandler2)*4)2;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ü<{
-				2¥
-				2®;29	26
-XmlElement26start	2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"observationStartDate"B2±
-				2•;29	26
-XmlElement26end		2z= 2r2n2!6 2	6XPath24.26Path2Gi(2j, 226context2'j)2 20"observationEndDate"B2Ÿûif 
+			*Î«return *÷*4(2
+				  *∑*6Rule142 *£i(*j**6name2, *ij*a*]*26*6	nodeIndex*4.*6GetElementsByName2 *%i(*j**0"fxBarrier"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-				2´;(2£)24(26start 2	4== 20nullB24) 2	4|| 24(2
-6end 2	4== 20nullB24) 24||
-					2í26LessOrEqual 2zi(2:j, 222.26ToDate 2i(2j)22	6start27j)202,26ToDate 2i(2j)226end2C 2<2ö	continue;2˚
-				2Ô;2Á26errorHandler 2Õi(2j, 220"305"B2j,
-						226context2]j,
-						2O2K0C"The observationStartDate must not be after the observationEndDate"B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*Ì*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule142 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*˝	<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ü<{
+				*¥*®*9*6
+XmlElement2	*6start2	*|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"observationStartDate"B2)2;2
+				*±*•*9*6
+XmlElement2	*6end2		*z= *r*n*!6*	6XPath*4.*6Path2 *Gi(*j**6context2, *'j* *0"observationEndDate"B2)2;2
+				*Ÿûif *´;(*£*4(*6start2 *	4==2 *0nullB*4)2 *	4||2 *4(*
+6end2 *	4==2 *0nullB*4)2 *4||2
+					*í*6LessOrEqual2 *zi(*:j*2*.*6ToDate2 *i(*j**	6start2)2, *7j*0*,*6ToDate2 *i(*j**6end2)2)2)*C *<*ö	continue;2
 
-		2≤	
+				*˚*Ô*Á*6errorHandler2 *Õi(*j**0"305"B2, *j**6context2,
+						*]j*O*K0C"The observationStartDate must not be after the observationEndDate"B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule15 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ø<{
-			2øûif 
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÌC
-2Â<2‡«return 2—;24(
-					  2î
-					26Rule15 2¯i(2j, 226name2Ωj, 2¥2Ø226 26	nodeIndex24.26GetElementsByType2wi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2$j)220"FXBarrierOption"B2j)226errorHandler24&amp; 2å26Rule15 2¯i(2j, 226name2Ωj, 2¥2Ø226 26	nodeIndex24.26GetElementsByType2wi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2$j)220"FxBarrierOption"B2j)226errorHandler24)2Ò«return 
-		}2‹;24(
-				  2Ω26Rule15 2©i(2j, 226name2oj, 2g2c226 26	nodeIndex24.26GetElementsByName2+i(2$j)220"fxBarrierOption"B2j)226errorHandler24)2Å	
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule15 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ë<{
-			2J
-			2@;29		26bool26result	2= 220trueB2ÑÄforeach 
+		*≤	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule152 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ø<{
+			*øûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÌC
+*Â<*‡«return *—*4(2
+					  *î*6Rule152 *¯i(*j**6name2, *Ωj*¥*Ø*26*6	nodeIndex*4.*6GetElementsByType2 *wi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *$j**0"FXBarrierOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *å*6Rule152 *¯i(*j**6name2, *Ωj*¥*Ø*26*6	nodeIndex*4.*6GetElementsByType2 *wi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *$j**0"FxBarrierOption"B2)2, *j**6errorHandler2)*4)2;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2ö<{
-				2ß
-				2õ;29	26
-XmlElement26rate	2p= 2h2d2!6 2	6XPath24.26Path2=i(2j, 226context2j)220
-"spotRate"B2Øûif 
+			*Ò«return *‹*4(2
+				  *Ω*6Rule152 *©i(*j**6name2, *oj*g*c*26*6	nodeIndex*4.*6GetElementsByName2 *+i(*$j**0"fxBarrierOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2˙
-				2Ó;2Ê26errorHandler 2Ãi(2j, 220"305"B2j,
-						226context2:j,
-						2,2(0 "The spot rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*Å	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule152 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ë<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*ÑÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *ö<{
+				*ß*õ*9*6
+XmlElement2	*6rate2	*p= *h*d*!6*	6XPath*4.*6Path2 *=i(*j**6context2, *j**0
+"spotRate"B2)2;2
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
 
-		2≤	
+				*˙*Ó*Ê*6errorHandler2 *Ãi(*j**0"305"B2, *j**6context2,
+						*:j*,*(0 "The spot rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule16 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ø<{
-			2øûif 
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÌC
-2Â<2‡«return 2—;24(
-					  2î
-					26Rule16 2¯i(2j, 226name2Ωj, 2¥2Ø226 26	nodeIndex24.26GetElementsByType2wi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2$j)220"FXDigitalOption"B2j)226errorHandler24&amp; 2å26Rule16 2¯i(2j, 226name2Ωj, 2¥2Ø226 26	nodeIndex24.26GetElementsByType2wi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2$j)220"FxDigitalOption"B2j)226errorHandler24)2Ò«return 
-		}2‹;24(
-				  2Ω26Rule16 2©i(2j, 226name2oj, 2g2c226 26	nodeIndex24.26GetElementsByName2+i(2$j)220"fxDigitalOption"B2j)226errorHandler24)2Ä	
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule16 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ê<{
-			2J
-			2@;29		26bool26result	2= 220trueB2ÉÄforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2ö<{
-				2ß
-				2õ;29	26
-XmlElement26rate	2p= 2h2d2!6 2	6XPath24.26Path2=i(2j, 226context2j)220
-"spotRate"B2Øûif 
+		*≤	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule162 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ø<{
+			*øûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÌC
+*Â<*‡«return *—*4(2
+					  *î*6Rule162 *¯i(*j**6name2, *Ωj*¥*Ø*26*6	nodeIndex*4.*6GetElementsByType2 *wi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *$j**0"FXDigitalOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *å*6Rule162 *¯i(*j**6name2, *Ωj*¥*Ø*26*6	nodeIndex*4.*6GetElementsByType2 *wi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *$j**0"FxDigitalOption"B2)2, *j**6errorHandler2)*4)2;2
 
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2˙
-				2Ó;2Ê26errorHandler 2Ãi(2j, 220"305"B2j,
-						226context2:j,
-						2,2(0 "The spot rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*Ò«return *‹*4(2
+				  *Ω*6Rule162 *©i(*j**6name2, *oj*g*c*26*6	nodeIndex*4.*6GetElementsByName2 *+i(*$j**0"fxDigitalOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ª	
+		*Ä	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule162 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ê<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*ÉÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *ö<{
+				*ß*õ*9*6
+XmlElement2	*6rate2	*p= *h*d*!6*	6XPath*4.*6Path2 *=i(*j**6context2, *j**0
+"spotRate"B2)2;2
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule17 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2»<{
-			2∆ûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-				2È<2‰«return 2’;24(
-					  2ñ
-					26Rule17 2˙i(2j, 226name2øj, 2∂2±226 26	nodeIndex24.26GetElementsByType2yi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2&j)220"FXEuropeanTrigger"B2j)226errorHandler24&amp; 2é26Rule17 2˙i(2j, 226name2øj, 2∂2±226 26	nodeIndex24.26GetElementsByType2yi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2&j)220"FxEuropeanTrigger"B2j)226errorHandler24)2Û«return 
-		}2ﬁ;24(
-				  2ø26Rule17 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"fxEuropeanTrigger"B2j)226errorHandler24)2ä	
+				*˙*Ó*Ê*6errorHandler2 *Ãi(*j**0"305"B2, *j**6context2,
+						*:j*,*(0 "The spot rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule17 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ö<{
-			2K
+		*QG// --------------------------------------------------------------------2
 
-			2@;29		26bool26result	2= 220trueB2åÄforeach 
+		*ª	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule172 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*»<{
+			*∆ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+				*È<*‰«return *’*4(2
+					  *ñ*6Rule172 *˙i(*j**6name2, *øj*∂*±*26*6	nodeIndex*4.*6GetElementsByType2 *yi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *&j**0"FXEuropeanTrigger"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *é*6Rule172 *˙i(*j**6name2, *øj*∂*±*26*6	nodeIndex*4.*6GetElementsByType2 *yi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *&j**0"FxEuropeanTrigger"B2)2, *j**6errorHandler2)*4)2;2
+			*Û«return *ﬁ*4(2
+				  *ø*6Rule172 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"fxEuropeanTrigger"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2¢<{
-				2´
+		*ä	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule172 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ö<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-				2û;29	26
-XmlElement26rate	2s= 2k2g2!6 2	6XPath24.26Path2@i(2j, 226context2 j)220"triggerRate"B2Øûif 
+			*åÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *¢<{
+				*´*û*9*6
+XmlElement2	*6rate2	*s= *k*g*!6*	6XPath*4.*6Path2 *@i(*j**6context2, * j**0"triggerRate"B2)2;2
 
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2˛
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
 
-				2Ò;2È26errorHandler 2œi(2j, 220"305"B2j,
-						226context2=j,
-						2/2+0#"The trigger rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*˛*Ò*È*6errorHandler2 *œi(*j**0"305"B2, *j**6context2,
+						*=j*/*+0#"The trigger rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
 
-		2ö	
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule18 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ß<{
-			2´ûif 
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ŸC
-2—<2Ã«return 2Ω;24(
-					  2ä
-					26Rule18 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXLeg"B2j)226errorHandler24&amp; 2Ç26Rule18 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxLeg"B2j)226errorHandler24)2Ì«return 
-		}2ÿ;24(
-				  2π26Rule18 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"fxSingleLeg"B2j)226errorHandler24)2˚
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule18 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ã<{
-			2K
+		*ö	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule182 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ß<{
+			*´ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ŸC
+*—<*Ã«return *Ω*4(2
+					  *ä*6Rule182 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXLeg"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *Ç*6Rule182 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxLeg"B2)2, *j**6errorHandler2)*4)2;2
 
-			2@;29		26bool26result	2= 220trueB2˝Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2î<{
-				2‚
-				2÷;29	26
-XmlElement26ccy1Pay	2ß= 2û2ô2!6 2	6XPath24.26Path2ri(2j, 226context2(j, 2 20"exchangedCurrency1"B2(j)2!20"payerPartyReference"B2Â
-				2Ÿ;29	26
-XmlElement26ccy1Rec	2™= 2°2ú2!6 2	6XPath24.26Path2ui(2j, 226context2(j, 2 20"exchangedCurrency1"B2+j)2$2 0"receiverPartyReference"B2‚
-				2÷;29	26
-XmlElement26ccy2Pay	2ß= 2û2ô2!6 2	6XPath24.26Path2ri(2j, 226context2(j, 2 20"exchangedCurrency2"B2(j)2!20"payerPartyReference"B2Ê
+			*Ì«return *ÿ*4(2
+				  *π*6Rule182 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"fxSingleLeg"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-				2Ÿ;29	26
-XmlElement26ccy2Rec	2™= 2°2ú2!6 2	6XPath24.26Path2ui(2j, 226context2(j, 2 20"exchangedCurrency2"B2+j)2$2 0"receiverPartyReference"B2∆ûif 
+		*˚*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule182 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ã<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-				2ò;(2ê)24(26ccy1Pay 2	4== 20nullB24) 2	4|| 24(26ccy1Rec 2	4== 20nullB24) 24||
-					24(26ccy2Pay 2	4== 20nullB24) 2	4|| 24(26ccy2Rec 2	4== 20nullB24)2C 2<2ö	continue;2˙ûif 
+			*˝Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *î<{
+				*‚*÷*9*6
+XmlElement2	*6ccy1Pay2	*ß= *û*ô*!6*	6XPath*4.*6Path2 *ri(*j**6context2, *(j* *0"exchangedCurrency1"B2, *(j*!*0"payerPartyReference"B2)2;2
+				*Â*Ÿ*9*6
+XmlElement2	*6ccy1Rec2	*™= *°*ú*!6*	6XPath*4.*6Path2 *ui(*j**6context2, *(j* *0"exchangedCurrency1"B2, *+j*$* 0"receiverPartyReference"B2)2;2
+				*‚*÷*9*6
+XmlElement2	*6ccy2Pay2	*ß= *û*ô*!6*	6XPath*4.*6Path2 *ri(*j**6context2, *(j* *0"exchangedCurrency2"B2, *(j*!*0"payerPartyReference"B2)2;2
+				*Ê*Ÿ*9*6
+XmlElement2	*6ccy2Rec2	*™= *°*ú*!6*	6XPath*4.*6Path2 *ui(*j**6context2, *(j* *0"exchangedCurrency2"B2, *+j*$* 0"receiverPartyReference"B2)2;2
 
-				2Ã;(2ƒ)2“ 26Equal 2ºi(2Zj, 2R2N2(626ccy1Pay24.26GetAttribute2 i(2j)220"href"B2Yj)2R2N2(626ccy2Rec24.26GetAttribute2 i(2j)220"href"B24
-&amp;&amp;
-					2œ26Equal 2ºi(2Zj, 2R2N2(626ccy2Pay24.26GetAttribute2 i(2j)220"href"B2Yj)2R2N2(626ccy1Rec24.26GetAttribute2 i(2j)220"href"B2C 2<2ö	continue;2Ô
+				*∆ûif *ò;(*ê*4(*6ccy1Pay2 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy1Rec2 *	4==2 *0nullB*4)2 *4||2
+					*4(*6ccy2Pay2 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy2Rec2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
 
-				2‚;2⁄26errorHandler 2¿i(2j, 220"305"B2j,
-						226context2Pj,
-						2B2>06"Exchanged currency payers and receivers don't match."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*˙ûif *Ã;(*ƒ*“*6Equal2 *ºi(*Zj*R*N*(6*6ccy1Pay*4.*6GetAttribute* i(*j**0"href"B2)2, *Yj*R*N*(6*6ccy2Rec*4.*6GetAttribute* i(*j**0"href"B2)2)2 *4
+&amp;&amp;2
+					*œ*6Equal2 *ºi(*Zj*R*N*(6*6ccy2Pay*4.*6GetAttribute* i(*j**0"href"B2)2, *Yj*R*N*(6*6ccy1Rec*4.*6GetAttribute* i(*j**0"href"B2)2)2)*C *<*ö	continue;2
 
-		2ù	
+				*Ô*‚*⁄*6errorHandler2 *¿i(*j**0"305"B2, *j**6context2,
+						*Pj*B*>06"Exchanged currency payers and receivers don't match."B2,
+						*j**6name2, *j**0nullB2)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule19 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2™<{
-			2Æûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2›C
-				2—<2Ã«return 2Ω;24(
-					  2ä
-					26Rule19 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXLeg"B2j)226errorHandler24&amp; 2Ç26Rule19 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxLeg"B2j)226errorHandler24)2Ì«return 
-		}2ÿ;24(
-				  2π26Rule19 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"fxSingleLeg"B2j)226errorHandler24)2û
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule19 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Æ
+		*QG// --------------------------------------------------------------------2
+
+		*ù	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule192 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*™<{
+			*Æûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*›C
+				*—<*Ã«return *Ω*4(2
+					  *ä*6Rule192 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXLeg"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *Ç*6Rule192 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxLeg"B2)2, *j**6errorHandler2)*4)2;2
+			*Ì«return *ÿ*4(2
+				  *π*6Rule192 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"fxSingleLeg"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*û*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule192 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Æ
 <{
-			2K
-
-			2@;29		26bool26result	2= 220trueB2†	Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2∂<{
-				2˙
-				2Ó;29	26
-XmlElement26ccy1	2¬= 2π2¥2!6 2	6XPath24.26Path2åi(2j, 226context2(j, 2 20"exchangedCurrency1"B2#j, 220"paymentAmount"B2j)220
-"currency"B2˚
-
-				2Ó;29	26
-XmlElement26ccy2	2¬= 2π2¥2!6 2	6XPath24.26Path2åi(2j, 226context2(j, 2 20"exchangedCurrency2"B2#j, 220"paymentAmount"B2j)220
-"currency"B2ìûif 
-
-				2Â;(2›)24(26ccy1 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24) 2	4|| 24!2K26IsSameCurrency 20i(2j, 226ccy12j)226ccy22C 2<2ö	continue;2·
-				2’;2Õ26errorHandler 2≥i(2j, 220"305"B2j,
-						226context2Cj,
-						25210)"Exchanged currencies must be different."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2PG// --------------------------------------------------------------------
-		2ö	
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule20 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ß<{
-			2´ûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ŸC
-2—<2Ã«return 2Ω;24(
-					  2ä
-					26Rule20 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXLeg"B2j)226errorHandler24&amp; 2Ç26Rule20 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxLeg"B2j)226errorHandler24)2Ì«return 
-		}2ÿ;24(
-				  2π26Rule20 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"fxSingleLeg"B2j)226errorHandler24)2Ë
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule20 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2¯	<{
-			2J
-			2@;29		26bool26result	2= 220trueB2ÎÄforeach 
-
-			2Q( 2G)2@29	26
-XmlElement26context 2Vin 226list2Å<{
-				2≤
-				2¶;29	26
-XmlElement26date1	2z= 2r2n2!6 2	6XPath24.26Path2Gi(2j, 226context2'j)2 20"currency1ValueDate"B2≤
-				2¶;29	26
-XmlElement26date2	2z= 2r2n2!6 2	6XPath24.26Path2Gi(2j, 226context2'j)2 20"currency2ValueDate"B2⁄ûif 
-
-				2¨;(2§)24(26date1 2	4== 20nullB24) 2	4|| 24(26date2 2	4== 20nullB24) 24||
-					2ë26NotEqual 2|i(2:j, 222.26ToDate 2i(2j)22	6date129j)222.26ToDate 2i(2j)22	6date22C 2<2ö	continue;2ˆ
-				2Í;2‚26errorHandler 2»i(2j, 220"305"B2j,
-						226context2Xj,
-						2J2F0>"currency1ValueDate and currency2ValueDate must be different."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2ö	
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule21 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ß<{
-			2´ûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ŸC
-2—<2Ã«return 2Ω;24(
-					  2ä
-					26Rule21 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXLeg"B2j)226errorHandler24&amp; 2Ç26Rule21 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxLeg"B2j)226errorHandler24)2Ì«return 
-		}2ÿ;24(
-				  2π26Rule21 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"fxSingleLeg"B2j)226errorHandler24)2⁄
-
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule21 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Í<{
-			2J
-			2@;29		26bool26result	2= 220trueB2›Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Û<{
-				2¥
-				2®;29	26
-XmlElement26ndf		2}= 2u2q2!6 2	6XPath24.26Path2Ji(2j, 226context2*j)2#20"nonDeliverableForward"B2”
-				2«;29	26
-XmlElement26fwd		2õ= 2í2ç2!6 2	6XPath24.26Path2fi(2j, 226context2"j, 220"exchangeRate"B2"j)220"forwardPoints"B2Æûif 
-
-				2Ä;(2y)24(2
-6ndf 2	4== 20nullB24) 2	4|| 24(2
-6fwd 2	4!= 20nullB24)2C 2<2ö	continue;2Ò
-				2Â;2›26errorHandler 2√i(2j, 220"305"B2j,
-						226context2Sj,
-						2E2A09"Non-deliverable forward does not specify forwardPoints."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2˛
-
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule22 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ã	<{
-			2∑ûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÂC
-2›<2ÿ«return 2…;24(
-					  2ê
-					26Rule22 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"FXOptionLeg"B2j)226errorHandler24&amp; 2à26Rule22 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"FxOptionLeg"B2j)226errorHandler24)2≈«return 
-		}2∞;24(
-				  2√
-				26Rule22 2®i(2j, 226name2nj, 2f2b226 26	nodeIndex24.26GetElementsByName2*i(2#j)220"fxSimpleOption"B2j)226errorHandler24&amp; 2Ω26Rule22 2©i(2j, 226name2oj, 2g2c226 26	nodeIndex24.26GetElementsByName2+i(2$j)220"fxBarrierOption"B2j)226errorHandler24)2ù
-		2ÿprivate 2ÿstatic 29 26bool26Rule22 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Æ<{
-			2J
-			2@;29		26bool26result	2= 220trueB2°Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2∑<{
-				2¥
-				2®;29	26
-XmlElement26buyer	 2{= 2s2o2!6 2	6XPath24.26Path2Hi(2j, 226context2(j)2!20"buyerPartyReference"B2∂
-				2™;29	26
-XmlElement26seller	 2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"sellerPartyReference"B2ﬁ
-				2“;29	26
-XmlElement26payer	 2§= 2õ2ñ2!6 2	6XPath24.26Path2oi(2j, 226context2%j, 220"fxOptionPremium"B2(j)2!20"payerPartyReference"B2„
-				2◊;29	26
-XmlElement26receiver 2ß= 2û2ô2!6 2	6XPath24.26Path2ri(2j, 226context2%j, 220"fxOptionPremium"B2+j)2$2 0"receiverPartyReference"B2¬ûif 
-
-				2î;(2å)24(26buyer 2	4== 20nullB24) 2	4|| 24(26seller 2	4== 20nullB24) 24||
-					24(26payer 2	4== 20nullB24) 2	4|| 24(26receiver 2	4== 20nullB24)2C 2<2ö	continue;2ˆûif 
-
-				2»;(2¿)2Œ 26Equal 2∏i(2Xj, 2P2L2&62	6buyer24.26GetAttribute2 i(2j)220"href"B2Wj)2P2L2&62	6payer24.26GetAttribute2 i(2j)220"href"B24
-&amp;&amp;
-					2œ26Equal 2ºi(2Yj, 2Q2M2'62
-6seller24.26GetAttribute2 i(2j)220"href"B2Zj)2S2O2)626receiver24.26GetAttribute2 i(2j)220"href"B2C 2<2ö	continue;2˛
-				2Ú;2Í26errorHandler 2–i(2j, 220"305"B2j,
-						226context2`j,
-						2R2N0F"Premium payer and receiver don't match with option buyer and seller."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2˛
-
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule23 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ã	<{
-			2∑ûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÂC
-2›<2ÿ«return 2…;24(
-					  2ê
-					26Rule23 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"FXOptionLeg"B2j)226errorHandler24&amp; 2à26Rule23 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"FxOptionLeg"B2j)226errorHandler24)2≈«return 
-		}2∞;24(
-				  2√
-				26Rule23 2®i(2j, 226name2nj, 2f2b226 26	nodeIndex24.26GetElementsByName2*i(2#j)220"fxSimpleOption"B2j)226errorHandler24&amp; 2Ω26Rule23 2©i(2j, 226name2oj, 2g2c226 26	nodeIndex24.26GetElementsByName2+i(2$j)220"fxBarrierOption"B2j)226errorHandler24)2“
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule23 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2‚	<{
-			2J
-			2@;29		26bool26result	2= 220trueB2’Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Î<{
-				2”
-				2«;29	26
-XmlElement26ccy1	2õ= 2í2ç2!6 2	6XPath24.26Path2fi(2j, 226context2'j, 220"putCurrencyAmount"B2j)220
-"currency"B2‘
-				2»;29	26
-XmlElement26ccy2	2ú= 2ì2é2!6 2	6XPath24.26Path2gi(2j, 226context2(j, 2 20"callCurrencyAmount"B2j)220
-"currency"B2ìûif 
-
-				2Â;(2›)24(26ccy1 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24) 2	4|| 24!2K26IsSameCurrency 20i(2j, 226ccy12j)226ccy22C 2<2ö	continue;2‰
-				2ÿ;2–26errorHandler 2∂i(2j, 220"305"B2j,
-						226context2Fj,
-						28240,"Put and call currencies must be different."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2¨	
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule24 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2π<{
-			2ªûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÈC
-2·<2‹«return 2Õ;24(
-					  2í
-					26Rule24 2ˆi(2j, 226name2ªj, 2≤2≠226 26	nodeIndex24.26GetElementsByType2ui(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2"j)220"FXStrikePrice"B2j)226errorHandler24&amp; 2ä26Rule24 2ˆi(2j, 226name2ªj, 2≤2≠226 26	nodeIndex24.26GetElementsByType2ui(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2"j)220"FxStrikePrice"B2j)226errorHandler24)2Ô«return 
-		}2⁄;24(
-				  2ª26Rule24 2ßi(2j, 226name2mj, 2e2a226 26	nodeIndex24.26GetElementsByName2)i(2"j)220"fxStrikePrice"B2j)226errorHandler24)2¯
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule24 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2à<{
-			2J
-			2@;29		26bool26result	2= 220trueB2˚Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2ë<{
-				2£
-				2ó;29	26
-XmlElement26rate	2l= 2d2`2!6 2	6XPath24.26Path29i(2j, 226context2j)220"rate"B2Øûif 
-
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2ı
-				2È;2·26errorHandler 2«i(2j, 220"305"B2j,
-						226context25j,
-						2'2#0"The rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2ó	
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule25 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2§<{
-			2≠ûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2€C
-2”<2Œ«return 2ø;24(
-					  2ã
-					26Rule25 2Ôi(2j, 226name2¥j, 2´2¶226 26	nodeIndex24.26GetElementsByType2ni(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXSwap"B2j)226errorHandler24&amp; 2É26Rule25 2Ôi(2j, 226name2¥j, 2´2¶226 26	nodeIndex24.26GetElementsByType2ni(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxSwap"B2j)226errorHandler24)2Ë«return 
-		}2”;24(
-				  2¥26Rule25 2†i(2j, 226name2fj, 2^2Z226 26	nodeIndex24.26GetElementsByName2"i(2j)220"fxSwap"B2j)226errorHandler24)2Ω
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule25 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Õ<{
-			2J
-			2@;29		26bool26result	2= 220trueB2¿Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2÷<{
-				2¨
-				2†;29	26XmlNodeList26legs	2t= 2l2h2"6 2	6XPath24.2	6Paths2@i(2j, 226context2 j)220"fxSingleLeg"B2Åûif 
-
-				2T;(2M)2/ 26Count 2i(2j)226legs24&gt;= 202B 2C 2<2ö	continue;2ﬂ
-				2”;2À26errorHandler 2±i(2j, 220"305"B2j,
-						226context2Aj,
-						232/0'"FX swaps must have at least two legs."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2ó	
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule26 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2§<{
-			2≠ûif 
-
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2€C
-2”<2Œ«return 2ø;24(
-					  2ã
-					26Rule26 2Ôi(2j, 226name2¥j, 2´2¶226 26	nodeIndex24.26GetElementsByType2ni(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXSwap"B2j)226errorHandler24&amp; 2É26Rule26 2Ôi(2j, 226name2¥j, 2´2¶226 26	nodeIndex24.26GetElementsByType2ni(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxSwap"B2j)226errorHandler24)2Ë«return 
-		}2”;24(
-				  2¥26Rule26 2†i(2j, 226name2fj, 2^2Z226 26	nodeIndex24.26GetElementsByName2"i(2j)220"fxSwap"B2j)226errorHandler24)2‰
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule26 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Ù<{
-			2J
-			2@;29		26bool26result	2= 220trueB2Á
-Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2˛	<{
-				2¨
-				2†;29	26XmlNodeList26legs	2t= 2l2h2"6 2	6XPath24.2	6Paths2@i(2j, 226context2 j)220"fxSingleLeg"B2}ûif 
-				2Q;(2J)2/ 26Count 2i(2j)226legs2	4!= 202B 2C 2<2ö	continue;2Ê
-				2⁄;29 	26
-XmlElement26date1	2¨= 2£2û2!6 2	6XPath24.26Path2wi(2Pj, 2H2)6 26legs 2>[2]200B 2	4as 26
-XmlElement2j)220"valueDate"B2Á
-
-				2⁄;29 	26
-XmlElement26date2	2¨= 2£2û2!6 2	6XPath24.26Path2wi(2Pj, 2H2)6 26legs 2>[2]201B 2	4as 26
-XmlElement2j)220"valueDate"B2œûif 
-
-				2°;(2ô)2ë26NotEqual 2|i(2:j, 222.26ToDate 2i(2j)22	6date129j)222.26ToDate 2i(2j)22	6date22C 2<2ö	continue;2Á
-
-				2⁄;2“26errorHandler 2∏i(2j, 220"305"B2j,
-						226context2Hj,
-						2:260."FX swaps legs must settle on different days."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2å
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule27 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ô<{
-			2ñûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2≈C
-				2π<2¥«return 2•;24(2è26Rule27 2˚i(2j, 226name2¿j, 2∑2≤226 26	nodeIndex24.26GetElementsByType2zi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2'j)2 20"QuotedCurrencyPair"B2j)226errorHandler24)2Ù«return 
-		}2ﬂ;24(
-				  2¿26Rule27 2¨i(2j, 226name2rj, 2j2f226 26	nodeIndex24.26GetElementsByName2.i(2'j)2 20"quotedCurrencyPair"B2j)226errorHandler24)2Ó
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule27 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ˇ<{
-			2K
-
-			2@;29		26bool26result	2= 220trueB2ÒÄforeach 
-			2Q( 2G)2@29	26
-XmlElement26context 2Vin 226list2à<{
-				2®
-				2ú;29	26
-XmlElement26ccy1	2q= 2i2e2!6 2	6XPath24.26Path2>i(2j, 226context2j)220"currency1"B2®
-				2ú;29	26
-XmlElement26ccy2	2q= 2i2e2!6 2	6XPath24.26Path2>i(2j, 226context2j)220"currency2"B2ìûif 
-
-				2Â;(2›)24(26ccy1 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24) 2	4|| 24!2K26IsSameCurrency 20i(2j, 226ccy12j)226ccy22C 2<2ö	continue;2ÿ
-
-				2À;2√26errorHandler 2©i(2j, 220"305"B2j,
-						226context29j,
-						2+2'0"Currencies must be different."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2ÿ
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule28 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Â<{
-			2åûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ªC
-				2Ø<2™«return 2õ;24(2Ö26Rule28 2Òi(2j, 226name2∂j, 2≠2®226 26	nodeIndex24.26GetElementsByType2pi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220
-"SideRate"B2j)226errorHandler24)2 «return 
-		}2µ;24(
-				  2∆
-				26Rule28 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"currency1SideRate"B2j)226errorHandler24&amp; 2ø26Rule28 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"currency2SideRate"B2j)226errorHandler24)2¯
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule28 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2à<{
-			2J
-			2@;29		26bool26result	2= 220trueB2˚Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2í<{
-				2§
-				2ò;29		26
-XmlElement26rate	2l= 2d2`2!6 2	6XPath24.26Path29i(2j, 226context2j)220"rate"B2Øûif 
-
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2ı
-				2È;2·26errorHandler 2«i(2j, 220"305"B2j,
-						226context25j,
-						2'2#0"The rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2ÿ
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule29 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Â<{
-			2åûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ªC
-				2Ø<2™«return 2õ;24(2Ö26Rule29 2Òi(2j, 226name2∂j, 2≠2®226 26	nodeIndex24.26GetElementsByType2pi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220
-"SideRate"B2j)226errorHandler24)2 «return 
-		}2µ;24(
-				  2∆
-				26Rule29 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"currency1SideRate"B2j)226errorHandler24&amp; 2ø26Rule29 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"currency2SideRate"B2j)226errorHandler24)2œ
-
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule29 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ﬂ<{
-			2K
-
-			2@;29		26bool26result	2= 220trueB2—Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ë<{
-				2∞
-				2§;29 	26
-XmlElement26forward 2u= 2m2i2!6 2	6XPath24.26Path2Bi(2j, 226context2"j)220"forwardPoints"B2ß
-				2õ;29	26
-XmlElement26spot	2p= 2h2d2!6 2	6XPath24.26Path2=i(2j, 226context2j)220
-"spotRate"B2—ûif 
-
-				2£;(2õ)24!24(24(26forward 2	4!= 20nullB24) 24
-&amp;&amp; 24(26spot 2	4== 20nullB24)24)2C 2<2ö	continue;2Û
-
-				2Ê;2ﬁ26errorHandler 2ƒi(2j, 220"305"B2j,
-						226context2Tj,
-						2F2B0:"If forwardPoints exists then spotRate should also exist."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
-
-		2⁄
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule30 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Á<{
-			2åûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ªC
-				2Ø<2™«return 2õ;24(2Ö26Rule30 2Òi(2j, 226name2∂j, 2≠2®226 26	nodeIndex24.26GetElementsByType2pi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220
-"SideRate"B2j)226errorHandler24)2Ã«return 
-		}2∑;24(
-					  2«
-					26Rule30 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"currency1SideRate"B2j)226errorHandler24&amp; 2ø26Rule30 2´i(2j, 226name2qj, 2i2e226 26	nodeIndex24.26GetElementsByName2-i(2&j)220"currency2SideRate"B2j)226errorHandler24)2œ
-
-		2ÿprivate 2ÿstatic 29 26bool26Rule30 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ﬂ<{
-			2K
-
-			2@;29		26bool26result	2= 220trueB2—Äforeach 
-
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Á
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
+
+			*†	Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *∂<{
+				*˙*Ó*9*6
+XmlElement2	*6ccy12	*¬= *π*¥*!6*	6XPath*4.*6Path2 *åi(*j**6context2, *(j* *0"exchangedCurrency1"B2, *#j**0"paymentAmount"B2, *j**0
+"currency"B2)2;2
+				*˚*Ó*9*6
+XmlElement2	*6ccy22	*¬= *π*¥*!6*	6XPath*4.*6Path2 *åi(*j**6context2, *(j* *0"exchangedCurrency2"B2, *#j**0"paymentAmount"B2, *j**0
+"currency"B2)2;2
+
+				*ìûif *Â;(*›*4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2 *	4||2 *4!*K*6IsSameCurrency2 *0i(*j**6ccy12, *j**6ccy22)2)*C *<*ö	continue;2
+
+				*·*’*Õ*6errorHandler2 *≥i(*j**0"305"B2, *j**6context2,
+						*Cj*5*10)"Exchanged currencies must be different."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*PG// --------------------------------------------------------------------2
+		*ö	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule202 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ß<{
+			*´ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ŸC
+*—<*Ã«return *Ω*4(2
+					  *ä*6Rule202 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXLeg"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *Ç*6Rule202 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxLeg"B2)2, *j**6errorHandler2)*4)2;2
+
+			*Ì«return *ÿ*4(2
+				  *π*6Rule202 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"fxSingleLeg"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*Ë*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule202 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*¯	<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*ÎÄforeach *Q(*G*@*9*6
+XmlElement2	*6context2 *Vin **6list2)2 *Å<{
+				*≤*¶*9*6
+XmlElement2	*6date12	*z= *r*n*!6*	6XPath*4.*6Path2 *Gi(*j**6context2, *'j* *0"currency1ValueDate"B2)2;2
+				*≤*¶*9*6
+XmlElement2	*6date22	*z= *r*n*!6*	6XPath*4.*6Path2 *Gi(*j**6context2, *'j* *0"currency2ValueDate"B2)2;2
+				*⁄ûif *¨;(*§*4(*6date12 *	4==2 *0nullB*4)2 *	4||2 *4(*6date22 *	4==2 *0nullB*4)2 *4||2
+					*ë*6NotEqual2 *|i(*:j*2*.*6ToDate2 *i(*j**	6date12)2, *9j*2*.*6ToDate2 *i(*j**	6date22)2)2)*C *<*ö	continue;2
+
+				*ˆ*Í*‚*6errorHandler2 *»i(*j**0"305"B2, *j**6context2,
+						*Xj*J*F0>"currency1ValueDate and currency2ValueDate must be different."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*ö	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule212 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ß<{
+			*´ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ŸC
+*—<*Ã«return *Ω*4(2
+					  *ä*6Rule212 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXLeg"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *Ç*6Rule212 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxLeg"B2)2, *j**6errorHandler2)*4)2;2
+
+			*Ì«return *ÿ*4(2
+				  *π*6Rule212 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"fxSingleLeg"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*⁄
+*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule212 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Í<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*›Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Û<{
+				*¥*®*9*6
+XmlElement2	*6ndf2		*}= *u*q*!6*	6XPath*4.*6Path2 *Ji(*j**6context2, **j*#*0"nonDeliverableForward"B2)2;2
+				*”*«*9*6
+XmlElement2	*6fwd2		*õ= *í*ç*!6*	6XPath*4.*6Path2 *fi(*j**6context2, *"j**0"exchangeRate"B2, *"j**0"forwardPoints"B2)2;2
+				*Æûif *Ä;(*y*4(*
+6ndf2 *	4==2 *0nullB*4)2 *	4||2 *4(*
+6fwd2 *	4!=2 *0nullB*4)2)*C *<*ö	continue;2
+
+				*Ò*Â*›*6errorHandler2 *√i(*j**0"305"B2, *j**6context2,
+						*Sj*E*A09"Non-deliverable forward does not specify forwardPoints."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*˛
+*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule222 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ã	<{
+			*∑ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÂC
+*›<*ÿ«return *…*4(2
+					  *ê*6Rule222 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"FXOptionLeg"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *à*6Rule222 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"FxOptionLeg"B2)2, *j**6errorHandler2)*4)2;2
+
+			*≈«return *∞*4(2
+				  *√*6Rule222 *®i(*j**6name2, *nj*f*b*26*6	nodeIndex*4.*6GetElementsByName2 **i(*#j**0"fxSimpleOption"B2)2, *j**6errorHandler2)2
+				*4&amp;2 *Ω*6Rule222 *©i(*j**6name2, *oj*g*c*26*6	nodeIndex*4.*6GetElementsByName2 *+i(*$j**0"fxBarrierOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*ù*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule222 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Æ<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*°Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *∑<{
+				*¥*®*9*6
+XmlElement2	*6buyer2	 *{= *s*o*!6*	6XPath*4.*6Path2 *Hi(*j**6context2, *(j*!*0"buyerPartyReference"B2)2;2
+				*∂*™*9*6
+XmlElement2	*6seller2	 *|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"sellerPartyReference"B2)2;2
+				*ﬁ*“*9*6
+XmlElement2	*6payer2	 *§= *õ*ñ*!6*	6XPath*4.*6Path2 *oi(*j**6context2, *%j**0"fxOptionPremium"B2, *(j*!*0"payerPartyReference"B2)2;2
+				*„*◊*9*6
+XmlElement2	*6receiver2 *ß= *û*ô*!6*	6XPath*4.*6Path2 *ri(*j**6context2, *%j**0"fxOptionPremium"B2, *+j*$* 0"receiverPartyReference"B2)2;2
+				*¬ûif *î;(*å*4(*6buyer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6seller2 *	4==2 *0nullB*4)2 *4||2
+					*4(*6payer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6receiver2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
+
+				*ˆûif *»;(*¿*Œ*6Equal2 *∏i(*Xj*P*L*&6*	6buyer*4.*6GetAttribute* i(*j**0"href"B2)2, *Wj*P*L*&6*	6payer*4.*6GetAttribute* i(*j**0"href"B2)2)2 *4
+&amp;&amp;2
+					*œ*6Equal2 *ºi(*Yj*Q*M*'6*
+6seller*4.*6GetAttribute* i(*j**0"href"B2)2, *Zj*S*O*)6*6receiver*4.*6GetAttribute* i(*j**0"href"B2)2)2)*C *<*ö	continue;2
+
+				*˛*Ú*Í*6errorHandler2 *–i(*j**0"305"B2, *j**6context2,
+						*`j*R*N0F"Premium payer and receiver don't match with option buyer and seller."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+		*QG// --------------------------------------------------------------------2
+
+		*˛
+*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule232 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ã	<{
+			*∑ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÂC
+*›<*ÿ«return *…*4(2
+					  *ê*6Rule232 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"FXOptionLeg"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *à*6Rule232 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"FxOptionLeg"B2)2, *j**6errorHandler2)*4)2;2
+
+			*≈«return *∞*4(2
+				  *√*6Rule232 *®i(*j**6name2, *nj*f*b*26*6	nodeIndex*4.*6GetElementsByName2 **i(*#j**0"fxSimpleOption"B2)2, *j**6errorHandler2)2
+				*4&amp;2 *Ω*6Rule232 *©i(*j**6name2, *oj*g*c*26*6	nodeIndex*4.*6GetElementsByName2 *+i(*$j**0"fxBarrierOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*“*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule232 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*‚	<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*’Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Î<{
+				*”*«*9*6
+XmlElement2	*6ccy12	*õ= *í*ç*!6*	6XPath*4.*6Path2 *fi(*j**6context2, *'j**0"putCurrencyAmount"B2, *j**0
+"currency"B2)2;2
+				*‘*»*9*6
+XmlElement2	*6ccy22	*ú= *ì*é*!6*	6XPath*4.*6Path2 *gi(*j**6context2, *(j* *0"callCurrencyAmount"B2, *j**0
+"currency"B2)2;2
+				*ìûif *Â;(*›*4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2 *	4||2 *4!*K*6IsSameCurrency2 *0i(*j**6ccy12, *j**6ccy22)2)*C *<*ö	continue;2
+
+				*‰*ÿ*–*6errorHandler2 *∂i(*j**0"305"B2, *j**6context2,
+						*Fj*8*40,"Put and call currencies must be different."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*¨	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule242 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*π<{
+			*ªûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÈC
+*·<*‹«return *Õ*4(2
+					  *í*6Rule242 *ˆi(*j**6name2, *ªj*≤*≠*26*6	nodeIndex*4.*6GetElementsByType2 *ui(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *"j**0"FXStrikePrice"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ä*6Rule242 *ˆi(*j**6name2, *ªj*≤*≠*26*6	nodeIndex*4.*6GetElementsByType2 *ui(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *"j**0"FxStrikePrice"B2)2, *j**6errorHandler2)*4)2;2
+
+			*Ô«return *⁄*4(2
+				  *ª*6Rule242 *ßi(*j**6name2, *mj*e*a*26*6	nodeIndex*4.*6GetElementsByName2 *)i(*"j**0"fxStrikePrice"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*¯*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule242 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*à<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*˚Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *ë<{
+				*£*ó*9*6
+XmlElement2	*6rate2	*l= *d*`*!6*	6XPath*4.*6Path2 *9i(*j**6context2, *j**0"rate"B2)2;2
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
+
+				*ı*È*·*6errorHandler2 *«i(*j**0"305"B2, *j**6context2,
+						*5j*'*#0"The rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*ó	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule252 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*§<{
+			*≠ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*€C
+*”<*Œ«return *ø*4(2
+					  *ã*6Rule252 *Ôi(*j**6name2, *¥j*´*¶*26*6	nodeIndex*4.*6GetElementsByType2 *ni(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXSwap"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *É*6Rule252 *Ôi(*j**6name2, *¥j*´*¶*26*6	nodeIndex*4.*6GetElementsByType2 *ni(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxSwap"B2)2, *j**6errorHandler2)*4)2;2
+
+			*Ë«return *”*4(2
+				  *¥*6Rule252 *†i(*j**6name2, *fj*^*Z*26*6	nodeIndex*4.*6GetElementsByName2 *"i(*j**0"fxSwap"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*Ω*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule252 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Õ<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*¿Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *÷<{
+				*¨*†*9*6XmlNodeList2	*6legs2	*t= *l*h*"6*	6XPath*4.*	6Paths2 *@i(*j**6context2, * j**0"fxSingleLeg"B2)2;2
+				*Åûif *T;(*M*/*6Count2 *i(*j**6legs2)2 *4&gt;=2 *02B 2)*C *<*ö	continue;2
+
+				*ﬂ*”*À*6errorHandler2 *±i(*j**0"305"B2, *j**6context2,
+						*Aj*3*/0'"FX swaps must have at least two legs."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*ó	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule262 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*§<{
+			*≠ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*€C
+*”<*Œ«return *ø*4(2
+					  *ã*6Rule262 *Ôi(*j**6name2, *¥j*´*¶*26*6	nodeIndex*4.*6GetElementsByType2 *ni(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXSwap"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *É*6Rule262 *Ôi(*j**6name2, *¥j*´*¶*26*6	nodeIndex*4.*6GetElementsByType2 *ni(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxSwap"B2)2, *j**6errorHandler2)*4)2;2
+
+			*Ë«return *”*4(2
+				  *¥*6Rule262 *†i(*j**6name2, *fj*^*Z*26*6	nodeIndex*4.*6GetElementsByName2 *"i(*j**0"fxSwap"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*‰*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule262 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ù<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*Á
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *˛	<{
+				*¨*†*9*6XmlNodeList2	*6legs2	*t= *l*h*"6*	6XPath*4.*	6Paths2 *@i(*j**6context2, * j**0"fxSingleLeg"B2)2;2
+				*}ûif *Q;(*J*/*6Count2 *i(*j**6legs2)2 *	4!=2 *02B 2)*C *<*ö	continue;2
+				*Ê*⁄*9*6
+XmlElement2 	*6date12	*¨= *£*û*!6*	6XPath*4.*6Path2 *wi(*Pj*H*)6*6legs2 *>[**00B 2]2 *	4as2 *6
+XmlElement2, *j**0"valueDate"B2)2;2
+				*Á*⁄*9*6
+XmlElement2 	*6date22	*¨= *£*û*!6*	6XPath*4.*6Path2 *wi(*Pj*H*)6*6legs2 *>[**01B 2]2 *	4as2 *6
+XmlElement2, *j**0"valueDate"B2)2;2
+
+				*œûif *°;(*ô*ë*6NotEqual2 *|i(*:j*2*.*6ToDate2 *i(*j**	6date12)2, *9j*2*.*6ToDate2 *i(*j**	6date22)2)2)*C *<*ö	continue;2
+
+				*Á*⁄*“*6errorHandler2 *∏i(*j**0"305"B2, *j**6context2,
+						*Hj*:*60."FX swaps legs must settle on different days."B2,
+						*j**6name2, *j**0nullB2)2;2
+
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*å*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule272 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ô<{
+			*ñûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*≈C
+				*π<*¥«return *•*4(*è*6Rule272 *˚i(*j**6name2, *¿j*∑*≤*26*6	nodeIndex*4.*6GetElementsByType2 *zi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *'j* *0"QuotedCurrencyPair"B2)2, *j**6errorHandler2)*4)2;2
+			*Ù«return *ﬂ*4(2
+				  *¿*6Rule272 *¨i(*j**6name2, *rj*j*f*26*6	nodeIndex*4.*6GetElementsByName2 *.i(*'j* *0"quotedCurrencyPair"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*Ó
+*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule272 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ˇ<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
+
+			*ÒÄforeach *Q(*G*@*9*6
+XmlElement2	*6context2 *Vin **6list2)2 *à<{
+				*®*ú*9*6
+XmlElement2	*6ccy12	*q= *i*e*!6*	6XPath*4.*6Path2 *>i(*j**6context2, *j**0"currency1"B2)2;2
+				*®*ú*9*6
+XmlElement2	*6ccy22	*q= *i*e*!6*	6XPath*4.*6Path2 *>i(*j**6context2, *j**0"currency2"B2)2;2
+				*ìûif *Â;(*›*4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2 *	4||2 *4!*K*6IsSameCurrency2 *0i(*j**6ccy12, *j**6ccy22)2)*C *<*ö	continue;2
+
+				*ÿ*À*√*6errorHandler2 *©i(*j**0"305"B2, *j**6context2,
+						*9j*+*'0"Currencies must be different."B2,
+						*j**6name2, *j**0nullB2)2;2
+
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
+		*QG// --------------------------------------------------------------------2
+
+		*ÿ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule282 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Â<{
+			*åûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ªC
+				*Ø<*™«return *õ*4(*Ö*6Rule282 *Òi(*j**6name2, *∂j*≠*®*26*6	nodeIndex*4.*6GetElementsByType2 *pi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0
+"SideRate"B2)2, *j**6errorHandler2)*4)2;2
+			* «return *µ*4(2
+				  *∆*6Rule282 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"currency1SideRate"B2)2, *j**6errorHandler2)2
+				*4&amp;2 *ø*6Rule282 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"currency2SideRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*¯*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule282 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*à<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*˚Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *í<{
+				*§*ò*9*6
+XmlElement2		*6rate2	*l= *d*`*!6*	6XPath*4.*6Path2 *9i(*j**6context2, *j**0"rate"B2)2;2
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
+
+				*ı*È*·*6errorHandler2 *«i(*j**0"305"B2, *j**6context2,
+						*5j*'*#0"The rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*ÿ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule292 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Â<{
+			*åûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ªC
+				*Ø<*™«return *õ*4(*Ö*6Rule292 *Òi(*j**6name2, *∂j*≠*®*26*6	nodeIndex*4.*6GetElementsByType2 *pi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0
+"SideRate"B2)2, *j**6errorHandler2)*4)2;2
+			* «return *µ*4(2
+				  *∆*6Rule292 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"currency1SideRate"B2)2, *j**6errorHandler2)2
+				*4&amp;2 *ø*6Rule292 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"currency2SideRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*œ
+*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule292 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ﬂ<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
+
+			*—Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ë<{
+				*∞*§*9*6
+XmlElement2 	*6forward2 *u= *m*i*!6*	6XPath*4.*6Path2 *Bi(*j**6context2, *"j**0"forwardPoints"B2)2;2
+				*ß*õ*9*6
+XmlElement2	*6spot2	*p= *h*d*!6*	6XPath*4.*6Path2 *=i(*j**6context2, *j**0
+"spotRate"B2)2;2
+				*—ûif *£;(*õ*4!*4(*4(*6forward2 *	4!=2 *0nullB*4)2 *4
+&amp;&amp;2 *4(*6spot2 *	4==2 *0nullB*4)*4)2)*C *<*ö	continue;2
+
+				*Û*Ê*ﬁ*6errorHandler2 *ƒi(*j**0"305"B2, *j**6context2,
+						*Tj*F*B0:"If forwardPoints exists then spotRate should also exist."B2,
+						*j**6name2, *j**0nullB2)2;2
+
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
+
+		*QG// --------------------------------------------------------------------2
+
+		*⁄*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule302 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Á<{
+			*åûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ªC
+				*Ø<*™«return *õ*4(*Ö*6Rule302 *Òi(*j**6name2, *∂j*≠*®*26*6	nodeIndex*4.*6GetElementsByType2 *pi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0
+"SideRate"B2)2, *j**6errorHandler2)*4)2;2
+			*Ã«return *∑*4(2
+					  *«*6Rule302 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"currency1SideRate"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ø*6Rule302 *´i(*j**6name2, *qj*i*e*26*6	nodeIndex*4.*6GetElementsByName2 *-i(*&j**0"currency2SideRate"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*œ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule302 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ﬂ<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
+
+			*—Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Á
 <{
-				2∞
-				2§;29 	26
-XmlElement26forward 2u= 2m2i2!6 2	6XPath24.26Path2Bi(2j, 226context2"j)220"forwardPoints"B2ß
-				2õ;29	26
-XmlElement26spot	2p= 2h2d2!6 2	6XPath24.26Path2=i(2j, 226context2j)220
-"spotRate"B2§
+				*∞*§*9*6
+XmlElement2 	*6forward2 *u= *m*i*!6*	6XPath*4.*6Path2 *Bi(*j**6context2, *"j**0"forwardPoints"B2)2;2
+				*ß*õ*9*6
+XmlElement2	*6spot2	*p= *h*d*!6*	6XPath*4.*6Path2 *=i(*j**6context2, *j**0
+"spotRate"B2)2;2
+				*§*ó*9*6
+XmlElement2	*6rate2	*l= *d*`*!6*	6XPath*4.*6Path2 *9i(*j**6context2, *j**0"rate"B2)2;2
 
-				2ó;29	26
-XmlElement26rate	2l= 2d2`2!6 2	6XPath24.26Path29i(2j, 226context2j)220"rate"B2ˆûif 
+				*ˆûif *»;(*¿*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *4(*6forward2 *	4==2 *0nullB*4)2 *	4||2 *4(*6spot2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
 
-				2»;(2¿)24(26rate 2	4== 20nullB24) 2	4|| 24(26forward 2	4== 20nullB24) 2	4|| 24(26spot 2	4== 20nullB24)2C 2<2ö	continue;2ëûif 
+				*ëûif *ﬁ;(*÷*0*6	ToDecimal2 *i(*j**6rate2)*4.*ï*
+6Equals*Ñi(*}j*v*3*6	ToDecimal2 *i(*j**6spot2)2 *4+2 *3*6	ToDecimal2 *i(*j**6forward2)2)2)*C
+					*<*ö	continue;2
 
-				2ﬁ;(2÷)2026	ToDecimal 2i(2j)226rate24.2ï2
-6Equals2Ñi(2}j)2v23 26	ToDecimal 2i(2j)226spot24+ 2326	ToDecimal 2i(2j)226forward2C
-					2<2ö	continue;2í
-				2Ü;2˛26errorHandler 2‰i(2j, 220"305"B2j,
-						226context2Rj,
-						2D2@08"Sum of spotRate and forwardPoints does not equal rate."B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*í*Ü*˛*6errorHandler2 *‰i(*j**0"305"B2, *j**6context2,
+						*Rj*D*@08"Sum of spotRate and forwardPoints does not equal rate."B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2¸
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule31 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2â<{
-			2éûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ºC
-				2∞<2´«return 2ú;24(2Ü26Rule31 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"SideRates"B2j)226errorHandler24)2Ï«return 
-		}2◊;24(
-					  2∑26Rule31 2£i(2j, 226name2ij, 2a2]226 26	nodeIndex24.26GetElementsByName2%i(2j)220"sideRates"B2j)226errorHandler24)2ä
+		*¸*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule312 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*â<{
+			*éûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ºC
+				*∞<*´«return *ú*4(*Ü*6Rule312 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"SideRates"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule31 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ö<{
-			2K
+			*Ï«return *◊*4(2
+					  *∑*6Rule312 *£i(*j**6name2, *ij*a*]*26*6	nodeIndex*4.*6GetElementsByName2 *%i(*j**0"sideRates"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2@;29		26bool26result	2= 220trueB2åÄforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2£<{
-				2Ø
-				2£;29 	26
-XmlElement26baseCcy	2t= 2l2h2!6 2	6XPath24.26Path2Ai(2j, 226context2!j)220"baseCurrency"B2”
-				2«;29	26
-XmlElement26ccy1	2õ= 2í2ç2!6 2	6XPath24.26Path2fi(2j, 226context2'j, 220"currency1SideRate"B2j)220
-"currency"B2‘
+		*ä*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule312 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ö<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-				2«;29	26
-XmlElement26ccy2	2õ= 2í2ç2!6 2	6XPath24.26Path2fi(2j, 226context2'j, 220"currency2SideRate"B2j)220
-"currency"B2€ûif 
+			*åÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *£<{
+				*Ø*£*9*6
+XmlElement2 	*6baseCcy2	*t= *l*h*!6*	6XPath*4.*6Path2 *Ai(*j**6context2, *!j**0"baseCurrency"B2)2;2
+				*”*«*9*6
+XmlElement2	*6ccy12	*õ= *í*ç*!6*	6XPath*4.*6Path2 *fi(*j**6context2, *'j**0"currency1SideRate"B2, *j**0
+"currency"B2)2;2
+				*‘*«*9*6
+XmlElement2	*6ccy22	*õ= *í*ç*!6*	6XPath*4.*6Path2 *fi(*j**6context2, *'j**0"currency2SideRate"B2, *j**0
+"currency"B2)2;2
 
-				2≠;(2•)24(26baseCcy 2	4== 20nullB24) 2	4|| 24(26ccy1 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24) 24||
-					24(24!2Q 26IsSameCurrency 23i(2j, 226baseCcy2j)226ccy124
-&amp;&amp; 24!2N26IsSameCurrency 23i(2j, 226baseCcy2j)226ccy224)2C 2<2ö	continue;2¢
+				*€ûif *≠;(*•*4(*6baseCcy2 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2 *4||2
+					*4(*4!*Q*6IsSameCurrency2 *3i(*j**6baseCcy2, *j**6ccy12)2 *4
+&amp;&amp;2 *4!*N*6IsSameCurrency2 *3i(*j**6baseCcy2, *j**6ccy22)*4)2)*C *<*ö	continue;2
 
-				2ï;2ç26errorHandler 2Ûi(2j, 220"305"B2j,
-						226context2^j,
-						2P2L0D"The base currency must be different from the side rate currencies."B2j, 226name2<j)252126ToToken 2i(2j)226baseCcy25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*¢*ï*ç*6errorHandler2 *Ûi(*j**0"305"B2, *j**6context2,
+						*^j*P*L0D"The base currency must be different from the side rate currencies."B2,
+						*j**6name2, *<j*5*1*6ToToken2 *i(*j**6baseCcy2)2)2;2
 
-		2ˇ
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule32 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2å<{
-			2èûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2æC
-				2≤<2≠«return 2û;24(2à26Rule32 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"TermDeposit"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-					  2π26Rule32 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"termDeposit"B2j)226errorHandler24)2™
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule32 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2∫<{
-			2K
+		*ˇ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule322 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*å<{
+			*èûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*æC
+				*≤<*≠«return *û*4(*à*6Rule322 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"TermDeposit"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+					  *π*6Rule322 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"termDeposit"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2@;29		26bool26result	2= 220trueB2¨
-Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2√	<{
-				2∂
-				2™;29	26
-XmlElement26payer	 2}= 2u2q2!6 2	6XPath24.26Path2Ji(2j, 226context2*j)2#20"initialPayerReference"B2Ω
+		*™*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule322 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*∫<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-				2∞;29	26
-XmlElement26receiver 2Ä= 2x2t2!6 2	6XPath24.26Path2Mi(2j, 226context2-j)2&2"0"initialReceiverReference"B2µûif 
-				2à;(2Ä)24(26payer 2	4== 20nullB24) 2	4|| 24(26receiver 2	4== 20nullB24)2C 2<2ö	continue;2ùûif 
-				2;(2Ë)2‡26NotEqual 2 i(2dj,
-							  2S2O2)6 2	6payer24.26GetAttribute2 i(2j)220"href"B2]j)2V2R2,6 26receiver24.26GetAttribute2 i(2j)220"href"B2C 2<2ö	continue;2Æ
+			*¨
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *√	<{
+				*∂*™*9*6
+XmlElement2	*6payer2	 *}= *u*q*!6*	6XPath*4.*6Path2 *Ji(*j**6context2, **j*#*0"initialPayerReference"B2)2;2
+				*Ω*∞*9*6
+XmlElement2	*6receiver2 *Ä= *x*t*!6*	6XPath*4.*6Path2 *Mi(*j**6context2, *-j*&*"0"initialReceiverReference"B2)2;2
 
-				2°;2ô26errorHandler 2ˇi(2j, 220"305"B2j,
-						226context2Lj,
-						2>2:02"The initial payer and receiver must be different"B2j, 226name2Zj)2S2O2)6 2	6payer24.26GetAttribute2 i(2j)220"href"B25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*µûif *à;(*Ä*4(*6payer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6receiver2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
+				*ùûif *;(*Ë*‡*6NotEqual2 * i(*dj*S*O*)6*	6payer*4.*6GetAttribute2 * i(*j**0"href"B2)2,
+							  *]j*V*R*,6*6receiver*4.*6GetAttribute2 * i(*j**0"href"B2)2)2)*C *<*ö	continue;2
+				*Æ*°*ô*6errorHandler2 *ˇi(*j**0"305"B2, *j**6context2,
+						*Lj*>*:02"The initial payer and receiver must be different"B2,
+						*j**6name2, *Zj*S*O*)6*	6payer*4.*6GetAttribute2 * i(*j**0"href"B2)2)2;2
 
-		2ˇ
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule33 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2å<{
-			2èûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2æC
-				2≤<2≠«return 2û;24(2à26Rule33 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"TermDeposit"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-					  2π26Rule33 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"termDeposit"B2j)226errorHandler24)2˜
-		2ÿprivate 2ÿstatic 29 26bool26Rule33 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2à
+		*QG// --------------------------------------------------------------------2
+
+		*ˇ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule332 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*å<{
+			*èûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*æC
+				*≤<*≠«return *û*4(*à*6Rule332 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"TermDeposit"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+					  *π*6Rule332 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"termDeposit"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*˜*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule332 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*à
 <{
-			2K
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-			2@;29		26bool26result	2= 220trueB2˙Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2ë<{
-				2™
-				2û;29	26
-XmlElement26start	 2q= 2i2e2!6 2	6XPath24.26Path2>i(2j, 226context2j)220"startDate"B2Ø
-				2£;29	26
-XmlElement26maturity 2t= 2l2h2!6 2	6XPath24.26Path2Ai(2j, 226context2!j)220"maturityDate"B2‹ûif 
+			*˙Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *ë<{
+				*™*û*9*6
+XmlElement2	*6start2	 *q= *i*e*!6*	6XPath*4.*6Path2 *>i(*j**6context2, *j**0"startDate"B2)2;2
+				*Ø*£*9*6
+XmlElement2	*6maturity2 *t= *l*h*!6*	6XPath*4.*6Path2 *Ai(*j**6context2, *!j**0"maturityDate"B2)2;2
+				*‹ûif *Æ;(*¶*4(*6start2 *	4==2 *0nullB*4)2 *	4||2 *4(*6maturity2 *	4==2 *0nullB*4)2 *4||2
+					*ê*6Less2 *i(*:j*2*.*6ToDate2 *i(*j**	6start2)2, *<j*5*1*6ToDate2 *i(*j**6maturity2)2)2)*C *<*ö	continue;2
 
-				2Æ;(2¶)24(26start 2	4== 20nullB24) 2	4|| 24(26maturity 2	4== 20nullB24) 24||
-					2ê26Less 2i(2:j, 222.26ToDate 2i(2j)22	6start2<j)252126ToDate 2i(2j)226maturity2C 2<2ö	continue;2è
+				*è*Ç*˙*6errorHandler2 *‡i(*j**0"305"B2, *j**6context2,
+						*Jj*<*800"The maturity date must be after the start date"B2,
+						*j**6name2, *=j*6*2*6ToToken2 *i(*j**6maturity2)2)2;2
 
-				2Ç;2˙26errorHandler 2‡i(2j, 220"305"B2j,
-						226context2Jj,
-						2<2800"The maturity date must be after the start date"B2j, 226name2=j)262226ToToken 2i(2j)226maturity25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2PG// --------------------------------------------------------------------
-		2ˇ
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
+		*PG// --------------------------------------------------------------------2
+		*ˇ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule342 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*å<{
+			*èûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*æC
+				*≤<*≠«return *û*4(*à*6Rule342 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"TermDeposit"B2)2, *j**6errorHandler2)*4)2;2
+			*Ó«return *Ÿ*4(2
+					  *π*6Rule342 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"termDeposit"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule34 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2å<{
-			2èûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2æC
-				2≤<2≠«return 2û;24(2à26Rule34 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"TermDeposit"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-					  2π26Rule34 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"termDeposit"B2j)226errorHandler24)2±	
+		*±	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule342 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*¡<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*¥Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 * <{
+				*À*ø*9*6
+XmlElement2	*6amount2	*ë= *à*É*!6*	6XPath*4.*6Path2 *\i(*j**6context2, *j**0"principal"B2, *j**0"amount"B2)2;2
+				*≤ûif *Ö;(*~*4(*6amount2 *	4==2 *0nullB*4)2 *	4||2 *3*6
+IsPositive2 *i(*j**
+6amount2)2)*C *<*ö	continue;2
+				*É*˜*Ô*6errorHandler2 *’i(*j**0"305"B2, *j**6context2,
+						*Aj*3*/0'"The principal amount must be positive"B2,
+						*j**6name2, *;j*4*0*6ToToken2 *i(*j**
+6amount2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule34 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2¡<{
-			2J
-			2@;29		26bool26result	2= 220trueB2¥Äforeach 
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2 <{
-				2À
-				2ø;29	26
-XmlElement26amount	2ë= 2à2É2!6 2	6XPath24.26Path2\i(2j, 226context2j, 220"principal"B2j)220"amount"B2≤ûif 
-				2Ö;(2~)24(26amount 2	4== 20nullB24) 2	4|| 2326
-IsPositive 2i(2j)22
-6amount2C 2<2ö	continue;2É
-				2˜;2Ô26errorHandler 2’i(2j, 220"305"B2j,
-						226context2Aj,
-						232/0'"The principal amount must be positive"B2j, 226name2;j)242026ToToken 2i(2j)22
-6amount25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*QG// --------------------------------------------------------------------2
 
-		2ˇ
-		2ÿprivate 2ÿstatic 29 26bool26Rule35 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ç<{
-			2êûif 
+		*ˇ*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule352 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ç<{
+			*êûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*æC
+				*≤<*≠«return *û*4(*à*6Rule352 *Ùi(*j**6name2, *πj*∞*´*26*6	nodeIndex*4.*6GetElementsByType2 *si(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, * j**0"TermDeposit"B2)2, *j**6errorHandler2)*4)2;2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2æC
-				2≤<2≠«return 2û;24(2à26Rule35 2Ùi(2j, 226name2πj, 2∞2´226 26	nodeIndex24.26GetElementsByType2si(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2 j)220"TermDeposit"B2j)226errorHandler24)2Ó«return 
-		}2Ÿ;24(
-					  2π26Rule35 2•i(2j, 226name2kj, 2c2_226 26	nodeIndex24.26GetElementsByName2'i(2 j)220"termDeposit"B2j)226errorHandler24)2Ö	
+			*Ó«return *Ÿ*4(2
+					  *π*6Rule352 *•i(*j**6name2, *kj*c*_*26*6	nodeIndex*4.*6GetElementsByName2 *'i(* j**0"termDeposit"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+		*Ö	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule352 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ï<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule35 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ï<{
-			2K
+			*áÄforeach *Q(*G*@*9*6
+XmlElement2	*6context2 *Vin **6list2)2 *û<{
+				*©*ú*9*6
+XmlElement2	*6rate2	*q= *i*e*!6*	6XPath*4.*6Path2 *>i(*j**6context2, *j**0"fixedRate"B2)2;2
 
-			2@;29		26bool26result	2= 220trueB2áÄforeach 
-			2Q( 2G)2@29	26
-XmlElement26context 2Vin 226list2û<{
-				2©
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
 
-				2ú;29	26
-XmlElement26rate	2q= 2i2e2!6 2	6XPath24.26Path2>i(2j, 226context2j)220"fixedRate"B2Øûif 
+				*¸*Ô*Á*6errorHandler2 *Õi(*j**0"305"B2, *j**6context2,
+						*;j*-*)0!"The fixed rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
 
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2¸
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-				2Ô;2Á26errorHandler 2Õi(2j, 220"305"B2j,
-						226context2;j,
-						2-2)0!"The fixed rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*QG// --------------------------------------------------------------------2
 
-		2Ú
+		*Ú*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule362 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ˇ<{
+			*âûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*∏C
+				*¨<*ß«return *ò*4(*Ç*6Rule362 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"Trade"B2)2, *j**6errorHandler2)*4)2;2
+			*Á«return *“*4(2
+				  *≥*6Rule362 *üi(*j**6name2, *ej*]*Y*26*6	nodeIndex*4.*6GetElementsByName2 *!i(*j**0"trade"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule36 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ˇ<{
-			2âûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2∏C
-				2¨<2ß«return 2ò;24(2Ç26Rule36 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"Trade"B2j)226errorHandler24)2Á«return 
-		}2“;24(
-				  2≥26Rule36 2üi(2j, 226name2ej, 2]2Y226 26	nodeIndex24.26GetElementsByName2!i(2j)220"trade"B2j)226errorHandler24)2©
-		2ÿprivate 2ÿstatic 29 26bool26Rule36 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2∫<{
-			2K
+		*©*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule362 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*∫<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-			2@;29		26bool26result	2= 220trueB2¨
-Äforeach 
+			*¨
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *¬	<{
+				*‘*»*9*6
+XmlElement2	*6	tradeDate2	 *ñ= *ç*à*!6*	6XPath*4.*6Path2 *ai(*j**6context2, *!j**0"tradeHeader"B2, *j**0"tradeDate"B2)2;2
+				*Ö*˘*9*6
+XmlElement2	*6
+expiryDate2	 *∆= *Ω*∏*!6*	6XPath*4.*6Path2 *êi(*j**6context2, *)j*!*0"fxAverageRateOption"B2, *$j**0"expiryDateTime"B2, *j**0"expiryDate"B2)2;2
+				*ºûif *é;(*Ü*4(*6	tradeDate2 *	4==2 *0nullB*4)2 *	4||2 *4(*6
+expiryDate2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2¬	<{
-				2‘
-				2»;29	26
-XmlElement26	tradeDate	 2ñ= 2ç2à2!6 2	6XPath24.26Path2ai(2j, 226context2!j, 220"tradeHeader"B2j)220"tradeDate"B2Ö
-				2˘;29	26
-XmlElement26
-expiryDate	 2∆= 2Ω2∏2!6 2	6XPath24.26Path2êi(2j, 226context2)j, 2!20"fxAverageRateOption"B2$j, 220"expiryDateTime"B2j)220"expiryDate"B2ºûif 
+				*’ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+expiryDate2)2)2)*C *<*ö	continue;2
 
-				2é;(2Ü)24(26	tradeDate 2	4== 20nullB24) 2	4|| 24(26
-expiryDate 2	4== 20nullB24)2C 2<2ö	continue;2’ûif 
+				*à*˚*Û*6errorHandler2 *Ÿi(*j**0"305"B2, *j**6context2,
+						*Aj*3*/0'"Expiry date must be after trade date."B2,
+						*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+expiryDate2)2)2;2
 
-				2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-expiryDate2C 2<2ö	continue;2à
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-				2˚;2Û26errorHandler 2Ÿi(2j, 220"305"B2j,
-						226context2Aj,
-						232/0'"Expiry date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-expiryDate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*3«return **4(*
+6result*4)2;2
+		}2
+		*QG// --------------------------------------------------------------------2
 
-		2Û
+		*Û*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule372 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ä<{
+			*äûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*∏C
+				*¨<*ß«return *ò*4(*Ç*6Rule372 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"Trade"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule37 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Ä<{
-			2äûif 
+			*Á«return *“*4(2
+				  *≥*6Rule372 *üi(*j**6name2, *ej*]*Y*26*6	nodeIndex*4.*6GetElementsByName2 *!i(*j**0"trade"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2∏C
-				2¨<2ß«return 2ò;24(2Ç26Rule37 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"Trade"B2j)226errorHandler24)2Á«return 
-		}2“;24(
-				  2≥26Rule37 2üi(2j, 226name2ej, 2]2Y226 26	nodeIndex24.26GetElementsByName2!i(2j)220"trade"B2j)226errorHandler24)2¶
+		*¶*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule372 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*∂<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule37 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2∂<{
-			2K
+			*®
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *ø	<{
+				*‘*»*9*6
+XmlElement2	*6	tradeDate2	 *ñ= *ç*à*!6*	6XPath*4.*6Path2 *ai(*j**6context2, *!j**0"tradeHeader"B2, *j**0"tradeDate"B2)2;2
+				*Ç*ı*9*6
+XmlElement2	*6
+expiryDate2	 *¬= *π*¥*!6*	6XPath*4.*6Path2 *åi(*j**6context2, *%j**0"fxBarrierOption"B2, *$j**0"expiryDateTime"B2, *j**0"expiryDate"B2)2;2
 
-			2@;29		26bool26result	2= 220trueB2®
-Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2ø	<{
-				2‘
-				2»;29	26
-XmlElement26	tradeDate	 2ñ= 2ç2à2!6 2	6XPath24.26Path2ai(2j, 226context2!j, 220"tradeHeader"B2j)220"tradeDate"B2Ç
+				*ºûif *é;(*Ü*4(*6	tradeDate2 *	4==2 *0nullB*4)2 *	4||2 *4(*6
+expiryDate2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
 
-				2ı;29	26
-XmlElement26
-expiryDate	 2¬= 2π2¥2!6 2	6XPath24.26Path2åi(2j, 226context2%j, 220"fxBarrierOption"B2$j, 220"expiryDateTime"B2j)220"expiryDate"B2ºûif 
+				*’ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+expiryDate2)2)2)*C *<*ö	continue;2
 
-				2é;(2Ü)24(26	tradeDate 2	4== 20nullB24) 2	4|| 24(26
-expiryDate 2	4== 20nullB24)2C 2<2ö	continue;2’ûif 
+				*à*˚*Û*6errorHandler2 *Ÿi(*j**0"305"B2, *j**6context2,
+						*Aj*3*/0'"Expiry date must be after trade date."B2,
+						*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+expiryDate2)2)2;2
 
-				2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-expiryDate2C 2<2ö	continue;2à
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-				2˚;2Û26errorHandler 2Ÿi(2j, 220"305"B2j,
-						226context2Aj,
-						232/0'"Expiry date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-expiryDate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*QG// --------------------------------------------------------------------2
 
-		2Û
+		*Û*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule382 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ä<{
+			*äûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*∏C
+				*¨<*ß«return *ò*4(*Ç*6Rule382 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"Trade"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule38 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Ä<{
-			2äûif 
+			*Á«return *“*4(2
+				  *≥*6Rule382 *üi(*j**6name2, *ej*]*Y*26*6	nodeIndex*4.*6GetElementsByName2 *!i(*j**0"trade"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2∏C
-				2¨<2ß«return 2ò;24(2Ç26Rule38 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"Trade"B2j)226errorHandler24)2Á«return 
-		}2“;24(
-				  2≥26Rule38 2üi(2j, 226name2ej, 2]2Y226 26	nodeIndex24.26GetElementsByName2!i(2j)220"trade"B2j)226errorHandler24)2§
+		*§*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule382 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*¥<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule38 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2¥<{
-			2K
+			*¶
+Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ω	<{
+				*‘*»*9*6
+XmlElement2	*6	tradeDate2	 *ñ= *ç*à*!6*	6XPath*4.*6Path2 *ai(*j**6context2, *!j**0"tradeHeader"B2, *j**0"tradeDate"B2)2;2
+				*Å*ı*9*6
+XmlElement2	*6
+expiryDate2	 *¬= *π*¥*!6*	6XPath*4.*6Path2 *åi(*j**6context2, *%j**0"fxDigitalOption"B2, *$j**0"expiryDateTime"B2, *j**0"expiryDate"B2)2;2
+				*ªûif *é;(*Ü*4(*6	tradeDate2 *	4==2 *0nullB*4)2 *	4||2 *4(*6
+expiryDate2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
+				*’ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+expiryDate2)2)2)*C *<*ö	continue;2
 
-			2@;29		26bool26result	2= 220trueB2¶
-Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ω	<{
-				2‘
-				2»;29	26
-XmlElement26	tradeDate	 2ñ= 2ç2à2!6 2	6XPath24.26Path2ai(2j, 226context2!j, 220"tradeHeader"B2j)220"tradeDate"B2Å
-				2ı;29	26
-XmlElement26
-expiryDate	 2¬= 2π2¥2!6 2	6XPath24.26Path2åi(2j, 226context2%j, 220"fxDigitalOption"B2$j, 220"expiryDateTime"B2j)220"expiryDate"B2ªûif 
-				2é;(2Ü)24(26	tradeDate 2	4== 20nullB24) 2	4|| 24(26
-expiryDate 2	4== 20nullB24)2C 2<2ö	continue;2’ûif 
+				*à*˚*Û*6errorHandler2 *Ÿi(*j**0"305"B2, *j**6context2,
+						*Aj*3*/0'"Expiry date must be after trade date."B2,
+						*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+expiryDate2)2)2;2
 
-				2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-expiryDate2C 2<2ö	continue;2à
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-				2˚;2Û26errorHandler 2Ÿi(2j, 220"305"B2j,
-						226context2Aj,
-						232/0'"Expiry date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-expiryDate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+		*QG// --------------------------------------------------------------------2
 
-		2Ú
+		*Ú*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule392 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ˇ<{
+			*âûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*∏C
+				*¨<*ß«return *ò*4(*Ç*6Rule392 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"Trade"B2)2, *j**6errorHandler2)*4)2;2
+			*Á«return *“*4(2
+				  *≥*6Rule392 *üi(*j**6name2, *ej*]*Y*26*6	nodeIndex*4.*6GetElementsByName2 *!i(*j**0"trade"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule39 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ˇ<{
-			2âûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2∏C
-				2¨<2ß«return 2ò;24(2Ç26Rule39 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"Trade"B2j)226errorHandler24)2Á«return 
-		}2“;24(
-				  2≥26Rule39 2üi(2j, 226name2ej, 2]2Y226 26	nodeIndex24.26GetElementsByName2!i(2j)220"trade"B2j)226errorHandler24)2◊
+		*◊*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule392 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Á<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule39 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Á<{
-			2K
+			*ŸÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *<{
+				*”*«*9*6
+XmlElement2	*6	tradeDate2 *ñ= *ç*à*!6*	6XPath*4.*6Path2 *ai(*j**6context2, *!j**0"tradeHeader"B2, *j**0"tradeDate"B2)2;2
+				*”*«*9*6
+XmlElement2	*6	valueDate2 *ñ= *ç*à*!6*	6XPath*4.*6Path2 *ai(*j**6context2, *!j**0"fxSingleLeg"B2, *j**0"valueDate"B2)2;2
+				*›*—*9*6
+XmlElement2	*6
+value1Date2 *ü= *ñ*ë*!6*	6XPath*4.*6Path2 *ji(*j**6context2, *!j**0"fxSingleLeg"B2, *'j* *0"currency1ValueDate"B2)2;2
+				*ﬁ*—*9*6
+XmlElement2	*6
+value2Date2 *ü= *ñ*ë*!6*	6XPath*4.*6Path2 *ji(*j**6context2, *!j**0"fxSingleLeg"B2, *'j* *0"currency2ValueDate"B2)2;2
 
-			2@;29		26bool26result	2= 220trueB2ŸÄforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2<{
-				2”
-				2«;29	26
-XmlElement26	tradeDate 2ñ= 2ç2à2!6 2	6XPath24.26Path2ai(2j, 226context2!j, 220"tradeHeader"B2j)220"tradeDate"B2”
-				2«;29	26
-XmlElement26	valueDate 2ñ= 2ç2à2!6 2	6XPath24.26Path2ai(2j, 226context2!j, 220"fxSingleLeg"B2j)220"valueDate"B2›
-				2—;29	26
-XmlElement26
-value1Date 2ü= 2ñ2ë2!6 2	6XPath24.26Path2ji(2j, 226context2!j, 220"fxSingleLeg"B2'j)2 20"currency1ValueDate"B2ﬁ
-
-				2—;29	26
-XmlElement26
-value2Date 2ü= 2ñ2ë2!6 2	6XPath24.26Path2ji(2j, 226context2!j, 220"fxSingleLeg"B2'j)2 20"currency2ValueDate"B2ˆûif 
-}27;(20)26	tradeDate 2	4!= 20nullB2ÆC 2¶<{
-					2Éûif 
-					27;(20)26	valueDate 2	4!= 20nullB2∑C 2Ø<{
-						2’ûif 
-						2¶;(2û)2ñ26Less 2Ñi(2>j, 262226ToDate 2i(2j)226	tradeDate2=j)262226ToDate 2i(2j)226	valueDate2C 2<2ö	continue;2å
-
-						2˝;2ı26errorHandler 2€i(2j, 220"305"B2j
+				*ˆûif *7;(*0*6	tradeDate2 *	4!=2 *0nullB2)*ÆC *¶<{
+					*Éûif *7;(*0*6	valueDate2 *	4!=2 *0nullB2)*∑C *Ø<{
+						*’ûif *¶;(*û*ñ*6Less2 *Ñi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *=j*6*2*6ToDate2 *i(*j**6	valueDate2)2)2)*C *<*ö	continue;2
+						*å*˝*ı*6errorHandler2 *€i(*j**0"305"B2, *j**6context2
 ,
-								226context2Bj
+								*Bj*2*.0&"value date must be after trade date."B2
 ,
-								222.0&"value date must be after trade date."B2j, 226name2>j)272326ToToken 2i(2j)226	valueDate2:
-					}2-;26result 24= 20falseB2àûif 
+								*j**6name2, *>j*7*3*6ToToken2 *i(*j**6	valueDate2)2)2;2
 
-					28;(21)26
-value1Date 2	4!= 20nullB2∫C 2≤<{
-						2◊ûif 
+						*:*-*6result2 *4=2 *0falseB2;2
+					}2
+					*àûif *8;(*1*6
+value1Date2 *	4!=2 *0nullB2)*∫C *≤<{
+						*◊ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+value1Date2)2)2)*C *<*ö	continue;2
 
-						2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-value1Date2C 2<2ö	continue;2ç
-
-						2˛;2ˆ26errorHandler 2‹i(2j, 220"305"B2j
+						*ç*˛*ˆ*6errorHandler2 *‹i(*j**0"305"B2, *j**6context2
 ,
-								226context2Bj
+								*Bj*2*.0&"value1date must be after trade date."B2
 ,
-								222.0&"value1date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-value1Date2:
-					}2-;26result 24= 20falseB2áûif 
-				}28;(21)26
-value2Date 2	4!= 20nullB2∫C 2≤<{
-						2◊ûif 
+								*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+value1Date2)2)2;2
 
-						2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-value2Date2C 2<2ö	continue;2ç
+						*:*-*6result2 *4=2 *0falseB2;2
+					}2
 
-						2˛;2ˆ26errorHandler 2‹i(2j, 220"305"B2j
+					*áûif *8;(*1*6
+value2Date2 *	4!=2 *0nullB2)*∫C *≤<{
+						*◊ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+value2Date2)2)2)*C *<*ö	continue;2
+
+						*ç*˛*ˆ*6errorHandler2 *‹i(*j**0"305"B2, *j**6context2
 ,
-								226context2Bj
+								*Bj*2*.0&"value2date must be after trade date."B2
 ,
-								222.0&"value2date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-value2Date2:
-					}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+								*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+value2Date2)2)2;2
 
-		2Û
+						*:*-*6result2 *4=2 *0falseB2;2
+					}2
+				}2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule40 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2Ä<{
-			2äûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2∏C
-				2¨<2ß«return 2ò;24(2Ç26Rule40 2Ói(2j, 226name2≥j, 2™2•226 26	nodeIndex24.26GetElementsByType2mi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"Trade"B2j)226errorHandler24)2Á«return 
-		}2“;24(
-				  2≥26Rule40 2üi(2j, 226name2ej, 2]2Y226 26	nodeIndex24.26GetElementsByName2!i(2j)220"trade"B2j)226errorHandler24)2‹
+		*Û*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule402 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ä<{
+			*äûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*∏C
+				*¨<*ß«return *ò*4(*Ç*6Rule402 *Ói(*j**6name2, *≥j*™*•*26*6	nodeIndex*4.*6GetElementsByType2 *mi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"Trade"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule40 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2Ï<{
-			2K
+			*Á«return *“*4(2
+				  *≥*6Rule402 *üi(*j**6name2, *ej*]*Y*26*6	nodeIndex*4.*6GetElementsByName2 *!i(*j**0"trade"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2@;29		26bool26result	2= 220trueB2ﬁÄforeach 
+		*‹*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule402 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*Ï<{
+			*K*@*9*6bool2		*6result2	*= **0trueB2;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ù<{
-				2‘
-				2»;29	26
-XmlElement26	tradeDate 	2ñ= 2ç2à2!6 2	6XPath24.26Path2ai(2j, 226context2!j, 220"tradeHeader"B2j)220"tradeDate"B2–
-				2ƒ;29	26XmlNodeList26legs	  	2î= 2ã2Ü2"6 2	6XPath24.2	6Paths2^i(2j, 226context2j, 220"fxSwap"B2 j)220"fxSingleLeg"B2ΩÄforeach 
-}2M( 2C)2<29 26
-XmlElement2
-6leg 2Vin 226legs2⁄<{
-					2´
-					2û;29	26
-XmlElement26	valueDate 	2m= 2e2a2!6 2	6XPath24.26Path2:i(2j, 226leg2j)220"valueDate"B2µ
-					2®;29	26
-XmlElement26
-value1Date 	2v= 2n2j2!6 2	6XPath24.26Path2Ci(2j, 226leg2'j)2 20"currency1ValueDate"B2∞
-2®;29	26
-XmlElement26
-value2Date 	2v= 2n2j2!6 2	6XPath24.26Path2Ci(2j, 226leg2'j)2 20"currency2ValueDate"B2≥ûif 
-}27;(20)26	tradeDate 2	4!= 20nullB2ÎC 2„<{
-2Èûif 
-27;(20)26	valueDate 2	4!= 20nullB2¢C 2ö<	{
-							2÷ûif 
-							2¶;(2û)2ñ26Less 2Ñi(2>j, 262226ToDate 2i(2j)226	tradeDate2=j)262226ToDate 2i(2j)226	valueDate2C 2<2ö	continue;2˙
-2Ú;2Í26errorHandler 2–i(2j, 220"305"B2j,
-226leg2Cj,
-									222.0&"value date must be after trade date."B2j, 226name2>j)272326ToToken 2i(2j)226	valueDate25
-}2-;26result 24= 20falseB2ıûif 
-28;(21)26
-value1Date 2	4!= 20nullB2≠C 2•<	{
-							2◊ûif 
-							2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-value1Date2C 2<2ö	continue;2Ñ
-2¸;2Ù26errorHandler 2⁄i(2j, 220"305"B2j,
-									226leg2Cj,
-									222.0&"value1date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-value1Date25
-}2-;26result 24= 20falseB2ˆûif 
-}28;(21)26
-value2Date 2	4!= 20nullB2≠C 2•<	{
-							2◊ûif 
-							2ß;(2ü)2ó26Less 2Öi(2>j, 262226ToDate 2i(2j)226	tradeDate2>j)272326ToDate 2 i(2j)226
-value2Date2C 2<2ö	continue;2Ñ
-2¸;2Ù26errorHandler 2⁄i(2j, 220"305"B2j,
-									226leg2Cj,
-									222.0&"value2date must be after trade date."B2j, 226name2?j)282426ToToken 2 i(2j)226
-value2Date25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+			*ﬁÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ù<{
+				*‘*»*9*6
+XmlElement2	*6	tradeDate2 	*ñ= *ç*à*!6*	6XPath*4.*6Path2 *ai(*j**6context2, *!j**0"tradeHeader"B2, *j**0"tradeDate"B2)2;2
+				*–*ƒ*9*6XmlNodeList2	*6legs2	  	*î= *ã*Ü*"6*	6XPath*4.*	6Paths2 *^i(*j**6context2, *j**0"fxSwap"B2, * j**0"fxSingleLeg"B2)2;2
+				*ΩÄforeach *M(*C*<*9*6
+XmlElement2 *
+6leg2 *Vin **6legs2)2 *⁄<{
+					*´*û*9*6
+XmlElement2	*6	valueDate2 	*m= *e*a*!6*	6XPath*4.*6Path2 *:i(*j**6leg2, *j**0"valueDate"B2)2;2
+					*µ*®*9*6
+XmlElement2	*6
+value1Date2 	*v= *n*j*!6*	6XPath*4.*6Path2 *Ci(*j**6leg2, *'j* *0"currency1ValueDate"B2)2;2
+					*∞*®*9*6
+XmlElement2	*6
+value2Date2 	*v= *n*j*!6*	6XPath*4.*6Path2 *Ci(*j**6leg2, *'j* *0"currency2ValueDate"B2)2;2
+*≥ûif *7;(*0*6	tradeDate2 *	4!=2 *0nullB2)*ÎC *„<{
+*Èûif *7;(*0*6	valueDate2 *	4!=2 *0nullB2)*¢C *ö<	{
+							*÷ûif *¶;(*û*ñ*6Less2 *Ñi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *=j*6*2*6ToDate2 *i(*j**6	valueDate2)2)2)*C *<*ö	continue;2
+							*˙*Ú*Í*6errorHandler2 *–i(*j**0"305"B2, *j**6leg2,
+*Cj*2*.0&"value date must be after trade date."B2,
+									*j**6name2, *>j*7*3*6ToToken2 *i(*j**6	valueDate2)2)2;2
+*5*-*6result2 *4=2 *0falseB2;2
+}2
+*ıûif *8;(*1*6
+value1Date2 *	4!=2 *0nullB2)*≠C *•<	{
+							*◊ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+value1Date2)2)2)*C *<*ö	continue;2
+							*Ñ*¸*Ù*6errorHandler2 *⁄i(*j**0"305"B2, *j**6leg2,
+									*Cj*2*.0&"value1date must be after trade date."B2,
+									*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+value1Date2)2)2;2
+*5*-*6result2 *4=2 *0falseB2;2
+}2
+*ˆûif *8;(*1*6
+value2Date2 *	4!=2 *0nullB2)*≠C *•<	{
+							*◊ûif *ß;(*ü*ó*6Less2 *Öi(*>j*6*2*6ToDate2 *i(*j**6	tradeDate2)2, *>j*7*3*6ToDate2 * i(*j**6
+value2Date2)2)2)*C *<*ö	continue;2
+							*Ñ*¸*Ù*6errorHandler2 *⁄i(*j**0"305"B2, *j**6leg2,
+									*Cj*2*.0&"value2date must be after trade date."B2,
+									*j**6name2, *?j*8*4*6ToToken2 * i(*j**6
+value2Date2)2)2;2
+*5*-*6result2 *4=2 *0falseB2;2
+}2
+}2
+}2
+}2
 
-		2†	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule41 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2≠<{
-			2≥ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2·C
-2Ÿ<2‘«return 2≈;24(
-					  2é
-					26Rule41 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FXBarrier"B2j)226errorHandler24&amp; 2Ü26Rule41 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"FxBarrier"B2j)226errorHandler24)2Î«return 
-		}2÷;24(
-				  2∑26Rule41 2£i(2j, 226name2ij, 2a2]226 26	nodeIndex24.26GetElementsByName2%i(2j)220"fxBarrier"B2j)226errorHandler24)2á	
+		*†	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule412 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*≠<{
+			*≥ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*·C
+*Ÿ<*‘«return *≈*4(2
+					  *é*6Rule412 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FXBarrier"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *Ü*6Rule412 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"FxBarrier"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule41 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2ó<{
-			2J
-			2@;29		26bool26result	2= 220trueB2äÄforeach 
+			*Î«return *÷*4(2
+				  *∑*6Rule412 *£i(*j**6name2, *ij*a*]*26*6	nodeIndex*4.*6GetElementsByName2 *%i(*j**0"fxBarrier"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2†<{
-				2™
-				2û;29	26
-XmlElement26rate	2s= 2k2g2!6 2	6XPath24.26Path2@i(2j, 226context2 j)220"triggerRate"B2Øûif 
+		*á	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule412 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ó<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*äÄforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *†<{
+				*™*û*9*6
+XmlElement2	*6rate2	*s= *k*g*!6*	6XPath*4.*6Path2 *@i(*j**6context2, * j**0"triggerRate"B2)2;2
+				*Øûif *Å;(*z*4(*6rate2 *	4==2 *0nullB*4)2 *	4||2 *1*6
+IsPositive2 *i(*j**6rate2)2)*C *<*ö	continue;2
 
-				2Å;(2z)24(26rate 2	4== 20nullB24) 2	4|| 2126
-IsPositive 2i(2j)226rate2C 2<2ö	continue;2˝
-				2Ò;2È26errorHandler 2œi(2j, 220"305"B2j,
-						226context2=j,
-						2/2+0#"The trigger rate must be positive"B2j, 226name29j)222.26ToToken 2i(2j)226rate25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*˝*Ò*È*6errorHandler2 *œi(*j**0"305"B2, *j**6context2,
+						*=j*/*+0#"The trigger rate must be positive"B2,
+						*j**6name2, *9j*2*.*6ToToken2 *i(*j**6rate2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2æ	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule42 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2À<{
-			2«ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-2Ì<2Ë«return 2Ÿ;24(
-					  2ò
-					26Rule42 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FXAverageRateOption"B2j)226errorHandler24&amp; 2ê26Rule42 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FxAverageRateOption"B2j)226errorHandler24)2ı«return 
-		}2‡;24(
-				  2¡26Rule42 2≠i(2j, 226name2sj, 2k2g226 26	nodeIndex24.26GetElementsByName2/i(2(j)2!20"fxAverageRateOption"B2j)226errorHandler24)2®
+		*æ	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule422 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*À<{
+			*«ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+*Ì<*Ë«return *Ÿ*4(2
+					  *ò*6Rule422 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FXAverageRateOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ê*6Rule422 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule42 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2∏<{
-			2J
-			2@;29		26bool26result	2= 220trueB2´Äforeach 
+			*ı«return *‡*4(2
+				  *¡*6Rule422 *≠i(*j**6name2, *sj*k*g*26*6	nodeIndex*4.*6GetElementsByName2 */i(*(j*!*0"fxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2¡<{
-				2Ê
-				2⁄;29	26XmlNodeList26nodes	2¨= 2£2û2"6 2	6XPath24.2	6Paths2vi(2j, 226context20j, 2(2$0"averageRateObservationDate"B2$j)220"observationDate"B2]
-				2R;29			26int26limit	2+= 2#262	6nodes24.2	6Count2Å
-				2v;29		2626Date 2>[]26dates	2@= 282
-4new 2(626Date 2>[2]2	6limit2Õùfor 
-				2†(
-					2? 28;29 26int26count 2= 2200B 22; 2+;26count 24&lt; 2	6limit2	)224++2	6count2ó<2í2ç;2,6 26dates 2>[2]2	6count24= 2N26ToDate 2;i(24j)2-2)626nodes 2>[2]2	6count2„ùfor 
-				2ø( 2? 28;29 26int26outer 2= 2200B 2V; 2O;26outer 24&lt; 24(26limit 24- 201B 24)2	)224++2	6outer2é<{
-					2Äùfor 
-}2≥( 2W 2P;29 26int26inner 2+= 2#26outer 24+ 201B 22; 2+;26inner 24&lt; 2	6limit2	)224++2	6inner2∫<{
-						2Ùûif 
+		*®*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule422 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*∏<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*´Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *¡<{
+				*Ê*⁄*9*6XmlNodeList2	*6nodes2	*¨= *£*û*"6*	6XPath*4.*	6Paths2 *vi(*j**6context2, *0j*(*$0"averageRateObservationDate"B2, *$j**0"observationDate"B2)2;2
+				*]*R*9*6int2			*6limit2	*+= *#*6*	6nodes*4.*	6Count2;2
+				*Å*v*9*6*6Date2 *>[]2		*6dates2	*@= *8*
+4new2 *(6*6Date2 *>[**	6limit2]2;2
+				*Õùfor *†(*?*8*9*6int2 *6count2 *= **00B 2;2 *2;*+*6count2 *4&lt;2 *	6limit2;2 *	**4++*	6count2)2
+					*ó<*í*ç*,6*6dates2 *>[**	6count2]2 *4=2 *N*6ToDate2 *;i(*4j*-*)6*6nodes2 *>[**	6count2]2)2;2
+				*„ùfor *ø(*?*8*9*6int2 *6outer2 *= **00B 2;2 *V;*O*6outer2 *4&lt;2 *4(*6limit2 *4-2 *01B *4)2;2 *	**4++*	6outer2)2 *é<{
+					*Äùfor *≥(*W*P*9*6int2 *6inner2 *+= *#*6outer2 *4+2 *01B 2;2 *2;*+*6inner2 *4&lt;2 *	6limit2;2 *	**4++*	6inner2)2 *∫<{
+						*Ùûif *î;(*å*Ñ*6Equal2 *ri(*5j*-*)6*6dates2 *>[**	6outer2]2, *4j*-*)6*6dates2 *>[**	6inner2]2)2)*»C
+							*π<*¥*Ø*ß*6errorHandler2 *çi(*j**0"305"B2, *>j*-*)6*6nodes2 *>[**	6inner2]2,
+									*9j*(*$0"Duplicate observation date"B2,
+									*j**6name2, *Zj*S*O*6ToToken2 *;i(*4j*-*)6*6nodes2 *>[**	6inner2]2)2)2;2
 
-						2î;(2å)2Ñ26Equal 2ri(25j, 2-2)626dates 2>[2]2	6outer24j)2-2)626dates 2>[2]2	6inner2»C
-							2π<2¥2Ø;2ß26errorHandler 2çi(2j, 220"305"B2>j,
-									2-2)626nodes 2>[2]2	6inner29j,
-									2(2$0"Duplicate observation date"B2j, 226name2Zj)2S2O26ToToken 2;i(24j)2-2)626nodes 2>[2]2	6inner25
-}2-;26result 24= 20falseB23
-}2+;26dates 24= 20nullB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+						*5*-*6result2 *4=2 *0falseB2;2
+}2
+}2
+				*3*+*6dates2 *4=2 *0nullB2;2
+}2
 
-		2æ	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule43 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2À<{
-			2«ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-2Ì<2Ë«return 2Ÿ;24(
-					  2ò
-					26Rule43 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FXAverageRateOption"B2j)226errorHandler24&amp; 2ê26Rule43 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FxAverageRateOption"B2j)226errorHandler24)2ı«return 
-		}2‡;24(
-				  2¡26Rule43 2≠i(2j, 226name2sj, 2k2g226 26	nodeIndex24.26GetElementsByName2/i(2(j)2!20"fxAverageRateOption"B2j)226errorHandler24)2“
+		*æ	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule432 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*À<{
+			*«ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+*Ì<*Ë«return *Ÿ*4(2
+					  *ò*6Rule432 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FXAverageRateOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ê*6Rule432 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule43 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2‚	<{
-			2J
-			2@;29		26bool26result	2= 220trueB2’Äforeach 
+			*ı«return *‡*4(2
+				  *¡*6Rule432 *≠i(*j**6name2, *sj*k*g*26*6	nodeIndex*4.*6GetElementsByName2 */i(*(j*!*0"fxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Î<{
-				2”
-				2«;29	26
-XmlElement26ccy1	2õ= 2í2ç2!6 2	6XPath24.26Path2fi(2j, 226context2'j, 220"putCurrencyAmount"B2j)220
-"currency"B2‘
-				2»;29	26
-XmlElement26ccy2	2ú= 2ì2é2!6 2	6XPath24.26Path2gi(2j, 226context2(j, 2 20"callCurrencyAmount"B2j)220
-"currency"B2ìûif 
+		*“*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule432 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*‚	<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*’Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Î<{
+				*”*«*9*6
+XmlElement2	*6ccy12	*õ= *í*ç*!6*	6XPath*4.*6Path2 *fi(*j**6context2, *'j**0"putCurrencyAmount"B2, *j**0
+"currency"B2)2;2
+				*‘*»*9*6
+XmlElement2	*6ccy22	*ú= *ì*é*!6*	6XPath*4.*6Path2 *gi(*j**6context2, *(j* *0"callCurrencyAmount"B2, *j**0
+"currency"B2)2;2
+				*ìûif *Â;(*›*4(*6ccy12 *	4==2 *0nullB*4)2 *	4||2 *4(*6ccy22 *	4==2 *0nullB*4)2 *	4||2 *4!*K*6IsSameCurrency2 *0i(*j**6ccy12, *j**6ccy22)2)*C *<*ö	continue;2
 
-				2Â;(2›)24(26ccy1 2	4== 20nullB24) 2	4|| 24(26ccy2 2	4== 20nullB24) 2	4|| 24!2K26IsSameCurrency 20i(2j, 226ccy12j)226ccy22C 2<2ö	continue;2‰
-				2ÿ;2–26errorHandler 2∂i(2j, 220"305"B2j,
-						226context2Fj,
-						28240,"Put and call currencies must be different."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*‰*ÿ*–*6errorHandler2 *∂i(*j**0"305"B2, *j**6context2,
+						*Fj*8*40,"Put and call currencies must be different."B2,
+						*j**6name2, *j**0nullB2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2æ	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule44 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2À<{
-			2«ûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ıC
-2Ì<2Ë«return 2Ÿ;24(
-					  2ò
-					26Rule44 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FXAverageRateOption"B2j)226errorHandler24&amp; 2ê26Rule44 2¸i(2j, 226name2¡j, 2∏2≥226 26	nodeIndex24.26GetElementsByType2{i(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2(j)2!20"FxAverageRateOption"B2j)226errorHandler24)2ı«return 
-		}2‡;24(
-				  2¡26Rule44 2≠i(2j, 226name2sj, 2k2g226 26	nodeIndex24.26GetElementsByName2/i(2(j)2!20"fxAverageRateOption"B2j)226errorHandler24)2™
+		*æ	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule442 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*À<{
+			*«ûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ıC
+*Ì<*Ë«return *Ÿ*4(2
+					  *ò*6Rule442 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FXAverageRateOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *ê*6Rule442 *¸i(*j**6name2, *¡j*∏*≥*26*6	nodeIndex*4.*6GetElementsByType2 *{i(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *(j*!*0"FxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule44 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2∫<{
-			2J
-			2@;29		26bool26result	2= 220trueB2≠Äforeach 
+			*ı«return *‡*4(2
+				  *¡*6Rule442 *≠i(*j**6name2, *sj*k*g*26*6	nodeIndex*4.*6GetElementsByName2 */i(*(j*!*0"fxAverageRateOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2√<{
-				2¥
-				2®;29	26
-XmlElement26buyer	 2{= 2s2o2!6 2	6XPath24.26Path2Hi(2j, 226context2(j)2!20"buyerPartyReference"B2∂
-				2™;29	26
-XmlElement26seller	 2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"sellerPartyReference"B2ﬁ
-				2“;29	26
-XmlElement26payer	 2§= 2õ2ñ2!6 2	6XPath24.26Path2oi(2j, 226context2%j, 220"fxOptionPremium"B2(j)2!20"payerPartyReference"B2„
-				2◊;29	26
-XmlElement26receiver 2ß= 2û2ô2!6 2	6XPath24.26Path2ri(2j, 226context2%j, 220"fxOptionPremium"B2+j)2$2 0"receiverPartyReference"B2¡ûif 
-				2î;(2å)24(26buyer 2	4== 20nullB24) 2	4|| 24(26seller 2	4== 20nullB24) 24||
-					24(26payer 2	4== 20nullB24) 2	4|| 24(26receiver 2	4== 20nullB24)2C 2<2ö	continue;2Çûif 
+		*™*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule442 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*∫<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*≠Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *√<{
+				*¥*®*9*6
+XmlElement2	*6buyer2	 *{= *s*o*!6*	6XPath*4.*6Path2 *Hi(*j**6context2, *(j*!*0"buyerPartyReference"B2)2;2
+				*∂*™*9*6
+XmlElement2	*6seller2	 *|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"sellerPartyReference"B2)2;2
+				*ﬁ*“*9*6
+XmlElement2	*6payer2	 *§= *õ*ñ*!6*	6XPath*4.*6Path2 *oi(*j**6context2, *%j**0"fxOptionPremium"B2, *(j*!*0"payerPartyReference"B2)2;2
+				*„*◊*9*6
+XmlElement2	*6receiver2 *ß= *û*ô*!6*	6XPath*4.*6Path2 *ri(*j**6context2, *%j**0"fxOptionPremium"B2, *+j*$* 0"receiverPartyReference"B2)2;2
+				*¡ûif *î;(*å*4(*6buyer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6seller2 *	4==2 *0nullB*4)2 *4||2
+					*4(*6payer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6receiver2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
+				*Çûif *‘;(*Ã*‘*6Equal2 *æi(*[j*S*O*)6*	6buyer*4.*6GetAttribute2 * i(*j**0"href"B2)2, *Zj*S*O*)6*	6payer*4.*6GetAttribute2 * i(*j**0"href"B2)2)2 *4
+&amp;&amp;2
+					*’*6Equal2 *¬i(*\j*T*P**6*
+6seller*4.*6GetAttribute2 * i(*j**0"href"B2)2, *]j*V*R*,6*6receiver*4.*6GetAttribute2 * i(*j**0"href"B2)2)2)*C *<*ö	continue;2
 
-				2‘;(2Ã)2‘ 26Equal 2æi(2[j, 2S2O2)6 2	6buyer24.26GetAttribute2 i(2j)220"href"B2Zj)2S2O2)6 2	6payer24.26GetAttribute2 i(2j)220"href"B24
-&amp;&amp;
-					2’26Equal 2¬i(2\j, 2T2P2*6 2
-6seller24.26GetAttribute2 i(2j)220"href"B2]j)2V2R2,6 26receiver24.26GetAttribute2 i(2j)220"href"B2C 2<2ö	continue;2ˇ
+				*ˇ*Ú*Í*6errorHandler2 *–i(*j**0"305"B2, *j**6context2,
+						*`j*R*N0F"Premium payer and receiver don't match with option buyer and seller."B2,
+						*j**6name2, *j**0nullB2)2;2
 
-				2Ú;2Í26errorHandler 2–i(2j, 220"305"B2j,
-						226context2`j,
-						2R2N0F"Premium payer and receiver don't match with option buyer and seller."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-		2≤	
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule45 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2ø<{
-			2øûif 
+		*QG// --------------------------------------------------------------------2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ÌC
-2Â<2‡«return 2—;24(
-					  2î
-					26Rule45 2¯i(2j, 226name2Ωj, 2¥2Ø226 26	nodeIndex24.26GetElementsByType2wi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2$j)220"FXDigitalOption"B2j)226errorHandler24&amp; 2å26Rule45 2¯i(2j, 226name2Ωj, 2¥2Ø226 26	nodeIndex24.26GetElementsByType2wi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2$j)220"FxDigitalOption"B2j)226errorHandler24)2Ò«return 
-		}2‹;24(
-				  2Ω26Rule45 2©i(2j, 226name2oj, 2g2c226 26	nodeIndex24.26GetElementsByName2+i(2$j)220"fxDigitalOption"B2j)226errorHandler24)2ù
+		*≤	*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule452 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*ø<{
+			*øûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ÌC
+*Â<*‡«return *—*4(2
+					  *î*6Rule452 *¯i(*j**6name2, *Ωj*¥*Ø*26*6	nodeIndex*4.*6GetElementsByType2 *wi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *$j**0"FXDigitalOption"B2)2, *j**6errorHandler2)2
+					*4&amp;2 *å*6Rule452 *¯i(*j**6name2, *Ωj*¥*Ø*26*6	nodeIndex*4.*6GetElementsByType2 *wi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *$j**0"FxDigitalOption"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule45 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2≠<{
-			2J
-			2@;29		26bool26result	2= 220trueB2†Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2∑<{
-				2¥
-				2®;29	26
-XmlElement26buyer	 2{= 2s2o2!6 2	6XPath24.26Path2Hi(2j, 226context2(j)2!20"buyerPartyReference"B2∂
-				2™;29	26
-XmlElement26seller	 2|= 2t2p2!6 2	6XPath24.26Path2Ii(2j, 226context2)j)2"20"sellerPartyReference"B2ﬁ
-				2“;29	26
-XmlElement26payer	 2§= 2õ2ñ2!6 2	6XPath24.26Path2oi(2j, 226context2%j, 220"fxOptionPremium"B2(j)2!20"payerPartyReference"B2„
-				2◊;29	26
-XmlElement26receiver 2ß= 2û2ô2!6 2	6XPath24.26Path2ri(2j, 226context2%j, 220"fxOptionPremium"B2+j)2$2 0"receiverPartyReference"B2¡ûif 
-				2î;(2å)24(26buyer 2	4== 20nullB24) 2	4|| 24(26seller 2	4== 20nullB24) 24||
-					24(26payer 2	4== 20nullB24) 2	4|| 24(26receiver 2	4== 20nullB24)2C 2<2ö	continue;2ˆûif 
+			*Ò«return *‹*4(2
+				  *Ω*6Rule452 *©i(*j**6name2, *oj*g*c*26*6	nodeIndex*4.*6GetElementsByName2 *+i(*$j**0"fxDigitalOption"B2)2, *j**6errorHandler2)*4)2;2
+		}2
 
-				2»;(2¿)2Œ 26Equal 2∏i(2Xj, 2P2L2&62	6buyer24.26GetAttribute2 i(2j)220"href"B2Wj)2P2L2&62	6payer24.26GetAttribute2 i(2j)220"href"B24
-&amp;&amp;
-					2œ26Equal 2ºi(2Yj, 2Q2M2'62
-6seller24.26GetAttribute2 i(2j)220"href"B2Zj)2S2O2)626receiver24.26GetAttribute2 i(2j)220"href"B2C 2<2ö	continue;2ˇ
+		*ù*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule452 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*≠<{
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*†Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *∑<{
+				*¥*®*9*6
+XmlElement2	*6buyer2	 *{= *s*o*!6*	6XPath*4.*6Path2 *Hi(*j**6context2, *(j*!*0"buyerPartyReference"B2)2;2
+				*∂*™*9*6
+XmlElement2	*6seller2	 *|= *t*p*!6*	6XPath*4.*6Path2 *Ii(*j**6context2, *)j*"*0"sellerPartyReference"B2)2;2
+				*ﬁ*“*9*6
+XmlElement2	*6payer2	 *§= *õ*ñ*!6*	6XPath*4.*6Path2 *oi(*j**6context2, *%j**0"fxOptionPremium"B2, *(j*!*0"payerPartyReference"B2)2;2
+				*„*◊*9*6
+XmlElement2	*6receiver2 *ß= *û*ô*!6*	6XPath*4.*6Path2 *ri(*j**6context2, *%j**0"fxOptionPremium"B2, *+j*$* 0"receiverPartyReference"B2)2;2
+				*¡ûif *î;(*å*4(*6buyer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6seller2 *	4==2 *0nullB*4)2 *4||2
+					*4(*6payer2 *	4==2 *0nullB*4)2 *	4||2 *4(*6receiver2 *	4==2 *0nullB*4)2)*C *<*ö	continue;2
+				*ˆûif *»;(*¿*Œ*6Equal2 *∏i(*Xj*P*L*&6*	6buyer*4.*6GetAttribute* i(*j**0"href"B2)2, *Wj*P*L*&6*	6payer*4.*6GetAttribute* i(*j**0"href"B2)2)2 *4
+&amp;&amp;2
+					*œ*6Equal2 *ºi(*Yj*Q*M*'6*
+6seller*4.*6GetAttribute* i(*j**0"href"B2)2, *Zj*S*O*)6*6receiver*4.*6GetAttribute* i(*j**0"href"B2)2)2)*C *<*ö	continue;2
 
-				2Ú;2Í26errorHandler 2–i(2j, 220"305"B2j,
-						226context2`j,
-						2R2N0F"Premium payer and receiver don't match with option buyer and seller."B2j, 226name2j)220nullB25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*ˇ*Ú*Í*6errorHandler2 *–i(*j**0"305"B2, *j**6context2,
+						*`j*R*N0F"Premium payer and receiver don't match with option buyer and seller."B2,
+						*j**6name2, *j**0nullB2)2;2
 
-		2˚
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule46 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2à<{
-			2çûif 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ºC
-				2∞<2´«return 2ú;24(2Ü26Rule46 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"SideRates"B2j)226errorHandler24)2Ï«return 
-		}2◊;24(
-					  2∑26Rule46 2£i(2j, 226name2ij, 2a2]226 26	nodeIndex24.26GetElementsByName2%i(2j)220"sideRates"B2j)226errorHandler24)2ë
+		*QG// --------------------------------------------------------------------2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule46 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2°
+		*˚*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule462 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*à<{
+			*çûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ºC
+				*∞<*´«return *ú*4(*Ü*6Rule462 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"SideRates"B2)2, *j**6errorHandler2)*4)2;2
+			*Ï«return *◊*4(2
+					  *∑*6Rule462 *£i(*j**6name2, *ij*a*]*26*6	nodeIndex*4.*6GetElementsByName2 *%i(*j**0"sideRates"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+
+		*ë*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule462 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*°
 <{
-			2J
-			2@;29		26bool26result	2= 220trueB2î	Äforeach 
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*î	Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *™<{
+				*Ÿ*Õ*9*6
+XmlElement2	*6basis2	*†= *ó*í*!6*	6XPath*4.*6Path2 *ki(*j**6context2, *'j**0"currency1SideRate"B2, *"j**0"sideRateBasis"B2)2;2
+				*ﬁûif *∞;(*®*4(*6basis2 *	4==2 *0nullB*4)2 *4||2
+					*/*6ToToken2 *i(*j**	6basis2)*4.**6ToUpper2 *i()*4.*J*6Equals2 *4i(*-j*&*"0"CURRENCY1PERBASECURRENCY"B2)2 *4||2
+					*/*6ToToken2 *i(*j**	6basis2)*4.**6ToUpper2 *i()*4.*G*6Equals2 *4i(*-j*&*"0"BASECURRENCYPERCURRENCY1"B2)2)*C *<*ö	continue;2
 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2™<{
-				2Ÿ
-				2Õ;29	26
-XmlElement26basis	2†= 2ó2í2!6 2	6XPath24.26Path2ki(2j, 226context2'j, 220"currency1SideRate"B2"j)220"sideRateBasis"B2ﬁûif 
+				*©*ù*ï*6errorHandler2 *˚i(*j**0"305"B2, *j**6context2,
+						*hj*Z*V0N"Side rate basis for currency1 should not be expressed in terms of currency2."B2,
+						*j**6name2, *:j*3*/*6ToToken2 *i(*j**	6basis2)2)2;2
+				*5*-*6result2 *4=2 *0falseB2;2
+}2
 
-				2∞;(2®)24(26basis 2	4== 20nullB24) 24||
-					2/26ToToken 2i(2j)22	6basis24.226ToUpper 2i()24.2J 26Equals 24i(2-j)2&2"0"CURRENCY1PERBASECURRENCY"B24||
-					2/26ToToken 2i(2j)22	6basis24.226ToUpper 2i()24.2G26Equals 24i(2-j)2&2"0"BASECURRENCYPERCURRENCY1"B2C 2<2ö	continue;2©
-				2ù;2ï26errorHandler 2˚i(2j, 220"305"B2j,
-						226context2hj,
-						2Z2V0N"Side rate basis for currency1 should not be expressed in terms of currency2."B2j, 226name2:j)232/26ToToken 2i(2j)22	6basis25
-}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2PG// --------------------------------------------------------------------
-		2˚
-		2ÿprivate 2ÿstatic 29 26bool26Rule47 2§e(
-		2'f, 229 2
-6string26name2/f, 2'29 26	NodeIndex26	nodeIndex2>f)272!9 26ValidationErrorHandler26errorHandler2â<{
-			2éûif 
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-			2>;(27)20626	nodeIndex24.26HasTypeInformation2ºC
-				2∞<2´«return 2ú;24(2Ü26Rule47 2Úi(2j, 226name2∑j, 2Æ2©226 26	nodeIndex24.26GetElementsByType2qi(2Jj, 2B2>26DetermineNamespace 2i(2j)226	nodeIndex2j)220"SideRates"B2j)226errorHandler24)2Ï«return 
-		}2◊;24(
-					  2∑26Rule47 2£i(2j, 226name2ij, 2a2]226 26	nodeIndex24.26GetElementsByName2%i(2j)220"sideRates"B2j)226errorHandler24)2ï
+		*PG// --------------------------------------------------------------------2
+		*˚*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule472 *§e(*'f**9*
+6string2 *6name2, */f*'*9*6	NodeIndex2 *6	nodeIndex2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*â<{
+			*éûif *>;(*7*06*6	nodeIndex*4.*6HasTypeInformation2)*ºC
+				*∞<*´«return *ú*4(*Ü*6Rule472 *Úi(*j**6name2, *∑j*Æ*©*26*6	nodeIndex*4.*6GetElementsByType2 *qi(*Jj*B*>*6DetermineNamespace2 *i(*j**6	nodeIndex2)2, *j**0"SideRates"B2)2, *j**6errorHandler2)*4)2;2
 
-		2ÿprivate 2ÿstatic 29 26bool26Rule47 2°e(
-		2'f, 229 2
-6string26name2,f, 2$29 26XmlNodeList26list2>f)272!9 26ValidationErrorHandler26errorHandler2•
+			*Ï«return *◊*4(2
+					  *∑*6Rule472 *£i(*j**6name2, *ij*a*]*26*6	nodeIndex*4.*6GetElementsByName2 *%i(*j**0"sideRates"B2)2, *j**6errorHandler2)*4)2;2
+		}2
+		*ï*ÿprivate2 *ÿstatic2 *9*6bool2 *6Rule472 *°e(*'f**9*
+6string2 *6name2, *,f*$*9*6XmlNodeList2 *6list2, *>f*7*!9*6ValidationErrorHandler2 *6errorHandler2)2
+		*•
 <{
-			2J
-			2@;29		26bool26result	2= 220trueB2ò	Äforeach 
-			2Q( 2G)2@29 26
-XmlElement26context 2Vin 226list2Ø<{
-				2⁄
+			*J*@*9*6bool2		*6result2	*= **0trueB2;2
+			*ò	Äforeach *Q(*G*@*9*6
+XmlElement2 *6context2 *Vin **6list2)2 *Ø<{
+				*⁄*Õ*9*6
+XmlElement2	*6basis2	*†= *ó*í*!6*	6XPath*4.*6Path2 *ki(*j**6context2, *'j**0"currency2SideRate"B2, *"j**0"sideRateBasis"B2)2;2
 
-				2Õ;29	26
-XmlElement26basis	2†= 2ó2í2!6 2	6XPath24.26Path2ki(2j, 226context2'j, 220"currency2SideRate"B2"j)220"sideRateBasis"B2ﬁûif 
+				*ﬁûif *∞;(*®*4(*6basis2 *	4==2 *0nullB*4)2 *4||2
+					*/*6ToToken2 *i(*j**	6basis2)*4.**6ToUpper2 *i()*4.*J*6Equals2 *4i(*-j*&*"0"CURRENCY2PERBASECURRENCY"B2)2 *4||2
+					*/*6ToToken2 *i(*j**	6basis2)*4.**6ToUpper2 *i()*4.*G*6Equals2 *4i(*-j*&*"0"BASECURRENCYPERCURRENCY2"B2)2)*C *<*ö	continue;2
 
-				2∞;(2®)24(26basis 2	4== 20nullB24) 24||
-					2/26ToToken 2i(2j)22	6basis24.226ToUpper 2i()24.2J 26Equals 24i(2-j)2&2"0"CURRENCY2PERBASECURRENCY"B24||
-					2/26ToToken 2i(2j)22	6basis24.226ToUpper 2i()24.2G26Equals 24i(2-j)2&2"0"BASECURRENCYPERCURRENCY2"B2C 2<2ö	continue;2™
+				*™*ù*ï*6errorHandler2 *˚i(*j**0"305"B2, *j**6context2,
+						*hj*Z*V0N"Side rate basis for currency2 should not be expressed in terms of currency1."B2,
+						*j**6name2, *:j*3*/*6ToToken2 *i(*j**	6basis2)2)2;2
 
-				2ù;2ï26errorHandler 2˚i(2j, 220"305"B2j,
-						226context2hj,
-						2Z2V0N"Side rate basis for currency2 should not be expressed in terms of currency1."B2j, 226name2:j)232/26ToToken 2i(2j)22	6basis28
-			}2-;26result 24= 20falseB23«return 
-		}2;24(2
-6result24)2QG// --------------------------------------------------------------------
+				*8*-*6result2 *4=2 *0falseB2;2
+			}2
+			*3«return **4(*
+6result*4)2;2
+		}2
 
-		2/// &lt;summary&gt;
-		2TK/// Generates a set of dates according to schedule defined by a start date,
-		2F=/// an end date, an interval, roll convention and a calendar.
-		2/// &lt;/summary&gt;
-		2D;/// &lt;param name="start"&gt;The start date.&lt;/param&gt;
-		2@7/// &lt;param name="end"&gt;The end date.&lt;/param&gt;
-		2aX/// &lt;param name="frequency"&gt;The frequency of the schedule (e.g. 6M).&lt;/param&gt;
-		2h_/// &lt;param name="roll"&gt;The date roll convention or &lt;c&gt;null&lt;/c&gt;.&lt;/param&gt;
-		2h_/// &lt;param name="calendar"&gt;The holiday calendar or &lt;c&gt;null&lt;/c&gt;.&lt;/param&gt;
-		2VM/// &lt;returns&gt;An array of calculated and adjusted dates.&lt;/returns&gt;
-		2æ
-}
-}
-2ÿprivate 2ÿstatic 29 2626Date 2>[]26GenerateSchedule 2‰e(
-		2&f, 229 26Date2	6start2'f,
-			229 26Date26end2.f, 2&29 26Interval26	frequency2)f, 2!29 26DateRoll26roll2,f)2%29 26Calendar26calendar2Ò<{
-			2H
-			2>;29		26Date26current 2= 22	6start2i
-			2_;29	26	ArrayList26found	24= 2,2
-4new 226	ArrayList 2i()2;
-			21;29		2626Date 2>[]2	6dates2ç	õwhile 
+		*QG// --------------------------------------------------------------------2
 
-			2T;( 2J)2C26Less 22i(2j, 226current2j)226end2¢<{
-				21
+		*/// &lt;summary&gt;2
+		*TK/// Generates a set of dates according to schedule defined by a start date,2
+		*F=/// an end date, an interval, roll convention and a calendar.2
+		*/// &lt;/summary&gt;2
+		*D;/// &lt;param name="start"&gt;The start date.&lt;/param&gt;2
+		*@7/// &lt;param name="end"&gt;The end date.&lt;/param&gt;2
+		*aX/// &lt;param name="frequency"&gt;The frequency of the schedule (e.g. 6M).&lt;/param&gt;2
+		*h_/// &lt;param name="roll"&gt;The date roll convention or &lt;c&gt;null&lt;/c&gt;.&lt;/param&gt;2
+		*h_/// &lt;param name="calendar"&gt;The holiday calendar or &lt;c&gt;null&lt;/c&gt;.&lt;/param&gt;2
+		*VM/// &lt;returns&gt;An array of calculated and adjusted dates.&lt;/returns&gt;2
+		*æ*ÿprivate2 *ÿstatic2 *9*6*6Date2 *>[]2 *6GenerateSchedule2 *‰e(*&f**9*6Date2 *	6start2, *'f**9*6Date2 *6end2,
+			*.f*&*9*6Interval2 *6	frequency2, *)f*!*9*6DateRoll2 *6roll2, *,f*%*9*6Calendar2 *6calendar2)2
+		*Ò<{
+			*H*>*9*6Date2		*6current2 *= **	6start2;2
+			*i*_*9*6	ArrayList2	*6found2	*4= *,*
+4new2 **6	ArrayList2 *i()2;2
+			*;*1*9*6*6Date2 *>[]2		*	6dates2;2
+			*ç	õwhile *T;(*J*C*6Less2 *2i(*j**6current2, *j**6end2)2)2 *¢<{
+				*1*%*9*6Date2		*6adjusted2;2
 
-				2%;29		26Date26adjusted2≠ûif 
-
-				22;(2+)26roll 2	4!= 20nullB2üC
-					
-				2ã<2Ü2Å;26adjusted 24= 2_2"6 26roll24.2
-6Adjust27i(2j, 226calendar2j)226current2ED
+				*≠ûif *2;(*+*6roll2 *	4!=2 *0nullB2)*üC
+					*ã<*Ü*Å*6adjusted2 *4=2 *_*"6*6roll*4.*
+6Adjust2 *7i(*j**6calendar2, *j**6current2)2;2
+				*ED
 else
-					25<212-;26adjusted 24= 26current2—ûif 
+					*5<*1*-*6adjusted2 *4=2 *6current2;2
 
-				2^;(2W)24!2I2%6 2	6found24.26Contains2i(2j)226adjusted2_C
-					2S<2O2K;2D2 6 2	6found24.26Add2i(2j)226adjusted2ﬁûif 
-}2a;(2Z)2'6 26	frequency24.2
-6Period2	4== 262
-6Period24.26TERM2ËC 
-2›<{
-					2œûif 
-				}2T;(2M)2F26Equal 24i(2j, 226current2j)22	6start2EC
-						
-					20<2,2(;26current 24= 26end2 Delse
-						2<2ôbreak;2ÅD
+				*—ûif *^;(*W*4!*I*%6*	6found*4.*6Contains2 *i(*j**6adjusted2)2)*_C
+					*S<*O*K*D* 6*	6found*4.*6Add2 *i(*j**6adjusted2)2;2
+
+				*ﬁûif *a;(*Z*'6*6	frequency*4.*
+6Period2 *	4==2 *6*
+6Period*4.*6TERM2)*ËC *›<{
+					*œûif *T;(*M*F*6Equal2 *4i(*j**6current2, *j**	6start2)2)*EC
+						*0<*,*(*6current2 *4=2 *6end2;2
+					* Delse
+						*<*ôbreak;2
+				}2
+*ÅD
 else
-					2q<2m2i;26current 24= 2H2#6 26current24.26Plus2i(2j)226	frequency2±
-			2¶;2û2#6 2	6found24.2
-6CopyTo2ui(2nj)2g26dates  24= 2
-4new 2>626Date 2->[2&]262	6found24.2	6Count20«return 
-}2;24(2	6dates24):
+					*q<*m*i*6current2 *4=2 *H*#6*6current*4.*6Plus2 *i(*j**6	frequency2)2;2
+}2
+
+			*±*¶*û*#6*	6found*4.*
+6CopyTo2 *ui(*nj*g*6dates2  *4=2 *
+4new2 *>6*6Date2 *->[*&*6*	6found*4.*	6Count2]2)2;2
+			*0«return **4(*	6dates*4)2;2
+}2
+}
+}
+:
 test.cs0.9.5

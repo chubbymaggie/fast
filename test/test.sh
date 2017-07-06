@@ -62,9 +62,9 @@ EOF
 	$fast Hello.java Hello.xml
 	catout 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 Hello.xml
 	$fast Hello.java Hello.pb
-	stdout 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 -d Hello.pb
+	stdout 0387dd8f54f50267631b0015063167af6a868c37b6df0418b0f4892a432680e5 -d Hello.pb
 	$fast -d Hello.pb Hello.txt
-	catout 9be4068a6d3b0bf5d583a95373dd07dd91021d810f02438508db60d7bbc273d6 Hello.txt
+	catout 0387dd8f54f50267631b0015063167af6a868c37b6df0418b0f4892a432680e5 Hello.txt
 }
 testCC() 
 {
@@ -86,8 +86,8 @@ EOF
 	$fast -p example.cc example.position.fbs
 	stdout c287b1162d8b3d9e44dac808ec4edaf9dbd49282e0d0853db3f08a54ec5e3aea example.position.fbs
 	$fast -p example.cc example.position.pb
-	stdout 8a506738ebb0692f64e6dbaf620e77c52f6e7d6d6e382684869c56ac5f0d5077 -d example.position.pb
-	stdout 734a67198a2d244f056a4d6a47495972523b94ab184e1f54feece64ca9627da2 -d example.pb
+	stdout f842072fb7c568b666cfa819b2b9c2ec07211a6aaa330acb72603fc6b79ce219 -d example.position.pb
+	stdout e940d42df9aaad360aca11b38562b1fd96679c3d3b8043be64610e7f0f7401a3 -d example.pb
 	$fast example.pb example.txt
 	catout 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.txt
 }
@@ -159,7 +159,7 @@ EOF
 	$fast DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.xml
 	catout a18f85af50492da9942a5e68de2e9aca4764889c61a80f6d6a48d7f4d56272a5 DuplicateVirtualMethods.smali.pb.xml
 	$fast_smali DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
-	catout 265ac95a4ba86df779f144f512c33c29fb80bd4135ed04e374fdc50c5a8b4bc4 DuplicateVirtualMethods.smali.pb.txt
+	catout 7029ee2907d8e04239ff6436ccbbb8e8aebcc8c90c318caea32e8091438b5ce0 DuplicateVirtualMethods.smali.pb.txt
 }
 
 testCS() {
@@ -1712,7 +1712,7 @@ else
 EOF
 	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.cs
 	$fast test.cs test.pb
-	stdout eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d -d test.pb
+	stdout f7d275b1a2edf7a3d8e2aab81e99241a783dfd088ea6c8cdadca35ffa35b6095 -d test.pb
 }
 
 ### rather lengthy test :-) 
@@ -1726,7 +1726,7 @@ testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
 	$process a.csv a.pb
-	stdout 19c54e630c3b481b9e7a68da8406b3a2140a01ca548ee0a7aa394d0c8a82d6e6 -d a.pb
+	stdout 766eddf0bd59b48fd84c1ac772102f038d306495880c890662af239f0af33336 -d a.pb
 }
 
 testFastSlice() {
@@ -1769,7 +1769,7 @@ testLoadPB() {
 	$fast test.pb test.pb.cs
 	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.pb.cs
 	$fast -d test.pb test.txt
-	catout eb8b6497ec60af51a86dfba8d867cfcc75395bde0b245d2d00c2f9fba9ba747d test.txt
+	catout f7d275b1a2edf7a3d8e2aab81e99241a783dfd088ea6c8cdadca35ffa35b6095 test.txt
 	$fast -e test.txt test.pb
 	$fast -e test.txt > test.pb
 	$fast . all.xml
