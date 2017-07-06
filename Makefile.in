@@ -27,7 +27,7 @@ ANTLR4_INCLUDE=-I/usr/local/include
 else
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
-ANTLR4_INCLUDE=-I/usr/local/Cellar/antlr4-cpp-runtime/4.7/include
+ANTLR4_INCLUDE=-I/usr/local/Cellar/antlr4-cpp-runtime/4.7/include/antlr4-runtime
 endif
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
