@@ -20,14 +20,22 @@ flatc=/usr/local/bin/flatc
 OPT=-O3
 OPT=-g
 OPT=-g -O0 -coverage
+ifeq ($(UNAME_S),Linux)
+ANTLR4=antlr4
+ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
+ANTLR4_INCLUDE=-I/usr/local/include
+else
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
+ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
+ANTLR4_INCLUDE=-I/usr/local/Cellar/antlr4-cpp-runtime/4.7/include
+endif
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 PB_LIB=-L/usr/local/lib -lprotobuf
-ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
 
-CFLAGS+=-Isrc -I/usr/local/include -Ismali/src/antlr4/smali -I/usr/local/include/antlr4-runtime -std=c++11
+CFLAGS+=-Isrc -I/usr/local/include $(ANTLR4_INCLUDE) -Ismali/src/antlr4/smali -I/usr/local/include/antlr4-runtime -std=c++11
+LDFLAGS+=$(ANTLR4_LIB)
 
 all: $(target)
 
@@ -38,7 +46,7 @@ all: $(target)
 	c++ $(OPT) $^ $(PB_LIB) -o $@
 
 ./fast-smali: smaliLexer.o smaliParser.o smaliListener.o smaliBaseListener.o smali.o fast.pb.o
-	c++ $(OPT) $(CFLAGS) -o $@ $^ $(ANTLR4_LIB) $(PB_LIB)
+	c++ $(OPT) $(CFLAGS) -o $@ $^  $(LDFLAGS) $(PB_LIB)
 
 fast.pb.o: src/fast.pb.cc 
 	c++ $(OPT) $(CFLAGS) -c $^
