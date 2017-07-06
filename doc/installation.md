@@ -2,7 +2,7 @@
 ```
 	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	$ brew tap yijunyu/fast
-	$ brew install srcml antlr antlr4-cpp-runtime libxml2 lcov
+	$ brew install srcml antlr antlr4-cpp-runtime libxml2 lcov protobuf flatbuffers
 	$ brew install --ignore-dependencies fast
 ```
 The 1st line is optional, it will install Homebrew if you hadn't got it. The 2nd line update the brew repository to include our tools.
@@ -21,6 +21,11 @@ You can fix this problem by the following workaround using `install_name_tool`:
 sudo install_name_tool -change @@HOMEBREW_PREFIX@@/opt/LibArchive/lib/libarchive.13.dylib /usr/local/Cellar/libarchive/3.3.1/lib/libarchive.13.dylib /usr/local/bin/srcml
 ```
 
+#### Caveat, reported and fixed by Chunmiao Li
+If you have previously installed srcml using brew, and got an error "srcml not found", you may need to run the following to fix it:
+```
+	$ brew unlink srcml && brew link --overwrite srcml
+```
 ### Ubuntu Linux using Debian packages:
 ```
 	$ sudo apt-get install apt-transport-https
