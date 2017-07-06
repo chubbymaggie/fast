@@ -46,6 +46,12 @@ used one of the following related tools:
 
 ### Version History
 
+*0.0.3* (July 6, 2017)
+
+* Added support to Antlr4 (which unfortunately caused a conflict in the older dependencies of antlr@2 (required by srcml). There is a workaround (see an update to the installation guide.)
+* Modified the code schema to place "tail" information after "child", so that it is easier to remove the shift-reduce error in the application of BiYacc
+* Generalised the schema to support other type of information for automated software engineering, such as slicing and diff-patch
+
 *0.0.2* (June 21, 2017)
 
 * Added support to smali

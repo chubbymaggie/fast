@@ -2,9 +2,12 @@
 ```
 	$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 	$ brew tap yijunyu/fast
-	$ brew install fast
+	$ brew install srcml antlr antlr4-cpp-runtime libxml2 lcov
+	$ brew install --ignore-dependencies fast
 ```
-The 1st line is optional, it will install Homebrew if you hadn't got it.
+The 1st line is optional, it will install Homebrew if you hadn't got it. The 2nd line update the brew repository to include our tools.
+The 3rd line installs all the dependencies that is the prerequisite to use fast. Note that we need to do this separately from the 4th
+line, because there is a dependency conflict between antlr@2 and the default antlr4 required by some commands in fast.
 
 #### Caveat, reported and fixed by Bram Adams
 If you are installing the tool on Yosemite, are the system complains about 
