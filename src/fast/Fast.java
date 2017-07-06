@@ -38,48 +38,48 @@ public final class Fast {
         getTextBytes();
 
     /**
-     * <code>string tail = 3;</code>
-     */
-    java.lang.String getTail();
-    /**
-     * <code>string tail = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getTailBytes();
-
-    /**
-     * <code>int32 pos = 4;</code>
+     * <code>int32 pos = 3;</code>
      */
     int getPos();
 
     /**
-     * <code>int32 length = 5;</code>
+     * <code>int32 length = 4;</code>
      */
     int getLength();
 
     /**
-     * <code>repeated .fast.Element child = 6;</code>
+     * <code>repeated .fast.Element child = 5;</code>
      */
     java.util.List<fast.Fast.Element> 
         getChildList();
     /**
-     * <code>repeated .fast.Element child = 6;</code>
+     * <code>repeated .fast.Element child = 5;</code>
      */
     fast.Fast.Element getChild(int index);
     /**
-     * <code>repeated .fast.Element child = 6;</code>
+     * <code>repeated .fast.Element child = 5;</code>
      */
     int getChildCount();
     /**
-     * <code>repeated .fast.Element child = 6;</code>
+     * <code>repeated .fast.Element child = 5;</code>
      */
     java.util.List<? extends fast.Fast.ElementOrBuilder> 
         getChildOrBuilderList();
     /**
-     * <code>repeated .fast.Element child = 6;</code>
+     * <code>repeated .fast.Element child = 5;</code>
      */
     fast.Fast.ElementOrBuilder getChildOrBuilder(
         int index);
+
+    /**
+     * <code>string tail = 6;</code>
+     */
+    java.lang.String getTail();
+    /**
+     * <code>string tail = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getTailBytes();
 
     /**
      * <code>.fast.Element.Unit unit = 7;</code>
@@ -125,10 +125,10 @@ public final class Fast {
     private Element() {
       kind_ = 0;
       text_ = "";
-      tail_ = "";
       pos_ = 0;
       length_ = 0;
       child_ = java.util.Collections.emptyList();
+      tail_ = "";
       line_ = 0;
       column_ = 0;
     }
@@ -170,29 +170,29 @@ public final class Fast {
               text_ = s;
               break;
             }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tail_ = s;
-              break;
-            }
-            case 32: {
+            case 24: {
 
               pos_ = input.readInt32();
               break;
             }
-            case 40: {
+            case 32: {
 
               length_ = input.readInt32();
               break;
             }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+            case 42: {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 child_ = new java.util.ArrayList<fast.Fast.Element>();
-                mutable_bitField0_ |= 0x00000020;
+                mutable_bitField0_ |= 0x00000010;
               }
               child_.add(
                   input.readMessage(fast.Fast.Element.parser(), extensionRegistry));
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tail_ = s;
               break;
             }
             case 58: {
@@ -241,7 +241,7 @@ public final class Fast {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000020) == 0x00000020)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           child_ = java.util.Collections.unmodifiableList(child_);
         }
         makeExtensionsImmutable();
@@ -8037,10 +8037,63 @@ public final class Fast {
       }
     }
 
-    public static final int TAIL_FIELD_NUMBER = 3;
+    public static final int POS_FIELD_NUMBER = 3;
+    private int pos_;
+    /**
+     * <code>int32 pos = 3;</code>
+     */
+    public int getPos() {
+      return pos_;
+    }
+
+    public static final int LENGTH_FIELD_NUMBER = 4;
+    private int length_;
+    /**
+     * <code>int32 length = 4;</code>
+     */
+    public int getLength() {
+      return length_;
+    }
+
+    public static final int CHILD_FIELD_NUMBER = 5;
+    private java.util.List<fast.Fast.Element> child_;
+    /**
+     * <code>repeated .fast.Element child = 5;</code>
+     */
+    public java.util.List<fast.Fast.Element> getChildList() {
+      return child_;
+    }
+    /**
+     * <code>repeated .fast.Element child = 5;</code>
+     */
+    public java.util.List<? extends fast.Fast.ElementOrBuilder> 
+        getChildOrBuilderList() {
+      return child_;
+    }
+    /**
+     * <code>repeated .fast.Element child = 5;</code>
+     */
+    public int getChildCount() {
+      return child_.size();
+    }
+    /**
+     * <code>repeated .fast.Element child = 5;</code>
+     */
+    public fast.Fast.Element getChild(int index) {
+      return child_.get(index);
+    }
+    /**
+     * <code>repeated .fast.Element child = 5;</code>
+     */
+    public fast.Fast.ElementOrBuilder getChildOrBuilder(
+        int index) {
+      return child_.get(index);
+    }
+
+    public static final int TAIL_FIELD_NUMBER = 6;
     private volatile java.lang.Object tail_;
     /**
-     * <code>string tail = 3;</code>
+     * <code>string tail = 6;</code>
      */
     public java.lang.String getTail() {
       java.lang.Object ref = tail_;
@@ -8055,7 +8108,7 @@ public final class Fast {
       }
     }
     /**
-     * <code>string tail = 3;</code>
+     * <code>string tail = 6;</code>
      */
     public com.google.protobuf.ByteString
         getTailBytes() {
@@ -8069,59 +8122,6 @@ public final class Fast {
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
-    }
-
-    public static final int POS_FIELD_NUMBER = 4;
-    private int pos_;
-    /**
-     * <code>int32 pos = 4;</code>
-     */
-    public int getPos() {
-      return pos_;
-    }
-
-    public static final int LENGTH_FIELD_NUMBER = 5;
-    private int length_;
-    /**
-     * <code>int32 length = 5;</code>
-     */
-    public int getLength() {
-      return length_;
-    }
-
-    public static final int CHILD_FIELD_NUMBER = 6;
-    private java.util.List<fast.Fast.Element> child_;
-    /**
-     * <code>repeated .fast.Element child = 6;</code>
-     */
-    public java.util.List<fast.Fast.Element> getChildList() {
-      return child_;
-    }
-    /**
-     * <code>repeated .fast.Element child = 6;</code>
-     */
-    public java.util.List<? extends fast.Fast.ElementOrBuilder> 
-        getChildOrBuilderList() {
-      return child_;
-    }
-    /**
-     * <code>repeated .fast.Element child = 6;</code>
-     */
-    public int getChildCount() {
-      return child_.size();
-    }
-    /**
-     * <code>repeated .fast.Element child = 6;</code>
-     */
-    public fast.Fast.Element getChild(int index) {
-      return child_.get(index);
-    }
-    /**
-     * <code>repeated .fast.Element child = 6;</code>
-     */
-    public fast.Fast.ElementOrBuilder getChildOrBuilder(
-        int index) {
-      return child_.get(index);
     }
 
     public static final int UNIT_FIELD_NUMBER = 7;
@@ -8200,17 +8200,17 @@ public final class Fast {
       if (!getTextBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, text_);
       }
-      if (!getTailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, tail_);
-      }
       if (pos_ != 0) {
-        output.writeInt32(4, pos_);
+        output.writeInt32(3, pos_);
       }
       if (length_ != 0) {
-        output.writeInt32(5, length_);
+        output.writeInt32(4, length_);
       }
       for (int i = 0; i < child_.size(); i++) {
-        output.writeMessage(6, child_.get(i));
+        output.writeMessage(5, child_.get(i));
+      }
+      if (!getTailBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tail_);
       }
       if (extraCase_ == 7) {
         output.writeMessage(7, (fast.Fast.Element.Unit) extra_);
@@ -8238,20 +8238,20 @@ public final class Fast {
       if (!getTextBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, text_);
       }
-      if (!getTailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, tail_);
-      }
       if (pos_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, pos_);
+          .computeInt32Size(3, pos_);
       }
       if (length_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(5, length_);
+          .computeInt32Size(4, length_);
       }
       for (int i = 0; i < child_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, child_.get(i));
+          .computeMessageSize(5, child_.get(i));
+      }
+      if (!getTailBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, tail_);
       }
       if (extraCase_ == 7) {
         size += com.google.protobuf.CodedOutputStream
@@ -8288,14 +8288,14 @@ public final class Fast {
       result = result && kind_ == other.kind_;
       result = result && getText()
           .equals(other.getText());
-      result = result && getTail()
-          .equals(other.getTail());
       result = result && (getPos()
           == other.getPos());
       result = result && (getLength()
           == other.getLength());
       result = result && getChildList()
           .equals(other.getChildList());
+      result = result && getTail()
+          .equals(other.getTail());
       result = result && (getLine()
           == other.getLine());
       result = result && (getColumn()
@@ -8329,8 +8329,6 @@ public final class Fast {
       hash = (53 * hash) + kind_;
       hash = (37 * hash) + TEXT_FIELD_NUMBER;
       hash = (53 * hash) + getText().hashCode();
-      hash = (37 * hash) + TAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getTail().hashCode();
       hash = (37 * hash) + POS_FIELD_NUMBER;
       hash = (53 * hash) + getPos();
       hash = (37 * hash) + LENGTH_FIELD_NUMBER;
@@ -8339,6 +8337,8 @@ public final class Fast {
         hash = (37 * hash) + CHILD_FIELD_NUMBER;
         hash = (53 * hash) + getChildList().hashCode();
       }
+      hash = (37 * hash) + TAIL_FIELD_NUMBER;
+      hash = (53 * hash) + getTail().hashCode();
       hash = (37 * hash) + LINE_FIELD_NUMBER;
       hash = (53 * hash) + getLine();
       hash = (37 * hash) + COLUMN_FIELD_NUMBER;
@@ -8489,18 +8489,18 @@ public final class Fast {
 
         text_ = "";
 
-        tail_ = "";
-
         pos_ = 0;
 
         length_ = 0;
 
         if (childBuilder_ == null) {
           child_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           childBuilder_.clear();
         }
+        tail_ = "";
+
         line_ = 0;
 
         column_ = 0;
@@ -8533,18 +8533,18 @@ public final class Fast {
         int to_bitField0_ = 0;
         result.kind_ = kind_;
         result.text_ = text_;
-        result.tail_ = tail_;
         result.pos_ = pos_;
         result.length_ = length_;
         if (childBuilder_ == null) {
-          if (((bitField0_ & 0x00000020) == 0x00000020)) {
+          if (((bitField0_ & 0x00000010) == 0x00000010)) {
             child_ = java.util.Collections.unmodifiableList(child_);
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.child_ = child_;
         } else {
           result.child_ = childBuilder_.build();
         }
+        result.tail_ = tail_;
         if (extraCase_ == 7) {
           if (unitBuilder_ == null) {
             result.extra_ = extra_;
@@ -8611,10 +8611,6 @@ public final class Fast {
           text_ = other.text_;
           onChanged();
         }
-        if (!other.getTail().isEmpty()) {
-          tail_ = other.tail_;
-          onChanged();
-        }
         if (other.getPos() != 0) {
           setPos(other.getPos());
         }
@@ -8625,7 +8621,7 @@ public final class Fast {
           if (!other.child_.isEmpty()) {
             if (child_.isEmpty()) {
               child_ = other.child_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureChildIsMutable();
               child_.addAll(other.child_);
@@ -8638,7 +8634,7 @@ public final class Fast {
               childBuilder_.dispose();
               childBuilder_ = null;
               child_ = other.child_;
-              bitField0_ = (bitField0_ & ~0x00000020);
+              bitField0_ = (bitField0_ & ~0x00000010);
               childBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getChildFieldBuilder() : null;
@@ -8646,6 +8642,10 @@ public final class Fast {
               childBuilder_.addAllMessages(other.child_);
             }
           }
+        }
+        if (!other.getTail().isEmpty()) {
+          tail_ = other.tail_;
+          onChanged();
         }
         if (other.getLine() != 0) {
           setLine(other.getLine());
@@ -8821,84 +8821,15 @@ public final class Fast {
         return this;
       }
 
-      private java.lang.Object tail_ = "";
-      /**
-       * <code>string tail = 3;</code>
-       */
-      public java.lang.String getTail() {
-        java.lang.Object ref = tail_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          tail_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string tail = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTailBytes() {
-        java.lang.Object ref = tail_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          tail_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string tail = 3;</code>
-       */
-      public Builder setTail(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        tail_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string tail = 3;</code>
-       */
-      public Builder clearTail() {
-        
-        tail_ = getDefaultInstance().getTail();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string tail = 3;</code>
-       */
-      public Builder setTailBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        tail_ = value;
-        onChanged();
-        return this;
-      }
-
       private int pos_ ;
       /**
-       * <code>int32 pos = 4;</code>
+       * <code>int32 pos = 3;</code>
        */
       public int getPos() {
         return pos_;
       }
       /**
-       * <code>int32 pos = 4;</code>
+       * <code>int32 pos = 3;</code>
        */
       public Builder setPos(int value) {
         
@@ -8907,7 +8838,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>int32 pos = 4;</code>
+       * <code>int32 pos = 3;</code>
        */
       public Builder clearPos() {
         
@@ -8918,13 +8849,13 @@ public final class Fast {
 
       private int length_ ;
       /**
-       * <code>int32 length = 5;</code>
+       * <code>int32 length = 4;</code>
        */
       public int getLength() {
         return length_;
       }
       /**
-       * <code>int32 length = 5;</code>
+       * <code>int32 length = 4;</code>
        */
       public Builder setLength(int value) {
         
@@ -8933,7 +8864,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>int32 length = 5;</code>
+       * <code>int32 length = 4;</code>
        */
       public Builder clearLength() {
         
@@ -8945,9 +8876,9 @@ public final class Fast {
       private java.util.List<fast.Fast.Element> child_ =
         java.util.Collections.emptyList();
       private void ensureChildIsMutable() {
-        if (!((bitField0_ & 0x00000020) == 0x00000020)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           child_ = new java.util.ArrayList<fast.Fast.Element>(child_);
-          bitField0_ |= 0x00000020;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -8955,7 +8886,7 @@ public final class Fast {
           fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder> childBuilder_;
 
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public java.util.List<fast.Fast.Element> getChildList() {
         if (childBuilder_ == null) {
@@ -8965,7 +8896,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public int getChildCount() {
         if (childBuilder_ == null) {
@@ -8975,7 +8906,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public fast.Fast.Element getChild(int index) {
         if (childBuilder_ == null) {
@@ -8985,7 +8916,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder setChild(
           int index, fast.Fast.Element value) {
@@ -9002,7 +8933,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder setChild(
           int index, fast.Fast.Element.Builder builderForValue) {
@@ -9016,7 +8947,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder addChild(fast.Fast.Element value) {
         if (childBuilder_ == null) {
@@ -9032,7 +8963,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder addChild(
           int index, fast.Fast.Element value) {
@@ -9049,7 +8980,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder addChild(
           fast.Fast.Element.Builder builderForValue) {
@@ -9063,7 +8994,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder addChild(
           int index, fast.Fast.Element.Builder builderForValue) {
@@ -9077,7 +9008,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder addAllChild(
           java.lang.Iterable<? extends fast.Fast.Element> values) {
@@ -9092,12 +9023,12 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder clearChild() {
         if (childBuilder_ == null) {
           child_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           childBuilder_.clear();
@@ -9105,7 +9036,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public Builder removeChild(int index) {
         if (childBuilder_ == null) {
@@ -9118,14 +9049,14 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public fast.Fast.Element.Builder getChildBuilder(
           int index) {
         return getChildFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public fast.Fast.ElementOrBuilder getChildOrBuilder(
           int index) {
@@ -9135,7 +9066,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public java.util.List<? extends fast.Fast.ElementOrBuilder> 
            getChildOrBuilderList() {
@@ -9146,14 +9077,14 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public fast.Fast.Element.Builder addChildBuilder() {
         return getChildFieldBuilder().addBuilder(
             fast.Fast.Element.getDefaultInstance());
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public fast.Fast.Element.Builder addChildBuilder(
           int index) {
@@ -9161,7 +9092,7 @@ public final class Fast {
             index, fast.Fast.Element.getDefaultInstance());
       }
       /**
-       * <code>repeated .fast.Element child = 6;</code>
+       * <code>repeated .fast.Element child = 5;</code>
        */
       public java.util.List<fast.Fast.Element.Builder> 
            getChildBuilderList() {
@@ -9174,12 +9105,81 @@ public final class Fast {
           childBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder>(
                   child_,
-                  ((bitField0_ & 0x00000020) == 0x00000020),
+                  ((bitField0_ & 0x00000010) == 0x00000010),
                   getParentForChildren(),
                   isClean());
           child_ = null;
         }
         return childBuilder_;
+      }
+
+      private java.lang.Object tail_ = "";
+      /**
+       * <code>string tail = 6;</code>
+       */
+      public java.lang.String getTail() {
+        java.lang.Object ref = tail_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tail_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string tail = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTailBytes() {
+        java.lang.Object ref = tail_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tail_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string tail = 6;</code>
+       */
+      public Builder setTail(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tail_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tail = 6;</code>
+       */
+      public Builder clearTail() {
+        
+        tail_ = getDefaultInstance().getTail();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string tail = 6;</code>
+       */
+      public Builder setTailBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tail_ = value;
+        onChanged();
+        return this;
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -34041,9 +34041,9 @@ public final class Fast {
   static {
     java.lang.String[] descriptorData = {
       "\n\nfast.proto\022\004fast\"\275^\n\007Element\022 \n\004kind\030\001" +
-      " \001(\0162\022.fast.Element.Kind\022\014\n\004text\030\002 \001(\t\022\014" +
-      "\n\004tail\030\003 \001(\t\022\013\n\003pos\030\004 \001(\005\022\016\n\006length\030\005 \001(" +
-      "\005\022\034\n\005child\030\006 \003(\0132\r.fast.Element\022\"\n\004unit\030" +
+      " \001(\0162\022.fast.Element.Kind\022\014\n\004text\030\002 \001(\t\022\013" +
+      "\n\003pos\030\003 \001(\005\022\016\n\006length\030\004 \001(\005\022\034\n\005child\030\005 \003" +
+      "(\0132\r.fast.Element\022\014\n\004tail\030\006 \001(\t\022\"\n\004unit\030" +
       "\007 \001(\0132\022.fast.Element.UnitH\000\022(\n\007literal\030\010" +
       " \001(\0132\025.fast.Element.LiteralH\000\022\014\n\004line\030\t " +
       "\001(\005\022\016\n\006column\030\n \001(\005\032\321\001\n\004Unit\022\020\n\010filename" +
@@ -34433,7 +34433,7 @@ public final class Fast {
     internal_static_fast_Element_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Element_descriptor,
-        new java.lang.String[] { "Kind", "Text", "Tail", "Pos", "Length", "Child", "Unit", "Literal", "Line", "Column", "Extra", });
+        new java.lang.String[] { "Kind", "Text", "Pos", "Length", "Child", "Tail", "Unit", "Literal", "Line", "Column", "Extra", });
     internal_static_fast_Element_Unit_descriptor =
       internal_static_fast_Element_descriptor.getNestedTypes().get(0);
     internal_static_fast_Element_Unit_fieldAccessorTable = new

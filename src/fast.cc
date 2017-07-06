@@ -851,7 +851,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 			length += str.length();
 			tail = builder.CreateString(str);
 		}
-		auto element = _fast::CreateElement(builder, kind, text, tail, pos, length, child, extra, line, column);
+		auto element = _fast::CreateElement(builder, kind, text, pos, length, child, tail, extra, line, column);
 		pos += length;
 		return element;
 	} 

@@ -517,6 +517,398 @@ enum Kind {
   Kind_MAX = Kind_SPECIAL_CHARS
 };
 
+inline Kind (&EnumValuesKind())[386] {
+  static Kind values[] = {
+    Kind_UNIT_KIND,
+    Kind_DECL,
+    Kind_DECL_STMT,
+    Kind_INIT,
+    Kind_EXPR,
+    Kind_EXPR_STMT,
+    Kind_COMMENT,
+    Kind_CALL,
+    Kind_CONTROL,
+    Kind_INCR,
+    Kind_NONE,
+    Kind_VARIABLE,
+    Kind_FUNCTION,
+    Kind_FUNCTION_DECL,
+    Kind_CONSTRUCTOR,
+    Kind_CONSTRUCTOR_DECL,
+    Kind_DESTRUCTOR,
+    Kind_DESTRUCTOR_DECL,
+    Kind_MACRO,
+    Kind_SINGLE_MACRO,
+    Kind_NULLOPERATOR,
+    Kind_ENUM_DEFN,
+    Kind_ENUM_DECL,
+    Kind_GLOBAL_ATTRIBUTE,
+    Kind_PROPERTY_ACCESSOR,
+    Kind_PROPERTY_ACCESSOR_DECL,
+    Kind_EXPRESSION,
+    Kind_CLASS_DEFN,
+    Kind_CLASS_DECL,
+    Kind_UNION_DEFN,
+    Kind_UNION_DECL,
+    Kind_STRUCT_DEFN,
+    Kind_STRUCT_DECL,
+    Kind_INTERFACE_DEFN,
+    Kind_INTERFACE_DECL,
+    Kind_ACCESS_REGION,
+    Kind_USING,
+    Kind_OPERATOR_FUNCTION,
+    Kind_OPERATOR_FUNCTION_DECL,
+    Kind_EVENT,
+    Kind_PROPERTY,
+    Kind_ANNOTATION_DEFN,
+    Kind_GLOBAL_TEMPLATE,
+    Kind_UNIT,
+    Kind_TART_ELEMENT_TOKEN,
+    Kind_NOP,
+    Kind_STRING,
+    Kind_CHAR,
+    Kind_LITERAL,
+    Kind_BOOLEAN,
+    Kind_NULL,
+    Kind_COMPLEX,
+    Kind_OPERATOR,
+    Kind_MODIFIER,
+    Kind_NAME,
+    Kind_ONAME,
+    Kind_CNAME,
+    Kind_TYPE,
+    Kind_TYPEPREV,
+    Kind_CONDITION,
+    Kind_BLOCK,
+    Kind_PSEUDO_BLOCK,
+    Kind_INDEX,
+    Kind_ENUM,
+    Kind_ENUM_DECLARATION,
+    Kind_IF_STATEMENT,
+    Kind_TERNARY,
+    Kind_THEN,
+    Kind_ELSE,
+    Kind_ELSEIF,
+    Kind_WHILE_STATEMENT,
+    Kind_DO_STATEMENT,
+    Kind_FOR_STATEMENT,
+    Kind_FOREACH_STATEMENT,
+    Kind_FOR_CONTROL,
+    Kind_FOR_INITIALIZATION,
+    Kind_FOR_CONDITION,
+    Kind_FOR_INCREMENT,
+    Kind_FOR_LIKE_CONTROL,
+    Kind_EXPRESSION_STATEMENT,
+    Kind_FUNCTION_CALL,
+    Kind_DECLARATION_STATEMENT,
+    Kind_DECLARATION,
+    Kind_DECLARATION_INITIALIZATION,
+    Kind_DECLARATION_RANGE,
+    Kind_RANGE,
+    Kind_GOTO_STATEMENT,
+    Kind_CONTINUE_STATEMENT,
+    Kind_BREAK_STATEMENT,
+    Kind_LABEL_STATEMENT,
+    Kind_LABEL,
+    Kind_SWITCH,
+    Kind_CASE,
+    Kind_DEFAULT,
+    Kind_FUNCTION_DEFINITION,
+    Kind_FUNCTION_DECLARATION,
+    Kind_LAMBDA,
+    Kind_FUNCTION_LAMBDA,
+    Kind_FUNCTION_SPECIFIER,
+    Kind_RETURN_STATEMENT,
+    Kind_PARAMETER_LIST,
+    Kind_PARAMETER,
+    Kind_KRPARAMETER_LIST,
+    Kind_KRPARAMETER,
+    Kind_ARGUMENT_LIST,
+    Kind_ARGUMENT,
+    Kind_PSEUDO_PARAMETER_LIST,
+    Kind_INDEXER_PARAMETER_LIST,
+    Kind_CLASS,
+    Kind_CLASS_DECLARATION,
+    Kind_STRUCT,
+    Kind_STRUCT_DECLARATION,
+    Kind_UNION,
+    Kind_UNION_DECLARATION,
+    Kind_DERIVATION_LIST,
+    Kind_PUBLIC_ACCESS,
+    Kind_PUBLIC_ACCESS_DEFAULT,
+    Kind_PRIVATE_ACCESS,
+    Kind_PRIVATE_ACCESS_DEFAULT,
+    Kind_PROTECTED_ACCESS,
+    Kind_PROTECTED_ACCESS_DEFAULT,
+    Kind_MEMBER_INIT_LIST,
+    Kind_MEMBER_INITIALIZATION_LIST,
+    Kind_MEMBER_INITIALIZATION,
+    Kind_CONSTRUCTOR_DEFINITION,
+    Kind_CONSTRUCTOR_DECLARATION,
+    Kind_DESTRUCTOR_DEFINITION,
+    Kind_DESTRUCTOR_DECLARATION,
+    Kind_FRIEND,
+    Kind_CLASS_SPECIFIER,
+    Kind_TRY_BLOCK,
+    Kind_CATCH_BLOCK,
+    Kind_FINALLY_BLOCK,
+    Kind_THROW_STATEMENT,
+    Kind_THROW_SPECIFIER,
+    Kind_THROW_SPECIFIER_JAVA,
+    Kind_TEMPLATE,
+    Kind_GENERIC_ARGUMENT,
+    Kind_GENERIC_ARGUMENT_LIST,
+    Kind_TEMPLATE_PARAMETER,
+    Kind_TEMPLATE_PARAMETER_LIST,
+    Kind_GENERIC_PARAMETER,
+    Kind_GENERIC_PARAMETER_LIST,
+    Kind_TYPEDEF,
+    Kind_ASM,
+    Kind_MACRO_CALL,
+    Kind_SIZEOF_CALL,
+    Kind_EXTERN,
+    Kind_NAMESPACE,
+    Kind_USING_DIRECTIVE,
+    Kind_DIRECTIVE,
+    Kind_ATOMIC,
+    Kind_STATIC_ASSERT_STATEMENT,
+    Kind_GENERIC_SELECTION,
+    Kind_GENERIC_SELECTOR,
+    Kind_GENERIC_ASSOCIATION_LIST,
+    Kind_GENERIC_ASSOCIATION,
+    Kind_ALIGNAS,
+    Kind_DECLTYPE,
+    Kind_CAPTURE,
+    Kind_LAMBDA_CAPTURE,
+    Kind_NOEXCEPT,
+    Kind_TYPENAME,
+    Kind_ALIGNOF,
+    Kind_TYPEID,
+    Kind_SIZEOF_PACK,
+    Kind_ENUM_CLASS,
+    Kind_ENUM_CLASS_DECLARATION,
+    Kind_REF_QUALIFIER,
+    Kind_SIGNAL_ACCESS,
+    Kind_FOREVER_STATEMENT,
+    Kind_EMIT_STATEMENT,
+    Kind_CPP_DIRECTIVE,
+    Kind_CPP_FILENAME,
+    Kind_FILE,
+    Kind_NUMBER,
+    Kind_CPP_NUMBER,
+    Kind_CPP_LITERAL,
+    Kind_CPP_MACRO_DEFN,
+    Kind_CPP_MACRO_VALUE,
+    Kind_ERROR,
+    Kind_CPP_ERROR,
+    Kind_CPP_WARNING,
+    Kind_CPP_PRAGMA,
+    Kind_CPP_INCLUDE,
+    Kind_CPP_DEFINE,
+    Kind_CPP_UNDEF,
+    Kind_CPP_LINE,
+    Kind_CPP_IF,
+    Kind_CPP_IFDEF,
+    Kind_CPP_IFNDEF,
+    Kind_CPP_THEN,
+    Kind_CPP_ELSE,
+    Kind_CPP_ELIF,
+    Kind_CPP_EMPTY,
+    Kind_CPP_REGION,
+    Kind_CPP_ENDREGION,
+    Kind_USING_STMT,
+    Kind_ESCAPE,
+    Kind_VALUE,
+    Kind_CPP_IMPORT,
+    Kind_CPP_ENDIF,
+    Kind_MARKER,
+    Kind_ERROR_PARSE,
+    Kind_ERROR_MODE,
+    Kind_IMPLEMENTS,
+    Kind_EXTENDS,
+    Kind_IMPORT,
+    Kind_PACKAGE,
+    Kind_ASSERT_STATEMENT,
+    Kind_INTERFACE,
+    Kind_INTERFACE_DECLARATION,
+    Kind_SYNCHRONIZED_STATEMENT,
+    Kind_ANNOTATION,
+    Kind_STATIC_BLOCK,
+    Kind_CHECKED_STATEMENT,
+    Kind_UNCHECKED_STATEMENT,
+    Kind_ATTRIBUTE,
+    Kind_TARGET,
+    Kind_UNSAFE_STATEMENT,
+    Kind_LOCK_STATEMENT,
+    Kind_FIXED_STATEMENT,
+    Kind_TYPEOF,
+    Kind_USING_STATEMENT,
+    Kind_FUNCTION_DELEGATE,
+    Kind_CONSTRAINT,
+    Kind_LINQ,
+    Kind_FROM,
+    Kind_WHERE,
+    Kind_SELECT,
+    Kind_LET,
+    Kind_ORDERBY,
+    Kind_JOIN,
+    Kind_GROUP,
+    Kind_IN,
+    Kind_ON,
+    Kind_EQUALS,
+    Kind_BY,
+    Kind_INTO,
+    Kind_EMPTY,
+    Kind_EMPTY_STMT,
+    Kind_RECEIVER,
+    Kind_MESSAGE,
+    Kind_SELECTOR,
+    Kind_PROTOCOL_LIST,
+    Kind_CATEGORY,
+    Kind_PROTOCOL,
+    Kind_REQUIRED_DEFAULT,
+    Kind_REQUIRED,
+    Kind_OPTIONAL,
+    Kind_ATTRIBUTE_LIST,
+    Kind_SYNTHESIZE,
+    Kind_DYNAMIC,
+    Kind_ENCODE,
+    Kind_AUTORELEASEPOOL,
+    Kind_COMPATIBILITY_ALIAS,
+    Kind_NIL,
+    Kind_CLASS_INTERFACE,
+    Kind_CLASS_IMPLEMENTATION,
+    Kind_PROTOCOL_DECLARATION,
+    Kind_CAST,
+    Kind_CONST_CAST,
+    Kind_DYNAMIC_CAST,
+    Kind_REINTERPRET_CAST,
+    Kind_STATIC_CAST,
+    Kind_POSITION,
+    Kind_CUDA_ARGUMENT_LIST,
+    Kind_OMP_DIRECTIVE,
+    Kind_OMP_NAME,
+    Kind_OMP_CLAUSE,
+    Kind_OMP_ARGUMENT_LIST,
+    Kind_OMP_ARGUMENT,
+    Kind_OMP_EXPRESSION,
+    Kind_END_ELEMENT_TOKEN,
+    Kind_MAIN,
+    Kind_BREAK,
+    Kind_CONTINUE,
+    Kind_WHILE,
+    Kind_DO,
+    Kind_FOR,
+    Kind_IF,
+    Kind_GOTO,
+    Kind_VISUAL_CXX_ASM,
+    Kind_SIZEOF,
+    Kind_AUTO,
+    Kind_REGISTER,
+    Kind_RESTRICT,
+    Kind_IMAGINARY,
+    Kind_NORETURN,
+    Kind_STATIC_ASSERT,
+    Kind_CRESTRICT,
+    Kind_CXX_TRY,
+    Kind_CXX_CATCH,
+    Kind_CXX_CLASS,
+    Kind_CONSTEXPR,
+    Kind_THREAD_LOCAL,
+    Kind_NULLPTR,
+    Kind_VOID,
+    Kind_RETURN,
+    Kind_INCLUDE,
+    Kind_DEFINE,
+    Kind_ELIF,
+    Kind_ENDIF,
+    Kind_ERRORPREC,
+    Kind_WARNING,
+    Kind_IFDEF,
+    Kind_IFNDEF,
+    Kind_LINE,
+    Kind_PRAGMA,
+    Kind_UNDEF,
+    Kind_INLINE,
+    Kind_MACRO_TYPE_NAME,
+    Kind_MACRO_CASE,
+    Kind_MACRO_LABEL,
+    Kind_SPECIFIER,
+    Kind_TRY,
+    Kind_CATCH,
+    Kind_THROW,
+    Kind_THROWS,
+    Kind_PUBLIC,
+    Kind_PRIVATE,
+    Kind_PROTECTED,
+    Kind_VIRTUAL,
+    Kind_EXPLICIT,
+    Kind_FOREVER,
+    Kind_SIGNAL,
+    Kind_EMIT,
+    Kind_NEW,
+    Kind_DELETE,
+    Kind_STATIC,
+    Kind_CONST,
+    Kind_MUTABLE,
+    Kind_VOLATILE,
+    Kind_TRANSIENT,
+    Kind_FINALLY,
+    Kind_FINAL,
+    Kind_ABSTRACT,
+    Kind_SUPER,
+    Kind_SYNCHRONIZED,
+    Kind_NATIVE,
+    Kind_STRICTFP,
+    Kind_NULLLITERAL,
+    Kind_ASSERT,
+    Kind_FOREACH,
+    Kind_REF,
+    Kind_OUT,
+    Kind_LOCK,
+    Kind_IS,
+    Kind_INTERNAL,
+    Kind_SEALED,
+    Kind_OVERRIDE,
+    Kind_IMPLICIT,
+    Kind_STACKALLOC,
+    Kind_AS,
+    Kind_DELEGATE,
+    Kind_FIXED,
+    Kind_CHECKED,
+    Kind_UNCHECKED,
+    Kind_REGION,
+    Kind_ENDREGION,
+    Kind_UNSAFE,
+    Kind_READONLY,
+    Kind_GET,
+    Kind_SET,
+    Kind_ADD,
+    Kind_REMOVE,
+    Kind_YIELD,
+    Kind_PARTIAL,
+    Kind_AWAIT,
+    Kind_ASYNC,
+    Kind_THIS,
+    Kind_PARAMS,
+    Kind_ALIAS,
+    Kind_ASCENDING,
+    Kind_DESCENDING,
+    Kind_ATINTERFACE,
+    Kind_ATIMPLEMENTATION,
+    Kind_ATEND,
+    Kind_ATPROTOCOL,
+    Kind_ATREQUIRED,
+    Kind_ATOPTIONAL,
+    Kind_ATCLASS,
+    Kind_WEAK,
+    Kind_STRONG,
+    Kind_OMP_OMP,
+    Kind_SPECIAL_CHARS
+  };
+  return values;
+}
+
 inline const char **EnumNamesKind() {
   static const char *names[] = {
     "UNIT_KIND",
@@ -1185,6 +1577,213 @@ enum SmaliKind {
   SmaliKind_MAX = SmaliKind_WHITE_SPACE
 };
 
+inline SmaliKind (&EnumValuesSmaliKind())[201] {
+  static SmaliKind values[] = {
+    SmaliKind_INVALID,
+    SmaliKind_EOR,
+    SmaliKind_DOWN,
+    SmaliKind_UP,
+    SmaliKind_ACCESS_SPEC,
+    SmaliKind_ANNOTATION_DIRECTIVE,
+    SmaliKind_ANNOTATION_VISIBILITY,
+    SmaliKind_ARRAY_DATA_DIRECTIVE,
+    SmaliKind_ARRAY_TYPE_PREFIX,
+    SmaliKind_ARROW,
+    SmaliKind_BOOL_LITERAL,
+    SmaliKind_BYTE_LITERAL,
+    SmaliKind_CATCHALL_DIRECTIVE,
+    SmaliKind_CATCH_DIRECTIVE,
+    SmaliKind_CHAR_LITERAL,
+    SmaliKind_CLASS_DESCRIPTOR,
+    SmaliKind_CLASS_DIRECTIVE,
+    SmaliKind_CLOSE_BRACE,
+    SmaliKind_CLOSE_PAREN,
+    SmaliKind_COLON,
+    SmaliKind_COMMA,
+    SmaliKind_DOTDOT,
+    SmaliKind_DOUBLE_LITERAL,
+    SmaliKind_DOUBLE_LITERAL_OR_ID,
+    SmaliKind_END_ANNOTATION_DIRECTIVE,
+    SmaliKind_END_ARRAY_DATA_DIRECTIVE,
+    SmaliKind_END_FIELD_DIRECTIVE,
+    SmaliKind_END_LOCAL_DIRECTIVE,
+    SmaliKind_END_METHOD_DIRECTIVE,
+    SmaliKind_END_PACKED_SWITCH_DIRECTIVE,
+    SmaliKind_END_PARAMETER_DIRECTIVE,
+    SmaliKind_END_SPARSE_SWITCH_DIRECTIVE,
+    SmaliKind_END_SUBANNOTATION_DIRECTIVE,
+    SmaliKind_ENUM_DIRECTIVE,
+    SmaliKind_EPILOGUE_DIRECTIVE,
+    SmaliKind_EQUAL,
+    SmaliKind_FIELD_DIRECTIVE,
+    SmaliKind_FIELD_OFFSET,
+    SmaliKind_FLOAT_LITERAL,
+    SmaliKind_FLOAT_LITERAL_OR_ID,
+    SmaliKind_IMPLEMENTS_DIRECTIVE,
+    SmaliKind_INLINE_INDEX,
+    SmaliKind_INSTRUCTION_FORMAT10t,
+    SmaliKind_INSTRUCTION_FORMAT10x,
+    SmaliKind_INSTRUCTION_FORMAT10x_ODEX,
+    SmaliKind_INSTRUCTION_FORMAT11n,
+    SmaliKind_INSTRUCTION_FORMAT11x,
+    SmaliKind_INSTRUCTION_FORMAT12x,
+    SmaliKind_INSTRUCTION_FORMAT12x_OR_ID,
+    SmaliKind_INSTRUCTION_FORMAT20bc,
+    SmaliKind_INSTRUCTION_FORMAT20t,
+    SmaliKind_INSTRUCTION_FORMAT21c_FIELD,
+    SmaliKind_INSTRUCTION_FORMAT21c_FIELD_ODEX,
+    SmaliKind_INSTRUCTION_FORMAT21c_STRING,
+    SmaliKind_INSTRUCTION_FORMAT21c_TYPE,
+    SmaliKind_INSTRUCTION_FORMAT21ih,
+    SmaliKind_INSTRUCTION_FORMAT21lh,
+    SmaliKind_INSTRUCTION_FORMAT21s,
+    SmaliKind_INSTRUCTION_FORMAT21t,
+    SmaliKind_INSTRUCTION_FORMAT22b,
+    SmaliKind_INSTRUCTION_FORMAT22c_FIELD,
+    SmaliKind_INSTRUCTION_FORMAT22c_FIELD_ODEX,
+    SmaliKind_INSTRUCTION_FORMAT22c_TYPE,
+    SmaliKind_INSTRUCTION_FORMAT22cs_FIELD,
+    SmaliKind_INSTRUCTION_FORMAT22s,
+    SmaliKind_INSTRUCTION_FORMAT22s_OR_ID,
+    SmaliKind_INSTRUCTION_FORMAT22t,
+    SmaliKind_INSTRUCTION_FORMAT22x,
+    SmaliKind_INSTRUCTION_FORMAT23x,
+    SmaliKind_INSTRUCTION_FORMAT30t,
+    SmaliKind_INSTRUCTION_FORMAT31c,
+    SmaliKind_INSTRUCTION_FORMAT31i,
+    SmaliKind_INSTRUCTION_FORMAT31i_OR_ID,
+    SmaliKind_INSTRUCTION_FORMAT31t,
+    SmaliKind_INSTRUCTION_FORMAT32x,
+    SmaliKind_INSTRUCTION_FORMAT35c_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT35c_METHOD_ODEX,
+    SmaliKind_INSTRUCTION_FORMAT35c_TYPE,
+    SmaliKind_INSTRUCTION_FORMAT35mi_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT35ms_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT3rc_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT3rc_METHOD_ODEX,
+    SmaliKind_INSTRUCTION_FORMAT3rc_TYPE,
+    SmaliKind_INSTRUCTION_FORMAT3rmi_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT3rms_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT45cc_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT4rcc_METHOD,
+    SmaliKind_INSTRUCTION_FORMAT51l,
+    SmaliKind_INTEGER_LITERAL,
+    SmaliKind_INVALID_TOKEN,
+    SmaliKind_I_ACCESS_LIST,
+    SmaliKind_I_ANNOTATION,
+    SmaliKind_I_ANNOTATIONS,
+    SmaliKind_I_ANNOTATION_ELEMENT,
+    SmaliKind_I_ARRAY_ELEMENTS,
+    SmaliKind_I_ARRAY_ELEMENT_SIZE,
+    SmaliKind_I_CATCH,
+    SmaliKind_I_CATCHALL,
+    SmaliKind_I_CATCHES,
+    SmaliKind_I_CLASS_DEF,
+    SmaliKind_I_ENCODED_ARRAY,
+    SmaliKind_I_ENCODED_ENUM,
+    SmaliKind_I_ENCODED_FIELD,
+    SmaliKind_I_ENCODED_METHOD,
+    SmaliKind_I_END_LOCAL,
+    SmaliKind_I_EPILOGUE,
+    SmaliKind_I_FIELD,
+    SmaliKind_I_FIELDS,
+    SmaliKind_I_FIELD_INITIAL_VALUE,
+    SmaliKind_I_FIELD_TYPE,
+    SmaliKind_I_IMPLEMENTS,
+    SmaliKind_I_LABEL,
+    SmaliKind_I_LINE,
+    SmaliKind_I_LOCAL,
+    SmaliKind_I_LOCALS,
+    SmaliKind_I_METHOD,
+    SmaliKind_I_METHODS,
+    SmaliKind_I_METHOD_PROTOTYPE,
+    SmaliKind_I_METHOD_RETURN_TYPE,
+    SmaliKind_I_ORDERED_METHOD_ITEMS,
+    SmaliKind_I_PACKED_SWITCH_ELEMENTS,
+    SmaliKind_I_PACKED_SWITCH_START_KEY,
+    SmaliKind_I_PARAMETER,
+    SmaliKind_I_PARAMETERS,
+    SmaliKind_I_PARAMETER_NOT_SPECIFIED,
+    SmaliKind_I_PROLOGUE,
+    SmaliKind_I_REGISTERS,
+    SmaliKind_I_REGISTER_LIST,
+    SmaliKind_I_REGISTER_RANGE,
+    SmaliKind_I_RESTART_LOCAL,
+    SmaliKind_I_SOURCE,
+    SmaliKind_I_SPARSE_SWITCH_ELEMENTS,
+    SmaliKind_I_STATEMENT_ARRAY_DATA,
+    SmaliKind_I_STATEMENT_FORMAT10t,
+    SmaliKind_I_STATEMENT_FORMAT10x,
+    SmaliKind_I_STATEMENT_FORMAT11n,
+    SmaliKind_I_STATEMENT_FORMAT11x,
+    SmaliKind_I_STATEMENT_FORMAT12x,
+    SmaliKind_I_STATEMENT_FORMAT20bc,
+    SmaliKind_I_STATEMENT_FORMAT20t,
+    SmaliKind_I_STATEMENT_FORMAT21c_FIELD,
+    SmaliKind_I_STATEMENT_FORMAT21c_STRING,
+    SmaliKind_I_STATEMENT_FORMAT21c_TYPE,
+    SmaliKind_I_STATEMENT_FORMAT21ih,
+    SmaliKind_I_STATEMENT_FORMAT21lh,
+    SmaliKind_I_STATEMENT_FORMAT21s,
+    SmaliKind_I_STATEMENT_FORMAT21t,
+    SmaliKind_I_STATEMENT_FORMAT22b,
+    SmaliKind_I_STATEMENT_FORMAT22c_FIELD,
+    SmaliKind_I_STATEMENT_FORMAT22c_TYPE,
+    SmaliKind_I_STATEMENT_FORMAT22s,
+    SmaliKind_I_STATEMENT_FORMAT22t,
+    SmaliKind_I_STATEMENT_FORMAT22x,
+    SmaliKind_I_STATEMENT_FORMAT23x,
+    SmaliKind_I_STATEMENT_FORMAT30t,
+    SmaliKind_I_STATEMENT_FORMAT31c,
+    SmaliKind_I_STATEMENT_FORMAT31i,
+    SmaliKind_I_STATEMENT_FORMAT31t,
+    SmaliKind_I_STATEMENT_FORMAT32x,
+    SmaliKind_I_STATEMENT_FORMAT35c_METHOD,
+    SmaliKind_I_STATEMENT_FORMAT35c_TYPE,
+    SmaliKind_I_STATEMENT_FORMAT3rc_METHOD,
+    SmaliKind_I_STATEMENT_FORMAT3rc_TYPE,
+    SmaliKind_I_STATEMENT_FORMAT45cc_METHOD,
+    SmaliKind_I_STATEMENT_FORMAT4rcc_METHOD,
+    SmaliKind_I_STATEMENT_FORMAT51l,
+    SmaliKind_I_STATEMENT_PACKED_SWITCH,
+    SmaliKind_I_STATEMENT_SPARSE_SWITCH,
+    SmaliKind_I_SUBANNOTATION,
+    SmaliKind_I_SUPER,
+    SmaliKind_LINE_COMMENT,
+    SmaliKind_LINE_DIRECTIVE,
+    SmaliKind_LOCALS_DIRECTIVE,
+    SmaliKind_LOCAL_DIRECTIVE,
+    SmaliKind_LONG_LITERAL,
+    SmaliKind_MEMBER_NAME,
+    SmaliKind_METHOD_DIRECTIVE,
+    SmaliKind_NEGATIVE_INTEGER_LITERAL,
+    SmaliKind_NULL_LITERAL,
+    SmaliKind_OPEN_BRACE,
+    SmaliKind_OPEN_PAREN,
+    SmaliKind_PACKED_SWITCH_DIRECTIVE,
+    SmaliKind_PARAMETER_DIRECTIVE,
+    SmaliKind_PARAM_LIST_OR_ID_PRIMITIVE_TYPE,
+    SmaliKind_POSITIVE_INTEGER_LITERAL,
+    SmaliKind_PRIMITIVE_TYPE,
+    SmaliKind_PROLOGUE_DIRECTIVE,
+    SmaliKind_SMALI_REGISTER,
+    SmaliKind_REGISTERS_DIRECTIVE,
+    SmaliKind_RESTART_LOCAL_DIRECTIVE,
+    SmaliKind_SHORT_LITERAL,
+    SmaliKind_SIMPLE_NAME,
+    SmaliKind_SOURCE_DIRECTIVE,
+    SmaliKind_SPARSE_SWITCH_DIRECTIVE,
+    SmaliKind_STRING_LITERAL,
+    SmaliKind_SUBANNOTATION_DIRECTIVE,
+    SmaliKind_SUPER_DIRECTIVE,
+    SmaliKind_VERIFICATION_ERROR_TYPE,
+    SmaliKind_VOID_TYPE,
+    SmaliKind_VTABLE_INDEX,
+    SmaliKind_WHITE_SPACE
+  };
+  return values;
+}
+
 inline const char **EnumNamesSmaliKind() {
   static const char *names[] = {
     "INVALID",
@@ -1413,6 +2012,20 @@ enum LanguageType {
   LanguageType_MAX = LanguageType_OBJECTIVE_C
 };
 
+inline LanguageType (&EnumValuesLanguageType())[8] {
+  static LanguageType values[] = {
+    LanguageType_ALL,
+    LanguageType_OO,
+    LanguageType_CXX,
+    LanguageType_C,
+    LanguageType_C_FAMILY,
+    LanguageType_JAVA,
+    LanguageType_CSHARP,
+    LanguageType_OBJECTIVE_C
+  };
+  return values;
+}
+
 inline const char **EnumNamesLanguageType() {
   static const char *names[] = {
     "ALL",
@@ -1447,6 +2060,17 @@ enum LiteralType {
   LiteralType_MAX = LiteralType_null_type
 };
 
+inline LiteralType (&EnumValuesLiteralType())[5] {
+  static LiteralType values[] = {
+    LiteralType_number_type,
+    LiteralType_char_type,
+    LiteralType_string_type,
+    LiteralType_boolean_type,
+    LiteralType_null_type
+  };
+  return values;
+}
+
 inline const char **EnumNamesLiteralType() {
   static const char *names[] = {
     "number_type",
@@ -1480,6 +2104,17 @@ enum DeltaType {
   DeltaType_MAX = DeltaType_UPDATE
 };
 
+inline DeltaType (&EnumValuesDeltaType())[5] {
+  static DeltaType values[] = {
+    DeltaType_MATCH,
+    DeltaType_ADD,
+    DeltaType_DEL,
+    DeltaType_MOVE,
+    DeltaType_UPDATE
+  };
+  return values;
+}
+
 inline const char **EnumNamesDeltaType() {
   static const char *names[] = {
     "MATCH",
@@ -1511,6 +2146,15 @@ enum CloneType {
   CloneType_MAX = CloneType_NO
 };
 
+inline CloneType (&EnumValuesCloneType())[3] {
+  static CloneType values[] = {
+    CloneType_MAYBE,
+    CloneType_YES,
+    CloneType_NO
+  };
+  return values;
+}
+
 inline const char **EnumNamesCloneType() {
   static const char *names[] = {
     "MAYBE",
@@ -1540,6 +2184,15 @@ enum ChangeType {
   ChangeType_MAX = ChangeType_DEL
 };
 
+inline ChangeType (&EnumValuesChangeType())[3] {
+  static ChangeType values[] = {
+    ChangeType_UNCHANGED,
+    ChangeType_ADD,
+    ChangeType_DEL
+  };
+  return values;
+}
+
 inline const char **EnumNamesChangeType() {
   static const char *names[] = {
     "UNCHANGED",
@@ -1562,10 +2215,10 @@ struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
     VT_KIND = 4,
     VT_TEXT = 6,
-    VT_TAIL = 8,
-    VT_POS = 10,
-    VT_LENGTH = 12,
-    VT_CHILD = 14,
+    VT_POS = 8,
+    VT_LENGTH = 10,
+    VT_CHILD = 12,
+    VT_TAIL = 14,
     VT_EXTRA = 16,
     VT_LINE = 18,
     VT_COLUMN = 20
@@ -1576,9 +2229,6 @@ struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::String *text() const {
     return GetPointer<const flatbuffers::String *>(VT_TEXT);
   }
-  const flatbuffers::String *tail() const {
-    return GetPointer<const flatbuffers::String *>(VT_TAIL);
-  }
   int32_t pos() const {
     return GetField<int32_t>(VT_POS, 0);
   }
@@ -1587,6 +2237,9 @@ struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   const flatbuffers::Vector<flatbuffers::Offset<Element>> *child() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<Element>> *>(VT_CHILD);
+  }
+  const flatbuffers::String *tail() const {
+    return GetPointer<const flatbuffers::String *>(VT_TAIL);
   }
   const _fast::_Element::Anonymous0 *extra() const {
     return GetPointer<const _fast::_Element::Anonymous0 *>(VT_EXTRA);
@@ -1600,16 +2253,16 @@ struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_KIND) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TEXT) &&
+           VerifyOffset(verifier, VT_TEXT) &&
            verifier.Verify(text()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TAIL) &&
-           verifier.Verify(tail()) &&
            VerifyField<int32_t>(verifier, VT_POS) &&
            VerifyField<int32_t>(verifier, VT_LENGTH) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CHILD) &&
+           VerifyOffset(verifier, VT_CHILD) &&
            verifier.Verify(child()) &&
            verifier.VerifyVectorOfTables(child()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_EXTRA) &&
+           VerifyOffset(verifier, VT_TAIL) &&
+           verifier.Verify(tail()) &&
+           VerifyOffset(verifier, VT_EXTRA) &&
            verifier.VerifyTable(extra()) &&
            VerifyField<int32_t>(verifier, VT_LINE) &&
            VerifyField<int32_t>(verifier, VT_COLUMN) &&
@@ -1626,9 +2279,6 @@ struct ElementBuilder {
   void add_text(flatbuffers::Offset<flatbuffers::String> text) {
     fbb_.AddOffset(Element::VT_TEXT, text);
   }
-  void add_tail(flatbuffers::Offset<flatbuffers::String> tail) {
-    fbb_.AddOffset(Element::VT_TAIL, tail);
-  }
   void add_pos(int32_t pos) {
     fbb_.AddElement<int32_t>(Element::VT_POS, pos, 0);
   }
@@ -1637,6 +2287,9 @@ struct ElementBuilder {
   }
   void add_child(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<Element>>> child) {
     fbb_.AddOffset(Element::VT_CHILD, child);
+  }
+  void add_tail(flatbuffers::Offset<flatbuffers::String> tail) {
+    fbb_.AddOffset(Element::VT_TAIL, tail);
   }
   void add_extra(flatbuffers::Offset<_fast::_Element::Anonymous0> extra) {
     fbb_.AddOffset(Element::VT_EXTRA, extra);
@@ -1663,10 +2316,10 @@ inline flatbuffers::Offset<Element> CreateElement(
     flatbuffers::FlatBufferBuilder &_fbb,
     int32_t kind = 0,
     flatbuffers::Offset<flatbuffers::String> text = 0,
-    flatbuffers::Offset<flatbuffers::String> tail = 0,
     int32_t pos = 0,
     int32_t length = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<Element>>> child = 0,
+    flatbuffers::Offset<flatbuffers::String> tail = 0,
     flatbuffers::Offset<_fast::_Element::Anonymous0> extra = 0,
     int32_t line = 0,
     int32_t column = 0) {
@@ -1674,10 +2327,10 @@ inline flatbuffers::Offset<Element> CreateElement(
   builder_.add_column(column);
   builder_.add_line(line);
   builder_.add_extra(extra);
+  builder_.add_tail(tail);
   builder_.add_child(child);
   builder_.add_length(length);
   builder_.add_pos(pos);
-  builder_.add_tail(tail);
   builder_.add_text(text);
   builder_.add_kind(kind);
   return builder_.Finish();
@@ -1687,10 +2340,10 @@ inline flatbuffers::Offset<Element> CreateElementDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
     int32_t kind = 0,
     const char *text = nullptr,
-    const char *tail = nullptr,
     int32_t pos = 0,
     int32_t length = 0,
     const std::vector<flatbuffers::Offset<Element>> *child = nullptr,
+    const char *tail = nullptr,
     flatbuffers::Offset<_fast::_Element::Anonymous0> extra = 0,
     int32_t line = 0,
     int32_t column = 0) {
@@ -1698,10 +2351,10 @@ inline flatbuffers::Offset<Element> CreateElementDirect(
       _fbb,
       kind,
       text ? _fbb.CreateString(text) : 0,
-      tail ? _fbb.CreateString(tail) : 0,
       pos,
       length,
       child ? _fbb.CreateVector<flatbuffers::Offset<Element>>(*child) : 0,
+      tail ? _fbb.CreateString(tail) : 0,
       extra,
       line,
       column);
@@ -1722,9 +2375,9 @@ struct Anonymous0 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_UNIT) &&
+           VerifyOffset(verifier, VT_UNIT) &&
            verifier.VerifyTable(unit()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LITERAL) &&
+           VerifyOffset(verifier, VT_LITERAL) &&
            verifier.VerifyTable(literal()) &&
            verifier.EndTable();
   }
@@ -1782,9 +2435,9 @@ struct Unit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FILENAME) &&
+           VerifyOffset(verifier, VT_FILENAME) &&
            verifier.Verify(filename()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_REVISION) &&
+           VerifyOffset(verifier, VT_REVISION) &&
            verifier.Verify(revision()) &&
            VerifyField<int32_t>(verifier, VT_LANGUAGE) &&
            VerifyField<int32_t>(verifier, VT_ITEM) &&
@@ -1906,11 +2559,11 @@ struct Delta FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SRC) &&
+           VerifyOffset(verifier, VT_SRC) &&
            verifier.Verify(src()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DST) &&
+           VerifyOffset(verifier, VT_DST) &&
            verifier.Verify(dst()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DIFF) &&
+           VerifyOffset(verifier, VT_DIFF) &&
            verifier.Verify(diff()) &&
            verifier.VerifyVectorOfTables(diff()) &&
            verifier.EndTable();
@@ -1981,7 +2634,7 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DELTA) &&
+           VerifyOffset(verifier, VT_DELTA) &&
            verifier.VerifyTable(delta()) &&
            verifier.EndTable();
   }
@@ -2045,15 +2698,15 @@ struct Anonymous1 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MATCH) &&
+           VerifyOffset(verifier, VT_MATCH) &&
            verifier.VerifyTable(match()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ADD) &&
+           VerifyOffset(verifier, VT_ADD) &&
            verifier.VerifyTable(add()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEL) &&
+           VerifyOffset(verifier, VT_DEL) &&
            verifier.VerifyTable(del()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MOVE) &&
+           VerifyOffset(verifier, VT_MOVE) &&
            verifier.VerifyTable(move()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_UPDATE) &&
+           VerifyOffset(verifier, VT_UPDATE) &&
            verifier.VerifyTable(update()) &&
            verifier.EndTable();
   }
@@ -2329,7 +2982,7 @@ struct Update FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_SRC) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LABEL) &&
+           VerifyOffset(verifier, VT_LABEL) &&
            verifier.Verify(label()) &&
            verifier.EndTable();
   }
@@ -2388,7 +3041,7 @@ struct Pairs FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_PAIR) &&
+           VerifyOffset(verifier, VT_PAIR) &&
            verifier.Verify(pair()) &&
            verifier.VerifyVectorOfTables(pair()) &&
            verifier.EndTable();
@@ -2452,11 +3105,11 @@ struct Pair FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_PROJECT) &&
+           VerifyOffset(verifier, VT_PROJECT) &&
            verifier.Verify(project()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LEFT) &&
+           VerifyOffset(verifier, VT_LEFT) &&
            verifier.VerifyTable(left()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_RIGHT) &&
+           VerifyOffset(verifier, VT_RIGHT) &&
            verifier.VerifyTable(right()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
            verifier.EndTable();
@@ -2553,9 +3206,9 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<int32_t>(verifier, VT_LEFT_COLUMN) &&
            VerifyField<int32_t>(verifier, VT_RIGHT_LINE) &&
            VerifyField<int32_t>(verifier, VT_RIGHT_COLUMN) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_OLD_CODE) &&
+           VerifyOffset(verifier, VT_OLD_CODE) &&
            verifier.VerifyTable(old_code()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NEW_CODE) &&
+           VerifyOffset(verifier, VT_NEW_CODE) &&
            verifier.VerifyTable(new_code()) &&
            verifier.EndTable();
   }
@@ -2628,10 +3281,10 @@ struct Log FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_COMMIT) &&
+           VerifyOffset(verifier, VT_COMMIT) &&
            verifier.Verify(commit()) &&
            verifier.VerifyVectorOfTables(commit()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_AUTHOR) &&
+           VerifyOffset(verifier, VT_AUTHOR) &&
            verifier.Verify(author()) &&
            verifier.VerifyVectorOfTables(author()) &&
            verifier.EndTable();
@@ -2710,16 +3363,16 @@ struct Commit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ID) &&
+           VerifyOffset(verifier, VT_ID) &&
            verifier.Verify(id()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TEXT) &&
+           VerifyOffset(verifier, VT_TEXT) &&
            verifier.Verify(text()) &&
            VerifyField<int32_t>(verifier, VT_AUTHOR_ID) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_AUTHOR_DATE) &&
+           VerifyOffset(verifier, VT_AUTHOR_DATE) &&
            verifier.Verify(author_date()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_EXTRA) &&
+           VerifyOffset(verifier, VT_EXTRA) &&
            verifier.VerifyTable(extra()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DIFF) &&
+           VerifyOffset(verifier, VT_DIFF) &&
            verifier.Verify(diff()) &&
            verifier.VerifyVectorOfTables(diff()) &&
            verifier.EndTable();
@@ -2806,7 +3459,7 @@ struct Anonymous2 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_COMMITTER) &&
+           VerifyOffset(verifier, VT_COMMITTER) &&
            verifier.VerifyTable(committer()) &&
            verifier.EndTable();
   }
@@ -2852,7 +3505,7 @@ struct Committer FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_COMMITTER_ID) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_COMMIT_DATE) &&
+           VerifyOffset(verifier, VT_COMMIT_DATE) &&
            verifier.Verify(commit_date()) &&
            verifier.EndTable();
   }
@@ -2936,20 +3589,20 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_A) &&
+           VerifyOffset(verifier, VT_A) &&
            verifier.Verify(a()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_B) &&
+           VerifyOffset(verifier, VT_B) &&
            verifier.Verify(b()) &&
            VerifyField<uint8_t>(verifier, VT_IS_NEW) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_IS_CODE) &&
+           VerifyOffset(verifier, VT_IS_CODE) &&
            verifier.Verify(is_code()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_INDEX_FROM) &&
+           VerifyOffset(verifier, VT_INDEX_FROM) &&
            verifier.Verify(index_from()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_INDEX_TO) &&
+           VerifyOffset(verifier, VT_INDEX_TO) &&
            verifier.Verify(index_to()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MODE) &&
+           VerifyOffset(verifier, VT_MODE) &&
            verifier.Verify(mode()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_HUNK) &&
+           VerifyOffset(verifier, VT_HUNK) &&
            verifier.Verify(hunk()) &&
            verifier.VerifyVectorOfTables(hunk()) &&
            verifier.EndTable();
@@ -3078,12 +3731,12 @@ struct Hunk FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<int32_t>(verifier, VT_FROM_COLUMN) &&
            VerifyField<int32_t>(verifier, VT_TO_LINENO) &&
            VerifyField<int32_t>(verifier, VT_TO_COLUMN) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CONTEXT) &&
+           VerifyOffset(verifier, VT_CONTEXT) &&
            verifier.Verify(context()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ELEMENT) &&
+           VerifyOffset(verifier, VT_ELEMENT) &&
            verifier.Verify(element()) &&
            verifier.VerifyVectorOfTables(element()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MOD) &&
+           VerifyOffset(verifier, VT_MOD) &&
            verifier.Verify(mod()) &&
            verifier.VerifyVectorOfTables(mod()) &&
            verifier.EndTable();
@@ -3185,7 +3838,7 @@ struct ModLine FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LINE) &&
+           VerifyOffset(verifier, VT_LINE) &&
            verifier.Verify(line()) &&
            VerifyField<uint8_t>(verifier, VT_IS_ADD) &&
            VerifyField<uint8_t>(verifier, VT_IS_DEL) &&
@@ -3263,9 +3916,9 @@ struct Author FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_ID) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_EMAIL) &&
+           VerifyOffset(verifier, VT_EMAIL) &&
            verifier.Verify(email()) &&
            verifier.EndTable();
   }
@@ -3330,7 +3983,7 @@ struct Slices FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICE) &&
+           VerifyOffset(verifier, VT_SLICE) &&
            verifier.Verify(slice()) &&
            verifier.VerifyVectorOfTables(slice()) &&
            verifier.EndTable();
@@ -3386,10 +4039,10 @@ struct Slice FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FILE) &&
+           VerifyOffset(verifier, VT_FILE) &&
            verifier.Verify(file()) &&
            verifier.VerifyVectorOfTables(file()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_HASH) &&
+           VerifyOffset(verifier, VT_HASH) &&
            verifier.Verify(hash()) &&
            verifier.EndTable();
   }
@@ -3455,10 +4108,10 @@ struct SourceFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FUNCTION) &&
+           VerifyOffset(verifier, VT_FUNCTION) &&
            verifier.Verify(function()) &&
            verifier.VerifyVectorOfTables(function()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
            verifier.EndTable();
@@ -3532,10 +4185,10 @@ struct Function FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_VARIABLE) &&
+           VerifyOffset(verifier, VT_VARIABLE) &&
            verifier.Verify(variable()) &&
            verifier.VerifyVectorOfTables(variable()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
            verifier.EndTable();
@@ -3629,24 +4282,24 @@ struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_POS) &&
+           VerifyOffset(verifier, VT_POS) &&
            verifier.VerifyTable(pos()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEFN) &&
+           VerifyOffset(verifier, VT_DEFN) &&
            verifier.Verify(defn()) &&
            verifier.VerifyVectorOfTables(defn()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_USE) &&
+           VerifyOffset(verifier, VT_USE) &&
            verifier.Verify(use()) &&
            verifier.VerifyVectorOfTables(use()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DVAR) &&
+           VerifyOffset(verifier, VT_DVAR) &&
            verifier.Verify(dvar()) &&
            verifier.VerifyVectorOfStrings(dvar()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ALIAS) &&
+           VerifyOffset(verifier, VT_ALIAS) &&
            verifier.Verify(alias()) &&
            verifier.VerifyVectorOfStrings(alias()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CFUNC) &&
+           VerifyOffset(verifier, VT_CFUNC) &&
            verifier.Verify(cfunc()) &&
            verifier.VerifyVectorOfTables(cfunc()) &&
            verifier.EndTable();
@@ -3811,7 +4464,7 @@ struct FunctionDecl FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
            VerifyField<int32_t>(verifier, VT_LINENO) &&
            verifier.EndTable();
@@ -3874,7 +4527,7 @@ struct Data FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_RECORDTYPE) &&
+           VerifyOffset(verifier, VT_RECORDTYPE) &&
            verifier.VerifyTable(RecordType()) &&
            verifier.EndTable();
   }
@@ -3933,15 +4586,15 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ELEMENT) &&
+           VerifyOffset(verifier, VT_ELEMENT) &&
            verifier.VerifyTable(element()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LOG) &&
+           VerifyOffset(verifier, VT_LOG) &&
            verifier.VerifyTable(log()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DELTA) &&
+           VerifyOffset(verifier, VT_DELTA) &&
            verifier.VerifyTable(delta()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_PAIRS) &&
+           VerifyOffset(verifier, VT_PAIRS) &&
            verifier.VerifyTable(pairs()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICES) &&
+           VerifyOffset(verifier, VT_SLICES) &&
            verifier.VerifyTable(slices()) &&
            verifier.EndTable();
   }

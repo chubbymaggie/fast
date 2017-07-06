@@ -2438,10 +2438,10 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // repeated .fast.Element child = 6;
+  // repeated .fast.Element child = 5;
   int child_size() const;
   void clear_child();
-  static const int kChildFieldNumber = 6;
+  static const int kChildFieldNumber = 5;
   const ::fast::Element& child(int index) const;
   ::fast::Element* mutable_child(int index);
   ::fast::Element* add_child();
@@ -2464,9 +2464,9 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_text();
   void set_allocated_text(::std::string* text);
 
-  // string tail = 3;
+  // string tail = 6;
   void clear_tail();
-  static const int kTailFieldNumber = 3;
+  static const int kTailFieldNumber = 6;
   const ::std::string& tail() const;
   void set_tail(const ::std::string& value);
   #if LANG_CXX11
@@ -2484,15 +2484,15 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::fast::Element_Kind kind() const;
   void set_kind(::fast::Element_Kind value);
 
-  // int32 pos = 4;
+  // int32 pos = 3;
   void clear_pos();
-  static const int kPosFieldNumber = 4;
+  static const int kPosFieldNumber = 3;
   ::google::protobuf::int32 pos() const;
   void set_pos(::google::protobuf::int32 value);
 
-  // int32 length = 5;
+  // int32 length = 4;
   void clear_length();
-  static const int kLengthFieldNumber = 5;
+  static const int kLengthFieldNumber = 4;
   ::google::protobuf::int32 length() const;
   void set_length(::google::protobuf::int32 value);
 
@@ -5773,7 +5773,65 @@ inline void Element::set_allocated_text(::std::string* text) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.text)
 }
 
-// string tail = 3;
+// int32 pos = 3;
+inline void Element::clear_pos() {
+  pos_ = 0;
+}
+inline ::google::protobuf::int32 Element::pos() const {
+  // @@protoc_insertion_point(field_get:fast.Element.pos)
+  return pos_;
+}
+inline void Element::set_pos(::google::protobuf::int32 value) {
+  
+  pos_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.pos)
+}
+
+// int32 length = 4;
+inline void Element::clear_length() {
+  length_ = 0;
+}
+inline ::google::protobuf::int32 Element::length() const {
+  // @@protoc_insertion_point(field_get:fast.Element.length)
+  return length_;
+}
+inline void Element::set_length(::google::protobuf::int32 value) {
+  
+  length_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.length)
+}
+
+// repeated .fast.Element child = 5;
+inline int Element::child_size() const {
+  return child_.size();
+}
+inline void Element::clear_child() {
+  child_.Clear();
+}
+inline const ::fast::Element& Element::child(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Element.child)
+  return child_.Get(index);
+}
+inline ::fast::Element* Element::mutable_child(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Element.child)
+  return child_.Mutable(index);
+}
+inline ::fast::Element* Element::add_child() {
+  // @@protoc_insertion_point(field_add:fast.Element.child)
+  return child_.Add();
+}
+inline ::google::protobuf::RepeatedPtrField< ::fast::Element >*
+Element::mutable_child() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Element.child)
+  return &child_;
+}
+inline const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
+Element::child() const {
+  // @@protoc_insertion_point(field_list:fast.Element.child)
+  return child_;
+}
+
+// string tail = 6;
 inline void Element::clear_tail() {
   tail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -5824,64 +5882,6 @@ inline void Element::set_allocated_tail(::std::string* tail) {
   }
   tail_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tail);
   // @@protoc_insertion_point(field_set_allocated:fast.Element.tail)
-}
-
-// int32 pos = 4;
-inline void Element::clear_pos() {
-  pos_ = 0;
-}
-inline ::google::protobuf::int32 Element::pos() const {
-  // @@protoc_insertion_point(field_get:fast.Element.pos)
-  return pos_;
-}
-inline void Element::set_pos(::google::protobuf::int32 value) {
-  
-  pos_ = value;
-  // @@protoc_insertion_point(field_set:fast.Element.pos)
-}
-
-// int32 length = 5;
-inline void Element::clear_length() {
-  length_ = 0;
-}
-inline ::google::protobuf::int32 Element::length() const {
-  // @@protoc_insertion_point(field_get:fast.Element.length)
-  return length_;
-}
-inline void Element::set_length(::google::protobuf::int32 value) {
-  
-  length_ = value;
-  // @@protoc_insertion_point(field_set:fast.Element.length)
-}
-
-// repeated .fast.Element child = 6;
-inline int Element::child_size() const {
-  return child_.size();
-}
-inline void Element::clear_child() {
-  child_.Clear();
-}
-inline const ::fast::Element& Element::child(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Element.child)
-  return child_.Get(index);
-}
-inline ::fast::Element* Element::mutable_child(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Element.child)
-  return child_.Mutable(index);
-}
-inline ::fast::Element* Element::add_child() {
-  // @@protoc_insertion_point(field_add:fast.Element.child)
-  return child_.Add();
-}
-inline ::google::protobuf::RepeatedPtrField< ::fast::Element >*
-Element::mutable_child() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Element.child)
-  return &child_;
-}
-inline const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
-Element::child() const {
-  // @@protoc_insertion_point(field_list:fast.Element.child)
-  return child_;
 }
 
 // .fast.Element.Unit unit = 7;

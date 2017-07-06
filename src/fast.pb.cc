@@ -166,10 +166,10 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _weak_field_map_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, kind_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, text_),
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, tail_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, pos_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, length_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, child_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, tail_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Element_default_instance_), unit_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Element_default_instance_), literal_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Element, line_),
@@ -616,9 +616,9 @@ void AddDescriptorsImpl() {
   InitDefaults();
   static const char descriptor[] = {
       "\n\nfast.proto\022\004fast\"\275^\n\007Element\022 \n\004kind\030\001"
-      " \001(\0162\022.fast.Element.Kind\022\014\n\004text\030\002 \001(\t\022\014"
-      "\n\004tail\030\003 \001(\t\022\013\n\003pos\030\004 \001(\005\022\016\n\006length\030\005 \001("
-      "\005\022\034\n\005child\030\006 \003(\0132\r.fast.Element\022\"\n\004unit\030"
+      " \001(\0162\022.fast.Element.Kind\022\014\n\004text\030\002 \001(\t\022\013"
+      "\n\003pos\030\003 \001(\005\022\016\n\006length\030\004 \001(\005\022\034\n\005child\030\005 \003"
+      "(\0132\r.fast.Element\022\014\n\004tail\030\006 \001(\t\022\"\n\004unit\030"
       "\007 \001(\0132\022.fast.Element.UnitH\000\022(\n\007literal\030\010"
       " \001(\0132\025.fast.Element.LiteralH\000\022\014\n\004line\030\t "
       "\001(\005\022\016\n\006column\030\n \001(\005\032\321\001\n\004Unit\022\020\n\010filename"
@@ -3104,10 +3104,10 @@ void Element_Literal::set_type(::fast::Element_Literal_LiteralType value) {
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int Element::kKindFieldNumber;
 const int Element::kTextFieldNumber;
-const int Element::kTailFieldNumber;
 const int Element::kPosFieldNumber;
 const int Element::kLengthFieldNumber;
 const int Element::kChildFieldNumber;
+const int Element::kTailFieldNumber;
 const int Element::kUnitFieldNumber;
 const int Element::kLiteralFieldNumber;
 const int Element::kLineFieldNumber;
@@ -3271,26 +3271,10 @@ bool Element::MergePartialFromCodedStream(
         break;
       }
 
-      // string tail = 3;
+      // int32 pos = 3;
       case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_tail()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->tail().data(), this->tail().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Element.tail"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // int32 pos = 4;
-      case 4: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u)) {
+            static_cast< ::google::protobuf::uint8>(24u)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -3301,10 +3285,10 @@ bool Element::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 length = 5;
-      case 5: {
+      // int32 length = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(40u)) {
+            static_cast< ::google::protobuf::uint8>(32u)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -3315,12 +3299,28 @@ bool Element::MergePartialFromCodedStream(
         break;
       }
 
-      // repeated .fast.Element child = 6;
+      // repeated .fast.Element child = 5;
+      case 5: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(42u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_child()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // string tail = 6;
       case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(50u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_child()));
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_tail()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->tail().data(), this->tail().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Element.tail"));
         } else {
           goto handle_unusual;
         }
@@ -3422,30 +3422,30 @@ void Element::SerializeWithCachedSizes(
       2, this->text(), output);
   }
 
-  // string tail = 3;
+  // int32 pos = 3;
+  if (this->pos() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->pos(), output);
+  }
+
+  // int32 length = 4;
+  if (this->length() != 0) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->length(), output);
+  }
+
+  // repeated .fast.Element child = 5;
+  for (unsigned int i = 0, n = this->child_size(); i < n; i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->child(i), output);
+  }
+
+  // string tail = 6;
   if (this->tail().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->tail().data(), this->tail().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "fast.Element.tail");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->tail(), output);
-  }
-
-  // int32 pos = 4;
-  if (this->pos() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->pos(), output);
-  }
-
-  // int32 length = 5;
-  if (this->length() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->length(), output);
-  }
-
-  // repeated .fast.Element child = 6;
-  for (unsigned int i = 0, n = this->child_size(); i < n; i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, this->child(i), output);
+      6, this->tail(), output);
   }
 
   // .fast.Element.Unit unit = 7;
@@ -3496,7 +3496,24 @@ void Element::SerializeWithCachedSizes(
         2, this->text(), target);
   }
 
-  // string tail = 3;
+  // int32 pos = 3;
+  if (this->pos() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->pos(), target);
+  }
+
+  // int32 length = 4;
+  if (this->length() != 0) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->length(), target);
+  }
+
+  // repeated .fast.Element child = 5;
+  for (unsigned int i = 0, n = this->child_size(); i < n; i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        5, this->child(i), deterministic, target);
+  }
+
+  // string tail = 6;
   if (this->tail().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->tail().data(), this->tail().length(),
@@ -3504,24 +3521,7 @@ void Element::SerializeWithCachedSizes(
       "fast.Element.tail");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->tail(), target);
-  }
-
-  // int32 pos = 4;
-  if (this->pos() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->pos(), target);
-  }
-
-  // int32 length = 5;
-  if (this->length() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->length(), target);
-  }
-
-  // repeated .fast.Element child = 6;
-  for (unsigned int i = 0, n = this->child_size(); i < n; i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      InternalWriteMessageNoVirtualToArray(
-        6, this->child(i), deterministic, target);
+        6, this->tail(), target);
   }
 
   // .fast.Element.Unit unit = 7;
@@ -3556,7 +3556,7 @@ size_t Element::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:fast.Element)
   size_t total_size = 0;
 
-  // repeated .fast.Element child = 6;
+  // repeated .fast.Element child = 5;
   {
     unsigned int count = this->child_size();
     total_size += 1UL * count;
@@ -3574,7 +3574,7 @@ size_t Element::ByteSizeLong() const {
         this->text());
   }
 
-  // string tail = 3;
+  // string tail = 6;
   if (this->tail().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -3587,14 +3587,14 @@ size_t Element::ByteSizeLong() const {
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->kind());
   }
 
-  // int32 pos = 4;
+  // int32 pos = 3;
   if (this->pos() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->pos());
   }
 
-  // int32 length = 5;
+  // int32 length = 4;
   if (this->length() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -3813,7 +3813,65 @@ void Element::set_allocated_text(::std::string* text) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.text)
 }
 
-// string tail = 3;
+// int32 pos = 3;
+void Element::clear_pos() {
+  pos_ = 0;
+}
+::google::protobuf::int32 Element::pos() const {
+  // @@protoc_insertion_point(field_get:fast.Element.pos)
+  return pos_;
+}
+void Element::set_pos(::google::protobuf::int32 value) {
+  
+  pos_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.pos)
+}
+
+// int32 length = 4;
+void Element::clear_length() {
+  length_ = 0;
+}
+::google::protobuf::int32 Element::length() const {
+  // @@protoc_insertion_point(field_get:fast.Element.length)
+  return length_;
+}
+void Element::set_length(::google::protobuf::int32 value) {
+  
+  length_ = value;
+  // @@protoc_insertion_point(field_set:fast.Element.length)
+}
+
+// repeated .fast.Element child = 5;
+int Element::child_size() const {
+  return child_.size();
+}
+void Element::clear_child() {
+  child_.Clear();
+}
+const ::fast::Element& Element::child(int index) const {
+  // @@protoc_insertion_point(field_get:fast.Element.child)
+  return child_.Get(index);
+}
+::fast::Element* Element::mutable_child(int index) {
+  // @@protoc_insertion_point(field_mutable:fast.Element.child)
+  return child_.Mutable(index);
+}
+::fast::Element* Element::add_child() {
+  // @@protoc_insertion_point(field_add:fast.Element.child)
+  return child_.Add();
+}
+::google::protobuf::RepeatedPtrField< ::fast::Element >*
+Element::mutable_child() {
+  // @@protoc_insertion_point(field_mutable_list:fast.Element.child)
+  return &child_;
+}
+const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
+Element::child() const {
+  // @@protoc_insertion_point(field_list:fast.Element.child)
+  return child_;
+}
+
+// string tail = 6;
 void Element::clear_tail() {
   tail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -3864,64 +3922,6 @@ void Element::set_allocated_tail(::std::string* tail) {
   }
   tail_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), tail);
   // @@protoc_insertion_point(field_set_allocated:fast.Element.tail)
-}
-
-// int32 pos = 4;
-void Element::clear_pos() {
-  pos_ = 0;
-}
-::google::protobuf::int32 Element::pos() const {
-  // @@protoc_insertion_point(field_get:fast.Element.pos)
-  return pos_;
-}
-void Element::set_pos(::google::protobuf::int32 value) {
-  
-  pos_ = value;
-  // @@protoc_insertion_point(field_set:fast.Element.pos)
-}
-
-// int32 length = 5;
-void Element::clear_length() {
-  length_ = 0;
-}
-::google::protobuf::int32 Element::length() const {
-  // @@protoc_insertion_point(field_get:fast.Element.length)
-  return length_;
-}
-void Element::set_length(::google::protobuf::int32 value) {
-  
-  length_ = value;
-  // @@protoc_insertion_point(field_set:fast.Element.length)
-}
-
-// repeated .fast.Element child = 6;
-int Element::child_size() const {
-  return child_.size();
-}
-void Element::clear_child() {
-  child_.Clear();
-}
-const ::fast::Element& Element::child(int index) const {
-  // @@protoc_insertion_point(field_get:fast.Element.child)
-  return child_.Get(index);
-}
-::fast::Element* Element::mutable_child(int index) {
-  // @@protoc_insertion_point(field_mutable:fast.Element.child)
-  return child_.Mutable(index);
-}
-::fast::Element* Element::add_child() {
-  // @@protoc_insertion_point(field_add:fast.Element.child)
-  return child_.Add();
-}
-::google::protobuf::RepeatedPtrField< ::fast::Element >*
-Element::mutable_child() {
-  // @@protoc_insertion_point(field_mutable_list:fast.Element.child)
-  return &child_;
-}
-const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
-Element::child() const {
-  // @@protoc_insertion_point(field_list:fast.Element.child)
-  return child_;
 }
 
 // .fast.Element.Unit unit = 7;
