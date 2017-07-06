@@ -20,6 +20,7 @@ flatc=/usr/local/bin/flatc
 OPT=-O3
 OPT=-g
 OPT=-g -O0 -coverage
+ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
@@ -49,10 +50,10 @@ fast.pb.o: src/fast.pb.cc
 	c++ $(OPT) $(CFLAGS) -c $^
 
 smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliListener.cpp smali/src/antlr4/smali/smaliBaseListener.cpp: src/antlr4/smali/smali.g4
-	antlr4 -o smali -Dlanguage=Cpp $^
+	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
 smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
-	antlr4 -o smali -Dlanguage=Cpp $^
+	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
 src/antlr/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
 
