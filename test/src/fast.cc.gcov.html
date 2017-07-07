@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2017-07-04 17:47:21</td>
+            <td class="headerValue">2017-07-07 12:36:31</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">28</td>
@@ -913,7 +913,7 @@
 <span class="lineNum">     851 </span><span class="lineCov">      22301 :                         length += str.length();</span>
 <span class="lineNum">     852 </span><span class="lineCov">      44602 :                         tail = builder.CreateString(str);</span>
 <span class="lineNum">     853 </span><span class="lineCov">      22301 :                 }</span>
-<span class="lineNum">     854 </span><span class="lineCov">     106172 :                 auto element = _fast::CreateElement(builder, kind, text, tail, pos, length, child, extra, line, column);</span>
+<span class="lineNum">     854 </span><span class="lineCov">     106172 :                 auto element = _fast::CreateElement(builder, kind, text, pos, length, child, tail, extra, line, column);</span>
 <span class="lineNum">     855 </span><span class="lineCov">      53086 :                 pos += length;</span>
 <span class="lineNum">     856 </span>            :                 return element;
 <span class="lineNum">     857 </span><span class="lineCov">      53086 :         } </span>

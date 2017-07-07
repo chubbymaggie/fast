@@ -45,7 +45,7 @@ all: $(target)
 ./slice-diff: slice-diff.o fast.pb.o
 	c++ $(OPT) $^ $(PB_LIB) -o $@
 
-./fast-smali: smaliLexer.o smaliParser.o smaliListener.o smaliBaseListener.o smali.o fast.pb.o
+./fast-smali: smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o fast.pb.o
 	c++ $(OPT) $(CFLAGS) -o $@ $^  $(LDFLAGS) $(PB_LIB)
 
 fast.pb.o: src/fast.pb.cc 
@@ -57,7 +57,7 @@ fast.pb.o: src/fast.pb.cc
 %.o: src/antlr4/smali/%.cpp
 	c++ $(OPT) $(CFLAGS) -c $^
 
-smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliListener.cpp smali/src/antlr4/smali/smaliBaseListener.cpp: src/antlr4/smali/smali.g4
+smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliParserListener.cpp smali/src/antlr4/smali/smaliParserBaseListener.cpp: src/antlr4/smali/smaliParser.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
 smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
@@ -127,7 +127,7 @@ fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@
 
-install: fast process fast.proto dist/smali.jar
+install: fast process fast-smali fast.proto dist/smali.jar
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
@@ -311,3 +311,5 @@ fast-$V/debian/source/format: format
 fast-$V/debian/rules: rules
 	cp $^ $@
 
+test:: install
+	cd test && ./test.sh

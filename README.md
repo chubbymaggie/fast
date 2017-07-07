@@ -46,6 +46,8 @@ used one of the following related tools:
 
 ### Version History
 
+* Fixed some lexer errors in smaliLexer.g4
+
 *0.0.3* (July 6, 2017)
 
 * Added support to Antlr4 (which unfortunately caused a conflict in the older dependencies of antlr@2 (required by srcml). There is a workaround (see an update to the installation guide.)

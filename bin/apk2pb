@@ -1,0 +1,4 @@
+apktool d $1
+find ${1/.apk} -name "*.smali" | parallel --eta fast-smali {} {}.pb
+find ${1/.apk} -name "*.smali.pb" | xargs tar rvf ${1/.apk/}.tar
+bzip2 ${1/.apk}.tar

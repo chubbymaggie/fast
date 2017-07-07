@@ -103,6 +103,8 @@ void printMarkups(FILE *file) {
 		}
 		cout << (unsigned char) c;
 	}
+	assert(n_end == 0);
+	/*
 	while (n_end > 0) {
 		pos++;
 		if (tag_map.find(pos) != tag_map.end()) {
@@ -110,6 +112,7 @@ void printMarkups(FILE *file) {
 			n_end--;
 		} 
 	}
+	*/
 	cout << "</unit>";
 }
 
@@ -160,6 +163,8 @@ void printMarkups(FILE *file, const char *output_file) {
 		}
 		text += c;
 	}
+	assert (n_end == 0);
+	/*
 	while (n_end > 0) {
 		pos++;
 		if (type_map.find(pos) != type_map.end()) {
@@ -189,6 +194,7 @@ void printMarkups(FILE *file, const char *output_file) {
 			n_end--;
 		} 
 	}
+	*/
 	fstream output(output_file, ios::out | ios::trunc | ios::binary);
 	data->SerializeToOstream(&output);
   	google::protobuf::ShutdownProtobufLibrary();

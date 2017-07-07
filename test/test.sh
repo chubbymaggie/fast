@@ -6,7 +6,6 @@ fast_smali=$(which fast-smali)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast -o ! -f ../process ]; then
 		cd .. 
-		./configure
 		make OPT="-g -O0 --coverage"
 		sudo make install
 		cd -
@@ -1779,7 +1778,7 @@ testLoadPB() {
 
 testFinalReport() {
 	lcov --directory .. --capture --output-file ../fast.info
-	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/smali/src/antlr4/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' > fast.info
+	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/smali/src/antlr4/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' '*/src/antlr4-runtime/*' > fast.info
 	genhtml fast.info
 }
 
