@@ -89,34 +89,40 @@ public:
 	}
 };
 
-void printMarkups(FILE *file) {
+void printMarkups(FILE *file, ofstream &out) {
 	unsigned int c;
 	int pos = -1;
-	cout << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
-	cout << "<unit>";
+	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	out << "<unit>";
 	int n_end = tag_map.size();
 	while ((c = fgetc(file))!= -1) {
 		pos++;
 		if (tag_map.find(pos) != tag_map.end()) {
-			cout << tag_map[pos]; 
+			out << tag_map[pos]; 
 			n_end --;
 		}
-		cout << (unsigned char) c;
+		out << (unsigned char) c;
 	}
 	while (n_end > 0) {
 		pos++;
 		if (tag_map.find(pos) != tag_map.end()) {
-			cout << tag_map[pos]; 
+			out << tag_map[pos]; 
 			n_end--;
 		} 
 	}
-	cout << "</unit>";
+	out << "</unit>";
 }
 
 /**
  * Generate the parsing tree into a protobuf representation
  */
 void printMarkups(FILE *file, const char *output_file) {
+	if (xml_output) { // output is xml
+		ofstream out(output_file, ios::out | ios::trunc);
+		printMarkups(file, out);
+		out.close();
+		return;
+	}
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 	fast::Data *data = new fast::Data();
 	fast::Element *element = data->mutable_element();
@@ -148,7 +154,7 @@ void printMarkups(FILE *file, const char *output_file) {
 					if (prev_element!=NULL) 
 						prev_element->set_tail(text);
 					fast::Element *child = path.back()->add_child();
-					child->set_kind((fast::Element_Kind)v[i]);
+					child->set_smali_kind((fast::SmaliKind)v[i]);
 					path.push_back(child);
 					if (i == v.size()-1) {
 						prev_element = child;
@@ -195,52 +201,43 @@ void printMarkups(FILE *file, const char *output_file) {
 	output.close();
 }
 
-int main(int argc, const char* argv[]) {
+int smaliMainRoutine(int argc, char**argv) {
   tag_map.clear();
   ifstream stream;
   bool is_smali = strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0;
   bool input_is_pb = strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0;
   bool output_is_pb = argc > 2 && strcmp(argv[2]+strlen(argv[2])-3, ".pb")==0;
-  if (is_smali) {
-	  if (!output_is_pb)
-		  xml_output = true;
-	  stream.open(argv[1]);
-	  ANTLRInputStream input(stream);
-	  smaliLexer lexer(&input);
-	  // voc = & (lexer.getVocabulary());
-	  CommonTokenStream tokens(&lexer);
-	  smaliParser parser(&tokens);
-	  if (argc == 2)
-		  ruleNames = parser.getRuleNames();
-	  else {
-		  struct stat buf;
-		  if (stat("smali.proto", &buf) == -1) {
-			  fstream proto_output("smali.proto", ios::out);
-			  proto_output << "syntax=\"proto3\";" << endl;
-			  proto_output << "enum Kind {" << endl;
-			  for (int i =0; i < parser.getRuleNames().size(); i++) {
-				string name = parser.getRuleNames()[i];
-				transform(name.begin(), name.end(),name.begin(), ::tolower);
-				proto_output << "\t" << name << " = " << i << ";" << endl; 
-			  }
-			  proto_output << "}" << endl;
-			  proto_output.close();
-		  }
+  if (!output_is_pb)
+	  xml_output = true;
+  stream.open(argv[1]);
+  ANTLRInputStream input(stream);
+  smaliLexer lexer(&input);
+  // voc = & (lexer.getVocabulary());
+  CommonTokenStream tokens(&lexer);
+  smaliParser parser(&tokens);
+  ruleNames = parser.getRuleNames();
+  struct stat buf;
+  if (stat("smali.proto", &buf) == -1) {
+	  fstream proto_output("smali.proto", ios::out);
+	  proto_output << "syntax=\"proto3\";" << endl;
+	  proto_output << "enum Kind {" << endl;
+	  for (int i =0; i < parser.getRuleNames().size(); i++) {
+		string name = parser.getRuleNames()[i];
+		transform(name.begin(), name.end(),name.begin(), ::tolower);
+		proto_output << "\t" << name << " = " << i << ";" << endl; 
 	  }
-	  TreeShapeListener listener;
-	  tree::ParseTree *tree = parser.smali_file();
-	  tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
-	  FILE *file = fopen(argv[1], "r");
-	  if (argc == 2) {
-		  printMarkups(file);
-	  } else { // assume that the second argument for FAST representation
-		  printMarkups(file, argv[2]);
-	  }
-	  fclose(file);
-  } else if (input_is_pb) {
-	  string command = "cat ";
-	  command = command + argv[1] + " | protoc --decode=fast.Data fast.proto";
-	  system(command.c_str());
+	  proto_output << "}" << endl;
+	  proto_output.close();
   }
+  TreeShapeListener listener;
+  tree::ParseTree *tree = parser.smali_file();
+  tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
+  FILE *file = fopen(argv[1], "r");
+  if (argc == 2) {
+	  printMarkups(file, (ofstream&) cout);
+  } else { // assume that the second argument for FAST representation
+	  printMarkups(file, argv[2]);
+  }
+  fclose(file);
   return 0;
 }

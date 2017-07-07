@@ -12,7 +12,6 @@ endif
 target+=fast
 target+=process
 target+=slice-diff
-target+=fast-smali
 CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
@@ -44,9 +43,6 @@ all: $(target)
 
 ./slice-diff: slice-diff.o fast.pb.o
 	c++ $(OPT) $^ $(PB_LIB) -o $@
-
-./fast-smali: smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o fast.pb.o
-	c++ $(OPT) $(CFLAGS) -o $@ $^  $(LDFLAGS) $(PB_LIB)
 
 fast.pb.o: src/fast.pb.cc 
 	c++ $(OPT) $(CFLAGS) -c $^
@@ -84,21 +80,17 @@ CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/u
 CFLAGS+=$(shell xml2-config --cflags)
 
 prefix=/usr/local
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
-	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) -o $@
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
+	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast fast-smali process fast.proto
+install: fast process fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
-	install -m 0755 fast-smali $(DESTDIR)$(prefix)/bin/fast-smali
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
+	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
-	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
-	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
-	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
-	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
 	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
 	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
 
@@ -113,27 +105,23 @@ endif
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
 CFLAGS+=$(shell xml2-config --cflags)
 
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
-	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $^ -o $@
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
+	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) $^ -o $@
 
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@
 
-install: fast process fast-smali fast.proto
+install: fast process fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
-	install -m 0755 fast-smali $(DESTDIR)$(prefix)/bin/fast-smali
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
+	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0755 lib/osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
 	install -m 0755 lib/osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
-	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
-	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
-	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
-	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
 endif
 .PHONY: install
 
@@ -181,7 +169,7 @@ _fast/Element.py: fast.fbs
 src/fast_generated.h: fast.fbs
 	$(flatc) --cpp -o src fast.fbs
 
-src/fast.proto.in: ElementType.proto SmaliType.proto SmaliCppType.proto \
+src/fast.proto.in: ElementType.proto Smali.proto \
 	Unit.proto Literal.proto \
 	log.proto
 

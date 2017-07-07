@@ -2,7 +2,6 @@
 
 fast=$(which fast)
 process=$(which process)
-fast_smali=$(which fast-smali)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
 	if [ ! -f ../fast -o ! -f ../process ]; then
 		cd .. 
@@ -13,7 +12,6 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 fi
 fast=${fast:=../fast}
 process=${process:=../process}
-fast_smali=${fast_smali:=../fast-smali}
 
 stdout() {
 	hash=$1
@@ -43,6 +41,7 @@ export -f stdouterr
 
 testhello() {
 	$fast -v
+	$fast -h
 }
 
 testJava() 
@@ -140,17 +139,14 @@ EOF
 EOF
 	catout 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 DuplicateVirtualMethods.smali
 	catout 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a DuplicateVirtualMethods-v2.smali
-	$fast_smali DuplicateVirtualMethods.smali > DuplicateVirtualMethods.smali.xml
+	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.xml
 	catout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.smali.xml
 	rm -f smali.proto
-	$fast_smali DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
+	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
 	catout 6ed7e11200def362490c5d8f35743798a646f7bc48ddff7a1304940b0d6f8956 smali.proto
-	$fast_smali DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
-	cp ../src/antlr4/smali/fast.proto .
-	$fast DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.xml
-	catout a18f85af50492da9942a5e68de2e9aca4764889c61a80f6d6a48d7f4d56272a5 DuplicateVirtualMethods.smali.pb.xml
-	$fast_smali DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
-	catout 7029ee2907d8e04239ff6436ccbbb8e8aebcc8c90c318caea32e8091438b5ce0 DuplicateVirtualMethods.smali.pb.txt
+	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
+	$fast -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
+	catout 9ab34981b8cd72e1746b32decc0a571f0d0895157f4f60ed2cb105cf18be4474 DuplicateVirtualMethods.smali.pb.txt
 }
 
 testCS() {

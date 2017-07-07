@@ -56,7 +56,6 @@ int position = 0;
 int slice = 0; 
 int mySlice = 0; 
 int load_only = 0; 
-int antlr = 0; 
 int git = 0; 
 bool delta = false; 
 string head = "HEAD";
@@ -65,6 +64,7 @@ string head = "HEAD";
 int loadSrcML(int load_only, int argc, char **argv);
 
 int mainRoutine(int argc, char* argv[]);
+int smaliMainRoutine(int argc, char** argv);
 
 inline bool exists_test (const std::string& name) {
 	struct stat buffer;   
@@ -318,7 +318,6 @@ void slicePB(srcSliceHandler& handler, fast::Element *element) {
 #endif
 
 bool is_srcml = true;
-bool is_smali = false;
 bool is_smali_cpp = false;
 #ifdef FBS_fast
 void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
@@ -469,27 +468,17 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 #endif
 
 void saveTxtFromPB(char *input_file, char *output_file) {
-	char buf[100];
+	char buf[1000];
 	fast::Data data = readData(input_file);
 	if (data.has_element()) {
 		fast::Element unit = data.element();
 		const char *filename = unit.unit().filename().c_str();
-		if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
-			sprintf(buf, "cat /usr/local/share/fast.proto | sed -e 's/Kind kind = 1;/SmaliKind kind = 1;/' > /tmp/smali.proto");
-			system(buf);
-			sprintf(buf, "cat %s | protoc -I/tmp --decode=fast.Data /tmp/smali.proto %s %s", 
-				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
-			system(buf);
-			remove("/tmp/smali.proto");
-		} else {
-			sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
-				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
-			system(buf);
-		}
+		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
+			input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		system(buf);
 	} else {
-		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s",
+		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto%s%s",
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
-		// cout << buf << endl;
 		system(buf);
 	} 
 }
@@ -505,186 +494,6 @@ void savePBfromTxt(char *input_file, char *output_file) {
 	char buf[1000];
 	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto > %s", input_file, output_file);
 	system(buf);
-}
-void markupElementBegin(map<int, string> *map, fast::Element *node);
-void markupElementEnd(map<int, string> *map, fast::Element *node);
-
-void expandElement(int level, fast::Element *node) {
-	string kind = fast::SmaliKind_Name((fast::SmaliKind) node->smali_kind()); 
-	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
-	if (node->smali_kind() == 0) { // override the 0 case
-		kind = "unit filename=\"" + node->unit().filename() + "\"";
-	}
-	int p = node->pos();
-	int l = node->length();
-	int n = node->child().size();
-	for (int i=0; i< n; i++) {
-		expandElement(level + 1, node->mutable_child(i));
-	}
-	if (n > 0 && level > 0 && p == 0 && l == 1) {
-		int k = 0;
-		while (node->mutable_child(k)->pos() == 0 && k <= n-1) {
-			k++;
-		}
-		if (k < n) {
-			p = node->mutable_child(k)->pos();
-			int j = n - 1;
-			while (node->mutable_child(j)->pos() == 0 && j>=k) {
-				j--;
-			}
-			if (j >= k) {
-				int e = node->mutable_child(j)->pos() + node->mutable_child(j)->length() - 1;
-				l =  e - p + 1;
-				node->set_pos(p);
-				node->set_length(l);
-				for (int i=j; j<n-1; j++) { // the pending elements
-					node->mutable_child(i)->set_pos(e);
-					node->mutable_child(i)->set_length(1);
-				}
-			}
-		}
-	}
-}
-
-void markupElementBegin(map<int, string> *map, fast::Element *node) {
-	string kind = fast::SmaliKind_Name((fast::SmaliKind) node->smali_kind()); 
-	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
-	if (node->kind() == 0) { // override the 0 case
-		kind = "unit filename=\"" + node->unit().filename() + "\"";
-	}
-	int p = node->pos();
-	if (node->pos() > 0 || node->length() > 1) {
-		if (map->find(p) == map->end()) {
-			(*map) [p] = "<" + kind + ">";
-		} else {
-			(*map) [p] = (*map) [p] + "<" + kind + ">";
-		}
-	}
-	for (int i=0; i< node->child().size(); i++) {
-		markupElementBegin(map, node->mutable_child(i));
-	}
-}
-
-void markupElementEnd(map<int, string> *map, fast::Element *node) {
-	string kind = fast::SmaliKind_Name((fast::SmaliKind) node->smali_kind()); 
-	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
-	if (node->smali_kind() == 0) { // override the 0 case
-		kind = "unit";
-	}
-	int p = node->pos() + node->length() - 1;
-	if (node->pos() > 0 || node->length() > 1) {
-		if (map->find(p) == map->end()) {
-			(*map) [p] = "</" + kind + ">";
-		} else {
-			(*map) [p] = "</" + kind + ">" + (*map) [p];
-		}
-	}
-	for (int i=0; i< node->child().size(); i++) {
-		markupElementEnd(map, node->mutable_child(i));
-	}
-}
-
-void printMarkups(FILE *file, fast::Element *unit) {
-	map<int, string> map_begin;
-	map<int, string> map_end;
-	expandElement(0, unit);
-	markupElementBegin(&map_begin, unit);
-	markupElementEnd(&map_end, unit);
-
-	unsigned int c;
-	int pos = 0;
-	cout << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
-	cout << "<unit>";
-	int n_end = map_end.size();
-	while ((c = fgetc(file))!= EOF) {
-		if (map_begin.find(pos) != map_begin.end()) {
-			cout << map_begin[pos]; 
-		}
-		cout << (unsigned char) c;
-		if (map_end.find(pos) != map_end.end()) {
-			cout << map_end[pos]; 
-			n_end --;
-		} 
-		pos++;
-	}
-	while (n_end > 0) {
-		pos++;
-		if (map_end.find(pos) != map_end.end()) {
-			cout << map_end[pos]; 
-			n_end--;
-		} 
-	}
-	cout << "</unit>";
-}
-
-void printMarkups(ofstream *output, FILE *file, fast::Element *unit) {
-	map<int, string> map_begin;
-	map<int, string> map_end;
-	markupElementBegin(&map_begin, unit);
-	markupElementEnd(&map_end, unit);
-
-	unsigned int c;
-	int pos = 0;
-	*output << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
-	*output << "<unit>";
-	int n_end = map_end.size();
-	while ((c = fgetc(file))!= EOF) {
-		if (map_begin.find(pos) != map_begin.end()) {
-			*output << map_begin[pos]; 
-		}
-		*output << (unsigned char) c;
-		if (map_end.find(pos) != map_end.end()) {
-			*output << map_end[pos]; 
-			n_end --;
-		} 
-		pos++;
-	}
-	while (n_end > 0) {
-		pos++;
-		if (map_end.find(pos) != map_end.end()) {
-			*output << map_end[pos]; 
-			n_end--;
-		} 
-	}
-	*output << "</unit>";
-}
-
-void saveMarkupFromPB(char *input_file) {
-	char buf[100];
-	fast::Data data = readData(input_file);
-	fast::Element unit = data.element();
-	const char *filename = unit.unit().filename().c_str(); // this is the original filename
-	FILE *file = fopen(filename, "r"); 
-	if (!file) { 
-		cerr << "Couldn't locate the original file " << filename  << endl;
-		return;
-	}
-   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
-		printMarkups(file, &unit);
-	} else {
-		cerr << "Currently we don't support this ANTLR3 schema yet, please email y.yu@open.ac.uk for help on \n" << strstr(filename, ".") << endl;
-	}
-	fclose(file);
-}
-
-void saveMarkupFromPB(char *input_file, char *output_file) {
-	char buf[100];
-	fast::Data data = readData(input_file);
-	fast::Element unit = data.element();
-	const char *filename = unit.unit().filename().c_str(); // this is the original filename
-	FILE *file = fopen(filename, "r"); 
-	if (!file) { 
-		cerr << "Couldn't locate the original file " << filename  << endl;
-		return;
-	}
-   	if (strcmp(filename+strlen(filename)-6, ".smali")==0) {
-		ofstream output(output_file, ios::out | ios::trunc);
-		printMarkups(&output, file, &unit);
-		output.close();
-	} else {
-		cerr << "Currently we don't support this ANTLR3 schema yet, please email y.yu@open.ac.uk for help on \n" << strstr(filename, ".") << endl;
-	}
-	fclose(file);
 }
 
 #ifdef PB_fast
@@ -831,11 +640,8 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 		if (is_srcml) {
 			transform(str.begin(), str.end(),str.begin(), ::toupper);
 			kind = flatbuffers::LookupEnum(EnumNamesKind(), str.c_str());
-		} else if (is_smali) {
-			transform(str.begin(), str.end(),str.begin(), ::toupper);
-			kind = flatbuffers::LookupEnum(EnumNamesSmaliKind(), str.c_str());
 		} else if (is_smali_cpp) {
-			kind = flatbuffers::LookupEnum(EnumNamesSmaliCppKind(), str.c_str());
+			kind = flatbuffers::LookupEnum(EnumNamesSmaliKind(), str.c_str());
 		}
 		if (kind == -1)
 			cerr << "Warning: the following kind is not found " << str << endl;
@@ -845,7 +651,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 				CreateUnit(builder, filename, revision, language, item), 
 				CreateLiteral(builder, type));
 		}
-		auto type = CreateAnonymous0(builder, is_srcml?kind:(int32_t)0, is_smali?kind:(int32_t)0, is_smali_cpp?kind:(int32_t)0);
+		auto type = CreateAnonymous0(builder, is_srcml?kind:(int32_t)0, is_smali_cpp?kind:(int32_t)0);
 		xml_node<> *child_node = node->first_node();
 		if (child_node != 0 && string(child_node->name()) == "") { // first text node
 			string str = string(child_node->value());
@@ -884,10 +690,11 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		head = preprocess_git(head, delta);
 	}
 	string srcmlCommand = "srcml";
-	string antlrCommand = "java -cp /usr/local/lib/smali.jar:/usr/local/lib/protobuf-java-3.3.1.jar:/usr/local/lib/core-2.1.0-SNAPSHOT.jar:/usr/local/lib/reflections-0.9.10.jar:/usr/local/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/local/lib/javassist-3.18.2-GA.jar:/usr/local/lib/client-2.1.0-SNAPSHOT.jar:/usr/local/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/local/lib/rendersnake-1.9.0.jar:/usr/local/lib/trove4j-3.0.3.jar:/usr/local/lib/simmetrics-core-3.2.3.jar:/usr/lib/smali.jar:/usr/lib/protobuf-java-3.3.1.jar:/usr/lib/core-2.1.0-SNAPSHOT.jar:/usr/lib/reflections-0.9.10.jar:/usr/lib/smali-2.2.1-93a43730-dirty-fat.jar:/usr/lib/javassist-3.18.2-GA.jar:/usr/lib/client-2.1.0-SNAPSHOT.jar:/usr/lib/client.diff-2.1.0-SNAPSHOT.jar:/usr/lib/rendersnake-1.9.0.jar:/usr/lib/trove4j-3.0.3.jar:/usr/lib/simmetrics-core-3.2.3.jar Smali";
 	bool input_is_xml = false;
 	bool output_is_xml = false;
 	string xml_filename;
+	bool is_smali = false;
+	char *my_argv[3];
 	for (int i = 1; i < (argc == 2? 2 : argc - 1); i++) { // process the inputs, and reserve the last argument as output
 		if (!check_exists(argv[i])) {
 			cerr << "file or folder " << argv[i] << "does not exist!" << endl;
@@ -897,73 +704,71 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		if (input_is_xml) {
 			xml_filename = argv[i];
 		}
-		bool is_smali = antlr && strcmp(argv[i]+strlen(argv[i])-6, ".smali")==0;
-		if (antlr) {
-			if (is_smali)
-				antlrCommand = antlrCommand + " " + argv[i];
+		is_smali = strcmp(argv[i]+strlen(argv[i])-6, ".smali")==0;
+		if (is_smali) {
+			my_argv[0] = argv[0];
+			my_argv[1] = argv[i];
+		}
+		if (git && i==1 && head != "") {
+			chdir(head.c_str());
+		}
+		srcmlCommand = srcmlCommand + " " + argv[i];
+	}
+	if (position)
+		srcmlCommand = srcmlCommand + " --position";
+	bool is_tmp = false;
+	if (!input_is_xml) { // input is not yet xml, first convert it into xml using srcml
+		output_is_xml = argc == 2 || strcmp(argv[argc-1]+strlen(argv[argc-1])-4, ".xml")==0;
+		if (!slice && output_is_xml) {
+			if (argc == 2)
+				xml_filename = "stdout://-";
 			else
-				cerr << "Skipping " << argv[i]
-				     << ": currently only .smali input is supported if -a option is on for antlr grammars" << endl;
+				xml_filename = argv[argc - 1];
 		} else {
-			if (git && i==1 && head != "") {
-				chdir(head.c_str());
-			}
-			srcmlCommand = srcmlCommand + " " + argv[i];
-		} 
+			char buf[100];
+			strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+			mkstemp(buf);
+			remove(buf);
+			xml_filename = buf;
+			xml_filename +=	".xml";
+			is_tmp = true;
+		}
+		if (is_smali && argc == 2) {
+			smaliMainRoutine(2, my_argv);
+			return 0;
+		} else if (is_smali) {
+			my_argv[2] = argv[argc-1];
+			smaliMainRoutine(3, my_argv);
+			return 0;
+		}
+		srcmlCommand = srcmlCommand + " -o " + xml_filename;
+		// cout << srcmlCommand << endl;
+		system(srcmlCommand.c_str());
 	}
-	if (!antlr) {
-		if (position)
-			srcmlCommand = srcmlCommand + " --position";
-		bool is_tmp = false;
-		if (!input_is_xml) { // input is not yet xml, first convert it into xml using srcml
-			output_is_xml = argc == 2 || strcmp(argv[argc-1]+strlen(argv[argc-1])-4, ".xml")==0;
-			if (!slice && output_is_xml) {
-				if (argc == 2)
-					xml_filename = "stdout://-";
-				else
-					xml_filename = argv[argc - 1];
-			} else {
-				char buf[100];
-				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
-				mkstemp(buf);
-				remove(buf);
-				xml_filename = buf;
-				xml_filename +=	".xml";
-				is_tmp = true;
-			}
-			srcmlCommand = srcmlCommand + " -o " + xml_filename;
-			// cout << srcmlCommand << endl;
-			system(srcmlCommand.c_str());
-		}
-		if (slice) {
-			string sliceCommand = "srcSlice ";
-			sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
-			system(sliceCommand.c_str());
-			string catCommand = "cat ";
-			catCommand = catCommand + xml_filename + ".slice";
-			system(catCommand.c_str());
-			remove((xml_filename + ".slice").c_str());
-		} else if (!input_is_xml && !output_is_xml) { // target is not xml
-			argv[argc-2] = strdup(xml_filename.c_str());
-			loadXML(load_only, 3, argv + argc-3);
-		} else {
-			if (argc == 3 && input_is_xml) {
-				srcmlCommand = srcmlCommand + " -o " + argv[2];
-			}
-			system(srcmlCommand.c_str());
-		}
-		if (is_tmp)
-			remove(xml_filename.c_str());
+	if (slice) {
+		string sliceCommand = "srcSlice ";
+		sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
+		system(sliceCommand.c_str());
+		string catCommand = "cat ";
+		catCommand = catCommand + xml_filename + ".slice";
+		system(catCommand.c_str());
+		remove((xml_filename + ".slice").c_str());
+	} else if (!input_is_xml && !output_is_xml) { // target is not xml
+		argv[argc-2] = strdup(xml_filename.c_str());
+		loadXML(load_only, 3, argv + argc-3);
 	} else {
-		antlrCommand = antlrCommand + " " + argv[argc - 1];
-		system(antlrCommand.c_str());
+		if (argc == 3 && input_is_xml) {
+			srcmlCommand = srcmlCommand + " -o " + argv[2];
+		}
+		system(srcmlCommand.c_str());
 	}
+	if (is_tmp)
+		remove(xml_filename.c_str());
 	return 0;
 }
 
 void usage() {
-    cerr << "Usage: fast [-acdeDg:hpsSv] input_file output_file"  << endl
-	 << "-a\tuse Antlr's AST instead of srcML's" << endl
+    cerr << "Usage: fast [-cdeDg:hpsSv] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
@@ -992,12 +797,6 @@ int mainRoutine(int argc, char* argv[]) {
 	    return 0;
 	  } else if (decode && argc == 3) {
 	    saveTxtFromPB(argv[1], argv[2]);
-	    return 0;
-	  } else if (antlr && argc == 2) {
-	    saveMarkupFromPB(argv[1]);
-	    return 0;
-	  } else if (antlr && argc == 3) {
-	    saveMarkupFromPB(argv[1], argv[2]);
 	    return 0;
 	  }
 	  return loadPB(load_only, argc, argv);
@@ -1029,8 +828,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  antlr = 0;
-  while ((c = getopt (argc, argv, "acdDeg:hpsSv")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hpsSv")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -1045,9 +843,6 @@ int main(int argc, char* argv[]) {
       case 'g':
 	    git = 1;
 	    head = optarg;
-	    break;
-      case 'a':
-	    antlr = 1;
 	    break;
       case 'e':
 	    encode = 1;

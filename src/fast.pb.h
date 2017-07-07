@@ -659,226 +659,6 @@ inline bool Slices_Slice_ChangeType_Parse(
     Slices_Slice_ChangeType_descriptor(), name, value);
 }
 enum SmaliKind {
-  INVALID = 0,
-  EOR = 1,
-  DOWN = 2,
-  UP = 3,
-  ACCESS_SPEC = 4,
-  ANNOTATION_DIRECTIVE = 5,
-  ANNOTATION_VISIBILITY = 6,
-  ARRAY_DATA_DIRECTIVE = 7,
-  ARRAY_TYPE_PREFIX = 8,
-  ARROW = 9,
-  BOOL_LITERAL = 10,
-  BYTE_LITERAL = 11,
-  CATCHALL_DIRECTIVE = 12,
-  CATCH_DIRECTIVE = 13,
-  CHAR_LITERAL = 14,
-  CLASS_DESCRIPTOR = 15,
-  CLASS_DIRECTIVE = 16,
-  CLOSE_BRACE = 17,
-  CLOSE_PAREN = 18,
-  COLON = 19,
-  COMMA = 20,
-  DOTDOT = 21,
-  DOUBLE_LITERAL = 22,
-  DOUBLE_LITERAL_OR_ID = 23,
-  END_ANNOTATION_DIRECTIVE = 24,
-  END_ARRAY_DATA_DIRECTIVE = 25,
-  END_FIELD_DIRECTIVE = 26,
-  END_LOCAL_DIRECTIVE = 27,
-  END_METHOD_DIRECTIVE = 28,
-  END_PACKED_SWITCH_DIRECTIVE = 29,
-  END_PARAMETER_DIRECTIVE = 30,
-  END_SPARSE_SWITCH_DIRECTIVE = 31,
-  END_SUBANNOTATION_DIRECTIVE = 32,
-  ENUM_DIRECTIVE = 33,
-  EPILOGUE_DIRECTIVE = 34,
-  EQUAL = 35,
-  FIELD_DIRECTIVE = 36,
-  FIELD_OFFSET = 37,
-  FLOAT_LITERAL = 38,
-  FLOAT_LITERAL_OR_ID = 39,
-  IMPLEMENTS_DIRECTIVE = 40,
-  INLINE_INDEX = 41,
-  INSTRUCTION_FORMAT10t = 42,
-  INSTRUCTION_FORMAT10x = 43,
-  INSTRUCTION_FORMAT10x_ODEX = 44,
-  INSTRUCTION_FORMAT11n = 45,
-  INSTRUCTION_FORMAT11x = 46,
-  INSTRUCTION_FORMAT12x = 47,
-  INSTRUCTION_FORMAT12x_OR_ID = 48,
-  INSTRUCTION_FORMAT20bc = 49,
-  INSTRUCTION_FORMAT20t = 50,
-  INSTRUCTION_FORMAT21c_FIELD = 51,
-  INSTRUCTION_FORMAT21c_FIELD_ODEX = 52,
-  INSTRUCTION_FORMAT21c_STRING = 53,
-  INSTRUCTION_FORMAT21c_TYPE = 54,
-  INSTRUCTION_FORMAT21ih = 55,
-  INSTRUCTION_FORMAT21lh = 56,
-  INSTRUCTION_FORMAT21s = 57,
-  INSTRUCTION_FORMAT21t = 58,
-  INSTRUCTION_FORMAT22b = 59,
-  INSTRUCTION_FORMAT22c_FIELD = 60,
-  INSTRUCTION_FORMAT22c_FIELD_ODEX = 61,
-  INSTRUCTION_FORMAT22c_TYPE = 62,
-  INSTRUCTION_FORMAT22cs_FIELD = 63,
-  INSTRUCTION_FORMAT22s = 64,
-  INSTRUCTION_FORMAT22s_OR_ID = 65,
-  INSTRUCTION_FORMAT22t = 66,
-  INSTRUCTION_FORMAT22x = 67,
-  INSTRUCTION_FORMAT23x = 68,
-  INSTRUCTION_FORMAT30t = 69,
-  INSTRUCTION_FORMAT31c = 70,
-  INSTRUCTION_FORMAT31i = 71,
-  INSTRUCTION_FORMAT31i_OR_ID = 72,
-  INSTRUCTION_FORMAT31t = 73,
-  INSTRUCTION_FORMAT32x = 74,
-  INSTRUCTION_FORMAT35c_METHOD = 75,
-  INSTRUCTION_FORMAT35c_METHOD_ODEX = 76,
-  INSTRUCTION_FORMAT35c_TYPE = 77,
-  INSTRUCTION_FORMAT35mi_METHOD = 78,
-  INSTRUCTION_FORMAT35ms_METHOD = 79,
-  INSTRUCTION_FORMAT3rc_METHOD = 80,
-  INSTRUCTION_FORMAT3rc_METHOD_ODEX = 81,
-  INSTRUCTION_FORMAT3rc_TYPE = 82,
-  INSTRUCTION_FORMAT3rmi_METHOD = 83,
-  INSTRUCTION_FORMAT3rms_METHOD = 84,
-  INSTRUCTION_FORMAT45cc_METHOD = 85,
-  INSTRUCTION_FORMAT4rcc_METHOD = 86,
-  INSTRUCTION_FORMAT51l = 87,
-  INTEGER_LITERAL = 88,
-  INVALID_TOKEN = 89,
-  I_ACCESS_LIST = 90,
-  I_ANNOTATION = 91,
-  I_ANNOTATIONS = 92,
-  I_ANNOTATION_ELEMENT = 93,
-  I_ARRAY_ELEMENTS = 94,
-  I_ARRAY_ELEMENT_SIZE = 95,
-  I_CATCH = 96,
-  I_CATCHALL = 97,
-  I_CATCHES = 98,
-  I_CLASS_DEF = 99,
-  I_ENCODED_ARRAY = 100,
-  I_ENCODED_ENUM = 101,
-  I_ENCODED_FIELD = 102,
-  I_ENCODED_METHOD = 103,
-  I_END_LOCAL = 104,
-  I_EPILOGUE = 105,
-  I_FIELD = 106,
-  I_FIELDS = 107,
-  I_FIELD_INITIAL_VALUE = 108,
-  I_FIELD_TYPE = 109,
-  I_IMPLEMENTS = 110,
-  I_LABEL = 111,
-  I_LINE = 112,
-  I_LOCAL = 113,
-  I_LOCALS = 114,
-  I_METHOD = 115,
-  I_METHODS = 116,
-  I_METHOD_PROTOTYPE = 117,
-  I_METHOD_RETURN_TYPE = 118,
-  I_ORDERED_METHOD_ITEMS = 119,
-  I_PACKED_SWITCH_ELEMENTS = 120,
-  I_PACKED_SWITCH_START_KEY = 121,
-  I_PARAMETER = 122,
-  I_PARAMETERS = 123,
-  I_PARAMETER_NOT_SPECIFIED = 124,
-  I_PROLOGUE = 125,
-  I_REGISTERS = 126,
-  I_REGISTER_LIST = 127,
-  I_REGISTER_RANGE = 128,
-  I_RESTART_LOCAL = 129,
-  I_SOURCE = 130,
-  I_SPARSE_SWITCH_ELEMENTS = 131,
-  I_STATEMENT_ARRAY_DATA = 132,
-  I_STATEMENT_FORMAT10t = 133,
-  I_STATEMENT_FORMAT10x = 134,
-  I_STATEMENT_FORMAT11n = 135,
-  I_STATEMENT_FORMAT11x = 136,
-  I_STATEMENT_FORMAT12x = 137,
-  I_STATEMENT_FORMAT20bc = 138,
-  I_STATEMENT_FORMAT20t = 139,
-  I_STATEMENT_FORMAT21c_FIELD = 140,
-  I_STATEMENT_FORMAT21c_STRING = 141,
-  I_STATEMENT_FORMAT21c_TYPE = 142,
-  I_STATEMENT_FORMAT21ih = 143,
-  I_STATEMENT_FORMAT21lh = 144,
-  I_STATEMENT_FORMAT21s = 145,
-  I_STATEMENT_FORMAT21t = 146,
-  I_STATEMENT_FORMAT22b = 147,
-  I_STATEMENT_FORMAT22c_FIELD = 148,
-  I_STATEMENT_FORMAT22c_TYPE = 149,
-  I_STATEMENT_FORMAT22s = 150,
-  I_STATEMENT_FORMAT22t = 151,
-  I_STATEMENT_FORMAT22x = 152,
-  I_STATEMENT_FORMAT23x = 153,
-  I_STATEMENT_FORMAT30t = 154,
-  I_STATEMENT_FORMAT31c = 155,
-  I_STATEMENT_FORMAT31i = 156,
-  I_STATEMENT_FORMAT31t = 157,
-  I_STATEMENT_FORMAT32x = 158,
-  I_STATEMENT_FORMAT35c_METHOD = 159,
-  I_STATEMENT_FORMAT35c_TYPE = 160,
-  I_STATEMENT_FORMAT3rc_METHOD = 161,
-  I_STATEMENT_FORMAT3rc_TYPE = 162,
-  I_STATEMENT_FORMAT45cc_METHOD = 163,
-  I_STATEMENT_FORMAT4rcc_METHOD = 164,
-  I_STATEMENT_FORMAT51l = 165,
-  I_STATEMENT_PACKED_SWITCH = 166,
-  I_STATEMENT_SPARSE_SWITCH = 167,
-  I_SUBANNOTATION = 168,
-  I_SUPER = 169,
-  LINE_COMMENT = 170,
-  LINE_DIRECTIVE = 171,
-  LOCALS_DIRECTIVE = 172,
-  LOCAL_DIRECTIVE = 173,
-  LONG_LITERAL = 174,
-  MEMBER_NAME = 175,
-  METHOD_DIRECTIVE = 176,
-  NEGATIVE_INTEGER_LITERAL = 177,
-  NULL_LITERAL = 178,
-  OPEN_BRACE = 179,
-  OPEN_PAREN = 180,
-  PACKED_SWITCH_DIRECTIVE = 181,
-  PARAMETER_DIRECTIVE = 182,
-  PARAM_LIST_OR_ID_PRIMITIVE_TYPE = 183,
-  POSITIVE_INTEGER_LITERAL = 184,
-  PRIMITIVE_TYPE = 185,
-  PROLOGUE_DIRECTIVE = 186,
-  SMALI_REGISTER = 187,
-  REGISTERS_DIRECTIVE = 188,
-  RESTART_LOCAL_DIRECTIVE = 189,
-  SHORT_LITERAL = 190,
-  SIMPLE_NAME = 191,
-  SOURCE_DIRECTIVE = 192,
-  SPARSE_SWITCH_DIRECTIVE = 193,
-  STRING_LITERAL = 194,
-  SUBANNOTATION_DIRECTIVE = 195,
-  SUPER_DIRECTIVE = 196,
-  VERIFICATION_ERROR_TYPE = 197,
-  VOID_TYPE = 198,
-  VTABLE_INDEX = 199,
-  WHITE_SPACE = 200,
-  SmaliKind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  SmaliKind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
-};
-bool SmaliKind_IsValid(int value);
-const SmaliKind SmaliKind_MIN = INVALID;
-const SmaliKind SmaliKind_MAX = WHITE_SPACE;
-const int SmaliKind_ARRAYSIZE = SmaliKind_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* SmaliKind_descriptor();
-inline const ::std::string& SmaliKind_Name(SmaliKind value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    SmaliKind_descriptor(), value);
-}
-inline bool SmaliKind_Parse(
-    const ::std::string& name, SmaliKind* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<SmaliKind>(
-    SmaliKind_descriptor(), name, value);
-}
-enum SmaliCppKind {
   smali_file = 0,
   class_spec = 1,
   super_spec = 2,
@@ -982,23 +762,23 @@ enum SmaliCppKind {
   insn_array_data_directive = 100,
   insn_packed_switch_directive = 101,
   insn_sparse_switch_directive = 102,
-  SmaliCppKind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
-  SmaliCppKind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
+  SmaliKind_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
+  SmaliKind_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
-bool SmaliCppKind_IsValid(int value);
-const SmaliCppKind SmaliCppKind_MIN = smali_file;
-const SmaliCppKind SmaliCppKind_MAX = insn_sparse_switch_directive;
-const int SmaliCppKind_ARRAYSIZE = SmaliCppKind_MAX + 1;
+bool SmaliKind_IsValid(int value);
+const SmaliKind SmaliKind_MIN = smali_file;
+const SmaliKind SmaliKind_MAX = insn_sparse_switch_directive;
+const int SmaliKind_ARRAYSIZE = SmaliKind_MAX + 1;
 
-const ::google::protobuf::EnumDescriptor* SmaliCppKind_descriptor();
-inline const ::std::string& SmaliCppKind_Name(SmaliCppKind value) {
+const ::google::protobuf::EnumDescriptor* SmaliKind_descriptor();
+inline const ::std::string& SmaliKind_Name(SmaliKind value) {
   return ::google::protobuf::internal::NameOfEnum(
-    SmaliCppKind_descriptor(), value);
+    SmaliKind_descriptor(), value);
 }
-inline bool SmaliCppKind_Parse(
-    const ::std::string& name, SmaliCppKind* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<SmaliCppKind>(
-    SmaliCppKind_descriptor(), name, value);
+inline bool SmaliKind_Parse(
+    const ::std::string& name, SmaliKind* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<SmaliKind>(
+    SmaliKind_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1287,13 +1067,12 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   enum TypeCase {
     kKind = 1,
     kSmaliKind = 2,
-    kSmaliCppKind = 3,
     TYPE_NOT_SET = 0,
   };
 
   enum ExtraCase {
-    kUnit = 9,
-    kLiteral = 10,
+    kUnit = 8,
+    kLiteral = 9,
     EXTRA_NOT_SET = 0,
   };
 
@@ -2143,10 +1922,10 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
 
   // accessors -------------------------------------------------------
 
-  // repeated .fast.Element child = 7;
+  // repeated .fast.Element child = 6;
   int child_size() const;
   void clear_child();
-  static const int kChildFieldNumber = 7;
+  static const int kChildFieldNumber = 6;
   const ::fast::Element& child(int index) const;
   ::fast::Element* mutable_child(int index);
   ::fast::Element* add_child();
@@ -2155,9 +1934,9 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   const ::google::protobuf::RepeatedPtrField< ::fast::Element >&
       child() const;
 
-  // string text = 4;
+  // string text = 3;
   void clear_text();
-  static const int kTextFieldNumber = 4;
+  static const int kTextFieldNumber = 3;
   const ::std::string& text() const;
   void set_text(const ::std::string& value);
   #if LANG_CXX11
@@ -2169,9 +1948,9 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_text();
   void set_allocated_text(::std::string* text);
 
-  // string tail = 8;
+  // string tail = 7;
   void clear_tail();
-  static const int kTailFieldNumber = 8;
+  static const int kTailFieldNumber = 7;
   const ::std::string& tail() const;
   void set_tail(const ::std::string& value);
   #if LANG_CXX11
@@ -2183,27 +1962,27 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::std::string* release_tail();
   void set_allocated_tail(::std::string* tail);
 
-  // int32 pos = 5;
+  // int32 pos = 4;
   void clear_pos();
-  static const int kPosFieldNumber = 5;
+  static const int kPosFieldNumber = 4;
   ::google::protobuf::int32 pos() const;
   void set_pos(::google::protobuf::int32 value);
 
-  // int32 length = 6;
+  // int32 length = 5;
   void clear_length();
-  static const int kLengthFieldNumber = 6;
+  static const int kLengthFieldNumber = 5;
   ::google::protobuf::int32 length() const;
   void set_length(::google::protobuf::int32 value);
 
-  // int32 line = 11;
+  // int32 line = 10;
   void clear_line();
-  static const int kLineFieldNumber = 11;
+  static const int kLineFieldNumber = 10;
   ::google::protobuf::int32 line() const;
   void set_line(::google::protobuf::int32 value);
 
-  // int32 column = 12;
+  // int32 column = 11;
   void clear_column();
-  static const int kColumnFieldNumber = 12;
+  static const int kColumnFieldNumber = 11;
   ::google::protobuf::int32 column() const;
   void set_column(::google::protobuf::int32 value);
 
@@ -2225,28 +2004,19 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
   ::fast::SmaliKind smali_kind() const;
   void set_smali_kind(::fast::SmaliKind value);
 
-  // .fast.SmaliCppKind smali_cpp_kind = 3;
-  private:
-  bool has_smali_cpp_kind() const;
-  public:
-  void clear_smali_cpp_kind();
-  static const int kSmaliCppKindFieldNumber = 3;
-  ::fast::SmaliCppKind smali_cpp_kind() const;
-  void set_smali_cpp_kind(::fast::SmaliCppKind value);
-
-  // .fast.Element.Unit unit = 9;
+  // .fast.Element.Unit unit = 8;
   bool has_unit() const;
   void clear_unit();
-  static const int kUnitFieldNumber = 9;
+  static const int kUnitFieldNumber = 8;
   const ::fast::Element_Unit& unit() const;
   ::fast::Element_Unit* mutable_unit();
   ::fast::Element_Unit* release_unit();
   void set_allocated_unit(::fast::Element_Unit* unit);
 
-  // .fast.Element.Literal literal = 10;
+  // .fast.Element.Literal literal = 9;
   bool has_literal() const;
   void clear_literal();
-  static const int kLiteralFieldNumber = 10;
+  static const int kLiteralFieldNumber = 9;
   const ::fast::Element_Literal& literal() const;
   ::fast::Element_Literal* mutable_literal();
   ::fast::Element_Literal* release_literal();
@@ -2258,7 +2028,6 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
  private:
   void set_has_kind();
   void set_has_smali_kind();
-  void set_has_smali_cpp_kind();
   void set_has_unit();
   void set_has_literal();
 
@@ -2282,7 +2051,6 @@ class Element : public ::google::protobuf::Message /* @@protoc_insertion_point(c
     TypeUnion() {}
     int kind_;
     int smali_kind_;
-    int smali_cpp_kind_;
   } type_;
   union ExtraUnion {
     ExtraUnion() {}
@@ -5503,36 +5271,7 @@ inline void Element::set_smali_kind(::fast::SmaliKind value) {
   // @@protoc_insertion_point(field_set:fast.Element.smali_kind)
 }
 
-// .fast.SmaliCppKind smali_cpp_kind = 3;
-inline bool Element::has_smali_cpp_kind() const {
-  return type_case() == kSmaliCppKind;
-}
-inline void Element::set_has_smali_cpp_kind() {
-  _oneof_case_[0] = kSmaliCppKind;
-}
-inline void Element::clear_smali_cpp_kind() {
-  if (has_smali_cpp_kind()) {
-    type_.smali_cpp_kind_ = 0;
-    clear_has_type();
-  }
-}
-inline ::fast::SmaliCppKind Element::smali_cpp_kind() const {
-  // @@protoc_insertion_point(field_get:fast.Element.smali_cpp_kind)
-  if (has_smali_cpp_kind()) {
-    return static_cast< ::fast::SmaliCppKind >(type_.smali_cpp_kind_);
-  }
-  return static_cast< ::fast::SmaliCppKind >(0);
-}
-inline void Element::set_smali_cpp_kind(::fast::SmaliCppKind value) {
-  if (!has_smali_cpp_kind()) {
-    clear_type();
-    set_has_smali_cpp_kind();
-  }
-  type_.smali_cpp_kind_ = value;
-  // @@protoc_insertion_point(field_set:fast.Element.smali_cpp_kind)
-}
-
-// string text = 4;
+// string text = 3;
 inline void Element::clear_text() {
   text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -5585,7 +5324,7 @@ inline void Element::set_allocated_text(::std::string* text) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.text)
 }
 
-// int32 pos = 5;
+// int32 pos = 4;
 inline void Element::clear_pos() {
   pos_ = 0;
 }
@@ -5599,7 +5338,7 @@ inline void Element::set_pos(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Element.pos)
 }
 
-// int32 length = 6;
+// int32 length = 5;
 inline void Element::clear_length() {
   length_ = 0;
 }
@@ -5613,7 +5352,7 @@ inline void Element::set_length(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Element.length)
 }
 
-// repeated .fast.Element child = 7;
+// repeated .fast.Element child = 6;
 inline int Element::child_size() const {
   return child_.size();
 }
@@ -5643,7 +5382,7 @@ Element::child() const {
   return child_;
 }
 
-// string tail = 8;
+// string tail = 7;
 inline void Element::clear_tail() {
   tail_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -5696,7 +5435,7 @@ inline void Element::set_allocated_tail(::std::string* tail) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.tail)
 }
 
-// .fast.Element.Unit unit = 9;
+// .fast.Element.Unit unit = 8;
 inline bool Element::has_unit() const {
   return extra_case() == kUnit;
 }
@@ -5744,7 +5483,7 @@ inline void Element::set_allocated_unit(::fast::Element_Unit* unit) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.unit)
 }
 
-// .fast.Element.Literal literal = 10;
+// .fast.Element.Literal literal = 9;
 inline bool Element::has_literal() const {
   return extra_case() == kLiteral;
 }
@@ -5792,7 +5531,7 @@ inline void Element::set_allocated_literal(::fast::Element_Literal* literal) {
   // @@protoc_insertion_point(field_set_allocated:fast.Element.literal)
 }
 
-// int32 line = 11;
+// int32 line = 10;
 inline void Element::clear_line() {
   line_ = 0;
 }
@@ -5806,7 +5545,7 @@ inline void Element::set_line(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Element.line)
 }
 
-// int32 column = 12;
+// int32 column = 11;
 inline void Element::clear_column() {
   column_ = 0;
 }
@@ -9056,11 +8795,6 @@ template <> struct is_proto_enum< ::fast::SmaliKind> : ::google::protobuf::inter
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::fast::SmaliKind>() {
   return ::fast::SmaliKind_descriptor();
-}
-template <> struct is_proto_enum< ::fast::SmaliCppKind> : ::google::protobuf::internal::true_type {};
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::fast::SmaliCppKind>() {
-  return ::fast::SmaliCppKind_descriptor();
 }
 
 }  // namespace protobuf

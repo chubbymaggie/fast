@@ -1,4 +1,206 @@
 element {
+  child {
+    smali_kind: smali_file
+    child {
+      smali_kind: class_spec
+      child {
+        smali_kind: access_list
+        text: " LDuplicateVirtualMethods;"
+      }
+      tail: "\n"
+    }
+    child {
+      smali_kind: super_spec
+      text: ".super Ljava/lang/Object;"
+      tail: "\n\n"
+    }
+    child {
+      smali_kind: method
+      child {
+        smali_kind: access_list
+        text: "public"
+      }
+      child {
+        smali_kind: member_name
+        child {
+          smali_kind: simple_name
+          text: "alah"
+        }
+      }
+      child {
+        smali_kind: method_prototype
+        child {
+          smali_kind: param_list
+        }
+        child {
+          smali_kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        smali_kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          smali_kind: registers_directive
+          child {
+            smali_kind: integral_literal
+            child {
+              smali_kind: integer_literal
+              text: "1"
+            }
+          }
+        }
+        child {
+          smali_kind: ordered_method_item
+          child {
+            smali_kind: instruction
+            child {
+              smali_kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+      tail: "\n\n"
+    }
+    child {
+      smali_kind: method
+      child {
+        smali_kind: access_list
+        text: "public"
+      }
+      child {
+        smali_kind: member_name
+        child {
+          smali_kind: simple_name
+          text: "blah"
+        }
+      }
+      child {
+        smali_kind: method_prototype
+        child {
+          smali_kind: param_list
+        }
+        child {
+          smali_kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        smali_kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          smali_kind: ordered_method_item
+          child {
+            smali_kind: instruction
+            child {
+              smali_kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+      tail: "\n\n"
+    }
+    child {
+      smali_kind: method
+      child {
+        smali_kind: access_list
+        text: "public"
+      }
+      child {
+        smali_kind: member_name
+        child {
+          smali_kind: simple_name
+          text: "blah"
+        }
+      }
+      child {
+        smali_kind: method_prototype
+        child {
+          smali_kind: param_list
+        }
+        child {
+          smali_kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        smali_kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          smali_kind: registers_directive
+          child {
+            smali_kind: integral_literal
+            child {
+              smali_kind: integer_literal
+              text: "1"
+            }
+          }
+        }
+        child {
+          smali_kind: ordered_method_item
+          child {
+            smali_kind: instruction
+            child {
+              smali_kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+      tail: "\n\n"
+    }
+    child {
+      smali_kind: method
+      child {
+        smali_kind: access_list
+        text: "public"
+      }
+      child {
+        smali_kind: member_name
+        child {
+          smali_kind: simple_name
+          text: "clah"
+        }
+      }
+      child {
+        smali_kind: method_prototype
+        child {
+          smali_kind: param_list
+        }
+        child {
+          smali_kind: type_descriptor
+          text: "V"
+        }
+      }
+      child {
+        smali_kind: statements_and_directives
+        text: "\n.end method"
+        child {
+          smali_kind: registers_directive
+          child {
+            smali_kind: integral_literal
+            child {
+              smali_kind: integer_literal
+              text: "1"
+            }
+          }
+        }
+        child {
+          smali_kind: ordered_method_item
+          child {
+            smali_kind: instruction
+            child {
+              smali_kind: insn_format10x
+              text: "return-void"
+            }
+          }
+        }
+      }
+      tail: ".method "
+    }
+  }
   unit {
   }
 }

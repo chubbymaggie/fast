@@ -1,5 +1,4 @@
-syntax="proto3";
-enum Kind {
+enum SmaliKind {
 	smali_file = 0;
 	class_spec = 1;
 	super_spec = 2;

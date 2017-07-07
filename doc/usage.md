@@ -75,25 +75,13 @@ information, they will be omitted in the XML document.
 
   $ fast -s [Hello.java](../test/Hello.java) > [Hello.slice](../test/Hello-s.slice)
 
-  
-
 These commands perform forward program slicing on the source code using the srcSlice tool. 
 The modified srcSlice tool can replace parsing the srcML with loading the binary AST, which is much more efficient.
 
-### Convert ANTLR3-based language to binary AST
-  $ fast -a [/usr/local/share/DuplicateVirtualMethods.smali](../test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods.pb](../test/DuplicateVirtualMethods.pb)
+### Convert ANTLR4-based language to binary AST
+  $ fast [DuplicateVirtualMethods.smali](../test/DuplicateVirtualMethods.smali) [DuplicateVirtualMethods.pb](../test/DuplicateVirtualMethods.pb)
   
   $ fast -d [DuplicateVirtualMethods.pb](../test/DuplicateVirtualMethods.pb) > [DuplicateVirtualMethods.txt](../test/DuplicateVirtualMethods.txt)
   
-  $ fast -a [DuplicateVirtualMethods.pb](../test/DuplicateVirtualMethods.pb) [DuplicateVirtualMethods.xml](../test/DuplicateVirtualMethods.xml)
-
 These commands convert between Android's smali representation and our protobuf representations. The first command converts SMALI code into a binary AST of
-the structural information; the second command decodes the binary AST into textual form; the third command marks up the original SMALI code with XML tags
-taken from the binary AST, hence making it similar to SrcML structures (albeit following the underlying ANTLR3 schema). 
-
-### Convert GumTreeDiff editing scripts to binary representations
-
-  $ fast -a [/usr/local/share/DuplicateVirtualMethods.smali](../test/DuplicateVirtualMethods.smali) [/usr/local/share/DuplicateVirtualMethods-v2.smali](../test/DuplicateVirtualMethods-v2.smali) [DuplicateVirtualMethods-diff.pb](../test/DuplicateVirtualMethods-diff.pb)
-
-The command computes the GumTreeDiff editing scripts between the two smali input files and saves the scripts into protobuf structure. The protobuf schema has been extended to record the tree-based delta script. 
-
+the structural information; the second command decodes the binary AST into textual form. 

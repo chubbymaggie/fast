@@ -1,12 +1,12 @@
 # Examples of supported programming languages
 ## SrcML
 ### Java, C, C++, C#, Objective C
-* [/usr/local/share/Hello.java](../test/Hello.java)
-* [/usr/local/share/example.cc](../test/example.cc)
+* [Hello.java](../test/Hello.java)
+* [example.cc](../test/example.cc)
 ## Antlr3
 ### Smali
-* [/usr/local/share/DuplicateVirtualMethods.smali](../test/DuplicateVirtualMethods.smali) 
-* [/usr/local/share/DuplicateVirtualMethods-v2.smali](../test/DuplicateVirtualMethods-v2.smali) 
+* [DuplicateVirtualMethods.smali](../test/DuplicateVirtualMethods.smali) 
+* [DuplicateVirtualMethods-v2.smali](../test/DuplicateVirtualMethods-v2.smali) 
 ## Binary 
 ### Protobuf 3.3.0
 * CST Without positions: [Hello.pb](../test/Hello.pb)

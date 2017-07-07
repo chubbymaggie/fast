@@ -23,7 +23,7 @@ smali/smaliLexer.cpp smali/smaliLexer.h smali/smaliLexer.tokens: smaliLexer.g4
 smali.cpp: smali/smaliLexer.h
 
 clean:: 
-	rm -rf fast-smali *.o smali
+	rm -rf fast-smali *.o smali smali.tokens smali.proto
 
 install: fast-smali
 	install -m 0755 fast-smali /usr/local/bin/fast-smali
