@@ -215,7 +215,6 @@ NEGATIVE_INTEGER_LITERAL: '-' INTEGER;
 LONG_LITERAL: '-'? INTEGER [lL];
 SHORT_LITERAL: '-'? INTEGER [sS];
 BYTE_LITERAL: '-'? INTEGER [tT];
-FLOAT_LITERAL_OR_ID: FloatOrID [fF] | '-'?[0-9]+[fF];
 
 CLASS_DIRECTIVE: '.class';
 SUPER_DIRECTIVE: '.super';
@@ -283,7 +282,7 @@ INTEGER: Integer1 | Integer2 | Integer3 | Integer4 | Integer5;
 DecimalExponent: [eE] '-'? [0-9]+;
 BinaryExponent: [pP] '-'? [0-9]+;
 
-FloatOrID1: '-'? [0-9]+ DecimalExponent;
+FloatOrID1: '-'? [0-9]+ '.' [0-9]* DecimalExponent?;
 FloatOrID2: '-'? HexPrefix HexDigit+ BinaryExponent;
 FloatOrID3: '-'? [iI][nN][fF][iI][nN][iI][tT][yY];
 FloatOrID4: [nN][aA][nN];
@@ -293,7 +292,8 @@ Float1: '-'? [0-9]+ '.' [0-9]* DecimalExponent?;
 Float2: '-'? '.' [0-9]+ DecimalExponent?;
 Float3: '-'? HexPrefix HexDigit+ '.' HexDigit* BinaryExponent;
 Float4: '-'? HexPrefix '.' HexDigit+ BinaryExponent;
-Float:  Float1 | Float2 | Float3 | Float4;
+FLOAT_LITERAL:  Float1 | Float2 | Float3 | Float4;
+FLOAT_LITERAL_OR_ID: FloatOrID [fF] | '-'?[0-9]+[fF];
 
 INLINE_INDEX: 'inline@0x' HexDigit+;
 VTABLE_INDEX: 'vtable@0x' HexDigit+;
@@ -399,6 +399,11 @@ EQUAL: '=';
 COLON: ':';
 COMMA: ',';
 
+// §3.10.7 The Null Literal
+
+NULL_LITERAL
+	:	'null'
+	;
 VOID_TYPE: 'V';
 HighSurrogate: [\uD800-\uDBFF];
 LowSurrogate: [\uDC00-\uDFFF];
@@ -509,11 +514,6 @@ UnicodeEscape
     :   '\\' 'u' HexDigit HexDigit HexDigit HexDigit
     ;
 
-// §3.10.7 The Null Literal
-
-NullLiteral
-	:	'null'
-	;
 /* TYPE: PRIMITIVE_TYPE 
      | CLASS_DESCRIPTOR 
      | ARRAY_TYPE_PREFIX CLASS_DESCRIPTOR
