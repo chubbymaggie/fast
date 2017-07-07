@@ -1,6 +1,6 @@
 lexer grammar smaliLexer;
 
-channels { CommentsChannel, DirectiveChannel }
+//channels { CommentsChannel, DirectiveChannel }
 
 tokens {
   //Lexer tokens
@@ -270,31 +270,6 @@ BOOL_LITERAL
 	:	'true'
 	|	'false'
 	;
-HexPrefix: '0'[xX];
-HexDigit: [0-9a-fA-F];
-Integer1: '0';
-Integer2: [1-9][0-9]*;
-Integer3: '0'[0-7]+;
-Integer4: HexPrefix HexDigit+;
-Integer5: 'Infinity';
-INTEGER: Integer1 | Integer2 | Integer3 | Integer4 | Integer5;
-
-DecimalExponent: [eE] '-'? [0-9]+;
-BinaryExponent: [pP] '-'? [0-9]+;
-
-FloatOrID1: '-'? [0-9]+ '.' [0-9]* DecimalExponent?;
-FloatOrID2: '-'? HexPrefix HexDigit+ BinaryExponent;
-FloatOrID3: '-'? [iI][nN][fF][iI][nN][iI][tT][yY];
-FloatOrID4: [nN][aA][nN];
-FloatOrID:  FloatOrID1 | FloatOrID2 | FloatOrID3 | FloatOrID4;
-
-Float1: '-'? [0-9]+ '.' [0-9]* DecimalExponent?;
-Float2: '-'? '.' [0-9]+ DecimalExponent?;
-Float3: '-'? HexPrefix HexDigit+ '.' HexDigit* BinaryExponent;
-Float4: '-'? HexPrefix '.' HexDigit+ BinaryExponent;
-FLOAT_LITERAL:  Float1 | Float2 | Float3 | Float4;
-FLOAT_LITERAL_OR_ID: FloatOrID [fF] | '-'?[0-9]+[fF];
-
 INLINE_INDEX: 'inline@0x' HexDigit+;
 VTABLE_INDEX: 'vtable@0x' HexDigit+;
 FIELD_OFFSET: 'field@0x' HexDigit+;
@@ -399,20 +374,58 @@ EQUAL: '=';
 COLON: ':';
 COMMA: ',';
 
-// §3.10.7 The Null Literal
-
 NULL_LITERAL
 	:	'null'
 	;
 VOID_TYPE: 'V';
+HexPrefix: '0'[xX];
+fragment
+   HexDigit: [0-9a-fA-F];
+Integer1: '0';
+Integer2: [1-9][0-9]*;
+Integer3: '0'[0-7]+;
+Integer4: HexPrefix HexDigit+;
+Integer5: 'Infinity';
+INTEGER: Integer1 | Integer2 | Integer3 | Integer4 | Integer5;
 HighSurrogate: [\uD800-\uDBFF];
 LowSurrogate: [\uDC00-\uDFFF];
-SimpleNameCharacter: [A-Za-z0-9$_] | HighSurrogate LowSurrogate;
+fragment 
+	SimpleNameCharacterMinus: (HighSurrogate LowSurrogate) | [A-Za-z0-9$\-_\u00a1-\u1fff\u2010-\u2027\u2030-\ud7ff\ue000-\uffef];
+fragment 
+	SimpleNameCharacter: (HighSurrogate LowSurrogate) | [A-Za-z0-9$_\u00a1-\u1fff\u2010-\u2027\u2030-\ud7ff\ue000-\uffef];
+
+SIMPLE_NAME: SimpleNameCharacterMinus* SimpleNameCharacter;
+
+// ARRAY_DESCRIPTOR: ARRAY_TYPE_PREFIX PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
 ARRAY_DESCRIPTOR: PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
-SIMPLE_NAME: SimpleNameCharacter+;
+
+
 MEMBER_NAME: '<' SIMPLE_NAME '>';
 SIMPLE_NAME_SLASH: SIMPLE_NAME '/';
 CLASS_DESCRIPTOR: PRIMITIVE_TYPE? 'L' SIMPLE_NAME_SLASH* SIMPLE_NAME ';';
+DecimalExponent: [eE] '-'? [0-9]+;
+BinaryExponent: [pP] '-'? [0-9]+;
+
+FloatOrID1: '-'? [0-9]+ DecimalExponent?;
+FloatOrID2: '-'? HexPrefix HexDigit+ BinaryExponent;
+FloatOrID3: '-'? [iI][nN][fF][iI][nN][iI][tT][yY];
+FloatOrID4: [nN][aA][nN];
+FloatOrID:  FloatOrID1 | FloatOrID2 | FloatOrID3 | FloatOrID4;
+
+fragment
+	Float1: '-'? [0-9]+ '.' [0-9]* DecimalExponent?;
+fragment
+	Float2: '-'? '.' [0-9]+ DecimalExponent?;
+fragment
+	Float3: '-'? HexPrefix HexDigit+ '.' HexDigit* BinaryExponent;
+fragment
+	Float4: '-'? HexPrefix '.' HexDigit+ BinaryExponent;
+fragment
+	Float:  Float1 | Float2 | Float3 | Float4;
+FLOAT_LITERAL_OR_ID: FloatOrID | FloatOrID [fF] | '-'?[0-9]+[fF];
+DOUBLE_LITERAL_OR_ID: FloatOrID [dD] | '-'?[0-9]+[dD];
+FLOAT_LITERAL: Float | Float [fF];
+DOUBLE_LITERAL: Float [dD];
 
 PARAM_LIST_OR_ID: PRIMITIVE_TYPE [^] EOF;
 PARAM_LIST: PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
@@ -434,7 +447,7 @@ OctalDigitOrUnderscore
 
 // §3.10.4 Character Literals
 
-CharacterLiteral
+CHAR_LITERAL
 	:	'\'' SingleCharacter '\''
 	|	'\'' EscapeSequence '\''
 	;
@@ -470,11 +483,13 @@ EscapeSequence
     |   UnicodeEscape // This is not in the spec but prevents having to preprocess the input
 	;
 
+/*
 fragment
 HexDigitOrUnderscore
 	:	HexDigit
 	|	'_'
 	;
+*/
 
 fragment
 OctalNumeral

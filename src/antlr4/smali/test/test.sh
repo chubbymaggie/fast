@@ -63,6 +63,14 @@ EOF
 	catout ce8511380ea2edfa9790dbd0d4d7d8885ea039f06d0c62e6f48dfafd8e58521c NavigationMenuPresenter\$1.xml
 	$fast_smali BottomSheetBehavior.smali > BottomSheetBehavior.xml
 	catout fa2e460cee168acc315c423dbeffe98f8408a7590a892410400987f073402b90 BottomSheetBehavior.xml
+	$fast_smali CoordinatorLayout.smali > CoordinatorLayout.xml
+	catout 76832725679e1e2ed9bb407df03be3f44e3f10f82362ef7d60cdcb2d384be173 CoordinatorLayout.xml
+	$fast_smali RunnerArgs.smali > RunnerArgs.xml
+	catout 1bd495bdd84c7b7dfa789e4c3453af1d7ca682e9cf879a22bef2edb551db6d6a RunnerArgs.xml
+	$fast_smali ColorUtils.smali > ColorUtils.xml
+	catout 22e7a484d797695bfc50da0f20abf3fcd132497d4af0d9a323f8b8fe99de5015 ColorUtils.xml
+	$fast_smali SparseArrayCompat.smali > SparseArrayCompat.xml
+	catout 8c15ffd5ccfb57d645fd9d541e18658bb8199186a625170cb7c36e68fbda906e SparseArrayCompat.xml
 }
 #testFinalReport() {
 #	lcov --directory .. --capture --output-file ../fast-smali.info
