@@ -276,7 +276,9 @@ registers_directive
     ;
 
 param_list_or_id
-  : PARAM_LIST_OR_ID_PRIMITIVE_TYPE+;
+  : PARAM_LIST_OR_ID_PRIMITIVE_TYPE+ {
+		std::cerr << "====== " << std::endl;
+  };
 
 /*identifiers are much more general than most languages. Any of the below can either be
 the indicated type OR an identifier, depending on the context*/
@@ -335,15 +337,18 @@ param_list_or_id_primitive_type
   : PARAM_LIST_OR_ID_PRIMITIVE_TYPE;
 
 param_list
-  : param_list_or_id_primitive_type+
+  : param_list_or_id_primitive_type+ 
   | nonvoid_type_descriptor*;
 
 array_descriptor
-  : ARRAY_TYPE_PREFIX (PRIMITIVE_TYPE | CLASS_DESCRIPTOR);
+  : ARRAY_TYPE_PREFIX PRIMITIVE_TYPE 
+  | ARRAY_TYPE_PREFIX CLASS_DESCRIPTOR
+  | ARRAY_DESCRIPTOR;
 
 type_descriptor
   : VOID_TYPE
   | PRIMITIVE_TYPE
+  | PRIMITIVE_TYPE CLASS_DESCRIPTOR
   | CLASS_DESCRIPTOR
   | array_descriptor;
 

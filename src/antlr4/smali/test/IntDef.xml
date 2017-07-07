@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit><smali_file><class_spec>.class <access_list>public interface abstract annotation</access_list> Landroid/support/annotation/IntDef;</class_spec>
+<super_spec>.super Ljava/lang/Object;</super_spec>
+<source_spec>.source "IntDef.java"</source_spec>
+
+# interfaces
+<implements_spec>.implements Ljava/lang/annotation/Annotation;</implements_spec>
+
+
+# annotations
+<annotation>.annotation system Ldalvik/annotation/AnnotationDefault;
+    <annotation_element><simple_name>value</simple_name> = <literal><subannotation>.subannotation Landroid/support/annotation/IntDef;
+        <annotation_element><simple_name>flag</simple_name> = <literal>false</literal></annotation_element>
+        <annotation_element><simple_name>value</simple_name> = <literal><array_literal>{}</array_literal></literal></annotation_element>
+    .end subannotation</subannotation></literal></annotation_element>
+.end annotation</annotation>
+
+<annotation>.annotation runtime Ljava/lang/annotation/Retention;
+    <annotation_element><simple_name>value</simple_name> = <literal><enum_literal>.enum <field_reference><reference_type_descriptor>Ljava/lang/annotation/RetentionPolicy;</reference_type_descriptor>-><member_name><simple_name>SOURCE</simple_name></member_name>:<nonvoid_type_descriptor>Ljava/lang/annotation/RetentionPolicy;</nonvoid_type_descriptor></field_reference></enum_literal></literal></annotation_element>
+.end annotation</annotation>
+
+<annotation>.annotation runtime Ljava/lang/annotation/Target;
+    <annotation_element><simple_name>value</simple_name> = <literal><array_literal>{
+        <literal><enum_literal>.enum <field_reference><reference_type_descriptor>Ljava/lang/annotation/ElementType;</reference_type_descriptor>-><member_name><simple_name>ANNOTATION_TYPE</simple_name></member_name>:<nonvoid_type_descriptor>Ljava/lang/annotation/ElementType;</nonvoid_type_descriptor></field_reference></enum_literal></literal>
+    }</array_literal></literal></annotation_element>
+.end annotation</annotation>
+
+
+# virtual methods
+<method>.method <access_list>public abstract</access_list> <member_name><simple_name>flag</simple_name></member_name><method_prototype>(<param_list></param_list>)<type_descriptor>Z</type_descriptor></method_prototype></statements_and_directives>
+<statements_and_directives>.end method</method>
+
+<method>.method <access_list>public abstract</access_list> <member_name><simple_name>value</simple_name></member_name><method_prototype>(<param_list></param_list>)<type_descriptor><array_descriptor>[J</array_descriptor></type_descriptor></method_prototype></statements_and_directives>
+<statements_and_directives>.end method</method>
+</smali_file></unit>

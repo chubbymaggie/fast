@@ -207,6 +207,9 @@ tokens {
   I_REGISTER_LIST
 }
 
+ARRAY_TYPE_PREFIX: '['+;
+PRIMITIVE_TYPE: [ZBSCIJFD]+;
+
 POSITIVE_INTEGER_LITERAL: INTEGER;
 NEGATIVE_INTEGER_LITERAL: '-' INTEGER;
 LONG_LITERAL: '-'? INTEGER [lL];
@@ -264,13 +267,18 @@ VERIFICATION_ERROR_TYPE:
     'no-error' | 'generic-error' | 'no-such-class' | 'no-such-field' | 'no-such-method' | 'illegal-class-access' |
     'illegal-field-access' | 'illegal-method-access' | 'class-change-error' | 'instantiation-error';
 
+BOOL_LITERAL
+	:	'true'
+	|	'false'
+	;
 HexPrefix: '0'[xX];
 HexDigit: [0-9a-fA-F];
 Integer1: '0';
 Integer2: [1-9][0-9]*;
 Integer3: '0'[0-7]+;
 Integer4: HexPrefix HexDigit+;
-INTEGER: Integer1 | Integer2 | Integer3 | Integer4;
+Integer5: 'Infinity';
+INTEGER: Integer1 | Integer2 | Integer3 | Integer4 | Integer5;
 
 DecimalExponent: [eE] '-'? [0-9]+;
 BinaryExponent: [pP] '-'? [0-9]+;
@@ -391,20 +399,19 @@ EQUAL: '=';
 COLON: ':';
 COMMA: ',';
 
-PRIMITIVE_TYPE: [ZBSCIJFD];
 VOID_TYPE: 'V';
 HighSurrogate: [\uD800-\uDBFF];
 LowSurrogate: [\uDC00-\uDFFF];
 SimpleNameCharacter: [A-Za-z0-9$_] | HighSurrogate LowSurrogate;
+ARRAY_DESCRIPTOR: PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
 SIMPLE_NAME: SimpleNameCharacter+;
 MEMBER_NAME: '<' SIMPLE_NAME '>';
-ARRAY_DESCRIPTOR: PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
-CLASS_DESCRIPTOR: 'L' (SIMPLE_NAME '/')* SIMPLE_NAME ';';
-ARRAY_TYPE_PREFIX: '['+;
-TYPE: PRIMITIVE_TYPE | CLASS_DESCRIPTOR | ARRAY_TYPE_PREFIX (CLASS_DESCRIPTOR | PRIMITIVE_TYPE);
+SIMPLE_NAME_SLASH: SIMPLE_NAME '/';
+CLASS_DESCRIPTOR: PRIMITIVE_TYPE? 'L' SIMPLE_NAME_SLASH* SIMPLE_NAME ';';
 
 PARAM_LIST_OR_ID: PRIMITIVE_TYPE [^] EOF;
-PARAM_LIST: PRIMITIVE_TYPE CLASS_DESCRIPTOR ARRAY_TYPE_PREFIX [^] EOF;
+PARAM_LIST: PRIMITIVE_TYPE CLASS_DESCRIPTOR [^] EOF;
+PARAM_LIST_OR_ID_PRIMITIVE_TYPE: PARAM_LIST_OR_ID | PARAM_LIST;
 
 fragment
 OctalDigitsAndUnderscores
@@ -419,10 +426,6 @@ OctalDigitOrUnderscore
 
 // §3.10.3 Boolean Literals
 
-BooleanLiteral
-	:	'true'
-	|	'false'
-	;
 
 // §3.10.4 Character Literals
 
@@ -511,5 +514,10 @@ UnicodeEscape
 NullLiteral
 	:	'null'
 	;
+/* TYPE: PRIMITIVE_TYPE 
+     | CLASS_DESCRIPTOR 
+     | ARRAY_TYPE_PREFIX CLASS_DESCRIPTOR
+     | ARRAY_TYPE_PREFIX PRIMITIVE_TYPE;
+*/
 
 WS: [ \t\r\n]+ -> channel(99);

@@ -24,3 +24,9 @@ smali.cpp: smali/smaliLexer.h
 
 clean:: 
 	rm -rf fast-smali *.o smali
+
+install: fast-smali
+	install -m 0755 fast-smali /usr/local/bin/fast-smali
+
+test:: install
+	cd test && ./test.sh

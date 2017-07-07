@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit><smali_file><class_spec>.class <access_list>public</access_list> LDuplicateVirtualMethods;</class_spec>
+<super_spec>.super Ljava/lang/Object;</super_spec>
+
+<method>.method <access_list>public</access_list> <member_name><simple_name>alah</simple_name></member_name><method_prototype>(<param_list></param_list>)<type_descriptor>V</type_descriptor></method_prototype>
+    <statements_and_directives><registers_directive>.registers <integral_literal><integer_literal>1</integer_literal></integral_literal></registers_directive>
+    <ordered_method_item><instruction><insn_format10x>return-void</insn_format10x></instruction></ordered_method_item></statements_and_directives>
+.end method</method>
+
+<method>.method <access_list>public</access_list> <member_name><simple_name>blah</simple_name></member_name><method_prototype>(<param_list></param_list>)<type_descriptor>V</type_descriptor></method_prototype>
+    <statements_and_directives><ordered_method_item><instruction><insn_format10x>return-void</insn_format10x></instruction></ordered_method_item></statements_and_directives>
+.end method</method>
+
+<method>.method <access_list>public</access_list> <member_name><simple_name>blah</simple_name></member_name><method_prototype>(<param_list></param_list>)<type_descriptor>V</type_descriptor></method_prototype>
+    <statements_and_directives><registers_directive>.registers <integral_literal><integer_literal>1</integer_literal></integral_literal></registers_directive>
+    <ordered_method_item><instruction><insn_format10x>return-void</insn_format10x></instruction></ordered_method_item></statements_and_directives>
+.end method</method>
+
+<method>.method <access_list>public</access_list> <member_name><simple_name>clah</simple_name></member_name><method_prototype>(<param_list></param_list>)<type_descriptor>V</type_descriptor></method_prototype>
+    <statements_and_directives><registers_directive>.registers <integral_literal><integer_literal>1</integer_literal></integral_literal></registers_directive>
+    <ordered_method_item><instruction><insn_format10x>return-void</insn_format10x></instruction></ordered_method_item></statements_and_directives>
+.end method</method>
+</smali_file></unit>
