@@ -947,7 +947,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			argv[argc-2] = strdup(xml_filename.c_str());
 			loadXML(load_only, 3, argv + argc-3);
 		} else {
-			if (argc == 3) {
+			if (argc == 3 && input_is_xml) {
 				srcmlCommand = srcmlCommand + " -o " + argv[2];
 			}
 			system(srcmlCommand.c_str());

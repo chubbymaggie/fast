@@ -99,17 +99,9 @@ install: fast fast-smali process fast.proto
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/DuplicateVirtualMethods* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
-	if [ ! -f fast-java-$V.tar.gz ]; then wget https://yijunyu.github.io/ubuntu/fast-java-$V.tar.gz; fi
-	tar xvfz fast-java-$V.tar.gz -C /usr/local
 	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
 	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
 
-lib/smali.jar: dist/smali.jar 
-	cp dist/smali.jar lib
-
-fast-java-$V.tar.gz: lib/smali.jar
-	tar cfz $@ lib/*.jar
-	
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -127,7 +119,7 @@ fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o
 src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
 	touch $@
 
-install: fast process fast-smali fast.proto dist/smali.jar
+install: fast process fast-smali fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
@@ -135,11 +127,9 @@ install: fast process fast-smali fast.proto dist/smali.jar
 	install -m 0755 fast-smali $(DESTDIR)$(prefix)/bin/fast-smali
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
-	install -m 0644 lib/*.jar $(DESTDIR)$(prefix)/lib/
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0755 lib/osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
 	install -m 0755 lib/osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
-	install -m 0644 dist/smali.jar $(DESTDIR)$(prefix)/lib/smali.jar
 	install -m 0644 test/Hello.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/example.* $(DESTDIR)$(prefix)/share/
 	install -m 0644 test/codelabel_new.csv $(DESTDIR)$(prefix)/share/
@@ -181,18 +171,6 @@ src/fast_pb2.py: fast.proto
 
 src/fast.pb.h src/fast.pb.cc: fast.proto
 	$(protoc) -I=. --cpp_out=src fast.proto
-
-src/fast/Fast.java: fast.proto
-	$(protoc) -I=. --java_out=src fast.proto
-
-dist/smali.jar: bin/Smali.class
-	jar cvf $@ -C bin/ .
-
-bin/Smali.class: src/Smali.java src/com/github/gumtreediff/client/diff/PBDiff.java src/com/github/gumtreediff/io/ActionsIoPB.java
-	mkdir -p bin dist
-	javac -cp src:lib/protobuf-java-3.3.1.jar:lib/core-2.1.0-SNAPSHOT.jar:lib/reflections-0.9.10.jar:lib/smali-2.2.1-93a43730-dirty-fat.jar:lib/client.diff-2.1.0-SNAPSHOT.jar:lib/client-2.1.0-SNAPSHOT.jar src/Smali.java -d bin
-
-src/Smali.java: src/fast/Fast.java
 
 fast.fbs: fast.proto
 	$(flatc) --proto fast.proto

@@ -140,12 +140,6 @@ EOF
 EOF
 	catout 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 DuplicateVirtualMethods.smali
 	catout 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a DuplicateVirtualMethods-v2.smali
-	$fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
-	$fast -a DuplicateVirtualMethods.pb DuplicateVirtualMethods.xml
-	catout 285a2785bf67b08c4502b58991404e2f0a747869ae3f4ac2eb04368e6b505910 DuplicateVirtualMethods.xml
-	stdout 088551921adeee5e063e05e1108faf19c99fc4a7bc6934fcd3ecd53d4f5e4311 -a DuplicateVirtualMethods.pb
-	$fast -a DuplicateVirtualMethods.smali DuplicateVirtualMethods-v2.smali DuplicateVirtualMethods-diff.pb
-	stdout 0bbc2776c8cfcc4b22c885554f9e0c81b965a15ecf26933d122190c59dfb2382 -d DuplicateVirtualMethods.pb
 	$fast_smali DuplicateVirtualMethods.smali > DuplicateVirtualMethods.smali.xml
 	catout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.smali.xml
 	rm -f smali.proto
@@ -1709,7 +1703,7 @@ else
 EOF
 	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.cs
 	$fast test.cs test.pb
-	stdout f7d275b1a2edf7a3d8e2aab81e99241a783dfd088ea6c8cdadca35ffa35b6095 -d test.pb
+	stdout 615ae83f7ddb56337d081165f1156f260af256a0c43d1780a493000e714c0515 -d test.pb
 }
 
 ### rather lengthy test :-) 
@@ -1723,7 +1717,7 @@ testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
 	$process a.csv a.pb
-	stdout 766eddf0bd59b48fd84c1ac772102f038d306495880c890662af239f0af33336 -d a.pb
+	stdout 1a87bcd1e9f8ce710022a99d68fbce48029189e20bce3a923a01fd184c6c9fe6 -d a.pb
 }
 
 testFastSlice() {
@@ -1735,7 +1729,7 @@ testFastSlice() {
 	$fast -p example.cc example.position.fbs
 	$fast -S example.position.pb > example-s.slice
 	catout dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 example-S.slice
-	stdouterr e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -S example.position.fbs
+	stdouterr dd2881a93ed09a88b1a4cfbc7ee20b6a165dc1a568793e69cee49fe26ad41549 -S example.position.fbs
 	$fast -S example.position.pb example.slice.pb
 	catout 1a5f26bf8f2be74082736ad14beb2b14c8ef5797a4c33832500a4a6dd72f8d08 example.slice.pb
 }
@@ -1766,7 +1760,7 @@ testLoadPB() {
 	$fast test.pb test.pb.cs
 	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.pb.cs
 	$fast -d test.pb test.txt
-	catout f7d275b1a2edf7a3d8e2aab81e99241a783dfd088ea6c8cdadca35ffa35b6095 test.txt
+	catout 615ae83f7ddb56337d081165f1156f260af256a0c43d1780a493000e714c0515 test.txt
 	$fast -e test.txt test.pb
 	$fast -e test.txt > test.pb
 	$fast . all.xml
