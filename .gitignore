@@ -9,3 +9,4 @@ fast.info index-sort-f.html  index-sort-l.html  index.html *.png gcov.css
 v1
 Users
 usr
+src/ver.h

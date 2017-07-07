@@ -65,7 +65,7 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 
 src/antlr/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
 
-src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h
+src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h src/fast.pb.h src/ver.h
 	touch $@
 
 fast-$V.tar.gz:
@@ -203,7 +203,7 @@ _fast/Element.py: fast.fbs
 src/fast_generated.h: fast.fbs
 	$(flatc) --cpp -o src fast.fbs
 
-src/fast.proto.in: ElementType.proto SmaliType.proto \
+src/fast.proto.in: ElementType.proto SmaliType.proto SmaliCppType.proto \
 	Unit.proto Literal.proto \
 	log.proto
 
@@ -258,7 +258,7 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 clean:
 	rm -f fast.cc fast_pb2.py fast.fbs
 	rm -rf $(target) *.proto *.dSYM	_fast/ *.o HEAD
-	rm -rf Makefile Release autom4te.cache config.h config.log config.status configure.scan
+	rm -rf Release autom4te.cache config.h config.log config.status configure.scan
 	rm -rf protobuf-3.3.0 protobuf-cpp-3.3.0.tar.gz
 	rm -rf fast_*-1* fast-*
 	rm -f *.gcno *.gcov *.gcda
@@ -313,3 +313,6 @@ fast-$V/debian/rules: rules
 
 test:: install
 	cd test && ./test.sh
+
+src/ver.h: src/version.h.in
+	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@

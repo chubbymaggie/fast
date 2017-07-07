@@ -1,4 +1,5 @@
 element {
+  kind: UNIT_KIND
   text: "\n"
   child {
     kind: CLASS

@@ -28,6 +28,7 @@
 #include <srcSliceHandler.hpp>
 #include <srcSlice.hpp>
 #include <array>
+#include "ver.h"
 using namespace std;
 using namespace rapidxml;
 
@@ -117,7 +118,7 @@ int loadXML(int load_only, int argc, char**argv) {
 	if (is_flatbuffers) {
 		flatbuffers::FlatBufferBuilder builder;
 		auto element = saveFBSfromXML(builder, doc.first_node());
-		auto anonymous = _fast::_Data::CreateAnonymous3(builder, element, 0, 0, 0);
+		auto anonymous = _fast::_Data::CreateAnonymous4(builder, element, 0, 0, 0);
 		auto data = _fast::CreateData(builder, anonymous);
 		builder.Finish(data);
 		ofstream output(output_filename, ios::out | ios::trunc | ios::binary);
@@ -289,6 +290,7 @@ void slicePB(srcSliceHandler& handler, fast::Element *element) {
 	string text = "";
 	string tail = "";
 	int k = element->kind();
+	// cout << "k = " << k << endl;
 	if (k == fast::Element_Kind_UNIT_KIND) {
 		struct srcsax_attribute attrs[3];
 		attrs[2].value = element->unit().filename().c_str();
@@ -315,13 +317,17 @@ void slicePB(srcSliceHandler& handler, fast::Element *element) {
 }
 #endif
 
+bool is_srcml = true;
+bool is_smali = false;
+bool is_smali_cpp = false;
 #ifdef FBS_fast
 void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 	string text = "";
 	string tail = "";
-	int k = element->kind();
+	int k = element->type()->kind();
+	// cout << "k = " << k << endl;
 	if (element->extra()) {
-		if (element->kind() == 0) {
+		if (k == 0) {
 			struct srcsax_attribute attrs[3];
 			if (element->extra()->unit()->filename()!=NULL) {
 				attrs[2].value = element->extra()->unit()->filename()->c_str();
@@ -331,7 +337,7 @@ void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 	}
 	if (element->text())
 		text = element->text()->c_str();
-        if ((!element->extra() && position && (element->line()!=0 || element->column()!=0)) || (element->extra() && element->kind()!=0)) {
+        if ((!element->extra() && position) || (element->extra() && k !=0)) {
 		struct srcsax_attribute attrs[1];
 		attrs[0].value = std::to_string(element->line()).c_str();
 		handler.startElement(k, NULL, NULL, 0, NULL, 1, attrs);
@@ -345,7 +351,7 @@ void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 	else 
 		tail = "";
 	if (element->extra())
-		if (element->kind() == 0) 
+		if (k == 0) 
 			handler.endUnit(NULL, NULL, NULL);
 		else 
 			handler.endElement(k, NULL, NULL);
@@ -361,7 +367,7 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 	string text = "";
 	string tail = "";
 	if (element->extra()) {
-		if (element->kind() == 0) {
+		if (is_srcml && element->type()->kind() == 0) {
 			tag = "unit";
 			string str = string(EnumNamesLanguageType()[element->extra()->unit()->language()]);
 			string lang = str;
@@ -381,7 +387,7 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 			attr = attr + " language=\"" + lang + "\"";
 			if (element->extra()->unit()->filename()!=NULL)
 				attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
-		} else if (element->kind() == 47) {
+		} else if (is_srcml && element->type()->kind() == 47) {
 			tag = "literal";
 			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
 			type = type.substr(0, type.length() - 5);
@@ -389,12 +395,12 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 			if (position && (element->line()!=0 || element->column()!=0))
 				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		} else {
-			tag = EnumNamesKind()[element->kind()];
+			tag = EnumNamesKind()[element->type()->kind()];
 			if (position && (element->line()!=0 || element->column()!=0))
 				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		}
 	} else {
-		tag = EnumNamesKind()[element->kind()];
+		tag = EnumNamesKind()[element->type()->kind()];
 		if (position && (element->line()!=0 || element->column()!=0))
 			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	}
@@ -504,9 +510,9 @@ void markupElementBegin(map<int, string> *map, fast::Element *node);
 void markupElementEnd(map<int, string> *map, fast::Element *node);
 
 void expandElement(int level, fast::Element *node) {
-	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
+	string kind = fast::SmaliKind_Name((fast::SmaliKind) node->smali_kind()); 
 	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
-	if (node->kind() == 0) { // override the 0 case
+	if (node->smali_kind() == 0) { // override the 0 case
 		kind = "unit filename=\"" + node->unit().filename() + "\"";
 	}
 	int p = node->pos();
@@ -541,7 +547,7 @@ void expandElement(int level, fast::Element *node) {
 }
 
 void markupElementBegin(map<int, string> *map, fast::Element *node) {
-	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
+	string kind = fast::SmaliKind_Name((fast::SmaliKind) node->smali_kind()); 
 	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
 	if (node->kind() == 0) { // override the 0 case
 		kind = "unit filename=\"" + node->unit().filename() + "\"";
@@ -560,9 +566,9 @@ void markupElementBegin(map<int, string> *map, fast::Element *node) {
 }
 
 void markupElementEnd(map<int, string> *map, fast::Element *node) {
-	string kind = fast::Element_SmaliKind_Name((fast::Element_SmaliKind) node->kind()); 
+	string kind = fast::SmaliKind_Name((fast::SmaliKind) node->smali_kind()); 
 	transform(kind.begin(), kind.end(),kind.begin(), ::tolower);
-	if (node->kind() == 0) { // override the 0 case
+	if (node->smali_kind() == 0) { // override the 0 case
 		kind = "unit";
 	}
 	int p = node->pos() + node->length() - 1;
@@ -821,16 +827,25 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 			}
 		}
 		string str = tag;
-		transform(str.begin(), str.end(),str.begin(), ::toupper);
-		int kind = flatbuffers::LookupEnum(EnumNamesKind(), str.c_str());
+		int32_t kind = -1;
+		if (is_srcml) {
+			transform(str.begin(), str.end(),str.begin(), ::toupper);
+			kind = flatbuffers::LookupEnum(EnumNamesKind(), str.c_str());
+		} else if (is_smali) {
+			transform(str.begin(), str.end(),str.begin(), ::toupper);
+			kind = flatbuffers::LookupEnum(EnumNamesSmaliKind(), str.c_str());
+		} else if (is_smali_cpp) {
+			kind = flatbuffers::LookupEnum(EnumNamesSmaliCppKind(), str.c_str());
+		}
 		if (kind == -1)
 			cerr << "Warning: the following kind is not found " << str << endl;
-		flatbuffers::Offset<_fast::_Element::Anonymous0> extra = 0;
+		flatbuffers::Offset<_fast::_Element::Anonymous1> extra = 0;
 		if (is_unit || is_literal) {
-			extra = CreateAnonymous0(builder, 
+			extra = CreateAnonymous1(builder, 
 				CreateUnit(builder, filename, revision, language, item), 
 				CreateLiteral(builder, type));
 		}
+		auto type = CreateAnonymous0(builder, is_srcml?kind:(int32_t)0, is_smali?kind:(int32_t)0, is_smali_cpp?kind:(int32_t)0);
 		xml_node<> *child_node = node->first_node();
 		if (child_node != 0 && string(child_node->name()) == "") { // first text node
 			string str = string(child_node->value());
@@ -851,7 +866,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 			length += str.length();
 			tail = builder.CreateString(str);
 		}
-		auto element = _fast::CreateElement(builder, kind, text, pos, length, child, tail, extra, line, column);
+		auto element = _fast::CreateElement(builder, type, text, pos, length, child, tail, extra, line, column);
 		pos += length;
 		return element;
 	} 
@@ -931,6 +946,11 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		} else if (!input_is_xml && !output_is_xml) { // target is not xml
 			argv[argc-2] = strdup(xml_filename.c_str());
 			loadXML(load_only, 3, argv + argc-3);
+		} else {
+			if (argc == 3) {
+				srcmlCommand = srcmlCommand + " -o " + argv[2];
+			}
+			system(srcmlCommand.c_str());
 		}
 		if (is_tmp)
 			remove(xml_filename.c_str());
@@ -1016,7 +1036,8 @@ int main(int argc, char* argv[]) {
 	    usage();
 	    return 0;
       case 'v':
-	    cerr << "fast 0.0.2"  << endl;
+	    cerr << "fast " << __FAST_VERSION__ << " commit id: " << __FAST_HASH__ << " with local changes id: " << __FAST_WORK__ << endl
+		 << "built with " << __VERSION__ << " on " << __DATE__ << " at " << __TIME__ << endl;
 	    return 0;
       case 'D':
 	    delta = true;

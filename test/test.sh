@@ -42,9 +42,7 @@ stdouterr() {
 export -f stdouterr
 
 testhello() {
-	stderr 76a9db58ebfda14a56d6c536b59322d069dfa8a4f9d76ee2c41803d7f8c036c5
-	stderr 76a9db58ebfda14a56d6c536b59322d069dfa8a4f9d76ee2c41803d7f8c036c5 -h
-	stderr 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 Hello.java Hello.java
+	$fast -v
 }
 
 testJava() 
@@ -61,9 +59,9 @@ EOF
 	$fast Hello.java Hello.xml
 	catout 1207fa1c163baec58a7934e2ec7aefdd6fe9d0d08f997b168a3bd1b24a7eebf2 Hello.xml
 	$fast Hello.java Hello.pb
-	stdout 0387dd8f54f50267631b0015063167af6a868c37b6df0418b0f4892a432680e5 -d Hello.pb
+	stdout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 -d Hello.pb
 	$fast -d Hello.pb Hello.txt
-	catout 0387dd8f54f50267631b0015063167af6a868c37b6df0418b0f4892a432680e5 Hello.txt
+	catout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 Hello.txt
 }
 testCC() 
 {
@@ -85,8 +83,8 @@ EOF
 	$fast -p example.cc example.position.fbs
 	stdout c287b1162d8b3d9e44dac808ec4edaf9dbd49282e0d0853db3f08a54ec5e3aea example.position.fbs
 	$fast -p example.cc example.position.pb
-	stdout f842072fb7c568b666cfa819b2b9c2ec07211a6aaa330acb72603fc6b79ce219 -d example.position.pb
-	stdout e940d42df9aaad360aca11b38562b1fd96679c3d3b8043be64610e7f0f7401a3 -d example.pb
+	stdout d6382f209c7b6360033e1d6bdc5ce9be435a5e878075cd88b10d4157508dbf4d -d example.position.pb
+	stdout e4efaf6a2ddfc909dd34f7740de7e487fae98aeb262213ab5d10eeef3b1a1536 -d example.pb
 	$fast example.pb example.txt
 	catout 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.txt
 }

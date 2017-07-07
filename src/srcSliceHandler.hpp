@@ -805,7 +805,7 @@ public:
         //fileNumber = functionNameHash(attributes[1].value);
         fileName = std::string(attributes[2].value);
         FileIt = sysDict->ffvMap.insert(std::make_pair(fileName, FunctionVarMap())).first; //insert and keep track of most recent.         
-        //std::cerr<<"val: "<<attributes[1].value<<std::endl;exit(1);
+        // std::cerr<<"val: "<<attributes[2].value<<std::endl;
         //classIt = sysDict->classTable.insert(std::make_pair("GLOBAL", ClassProfile())).first;
         FunctionIt = FileIt->second.insert(std::make_pair("GLOBAL", VarMap())).first; //for globals. Makes a bad assumption about where globals are. Fix.
     }
@@ -841,6 +841,7 @@ public:
         if(name == "generic"){
             sawgeneric = true;
         }
+	// std::cerr << "name = " << name << " kind = " << kind << std::endl;
 	std::function<void()> func = process_map[kind];
 	if (func)
 		func();

@@ -1,4 +1,5 @@
 element {
+  kind: UNIT_KIND
   text: "@ "
   child {
     kind: NAMESPACE

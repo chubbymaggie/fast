@@ -14,104 +14,3040 @@ public final class Fast {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * <pre>
+   * srcML
+   * </pre>
+   *
+   * Protobuf enum {@code fast.SmaliKind}
+   */
+  public enum SmaliKind
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>INVALID = 0;</code>
+     */
+    INVALID(0),
+    /**
+     * <code>EOR = 1;</code>
+     */
+    EOR(1),
+    /**
+     * <code>DOWN = 2;</code>
+     */
+    DOWN(2),
+    /**
+     * <code>UP = 3;</code>
+     */
+    UP(3),
+    /**
+     * <code>ACCESS_SPEC = 4;</code>
+     */
+    ACCESS_SPEC(4),
+    /**
+     * <code>ANNOTATION_DIRECTIVE = 5;</code>
+     */
+    ANNOTATION_DIRECTIVE(5),
+    /**
+     * <code>ANNOTATION_VISIBILITY = 6;</code>
+     */
+    ANNOTATION_VISIBILITY(6),
+    /**
+     * <code>ARRAY_DATA_DIRECTIVE = 7;</code>
+     */
+    ARRAY_DATA_DIRECTIVE(7),
+    /**
+     * <code>ARRAY_TYPE_PREFIX = 8;</code>
+     */
+    ARRAY_TYPE_PREFIX(8),
+    /**
+     * <code>ARROW = 9;</code>
+     */
+    ARROW(9),
+    /**
+     * <code>BOOL_LITERAL = 10;</code>
+     */
+    BOOL_LITERAL(10),
+    /**
+     * <code>BYTE_LITERAL = 11;</code>
+     */
+    BYTE_LITERAL(11),
+    /**
+     * <code>CATCHALL_DIRECTIVE = 12;</code>
+     */
+    CATCHALL_DIRECTIVE(12),
+    /**
+     * <code>CATCH_DIRECTIVE = 13;</code>
+     */
+    CATCH_DIRECTIVE(13),
+    /**
+     * <code>CHAR_LITERAL = 14;</code>
+     */
+    CHAR_LITERAL(14),
+    /**
+     * <code>CLASS_DESCRIPTOR = 15;</code>
+     */
+    CLASS_DESCRIPTOR(15),
+    /**
+     * <code>CLASS_DIRECTIVE = 16;</code>
+     */
+    CLASS_DIRECTIVE(16),
+    /**
+     * <code>CLOSE_BRACE = 17;</code>
+     */
+    CLOSE_BRACE(17),
+    /**
+     * <code>CLOSE_PAREN = 18;</code>
+     */
+    CLOSE_PAREN(18),
+    /**
+     * <code>COLON = 19;</code>
+     */
+    COLON(19),
+    /**
+     * <code>COMMA = 20;</code>
+     */
+    COMMA(20),
+    /**
+     * <code>DOTDOT = 21;</code>
+     */
+    DOTDOT(21),
+    /**
+     * <code>DOUBLE_LITERAL = 22;</code>
+     */
+    DOUBLE_LITERAL(22),
+    /**
+     * <code>DOUBLE_LITERAL_OR_ID = 23;</code>
+     */
+    DOUBLE_LITERAL_OR_ID(23),
+    /**
+     * <code>END_ANNOTATION_DIRECTIVE = 24;</code>
+     */
+    END_ANNOTATION_DIRECTIVE(24),
+    /**
+     * <code>END_ARRAY_DATA_DIRECTIVE = 25;</code>
+     */
+    END_ARRAY_DATA_DIRECTIVE(25),
+    /**
+     * <code>END_FIELD_DIRECTIVE = 26;</code>
+     */
+    END_FIELD_DIRECTIVE(26),
+    /**
+     * <code>END_LOCAL_DIRECTIVE = 27;</code>
+     */
+    END_LOCAL_DIRECTIVE(27),
+    /**
+     * <code>END_METHOD_DIRECTIVE = 28;</code>
+     */
+    END_METHOD_DIRECTIVE(28),
+    /**
+     * <code>END_PACKED_SWITCH_DIRECTIVE = 29;</code>
+     */
+    END_PACKED_SWITCH_DIRECTIVE(29),
+    /**
+     * <code>END_PARAMETER_DIRECTIVE = 30;</code>
+     */
+    END_PARAMETER_DIRECTIVE(30),
+    /**
+     * <code>END_SPARSE_SWITCH_DIRECTIVE = 31;</code>
+     */
+    END_SPARSE_SWITCH_DIRECTIVE(31),
+    /**
+     * <code>END_SUBANNOTATION_DIRECTIVE = 32;</code>
+     */
+    END_SUBANNOTATION_DIRECTIVE(32),
+    /**
+     * <code>ENUM_DIRECTIVE = 33;</code>
+     */
+    ENUM_DIRECTIVE(33),
+    /**
+     * <code>EPILOGUE_DIRECTIVE = 34;</code>
+     */
+    EPILOGUE_DIRECTIVE(34),
+    /**
+     * <code>EQUAL = 35;</code>
+     */
+    EQUAL(35),
+    /**
+     * <code>FIELD_DIRECTIVE = 36;</code>
+     */
+    FIELD_DIRECTIVE(36),
+    /**
+     * <code>FIELD_OFFSET = 37;</code>
+     */
+    FIELD_OFFSET(37),
+    /**
+     * <code>FLOAT_LITERAL = 38;</code>
+     */
+    FLOAT_LITERAL(38),
+    /**
+     * <code>FLOAT_LITERAL_OR_ID = 39;</code>
+     */
+    FLOAT_LITERAL_OR_ID(39),
+    /**
+     * <code>IMPLEMENTS_DIRECTIVE = 40;</code>
+     */
+    IMPLEMENTS_DIRECTIVE(40),
+    /**
+     * <code>INLINE_INDEX = 41;</code>
+     */
+    INLINE_INDEX(41),
+    /**
+     * <code>INSTRUCTION_FORMAT10t = 42;</code>
+     */
+    INSTRUCTION_FORMAT10t(42),
+    /**
+     * <code>INSTRUCTION_FORMAT10x = 43;</code>
+     */
+    INSTRUCTION_FORMAT10x(43),
+    /**
+     * <code>INSTRUCTION_FORMAT10x_ODEX = 44;</code>
+     */
+    INSTRUCTION_FORMAT10x_ODEX(44),
+    /**
+     * <code>INSTRUCTION_FORMAT11n = 45;</code>
+     */
+    INSTRUCTION_FORMAT11n(45),
+    /**
+     * <code>INSTRUCTION_FORMAT11x = 46;</code>
+     */
+    INSTRUCTION_FORMAT11x(46),
+    /**
+     * <code>INSTRUCTION_FORMAT12x = 47;</code>
+     */
+    INSTRUCTION_FORMAT12x(47),
+    /**
+     * <code>INSTRUCTION_FORMAT12x_OR_ID = 48;</code>
+     */
+    INSTRUCTION_FORMAT12x_OR_ID(48),
+    /**
+     * <code>INSTRUCTION_FORMAT20bc = 49;</code>
+     */
+    INSTRUCTION_FORMAT20bc(49),
+    /**
+     * <code>INSTRUCTION_FORMAT20t = 50;</code>
+     */
+    INSTRUCTION_FORMAT20t(50),
+    /**
+     * <code>INSTRUCTION_FORMAT21c_FIELD = 51;</code>
+     */
+    INSTRUCTION_FORMAT21c_FIELD(51),
+    /**
+     * <code>INSTRUCTION_FORMAT21c_FIELD_ODEX = 52;</code>
+     */
+    INSTRUCTION_FORMAT21c_FIELD_ODEX(52),
+    /**
+     * <code>INSTRUCTION_FORMAT21c_STRING = 53;</code>
+     */
+    INSTRUCTION_FORMAT21c_STRING(53),
+    /**
+     * <code>INSTRUCTION_FORMAT21c_TYPE = 54;</code>
+     */
+    INSTRUCTION_FORMAT21c_TYPE(54),
+    /**
+     * <code>INSTRUCTION_FORMAT21ih = 55;</code>
+     */
+    INSTRUCTION_FORMAT21ih(55),
+    /**
+     * <code>INSTRUCTION_FORMAT21lh = 56;</code>
+     */
+    INSTRUCTION_FORMAT21lh(56),
+    /**
+     * <code>INSTRUCTION_FORMAT21s = 57;</code>
+     */
+    INSTRUCTION_FORMAT21s(57),
+    /**
+     * <code>INSTRUCTION_FORMAT21t = 58;</code>
+     */
+    INSTRUCTION_FORMAT21t(58),
+    /**
+     * <code>INSTRUCTION_FORMAT22b = 59;</code>
+     */
+    INSTRUCTION_FORMAT22b(59),
+    /**
+     * <code>INSTRUCTION_FORMAT22c_FIELD = 60;</code>
+     */
+    INSTRUCTION_FORMAT22c_FIELD(60),
+    /**
+     * <code>INSTRUCTION_FORMAT22c_FIELD_ODEX = 61;</code>
+     */
+    INSTRUCTION_FORMAT22c_FIELD_ODEX(61),
+    /**
+     * <code>INSTRUCTION_FORMAT22c_TYPE = 62;</code>
+     */
+    INSTRUCTION_FORMAT22c_TYPE(62),
+    /**
+     * <code>INSTRUCTION_FORMAT22cs_FIELD = 63;</code>
+     */
+    INSTRUCTION_FORMAT22cs_FIELD(63),
+    /**
+     * <code>INSTRUCTION_FORMAT22s = 64;</code>
+     */
+    INSTRUCTION_FORMAT22s(64),
+    /**
+     * <code>INSTRUCTION_FORMAT22s_OR_ID = 65;</code>
+     */
+    INSTRUCTION_FORMAT22s_OR_ID(65),
+    /**
+     * <code>INSTRUCTION_FORMAT22t = 66;</code>
+     */
+    INSTRUCTION_FORMAT22t(66),
+    /**
+     * <code>INSTRUCTION_FORMAT22x = 67;</code>
+     */
+    INSTRUCTION_FORMAT22x(67),
+    /**
+     * <code>INSTRUCTION_FORMAT23x = 68;</code>
+     */
+    INSTRUCTION_FORMAT23x(68),
+    /**
+     * <code>INSTRUCTION_FORMAT30t = 69;</code>
+     */
+    INSTRUCTION_FORMAT30t(69),
+    /**
+     * <code>INSTRUCTION_FORMAT31c = 70;</code>
+     */
+    INSTRUCTION_FORMAT31c(70),
+    /**
+     * <code>INSTRUCTION_FORMAT31i = 71;</code>
+     */
+    INSTRUCTION_FORMAT31i(71),
+    /**
+     * <code>INSTRUCTION_FORMAT31i_OR_ID = 72;</code>
+     */
+    INSTRUCTION_FORMAT31i_OR_ID(72),
+    /**
+     * <code>INSTRUCTION_FORMAT31t = 73;</code>
+     */
+    INSTRUCTION_FORMAT31t(73),
+    /**
+     * <code>INSTRUCTION_FORMAT32x = 74;</code>
+     */
+    INSTRUCTION_FORMAT32x(74),
+    /**
+     * <code>INSTRUCTION_FORMAT35c_METHOD = 75;</code>
+     */
+    INSTRUCTION_FORMAT35c_METHOD(75),
+    /**
+     * <code>INSTRUCTION_FORMAT35c_METHOD_ODEX = 76;</code>
+     */
+    INSTRUCTION_FORMAT35c_METHOD_ODEX(76),
+    /**
+     * <code>INSTRUCTION_FORMAT35c_TYPE = 77;</code>
+     */
+    INSTRUCTION_FORMAT35c_TYPE(77),
+    /**
+     * <code>INSTRUCTION_FORMAT35mi_METHOD = 78;</code>
+     */
+    INSTRUCTION_FORMAT35mi_METHOD(78),
+    /**
+     * <code>INSTRUCTION_FORMAT35ms_METHOD = 79;</code>
+     */
+    INSTRUCTION_FORMAT35ms_METHOD(79),
+    /**
+     * <code>INSTRUCTION_FORMAT3rc_METHOD = 80;</code>
+     */
+    INSTRUCTION_FORMAT3rc_METHOD(80),
+    /**
+     * <code>INSTRUCTION_FORMAT3rc_METHOD_ODEX = 81;</code>
+     */
+    INSTRUCTION_FORMAT3rc_METHOD_ODEX(81),
+    /**
+     * <code>INSTRUCTION_FORMAT3rc_TYPE = 82;</code>
+     */
+    INSTRUCTION_FORMAT3rc_TYPE(82),
+    /**
+     * <code>INSTRUCTION_FORMAT3rmi_METHOD = 83;</code>
+     */
+    INSTRUCTION_FORMAT3rmi_METHOD(83),
+    /**
+     * <code>INSTRUCTION_FORMAT3rms_METHOD = 84;</code>
+     */
+    INSTRUCTION_FORMAT3rms_METHOD(84),
+    /**
+     * <code>INSTRUCTION_FORMAT45cc_METHOD = 85;</code>
+     */
+    INSTRUCTION_FORMAT45cc_METHOD(85),
+    /**
+     * <code>INSTRUCTION_FORMAT4rcc_METHOD = 86;</code>
+     */
+    INSTRUCTION_FORMAT4rcc_METHOD(86),
+    /**
+     * <code>INSTRUCTION_FORMAT51l = 87;</code>
+     */
+    INSTRUCTION_FORMAT51l(87),
+    /**
+     * <code>INTEGER_LITERAL = 88;</code>
+     */
+    INTEGER_LITERAL(88),
+    /**
+     * <code>INVALID_TOKEN = 89;</code>
+     */
+    INVALID_TOKEN(89),
+    /**
+     * <code>I_ACCESS_LIST = 90;</code>
+     */
+    I_ACCESS_LIST(90),
+    /**
+     * <code>I_ANNOTATION = 91;</code>
+     */
+    I_ANNOTATION(91),
+    /**
+     * <code>I_ANNOTATIONS = 92;</code>
+     */
+    I_ANNOTATIONS(92),
+    /**
+     * <code>I_ANNOTATION_ELEMENT = 93;</code>
+     */
+    I_ANNOTATION_ELEMENT(93),
+    /**
+     * <code>I_ARRAY_ELEMENTS = 94;</code>
+     */
+    I_ARRAY_ELEMENTS(94),
+    /**
+     * <code>I_ARRAY_ELEMENT_SIZE = 95;</code>
+     */
+    I_ARRAY_ELEMENT_SIZE(95),
+    /**
+     * <code>I_CATCH = 96;</code>
+     */
+    I_CATCH(96),
+    /**
+     * <code>I_CATCHALL = 97;</code>
+     */
+    I_CATCHALL(97),
+    /**
+     * <code>I_CATCHES = 98;</code>
+     */
+    I_CATCHES(98),
+    /**
+     * <code>I_CLASS_DEF = 99;</code>
+     */
+    I_CLASS_DEF(99),
+    /**
+     * <code>I_ENCODED_ARRAY = 100;</code>
+     */
+    I_ENCODED_ARRAY(100),
+    /**
+     * <code>I_ENCODED_ENUM = 101;</code>
+     */
+    I_ENCODED_ENUM(101),
+    /**
+     * <code>I_ENCODED_FIELD = 102;</code>
+     */
+    I_ENCODED_FIELD(102),
+    /**
+     * <code>I_ENCODED_METHOD = 103;</code>
+     */
+    I_ENCODED_METHOD(103),
+    /**
+     * <code>I_END_LOCAL = 104;</code>
+     */
+    I_END_LOCAL(104),
+    /**
+     * <code>I_EPILOGUE = 105;</code>
+     */
+    I_EPILOGUE(105),
+    /**
+     * <code>I_FIELD = 106;</code>
+     */
+    I_FIELD(106),
+    /**
+     * <code>I_FIELDS = 107;</code>
+     */
+    I_FIELDS(107),
+    /**
+     * <code>I_FIELD_INITIAL_VALUE = 108;</code>
+     */
+    I_FIELD_INITIAL_VALUE(108),
+    /**
+     * <code>I_FIELD_TYPE = 109;</code>
+     */
+    I_FIELD_TYPE(109),
+    /**
+     * <code>I_IMPLEMENTS = 110;</code>
+     */
+    I_IMPLEMENTS(110),
+    /**
+     * <code>I_LABEL = 111;</code>
+     */
+    I_LABEL(111),
+    /**
+     * <code>I_LINE = 112;</code>
+     */
+    I_LINE(112),
+    /**
+     * <code>I_LOCAL = 113;</code>
+     */
+    I_LOCAL(113),
+    /**
+     * <code>I_LOCALS = 114;</code>
+     */
+    I_LOCALS(114),
+    /**
+     * <code>I_METHOD = 115;</code>
+     */
+    I_METHOD(115),
+    /**
+     * <code>I_METHODS = 116;</code>
+     */
+    I_METHODS(116),
+    /**
+     * <code>I_METHOD_PROTOTYPE = 117;</code>
+     */
+    I_METHOD_PROTOTYPE(117),
+    /**
+     * <code>I_METHOD_RETURN_TYPE = 118;</code>
+     */
+    I_METHOD_RETURN_TYPE(118),
+    /**
+     * <code>I_ORDERED_METHOD_ITEMS = 119;</code>
+     */
+    I_ORDERED_METHOD_ITEMS(119),
+    /**
+     * <code>I_PACKED_SWITCH_ELEMENTS = 120;</code>
+     */
+    I_PACKED_SWITCH_ELEMENTS(120),
+    /**
+     * <code>I_PACKED_SWITCH_START_KEY = 121;</code>
+     */
+    I_PACKED_SWITCH_START_KEY(121),
+    /**
+     * <code>I_PARAMETER = 122;</code>
+     */
+    I_PARAMETER(122),
+    /**
+     * <code>I_PARAMETERS = 123;</code>
+     */
+    I_PARAMETERS(123),
+    /**
+     * <code>I_PARAMETER_NOT_SPECIFIED = 124;</code>
+     */
+    I_PARAMETER_NOT_SPECIFIED(124),
+    /**
+     * <code>I_PROLOGUE = 125;</code>
+     */
+    I_PROLOGUE(125),
+    /**
+     * <code>I_REGISTERS = 126;</code>
+     */
+    I_REGISTERS(126),
+    /**
+     * <code>I_REGISTER_LIST = 127;</code>
+     */
+    I_REGISTER_LIST(127),
+    /**
+     * <code>I_REGISTER_RANGE = 128;</code>
+     */
+    I_REGISTER_RANGE(128),
+    /**
+     * <code>I_RESTART_LOCAL = 129;</code>
+     */
+    I_RESTART_LOCAL(129),
+    /**
+     * <code>I_SOURCE = 130;</code>
+     */
+    I_SOURCE(130),
+    /**
+     * <code>I_SPARSE_SWITCH_ELEMENTS = 131;</code>
+     */
+    I_SPARSE_SWITCH_ELEMENTS(131),
+    /**
+     * <code>I_STATEMENT_ARRAY_DATA = 132;</code>
+     */
+    I_STATEMENT_ARRAY_DATA(132),
+    /**
+     * <code>I_STATEMENT_FORMAT10t = 133;</code>
+     */
+    I_STATEMENT_FORMAT10t(133),
+    /**
+     * <code>I_STATEMENT_FORMAT10x = 134;</code>
+     */
+    I_STATEMENT_FORMAT10x(134),
+    /**
+     * <code>I_STATEMENT_FORMAT11n = 135;</code>
+     */
+    I_STATEMENT_FORMAT11n(135),
+    /**
+     * <code>I_STATEMENT_FORMAT11x = 136;</code>
+     */
+    I_STATEMENT_FORMAT11x(136),
+    /**
+     * <code>I_STATEMENT_FORMAT12x = 137;</code>
+     */
+    I_STATEMENT_FORMAT12x(137),
+    /**
+     * <code>I_STATEMENT_FORMAT20bc = 138;</code>
+     */
+    I_STATEMENT_FORMAT20bc(138),
+    /**
+     * <code>I_STATEMENT_FORMAT20t = 139;</code>
+     */
+    I_STATEMENT_FORMAT20t(139),
+    /**
+     * <code>I_STATEMENT_FORMAT21c_FIELD = 140;</code>
+     */
+    I_STATEMENT_FORMAT21c_FIELD(140),
+    /**
+     * <code>I_STATEMENT_FORMAT21c_STRING = 141;</code>
+     */
+    I_STATEMENT_FORMAT21c_STRING(141),
+    /**
+     * <code>I_STATEMENT_FORMAT21c_TYPE = 142;</code>
+     */
+    I_STATEMENT_FORMAT21c_TYPE(142),
+    /**
+     * <code>I_STATEMENT_FORMAT21ih = 143;</code>
+     */
+    I_STATEMENT_FORMAT21ih(143),
+    /**
+     * <code>I_STATEMENT_FORMAT21lh = 144;</code>
+     */
+    I_STATEMENT_FORMAT21lh(144),
+    /**
+     * <code>I_STATEMENT_FORMAT21s = 145;</code>
+     */
+    I_STATEMENT_FORMAT21s(145),
+    /**
+     * <code>I_STATEMENT_FORMAT21t = 146;</code>
+     */
+    I_STATEMENT_FORMAT21t(146),
+    /**
+     * <code>I_STATEMENT_FORMAT22b = 147;</code>
+     */
+    I_STATEMENT_FORMAT22b(147),
+    /**
+     * <code>I_STATEMENT_FORMAT22c_FIELD = 148;</code>
+     */
+    I_STATEMENT_FORMAT22c_FIELD(148),
+    /**
+     * <code>I_STATEMENT_FORMAT22c_TYPE = 149;</code>
+     */
+    I_STATEMENT_FORMAT22c_TYPE(149),
+    /**
+     * <code>I_STATEMENT_FORMAT22s = 150;</code>
+     */
+    I_STATEMENT_FORMAT22s(150),
+    /**
+     * <code>I_STATEMENT_FORMAT22t = 151;</code>
+     */
+    I_STATEMENT_FORMAT22t(151),
+    /**
+     * <code>I_STATEMENT_FORMAT22x = 152;</code>
+     */
+    I_STATEMENT_FORMAT22x(152),
+    /**
+     * <code>I_STATEMENT_FORMAT23x = 153;</code>
+     */
+    I_STATEMENT_FORMAT23x(153),
+    /**
+     * <code>I_STATEMENT_FORMAT30t = 154;</code>
+     */
+    I_STATEMENT_FORMAT30t(154),
+    /**
+     * <code>I_STATEMENT_FORMAT31c = 155;</code>
+     */
+    I_STATEMENT_FORMAT31c(155),
+    /**
+     * <code>I_STATEMENT_FORMAT31i = 156;</code>
+     */
+    I_STATEMENT_FORMAT31i(156),
+    /**
+     * <code>I_STATEMENT_FORMAT31t = 157;</code>
+     */
+    I_STATEMENT_FORMAT31t(157),
+    /**
+     * <code>I_STATEMENT_FORMAT32x = 158;</code>
+     */
+    I_STATEMENT_FORMAT32x(158),
+    /**
+     * <code>I_STATEMENT_FORMAT35c_METHOD = 159;</code>
+     */
+    I_STATEMENT_FORMAT35c_METHOD(159),
+    /**
+     * <code>I_STATEMENT_FORMAT35c_TYPE = 160;</code>
+     */
+    I_STATEMENT_FORMAT35c_TYPE(160),
+    /**
+     * <code>I_STATEMENT_FORMAT3rc_METHOD = 161;</code>
+     */
+    I_STATEMENT_FORMAT3rc_METHOD(161),
+    /**
+     * <code>I_STATEMENT_FORMAT3rc_TYPE = 162;</code>
+     */
+    I_STATEMENT_FORMAT3rc_TYPE(162),
+    /**
+     * <code>I_STATEMENT_FORMAT45cc_METHOD = 163;</code>
+     */
+    I_STATEMENT_FORMAT45cc_METHOD(163),
+    /**
+     * <code>I_STATEMENT_FORMAT4rcc_METHOD = 164;</code>
+     */
+    I_STATEMENT_FORMAT4rcc_METHOD(164),
+    /**
+     * <code>I_STATEMENT_FORMAT51l = 165;</code>
+     */
+    I_STATEMENT_FORMAT51l(165),
+    /**
+     * <code>I_STATEMENT_PACKED_SWITCH = 166;</code>
+     */
+    I_STATEMENT_PACKED_SWITCH(166),
+    /**
+     * <code>I_STATEMENT_SPARSE_SWITCH = 167;</code>
+     */
+    I_STATEMENT_SPARSE_SWITCH(167),
+    /**
+     * <code>I_SUBANNOTATION = 168;</code>
+     */
+    I_SUBANNOTATION(168),
+    /**
+     * <code>I_SUPER = 169;</code>
+     */
+    I_SUPER(169),
+    /**
+     * <code>LINE_COMMENT = 170;</code>
+     */
+    LINE_COMMENT(170),
+    /**
+     * <code>LINE_DIRECTIVE = 171;</code>
+     */
+    LINE_DIRECTIVE(171),
+    /**
+     * <code>LOCALS_DIRECTIVE = 172;</code>
+     */
+    LOCALS_DIRECTIVE(172),
+    /**
+     * <code>LOCAL_DIRECTIVE = 173;</code>
+     */
+    LOCAL_DIRECTIVE(173),
+    /**
+     * <code>LONG_LITERAL = 174;</code>
+     */
+    LONG_LITERAL(174),
+    /**
+     * <code>MEMBER_NAME = 175;</code>
+     */
+    MEMBER_NAME(175),
+    /**
+     * <code>METHOD_DIRECTIVE = 176;</code>
+     */
+    METHOD_DIRECTIVE(176),
+    /**
+     * <code>NEGATIVE_INTEGER_LITERAL = 177;</code>
+     */
+    NEGATIVE_INTEGER_LITERAL(177),
+    /**
+     * <code>NULL_LITERAL = 178;</code>
+     */
+    NULL_LITERAL(178),
+    /**
+     * <code>OPEN_BRACE = 179;</code>
+     */
+    OPEN_BRACE(179),
+    /**
+     * <code>OPEN_PAREN = 180;</code>
+     */
+    OPEN_PAREN(180),
+    /**
+     * <code>PACKED_SWITCH_DIRECTIVE = 181;</code>
+     */
+    PACKED_SWITCH_DIRECTIVE(181),
+    /**
+     * <code>PARAMETER_DIRECTIVE = 182;</code>
+     */
+    PARAMETER_DIRECTIVE(182),
+    /**
+     * <code>PARAM_LIST_OR_ID_PRIMITIVE_TYPE = 183;</code>
+     */
+    PARAM_LIST_OR_ID_PRIMITIVE_TYPE(183),
+    /**
+     * <code>POSITIVE_INTEGER_LITERAL = 184;</code>
+     */
+    POSITIVE_INTEGER_LITERAL(184),
+    /**
+     * <code>PRIMITIVE_TYPE = 185;</code>
+     */
+    PRIMITIVE_TYPE(185),
+    /**
+     * <code>PROLOGUE_DIRECTIVE = 186;</code>
+     */
+    PROLOGUE_DIRECTIVE(186),
+    /**
+     * <code>SMALI_REGISTER = 187;</code>
+     */
+    SMALI_REGISTER(187),
+    /**
+     * <code>REGISTERS_DIRECTIVE = 188;</code>
+     */
+    REGISTERS_DIRECTIVE(188),
+    /**
+     * <code>RESTART_LOCAL_DIRECTIVE = 189;</code>
+     */
+    RESTART_LOCAL_DIRECTIVE(189),
+    /**
+     * <code>SHORT_LITERAL = 190;</code>
+     */
+    SHORT_LITERAL(190),
+    /**
+     * <code>SIMPLE_NAME = 191;</code>
+     */
+    SIMPLE_NAME(191),
+    /**
+     * <code>SOURCE_DIRECTIVE = 192;</code>
+     */
+    SOURCE_DIRECTIVE(192),
+    /**
+     * <code>SPARSE_SWITCH_DIRECTIVE = 193;</code>
+     */
+    SPARSE_SWITCH_DIRECTIVE(193),
+    /**
+     * <code>STRING_LITERAL = 194;</code>
+     */
+    STRING_LITERAL(194),
+    /**
+     * <code>SUBANNOTATION_DIRECTIVE = 195;</code>
+     */
+    SUBANNOTATION_DIRECTIVE(195),
+    /**
+     * <code>SUPER_DIRECTIVE = 196;</code>
+     */
+    SUPER_DIRECTIVE(196),
+    /**
+     * <code>VERIFICATION_ERROR_TYPE = 197;</code>
+     */
+    VERIFICATION_ERROR_TYPE(197),
+    /**
+     * <code>VOID_TYPE = 198;</code>
+     */
+    VOID_TYPE(198),
+    /**
+     * <code>VTABLE_INDEX = 199;</code>
+     */
+    VTABLE_INDEX(199),
+    /**
+     * <code>WHITE_SPACE = 200;</code>
+     */
+    WHITE_SPACE(200),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>INVALID = 0;</code>
+     */
+    public static final int INVALID_VALUE = 0;
+    /**
+     * <code>EOR = 1;</code>
+     */
+    public static final int EOR_VALUE = 1;
+    /**
+     * <code>DOWN = 2;</code>
+     */
+    public static final int DOWN_VALUE = 2;
+    /**
+     * <code>UP = 3;</code>
+     */
+    public static final int UP_VALUE = 3;
+    /**
+     * <code>ACCESS_SPEC = 4;</code>
+     */
+    public static final int ACCESS_SPEC_VALUE = 4;
+    /**
+     * <code>ANNOTATION_DIRECTIVE = 5;</code>
+     */
+    public static final int ANNOTATION_DIRECTIVE_VALUE = 5;
+    /**
+     * <code>ANNOTATION_VISIBILITY = 6;</code>
+     */
+    public static final int ANNOTATION_VISIBILITY_VALUE = 6;
+    /**
+     * <code>ARRAY_DATA_DIRECTIVE = 7;</code>
+     */
+    public static final int ARRAY_DATA_DIRECTIVE_VALUE = 7;
+    /**
+     * <code>ARRAY_TYPE_PREFIX = 8;</code>
+     */
+    public static final int ARRAY_TYPE_PREFIX_VALUE = 8;
+    /**
+     * <code>ARROW = 9;</code>
+     */
+    public static final int ARROW_VALUE = 9;
+    /**
+     * <code>BOOL_LITERAL = 10;</code>
+     */
+    public static final int BOOL_LITERAL_VALUE = 10;
+    /**
+     * <code>BYTE_LITERAL = 11;</code>
+     */
+    public static final int BYTE_LITERAL_VALUE = 11;
+    /**
+     * <code>CATCHALL_DIRECTIVE = 12;</code>
+     */
+    public static final int CATCHALL_DIRECTIVE_VALUE = 12;
+    /**
+     * <code>CATCH_DIRECTIVE = 13;</code>
+     */
+    public static final int CATCH_DIRECTIVE_VALUE = 13;
+    /**
+     * <code>CHAR_LITERAL = 14;</code>
+     */
+    public static final int CHAR_LITERAL_VALUE = 14;
+    /**
+     * <code>CLASS_DESCRIPTOR = 15;</code>
+     */
+    public static final int CLASS_DESCRIPTOR_VALUE = 15;
+    /**
+     * <code>CLASS_DIRECTIVE = 16;</code>
+     */
+    public static final int CLASS_DIRECTIVE_VALUE = 16;
+    /**
+     * <code>CLOSE_BRACE = 17;</code>
+     */
+    public static final int CLOSE_BRACE_VALUE = 17;
+    /**
+     * <code>CLOSE_PAREN = 18;</code>
+     */
+    public static final int CLOSE_PAREN_VALUE = 18;
+    /**
+     * <code>COLON = 19;</code>
+     */
+    public static final int COLON_VALUE = 19;
+    /**
+     * <code>COMMA = 20;</code>
+     */
+    public static final int COMMA_VALUE = 20;
+    /**
+     * <code>DOTDOT = 21;</code>
+     */
+    public static final int DOTDOT_VALUE = 21;
+    /**
+     * <code>DOUBLE_LITERAL = 22;</code>
+     */
+    public static final int DOUBLE_LITERAL_VALUE = 22;
+    /**
+     * <code>DOUBLE_LITERAL_OR_ID = 23;</code>
+     */
+    public static final int DOUBLE_LITERAL_OR_ID_VALUE = 23;
+    /**
+     * <code>END_ANNOTATION_DIRECTIVE = 24;</code>
+     */
+    public static final int END_ANNOTATION_DIRECTIVE_VALUE = 24;
+    /**
+     * <code>END_ARRAY_DATA_DIRECTIVE = 25;</code>
+     */
+    public static final int END_ARRAY_DATA_DIRECTIVE_VALUE = 25;
+    /**
+     * <code>END_FIELD_DIRECTIVE = 26;</code>
+     */
+    public static final int END_FIELD_DIRECTIVE_VALUE = 26;
+    /**
+     * <code>END_LOCAL_DIRECTIVE = 27;</code>
+     */
+    public static final int END_LOCAL_DIRECTIVE_VALUE = 27;
+    /**
+     * <code>END_METHOD_DIRECTIVE = 28;</code>
+     */
+    public static final int END_METHOD_DIRECTIVE_VALUE = 28;
+    /**
+     * <code>END_PACKED_SWITCH_DIRECTIVE = 29;</code>
+     */
+    public static final int END_PACKED_SWITCH_DIRECTIVE_VALUE = 29;
+    /**
+     * <code>END_PARAMETER_DIRECTIVE = 30;</code>
+     */
+    public static final int END_PARAMETER_DIRECTIVE_VALUE = 30;
+    /**
+     * <code>END_SPARSE_SWITCH_DIRECTIVE = 31;</code>
+     */
+    public static final int END_SPARSE_SWITCH_DIRECTIVE_VALUE = 31;
+    /**
+     * <code>END_SUBANNOTATION_DIRECTIVE = 32;</code>
+     */
+    public static final int END_SUBANNOTATION_DIRECTIVE_VALUE = 32;
+    /**
+     * <code>ENUM_DIRECTIVE = 33;</code>
+     */
+    public static final int ENUM_DIRECTIVE_VALUE = 33;
+    /**
+     * <code>EPILOGUE_DIRECTIVE = 34;</code>
+     */
+    public static final int EPILOGUE_DIRECTIVE_VALUE = 34;
+    /**
+     * <code>EQUAL = 35;</code>
+     */
+    public static final int EQUAL_VALUE = 35;
+    /**
+     * <code>FIELD_DIRECTIVE = 36;</code>
+     */
+    public static final int FIELD_DIRECTIVE_VALUE = 36;
+    /**
+     * <code>FIELD_OFFSET = 37;</code>
+     */
+    public static final int FIELD_OFFSET_VALUE = 37;
+    /**
+     * <code>FLOAT_LITERAL = 38;</code>
+     */
+    public static final int FLOAT_LITERAL_VALUE = 38;
+    /**
+     * <code>FLOAT_LITERAL_OR_ID = 39;</code>
+     */
+    public static final int FLOAT_LITERAL_OR_ID_VALUE = 39;
+    /**
+     * <code>IMPLEMENTS_DIRECTIVE = 40;</code>
+     */
+    public static final int IMPLEMENTS_DIRECTIVE_VALUE = 40;
+    /**
+     * <code>INLINE_INDEX = 41;</code>
+     */
+    public static final int INLINE_INDEX_VALUE = 41;
+    /**
+     * <code>INSTRUCTION_FORMAT10t = 42;</code>
+     */
+    public static final int INSTRUCTION_FORMAT10t_VALUE = 42;
+    /**
+     * <code>INSTRUCTION_FORMAT10x = 43;</code>
+     */
+    public static final int INSTRUCTION_FORMAT10x_VALUE = 43;
+    /**
+     * <code>INSTRUCTION_FORMAT10x_ODEX = 44;</code>
+     */
+    public static final int INSTRUCTION_FORMAT10x_ODEX_VALUE = 44;
+    /**
+     * <code>INSTRUCTION_FORMAT11n = 45;</code>
+     */
+    public static final int INSTRUCTION_FORMAT11n_VALUE = 45;
+    /**
+     * <code>INSTRUCTION_FORMAT11x = 46;</code>
+     */
+    public static final int INSTRUCTION_FORMAT11x_VALUE = 46;
+    /**
+     * <code>INSTRUCTION_FORMAT12x = 47;</code>
+     */
+    public static final int INSTRUCTION_FORMAT12x_VALUE = 47;
+    /**
+     * <code>INSTRUCTION_FORMAT12x_OR_ID = 48;</code>
+     */
+    public static final int INSTRUCTION_FORMAT12x_OR_ID_VALUE = 48;
+    /**
+     * <code>INSTRUCTION_FORMAT20bc = 49;</code>
+     */
+    public static final int INSTRUCTION_FORMAT20bc_VALUE = 49;
+    /**
+     * <code>INSTRUCTION_FORMAT20t = 50;</code>
+     */
+    public static final int INSTRUCTION_FORMAT20t_VALUE = 50;
+    /**
+     * <code>INSTRUCTION_FORMAT21c_FIELD = 51;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21c_FIELD_VALUE = 51;
+    /**
+     * <code>INSTRUCTION_FORMAT21c_FIELD_ODEX = 52;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21c_FIELD_ODEX_VALUE = 52;
+    /**
+     * <code>INSTRUCTION_FORMAT21c_STRING = 53;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21c_STRING_VALUE = 53;
+    /**
+     * <code>INSTRUCTION_FORMAT21c_TYPE = 54;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21c_TYPE_VALUE = 54;
+    /**
+     * <code>INSTRUCTION_FORMAT21ih = 55;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21ih_VALUE = 55;
+    /**
+     * <code>INSTRUCTION_FORMAT21lh = 56;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21lh_VALUE = 56;
+    /**
+     * <code>INSTRUCTION_FORMAT21s = 57;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21s_VALUE = 57;
+    /**
+     * <code>INSTRUCTION_FORMAT21t = 58;</code>
+     */
+    public static final int INSTRUCTION_FORMAT21t_VALUE = 58;
+    /**
+     * <code>INSTRUCTION_FORMAT22b = 59;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22b_VALUE = 59;
+    /**
+     * <code>INSTRUCTION_FORMAT22c_FIELD = 60;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22c_FIELD_VALUE = 60;
+    /**
+     * <code>INSTRUCTION_FORMAT22c_FIELD_ODEX = 61;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22c_FIELD_ODEX_VALUE = 61;
+    /**
+     * <code>INSTRUCTION_FORMAT22c_TYPE = 62;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22c_TYPE_VALUE = 62;
+    /**
+     * <code>INSTRUCTION_FORMAT22cs_FIELD = 63;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22cs_FIELD_VALUE = 63;
+    /**
+     * <code>INSTRUCTION_FORMAT22s = 64;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22s_VALUE = 64;
+    /**
+     * <code>INSTRUCTION_FORMAT22s_OR_ID = 65;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22s_OR_ID_VALUE = 65;
+    /**
+     * <code>INSTRUCTION_FORMAT22t = 66;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22t_VALUE = 66;
+    /**
+     * <code>INSTRUCTION_FORMAT22x = 67;</code>
+     */
+    public static final int INSTRUCTION_FORMAT22x_VALUE = 67;
+    /**
+     * <code>INSTRUCTION_FORMAT23x = 68;</code>
+     */
+    public static final int INSTRUCTION_FORMAT23x_VALUE = 68;
+    /**
+     * <code>INSTRUCTION_FORMAT30t = 69;</code>
+     */
+    public static final int INSTRUCTION_FORMAT30t_VALUE = 69;
+    /**
+     * <code>INSTRUCTION_FORMAT31c = 70;</code>
+     */
+    public static final int INSTRUCTION_FORMAT31c_VALUE = 70;
+    /**
+     * <code>INSTRUCTION_FORMAT31i = 71;</code>
+     */
+    public static final int INSTRUCTION_FORMAT31i_VALUE = 71;
+    /**
+     * <code>INSTRUCTION_FORMAT31i_OR_ID = 72;</code>
+     */
+    public static final int INSTRUCTION_FORMAT31i_OR_ID_VALUE = 72;
+    /**
+     * <code>INSTRUCTION_FORMAT31t = 73;</code>
+     */
+    public static final int INSTRUCTION_FORMAT31t_VALUE = 73;
+    /**
+     * <code>INSTRUCTION_FORMAT32x = 74;</code>
+     */
+    public static final int INSTRUCTION_FORMAT32x_VALUE = 74;
+    /**
+     * <code>INSTRUCTION_FORMAT35c_METHOD = 75;</code>
+     */
+    public static final int INSTRUCTION_FORMAT35c_METHOD_VALUE = 75;
+    /**
+     * <code>INSTRUCTION_FORMAT35c_METHOD_ODEX = 76;</code>
+     */
+    public static final int INSTRUCTION_FORMAT35c_METHOD_ODEX_VALUE = 76;
+    /**
+     * <code>INSTRUCTION_FORMAT35c_TYPE = 77;</code>
+     */
+    public static final int INSTRUCTION_FORMAT35c_TYPE_VALUE = 77;
+    /**
+     * <code>INSTRUCTION_FORMAT35mi_METHOD = 78;</code>
+     */
+    public static final int INSTRUCTION_FORMAT35mi_METHOD_VALUE = 78;
+    /**
+     * <code>INSTRUCTION_FORMAT35ms_METHOD = 79;</code>
+     */
+    public static final int INSTRUCTION_FORMAT35ms_METHOD_VALUE = 79;
+    /**
+     * <code>INSTRUCTION_FORMAT3rc_METHOD = 80;</code>
+     */
+    public static final int INSTRUCTION_FORMAT3rc_METHOD_VALUE = 80;
+    /**
+     * <code>INSTRUCTION_FORMAT3rc_METHOD_ODEX = 81;</code>
+     */
+    public static final int INSTRUCTION_FORMAT3rc_METHOD_ODEX_VALUE = 81;
+    /**
+     * <code>INSTRUCTION_FORMAT3rc_TYPE = 82;</code>
+     */
+    public static final int INSTRUCTION_FORMAT3rc_TYPE_VALUE = 82;
+    /**
+     * <code>INSTRUCTION_FORMAT3rmi_METHOD = 83;</code>
+     */
+    public static final int INSTRUCTION_FORMAT3rmi_METHOD_VALUE = 83;
+    /**
+     * <code>INSTRUCTION_FORMAT3rms_METHOD = 84;</code>
+     */
+    public static final int INSTRUCTION_FORMAT3rms_METHOD_VALUE = 84;
+    /**
+     * <code>INSTRUCTION_FORMAT45cc_METHOD = 85;</code>
+     */
+    public static final int INSTRUCTION_FORMAT45cc_METHOD_VALUE = 85;
+    /**
+     * <code>INSTRUCTION_FORMAT4rcc_METHOD = 86;</code>
+     */
+    public static final int INSTRUCTION_FORMAT4rcc_METHOD_VALUE = 86;
+    /**
+     * <code>INSTRUCTION_FORMAT51l = 87;</code>
+     */
+    public static final int INSTRUCTION_FORMAT51l_VALUE = 87;
+    /**
+     * <code>INTEGER_LITERAL = 88;</code>
+     */
+    public static final int INTEGER_LITERAL_VALUE = 88;
+    /**
+     * <code>INVALID_TOKEN = 89;</code>
+     */
+    public static final int INVALID_TOKEN_VALUE = 89;
+    /**
+     * <code>I_ACCESS_LIST = 90;</code>
+     */
+    public static final int I_ACCESS_LIST_VALUE = 90;
+    /**
+     * <code>I_ANNOTATION = 91;</code>
+     */
+    public static final int I_ANNOTATION_VALUE = 91;
+    /**
+     * <code>I_ANNOTATIONS = 92;</code>
+     */
+    public static final int I_ANNOTATIONS_VALUE = 92;
+    /**
+     * <code>I_ANNOTATION_ELEMENT = 93;</code>
+     */
+    public static final int I_ANNOTATION_ELEMENT_VALUE = 93;
+    /**
+     * <code>I_ARRAY_ELEMENTS = 94;</code>
+     */
+    public static final int I_ARRAY_ELEMENTS_VALUE = 94;
+    /**
+     * <code>I_ARRAY_ELEMENT_SIZE = 95;</code>
+     */
+    public static final int I_ARRAY_ELEMENT_SIZE_VALUE = 95;
+    /**
+     * <code>I_CATCH = 96;</code>
+     */
+    public static final int I_CATCH_VALUE = 96;
+    /**
+     * <code>I_CATCHALL = 97;</code>
+     */
+    public static final int I_CATCHALL_VALUE = 97;
+    /**
+     * <code>I_CATCHES = 98;</code>
+     */
+    public static final int I_CATCHES_VALUE = 98;
+    /**
+     * <code>I_CLASS_DEF = 99;</code>
+     */
+    public static final int I_CLASS_DEF_VALUE = 99;
+    /**
+     * <code>I_ENCODED_ARRAY = 100;</code>
+     */
+    public static final int I_ENCODED_ARRAY_VALUE = 100;
+    /**
+     * <code>I_ENCODED_ENUM = 101;</code>
+     */
+    public static final int I_ENCODED_ENUM_VALUE = 101;
+    /**
+     * <code>I_ENCODED_FIELD = 102;</code>
+     */
+    public static final int I_ENCODED_FIELD_VALUE = 102;
+    /**
+     * <code>I_ENCODED_METHOD = 103;</code>
+     */
+    public static final int I_ENCODED_METHOD_VALUE = 103;
+    /**
+     * <code>I_END_LOCAL = 104;</code>
+     */
+    public static final int I_END_LOCAL_VALUE = 104;
+    /**
+     * <code>I_EPILOGUE = 105;</code>
+     */
+    public static final int I_EPILOGUE_VALUE = 105;
+    /**
+     * <code>I_FIELD = 106;</code>
+     */
+    public static final int I_FIELD_VALUE = 106;
+    /**
+     * <code>I_FIELDS = 107;</code>
+     */
+    public static final int I_FIELDS_VALUE = 107;
+    /**
+     * <code>I_FIELD_INITIAL_VALUE = 108;</code>
+     */
+    public static final int I_FIELD_INITIAL_VALUE_VALUE = 108;
+    /**
+     * <code>I_FIELD_TYPE = 109;</code>
+     */
+    public static final int I_FIELD_TYPE_VALUE = 109;
+    /**
+     * <code>I_IMPLEMENTS = 110;</code>
+     */
+    public static final int I_IMPLEMENTS_VALUE = 110;
+    /**
+     * <code>I_LABEL = 111;</code>
+     */
+    public static final int I_LABEL_VALUE = 111;
+    /**
+     * <code>I_LINE = 112;</code>
+     */
+    public static final int I_LINE_VALUE = 112;
+    /**
+     * <code>I_LOCAL = 113;</code>
+     */
+    public static final int I_LOCAL_VALUE = 113;
+    /**
+     * <code>I_LOCALS = 114;</code>
+     */
+    public static final int I_LOCALS_VALUE = 114;
+    /**
+     * <code>I_METHOD = 115;</code>
+     */
+    public static final int I_METHOD_VALUE = 115;
+    /**
+     * <code>I_METHODS = 116;</code>
+     */
+    public static final int I_METHODS_VALUE = 116;
+    /**
+     * <code>I_METHOD_PROTOTYPE = 117;</code>
+     */
+    public static final int I_METHOD_PROTOTYPE_VALUE = 117;
+    /**
+     * <code>I_METHOD_RETURN_TYPE = 118;</code>
+     */
+    public static final int I_METHOD_RETURN_TYPE_VALUE = 118;
+    /**
+     * <code>I_ORDERED_METHOD_ITEMS = 119;</code>
+     */
+    public static final int I_ORDERED_METHOD_ITEMS_VALUE = 119;
+    /**
+     * <code>I_PACKED_SWITCH_ELEMENTS = 120;</code>
+     */
+    public static final int I_PACKED_SWITCH_ELEMENTS_VALUE = 120;
+    /**
+     * <code>I_PACKED_SWITCH_START_KEY = 121;</code>
+     */
+    public static final int I_PACKED_SWITCH_START_KEY_VALUE = 121;
+    /**
+     * <code>I_PARAMETER = 122;</code>
+     */
+    public static final int I_PARAMETER_VALUE = 122;
+    /**
+     * <code>I_PARAMETERS = 123;</code>
+     */
+    public static final int I_PARAMETERS_VALUE = 123;
+    /**
+     * <code>I_PARAMETER_NOT_SPECIFIED = 124;</code>
+     */
+    public static final int I_PARAMETER_NOT_SPECIFIED_VALUE = 124;
+    /**
+     * <code>I_PROLOGUE = 125;</code>
+     */
+    public static final int I_PROLOGUE_VALUE = 125;
+    /**
+     * <code>I_REGISTERS = 126;</code>
+     */
+    public static final int I_REGISTERS_VALUE = 126;
+    /**
+     * <code>I_REGISTER_LIST = 127;</code>
+     */
+    public static final int I_REGISTER_LIST_VALUE = 127;
+    /**
+     * <code>I_REGISTER_RANGE = 128;</code>
+     */
+    public static final int I_REGISTER_RANGE_VALUE = 128;
+    /**
+     * <code>I_RESTART_LOCAL = 129;</code>
+     */
+    public static final int I_RESTART_LOCAL_VALUE = 129;
+    /**
+     * <code>I_SOURCE = 130;</code>
+     */
+    public static final int I_SOURCE_VALUE = 130;
+    /**
+     * <code>I_SPARSE_SWITCH_ELEMENTS = 131;</code>
+     */
+    public static final int I_SPARSE_SWITCH_ELEMENTS_VALUE = 131;
+    /**
+     * <code>I_STATEMENT_ARRAY_DATA = 132;</code>
+     */
+    public static final int I_STATEMENT_ARRAY_DATA_VALUE = 132;
+    /**
+     * <code>I_STATEMENT_FORMAT10t = 133;</code>
+     */
+    public static final int I_STATEMENT_FORMAT10t_VALUE = 133;
+    /**
+     * <code>I_STATEMENT_FORMAT10x = 134;</code>
+     */
+    public static final int I_STATEMENT_FORMAT10x_VALUE = 134;
+    /**
+     * <code>I_STATEMENT_FORMAT11n = 135;</code>
+     */
+    public static final int I_STATEMENT_FORMAT11n_VALUE = 135;
+    /**
+     * <code>I_STATEMENT_FORMAT11x = 136;</code>
+     */
+    public static final int I_STATEMENT_FORMAT11x_VALUE = 136;
+    /**
+     * <code>I_STATEMENT_FORMAT12x = 137;</code>
+     */
+    public static final int I_STATEMENT_FORMAT12x_VALUE = 137;
+    /**
+     * <code>I_STATEMENT_FORMAT20bc = 138;</code>
+     */
+    public static final int I_STATEMENT_FORMAT20bc_VALUE = 138;
+    /**
+     * <code>I_STATEMENT_FORMAT20t = 139;</code>
+     */
+    public static final int I_STATEMENT_FORMAT20t_VALUE = 139;
+    /**
+     * <code>I_STATEMENT_FORMAT21c_FIELD = 140;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21c_FIELD_VALUE = 140;
+    /**
+     * <code>I_STATEMENT_FORMAT21c_STRING = 141;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21c_STRING_VALUE = 141;
+    /**
+     * <code>I_STATEMENT_FORMAT21c_TYPE = 142;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21c_TYPE_VALUE = 142;
+    /**
+     * <code>I_STATEMENT_FORMAT21ih = 143;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21ih_VALUE = 143;
+    /**
+     * <code>I_STATEMENT_FORMAT21lh = 144;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21lh_VALUE = 144;
+    /**
+     * <code>I_STATEMENT_FORMAT21s = 145;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21s_VALUE = 145;
+    /**
+     * <code>I_STATEMENT_FORMAT21t = 146;</code>
+     */
+    public static final int I_STATEMENT_FORMAT21t_VALUE = 146;
+    /**
+     * <code>I_STATEMENT_FORMAT22b = 147;</code>
+     */
+    public static final int I_STATEMENT_FORMAT22b_VALUE = 147;
+    /**
+     * <code>I_STATEMENT_FORMAT22c_FIELD = 148;</code>
+     */
+    public static final int I_STATEMENT_FORMAT22c_FIELD_VALUE = 148;
+    /**
+     * <code>I_STATEMENT_FORMAT22c_TYPE = 149;</code>
+     */
+    public static final int I_STATEMENT_FORMAT22c_TYPE_VALUE = 149;
+    /**
+     * <code>I_STATEMENT_FORMAT22s = 150;</code>
+     */
+    public static final int I_STATEMENT_FORMAT22s_VALUE = 150;
+    /**
+     * <code>I_STATEMENT_FORMAT22t = 151;</code>
+     */
+    public static final int I_STATEMENT_FORMAT22t_VALUE = 151;
+    /**
+     * <code>I_STATEMENT_FORMAT22x = 152;</code>
+     */
+    public static final int I_STATEMENT_FORMAT22x_VALUE = 152;
+    /**
+     * <code>I_STATEMENT_FORMAT23x = 153;</code>
+     */
+    public static final int I_STATEMENT_FORMAT23x_VALUE = 153;
+    /**
+     * <code>I_STATEMENT_FORMAT30t = 154;</code>
+     */
+    public static final int I_STATEMENT_FORMAT30t_VALUE = 154;
+    /**
+     * <code>I_STATEMENT_FORMAT31c = 155;</code>
+     */
+    public static final int I_STATEMENT_FORMAT31c_VALUE = 155;
+    /**
+     * <code>I_STATEMENT_FORMAT31i = 156;</code>
+     */
+    public static final int I_STATEMENT_FORMAT31i_VALUE = 156;
+    /**
+     * <code>I_STATEMENT_FORMAT31t = 157;</code>
+     */
+    public static final int I_STATEMENT_FORMAT31t_VALUE = 157;
+    /**
+     * <code>I_STATEMENT_FORMAT32x = 158;</code>
+     */
+    public static final int I_STATEMENT_FORMAT32x_VALUE = 158;
+    /**
+     * <code>I_STATEMENT_FORMAT35c_METHOD = 159;</code>
+     */
+    public static final int I_STATEMENT_FORMAT35c_METHOD_VALUE = 159;
+    /**
+     * <code>I_STATEMENT_FORMAT35c_TYPE = 160;</code>
+     */
+    public static final int I_STATEMENT_FORMAT35c_TYPE_VALUE = 160;
+    /**
+     * <code>I_STATEMENT_FORMAT3rc_METHOD = 161;</code>
+     */
+    public static final int I_STATEMENT_FORMAT3rc_METHOD_VALUE = 161;
+    /**
+     * <code>I_STATEMENT_FORMAT3rc_TYPE = 162;</code>
+     */
+    public static final int I_STATEMENT_FORMAT3rc_TYPE_VALUE = 162;
+    /**
+     * <code>I_STATEMENT_FORMAT45cc_METHOD = 163;</code>
+     */
+    public static final int I_STATEMENT_FORMAT45cc_METHOD_VALUE = 163;
+    /**
+     * <code>I_STATEMENT_FORMAT4rcc_METHOD = 164;</code>
+     */
+    public static final int I_STATEMENT_FORMAT4rcc_METHOD_VALUE = 164;
+    /**
+     * <code>I_STATEMENT_FORMAT51l = 165;</code>
+     */
+    public static final int I_STATEMENT_FORMAT51l_VALUE = 165;
+    /**
+     * <code>I_STATEMENT_PACKED_SWITCH = 166;</code>
+     */
+    public static final int I_STATEMENT_PACKED_SWITCH_VALUE = 166;
+    /**
+     * <code>I_STATEMENT_SPARSE_SWITCH = 167;</code>
+     */
+    public static final int I_STATEMENT_SPARSE_SWITCH_VALUE = 167;
+    /**
+     * <code>I_SUBANNOTATION = 168;</code>
+     */
+    public static final int I_SUBANNOTATION_VALUE = 168;
+    /**
+     * <code>I_SUPER = 169;</code>
+     */
+    public static final int I_SUPER_VALUE = 169;
+    /**
+     * <code>LINE_COMMENT = 170;</code>
+     */
+    public static final int LINE_COMMENT_VALUE = 170;
+    /**
+     * <code>LINE_DIRECTIVE = 171;</code>
+     */
+    public static final int LINE_DIRECTIVE_VALUE = 171;
+    /**
+     * <code>LOCALS_DIRECTIVE = 172;</code>
+     */
+    public static final int LOCALS_DIRECTIVE_VALUE = 172;
+    /**
+     * <code>LOCAL_DIRECTIVE = 173;</code>
+     */
+    public static final int LOCAL_DIRECTIVE_VALUE = 173;
+    /**
+     * <code>LONG_LITERAL = 174;</code>
+     */
+    public static final int LONG_LITERAL_VALUE = 174;
+    /**
+     * <code>MEMBER_NAME = 175;</code>
+     */
+    public static final int MEMBER_NAME_VALUE = 175;
+    /**
+     * <code>METHOD_DIRECTIVE = 176;</code>
+     */
+    public static final int METHOD_DIRECTIVE_VALUE = 176;
+    /**
+     * <code>NEGATIVE_INTEGER_LITERAL = 177;</code>
+     */
+    public static final int NEGATIVE_INTEGER_LITERAL_VALUE = 177;
+    /**
+     * <code>NULL_LITERAL = 178;</code>
+     */
+    public static final int NULL_LITERAL_VALUE = 178;
+    /**
+     * <code>OPEN_BRACE = 179;</code>
+     */
+    public static final int OPEN_BRACE_VALUE = 179;
+    /**
+     * <code>OPEN_PAREN = 180;</code>
+     */
+    public static final int OPEN_PAREN_VALUE = 180;
+    /**
+     * <code>PACKED_SWITCH_DIRECTIVE = 181;</code>
+     */
+    public static final int PACKED_SWITCH_DIRECTIVE_VALUE = 181;
+    /**
+     * <code>PARAMETER_DIRECTIVE = 182;</code>
+     */
+    public static final int PARAMETER_DIRECTIVE_VALUE = 182;
+    /**
+     * <code>PARAM_LIST_OR_ID_PRIMITIVE_TYPE = 183;</code>
+     */
+    public static final int PARAM_LIST_OR_ID_PRIMITIVE_TYPE_VALUE = 183;
+    /**
+     * <code>POSITIVE_INTEGER_LITERAL = 184;</code>
+     */
+    public static final int POSITIVE_INTEGER_LITERAL_VALUE = 184;
+    /**
+     * <code>PRIMITIVE_TYPE = 185;</code>
+     */
+    public static final int PRIMITIVE_TYPE_VALUE = 185;
+    /**
+     * <code>PROLOGUE_DIRECTIVE = 186;</code>
+     */
+    public static final int PROLOGUE_DIRECTIVE_VALUE = 186;
+    /**
+     * <code>SMALI_REGISTER = 187;</code>
+     */
+    public static final int SMALI_REGISTER_VALUE = 187;
+    /**
+     * <code>REGISTERS_DIRECTIVE = 188;</code>
+     */
+    public static final int REGISTERS_DIRECTIVE_VALUE = 188;
+    /**
+     * <code>RESTART_LOCAL_DIRECTIVE = 189;</code>
+     */
+    public static final int RESTART_LOCAL_DIRECTIVE_VALUE = 189;
+    /**
+     * <code>SHORT_LITERAL = 190;</code>
+     */
+    public static final int SHORT_LITERAL_VALUE = 190;
+    /**
+     * <code>SIMPLE_NAME = 191;</code>
+     */
+    public static final int SIMPLE_NAME_VALUE = 191;
+    /**
+     * <code>SOURCE_DIRECTIVE = 192;</code>
+     */
+    public static final int SOURCE_DIRECTIVE_VALUE = 192;
+    /**
+     * <code>SPARSE_SWITCH_DIRECTIVE = 193;</code>
+     */
+    public static final int SPARSE_SWITCH_DIRECTIVE_VALUE = 193;
+    /**
+     * <code>STRING_LITERAL = 194;</code>
+     */
+    public static final int STRING_LITERAL_VALUE = 194;
+    /**
+     * <code>SUBANNOTATION_DIRECTIVE = 195;</code>
+     */
+    public static final int SUBANNOTATION_DIRECTIVE_VALUE = 195;
+    /**
+     * <code>SUPER_DIRECTIVE = 196;</code>
+     */
+    public static final int SUPER_DIRECTIVE_VALUE = 196;
+    /**
+     * <code>VERIFICATION_ERROR_TYPE = 197;</code>
+     */
+    public static final int VERIFICATION_ERROR_TYPE_VALUE = 197;
+    /**
+     * <code>VOID_TYPE = 198;</code>
+     */
+    public static final int VOID_TYPE_VALUE = 198;
+    /**
+     * <code>VTABLE_INDEX = 199;</code>
+     */
+    public static final int VTABLE_INDEX_VALUE = 199;
+    /**
+     * <code>WHITE_SPACE = 200;</code>
+     */
+    public static final int WHITE_SPACE_VALUE = 200;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SmaliKind valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static SmaliKind forNumber(int value) {
+      switch (value) {
+        case 0: return INVALID;
+        case 1: return EOR;
+        case 2: return DOWN;
+        case 3: return UP;
+        case 4: return ACCESS_SPEC;
+        case 5: return ANNOTATION_DIRECTIVE;
+        case 6: return ANNOTATION_VISIBILITY;
+        case 7: return ARRAY_DATA_DIRECTIVE;
+        case 8: return ARRAY_TYPE_PREFIX;
+        case 9: return ARROW;
+        case 10: return BOOL_LITERAL;
+        case 11: return BYTE_LITERAL;
+        case 12: return CATCHALL_DIRECTIVE;
+        case 13: return CATCH_DIRECTIVE;
+        case 14: return CHAR_LITERAL;
+        case 15: return CLASS_DESCRIPTOR;
+        case 16: return CLASS_DIRECTIVE;
+        case 17: return CLOSE_BRACE;
+        case 18: return CLOSE_PAREN;
+        case 19: return COLON;
+        case 20: return COMMA;
+        case 21: return DOTDOT;
+        case 22: return DOUBLE_LITERAL;
+        case 23: return DOUBLE_LITERAL_OR_ID;
+        case 24: return END_ANNOTATION_DIRECTIVE;
+        case 25: return END_ARRAY_DATA_DIRECTIVE;
+        case 26: return END_FIELD_DIRECTIVE;
+        case 27: return END_LOCAL_DIRECTIVE;
+        case 28: return END_METHOD_DIRECTIVE;
+        case 29: return END_PACKED_SWITCH_DIRECTIVE;
+        case 30: return END_PARAMETER_DIRECTIVE;
+        case 31: return END_SPARSE_SWITCH_DIRECTIVE;
+        case 32: return END_SUBANNOTATION_DIRECTIVE;
+        case 33: return ENUM_DIRECTIVE;
+        case 34: return EPILOGUE_DIRECTIVE;
+        case 35: return EQUAL;
+        case 36: return FIELD_DIRECTIVE;
+        case 37: return FIELD_OFFSET;
+        case 38: return FLOAT_LITERAL;
+        case 39: return FLOAT_LITERAL_OR_ID;
+        case 40: return IMPLEMENTS_DIRECTIVE;
+        case 41: return INLINE_INDEX;
+        case 42: return INSTRUCTION_FORMAT10t;
+        case 43: return INSTRUCTION_FORMAT10x;
+        case 44: return INSTRUCTION_FORMAT10x_ODEX;
+        case 45: return INSTRUCTION_FORMAT11n;
+        case 46: return INSTRUCTION_FORMAT11x;
+        case 47: return INSTRUCTION_FORMAT12x;
+        case 48: return INSTRUCTION_FORMAT12x_OR_ID;
+        case 49: return INSTRUCTION_FORMAT20bc;
+        case 50: return INSTRUCTION_FORMAT20t;
+        case 51: return INSTRUCTION_FORMAT21c_FIELD;
+        case 52: return INSTRUCTION_FORMAT21c_FIELD_ODEX;
+        case 53: return INSTRUCTION_FORMAT21c_STRING;
+        case 54: return INSTRUCTION_FORMAT21c_TYPE;
+        case 55: return INSTRUCTION_FORMAT21ih;
+        case 56: return INSTRUCTION_FORMAT21lh;
+        case 57: return INSTRUCTION_FORMAT21s;
+        case 58: return INSTRUCTION_FORMAT21t;
+        case 59: return INSTRUCTION_FORMAT22b;
+        case 60: return INSTRUCTION_FORMAT22c_FIELD;
+        case 61: return INSTRUCTION_FORMAT22c_FIELD_ODEX;
+        case 62: return INSTRUCTION_FORMAT22c_TYPE;
+        case 63: return INSTRUCTION_FORMAT22cs_FIELD;
+        case 64: return INSTRUCTION_FORMAT22s;
+        case 65: return INSTRUCTION_FORMAT22s_OR_ID;
+        case 66: return INSTRUCTION_FORMAT22t;
+        case 67: return INSTRUCTION_FORMAT22x;
+        case 68: return INSTRUCTION_FORMAT23x;
+        case 69: return INSTRUCTION_FORMAT30t;
+        case 70: return INSTRUCTION_FORMAT31c;
+        case 71: return INSTRUCTION_FORMAT31i;
+        case 72: return INSTRUCTION_FORMAT31i_OR_ID;
+        case 73: return INSTRUCTION_FORMAT31t;
+        case 74: return INSTRUCTION_FORMAT32x;
+        case 75: return INSTRUCTION_FORMAT35c_METHOD;
+        case 76: return INSTRUCTION_FORMAT35c_METHOD_ODEX;
+        case 77: return INSTRUCTION_FORMAT35c_TYPE;
+        case 78: return INSTRUCTION_FORMAT35mi_METHOD;
+        case 79: return INSTRUCTION_FORMAT35ms_METHOD;
+        case 80: return INSTRUCTION_FORMAT3rc_METHOD;
+        case 81: return INSTRUCTION_FORMAT3rc_METHOD_ODEX;
+        case 82: return INSTRUCTION_FORMAT3rc_TYPE;
+        case 83: return INSTRUCTION_FORMAT3rmi_METHOD;
+        case 84: return INSTRUCTION_FORMAT3rms_METHOD;
+        case 85: return INSTRUCTION_FORMAT45cc_METHOD;
+        case 86: return INSTRUCTION_FORMAT4rcc_METHOD;
+        case 87: return INSTRUCTION_FORMAT51l;
+        case 88: return INTEGER_LITERAL;
+        case 89: return INVALID_TOKEN;
+        case 90: return I_ACCESS_LIST;
+        case 91: return I_ANNOTATION;
+        case 92: return I_ANNOTATIONS;
+        case 93: return I_ANNOTATION_ELEMENT;
+        case 94: return I_ARRAY_ELEMENTS;
+        case 95: return I_ARRAY_ELEMENT_SIZE;
+        case 96: return I_CATCH;
+        case 97: return I_CATCHALL;
+        case 98: return I_CATCHES;
+        case 99: return I_CLASS_DEF;
+        case 100: return I_ENCODED_ARRAY;
+        case 101: return I_ENCODED_ENUM;
+        case 102: return I_ENCODED_FIELD;
+        case 103: return I_ENCODED_METHOD;
+        case 104: return I_END_LOCAL;
+        case 105: return I_EPILOGUE;
+        case 106: return I_FIELD;
+        case 107: return I_FIELDS;
+        case 108: return I_FIELD_INITIAL_VALUE;
+        case 109: return I_FIELD_TYPE;
+        case 110: return I_IMPLEMENTS;
+        case 111: return I_LABEL;
+        case 112: return I_LINE;
+        case 113: return I_LOCAL;
+        case 114: return I_LOCALS;
+        case 115: return I_METHOD;
+        case 116: return I_METHODS;
+        case 117: return I_METHOD_PROTOTYPE;
+        case 118: return I_METHOD_RETURN_TYPE;
+        case 119: return I_ORDERED_METHOD_ITEMS;
+        case 120: return I_PACKED_SWITCH_ELEMENTS;
+        case 121: return I_PACKED_SWITCH_START_KEY;
+        case 122: return I_PARAMETER;
+        case 123: return I_PARAMETERS;
+        case 124: return I_PARAMETER_NOT_SPECIFIED;
+        case 125: return I_PROLOGUE;
+        case 126: return I_REGISTERS;
+        case 127: return I_REGISTER_LIST;
+        case 128: return I_REGISTER_RANGE;
+        case 129: return I_RESTART_LOCAL;
+        case 130: return I_SOURCE;
+        case 131: return I_SPARSE_SWITCH_ELEMENTS;
+        case 132: return I_STATEMENT_ARRAY_DATA;
+        case 133: return I_STATEMENT_FORMAT10t;
+        case 134: return I_STATEMENT_FORMAT10x;
+        case 135: return I_STATEMENT_FORMAT11n;
+        case 136: return I_STATEMENT_FORMAT11x;
+        case 137: return I_STATEMENT_FORMAT12x;
+        case 138: return I_STATEMENT_FORMAT20bc;
+        case 139: return I_STATEMENT_FORMAT20t;
+        case 140: return I_STATEMENT_FORMAT21c_FIELD;
+        case 141: return I_STATEMENT_FORMAT21c_STRING;
+        case 142: return I_STATEMENT_FORMAT21c_TYPE;
+        case 143: return I_STATEMENT_FORMAT21ih;
+        case 144: return I_STATEMENT_FORMAT21lh;
+        case 145: return I_STATEMENT_FORMAT21s;
+        case 146: return I_STATEMENT_FORMAT21t;
+        case 147: return I_STATEMENT_FORMAT22b;
+        case 148: return I_STATEMENT_FORMAT22c_FIELD;
+        case 149: return I_STATEMENT_FORMAT22c_TYPE;
+        case 150: return I_STATEMENT_FORMAT22s;
+        case 151: return I_STATEMENT_FORMAT22t;
+        case 152: return I_STATEMENT_FORMAT22x;
+        case 153: return I_STATEMENT_FORMAT23x;
+        case 154: return I_STATEMENT_FORMAT30t;
+        case 155: return I_STATEMENT_FORMAT31c;
+        case 156: return I_STATEMENT_FORMAT31i;
+        case 157: return I_STATEMENT_FORMAT31t;
+        case 158: return I_STATEMENT_FORMAT32x;
+        case 159: return I_STATEMENT_FORMAT35c_METHOD;
+        case 160: return I_STATEMENT_FORMAT35c_TYPE;
+        case 161: return I_STATEMENT_FORMAT3rc_METHOD;
+        case 162: return I_STATEMENT_FORMAT3rc_TYPE;
+        case 163: return I_STATEMENT_FORMAT45cc_METHOD;
+        case 164: return I_STATEMENT_FORMAT4rcc_METHOD;
+        case 165: return I_STATEMENT_FORMAT51l;
+        case 166: return I_STATEMENT_PACKED_SWITCH;
+        case 167: return I_STATEMENT_SPARSE_SWITCH;
+        case 168: return I_SUBANNOTATION;
+        case 169: return I_SUPER;
+        case 170: return LINE_COMMENT;
+        case 171: return LINE_DIRECTIVE;
+        case 172: return LOCALS_DIRECTIVE;
+        case 173: return LOCAL_DIRECTIVE;
+        case 174: return LONG_LITERAL;
+        case 175: return MEMBER_NAME;
+        case 176: return METHOD_DIRECTIVE;
+        case 177: return NEGATIVE_INTEGER_LITERAL;
+        case 178: return NULL_LITERAL;
+        case 179: return OPEN_BRACE;
+        case 180: return OPEN_PAREN;
+        case 181: return PACKED_SWITCH_DIRECTIVE;
+        case 182: return PARAMETER_DIRECTIVE;
+        case 183: return PARAM_LIST_OR_ID_PRIMITIVE_TYPE;
+        case 184: return POSITIVE_INTEGER_LITERAL;
+        case 185: return PRIMITIVE_TYPE;
+        case 186: return PROLOGUE_DIRECTIVE;
+        case 187: return SMALI_REGISTER;
+        case 188: return REGISTERS_DIRECTIVE;
+        case 189: return RESTART_LOCAL_DIRECTIVE;
+        case 190: return SHORT_LITERAL;
+        case 191: return SIMPLE_NAME;
+        case 192: return SOURCE_DIRECTIVE;
+        case 193: return SPARSE_SWITCH_DIRECTIVE;
+        case 194: return STRING_LITERAL;
+        case 195: return SUBANNOTATION_DIRECTIVE;
+        case 196: return SUPER_DIRECTIVE;
+        case 197: return VERIFICATION_ERROR_TYPE;
+        case 198: return VOID_TYPE;
+        case 199: return VTABLE_INDEX;
+        case 200: return WHITE_SPACE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SmaliKind>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SmaliKind> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SmaliKind>() {
+            public SmaliKind findValueByNumber(int number) {
+              return SmaliKind.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return fast.Fast.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final SmaliKind[] VALUES = values();
+
+    public static SmaliKind valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SmaliKind(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:fast.SmaliKind)
+  }
+
+  /**
+   * <pre>
+   * smali generated by ANTLR3
+   * </pre>
+   *
+   * Protobuf enum {@code fast.SmaliCppKind}
+   */
+  public enum SmaliCppKind
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>smali_file = 0;</code>
+     */
+    smali_file(0),
+    /**
+     * <code>class_spec = 1;</code>
+     */
+    class_spec(1),
+    /**
+     * <code>super_spec = 2;</code>
+     */
+    super_spec(2),
+    /**
+     * <code>implements_spec = 3;</code>
+     */
+    implements_spec(3),
+    /**
+     * <code>source_spec = 4;</code>
+     */
+    source_spec(4),
+    /**
+     * <code>access_list = 5;</code>
+     */
+    access_list(5),
+    /**
+     * <code>field = 6;</code>
+     */
+    field(6),
+    /**
+     * <code>method = 7;</code>
+     */
+    method(7),
+    /**
+     * <code>statements_and_directives = 8;</code>
+     */
+    statements_and_directives(8),
+    /**
+     * <code>ordered_method_item = 9;</code>
+     */
+    ordered_method_item(9),
+    /**
+     * <code>registers_directive = 10;</code>
+     */
+    registers_directive(10),
+    /**
+     * <code>param_list_or_id = 11;</code>
+     */
+    param_list_or_id(11),
+    /**
+     * <code>simple_name = 12;</code>
+     */
+    simple_name(12),
+    /**
+     * <code>member_name = 13;</code>
+     */
+    member_name(13),
+    /**
+     * <code>method_prototype = 14;</code>
+     */
+    method_prototype(14),
+    /**
+     * <code>param_list_or_id_primitive_type = 15;</code>
+     */
+    param_list_or_id_primitive_type(15),
+    /**
+     * <code>param_list = 16;</code>
+     */
+    param_list(16),
+    /**
+     * <code>array_descriptor = 17;</code>
+     */
+    array_descriptor(17),
+    /**
+     * <code>type_descriptor = 18;</code>
+     */
+    type_descriptor(18),
+    /**
+     * <code>nonvoid_type_descriptor = 19;</code>
+     */
+    nonvoid_type_descriptor(19),
+    /**
+     * <code>reference_type_descriptor = 20;</code>
+     */
+    reference_type_descriptor(20),
+    /**
+     * <code>integer_literal = 21;</code>
+     */
+    integer_literal(21),
+    /**
+     * <code>float_literal = 22;</code>
+     */
+    float_literal(22),
+    /**
+     * <code>double_literal = 23;</code>
+     */
+    double_literal(23),
+    /**
+     * <code>literal = 24;</code>
+     */
+    literal(24),
+    /**
+     * <code>parsed_integer_literal = 25;</code>
+     */
+    parsed_integer_literal(25),
+    /**
+     * <code>integral_literal = 26;</code>
+     */
+    integral_literal(26),
+    /**
+     * <code>fixed_32bit_literal = 27;</code>
+     */
+    fixed_32bit_literal(27),
+    /**
+     * <code>fixed_literal = 28;</code>
+     */
+    fixed_literal(28),
+    /**
+     * <code>array_literal = 29;</code>
+     */
+    array_literal(29),
+    /**
+     * <code>annotation_element = 30;</code>
+     */
+    annotation_element(30),
+    /**
+     * <code>annotation = 31;</code>
+     */
+    annotation(31),
+    /**
+     * <code>subannotation = 32;</code>
+     */
+    subannotation(32),
+    /**
+     * <code>enum_literal = 33;</code>
+     */
+    enum_literal(33),
+    /**
+     * <code>type_field_method_literal = 34;</code>
+     */
+    type_field_method_literal(34),
+    /**
+     * <code>method_reference = 35;</code>
+     */
+    method_reference(35),
+    /**
+     * <code>field_reference = 36;</code>
+     */
+    field_reference(36),
+    /**
+     * <code>label = 37;</code>
+     */
+    label(37),
+    /**
+     * <code>label_ref = 38;</code>
+     */
+    label_ref(38),
+    /**
+     * <code>register_list = 39;</code>
+     */
+    register_list(39),
+    /**
+     * <code>register_range = 40;</code>
+     */
+    register_range(40),
+    /**
+     * <code>verification_error_reference = 41;</code>
+     */
+    verification_error_reference(41),
+    /**
+     * <code>catch_directive = 42;</code>
+     */
+    catch_directive(42),
+    /**
+     * <code>catchall_directive = 43;</code>
+     */
+    catchall_directive(43),
+    /**
+     * <code>parameter_directive = 44;</code>
+     */
+    parameter_directive(44),
+    /**
+     * <code>debug_directive = 45;</code>
+     */
+    debug_directive(45),
+    /**
+     * <code>line_directive = 46;</code>
+     */
+    line_directive(46),
+    /**
+     * <code>local_directive = 47;</code>
+     */
+    local_directive(47),
+    /**
+     * <code>end_local_directive = 48;</code>
+     */
+    end_local_directive(48),
+    /**
+     * <code>restart_local_directive = 49;</code>
+     */
+    restart_local_directive(49),
+    /**
+     * <code>prologue_directive = 50;</code>
+     */
+    prologue_directive(50),
+    /**
+     * <code>epilogue_directive = 51;</code>
+     */
+    epilogue_directive(51),
+    /**
+     * <code>source_directive = 52;</code>
+     */
+    source_directive(52),
+    /**
+     * <code>instruction_format12x = 53;</code>
+     */
+    instruction_format12x(53),
+    /**
+     * <code>instruction_format22s = 54;</code>
+     */
+    instruction_format22s(54),
+    /**
+     * <code>instruction_format31i = 55;</code>
+     */
+    instruction_format31i(55),
+    /**
+     * <code>instruction = 56;</code>
+     */
+    instruction(56),
+    /**
+     * <code>insn_format10t = 57;</code>
+     */
+    insn_format10t(57),
+    /**
+     * <code>insn_format10x = 58;</code>
+     */
+    insn_format10x(58),
+    /**
+     * <code>insn_format10x_odex = 59;</code>
+     */
+    insn_format10x_odex(59),
+    /**
+     * <code>insn_format11n = 60;</code>
+     */
+    insn_format11n(60),
+    /**
+     * <code>insn_format11x = 61;</code>
+     */
+    insn_format11x(61),
+    /**
+     * <code>insn_format12x = 62;</code>
+     */
+    insn_format12x(62),
+    /**
+     * <code>insn_format20bc = 63;</code>
+     */
+    insn_format20bc(63),
+    /**
+     * <code>insn_format20t = 64;</code>
+     */
+    insn_format20t(64),
+    /**
+     * <code>insn_format21c_field = 65;</code>
+     */
+    insn_format21c_field(65),
+    /**
+     * <code>insn_format21c_field_odex = 66;</code>
+     */
+    insn_format21c_field_odex(66),
+    /**
+     * <code>insn_format21c_string = 67;</code>
+     */
+    insn_format21c_string(67),
+    /**
+     * <code>insn_format21c_type = 68;</code>
+     */
+    insn_format21c_type(68),
+    /**
+     * <code>insn_format21ih = 69;</code>
+     */
+    insn_format21ih(69),
+    /**
+     * <code>insn_format21lh = 70;</code>
+     */
+    insn_format21lh(70),
+    /**
+     * <code>insn_format21s = 71;</code>
+     */
+    insn_format21s(71),
+    /**
+     * <code>insn_format21t = 72;</code>
+     */
+    insn_format21t(72),
+    /**
+     * <code>insn_format22b = 73;</code>
+     */
+    insn_format22b(73),
+    /**
+     * <code>insn_format22c_field = 74;</code>
+     */
+    insn_format22c_field(74),
+    /**
+     * <code>insn_format22c_field_odex = 75;</code>
+     */
+    insn_format22c_field_odex(75),
+    /**
+     * <code>insn_format22c_type = 76;</code>
+     */
+    insn_format22c_type(76),
+    /**
+     * <code>insn_format22cs_field = 77;</code>
+     */
+    insn_format22cs_field(77),
+    /**
+     * <code>insn_format22s = 78;</code>
+     */
+    insn_format22s(78),
+    /**
+     * <code>insn_format22t = 79;</code>
+     */
+    insn_format22t(79),
+    /**
+     * <code>insn_format22x = 80;</code>
+     */
+    insn_format22x(80),
+    /**
+     * <code>insn_format23x = 81;</code>
+     */
+    insn_format23x(81),
+    /**
+     * <code>insn_format30t = 82;</code>
+     */
+    insn_format30t(82),
+    /**
+     * <code>insn_format31c = 83;</code>
+     */
+    insn_format31c(83),
+    /**
+     * <code>insn_format31i = 84;</code>
+     */
+    insn_format31i(84),
+    /**
+     * <code>insn_format31t = 85;</code>
+     */
+    insn_format31t(85),
+    /**
+     * <code>insn_format32x = 86;</code>
+     */
+    insn_format32x(86),
+    /**
+     * <code>insn_format35c_method = 87;</code>
+     */
+    insn_format35c_method(87),
+    /**
+     * <code>insn_format35c_type = 88;</code>
+     */
+    insn_format35c_type(88),
+    /**
+     * <code>insn_format35c_method_odex = 89;</code>
+     */
+    insn_format35c_method_odex(89),
+    /**
+     * <code>insn_format35mi_method = 90;</code>
+     */
+    insn_format35mi_method(90),
+    /**
+     * <code>insn_format35ms_method = 91;</code>
+     */
+    insn_format35ms_method(91),
+    /**
+     * <code>insn_format3rc_method = 92;</code>
+     */
+    insn_format3rc_method(92),
+    /**
+     * <code>insn_format3rc_method_odex = 93;</code>
+     */
+    insn_format3rc_method_odex(93),
+    /**
+     * <code>insn_format3rc_type = 94;</code>
+     */
+    insn_format3rc_type(94),
+    /**
+     * <code>insn_format3rmi_method = 95;</code>
+     */
+    insn_format3rmi_method(95),
+    /**
+     * <code>insn_format3rms_method = 96;</code>
+     */
+    insn_format3rms_method(96),
+    /**
+     * <code>insn_format45cc_method = 97;</code>
+     */
+    insn_format45cc_method(97),
+    /**
+     * <code>insn_format4rcc_method = 98;</code>
+     */
+    insn_format4rcc_method(98),
+    /**
+     * <code>insn_format51l = 99;</code>
+     */
+    insn_format51l(99),
+    /**
+     * <code>insn_array_data_directive = 100;</code>
+     */
+    insn_array_data_directive(100),
+    /**
+     * <code>insn_packed_switch_directive = 101;</code>
+     */
+    insn_packed_switch_directive(101),
+    /**
+     * <code>insn_sparse_switch_directive = 102;</code>
+     */
+    insn_sparse_switch_directive(102),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>smali_file = 0;</code>
+     */
+    public static final int smali_file_VALUE = 0;
+    /**
+     * <code>class_spec = 1;</code>
+     */
+    public static final int class_spec_VALUE = 1;
+    /**
+     * <code>super_spec = 2;</code>
+     */
+    public static final int super_spec_VALUE = 2;
+    /**
+     * <code>implements_spec = 3;</code>
+     */
+    public static final int implements_spec_VALUE = 3;
+    /**
+     * <code>source_spec = 4;</code>
+     */
+    public static final int source_spec_VALUE = 4;
+    /**
+     * <code>access_list = 5;</code>
+     */
+    public static final int access_list_VALUE = 5;
+    /**
+     * <code>field = 6;</code>
+     */
+    public static final int field_VALUE = 6;
+    /**
+     * <code>method = 7;</code>
+     */
+    public static final int method_VALUE = 7;
+    /**
+     * <code>statements_and_directives = 8;</code>
+     */
+    public static final int statements_and_directives_VALUE = 8;
+    /**
+     * <code>ordered_method_item = 9;</code>
+     */
+    public static final int ordered_method_item_VALUE = 9;
+    /**
+     * <code>registers_directive = 10;</code>
+     */
+    public static final int registers_directive_VALUE = 10;
+    /**
+     * <code>param_list_or_id = 11;</code>
+     */
+    public static final int param_list_or_id_VALUE = 11;
+    /**
+     * <code>simple_name = 12;</code>
+     */
+    public static final int simple_name_VALUE = 12;
+    /**
+     * <code>member_name = 13;</code>
+     */
+    public static final int member_name_VALUE = 13;
+    /**
+     * <code>method_prototype = 14;</code>
+     */
+    public static final int method_prototype_VALUE = 14;
+    /**
+     * <code>param_list_or_id_primitive_type = 15;</code>
+     */
+    public static final int param_list_or_id_primitive_type_VALUE = 15;
+    /**
+     * <code>param_list = 16;</code>
+     */
+    public static final int param_list_VALUE = 16;
+    /**
+     * <code>array_descriptor = 17;</code>
+     */
+    public static final int array_descriptor_VALUE = 17;
+    /**
+     * <code>type_descriptor = 18;</code>
+     */
+    public static final int type_descriptor_VALUE = 18;
+    /**
+     * <code>nonvoid_type_descriptor = 19;</code>
+     */
+    public static final int nonvoid_type_descriptor_VALUE = 19;
+    /**
+     * <code>reference_type_descriptor = 20;</code>
+     */
+    public static final int reference_type_descriptor_VALUE = 20;
+    /**
+     * <code>integer_literal = 21;</code>
+     */
+    public static final int integer_literal_VALUE = 21;
+    /**
+     * <code>float_literal = 22;</code>
+     */
+    public static final int float_literal_VALUE = 22;
+    /**
+     * <code>double_literal = 23;</code>
+     */
+    public static final int double_literal_VALUE = 23;
+    /**
+     * <code>literal = 24;</code>
+     */
+    public static final int literal_VALUE = 24;
+    /**
+     * <code>parsed_integer_literal = 25;</code>
+     */
+    public static final int parsed_integer_literal_VALUE = 25;
+    /**
+     * <code>integral_literal = 26;</code>
+     */
+    public static final int integral_literal_VALUE = 26;
+    /**
+     * <code>fixed_32bit_literal = 27;</code>
+     */
+    public static final int fixed_32bit_literal_VALUE = 27;
+    /**
+     * <code>fixed_literal = 28;</code>
+     */
+    public static final int fixed_literal_VALUE = 28;
+    /**
+     * <code>array_literal = 29;</code>
+     */
+    public static final int array_literal_VALUE = 29;
+    /**
+     * <code>annotation_element = 30;</code>
+     */
+    public static final int annotation_element_VALUE = 30;
+    /**
+     * <code>annotation = 31;</code>
+     */
+    public static final int annotation_VALUE = 31;
+    /**
+     * <code>subannotation = 32;</code>
+     */
+    public static final int subannotation_VALUE = 32;
+    /**
+     * <code>enum_literal = 33;</code>
+     */
+    public static final int enum_literal_VALUE = 33;
+    /**
+     * <code>type_field_method_literal = 34;</code>
+     */
+    public static final int type_field_method_literal_VALUE = 34;
+    /**
+     * <code>method_reference = 35;</code>
+     */
+    public static final int method_reference_VALUE = 35;
+    /**
+     * <code>field_reference = 36;</code>
+     */
+    public static final int field_reference_VALUE = 36;
+    /**
+     * <code>label = 37;</code>
+     */
+    public static final int label_VALUE = 37;
+    /**
+     * <code>label_ref = 38;</code>
+     */
+    public static final int label_ref_VALUE = 38;
+    /**
+     * <code>register_list = 39;</code>
+     */
+    public static final int register_list_VALUE = 39;
+    /**
+     * <code>register_range = 40;</code>
+     */
+    public static final int register_range_VALUE = 40;
+    /**
+     * <code>verification_error_reference = 41;</code>
+     */
+    public static final int verification_error_reference_VALUE = 41;
+    /**
+     * <code>catch_directive = 42;</code>
+     */
+    public static final int catch_directive_VALUE = 42;
+    /**
+     * <code>catchall_directive = 43;</code>
+     */
+    public static final int catchall_directive_VALUE = 43;
+    /**
+     * <code>parameter_directive = 44;</code>
+     */
+    public static final int parameter_directive_VALUE = 44;
+    /**
+     * <code>debug_directive = 45;</code>
+     */
+    public static final int debug_directive_VALUE = 45;
+    /**
+     * <code>line_directive = 46;</code>
+     */
+    public static final int line_directive_VALUE = 46;
+    /**
+     * <code>local_directive = 47;</code>
+     */
+    public static final int local_directive_VALUE = 47;
+    /**
+     * <code>end_local_directive = 48;</code>
+     */
+    public static final int end_local_directive_VALUE = 48;
+    /**
+     * <code>restart_local_directive = 49;</code>
+     */
+    public static final int restart_local_directive_VALUE = 49;
+    /**
+     * <code>prologue_directive = 50;</code>
+     */
+    public static final int prologue_directive_VALUE = 50;
+    /**
+     * <code>epilogue_directive = 51;</code>
+     */
+    public static final int epilogue_directive_VALUE = 51;
+    /**
+     * <code>source_directive = 52;</code>
+     */
+    public static final int source_directive_VALUE = 52;
+    /**
+     * <code>instruction_format12x = 53;</code>
+     */
+    public static final int instruction_format12x_VALUE = 53;
+    /**
+     * <code>instruction_format22s = 54;</code>
+     */
+    public static final int instruction_format22s_VALUE = 54;
+    /**
+     * <code>instruction_format31i = 55;</code>
+     */
+    public static final int instruction_format31i_VALUE = 55;
+    /**
+     * <code>instruction = 56;</code>
+     */
+    public static final int instruction_VALUE = 56;
+    /**
+     * <code>insn_format10t = 57;</code>
+     */
+    public static final int insn_format10t_VALUE = 57;
+    /**
+     * <code>insn_format10x = 58;</code>
+     */
+    public static final int insn_format10x_VALUE = 58;
+    /**
+     * <code>insn_format10x_odex = 59;</code>
+     */
+    public static final int insn_format10x_odex_VALUE = 59;
+    /**
+     * <code>insn_format11n = 60;</code>
+     */
+    public static final int insn_format11n_VALUE = 60;
+    /**
+     * <code>insn_format11x = 61;</code>
+     */
+    public static final int insn_format11x_VALUE = 61;
+    /**
+     * <code>insn_format12x = 62;</code>
+     */
+    public static final int insn_format12x_VALUE = 62;
+    /**
+     * <code>insn_format20bc = 63;</code>
+     */
+    public static final int insn_format20bc_VALUE = 63;
+    /**
+     * <code>insn_format20t = 64;</code>
+     */
+    public static final int insn_format20t_VALUE = 64;
+    /**
+     * <code>insn_format21c_field = 65;</code>
+     */
+    public static final int insn_format21c_field_VALUE = 65;
+    /**
+     * <code>insn_format21c_field_odex = 66;</code>
+     */
+    public static final int insn_format21c_field_odex_VALUE = 66;
+    /**
+     * <code>insn_format21c_string = 67;</code>
+     */
+    public static final int insn_format21c_string_VALUE = 67;
+    /**
+     * <code>insn_format21c_type = 68;</code>
+     */
+    public static final int insn_format21c_type_VALUE = 68;
+    /**
+     * <code>insn_format21ih = 69;</code>
+     */
+    public static final int insn_format21ih_VALUE = 69;
+    /**
+     * <code>insn_format21lh = 70;</code>
+     */
+    public static final int insn_format21lh_VALUE = 70;
+    /**
+     * <code>insn_format21s = 71;</code>
+     */
+    public static final int insn_format21s_VALUE = 71;
+    /**
+     * <code>insn_format21t = 72;</code>
+     */
+    public static final int insn_format21t_VALUE = 72;
+    /**
+     * <code>insn_format22b = 73;</code>
+     */
+    public static final int insn_format22b_VALUE = 73;
+    /**
+     * <code>insn_format22c_field = 74;</code>
+     */
+    public static final int insn_format22c_field_VALUE = 74;
+    /**
+     * <code>insn_format22c_field_odex = 75;</code>
+     */
+    public static final int insn_format22c_field_odex_VALUE = 75;
+    /**
+     * <code>insn_format22c_type = 76;</code>
+     */
+    public static final int insn_format22c_type_VALUE = 76;
+    /**
+     * <code>insn_format22cs_field = 77;</code>
+     */
+    public static final int insn_format22cs_field_VALUE = 77;
+    /**
+     * <code>insn_format22s = 78;</code>
+     */
+    public static final int insn_format22s_VALUE = 78;
+    /**
+     * <code>insn_format22t = 79;</code>
+     */
+    public static final int insn_format22t_VALUE = 79;
+    /**
+     * <code>insn_format22x = 80;</code>
+     */
+    public static final int insn_format22x_VALUE = 80;
+    /**
+     * <code>insn_format23x = 81;</code>
+     */
+    public static final int insn_format23x_VALUE = 81;
+    /**
+     * <code>insn_format30t = 82;</code>
+     */
+    public static final int insn_format30t_VALUE = 82;
+    /**
+     * <code>insn_format31c = 83;</code>
+     */
+    public static final int insn_format31c_VALUE = 83;
+    /**
+     * <code>insn_format31i = 84;</code>
+     */
+    public static final int insn_format31i_VALUE = 84;
+    /**
+     * <code>insn_format31t = 85;</code>
+     */
+    public static final int insn_format31t_VALUE = 85;
+    /**
+     * <code>insn_format32x = 86;</code>
+     */
+    public static final int insn_format32x_VALUE = 86;
+    /**
+     * <code>insn_format35c_method = 87;</code>
+     */
+    public static final int insn_format35c_method_VALUE = 87;
+    /**
+     * <code>insn_format35c_type = 88;</code>
+     */
+    public static final int insn_format35c_type_VALUE = 88;
+    /**
+     * <code>insn_format35c_method_odex = 89;</code>
+     */
+    public static final int insn_format35c_method_odex_VALUE = 89;
+    /**
+     * <code>insn_format35mi_method = 90;</code>
+     */
+    public static final int insn_format35mi_method_VALUE = 90;
+    /**
+     * <code>insn_format35ms_method = 91;</code>
+     */
+    public static final int insn_format35ms_method_VALUE = 91;
+    /**
+     * <code>insn_format3rc_method = 92;</code>
+     */
+    public static final int insn_format3rc_method_VALUE = 92;
+    /**
+     * <code>insn_format3rc_method_odex = 93;</code>
+     */
+    public static final int insn_format3rc_method_odex_VALUE = 93;
+    /**
+     * <code>insn_format3rc_type = 94;</code>
+     */
+    public static final int insn_format3rc_type_VALUE = 94;
+    /**
+     * <code>insn_format3rmi_method = 95;</code>
+     */
+    public static final int insn_format3rmi_method_VALUE = 95;
+    /**
+     * <code>insn_format3rms_method = 96;</code>
+     */
+    public static final int insn_format3rms_method_VALUE = 96;
+    /**
+     * <code>insn_format45cc_method = 97;</code>
+     */
+    public static final int insn_format45cc_method_VALUE = 97;
+    /**
+     * <code>insn_format4rcc_method = 98;</code>
+     */
+    public static final int insn_format4rcc_method_VALUE = 98;
+    /**
+     * <code>insn_format51l = 99;</code>
+     */
+    public static final int insn_format51l_VALUE = 99;
+    /**
+     * <code>insn_array_data_directive = 100;</code>
+     */
+    public static final int insn_array_data_directive_VALUE = 100;
+    /**
+     * <code>insn_packed_switch_directive = 101;</code>
+     */
+    public static final int insn_packed_switch_directive_VALUE = 101;
+    /**
+     * <code>insn_sparse_switch_directive = 102;</code>
+     */
+    public static final int insn_sparse_switch_directive_VALUE = 102;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SmaliCppKind valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static SmaliCppKind forNumber(int value) {
+      switch (value) {
+        case 0: return smali_file;
+        case 1: return class_spec;
+        case 2: return super_spec;
+        case 3: return implements_spec;
+        case 4: return source_spec;
+        case 5: return access_list;
+        case 6: return field;
+        case 7: return method;
+        case 8: return statements_and_directives;
+        case 9: return ordered_method_item;
+        case 10: return registers_directive;
+        case 11: return param_list_or_id;
+        case 12: return simple_name;
+        case 13: return member_name;
+        case 14: return method_prototype;
+        case 15: return param_list_or_id_primitive_type;
+        case 16: return param_list;
+        case 17: return array_descriptor;
+        case 18: return type_descriptor;
+        case 19: return nonvoid_type_descriptor;
+        case 20: return reference_type_descriptor;
+        case 21: return integer_literal;
+        case 22: return float_literal;
+        case 23: return double_literal;
+        case 24: return literal;
+        case 25: return parsed_integer_literal;
+        case 26: return integral_literal;
+        case 27: return fixed_32bit_literal;
+        case 28: return fixed_literal;
+        case 29: return array_literal;
+        case 30: return annotation_element;
+        case 31: return annotation;
+        case 32: return subannotation;
+        case 33: return enum_literal;
+        case 34: return type_field_method_literal;
+        case 35: return method_reference;
+        case 36: return field_reference;
+        case 37: return label;
+        case 38: return label_ref;
+        case 39: return register_list;
+        case 40: return register_range;
+        case 41: return verification_error_reference;
+        case 42: return catch_directive;
+        case 43: return catchall_directive;
+        case 44: return parameter_directive;
+        case 45: return debug_directive;
+        case 46: return line_directive;
+        case 47: return local_directive;
+        case 48: return end_local_directive;
+        case 49: return restart_local_directive;
+        case 50: return prologue_directive;
+        case 51: return epilogue_directive;
+        case 52: return source_directive;
+        case 53: return instruction_format12x;
+        case 54: return instruction_format22s;
+        case 55: return instruction_format31i;
+        case 56: return instruction;
+        case 57: return insn_format10t;
+        case 58: return insn_format10x;
+        case 59: return insn_format10x_odex;
+        case 60: return insn_format11n;
+        case 61: return insn_format11x;
+        case 62: return insn_format12x;
+        case 63: return insn_format20bc;
+        case 64: return insn_format20t;
+        case 65: return insn_format21c_field;
+        case 66: return insn_format21c_field_odex;
+        case 67: return insn_format21c_string;
+        case 68: return insn_format21c_type;
+        case 69: return insn_format21ih;
+        case 70: return insn_format21lh;
+        case 71: return insn_format21s;
+        case 72: return insn_format21t;
+        case 73: return insn_format22b;
+        case 74: return insn_format22c_field;
+        case 75: return insn_format22c_field_odex;
+        case 76: return insn_format22c_type;
+        case 77: return insn_format22cs_field;
+        case 78: return insn_format22s;
+        case 79: return insn_format22t;
+        case 80: return insn_format22x;
+        case 81: return insn_format23x;
+        case 82: return insn_format30t;
+        case 83: return insn_format31c;
+        case 84: return insn_format31i;
+        case 85: return insn_format31t;
+        case 86: return insn_format32x;
+        case 87: return insn_format35c_method;
+        case 88: return insn_format35c_type;
+        case 89: return insn_format35c_method_odex;
+        case 90: return insn_format35mi_method;
+        case 91: return insn_format35ms_method;
+        case 92: return insn_format3rc_method;
+        case 93: return insn_format3rc_method_odex;
+        case 94: return insn_format3rc_type;
+        case 95: return insn_format3rmi_method;
+        case 96: return insn_format3rms_method;
+        case 97: return insn_format45cc_method;
+        case 98: return insn_format4rcc_method;
+        case 99: return insn_format51l;
+        case 100: return insn_array_data_directive;
+        case 101: return insn_packed_switch_directive;
+        case 102: return insn_sparse_switch_directive;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<SmaliCppKind>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SmaliCppKind> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SmaliCppKind>() {
+            public SmaliCppKind findValueByNumber(int number) {
+              return SmaliCppKind.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return fast.Fast.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final SmaliCppKind[] VALUES = values();
+
+    public static SmaliCppKind valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private SmaliCppKind(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:fast.SmaliCppKind)
+  }
+
   public interface ElementOrBuilder extends
       // @@protoc_insertion_point(interface_extends:fast.Element)
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * default to srcML
+     * </pre>
+     *
      * <code>.fast.Element.Kind kind = 1;</code>
      */
     int getKindValue();
     /**
+     * <pre>
+     * default to srcML
+     * </pre>
+     *
      * <code>.fast.Element.Kind kind = 1;</code>
      */
     fast.Fast.Element.Kind getKind();
 
     /**
-     * <code>string text = 2;</code>
+     * <code>.fast.SmaliKind smali_kind = 2;</code>
+     */
+    int getSmaliKindValue();
+    /**
+     * <code>.fast.SmaliKind smali_kind = 2;</code>
+     */
+    fast.Fast.SmaliKind getSmaliKind();
+
+    /**
+     * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+     */
+    int getSmaliCppKindValue();
+    /**
+     * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+     */
+    fast.Fast.SmaliCppKind getSmaliCppKind();
+
+    /**
+     * <code>string text = 4;</code>
      */
     java.lang.String getText();
     /**
-     * <code>string text = 2;</code>
+     * <code>string text = 4;</code>
      */
     com.google.protobuf.ByteString
         getTextBytes();
 
     /**
-     * <code>int32 pos = 3;</code>
+     * <code>int32 pos = 5;</code>
      */
     int getPos();
 
     /**
-     * <code>int32 length = 4;</code>
+     * <code>int32 length = 6;</code>
      */
     int getLength();
 
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     java.util.List<fast.Fast.Element> 
         getChildList();
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     fast.Fast.Element getChild(int index);
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     int getChildCount();
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     java.util.List<? extends fast.Fast.ElementOrBuilder> 
         getChildOrBuilderList();
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     fast.Fast.ElementOrBuilder getChildOrBuilder(
         int index);
 
     /**
-     * <code>string tail = 6;</code>
+     * <code>string tail = 8;</code>
      */
     java.lang.String getTail();
     /**
-     * <code>string tail = 6;</code>
+     * <code>string tail = 8;</code>
      */
     com.google.protobuf.ByteString
         getTailBytes();
 
     /**
-     * <code>.fast.Element.Unit unit = 7;</code>
+     * <code>.fast.Element.Unit unit = 9;</code>
      */
     fast.Fast.Element.Unit getUnit();
     /**
-     * <code>.fast.Element.Unit unit = 7;</code>
+     * <code>.fast.Element.Unit unit = 9;</code>
      */
     fast.Fast.Element.UnitOrBuilder getUnitOrBuilder();
 
     /**
-     * <code>.fast.Element.Literal literal = 8;</code>
+     * <code>.fast.Element.Literal literal = 10;</code>
      */
     fast.Fast.Element.Literal getLiteral();
     /**
-     * <code>.fast.Element.Literal literal = 8;</code>
+     * <code>.fast.Element.Literal literal = 10;</code>
      */
     fast.Fast.Element.LiteralOrBuilder getLiteralOrBuilder();
 
     /**
-     * <code>int32 line = 9;</code>
+     * <code>int32 line = 11;</code>
      */
     int getLine();
 
     /**
-     * <code>int32 column = 10;</code>
+     * <code>int32 column = 12;</code>
      */
     int getColumn();
+
+    public fast.Fast.Element.TypeCase getTypeCase();
 
     public fast.Fast.Element.ExtraCase getExtraCase();
   }
   /**
+   * <pre>
+   * smali generated by ANTLR4-CPP
+   * </pre>
+   *
    * Protobuf type {@code fast.Element}
    */
   public  static final class Element extends
@@ -123,7 +3059,6 @@ public final class Fast {
       super(builder);
     }
     private Element() {
-      kind_ = 0;
       text_ = "";
       pos_ = 0;
       length_ = 0;
@@ -160,44 +3095,56 @@ public final class Fast {
             }
             case 8: {
               int rawValue = input.readEnum();
-
-              kind_ = rawValue;
+              typeCase_ = 1;
+              type_ = rawValue;
               break;
             }
-            case 18: {
+            case 16: {
+              int rawValue = input.readEnum();
+              typeCase_ = 2;
+              type_ = rawValue;
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              typeCase_ = 3;
+              type_ = rawValue;
+              break;
+            }
+            case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
               text_ = s;
               break;
             }
-            case 24: {
+            case 40: {
 
               pos_ = input.readInt32();
               break;
             }
-            case 32: {
+            case 48: {
 
               length_ = input.readInt32();
               break;
             }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+            case 58: {
+              if (!((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
                 child_ = new java.util.ArrayList<fast.Fast.Element>();
-                mutable_bitField0_ |= 0x00000010;
+                mutable_bitField0_ |= 0x00000040;
               }
               child_.add(
                   input.readMessage(fast.Fast.Element.parser(), extensionRegistry));
               break;
             }
-            case 50: {
+            case 66: {
               java.lang.String s = input.readStringRequireUtf8();
 
               tail_ = s;
               break;
             }
-            case 58: {
+            case 74: {
               fast.Fast.Element.Unit.Builder subBuilder = null;
-              if (extraCase_ == 7) {
+              if (extraCase_ == 9) {
                 subBuilder = ((fast.Fast.Element.Unit) extra_).toBuilder();
               }
               extra_ =
@@ -206,12 +3153,12 @@ public final class Fast {
                 subBuilder.mergeFrom((fast.Fast.Element.Unit) extra_);
                 extra_ = subBuilder.buildPartial();
               }
-              extraCase_ = 7;
+              extraCase_ = 9;
               break;
             }
-            case 66: {
+            case 82: {
               fast.Fast.Element.Literal.Builder subBuilder = null;
-              if (extraCase_ == 8) {
+              if (extraCase_ == 10) {
                 subBuilder = ((fast.Fast.Element.Literal) extra_).toBuilder();
               }
               extra_ =
@@ -220,15 +3167,15 @@ public final class Fast {
                 subBuilder.mergeFrom((fast.Fast.Element.Literal) extra_);
                 extra_ = subBuilder.buildPartial();
               }
-              extraCase_ = 8;
+              extraCase_ = 10;
               break;
             }
-            case 72: {
+            case 88: {
 
               line_ = input.readInt32();
               break;
             }
-            case 80: {
+            case 96: {
 
               column_ = input.readInt32();
               break;
@@ -241,7 +3188,7 @@ public final class Fast {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
+        if (((mutable_bitField0_ & 0x00000040) == 0x00000040)) {
           child_ = java.util.Collections.unmodifiableList(child_);
         }
         makeExtensionsImmutable();
@@ -4507,1895 +7454,6 @@ public final class Fast {
       // @@protoc_insertion_point(enum_scope:fast.Element.Kind)
     }
 
-    /**
-     * Protobuf enum {@code fast.Element.SmaliKind}
-     */
-    public enum SmaliKind
-        implements com.google.protobuf.ProtocolMessageEnum {
-      /**
-       * <code>INVALID = 0;</code>
-       */
-      INVALID(0),
-      /**
-       * <code>EOR = 1;</code>
-       */
-      EOR(1),
-      /**
-       * <code>DOWN = 2;</code>
-       */
-      DOWN(2),
-      /**
-       * <code>UP = 3;</code>
-       */
-      UP(3),
-      /**
-       * <code>ACCESS_SPEC = 4;</code>
-       */
-      ACCESS_SPEC(4),
-      /**
-       * <code>ANNOTATION_DIRECTIVE = 5;</code>
-       */
-      ANNOTATION_DIRECTIVE(5),
-      /**
-       * <code>ANNOTATION_VISIBILITY = 6;</code>
-       */
-      ANNOTATION_VISIBILITY(6),
-      /**
-       * <code>ARRAY_DATA_DIRECTIVE = 7;</code>
-       */
-      ARRAY_DATA_DIRECTIVE(7),
-      /**
-       * <code>ARRAY_TYPE_PREFIX = 8;</code>
-       */
-      ARRAY_TYPE_PREFIX(8),
-      /**
-       * <code>ARROW = 9;</code>
-       */
-      ARROW(9),
-      /**
-       * <code>BOOL_LITERAL = 10;</code>
-       */
-      BOOL_LITERAL(10),
-      /**
-       * <code>BYTE_LITERAL = 11;</code>
-       */
-      BYTE_LITERAL(11),
-      /**
-       * <code>CATCHALL_DIRECTIVE = 12;</code>
-       */
-      CATCHALL_DIRECTIVE(12),
-      /**
-       * <code>CATCH_DIRECTIVE = 13;</code>
-       */
-      CATCH_DIRECTIVE(13),
-      /**
-       * <code>CHAR_LITERAL = 14;</code>
-       */
-      CHAR_LITERAL(14),
-      /**
-       * <code>CLASS_DESCRIPTOR = 15;</code>
-       */
-      CLASS_DESCRIPTOR(15),
-      /**
-       * <code>CLASS_DIRECTIVE = 16;</code>
-       */
-      CLASS_DIRECTIVE(16),
-      /**
-       * <code>CLOSE_BRACE = 17;</code>
-       */
-      CLOSE_BRACE(17),
-      /**
-       * <code>CLOSE_PAREN = 18;</code>
-       */
-      CLOSE_PAREN(18),
-      /**
-       * <code>COLON = 19;</code>
-       */
-      COLON(19),
-      /**
-       * <code>COMMA = 20;</code>
-       */
-      COMMA(20),
-      /**
-       * <code>DOTDOT = 21;</code>
-       */
-      DOTDOT(21),
-      /**
-       * <code>DOUBLE_LITERAL = 22;</code>
-       */
-      DOUBLE_LITERAL(22),
-      /**
-       * <code>DOUBLE_LITERAL_OR_ID = 23;</code>
-       */
-      DOUBLE_LITERAL_OR_ID(23),
-      /**
-       * <code>END_ANNOTATION_DIRECTIVE = 24;</code>
-       */
-      END_ANNOTATION_DIRECTIVE(24),
-      /**
-       * <code>END_ARRAY_DATA_DIRECTIVE = 25;</code>
-       */
-      END_ARRAY_DATA_DIRECTIVE(25),
-      /**
-       * <code>END_FIELD_DIRECTIVE = 26;</code>
-       */
-      END_FIELD_DIRECTIVE(26),
-      /**
-       * <code>END_LOCAL_DIRECTIVE = 27;</code>
-       */
-      END_LOCAL_DIRECTIVE(27),
-      /**
-       * <code>END_METHOD_DIRECTIVE = 28;</code>
-       */
-      END_METHOD_DIRECTIVE(28),
-      /**
-       * <code>END_PACKED_SWITCH_DIRECTIVE = 29;</code>
-       */
-      END_PACKED_SWITCH_DIRECTIVE(29),
-      /**
-       * <code>END_PARAMETER_DIRECTIVE = 30;</code>
-       */
-      END_PARAMETER_DIRECTIVE(30),
-      /**
-       * <code>END_SPARSE_SWITCH_DIRECTIVE = 31;</code>
-       */
-      END_SPARSE_SWITCH_DIRECTIVE(31),
-      /**
-       * <code>END_SUBANNOTATION_DIRECTIVE = 32;</code>
-       */
-      END_SUBANNOTATION_DIRECTIVE(32),
-      /**
-       * <code>ENUM_DIRECTIVE = 33;</code>
-       */
-      ENUM_DIRECTIVE(33),
-      /**
-       * <code>EPILOGUE_DIRECTIVE = 34;</code>
-       */
-      EPILOGUE_DIRECTIVE(34),
-      /**
-       * <code>EQUAL = 35;</code>
-       */
-      EQUAL(35),
-      /**
-       * <code>FIELD_DIRECTIVE = 36;</code>
-       */
-      FIELD_DIRECTIVE(36),
-      /**
-       * <code>FIELD_OFFSET = 37;</code>
-       */
-      FIELD_OFFSET(37),
-      /**
-       * <code>FLOAT_LITERAL = 38;</code>
-       */
-      FLOAT_LITERAL(38),
-      /**
-       * <code>FLOAT_LITERAL_OR_ID = 39;</code>
-       */
-      FLOAT_LITERAL_OR_ID(39),
-      /**
-       * <code>IMPLEMENTS_DIRECTIVE = 40;</code>
-       */
-      IMPLEMENTS_DIRECTIVE(40),
-      /**
-       * <code>INLINE_INDEX = 41;</code>
-       */
-      INLINE_INDEX(41),
-      /**
-       * <code>INSTRUCTION_FORMAT10t = 42;</code>
-       */
-      INSTRUCTION_FORMAT10t(42),
-      /**
-       * <code>INSTRUCTION_FORMAT10x = 43;</code>
-       */
-      INSTRUCTION_FORMAT10x(43),
-      /**
-       * <code>INSTRUCTION_FORMAT10x_ODEX = 44;</code>
-       */
-      INSTRUCTION_FORMAT10x_ODEX(44),
-      /**
-       * <code>INSTRUCTION_FORMAT11n = 45;</code>
-       */
-      INSTRUCTION_FORMAT11n(45),
-      /**
-       * <code>INSTRUCTION_FORMAT11x = 46;</code>
-       */
-      INSTRUCTION_FORMAT11x(46),
-      /**
-       * <code>INSTRUCTION_FORMAT12x = 47;</code>
-       */
-      INSTRUCTION_FORMAT12x(47),
-      /**
-       * <code>INSTRUCTION_FORMAT12x_OR_ID = 48;</code>
-       */
-      INSTRUCTION_FORMAT12x_OR_ID(48),
-      /**
-       * <code>INSTRUCTION_FORMAT20bc = 49;</code>
-       */
-      INSTRUCTION_FORMAT20bc(49),
-      /**
-       * <code>INSTRUCTION_FORMAT20t = 50;</code>
-       */
-      INSTRUCTION_FORMAT20t(50),
-      /**
-       * <code>INSTRUCTION_FORMAT21c_FIELD = 51;</code>
-       */
-      INSTRUCTION_FORMAT21c_FIELD(51),
-      /**
-       * <code>INSTRUCTION_FORMAT21c_FIELD_ODEX = 52;</code>
-       */
-      INSTRUCTION_FORMAT21c_FIELD_ODEX(52),
-      /**
-       * <code>INSTRUCTION_FORMAT21c_STRING = 53;</code>
-       */
-      INSTRUCTION_FORMAT21c_STRING(53),
-      /**
-       * <code>INSTRUCTION_FORMAT21c_TYPE = 54;</code>
-       */
-      INSTRUCTION_FORMAT21c_TYPE(54),
-      /**
-       * <code>INSTRUCTION_FORMAT21ih = 55;</code>
-       */
-      INSTRUCTION_FORMAT21ih(55),
-      /**
-       * <code>INSTRUCTION_FORMAT21lh = 56;</code>
-       */
-      INSTRUCTION_FORMAT21lh(56),
-      /**
-       * <code>INSTRUCTION_FORMAT21s = 57;</code>
-       */
-      INSTRUCTION_FORMAT21s(57),
-      /**
-       * <code>INSTRUCTION_FORMAT21t = 58;</code>
-       */
-      INSTRUCTION_FORMAT21t(58),
-      /**
-       * <code>INSTRUCTION_FORMAT22b = 59;</code>
-       */
-      INSTRUCTION_FORMAT22b(59),
-      /**
-       * <code>INSTRUCTION_FORMAT22c_FIELD = 60;</code>
-       */
-      INSTRUCTION_FORMAT22c_FIELD(60),
-      /**
-       * <code>INSTRUCTION_FORMAT22c_FIELD_ODEX = 61;</code>
-       */
-      INSTRUCTION_FORMAT22c_FIELD_ODEX(61),
-      /**
-       * <code>INSTRUCTION_FORMAT22c_TYPE = 62;</code>
-       */
-      INSTRUCTION_FORMAT22c_TYPE(62),
-      /**
-       * <code>INSTRUCTION_FORMAT22cs_FIELD = 63;</code>
-       */
-      INSTRUCTION_FORMAT22cs_FIELD(63),
-      /**
-       * <code>INSTRUCTION_FORMAT22s = 64;</code>
-       */
-      INSTRUCTION_FORMAT22s(64),
-      /**
-       * <code>INSTRUCTION_FORMAT22s_OR_ID = 65;</code>
-       */
-      INSTRUCTION_FORMAT22s_OR_ID(65),
-      /**
-       * <code>INSTRUCTION_FORMAT22t = 66;</code>
-       */
-      INSTRUCTION_FORMAT22t(66),
-      /**
-       * <code>INSTRUCTION_FORMAT22x = 67;</code>
-       */
-      INSTRUCTION_FORMAT22x(67),
-      /**
-       * <code>INSTRUCTION_FORMAT23x = 68;</code>
-       */
-      INSTRUCTION_FORMAT23x(68),
-      /**
-       * <code>INSTRUCTION_FORMAT30t = 69;</code>
-       */
-      INSTRUCTION_FORMAT30t(69),
-      /**
-       * <code>INSTRUCTION_FORMAT31c = 70;</code>
-       */
-      INSTRUCTION_FORMAT31c(70),
-      /**
-       * <code>INSTRUCTION_FORMAT31i = 71;</code>
-       */
-      INSTRUCTION_FORMAT31i(71),
-      /**
-       * <code>INSTRUCTION_FORMAT31i_OR_ID = 72;</code>
-       */
-      INSTRUCTION_FORMAT31i_OR_ID(72),
-      /**
-       * <code>INSTRUCTION_FORMAT31t = 73;</code>
-       */
-      INSTRUCTION_FORMAT31t(73),
-      /**
-       * <code>INSTRUCTION_FORMAT32x = 74;</code>
-       */
-      INSTRUCTION_FORMAT32x(74),
-      /**
-       * <code>INSTRUCTION_FORMAT35c_METHOD = 75;</code>
-       */
-      INSTRUCTION_FORMAT35c_METHOD(75),
-      /**
-       * <code>INSTRUCTION_FORMAT35c_METHOD_ODEX = 76;</code>
-       */
-      INSTRUCTION_FORMAT35c_METHOD_ODEX(76),
-      /**
-       * <code>INSTRUCTION_FORMAT35c_TYPE = 77;</code>
-       */
-      INSTRUCTION_FORMAT35c_TYPE(77),
-      /**
-       * <code>INSTRUCTION_FORMAT35mi_METHOD = 78;</code>
-       */
-      INSTRUCTION_FORMAT35mi_METHOD(78),
-      /**
-       * <code>INSTRUCTION_FORMAT35ms_METHOD = 79;</code>
-       */
-      INSTRUCTION_FORMAT35ms_METHOD(79),
-      /**
-       * <code>INSTRUCTION_FORMAT3rc_METHOD = 80;</code>
-       */
-      INSTRUCTION_FORMAT3rc_METHOD(80),
-      /**
-       * <code>INSTRUCTION_FORMAT3rc_METHOD_ODEX = 81;</code>
-       */
-      INSTRUCTION_FORMAT3rc_METHOD_ODEX(81),
-      /**
-       * <code>INSTRUCTION_FORMAT3rc_TYPE = 82;</code>
-       */
-      INSTRUCTION_FORMAT3rc_TYPE(82),
-      /**
-       * <code>INSTRUCTION_FORMAT3rmi_METHOD = 83;</code>
-       */
-      INSTRUCTION_FORMAT3rmi_METHOD(83),
-      /**
-       * <code>INSTRUCTION_FORMAT3rms_METHOD = 84;</code>
-       */
-      INSTRUCTION_FORMAT3rms_METHOD(84),
-      /**
-       * <code>INSTRUCTION_FORMAT45cc_METHOD = 85;</code>
-       */
-      INSTRUCTION_FORMAT45cc_METHOD(85),
-      /**
-       * <code>INSTRUCTION_FORMAT4rcc_METHOD = 86;</code>
-       */
-      INSTRUCTION_FORMAT4rcc_METHOD(86),
-      /**
-       * <code>INSTRUCTION_FORMAT51l = 87;</code>
-       */
-      INSTRUCTION_FORMAT51l(87),
-      /**
-       * <code>INTEGER_LITERAL = 88;</code>
-       */
-      INTEGER_LITERAL(88),
-      /**
-       * <code>INVALID_TOKEN = 89;</code>
-       */
-      INVALID_TOKEN(89),
-      /**
-       * <code>I_ACCESS_LIST = 90;</code>
-       */
-      I_ACCESS_LIST(90),
-      /**
-       * <code>I_ANNOTATION = 91;</code>
-       */
-      I_ANNOTATION(91),
-      /**
-       * <code>I_ANNOTATIONS = 92;</code>
-       */
-      I_ANNOTATIONS(92),
-      /**
-       * <code>I_ANNOTATION_ELEMENT = 93;</code>
-       */
-      I_ANNOTATION_ELEMENT(93),
-      /**
-       * <code>I_ARRAY_ELEMENTS = 94;</code>
-       */
-      I_ARRAY_ELEMENTS(94),
-      /**
-       * <code>I_ARRAY_ELEMENT_SIZE = 95;</code>
-       */
-      I_ARRAY_ELEMENT_SIZE(95),
-      /**
-       * <code>I_CATCH = 96;</code>
-       */
-      I_CATCH(96),
-      /**
-       * <code>I_CATCHALL = 97;</code>
-       */
-      I_CATCHALL(97),
-      /**
-       * <code>I_CATCHES = 98;</code>
-       */
-      I_CATCHES(98),
-      /**
-       * <code>I_CLASS_DEF = 99;</code>
-       */
-      I_CLASS_DEF(99),
-      /**
-       * <code>I_ENCODED_ARRAY = 100;</code>
-       */
-      I_ENCODED_ARRAY(100),
-      /**
-       * <code>I_ENCODED_ENUM = 101;</code>
-       */
-      I_ENCODED_ENUM(101),
-      /**
-       * <code>I_ENCODED_FIELD = 102;</code>
-       */
-      I_ENCODED_FIELD(102),
-      /**
-       * <code>I_ENCODED_METHOD = 103;</code>
-       */
-      I_ENCODED_METHOD(103),
-      /**
-       * <code>I_END_LOCAL = 104;</code>
-       */
-      I_END_LOCAL(104),
-      /**
-       * <code>I_EPILOGUE = 105;</code>
-       */
-      I_EPILOGUE(105),
-      /**
-       * <code>I_FIELD = 106;</code>
-       */
-      I_FIELD(106),
-      /**
-       * <code>I_FIELDS = 107;</code>
-       */
-      I_FIELDS(107),
-      /**
-       * <code>I_FIELD_INITIAL_VALUE = 108;</code>
-       */
-      I_FIELD_INITIAL_VALUE(108),
-      /**
-       * <code>I_FIELD_TYPE = 109;</code>
-       */
-      I_FIELD_TYPE(109),
-      /**
-       * <code>I_IMPLEMENTS = 110;</code>
-       */
-      I_IMPLEMENTS(110),
-      /**
-       * <code>I_LABEL = 111;</code>
-       */
-      I_LABEL(111),
-      /**
-       * <code>I_LINE = 112;</code>
-       */
-      I_LINE(112),
-      /**
-       * <code>I_LOCAL = 113;</code>
-       */
-      I_LOCAL(113),
-      /**
-       * <code>I_LOCALS = 114;</code>
-       */
-      I_LOCALS(114),
-      /**
-       * <code>I_METHOD = 115;</code>
-       */
-      I_METHOD(115),
-      /**
-       * <code>I_METHODS = 116;</code>
-       */
-      I_METHODS(116),
-      /**
-       * <code>I_METHOD_PROTOTYPE = 117;</code>
-       */
-      I_METHOD_PROTOTYPE(117),
-      /**
-       * <code>I_METHOD_RETURN_TYPE = 118;</code>
-       */
-      I_METHOD_RETURN_TYPE(118),
-      /**
-       * <code>I_ORDERED_METHOD_ITEMS = 119;</code>
-       */
-      I_ORDERED_METHOD_ITEMS(119),
-      /**
-       * <code>I_PACKED_SWITCH_ELEMENTS = 120;</code>
-       */
-      I_PACKED_SWITCH_ELEMENTS(120),
-      /**
-       * <code>I_PACKED_SWITCH_START_KEY = 121;</code>
-       */
-      I_PACKED_SWITCH_START_KEY(121),
-      /**
-       * <code>I_PARAMETER = 122;</code>
-       */
-      I_PARAMETER(122),
-      /**
-       * <code>I_PARAMETERS = 123;</code>
-       */
-      I_PARAMETERS(123),
-      /**
-       * <code>I_PARAMETER_NOT_SPECIFIED = 124;</code>
-       */
-      I_PARAMETER_NOT_SPECIFIED(124),
-      /**
-       * <code>I_PROLOGUE = 125;</code>
-       */
-      I_PROLOGUE(125),
-      /**
-       * <code>I_REGISTERS = 126;</code>
-       */
-      I_REGISTERS(126),
-      /**
-       * <code>I_REGISTER_LIST = 127;</code>
-       */
-      I_REGISTER_LIST(127),
-      /**
-       * <code>I_REGISTER_RANGE = 128;</code>
-       */
-      I_REGISTER_RANGE(128),
-      /**
-       * <code>I_RESTART_LOCAL = 129;</code>
-       */
-      I_RESTART_LOCAL(129),
-      /**
-       * <code>I_SOURCE = 130;</code>
-       */
-      I_SOURCE(130),
-      /**
-       * <code>I_SPARSE_SWITCH_ELEMENTS = 131;</code>
-       */
-      I_SPARSE_SWITCH_ELEMENTS(131),
-      /**
-       * <code>I_STATEMENT_ARRAY_DATA = 132;</code>
-       */
-      I_STATEMENT_ARRAY_DATA(132),
-      /**
-       * <code>I_STATEMENT_FORMAT10t = 133;</code>
-       */
-      I_STATEMENT_FORMAT10t(133),
-      /**
-       * <code>I_STATEMENT_FORMAT10x = 134;</code>
-       */
-      I_STATEMENT_FORMAT10x(134),
-      /**
-       * <code>I_STATEMENT_FORMAT11n = 135;</code>
-       */
-      I_STATEMENT_FORMAT11n(135),
-      /**
-       * <code>I_STATEMENT_FORMAT11x = 136;</code>
-       */
-      I_STATEMENT_FORMAT11x(136),
-      /**
-       * <code>I_STATEMENT_FORMAT12x = 137;</code>
-       */
-      I_STATEMENT_FORMAT12x(137),
-      /**
-       * <code>I_STATEMENT_FORMAT20bc = 138;</code>
-       */
-      I_STATEMENT_FORMAT20bc(138),
-      /**
-       * <code>I_STATEMENT_FORMAT20t = 139;</code>
-       */
-      I_STATEMENT_FORMAT20t(139),
-      /**
-       * <code>I_STATEMENT_FORMAT21c_FIELD = 140;</code>
-       */
-      I_STATEMENT_FORMAT21c_FIELD(140),
-      /**
-       * <code>I_STATEMENT_FORMAT21c_STRING = 141;</code>
-       */
-      I_STATEMENT_FORMAT21c_STRING(141),
-      /**
-       * <code>I_STATEMENT_FORMAT21c_TYPE = 142;</code>
-       */
-      I_STATEMENT_FORMAT21c_TYPE(142),
-      /**
-       * <code>I_STATEMENT_FORMAT21ih = 143;</code>
-       */
-      I_STATEMENT_FORMAT21ih(143),
-      /**
-       * <code>I_STATEMENT_FORMAT21lh = 144;</code>
-       */
-      I_STATEMENT_FORMAT21lh(144),
-      /**
-       * <code>I_STATEMENT_FORMAT21s = 145;</code>
-       */
-      I_STATEMENT_FORMAT21s(145),
-      /**
-       * <code>I_STATEMENT_FORMAT21t = 146;</code>
-       */
-      I_STATEMENT_FORMAT21t(146),
-      /**
-       * <code>I_STATEMENT_FORMAT22b = 147;</code>
-       */
-      I_STATEMENT_FORMAT22b(147),
-      /**
-       * <code>I_STATEMENT_FORMAT22c_FIELD = 148;</code>
-       */
-      I_STATEMENT_FORMAT22c_FIELD(148),
-      /**
-       * <code>I_STATEMENT_FORMAT22c_TYPE = 149;</code>
-       */
-      I_STATEMENT_FORMAT22c_TYPE(149),
-      /**
-       * <code>I_STATEMENT_FORMAT22s = 150;</code>
-       */
-      I_STATEMENT_FORMAT22s(150),
-      /**
-       * <code>I_STATEMENT_FORMAT22t = 151;</code>
-       */
-      I_STATEMENT_FORMAT22t(151),
-      /**
-       * <code>I_STATEMENT_FORMAT22x = 152;</code>
-       */
-      I_STATEMENT_FORMAT22x(152),
-      /**
-       * <code>I_STATEMENT_FORMAT23x = 153;</code>
-       */
-      I_STATEMENT_FORMAT23x(153),
-      /**
-       * <code>I_STATEMENT_FORMAT30t = 154;</code>
-       */
-      I_STATEMENT_FORMAT30t(154),
-      /**
-       * <code>I_STATEMENT_FORMAT31c = 155;</code>
-       */
-      I_STATEMENT_FORMAT31c(155),
-      /**
-       * <code>I_STATEMENT_FORMAT31i = 156;</code>
-       */
-      I_STATEMENT_FORMAT31i(156),
-      /**
-       * <code>I_STATEMENT_FORMAT31t = 157;</code>
-       */
-      I_STATEMENT_FORMAT31t(157),
-      /**
-       * <code>I_STATEMENT_FORMAT32x = 158;</code>
-       */
-      I_STATEMENT_FORMAT32x(158),
-      /**
-       * <code>I_STATEMENT_FORMAT35c_METHOD = 159;</code>
-       */
-      I_STATEMENT_FORMAT35c_METHOD(159),
-      /**
-       * <code>I_STATEMENT_FORMAT35c_TYPE = 160;</code>
-       */
-      I_STATEMENT_FORMAT35c_TYPE(160),
-      /**
-       * <code>I_STATEMENT_FORMAT3rc_METHOD = 161;</code>
-       */
-      I_STATEMENT_FORMAT3rc_METHOD(161),
-      /**
-       * <code>I_STATEMENT_FORMAT3rc_TYPE = 162;</code>
-       */
-      I_STATEMENT_FORMAT3rc_TYPE(162),
-      /**
-       * <code>I_STATEMENT_FORMAT45cc_METHOD = 163;</code>
-       */
-      I_STATEMENT_FORMAT45cc_METHOD(163),
-      /**
-       * <code>I_STATEMENT_FORMAT4rcc_METHOD = 164;</code>
-       */
-      I_STATEMENT_FORMAT4rcc_METHOD(164),
-      /**
-       * <code>I_STATEMENT_FORMAT51l = 165;</code>
-       */
-      I_STATEMENT_FORMAT51l(165),
-      /**
-       * <code>I_STATEMENT_PACKED_SWITCH = 166;</code>
-       */
-      I_STATEMENT_PACKED_SWITCH(166),
-      /**
-       * <code>I_STATEMENT_SPARSE_SWITCH = 167;</code>
-       */
-      I_STATEMENT_SPARSE_SWITCH(167),
-      /**
-       * <code>I_SUBANNOTATION = 168;</code>
-       */
-      I_SUBANNOTATION(168),
-      /**
-       * <code>I_SUPER = 169;</code>
-       */
-      I_SUPER(169),
-      /**
-       * <code>LINE_COMMENT = 170;</code>
-       */
-      LINE_COMMENT(170),
-      /**
-       * <code>LINE_DIRECTIVE = 171;</code>
-       */
-      LINE_DIRECTIVE(171),
-      /**
-       * <code>LOCALS_DIRECTIVE = 172;</code>
-       */
-      LOCALS_DIRECTIVE(172),
-      /**
-       * <code>LOCAL_DIRECTIVE = 173;</code>
-       */
-      LOCAL_DIRECTIVE(173),
-      /**
-       * <code>LONG_LITERAL = 174;</code>
-       */
-      LONG_LITERAL(174),
-      /**
-       * <code>MEMBER_NAME = 175;</code>
-       */
-      MEMBER_NAME(175),
-      /**
-       * <code>METHOD_DIRECTIVE = 176;</code>
-       */
-      METHOD_DIRECTIVE(176),
-      /**
-       * <code>NEGATIVE_INTEGER_LITERAL = 177;</code>
-       */
-      NEGATIVE_INTEGER_LITERAL(177),
-      /**
-       * <code>NULL_LITERAL = 178;</code>
-       */
-      NULL_LITERAL(178),
-      /**
-       * <code>OPEN_BRACE = 179;</code>
-       */
-      OPEN_BRACE(179),
-      /**
-       * <code>OPEN_PAREN = 180;</code>
-       */
-      OPEN_PAREN(180),
-      /**
-       * <code>PACKED_SWITCH_DIRECTIVE = 181;</code>
-       */
-      PACKED_SWITCH_DIRECTIVE(181),
-      /**
-       * <code>PARAMETER_DIRECTIVE = 182;</code>
-       */
-      PARAMETER_DIRECTIVE(182),
-      /**
-       * <code>PARAM_LIST_OR_ID_PRIMITIVE_TYPE = 183;</code>
-       */
-      PARAM_LIST_OR_ID_PRIMITIVE_TYPE(183),
-      /**
-       * <code>POSITIVE_INTEGER_LITERAL = 184;</code>
-       */
-      POSITIVE_INTEGER_LITERAL(184),
-      /**
-       * <code>PRIMITIVE_TYPE = 185;</code>
-       */
-      PRIMITIVE_TYPE(185),
-      /**
-       * <code>PROLOGUE_DIRECTIVE = 186;</code>
-       */
-      PROLOGUE_DIRECTIVE(186),
-      /**
-       * <code>SMALI_REGISTER = 187;</code>
-       */
-      SMALI_REGISTER(187),
-      /**
-       * <code>REGISTERS_DIRECTIVE = 188;</code>
-       */
-      REGISTERS_DIRECTIVE(188),
-      /**
-       * <code>RESTART_LOCAL_DIRECTIVE = 189;</code>
-       */
-      RESTART_LOCAL_DIRECTIVE(189),
-      /**
-       * <code>SHORT_LITERAL = 190;</code>
-       */
-      SHORT_LITERAL(190),
-      /**
-       * <code>SIMPLE_NAME = 191;</code>
-       */
-      SIMPLE_NAME(191),
-      /**
-       * <code>SOURCE_DIRECTIVE = 192;</code>
-       */
-      SOURCE_DIRECTIVE(192),
-      /**
-       * <code>SPARSE_SWITCH_DIRECTIVE = 193;</code>
-       */
-      SPARSE_SWITCH_DIRECTIVE(193),
-      /**
-       * <code>STRING_LITERAL = 194;</code>
-       */
-      STRING_LITERAL(194),
-      /**
-       * <code>SUBANNOTATION_DIRECTIVE = 195;</code>
-       */
-      SUBANNOTATION_DIRECTIVE(195),
-      /**
-       * <code>SUPER_DIRECTIVE = 196;</code>
-       */
-      SUPER_DIRECTIVE(196),
-      /**
-       * <code>VERIFICATION_ERROR_TYPE = 197;</code>
-       */
-      VERIFICATION_ERROR_TYPE(197),
-      /**
-       * <code>VOID_TYPE = 198;</code>
-       */
-      VOID_TYPE(198),
-      /**
-       * <code>VTABLE_INDEX = 199;</code>
-       */
-      VTABLE_INDEX(199),
-      /**
-       * <code>WHITE_SPACE = 200;</code>
-       */
-      WHITE_SPACE(200),
-      UNRECOGNIZED(-1),
-      ;
-
-      /**
-       * <code>INVALID = 0;</code>
-       */
-      public static final int INVALID_VALUE = 0;
-      /**
-       * <code>EOR = 1;</code>
-       */
-      public static final int EOR_VALUE = 1;
-      /**
-       * <code>DOWN = 2;</code>
-       */
-      public static final int DOWN_VALUE = 2;
-      /**
-       * <code>UP = 3;</code>
-       */
-      public static final int UP_VALUE = 3;
-      /**
-       * <code>ACCESS_SPEC = 4;</code>
-       */
-      public static final int ACCESS_SPEC_VALUE = 4;
-      /**
-       * <code>ANNOTATION_DIRECTIVE = 5;</code>
-       */
-      public static final int ANNOTATION_DIRECTIVE_VALUE = 5;
-      /**
-       * <code>ANNOTATION_VISIBILITY = 6;</code>
-       */
-      public static final int ANNOTATION_VISIBILITY_VALUE = 6;
-      /**
-       * <code>ARRAY_DATA_DIRECTIVE = 7;</code>
-       */
-      public static final int ARRAY_DATA_DIRECTIVE_VALUE = 7;
-      /**
-       * <code>ARRAY_TYPE_PREFIX = 8;</code>
-       */
-      public static final int ARRAY_TYPE_PREFIX_VALUE = 8;
-      /**
-       * <code>ARROW = 9;</code>
-       */
-      public static final int ARROW_VALUE = 9;
-      /**
-       * <code>BOOL_LITERAL = 10;</code>
-       */
-      public static final int BOOL_LITERAL_VALUE = 10;
-      /**
-       * <code>BYTE_LITERAL = 11;</code>
-       */
-      public static final int BYTE_LITERAL_VALUE = 11;
-      /**
-       * <code>CATCHALL_DIRECTIVE = 12;</code>
-       */
-      public static final int CATCHALL_DIRECTIVE_VALUE = 12;
-      /**
-       * <code>CATCH_DIRECTIVE = 13;</code>
-       */
-      public static final int CATCH_DIRECTIVE_VALUE = 13;
-      /**
-       * <code>CHAR_LITERAL = 14;</code>
-       */
-      public static final int CHAR_LITERAL_VALUE = 14;
-      /**
-       * <code>CLASS_DESCRIPTOR = 15;</code>
-       */
-      public static final int CLASS_DESCRIPTOR_VALUE = 15;
-      /**
-       * <code>CLASS_DIRECTIVE = 16;</code>
-       */
-      public static final int CLASS_DIRECTIVE_VALUE = 16;
-      /**
-       * <code>CLOSE_BRACE = 17;</code>
-       */
-      public static final int CLOSE_BRACE_VALUE = 17;
-      /**
-       * <code>CLOSE_PAREN = 18;</code>
-       */
-      public static final int CLOSE_PAREN_VALUE = 18;
-      /**
-       * <code>COLON = 19;</code>
-       */
-      public static final int COLON_VALUE = 19;
-      /**
-       * <code>COMMA = 20;</code>
-       */
-      public static final int COMMA_VALUE = 20;
-      /**
-       * <code>DOTDOT = 21;</code>
-       */
-      public static final int DOTDOT_VALUE = 21;
-      /**
-       * <code>DOUBLE_LITERAL = 22;</code>
-       */
-      public static final int DOUBLE_LITERAL_VALUE = 22;
-      /**
-       * <code>DOUBLE_LITERAL_OR_ID = 23;</code>
-       */
-      public static final int DOUBLE_LITERAL_OR_ID_VALUE = 23;
-      /**
-       * <code>END_ANNOTATION_DIRECTIVE = 24;</code>
-       */
-      public static final int END_ANNOTATION_DIRECTIVE_VALUE = 24;
-      /**
-       * <code>END_ARRAY_DATA_DIRECTIVE = 25;</code>
-       */
-      public static final int END_ARRAY_DATA_DIRECTIVE_VALUE = 25;
-      /**
-       * <code>END_FIELD_DIRECTIVE = 26;</code>
-       */
-      public static final int END_FIELD_DIRECTIVE_VALUE = 26;
-      /**
-       * <code>END_LOCAL_DIRECTIVE = 27;</code>
-       */
-      public static final int END_LOCAL_DIRECTIVE_VALUE = 27;
-      /**
-       * <code>END_METHOD_DIRECTIVE = 28;</code>
-       */
-      public static final int END_METHOD_DIRECTIVE_VALUE = 28;
-      /**
-       * <code>END_PACKED_SWITCH_DIRECTIVE = 29;</code>
-       */
-      public static final int END_PACKED_SWITCH_DIRECTIVE_VALUE = 29;
-      /**
-       * <code>END_PARAMETER_DIRECTIVE = 30;</code>
-       */
-      public static final int END_PARAMETER_DIRECTIVE_VALUE = 30;
-      /**
-       * <code>END_SPARSE_SWITCH_DIRECTIVE = 31;</code>
-       */
-      public static final int END_SPARSE_SWITCH_DIRECTIVE_VALUE = 31;
-      /**
-       * <code>END_SUBANNOTATION_DIRECTIVE = 32;</code>
-       */
-      public static final int END_SUBANNOTATION_DIRECTIVE_VALUE = 32;
-      /**
-       * <code>ENUM_DIRECTIVE = 33;</code>
-       */
-      public static final int ENUM_DIRECTIVE_VALUE = 33;
-      /**
-       * <code>EPILOGUE_DIRECTIVE = 34;</code>
-       */
-      public static final int EPILOGUE_DIRECTIVE_VALUE = 34;
-      /**
-       * <code>EQUAL = 35;</code>
-       */
-      public static final int EQUAL_VALUE = 35;
-      /**
-       * <code>FIELD_DIRECTIVE = 36;</code>
-       */
-      public static final int FIELD_DIRECTIVE_VALUE = 36;
-      /**
-       * <code>FIELD_OFFSET = 37;</code>
-       */
-      public static final int FIELD_OFFSET_VALUE = 37;
-      /**
-       * <code>FLOAT_LITERAL = 38;</code>
-       */
-      public static final int FLOAT_LITERAL_VALUE = 38;
-      /**
-       * <code>FLOAT_LITERAL_OR_ID = 39;</code>
-       */
-      public static final int FLOAT_LITERAL_OR_ID_VALUE = 39;
-      /**
-       * <code>IMPLEMENTS_DIRECTIVE = 40;</code>
-       */
-      public static final int IMPLEMENTS_DIRECTIVE_VALUE = 40;
-      /**
-       * <code>INLINE_INDEX = 41;</code>
-       */
-      public static final int INLINE_INDEX_VALUE = 41;
-      /**
-       * <code>INSTRUCTION_FORMAT10t = 42;</code>
-       */
-      public static final int INSTRUCTION_FORMAT10t_VALUE = 42;
-      /**
-       * <code>INSTRUCTION_FORMAT10x = 43;</code>
-       */
-      public static final int INSTRUCTION_FORMAT10x_VALUE = 43;
-      /**
-       * <code>INSTRUCTION_FORMAT10x_ODEX = 44;</code>
-       */
-      public static final int INSTRUCTION_FORMAT10x_ODEX_VALUE = 44;
-      /**
-       * <code>INSTRUCTION_FORMAT11n = 45;</code>
-       */
-      public static final int INSTRUCTION_FORMAT11n_VALUE = 45;
-      /**
-       * <code>INSTRUCTION_FORMAT11x = 46;</code>
-       */
-      public static final int INSTRUCTION_FORMAT11x_VALUE = 46;
-      /**
-       * <code>INSTRUCTION_FORMAT12x = 47;</code>
-       */
-      public static final int INSTRUCTION_FORMAT12x_VALUE = 47;
-      /**
-       * <code>INSTRUCTION_FORMAT12x_OR_ID = 48;</code>
-       */
-      public static final int INSTRUCTION_FORMAT12x_OR_ID_VALUE = 48;
-      /**
-       * <code>INSTRUCTION_FORMAT20bc = 49;</code>
-       */
-      public static final int INSTRUCTION_FORMAT20bc_VALUE = 49;
-      /**
-       * <code>INSTRUCTION_FORMAT20t = 50;</code>
-       */
-      public static final int INSTRUCTION_FORMAT20t_VALUE = 50;
-      /**
-       * <code>INSTRUCTION_FORMAT21c_FIELD = 51;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21c_FIELD_VALUE = 51;
-      /**
-       * <code>INSTRUCTION_FORMAT21c_FIELD_ODEX = 52;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21c_FIELD_ODEX_VALUE = 52;
-      /**
-       * <code>INSTRUCTION_FORMAT21c_STRING = 53;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21c_STRING_VALUE = 53;
-      /**
-       * <code>INSTRUCTION_FORMAT21c_TYPE = 54;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21c_TYPE_VALUE = 54;
-      /**
-       * <code>INSTRUCTION_FORMAT21ih = 55;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21ih_VALUE = 55;
-      /**
-       * <code>INSTRUCTION_FORMAT21lh = 56;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21lh_VALUE = 56;
-      /**
-       * <code>INSTRUCTION_FORMAT21s = 57;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21s_VALUE = 57;
-      /**
-       * <code>INSTRUCTION_FORMAT21t = 58;</code>
-       */
-      public static final int INSTRUCTION_FORMAT21t_VALUE = 58;
-      /**
-       * <code>INSTRUCTION_FORMAT22b = 59;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22b_VALUE = 59;
-      /**
-       * <code>INSTRUCTION_FORMAT22c_FIELD = 60;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22c_FIELD_VALUE = 60;
-      /**
-       * <code>INSTRUCTION_FORMAT22c_FIELD_ODEX = 61;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22c_FIELD_ODEX_VALUE = 61;
-      /**
-       * <code>INSTRUCTION_FORMAT22c_TYPE = 62;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22c_TYPE_VALUE = 62;
-      /**
-       * <code>INSTRUCTION_FORMAT22cs_FIELD = 63;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22cs_FIELD_VALUE = 63;
-      /**
-       * <code>INSTRUCTION_FORMAT22s = 64;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22s_VALUE = 64;
-      /**
-       * <code>INSTRUCTION_FORMAT22s_OR_ID = 65;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22s_OR_ID_VALUE = 65;
-      /**
-       * <code>INSTRUCTION_FORMAT22t = 66;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22t_VALUE = 66;
-      /**
-       * <code>INSTRUCTION_FORMAT22x = 67;</code>
-       */
-      public static final int INSTRUCTION_FORMAT22x_VALUE = 67;
-      /**
-       * <code>INSTRUCTION_FORMAT23x = 68;</code>
-       */
-      public static final int INSTRUCTION_FORMAT23x_VALUE = 68;
-      /**
-       * <code>INSTRUCTION_FORMAT30t = 69;</code>
-       */
-      public static final int INSTRUCTION_FORMAT30t_VALUE = 69;
-      /**
-       * <code>INSTRUCTION_FORMAT31c = 70;</code>
-       */
-      public static final int INSTRUCTION_FORMAT31c_VALUE = 70;
-      /**
-       * <code>INSTRUCTION_FORMAT31i = 71;</code>
-       */
-      public static final int INSTRUCTION_FORMAT31i_VALUE = 71;
-      /**
-       * <code>INSTRUCTION_FORMAT31i_OR_ID = 72;</code>
-       */
-      public static final int INSTRUCTION_FORMAT31i_OR_ID_VALUE = 72;
-      /**
-       * <code>INSTRUCTION_FORMAT31t = 73;</code>
-       */
-      public static final int INSTRUCTION_FORMAT31t_VALUE = 73;
-      /**
-       * <code>INSTRUCTION_FORMAT32x = 74;</code>
-       */
-      public static final int INSTRUCTION_FORMAT32x_VALUE = 74;
-      /**
-       * <code>INSTRUCTION_FORMAT35c_METHOD = 75;</code>
-       */
-      public static final int INSTRUCTION_FORMAT35c_METHOD_VALUE = 75;
-      /**
-       * <code>INSTRUCTION_FORMAT35c_METHOD_ODEX = 76;</code>
-       */
-      public static final int INSTRUCTION_FORMAT35c_METHOD_ODEX_VALUE = 76;
-      /**
-       * <code>INSTRUCTION_FORMAT35c_TYPE = 77;</code>
-       */
-      public static final int INSTRUCTION_FORMAT35c_TYPE_VALUE = 77;
-      /**
-       * <code>INSTRUCTION_FORMAT35mi_METHOD = 78;</code>
-       */
-      public static final int INSTRUCTION_FORMAT35mi_METHOD_VALUE = 78;
-      /**
-       * <code>INSTRUCTION_FORMAT35ms_METHOD = 79;</code>
-       */
-      public static final int INSTRUCTION_FORMAT35ms_METHOD_VALUE = 79;
-      /**
-       * <code>INSTRUCTION_FORMAT3rc_METHOD = 80;</code>
-       */
-      public static final int INSTRUCTION_FORMAT3rc_METHOD_VALUE = 80;
-      /**
-       * <code>INSTRUCTION_FORMAT3rc_METHOD_ODEX = 81;</code>
-       */
-      public static final int INSTRUCTION_FORMAT3rc_METHOD_ODEX_VALUE = 81;
-      /**
-       * <code>INSTRUCTION_FORMAT3rc_TYPE = 82;</code>
-       */
-      public static final int INSTRUCTION_FORMAT3rc_TYPE_VALUE = 82;
-      /**
-       * <code>INSTRUCTION_FORMAT3rmi_METHOD = 83;</code>
-       */
-      public static final int INSTRUCTION_FORMAT3rmi_METHOD_VALUE = 83;
-      /**
-       * <code>INSTRUCTION_FORMAT3rms_METHOD = 84;</code>
-       */
-      public static final int INSTRUCTION_FORMAT3rms_METHOD_VALUE = 84;
-      /**
-       * <code>INSTRUCTION_FORMAT45cc_METHOD = 85;</code>
-       */
-      public static final int INSTRUCTION_FORMAT45cc_METHOD_VALUE = 85;
-      /**
-       * <code>INSTRUCTION_FORMAT4rcc_METHOD = 86;</code>
-       */
-      public static final int INSTRUCTION_FORMAT4rcc_METHOD_VALUE = 86;
-      /**
-       * <code>INSTRUCTION_FORMAT51l = 87;</code>
-       */
-      public static final int INSTRUCTION_FORMAT51l_VALUE = 87;
-      /**
-       * <code>INTEGER_LITERAL = 88;</code>
-       */
-      public static final int INTEGER_LITERAL_VALUE = 88;
-      /**
-       * <code>INVALID_TOKEN = 89;</code>
-       */
-      public static final int INVALID_TOKEN_VALUE = 89;
-      /**
-       * <code>I_ACCESS_LIST = 90;</code>
-       */
-      public static final int I_ACCESS_LIST_VALUE = 90;
-      /**
-       * <code>I_ANNOTATION = 91;</code>
-       */
-      public static final int I_ANNOTATION_VALUE = 91;
-      /**
-       * <code>I_ANNOTATIONS = 92;</code>
-       */
-      public static final int I_ANNOTATIONS_VALUE = 92;
-      /**
-       * <code>I_ANNOTATION_ELEMENT = 93;</code>
-       */
-      public static final int I_ANNOTATION_ELEMENT_VALUE = 93;
-      /**
-       * <code>I_ARRAY_ELEMENTS = 94;</code>
-       */
-      public static final int I_ARRAY_ELEMENTS_VALUE = 94;
-      /**
-       * <code>I_ARRAY_ELEMENT_SIZE = 95;</code>
-       */
-      public static final int I_ARRAY_ELEMENT_SIZE_VALUE = 95;
-      /**
-       * <code>I_CATCH = 96;</code>
-       */
-      public static final int I_CATCH_VALUE = 96;
-      /**
-       * <code>I_CATCHALL = 97;</code>
-       */
-      public static final int I_CATCHALL_VALUE = 97;
-      /**
-       * <code>I_CATCHES = 98;</code>
-       */
-      public static final int I_CATCHES_VALUE = 98;
-      /**
-       * <code>I_CLASS_DEF = 99;</code>
-       */
-      public static final int I_CLASS_DEF_VALUE = 99;
-      /**
-       * <code>I_ENCODED_ARRAY = 100;</code>
-       */
-      public static final int I_ENCODED_ARRAY_VALUE = 100;
-      /**
-       * <code>I_ENCODED_ENUM = 101;</code>
-       */
-      public static final int I_ENCODED_ENUM_VALUE = 101;
-      /**
-       * <code>I_ENCODED_FIELD = 102;</code>
-       */
-      public static final int I_ENCODED_FIELD_VALUE = 102;
-      /**
-       * <code>I_ENCODED_METHOD = 103;</code>
-       */
-      public static final int I_ENCODED_METHOD_VALUE = 103;
-      /**
-       * <code>I_END_LOCAL = 104;</code>
-       */
-      public static final int I_END_LOCAL_VALUE = 104;
-      /**
-       * <code>I_EPILOGUE = 105;</code>
-       */
-      public static final int I_EPILOGUE_VALUE = 105;
-      /**
-       * <code>I_FIELD = 106;</code>
-       */
-      public static final int I_FIELD_VALUE = 106;
-      /**
-       * <code>I_FIELDS = 107;</code>
-       */
-      public static final int I_FIELDS_VALUE = 107;
-      /**
-       * <code>I_FIELD_INITIAL_VALUE = 108;</code>
-       */
-      public static final int I_FIELD_INITIAL_VALUE_VALUE = 108;
-      /**
-       * <code>I_FIELD_TYPE = 109;</code>
-       */
-      public static final int I_FIELD_TYPE_VALUE = 109;
-      /**
-       * <code>I_IMPLEMENTS = 110;</code>
-       */
-      public static final int I_IMPLEMENTS_VALUE = 110;
-      /**
-       * <code>I_LABEL = 111;</code>
-       */
-      public static final int I_LABEL_VALUE = 111;
-      /**
-       * <code>I_LINE = 112;</code>
-       */
-      public static final int I_LINE_VALUE = 112;
-      /**
-       * <code>I_LOCAL = 113;</code>
-       */
-      public static final int I_LOCAL_VALUE = 113;
-      /**
-       * <code>I_LOCALS = 114;</code>
-       */
-      public static final int I_LOCALS_VALUE = 114;
-      /**
-       * <code>I_METHOD = 115;</code>
-       */
-      public static final int I_METHOD_VALUE = 115;
-      /**
-       * <code>I_METHODS = 116;</code>
-       */
-      public static final int I_METHODS_VALUE = 116;
-      /**
-       * <code>I_METHOD_PROTOTYPE = 117;</code>
-       */
-      public static final int I_METHOD_PROTOTYPE_VALUE = 117;
-      /**
-       * <code>I_METHOD_RETURN_TYPE = 118;</code>
-       */
-      public static final int I_METHOD_RETURN_TYPE_VALUE = 118;
-      /**
-       * <code>I_ORDERED_METHOD_ITEMS = 119;</code>
-       */
-      public static final int I_ORDERED_METHOD_ITEMS_VALUE = 119;
-      /**
-       * <code>I_PACKED_SWITCH_ELEMENTS = 120;</code>
-       */
-      public static final int I_PACKED_SWITCH_ELEMENTS_VALUE = 120;
-      /**
-       * <code>I_PACKED_SWITCH_START_KEY = 121;</code>
-       */
-      public static final int I_PACKED_SWITCH_START_KEY_VALUE = 121;
-      /**
-       * <code>I_PARAMETER = 122;</code>
-       */
-      public static final int I_PARAMETER_VALUE = 122;
-      /**
-       * <code>I_PARAMETERS = 123;</code>
-       */
-      public static final int I_PARAMETERS_VALUE = 123;
-      /**
-       * <code>I_PARAMETER_NOT_SPECIFIED = 124;</code>
-       */
-      public static final int I_PARAMETER_NOT_SPECIFIED_VALUE = 124;
-      /**
-       * <code>I_PROLOGUE = 125;</code>
-       */
-      public static final int I_PROLOGUE_VALUE = 125;
-      /**
-       * <code>I_REGISTERS = 126;</code>
-       */
-      public static final int I_REGISTERS_VALUE = 126;
-      /**
-       * <code>I_REGISTER_LIST = 127;</code>
-       */
-      public static final int I_REGISTER_LIST_VALUE = 127;
-      /**
-       * <code>I_REGISTER_RANGE = 128;</code>
-       */
-      public static final int I_REGISTER_RANGE_VALUE = 128;
-      /**
-       * <code>I_RESTART_LOCAL = 129;</code>
-       */
-      public static final int I_RESTART_LOCAL_VALUE = 129;
-      /**
-       * <code>I_SOURCE = 130;</code>
-       */
-      public static final int I_SOURCE_VALUE = 130;
-      /**
-       * <code>I_SPARSE_SWITCH_ELEMENTS = 131;</code>
-       */
-      public static final int I_SPARSE_SWITCH_ELEMENTS_VALUE = 131;
-      /**
-       * <code>I_STATEMENT_ARRAY_DATA = 132;</code>
-       */
-      public static final int I_STATEMENT_ARRAY_DATA_VALUE = 132;
-      /**
-       * <code>I_STATEMENT_FORMAT10t = 133;</code>
-       */
-      public static final int I_STATEMENT_FORMAT10t_VALUE = 133;
-      /**
-       * <code>I_STATEMENT_FORMAT10x = 134;</code>
-       */
-      public static final int I_STATEMENT_FORMAT10x_VALUE = 134;
-      /**
-       * <code>I_STATEMENT_FORMAT11n = 135;</code>
-       */
-      public static final int I_STATEMENT_FORMAT11n_VALUE = 135;
-      /**
-       * <code>I_STATEMENT_FORMAT11x = 136;</code>
-       */
-      public static final int I_STATEMENT_FORMAT11x_VALUE = 136;
-      /**
-       * <code>I_STATEMENT_FORMAT12x = 137;</code>
-       */
-      public static final int I_STATEMENT_FORMAT12x_VALUE = 137;
-      /**
-       * <code>I_STATEMENT_FORMAT20bc = 138;</code>
-       */
-      public static final int I_STATEMENT_FORMAT20bc_VALUE = 138;
-      /**
-       * <code>I_STATEMENT_FORMAT20t = 139;</code>
-       */
-      public static final int I_STATEMENT_FORMAT20t_VALUE = 139;
-      /**
-       * <code>I_STATEMENT_FORMAT21c_FIELD = 140;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21c_FIELD_VALUE = 140;
-      /**
-       * <code>I_STATEMENT_FORMAT21c_STRING = 141;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21c_STRING_VALUE = 141;
-      /**
-       * <code>I_STATEMENT_FORMAT21c_TYPE = 142;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21c_TYPE_VALUE = 142;
-      /**
-       * <code>I_STATEMENT_FORMAT21ih = 143;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21ih_VALUE = 143;
-      /**
-       * <code>I_STATEMENT_FORMAT21lh = 144;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21lh_VALUE = 144;
-      /**
-       * <code>I_STATEMENT_FORMAT21s = 145;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21s_VALUE = 145;
-      /**
-       * <code>I_STATEMENT_FORMAT21t = 146;</code>
-       */
-      public static final int I_STATEMENT_FORMAT21t_VALUE = 146;
-      /**
-       * <code>I_STATEMENT_FORMAT22b = 147;</code>
-       */
-      public static final int I_STATEMENT_FORMAT22b_VALUE = 147;
-      /**
-       * <code>I_STATEMENT_FORMAT22c_FIELD = 148;</code>
-       */
-      public static final int I_STATEMENT_FORMAT22c_FIELD_VALUE = 148;
-      /**
-       * <code>I_STATEMENT_FORMAT22c_TYPE = 149;</code>
-       */
-      public static final int I_STATEMENT_FORMAT22c_TYPE_VALUE = 149;
-      /**
-       * <code>I_STATEMENT_FORMAT22s = 150;</code>
-       */
-      public static final int I_STATEMENT_FORMAT22s_VALUE = 150;
-      /**
-       * <code>I_STATEMENT_FORMAT22t = 151;</code>
-       */
-      public static final int I_STATEMENT_FORMAT22t_VALUE = 151;
-      /**
-       * <code>I_STATEMENT_FORMAT22x = 152;</code>
-       */
-      public static final int I_STATEMENT_FORMAT22x_VALUE = 152;
-      /**
-       * <code>I_STATEMENT_FORMAT23x = 153;</code>
-       */
-      public static final int I_STATEMENT_FORMAT23x_VALUE = 153;
-      /**
-       * <code>I_STATEMENT_FORMAT30t = 154;</code>
-       */
-      public static final int I_STATEMENT_FORMAT30t_VALUE = 154;
-      /**
-       * <code>I_STATEMENT_FORMAT31c = 155;</code>
-       */
-      public static final int I_STATEMENT_FORMAT31c_VALUE = 155;
-      /**
-       * <code>I_STATEMENT_FORMAT31i = 156;</code>
-       */
-      public static final int I_STATEMENT_FORMAT31i_VALUE = 156;
-      /**
-       * <code>I_STATEMENT_FORMAT31t = 157;</code>
-       */
-      public static final int I_STATEMENT_FORMAT31t_VALUE = 157;
-      /**
-       * <code>I_STATEMENT_FORMAT32x = 158;</code>
-       */
-      public static final int I_STATEMENT_FORMAT32x_VALUE = 158;
-      /**
-       * <code>I_STATEMENT_FORMAT35c_METHOD = 159;</code>
-       */
-      public static final int I_STATEMENT_FORMAT35c_METHOD_VALUE = 159;
-      /**
-       * <code>I_STATEMENT_FORMAT35c_TYPE = 160;</code>
-       */
-      public static final int I_STATEMENT_FORMAT35c_TYPE_VALUE = 160;
-      /**
-       * <code>I_STATEMENT_FORMAT3rc_METHOD = 161;</code>
-       */
-      public static final int I_STATEMENT_FORMAT3rc_METHOD_VALUE = 161;
-      /**
-       * <code>I_STATEMENT_FORMAT3rc_TYPE = 162;</code>
-       */
-      public static final int I_STATEMENT_FORMAT3rc_TYPE_VALUE = 162;
-      /**
-       * <code>I_STATEMENT_FORMAT45cc_METHOD = 163;</code>
-       */
-      public static final int I_STATEMENT_FORMAT45cc_METHOD_VALUE = 163;
-      /**
-       * <code>I_STATEMENT_FORMAT4rcc_METHOD = 164;</code>
-       */
-      public static final int I_STATEMENT_FORMAT4rcc_METHOD_VALUE = 164;
-      /**
-       * <code>I_STATEMENT_FORMAT51l = 165;</code>
-       */
-      public static final int I_STATEMENT_FORMAT51l_VALUE = 165;
-      /**
-       * <code>I_STATEMENT_PACKED_SWITCH = 166;</code>
-       */
-      public static final int I_STATEMENT_PACKED_SWITCH_VALUE = 166;
-      /**
-       * <code>I_STATEMENT_SPARSE_SWITCH = 167;</code>
-       */
-      public static final int I_STATEMENT_SPARSE_SWITCH_VALUE = 167;
-      /**
-       * <code>I_SUBANNOTATION = 168;</code>
-       */
-      public static final int I_SUBANNOTATION_VALUE = 168;
-      /**
-       * <code>I_SUPER = 169;</code>
-       */
-      public static final int I_SUPER_VALUE = 169;
-      /**
-       * <code>LINE_COMMENT = 170;</code>
-       */
-      public static final int LINE_COMMENT_VALUE = 170;
-      /**
-       * <code>LINE_DIRECTIVE = 171;</code>
-       */
-      public static final int LINE_DIRECTIVE_VALUE = 171;
-      /**
-       * <code>LOCALS_DIRECTIVE = 172;</code>
-       */
-      public static final int LOCALS_DIRECTIVE_VALUE = 172;
-      /**
-       * <code>LOCAL_DIRECTIVE = 173;</code>
-       */
-      public static final int LOCAL_DIRECTIVE_VALUE = 173;
-      /**
-       * <code>LONG_LITERAL = 174;</code>
-       */
-      public static final int LONG_LITERAL_VALUE = 174;
-      /**
-       * <code>MEMBER_NAME = 175;</code>
-       */
-      public static final int MEMBER_NAME_VALUE = 175;
-      /**
-       * <code>METHOD_DIRECTIVE = 176;</code>
-       */
-      public static final int METHOD_DIRECTIVE_VALUE = 176;
-      /**
-       * <code>NEGATIVE_INTEGER_LITERAL = 177;</code>
-       */
-      public static final int NEGATIVE_INTEGER_LITERAL_VALUE = 177;
-      /**
-       * <code>NULL_LITERAL = 178;</code>
-       */
-      public static final int NULL_LITERAL_VALUE = 178;
-      /**
-       * <code>OPEN_BRACE = 179;</code>
-       */
-      public static final int OPEN_BRACE_VALUE = 179;
-      /**
-       * <code>OPEN_PAREN = 180;</code>
-       */
-      public static final int OPEN_PAREN_VALUE = 180;
-      /**
-       * <code>PACKED_SWITCH_DIRECTIVE = 181;</code>
-       */
-      public static final int PACKED_SWITCH_DIRECTIVE_VALUE = 181;
-      /**
-       * <code>PARAMETER_DIRECTIVE = 182;</code>
-       */
-      public static final int PARAMETER_DIRECTIVE_VALUE = 182;
-      /**
-       * <code>PARAM_LIST_OR_ID_PRIMITIVE_TYPE = 183;</code>
-       */
-      public static final int PARAM_LIST_OR_ID_PRIMITIVE_TYPE_VALUE = 183;
-      /**
-       * <code>POSITIVE_INTEGER_LITERAL = 184;</code>
-       */
-      public static final int POSITIVE_INTEGER_LITERAL_VALUE = 184;
-      /**
-       * <code>PRIMITIVE_TYPE = 185;</code>
-       */
-      public static final int PRIMITIVE_TYPE_VALUE = 185;
-      /**
-       * <code>PROLOGUE_DIRECTIVE = 186;</code>
-       */
-      public static final int PROLOGUE_DIRECTIVE_VALUE = 186;
-      /**
-       * <code>SMALI_REGISTER = 187;</code>
-       */
-      public static final int SMALI_REGISTER_VALUE = 187;
-      /**
-       * <code>REGISTERS_DIRECTIVE = 188;</code>
-       */
-      public static final int REGISTERS_DIRECTIVE_VALUE = 188;
-      /**
-       * <code>RESTART_LOCAL_DIRECTIVE = 189;</code>
-       */
-      public static final int RESTART_LOCAL_DIRECTIVE_VALUE = 189;
-      /**
-       * <code>SHORT_LITERAL = 190;</code>
-       */
-      public static final int SHORT_LITERAL_VALUE = 190;
-      /**
-       * <code>SIMPLE_NAME = 191;</code>
-       */
-      public static final int SIMPLE_NAME_VALUE = 191;
-      /**
-       * <code>SOURCE_DIRECTIVE = 192;</code>
-       */
-      public static final int SOURCE_DIRECTIVE_VALUE = 192;
-      /**
-       * <code>SPARSE_SWITCH_DIRECTIVE = 193;</code>
-       */
-      public static final int SPARSE_SWITCH_DIRECTIVE_VALUE = 193;
-      /**
-       * <code>STRING_LITERAL = 194;</code>
-       */
-      public static final int STRING_LITERAL_VALUE = 194;
-      /**
-       * <code>SUBANNOTATION_DIRECTIVE = 195;</code>
-       */
-      public static final int SUBANNOTATION_DIRECTIVE_VALUE = 195;
-      /**
-       * <code>SUPER_DIRECTIVE = 196;</code>
-       */
-      public static final int SUPER_DIRECTIVE_VALUE = 196;
-      /**
-       * <code>VERIFICATION_ERROR_TYPE = 197;</code>
-       */
-      public static final int VERIFICATION_ERROR_TYPE_VALUE = 197;
-      /**
-       * <code>VOID_TYPE = 198;</code>
-       */
-      public static final int VOID_TYPE_VALUE = 198;
-      /**
-       * <code>VTABLE_INDEX = 199;</code>
-       */
-      public static final int VTABLE_INDEX_VALUE = 199;
-      /**
-       * <code>WHITE_SPACE = 200;</code>
-       */
-      public static final int WHITE_SPACE_VALUE = 200;
-
-
-      public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
-        return value;
-      }
-
-      /**
-       * @deprecated Use {@link #forNumber(int)} instead.
-       */
-      @java.lang.Deprecated
-      public static SmaliKind valueOf(int value) {
-        return forNumber(value);
-      }
-
-      public static SmaliKind forNumber(int value) {
-        switch (value) {
-          case 0: return INVALID;
-          case 1: return EOR;
-          case 2: return DOWN;
-          case 3: return UP;
-          case 4: return ACCESS_SPEC;
-          case 5: return ANNOTATION_DIRECTIVE;
-          case 6: return ANNOTATION_VISIBILITY;
-          case 7: return ARRAY_DATA_DIRECTIVE;
-          case 8: return ARRAY_TYPE_PREFIX;
-          case 9: return ARROW;
-          case 10: return BOOL_LITERAL;
-          case 11: return BYTE_LITERAL;
-          case 12: return CATCHALL_DIRECTIVE;
-          case 13: return CATCH_DIRECTIVE;
-          case 14: return CHAR_LITERAL;
-          case 15: return CLASS_DESCRIPTOR;
-          case 16: return CLASS_DIRECTIVE;
-          case 17: return CLOSE_BRACE;
-          case 18: return CLOSE_PAREN;
-          case 19: return COLON;
-          case 20: return COMMA;
-          case 21: return DOTDOT;
-          case 22: return DOUBLE_LITERAL;
-          case 23: return DOUBLE_LITERAL_OR_ID;
-          case 24: return END_ANNOTATION_DIRECTIVE;
-          case 25: return END_ARRAY_DATA_DIRECTIVE;
-          case 26: return END_FIELD_DIRECTIVE;
-          case 27: return END_LOCAL_DIRECTIVE;
-          case 28: return END_METHOD_DIRECTIVE;
-          case 29: return END_PACKED_SWITCH_DIRECTIVE;
-          case 30: return END_PARAMETER_DIRECTIVE;
-          case 31: return END_SPARSE_SWITCH_DIRECTIVE;
-          case 32: return END_SUBANNOTATION_DIRECTIVE;
-          case 33: return ENUM_DIRECTIVE;
-          case 34: return EPILOGUE_DIRECTIVE;
-          case 35: return EQUAL;
-          case 36: return FIELD_DIRECTIVE;
-          case 37: return FIELD_OFFSET;
-          case 38: return FLOAT_LITERAL;
-          case 39: return FLOAT_LITERAL_OR_ID;
-          case 40: return IMPLEMENTS_DIRECTIVE;
-          case 41: return INLINE_INDEX;
-          case 42: return INSTRUCTION_FORMAT10t;
-          case 43: return INSTRUCTION_FORMAT10x;
-          case 44: return INSTRUCTION_FORMAT10x_ODEX;
-          case 45: return INSTRUCTION_FORMAT11n;
-          case 46: return INSTRUCTION_FORMAT11x;
-          case 47: return INSTRUCTION_FORMAT12x;
-          case 48: return INSTRUCTION_FORMAT12x_OR_ID;
-          case 49: return INSTRUCTION_FORMAT20bc;
-          case 50: return INSTRUCTION_FORMAT20t;
-          case 51: return INSTRUCTION_FORMAT21c_FIELD;
-          case 52: return INSTRUCTION_FORMAT21c_FIELD_ODEX;
-          case 53: return INSTRUCTION_FORMAT21c_STRING;
-          case 54: return INSTRUCTION_FORMAT21c_TYPE;
-          case 55: return INSTRUCTION_FORMAT21ih;
-          case 56: return INSTRUCTION_FORMAT21lh;
-          case 57: return INSTRUCTION_FORMAT21s;
-          case 58: return INSTRUCTION_FORMAT21t;
-          case 59: return INSTRUCTION_FORMAT22b;
-          case 60: return INSTRUCTION_FORMAT22c_FIELD;
-          case 61: return INSTRUCTION_FORMAT22c_FIELD_ODEX;
-          case 62: return INSTRUCTION_FORMAT22c_TYPE;
-          case 63: return INSTRUCTION_FORMAT22cs_FIELD;
-          case 64: return INSTRUCTION_FORMAT22s;
-          case 65: return INSTRUCTION_FORMAT22s_OR_ID;
-          case 66: return INSTRUCTION_FORMAT22t;
-          case 67: return INSTRUCTION_FORMAT22x;
-          case 68: return INSTRUCTION_FORMAT23x;
-          case 69: return INSTRUCTION_FORMAT30t;
-          case 70: return INSTRUCTION_FORMAT31c;
-          case 71: return INSTRUCTION_FORMAT31i;
-          case 72: return INSTRUCTION_FORMAT31i_OR_ID;
-          case 73: return INSTRUCTION_FORMAT31t;
-          case 74: return INSTRUCTION_FORMAT32x;
-          case 75: return INSTRUCTION_FORMAT35c_METHOD;
-          case 76: return INSTRUCTION_FORMAT35c_METHOD_ODEX;
-          case 77: return INSTRUCTION_FORMAT35c_TYPE;
-          case 78: return INSTRUCTION_FORMAT35mi_METHOD;
-          case 79: return INSTRUCTION_FORMAT35ms_METHOD;
-          case 80: return INSTRUCTION_FORMAT3rc_METHOD;
-          case 81: return INSTRUCTION_FORMAT3rc_METHOD_ODEX;
-          case 82: return INSTRUCTION_FORMAT3rc_TYPE;
-          case 83: return INSTRUCTION_FORMAT3rmi_METHOD;
-          case 84: return INSTRUCTION_FORMAT3rms_METHOD;
-          case 85: return INSTRUCTION_FORMAT45cc_METHOD;
-          case 86: return INSTRUCTION_FORMAT4rcc_METHOD;
-          case 87: return INSTRUCTION_FORMAT51l;
-          case 88: return INTEGER_LITERAL;
-          case 89: return INVALID_TOKEN;
-          case 90: return I_ACCESS_LIST;
-          case 91: return I_ANNOTATION;
-          case 92: return I_ANNOTATIONS;
-          case 93: return I_ANNOTATION_ELEMENT;
-          case 94: return I_ARRAY_ELEMENTS;
-          case 95: return I_ARRAY_ELEMENT_SIZE;
-          case 96: return I_CATCH;
-          case 97: return I_CATCHALL;
-          case 98: return I_CATCHES;
-          case 99: return I_CLASS_DEF;
-          case 100: return I_ENCODED_ARRAY;
-          case 101: return I_ENCODED_ENUM;
-          case 102: return I_ENCODED_FIELD;
-          case 103: return I_ENCODED_METHOD;
-          case 104: return I_END_LOCAL;
-          case 105: return I_EPILOGUE;
-          case 106: return I_FIELD;
-          case 107: return I_FIELDS;
-          case 108: return I_FIELD_INITIAL_VALUE;
-          case 109: return I_FIELD_TYPE;
-          case 110: return I_IMPLEMENTS;
-          case 111: return I_LABEL;
-          case 112: return I_LINE;
-          case 113: return I_LOCAL;
-          case 114: return I_LOCALS;
-          case 115: return I_METHOD;
-          case 116: return I_METHODS;
-          case 117: return I_METHOD_PROTOTYPE;
-          case 118: return I_METHOD_RETURN_TYPE;
-          case 119: return I_ORDERED_METHOD_ITEMS;
-          case 120: return I_PACKED_SWITCH_ELEMENTS;
-          case 121: return I_PACKED_SWITCH_START_KEY;
-          case 122: return I_PARAMETER;
-          case 123: return I_PARAMETERS;
-          case 124: return I_PARAMETER_NOT_SPECIFIED;
-          case 125: return I_PROLOGUE;
-          case 126: return I_REGISTERS;
-          case 127: return I_REGISTER_LIST;
-          case 128: return I_REGISTER_RANGE;
-          case 129: return I_RESTART_LOCAL;
-          case 130: return I_SOURCE;
-          case 131: return I_SPARSE_SWITCH_ELEMENTS;
-          case 132: return I_STATEMENT_ARRAY_DATA;
-          case 133: return I_STATEMENT_FORMAT10t;
-          case 134: return I_STATEMENT_FORMAT10x;
-          case 135: return I_STATEMENT_FORMAT11n;
-          case 136: return I_STATEMENT_FORMAT11x;
-          case 137: return I_STATEMENT_FORMAT12x;
-          case 138: return I_STATEMENT_FORMAT20bc;
-          case 139: return I_STATEMENT_FORMAT20t;
-          case 140: return I_STATEMENT_FORMAT21c_FIELD;
-          case 141: return I_STATEMENT_FORMAT21c_STRING;
-          case 142: return I_STATEMENT_FORMAT21c_TYPE;
-          case 143: return I_STATEMENT_FORMAT21ih;
-          case 144: return I_STATEMENT_FORMAT21lh;
-          case 145: return I_STATEMENT_FORMAT21s;
-          case 146: return I_STATEMENT_FORMAT21t;
-          case 147: return I_STATEMENT_FORMAT22b;
-          case 148: return I_STATEMENT_FORMAT22c_FIELD;
-          case 149: return I_STATEMENT_FORMAT22c_TYPE;
-          case 150: return I_STATEMENT_FORMAT22s;
-          case 151: return I_STATEMENT_FORMAT22t;
-          case 152: return I_STATEMENT_FORMAT22x;
-          case 153: return I_STATEMENT_FORMAT23x;
-          case 154: return I_STATEMENT_FORMAT30t;
-          case 155: return I_STATEMENT_FORMAT31c;
-          case 156: return I_STATEMENT_FORMAT31i;
-          case 157: return I_STATEMENT_FORMAT31t;
-          case 158: return I_STATEMENT_FORMAT32x;
-          case 159: return I_STATEMENT_FORMAT35c_METHOD;
-          case 160: return I_STATEMENT_FORMAT35c_TYPE;
-          case 161: return I_STATEMENT_FORMAT3rc_METHOD;
-          case 162: return I_STATEMENT_FORMAT3rc_TYPE;
-          case 163: return I_STATEMENT_FORMAT45cc_METHOD;
-          case 164: return I_STATEMENT_FORMAT4rcc_METHOD;
-          case 165: return I_STATEMENT_FORMAT51l;
-          case 166: return I_STATEMENT_PACKED_SWITCH;
-          case 167: return I_STATEMENT_SPARSE_SWITCH;
-          case 168: return I_SUBANNOTATION;
-          case 169: return I_SUPER;
-          case 170: return LINE_COMMENT;
-          case 171: return LINE_DIRECTIVE;
-          case 172: return LOCALS_DIRECTIVE;
-          case 173: return LOCAL_DIRECTIVE;
-          case 174: return LONG_LITERAL;
-          case 175: return MEMBER_NAME;
-          case 176: return METHOD_DIRECTIVE;
-          case 177: return NEGATIVE_INTEGER_LITERAL;
-          case 178: return NULL_LITERAL;
-          case 179: return OPEN_BRACE;
-          case 180: return OPEN_PAREN;
-          case 181: return PACKED_SWITCH_DIRECTIVE;
-          case 182: return PARAMETER_DIRECTIVE;
-          case 183: return PARAM_LIST_OR_ID_PRIMITIVE_TYPE;
-          case 184: return POSITIVE_INTEGER_LITERAL;
-          case 185: return PRIMITIVE_TYPE;
-          case 186: return PROLOGUE_DIRECTIVE;
-          case 187: return SMALI_REGISTER;
-          case 188: return REGISTERS_DIRECTIVE;
-          case 189: return RESTART_LOCAL_DIRECTIVE;
-          case 190: return SHORT_LITERAL;
-          case 191: return SIMPLE_NAME;
-          case 192: return SOURCE_DIRECTIVE;
-          case 193: return SPARSE_SWITCH_DIRECTIVE;
-          case 194: return STRING_LITERAL;
-          case 195: return SUBANNOTATION_DIRECTIVE;
-          case 196: return SUPER_DIRECTIVE;
-          case 197: return VERIFICATION_ERROR_TYPE;
-          case 198: return VOID_TYPE;
-          case 199: return VTABLE_INDEX;
-          case 200: return WHITE_SPACE;
-          default: return null;
-        }
-      }
-
-      public static com.google.protobuf.Internal.EnumLiteMap<SmaliKind>
-          internalGetValueMap() {
-        return internalValueMap;
-      }
-      private static final com.google.protobuf.Internal.EnumLiteMap<
-          SmaliKind> internalValueMap =
-            new com.google.protobuf.Internal.EnumLiteMap<SmaliKind>() {
-              public SmaliKind findValueByNumber(int number) {
-                return SmaliKind.forNumber(number);
-              }
-            };
-
-      public final com.google.protobuf.Descriptors.EnumValueDescriptor
-          getValueDescriptor() {
-        return getDescriptor().getValues().get(ordinal());
-      }
-      public final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptorForType() {
-        return getDescriptor();
-      }
-      public static final com.google.protobuf.Descriptors.EnumDescriptor
-          getDescriptor() {
-        return fast.Fast.Element.getDescriptor().getEnumTypes().get(1);
-      }
-
-      private static final SmaliKind[] VALUES = values();
-
-      public static SmaliKind valueOf(
-          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-        if (desc.getType() != getDescriptor()) {
-          throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
-        }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
-        return VALUES[desc.getIndex()];
-      }
-
-      private final int value;
-
-      private SmaliKind(int value) {
-        this.value = value;
-      }
-
-      // @@protoc_insertion_point(enum_scope:fast.Element.SmaliKind)
-    }
-
     public interface UnitOrBuilder extends
         // @@protoc_insertion_point(interface_extends:fast.Element.Unit)
         com.google.protobuf.MessageOrBuilder {
@@ -7949,12 +9007,52 @@ public final class Fast {
     }
 
     private int bitField0_;
+    private int typeCase_ = 0;
+    private java.lang.Object type_;
+    public enum TypeCase
+        implements com.google.protobuf.Internal.EnumLite {
+      KIND(1),
+      SMALI_KIND(2),
+      SMALI_CPP_KIND(3),
+      TYPE_NOT_SET(0);
+      private final int value;
+      private TypeCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static TypeCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static TypeCase forNumber(int value) {
+        switch (value) {
+          case 1: return KIND;
+          case 2: return SMALI_KIND;
+          case 3: return SMALI_CPP_KIND;
+          case 0: return TYPE_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public TypeCase
+    getTypeCase() {
+      return TypeCase.forNumber(
+          typeCase_);
+    }
+
     private int extraCase_ = 0;
     private java.lang.Object extra_;
     public enum ExtraCase
         implements com.google.protobuf.Internal.EnumLite {
-      UNIT(7),
-      LITERAL(8),
+      UNIT(9),
+      LITERAL(10),
       EXTRA_NOT_SET(0);
       private final int value;
       private ExtraCase(int value) {
@@ -7970,8 +9068,8 @@ public final class Fast {
 
       public static ExtraCase forNumber(int value) {
         switch (value) {
-          case 7: return UNIT;
-          case 8: return LITERAL;
+          case 9: return UNIT;
+          case 10: return LITERAL;
           case 0: return EXTRA_NOT_SET;
           default: return null;
         }
@@ -7988,25 +9086,83 @@ public final class Fast {
     }
 
     public static final int KIND_FIELD_NUMBER = 1;
-    private int kind_;
     /**
+     * <pre>
+     * default to srcML
+     * </pre>
+     *
      * <code>.fast.Element.Kind kind = 1;</code>
      */
     public int getKindValue() {
-      return kind_;
+      if (typeCase_ == 1) {
+        return (java.lang.Integer) type_;
+      }
+      return 0;
     }
     /**
+     * <pre>
+     * default to srcML
+     * </pre>
+     *
      * <code>.fast.Element.Kind kind = 1;</code>
      */
     public fast.Fast.Element.Kind getKind() {
-      fast.Fast.Element.Kind result = fast.Fast.Element.Kind.valueOf(kind_);
-      return result == null ? fast.Fast.Element.Kind.UNRECOGNIZED : result;
+      if (typeCase_ == 1) {
+        fast.Fast.Element.Kind result = fast.Fast.Element.Kind.valueOf(
+            (java.lang.Integer) type_);
+        return result == null ? fast.Fast.Element.Kind.UNRECOGNIZED : result;
+      }
+      return fast.Fast.Element.Kind.UNIT_KIND;
     }
 
-    public static final int TEXT_FIELD_NUMBER = 2;
+    public static final int SMALI_KIND_FIELD_NUMBER = 2;
+    /**
+     * <code>.fast.SmaliKind smali_kind = 2;</code>
+     */
+    public int getSmaliKindValue() {
+      if (typeCase_ == 2) {
+        return (java.lang.Integer) type_;
+      }
+      return 0;
+    }
+    /**
+     * <code>.fast.SmaliKind smali_kind = 2;</code>
+     */
+    public fast.Fast.SmaliKind getSmaliKind() {
+      if (typeCase_ == 2) {
+        fast.Fast.SmaliKind result = fast.Fast.SmaliKind.valueOf(
+            (java.lang.Integer) type_);
+        return result == null ? fast.Fast.SmaliKind.UNRECOGNIZED : result;
+      }
+      return fast.Fast.SmaliKind.INVALID;
+    }
+
+    public static final int SMALI_CPP_KIND_FIELD_NUMBER = 3;
+    /**
+     * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+     */
+    public int getSmaliCppKindValue() {
+      if (typeCase_ == 3) {
+        return (java.lang.Integer) type_;
+      }
+      return 0;
+    }
+    /**
+     * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+     */
+    public fast.Fast.SmaliCppKind getSmaliCppKind() {
+      if (typeCase_ == 3) {
+        fast.Fast.SmaliCppKind result = fast.Fast.SmaliCppKind.valueOf(
+            (java.lang.Integer) type_);
+        return result == null ? fast.Fast.SmaliCppKind.UNRECOGNIZED : result;
+      }
+      return fast.Fast.SmaliCppKind.smali_file;
+    }
+
+    public static final int TEXT_FIELD_NUMBER = 4;
     private volatile java.lang.Object text_;
     /**
-     * <code>string text = 2;</code>
+     * <code>string text = 4;</code>
      */
     public java.lang.String getText() {
       java.lang.Object ref = text_;
@@ -8021,7 +9177,7 @@ public final class Fast {
       }
     }
     /**
-     * <code>string text = 2;</code>
+     * <code>string text = 4;</code>
      */
     public com.google.protobuf.ByteString
         getTextBytes() {
@@ -8037,63 +9193,63 @@ public final class Fast {
       }
     }
 
-    public static final int POS_FIELD_NUMBER = 3;
+    public static final int POS_FIELD_NUMBER = 5;
     private int pos_;
     /**
-     * <code>int32 pos = 3;</code>
+     * <code>int32 pos = 5;</code>
      */
     public int getPos() {
       return pos_;
     }
 
-    public static final int LENGTH_FIELD_NUMBER = 4;
+    public static final int LENGTH_FIELD_NUMBER = 6;
     private int length_;
     /**
-     * <code>int32 length = 4;</code>
+     * <code>int32 length = 6;</code>
      */
     public int getLength() {
       return length_;
     }
 
-    public static final int CHILD_FIELD_NUMBER = 5;
+    public static final int CHILD_FIELD_NUMBER = 7;
     private java.util.List<fast.Fast.Element> child_;
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     public java.util.List<fast.Fast.Element> getChildList() {
       return child_;
     }
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     public java.util.List<? extends fast.Fast.ElementOrBuilder> 
         getChildOrBuilderList() {
       return child_;
     }
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     public int getChildCount() {
       return child_.size();
     }
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     public fast.Fast.Element getChild(int index) {
       return child_.get(index);
     }
     /**
-     * <code>repeated .fast.Element child = 5;</code>
+     * <code>repeated .fast.Element child = 7;</code>
      */
     public fast.Fast.ElementOrBuilder getChildOrBuilder(
         int index) {
       return child_.get(index);
     }
 
-    public static final int TAIL_FIELD_NUMBER = 6;
+    public static final int TAIL_FIELD_NUMBER = 8;
     private volatile java.lang.Object tail_;
     /**
-     * <code>string tail = 6;</code>
+     * <code>string tail = 8;</code>
      */
     public java.lang.String getTail() {
       java.lang.Object ref = tail_;
@@ -8108,7 +9264,7 @@ public final class Fast {
       }
     }
     /**
-     * <code>string tail = 6;</code>
+     * <code>string tail = 8;</code>
      */
     public com.google.protobuf.ByteString
         getTailBytes() {
@@ -8124,59 +9280,59 @@ public final class Fast {
       }
     }
 
-    public static final int UNIT_FIELD_NUMBER = 7;
+    public static final int UNIT_FIELD_NUMBER = 9;
     /**
-     * <code>.fast.Element.Unit unit = 7;</code>
+     * <code>.fast.Element.Unit unit = 9;</code>
      */
     public fast.Fast.Element.Unit getUnit() {
-      if (extraCase_ == 7) {
+      if (extraCase_ == 9) {
          return (fast.Fast.Element.Unit) extra_;
       }
       return fast.Fast.Element.Unit.getDefaultInstance();
     }
     /**
-     * <code>.fast.Element.Unit unit = 7;</code>
+     * <code>.fast.Element.Unit unit = 9;</code>
      */
     public fast.Fast.Element.UnitOrBuilder getUnitOrBuilder() {
-      if (extraCase_ == 7) {
+      if (extraCase_ == 9) {
          return (fast.Fast.Element.Unit) extra_;
       }
       return fast.Fast.Element.Unit.getDefaultInstance();
     }
 
-    public static final int LITERAL_FIELD_NUMBER = 8;
+    public static final int LITERAL_FIELD_NUMBER = 10;
     /**
-     * <code>.fast.Element.Literal literal = 8;</code>
+     * <code>.fast.Element.Literal literal = 10;</code>
      */
     public fast.Fast.Element.Literal getLiteral() {
-      if (extraCase_ == 8) {
+      if (extraCase_ == 10) {
          return (fast.Fast.Element.Literal) extra_;
       }
       return fast.Fast.Element.Literal.getDefaultInstance();
     }
     /**
-     * <code>.fast.Element.Literal literal = 8;</code>
+     * <code>.fast.Element.Literal literal = 10;</code>
      */
     public fast.Fast.Element.LiteralOrBuilder getLiteralOrBuilder() {
-      if (extraCase_ == 8) {
+      if (extraCase_ == 10) {
          return (fast.Fast.Element.Literal) extra_;
       }
       return fast.Fast.Element.Literal.getDefaultInstance();
     }
 
-    public static final int LINE_FIELD_NUMBER = 9;
+    public static final int LINE_FIELD_NUMBER = 11;
     private int line_;
     /**
-     * <code>int32 line = 9;</code>
+     * <code>int32 line = 11;</code>
      */
     public int getLine() {
       return line_;
     }
 
-    public static final int COLUMN_FIELD_NUMBER = 10;
+    public static final int COLUMN_FIELD_NUMBER = 12;
     private int column_;
     /**
-     * <code>int32 column = 10;</code>
+     * <code>int32 column = 12;</code>
      */
     public int getColumn() {
       return column_;
@@ -8194,35 +9350,41 @@ public final class Fast {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (kind_ != fast.Fast.Element.Kind.UNIT_KIND.getNumber()) {
-        output.writeEnum(1, kind_);
+      if (typeCase_ == 1) {
+        output.writeEnum(1, ((java.lang.Integer) type_));
+      }
+      if (typeCase_ == 2) {
+        output.writeEnum(2, ((java.lang.Integer) type_));
+      }
+      if (typeCase_ == 3) {
+        output.writeEnum(3, ((java.lang.Integer) type_));
       }
       if (!getTextBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, text_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, text_);
       }
       if (pos_ != 0) {
-        output.writeInt32(3, pos_);
+        output.writeInt32(5, pos_);
       }
       if (length_ != 0) {
-        output.writeInt32(4, length_);
+        output.writeInt32(6, length_);
       }
       for (int i = 0; i < child_.size(); i++) {
-        output.writeMessage(5, child_.get(i));
+        output.writeMessage(7, child_.get(i));
       }
       if (!getTailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, tail_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, tail_);
       }
-      if (extraCase_ == 7) {
-        output.writeMessage(7, (fast.Fast.Element.Unit) extra_);
+      if (extraCase_ == 9) {
+        output.writeMessage(9, (fast.Fast.Element.Unit) extra_);
       }
-      if (extraCase_ == 8) {
-        output.writeMessage(8, (fast.Fast.Element.Literal) extra_);
+      if (extraCase_ == 10) {
+        output.writeMessage(10, (fast.Fast.Element.Literal) extra_);
       }
       if (line_ != 0) {
-        output.writeInt32(9, line_);
+        output.writeInt32(11, line_);
       }
       if (column_ != 0) {
-        output.writeInt32(10, column_);
+        output.writeInt32(12, column_);
       }
     }
 
@@ -8231,43 +9393,51 @@ public final class Fast {
       if (size != -1) return size;
 
       size = 0;
-      if (kind_ != fast.Fast.Element.Kind.UNIT_KIND.getNumber()) {
+      if (typeCase_ == 1) {
         size += com.google.protobuf.CodedOutputStream
-          .computeEnumSize(1, kind_);
+          .computeEnumSize(1, ((java.lang.Integer) type_));
+      }
+      if (typeCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, ((java.lang.Integer) type_));
+      }
+      if (typeCase_ == 3) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, ((java.lang.Integer) type_));
       }
       if (!getTextBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, text_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, text_);
       }
       if (pos_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, pos_);
+          .computeInt32Size(5, pos_);
       }
       if (length_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, length_);
+          .computeInt32Size(6, length_);
       }
       for (int i = 0; i < child_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, child_.get(i));
+          .computeMessageSize(7, child_.get(i));
       }
       if (!getTailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, tail_);
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, tail_);
       }
-      if (extraCase_ == 7) {
+      if (extraCase_ == 9) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, (fast.Fast.Element.Unit) extra_);
+          .computeMessageSize(9, (fast.Fast.Element.Unit) extra_);
       }
-      if (extraCase_ == 8) {
+      if (extraCase_ == 10) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, (fast.Fast.Element.Literal) extra_);
+          .computeMessageSize(10, (fast.Fast.Element.Literal) extra_);
       }
       if (line_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(9, line_);
+          .computeInt32Size(11, line_);
       }
       if (column_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(10, column_);
+          .computeInt32Size(12, column_);
       }
       memoizedSize = size;
       return size;
@@ -8285,7 +9455,6 @@ public final class Fast {
       fast.Fast.Element other = (fast.Fast.Element) obj;
 
       boolean result = true;
-      result = result && kind_ == other.kind_;
       result = result && getText()
           .equals(other.getText());
       result = result && (getPos()
@@ -8300,15 +9469,34 @@ public final class Fast {
           == other.getLine());
       result = result && (getColumn()
           == other.getColumn());
+      result = result && getTypeCase().equals(
+          other.getTypeCase());
+      if (!result) return false;
+      switch (typeCase_) {
+        case 1:
+          result = result && getKindValue()
+              == other.getKindValue();
+          break;
+        case 2:
+          result = result && getSmaliKindValue()
+              == other.getSmaliKindValue();
+          break;
+        case 3:
+          result = result && getSmaliCppKindValue()
+              == other.getSmaliCppKindValue();
+          break;
+        case 0:
+        default:
+      }
       result = result && getExtraCase().equals(
           other.getExtraCase());
       if (!result) return false;
       switch (extraCase_) {
-        case 7:
+        case 9:
           result = result && getUnit()
               .equals(other.getUnit());
           break;
-        case 8:
+        case 10:
           result = result && getLiteral()
               .equals(other.getLiteral());
           break;
@@ -8325,8 +9513,6 @@ public final class Fast {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KIND_FIELD_NUMBER;
-      hash = (53 * hash) + kind_;
       hash = (37 * hash) + TEXT_FIELD_NUMBER;
       hash = (53 * hash) + getText().hashCode();
       hash = (37 * hash) + POS_FIELD_NUMBER;
@@ -8343,12 +9529,28 @@ public final class Fast {
       hash = (53 * hash) + getLine();
       hash = (37 * hash) + COLUMN_FIELD_NUMBER;
       hash = (53 * hash) + getColumn();
+      switch (typeCase_) {
+        case 1:
+          hash = (37 * hash) + KIND_FIELD_NUMBER;
+          hash = (53 * hash) + getKindValue();
+          break;
+        case 2:
+          hash = (37 * hash) + SMALI_KIND_FIELD_NUMBER;
+          hash = (53 * hash) + getSmaliKindValue();
+          break;
+        case 3:
+          hash = (37 * hash) + SMALI_CPP_KIND_FIELD_NUMBER;
+          hash = (53 * hash) + getSmaliCppKindValue();
+          break;
+        case 0:
+        default:
+      }
       switch (extraCase_) {
-        case 7:
+        case 9:
           hash = (37 * hash) + UNIT_FIELD_NUMBER;
           hash = (53 * hash) + getUnit().hashCode();
           break;
-        case 8:
+        case 10:
           hash = (37 * hash) + LITERAL_FIELD_NUMBER;
           hash = (53 * hash) + getLiteral().hashCode();
           break;
@@ -8449,6 +9651,10 @@ public final class Fast {
       return builder;
     }
     /**
+     * <pre>
+     * smali generated by ANTLR4-CPP
+     * </pre>
+     *
      * Protobuf type {@code fast.Element}
      */
     public static final class Builder extends
@@ -8485,8 +9691,6 @@ public final class Fast {
       }
       public Builder clear() {
         super.clear();
-        kind_ = 0;
-
         text_ = "";
 
         pos_ = 0;
@@ -8495,7 +9699,7 @@ public final class Fast {
 
         if (childBuilder_ == null) {
           child_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           childBuilder_.clear();
         }
@@ -8505,6 +9709,8 @@ public final class Fast {
 
         column_ = 0;
 
+        typeCase_ = 0;
+        type_ = null;
         extraCase_ = 0;
         extra_ = null;
         return this;
@@ -8531,28 +9737,36 @@ public final class Fast {
         fast.Fast.Element result = new fast.Fast.Element(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
-        result.kind_ = kind_;
+        if (typeCase_ == 1) {
+          result.type_ = type_;
+        }
+        if (typeCase_ == 2) {
+          result.type_ = type_;
+        }
+        if (typeCase_ == 3) {
+          result.type_ = type_;
+        }
         result.text_ = text_;
         result.pos_ = pos_;
         result.length_ = length_;
         if (childBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) == 0x00000010)) {
+          if (((bitField0_ & 0x00000040) == 0x00000040)) {
             child_ = java.util.Collections.unmodifiableList(child_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.child_ = child_;
         } else {
           result.child_ = childBuilder_.build();
         }
         result.tail_ = tail_;
-        if (extraCase_ == 7) {
+        if (extraCase_ == 9) {
           if (unitBuilder_ == null) {
             result.extra_ = extra_;
           } else {
             result.extra_ = unitBuilder_.build();
           }
         }
-        if (extraCase_ == 8) {
+        if (extraCase_ == 10) {
           if (literalBuilder_ == null) {
             result.extra_ = extra_;
           } else {
@@ -8562,6 +9776,7 @@ public final class Fast {
         result.line_ = line_;
         result.column_ = column_;
         result.bitField0_ = to_bitField0_;
+        result.typeCase_ = typeCase_;
         result.extraCase_ = extraCase_;
         onBuilt();
         return result;
@@ -8604,9 +9819,6 @@ public final class Fast {
 
       public Builder mergeFrom(fast.Fast.Element other) {
         if (other == fast.Fast.Element.getDefaultInstance()) return this;
-        if (other.kind_ != 0) {
-          setKindValue(other.getKindValue());
-        }
         if (!other.getText().isEmpty()) {
           text_ = other.text_;
           onChanged();
@@ -8621,7 +9833,7 @@ public final class Fast {
           if (!other.child_.isEmpty()) {
             if (child_.isEmpty()) {
               child_ = other.child_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureChildIsMutable();
               child_.addAll(other.child_);
@@ -8634,7 +9846,7 @@ public final class Fast {
               childBuilder_.dispose();
               childBuilder_ = null;
               child_ = other.child_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000040);
               childBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getChildFieldBuilder() : null;
@@ -8652,6 +9864,23 @@ public final class Fast {
         }
         if (other.getColumn() != 0) {
           setColumn(other.getColumn());
+        }
+        switch (other.getTypeCase()) {
+          case KIND: {
+            setKindValue(other.getKindValue());
+            break;
+          }
+          case SMALI_KIND: {
+            setSmaliKindValue(other.getSmaliKindValue());
+            break;
+          }
+          case SMALI_CPP_KIND: {
+            setSmaliCppKindValue(other.getSmaliCppKindValue());
+            break;
+          }
+          case TYPE_NOT_SET: {
+            break;
+          }
         }
         switch (other.getExtraCase()) {
           case UNIT: {
@@ -8691,6 +9920,21 @@ public final class Fast {
         }
         return this;
       }
+      private int typeCase_ = 0;
+      private java.lang.Object type_;
+      public TypeCase
+          getTypeCase() {
+        return TypeCase.forNumber(
+            typeCase_);
+      }
+
+      public Builder clearType() {
+        typeCase_ = 0;
+        type_ = null;
+        onChanged();
+        return this;
+      }
+
       private int extraCase_ = 0;
       private java.lang.Object extra_;
       public ExtraCase
@@ -8708,53 +9952,188 @@ public final class Fast {
 
       private int bitField0_;
 
-      private int kind_ = 0;
       /**
+       * <pre>
+       * default to srcML
+       * </pre>
+       *
        * <code>.fast.Element.Kind kind = 1;</code>
        */
       public int getKindValue() {
-        return kind_;
+        if (typeCase_ == 1) {
+          return ((java.lang.Integer) type_).intValue();
+        }
+        return 0;
       }
       /**
+       * <pre>
+       * default to srcML
+       * </pre>
+       *
        * <code>.fast.Element.Kind kind = 1;</code>
        */
       public Builder setKindValue(int value) {
-        kind_ = value;
+        typeCase_ = 1;
+        type_ = value;
         onChanged();
         return this;
       }
       /**
+       * <pre>
+       * default to srcML
+       * </pre>
+       *
        * <code>.fast.Element.Kind kind = 1;</code>
        */
       public fast.Fast.Element.Kind getKind() {
-        fast.Fast.Element.Kind result = fast.Fast.Element.Kind.valueOf(kind_);
-        return result == null ? fast.Fast.Element.Kind.UNRECOGNIZED : result;
+        if (typeCase_ == 1) {
+          fast.Fast.Element.Kind result = fast.Fast.Element.Kind.valueOf(
+              (java.lang.Integer) type_);
+          return result == null ? fast.Fast.Element.Kind.UNRECOGNIZED : result;
+        }
+        return fast.Fast.Element.Kind.UNIT_KIND;
       }
       /**
+       * <pre>
+       * default to srcML
+       * </pre>
+       *
        * <code>.fast.Element.Kind kind = 1;</code>
        */
       public Builder setKind(fast.Fast.Element.Kind value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        
-        kind_ = value.getNumber();
+        typeCase_ = 1;
+        type_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
+       * <pre>
+       * default to srcML
+       * </pre>
+       *
        * <code>.fast.Element.Kind kind = 1;</code>
        */
       public Builder clearKind() {
-        
-        kind_ = 0;
+        if (typeCase_ == 1) {
+          typeCase_ = 0;
+          type_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>.fast.SmaliKind smali_kind = 2;</code>
+       */
+      public int getSmaliKindValue() {
+        if (typeCase_ == 2) {
+          return ((java.lang.Integer) type_).intValue();
+        }
+        return 0;
+      }
+      /**
+       * <code>.fast.SmaliKind smali_kind = 2;</code>
+       */
+      public Builder setSmaliKindValue(int value) {
+        typeCase_ = 2;
+        type_ = value;
         onChanged();
+        return this;
+      }
+      /**
+       * <code>.fast.SmaliKind smali_kind = 2;</code>
+       */
+      public fast.Fast.SmaliKind getSmaliKind() {
+        if (typeCase_ == 2) {
+          fast.Fast.SmaliKind result = fast.Fast.SmaliKind.valueOf(
+              (java.lang.Integer) type_);
+          return result == null ? fast.Fast.SmaliKind.UNRECOGNIZED : result;
+        }
+        return fast.Fast.SmaliKind.INVALID;
+      }
+      /**
+       * <code>.fast.SmaliKind smali_kind = 2;</code>
+       */
+      public Builder setSmaliKind(fast.Fast.SmaliKind value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        typeCase_ = 2;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.fast.SmaliKind smali_kind = 2;</code>
+       */
+      public Builder clearSmaliKind() {
+        if (typeCase_ == 2) {
+          typeCase_ = 0;
+          type_ = null;
+          onChanged();
+        }
+        return this;
+      }
+
+      /**
+       * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+       */
+      public int getSmaliCppKindValue() {
+        if (typeCase_ == 3) {
+          return ((java.lang.Integer) type_).intValue();
+        }
+        return 0;
+      }
+      /**
+       * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+       */
+      public Builder setSmaliCppKindValue(int value) {
+        typeCase_ = 3;
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+       */
+      public fast.Fast.SmaliCppKind getSmaliCppKind() {
+        if (typeCase_ == 3) {
+          fast.Fast.SmaliCppKind result = fast.Fast.SmaliCppKind.valueOf(
+              (java.lang.Integer) type_);
+          return result == null ? fast.Fast.SmaliCppKind.UNRECOGNIZED : result;
+        }
+        return fast.Fast.SmaliCppKind.smali_file;
+      }
+      /**
+       * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+       */
+      public Builder setSmaliCppKind(fast.Fast.SmaliCppKind value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        typeCase_ = 3;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.fast.SmaliCppKind smali_cpp_kind = 3;</code>
+       */
+      public Builder clearSmaliCppKind() {
+        if (typeCase_ == 3) {
+          typeCase_ = 0;
+          type_ = null;
+          onChanged();
+        }
         return this;
       }
 
       private java.lang.Object text_ = "";
       /**
-       * <code>string text = 2;</code>
+       * <code>string text = 4;</code>
        */
       public java.lang.String getText() {
         java.lang.Object ref = text_;
@@ -8769,7 +10148,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>string text = 2;</code>
+       * <code>string text = 4;</code>
        */
       public com.google.protobuf.ByteString
           getTextBytes() {
@@ -8785,7 +10164,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>string text = 2;</code>
+       * <code>string text = 4;</code>
        */
       public Builder setText(
           java.lang.String value) {
@@ -8798,7 +10177,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>string text = 2;</code>
+       * <code>string text = 4;</code>
        */
       public Builder clearText() {
         
@@ -8807,7 +10186,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>string text = 2;</code>
+       * <code>string text = 4;</code>
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
@@ -8823,13 +10202,13 @@ public final class Fast {
 
       private int pos_ ;
       /**
-       * <code>int32 pos = 3;</code>
+       * <code>int32 pos = 5;</code>
        */
       public int getPos() {
         return pos_;
       }
       /**
-       * <code>int32 pos = 3;</code>
+       * <code>int32 pos = 5;</code>
        */
       public Builder setPos(int value) {
         
@@ -8838,7 +10217,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>int32 pos = 3;</code>
+       * <code>int32 pos = 5;</code>
        */
       public Builder clearPos() {
         
@@ -8849,13 +10228,13 @@ public final class Fast {
 
       private int length_ ;
       /**
-       * <code>int32 length = 4;</code>
+       * <code>int32 length = 6;</code>
        */
       public int getLength() {
         return length_;
       }
       /**
-       * <code>int32 length = 4;</code>
+       * <code>int32 length = 6;</code>
        */
       public Builder setLength(int value) {
         
@@ -8864,7 +10243,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>int32 length = 4;</code>
+       * <code>int32 length = 6;</code>
        */
       public Builder clearLength() {
         
@@ -8876,9 +10255,9 @@ public final class Fast {
       private java.util.List<fast.Fast.Element> child_ =
         java.util.Collections.emptyList();
       private void ensureChildIsMutable() {
-        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
+        if (!((bitField0_ & 0x00000040) == 0x00000040)) {
           child_ = new java.util.ArrayList<fast.Fast.Element>(child_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -8886,7 +10265,7 @@ public final class Fast {
           fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder> childBuilder_;
 
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public java.util.List<fast.Fast.Element> getChildList() {
         if (childBuilder_ == null) {
@@ -8896,7 +10275,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public int getChildCount() {
         if (childBuilder_ == null) {
@@ -8906,7 +10285,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public fast.Fast.Element getChild(int index) {
         if (childBuilder_ == null) {
@@ -8916,7 +10295,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder setChild(
           int index, fast.Fast.Element value) {
@@ -8933,7 +10312,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder setChild(
           int index, fast.Fast.Element.Builder builderForValue) {
@@ -8947,7 +10326,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder addChild(fast.Fast.Element value) {
         if (childBuilder_ == null) {
@@ -8963,7 +10342,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder addChild(
           int index, fast.Fast.Element value) {
@@ -8980,7 +10359,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder addChild(
           fast.Fast.Element.Builder builderForValue) {
@@ -8994,7 +10373,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder addChild(
           int index, fast.Fast.Element.Builder builderForValue) {
@@ -9008,7 +10387,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder addAllChild(
           java.lang.Iterable<? extends fast.Fast.Element> values) {
@@ -9023,12 +10402,12 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder clearChild() {
         if (childBuilder_ == null) {
           child_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           childBuilder_.clear();
@@ -9036,7 +10415,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public Builder removeChild(int index) {
         if (childBuilder_ == null) {
@@ -9049,14 +10428,14 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public fast.Fast.Element.Builder getChildBuilder(
           int index) {
         return getChildFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public fast.Fast.ElementOrBuilder getChildOrBuilder(
           int index) {
@@ -9066,7 +10445,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public java.util.List<? extends fast.Fast.ElementOrBuilder> 
            getChildOrBuilderList() {
@@ -9077,14 +10456,14 @@ public final class Fast {
         }
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public fast.Fast.Element.Builder addChildBuilder() {
         return getChildFieldBuilder().addBuilder(
             fast.Fast.Element.getDefaultInstance());
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public fast.Fast.Element.Builder addChildBuilder(
           int index) {
@@ -9092,7 +10471,7 @@ public final class Fast {
             index, fast.Fast.Element.getDefaultInstance());
       }
       /**
-       * <code>repeated .fast.Element child = 5;</code>
+       * <code>repeated .fast.Element child = 7;</code>
        */
       public java.util.List<fast.Fast.Element.Builder> 
            getChildBuilderList() {
@@ -9105,7 +10484,7 @@ public final class Fast {
           childBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               fast.Fast.Element, fast.Fast.Element.Builder, fast.Fast.ElementOrBuilder>(
                   child_,
-                  ((bitField0_ & 0x00000010) == 0x00000010),
+                  ((bitField0_ & 0x00000040) == 0x00000040),
                   getParentForChildren(),
                   isClean());
           child_ = null;
@@ -9115,7 +10494,7 @@ public final class Fast {
 
       private java.lang.Object tail_ = "";
       /**
-       * <code>string tail = 6;</code>
+       * <code>string tail = 8;</code>
        */
       public java.lang.String getTail() {
         java.lang.Object ref = tail_;
@@ -9130,7 +10509,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>string tail = 6;</code>
+       * <code>string tail = 8;</code>
        */
       public com.google.protobuf.ByteString
           getTailBytes() {
@@ -9146,7 +10525,7 @@ public final class Fast {
         }
       }
       /**
-       * <code>string tail = 6;</code>
+       * <code>string tail = 8;</code>
        */
       public Builder setTail(
           java.lang.String value) {
@@ -9159,7 +10538,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>string tail = 6;</code>
+       * <code>string tail = 8;</code>
        */
       public Builder clearTail() {
         
@@ -9168,7 +10547,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>string tail = 6;</code>
+       * <code>string tail = 8;</code>
        */
       public Builder setTailBytes(
           com.google.protobuf.ByteString value) {
@@ -9185,23 +10564,23 @@ public final class Fast {
       private com.google.protobuf.SingleFieldBuilderV3<
           fast.Fast.Element.Unit, fast.Fast.Element.Unit.Builder, fast.Fast.Element.UnitOrBuilder> unitBuilder_;
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public fast.Fast.Element.Unit getUnit() {
         if (unitBuilder_ == null) {
-          if (extraCase_ == 7) {
+          if (extraCase_ == 9) {
             return (fast.Fast.Element.Unit) extra_;
           }
           return fast.Fast.Element.Unit.getDefaultInstance();
         } else {
-          if (extraCase_ == 7) {
+          if (extraCase_ == 9) {
             return unitBuilder_.getMessage();
           }
           return fast.Fast.Element.Unit.getDefaultInstance();
         }
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public Builder setUnit(fast.Fast.Element.Unit value) {
         if (unitBuilder_ == null) {
@@ -9213,11 +10592,11 @@ public final class Fast {
         } else {
           unitBuilder_.setMessage(value);
         }
-        extraCase_ = 7;
+        extraCase_ = 9;
         return this;
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public Builder setUnit(
           fast.Fast.Element.Unit.Builder builderForValue) {
@@ -9227,15 +10606,15 @@ public final class Fast {
         } else {
           unitBuilder_.setMessage(builderForValue.build());
         }
-        extraCase_ = 7;
+        extraCase_ = 9;
         return this;
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public Builder mergeUnit(fast.Fast.Element.Unit value) {
         if (unitBuilder_ == null) {
-          if (extraCase_ == 7 &&
+          if (extraCase_ == 9 &&
               extra_ != fast.Fast.Element.Unit.getDefaultInstance()) {
             extra_ = fast.Fast.Element.Unit.newBuilder((fast.Fast.Element.Unit) extra_)
                 .mergeFrom(value).buildPartial();
@@ -9244,26 +10623,26 @@ public final class Fast {
           }
           onChanged();
         } else {
-          if (extraCase_ == 7) {
+          if (extraCase_ == 9) {
             unitBuilder_.mergeFrom(value);
           }
           unitBuilder_.setMessage(value);
         }
-        extraCase_ = 7;
+        extraCase_ = 9;
         return this;
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public Builder clearUnit() {
         if (unitBuilder_ == null) {
-          if (extraCase_ == 7) {
+          if (extraCase_ == 9) {
             extraCase_ = 0;
             extra_ = null;
             onChanged();
           }
         } else {
-          if (extraCase_ == 7) {
+          if (extraCase_ == 9) {
             extraCase_ = 0;
             extra_ = null;
           }
@@ -9272,32 +10651,32 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public fast.Fast.Element.Unit.Builder getUnitBuilder() {
         return getUnitFieldBuilder().getBuilder();
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       public fast.Fast.Element.UnitOrBuilder getUnitOrBuilder() {
-        if ((extraCase_ == 7) && (unitBuilder_ != null)) {
+        if ((extraCase_ == 9) && (unitBuilder_ != null)) {
           return unitBuilder_.getMessageOrBuilder();
         } else {
-          if (extraCase_ == 7) {
+          if (extraCase_ == 9) {
             return (fast.Fast.Element.Unit) extra_;
           }
           return fast.Fast.Element.Unit.getDefaultInstance();
         }
       }
       /**
-       * <code>.fast.Element.Unit unit = 7;</code>
+       * <code>.fast.Element.Unit unit = 9;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           fast.Fast.Element.Unit, fast.Fast.Element.Unit.Builder, fast.Fast.Element.UnitOrBuilder> 
           getUnitFieldBuilder() {
         if (unitBuilder_ == null) {
-          if (!(extraCase_ == 7)) {
+          if (!(extraCase_ == 9)) {
             extra_ = fast.Fast.Element.Unit.getDefaultInstance();
           }
           unitBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -9307,7 +10686,7 @@ public final class Fast {
                   isClean());
           extra_ = null;
         }
-        extraCase_ = 7;
+        extraCase_ = 9;
         onChanged();;
         return unitBuilder_;
       }
@@ -9315,23 +10694,23 @@ public final class Fast {
       private com.google.protobuf.SingleFieldBuilderV3<
           fast.Fast.Element.Literal, fast.Fast.Element.Literal.Builder, fast.Fast.Element.LiteralOrBuilder> literalBuilder_;
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public fast.Fast.Element.Literal getLiteral() {
         if (literalBuilder_ == null) {
-          if (extraCase_ == 8) {
+          if (extraCase_ == 10) {
             return (fast.Fast.Element.Literal) extra_;
           }
           return fast.Fast.Element.Literal.getDefaultInstance();
         } else {
-          if (extraCase_ == 8) {
+          if (extraCase_ == 10) {
             return literalBuilder_.getMessage();
           }
           return fast.Fast.Element.Literal.getDefaultInstance();
         }
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public Builder setLiteral(fast.Fast.Element.Literal value) {
         if (literalBuilder_ == null) {
@@ -9343,11 +10722,11 @@ public final class Fast {
         } else {
           literalBuilder_.setMessage(value);
         }
-        extraCase_ = 8;
+        extraCase_ = 10;
         return this;
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public Builder setLiteral(
           fast.Fast.Element.Literal.Builder builderForValue) {
@@ -9357,15 +10736,15 @@ public final class Fast {
         } else {
           literalBuilder_.setMessage(builderForValue.build());
         }
-        extraCase_ = 8;
+        extraCase_ = 10;
         return this;
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public Builder mergeLiteral(fast.Fast.Element.Literal value) {
         if (literalBuilder_ == null) {
-          if (extraCase_ == 8 &&
+          if (extraCase_ == 10 &&
               extra_ != fast.Fast.Element.Literal.getDefaultInstance()) {
             extra_ = fast.Fast.Element.Literal.newBuilder((fast.Fast.Element.Literal) extra_)
                 .mergeFrom(value).buildPartial();
@@ -9374,26 +10753,26 @@ public final class Fast {
           }
           onChanged();
         } else {
-          if (extraCase_ == 8) {
+          if (extraCase_ == 10) {
             literalBuilder_.mergeFrom(value);
           }
           literalBuilder_.setMessage(value);
         }
-        extraCase_ = 8;
+        extraCase_ = 10;
         return this;
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public Builder clearLiteral() {
         if (literalBuilder_ == null) {
-          if (extraCase_ == 8) {
+          if (extraCase_ == 10) {
             extraCase_ = 0;
             extra_ = null;
             onChanged();
           }
         } else {
-          if (extraCase_ == 8) {
+          if (extraCase_ == 10) {
             extraCase_ = 0;
             extra_ = null;
           }
@@ -9402,32 +10781,32 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public fast.Fast.Element.Literal.Builder getLiteralBuilder() {
         return getLiteralFieldBuilder().getBuilder();
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       public fast.Fast.Element.LiteralOrBuilder getLiteralOrBuilder() {
-        if ((extraCase_ == 8) && (literalBuilder_ != null)) {
+        if ((extraCase_ == 10) && (literalBuilder_ != null)) {
           return literalBuilder_.getMessageOrBuilder();
         } else {
-          if (extraCase_ == 8) {
+          if (extraCase_ == 10) {
             return (fast.Fast.Element.Literal) extra_;
           }
           return fast.Fast.Element.Literal.getDefaultInstance();
         }
       }
       /**
-       * <code>.fast.Element.Literal literal = 8;</code>
+       * <code>.fast.Element.Literal literal = 10;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           fast.Fast.Element.Literal, fast.Fast.Element.Literal.Builder, fast.Fast.Element.LiteralOrBuilder> 
           getLiteralFieldBuilder() {
         if (literalBuilder_ == null) {
-          if (!(extraCase_ == 8)) {
+          if (!(extraCase_ == 10)) {
             extra_ = fast.Fast.Element.Literal.getDefaultInstance();
           }
           literalBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
@@ -9437,20 +10816,20 @@ public final class Fast {
                   isClean());
           extra_ = null;
         }
-        extraCase_ = 8;
+        extraCase_ = 10;
         onChanged();;
         return literalBuilder_;
       }
 
       private int line_ ;
       /**
-       * <code>int32 line = 9;</code>
+       * <code>int32 line = 11;</code>
        */
       public int getLine() {
         return line_;
       }
       /**
-       * <code>int32 line = 9;</code>
+       * <code>int32 line = 11;</code>
        */
       public Builder setLine(int value) {
         
@@ -9459,7 +10838,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>int32 line = 9;</code>
+       * <code>int32 line = 11;</code>
        */
       public Builder clearLine() {
         
@@ -9470,13 +10849,13 @@ public final class Fast {
 
       private int column_ ;
       /**
-       * <code>int32 column = 10;</code>
+       * <code>int32 column = 12;</code>
        */
       public int getColumn() {
         return column_;
       }
       /**
-       * <code>int32 column = 10;</code>
+       * <code>int32 column = 12;</code>
        */
       public Builder setColumn(int value) {
         
@@ -9485,7 +10864,7 @@ public final class Fast {
         return this;
       }
       /**
-       * <code>int32 column = 10;</code>
+       * <code>int32 column = 12;</code>
        */
       public Builder clearColumn() {
         
@@ -34040,381 +35419,443 @@ public final class Fast {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nfast.proto\022\004fast\"\275^\n\007Element\022 \n\004kind\030\001" +
-      " \001(\0162\022.fast.Element.Kind\022\014\n\004text\030\002 \001(\t\022\013" +
-      "\n\003pos\030\003 \001(\005\022\016\n\006length\030\004 \001(\005\022\034\n\005child\030\005 \003" +
-      "(\0132\r.fast.Element\022\014\n\004tail\030\006 \001(\t\022\"\n\004unit\030" +
-      "\007 \001(\0132\022.fast.Element.UnitH\000\022(\n\007literal\030\010" +
-      " \001(\0132\025.fast.Element.LiteralH\000\022\014\n\004line\030\t " +
-      "\001(\005\022\016\n\006column\030\n \001(\005\032\321\001\n\004Unit\022\020\n\010filename" +
-      "\030\001 \001(\t\022\020\n\010revision\030\002 \001(\t\0221\n\010language\030\003 \001" +
-      "(\0162\037.fast.Element.Unit.LanguageType\022\014\n\004i" +
-      "tem\030\004 \001(\005\"d\n\014LanguageType\022\007\n\003ALL\020\000\022\006\n\002OO",
-      "\020\001\022\007\n\003CXX\020\002\022\005\n\001C\020\003\022\014\n\010C_FAMILY\020\004\022\010\n\004JAVA" +
-      "\020\005\022\n\n\006CSHARP\020\006\022\017\n\013OBJECTIVE_C\020\007\032\233\001\n\007Lite" +
-      "ral\022/\n\004type\030\001 \001(\0162!.fast.Element.Literal" +
-      ".LiteralType\"_\n\013LiteralType\022\017\n\013number_ty" +
-      "pe\020\000\022\r\n\tchar_type\020\001\022\017\n\013string_type\020\002\022\020\n\014" +
-      "boolean_type\020\003\022\r\n\tnull_type\020\004\"\2572\n\004Kind\022\r" +
-      "\n\tUNIT_KIND\020\000\022\010\n\004DECL\020\001\022\r\n\tDECL_STMT\020\002\022\010" +
-      "\n\004INIT\020\003\022\010\n\004EXPR\020\004\022\r\n\tEXPR_STMT\020\005\022\013\n\007COM" +
-      "MENT\020\006\022\010\n\004CALL\020\007\022\013\n\007CONTROL\020\010\022\010\n\004INCR\020\t\022" +
-      "\010\n\004NONE\020\n\022\014\n\010VARIABLE\020\013\022\014\n\010FUNCTION\020\014\022\021\n",
-      "\rFUNCTION_DECL\020\r\022\017\n\013CONSTRUCTOR\020\016\022\024\n\020CON" +
-      "STRUCTOR_DECL\020\017\022\016\n\nDESTRUCTOR\020\020\022\023\n\017DESTR" +
-      "UCTOR_DECL\020\021\022\t\n\005MACRO\020\022\022\020\n\014SINGLE_MACRO\020" +
-      "\023\022\020\n\014NULLOPERATOR\020\024\022\r\n\tENUM_DEFN\020\025\022\r\n\tEN" +
-      "UM_DECL\020\026\022\024\n\020GLOBAL_ATTRIBUTE\020\027\022\025\n\021PROPE" +
-      "RTY_ACCESSOR\020\030\022\032\n\026PROPERTY_ACCESSOR_DECL" +
-      "\020\031\022\016\n\nEXPRESSION\020\032\022\016\n\nCLASS_DEFN\020\033\022\016\n\nCL" +
-      "ASS_DECL\020\034\022\016\n\nUNION_DEFN\020\035\022\016\n\nUNION_DECL" +
-      "\020\036\022\017\n\013STRUCT_DEFN\020\037\022\017\n\013STRUCT_DECL\020 \022\022\n\016" +
-      "INTERFACE_DEFN\020!\022\022\n\016INTERFACE_DECL\020\"\022\021\n\r",
-      "ACCESS_REGION\020#\022\t\n\005USING\020$\022\025\n\021OPERATOR_F" +
-      "UNCTION\020%\022\032\n\026OPERATOR_FUNCTION_DECL\020&\022\t\n" +
-      "\005EVENT\020\'\022\014\n\010PROPERTY\020(\022\023\n\017ANNOTATION_DEF" +
-      "N\020)\022\023\n\017GLOBAL_TEMPLATE\020*\022\010\n\004UNIT\020+\022\026\n\022TA" +
-      "RT_ELEMENT_TOKEN\020,\022\007\n\003NOP\020-\022\n\n\006STRING\020.\022" +
-      "\010\n\004CHAR\020/\022\013\n\007LITERAL\0200\022\013\n\007BOOLEAN\0201\022\010\n\004N" +
-      "ULL\0202\022\013\n\007COMPLEX\0203\022\014\n\010OPERATOR\0204\022\014\n\010MODI" +
-      "FIER\0205\022\010\n\004NAME\0206\022\t\n\005ONAME\0207\022\t\n\005CNAME\0208\022\010" +
-      "\n\004TYPE\0209\022\014\n\010TYPEPREV\020:\022\r\n\tCONDITION\020;\022\t\n" +
-      "\005BLOCK\020<\022\020\n\014PSEUDO_BLOCK\020=\022\t\n\005INDEX\020>\022\010\n",
-      "\004ENUM\020?\022\024\n\020ENUM_DECLARATION\020@\022\020\n\014IF_STAT" +
-      "EMENT\020A\022\013\n\007TERNARY\020B\022\010\n\004THEN\020C\022\010\n\004ELSE\020D" +
-      "\022\n\n\006ELSEIF\020E\022\023\n\017WHILE_STATEMENT\020F\022\020\n\014DO_" +
-      "STATEMENT\020G\022\021\n\rFOR_STATEMENT\020H\022\025\n\021FOREAC" +
-      "H_STATEMENT\020I\022\017\n\013FOR_CONTROL\020J\022\026\n\022FOR_IN" +
-      "ITIALIZATION\020K\022\021\n\rFOR_CONDITION\020L\022\021\n\rFOR" +
-      "_INCREMENT\020M\022\024\n\020FOR_LIKE_CONTROL\020N\022\030\n\024EX" +
-      "PRESSION_STATEMENT\020O\022\021\n\rFUNCTION_CALL\020Q\022" +
-      "\031\n\025DECLARATION_STATEMENT\020R\022\017\n\013DECLARATIO" +
-      "N\020S\022\036\n\032DECLARATION_INITIALIZATION\020T\022\025\n\021D",
-      "ECLARATION_RANGE\020U\022\t\n\005RANGE\020V\022\022\n\016GOTO_ST" +
-      "ATEMENT\020W\022\026\n\022CONTINUE_STATEMENT\020X\022\023\n\017BRE" +
-      "AK_STATEMENT\020Y\022\023\n\017LABEL_STATEMENT\020Z\022\t\n\005L" +
-      "ABEL\020[\022\n\n\006SWITCH\020\\\022\010\n\004CASE\020]\022\013\n\007DEFAULT\020" +
-      "^\022\027\n\023FUNCTION_DEFINITION\020_\022\030\n\024FUNCTION_D" +
-      "ECLARATION\020`\022\n\n\006LAMBDA\020a\022\023\n\017FUNCTION_LAM" +
-      "BDA\020b\022\026\n\022FUNCTION_SPECIFIER\020c\022\024\n\020RETURN_" +
-      "STATEMENT\020d\022\022\n\016PARAMETER_LIST\020e\022\r\n\tPARAM" +
-      "ETER\020f\022\024\n\020KRPARAMETER_LIST\020g\022\017\n\013KRPARAME" +
-      "TER\020h\022\021\n\rARGUMENT_LIST\020i\022\014\n\010ARGUMENT\020j\022\031",
-      "\n\025PSEUDO_PARAMETER_LIST\020k\022\032\n\026INDEXER_PAR" +
-      "AMETER_LIST\020l\022\t\n\005CLASS\020m\022\025\n\021CLASS_DECLAR" +
-      "ATION\020n\022\n\n\006STRUCT\020o\022\026\n\022STRUCT_DECLARATIO" +
-      "N\020p\022\t\n\005UNION\020q\022\025\n\021UNION_DECLARATION\020r\022\023\n" +
-      "\017DERIVATION_LIST\020s\022\021\n\rPUBLIC_ACCESS\020t\022\031\n" +
-      "\025PUBLIC_ACCESS_DEFAULT\020u\022\022\n\016PRIVATE_ACCE" +
-      "SS\020v\022\032\n\026PRIVATE_ACCESS_DEFAULT\020w\022\024\n\020PROT" +
-      "ECTED_ACCESS\020x\022\034\n\030PROTECTED_ACCESS_DEFAU" +
-      "LT\020y\022\024\n\020MEMBER_INIT_LIST\020z\022\036\n\032MEMBER_INI" +
-      "TIALIZATION_LIST\020{\022\031\n\025MEMBER_INITIALIZAT",
-      "ION\020|\022\032\n\026CONSTRUCTOR_DEFINITION\020}\022\033\n\027CON" +
-      "STRUCTOR_DECLARATION\020~\022\031\n\025DESTRUCTOR_DEF" +
-      "INITION\020\177\022\033\n\026DESTRUCTOR_DECLARATION\020\200\001\022\013" +
-      "\n\006FRIEND\020\201\001\022\024\n\017CLASS_SPECIFIER\020\202\001\022\016\n\tTRY" +
-      "_BLOCK\020\203\001\022\020\n\013CATCH_BLOCK\020\204\001\022\022\n\rFINALLY_B" +
-      "LOCK\020\205\001\022\024\n\017THROW_STATEMENT\020\206\001\022\024\n\017THROW_S" +
-      "PECIFIER\020\207\001\022\031\n\024THROW_SPECIFIER_JAVA\020\210\001\022\r" +
-      "\n\010TEMPLATE\020\211\001\022\025\n\020GENERIC_ARGUMENT\020\212\001\022\032\n\025" +
-      "GENERIC_ARGUMENT_LIST\020\213\001\022\027\n\022TEMPLATE_PAR" +
-      "AMETER\020\214\001\022\034\n\027TEMPLATE_PARAMETER_LIST\020\215\001\022",
-      "\026\n\021GENERIC_PARAMETER\020\216\001\022\033\n\026GENERIC_PARAM" +
-      "ETER_LIST\020\217\001\022\014\n\007TYPEDEF\020\220\001\022\010\n\003ASM\020\221\001\022\017\n\n" +
-      "MACRO_CALL\020\222\001\022\020\n\013SIZEOF_CALL\020\223\001\022\013\n\006EXTER" +
-      "N\020\224\001\022\016\n\tNAMESPACE\020\225\001\022\024\n\017USING_DIRECTIVE\020" +
-      "\226\001\022\016\n\tDIRECTIVE\020\227\001\022\013\n\006ATOMIC\020\230\001\022\034\n\027STATI" +
-      "C_ASSERT_STATEMENT\020\231\001\022\026\n\021GENERIC_SELECTI" +
-      "ON\020\232\001\022\025\n\020GENERIC_SELECTOR\020\233\001\022\035\n\030GENERIC_" +
-      "ASSOCIATION_LIST\020\234\001\022\030\n\023GENERIC_ASSOCIATI" +
-      "ON\020\235\001\022\014\n\007ALIGNAS\020\236\001\022\r\n\010DECLTYPE\020\237\001\022\014\n\007CA" +
-      "PTURE\020\240\001\022\023\n\016LAMBDA_CAPTURE\020\241\001\022\r\n\010NOEXCEP",
-      "T\020\242\001\022\r\n\010TYPENAME\020\243\001\022\014\n\007ALIGNOF\020\244\001\022\013\n\006TYP" +
-      "EID\020\245\001\022\020\n\013SIZEOF_PACK\020\246\001\022\017\n\nENUM_CLASS\020\247" +
-      "\001\022\033\n\026ENUM_CLASS_DECLARATION\020\250\001\022\022\n\rREF_QU" +
-      "ALIFIER\020\253\001\022\022\n\rSIGNAL_ACCESS\020\254\001\022\026\n\021FOREVE" +
-      "R_STATEMENT\020\255\001\022\023\n\016EMIT_STATEMENT\020\256\001\022\022\n\rC" +
-      "PP_DIRECTIVE\020\257\001\022\021\n\014CPP_FILENAME\020\260\001\022\t\n\004FI" +
-      "LE\020\261\001\022\013\n\006NUMBER\020\262\001\022\017\n\nCPP_NUMBER\020\263\001\022\020\n\013C" +
-      "PP_LITERAL\020\264\001\022\023\n\016CPP_MACRO_DEFN\020\265\001\022\024\n\017CP" +
-      "P_MACRO_VALUE\020\266\001\022\n\n\005ERROR\020\267\001\022\016\n\tCPP_ERRO" +
-      "R\020\270\001\022\020\n\013CPP_WARNING\020\271\001\022\017\n\nCPP_PRAGMA\020\272\001\022",
-      "\020\n\013CPP_INCLUDE\020\273\001\022\017\n\nCPP_DEFINE\020\274\001\022\016\n\tCP" +
-      "P_UNDEF\020\275\001\022\r\n\010CPP_LINE\020\276\001\022\013\n\006CPP_IF\020\277\001\022\016" +
-      "\n\tCPP_IFDEF\020\300\001\022\017\n\nCPP_IFNDEF\020\301\001\022\r\n\010CPP_T" +
-      "HEN\020\302\001\022\r\n\010CPP_ELSE\020\303\001\022\r\n\010CPP_ELIF\020\304\001\022\016\n\t" +
-      "CPP_EMPTY\020\305\001\022\017\n\nCPP_REGION\020\306\001\022\022\n\rCPP_END" +
-      "REGION\020\307\001\022\017\n\nUSING_STMT\020\310\001\022\013\n\006ESCAPE\020\311\001\022" +
-      "\n\n\005VALUE\020\312\001\022\017\n\nCPP_IMPORT\020\313\001\022\016\n\tCPP_ENDI" +
-      "F\020\314\001\022\013\n\006MARKER\020\315\001\022\020\n\013ERROR_PARSE\020\316\001\022\017\n\nE" +
-      "RROR_MODE\020\317\001\022\017\n\nIMPLEMENTS\020\320\001\022\014\n\007EXTENDS" +
-      "\020\321\001\022\013\n\006IMPORT\020\322\001\022\014\n\007PACKAGE\020\323\001\022\025\n\020ASSERT",
-      "_STATEMENT\020\324\001\022\016\n\tINTERFACE\020\325\001\022\032\n\025INTERFA" +
-      "CE_DECLARATION\020\326\001\022\033\n\026SYNCHRONIZED_STATEM" +
-      "ENT\020\327\001\022\017\n\nANNOTATION\020\330\001\022\021\n\014STATIC_BLOCK\020" +
-      "\332\001\022\026\n\021CHECKED_STATEMENT\020\333\001\022\030\n\023UNCHECKED_" +
-      "STATEMENT\020\334\001\022\016\n\tATTRIBUTE\020\335\001\022\013\n\006TARGET\020\336" +
-      "\001\022\025\n\020UNSAFE_STATEMENT\020\337\001\022\023\n\016LOCK_STATEME" +
-      "NT\020\340\001\022\024\n\017FIXED_STATEMENT\020\341\001\022\013\n\006TYPEOF\020\342\001" +
-      "\022\024\n\017USING_STATEMENT\020\343\001\022\026\n\021FUNCTION_DELEG" +
-      "ATE\020\344\001\022\017\n\nCONSTRAINT\020\346\001\022\t\n\004LINQ\020\347\001\022\t\n\004FR" +
-      "OM\020\350\001\022\n\n\005WHERE\020\351\001\022\013\n\006SELECT\020\352\001\022\010\n\003LET\020\353\001",
-      "\022\014\n\007ORDERBY\020\354\001\022\t\n\004JOIN\020\355\001\022\n\n\005GROUP\020\356\001\022\007\n" +
-      "\002IN\020\357\001\022\007\n\002ON\020\360\001\022\013\n\006EQUALS\020\361\001\022\007\n\002BY\020\362\001\022\t\n" +
-      "\004INTO\020\363\001\022\n\n\005EMPTY\020\364\001\022\017\n\nEMPTY_STMT\020\365\001\022\r\n" +
-      "\010RECEIVER\020\366\001\022\014\n\007MESSAGE\020\367\001\022\r\n\010SELECTOR\020\370" +
-      "\001\022\022\n\rPROTOCOL_LIST\020\371\001\022\r\n\010CATEGORY\020\372\001\022\r\n\010" +
-      "PROTOCOL\020\373\001\022\025\n\020REQUIRED_DEFAULT\020\374\001\022\r\n\010RE" +
-      "QUIRED\020\375\001\022\r\n\010OPTIONAL\020\376\001\022\023\n\016ATTRIBUTE_LI" +
-      "ST\020\200\002\022\017\n\nSYNTHESIZE\020\201\002\022\014\n\007DYNAMIC\020\202\002\022\013\n\006" +
-      "ENCODE\020\203\002\022\024\n\017AUTORELEASEPOOL\020\204\002\022\030\n\023COMPA" +
-      "TIBILITY_ALIAS\020\205\002\022\010\n\003NIL\020\206\002\022\024\n\017CLASS_INT",
-      "ERFACE\020\207\002\022\031\n\024CLASS_IMPLEMENTATION\020\210\002\022\031\n\024" +
-      "PROTOCOL_DECLARATION\020\211\002\022\t\n\004CAST\020\212\002\022\017\n\nCO" +
-      "NST_CAST\020\213\002\022\021\n\014DYNAMIC_CAST\020\214\002\022\025\n\020REINTE" +
-      "RPRET_CAST\020\215\002\022\020\n\013STATIC_CAST\020\216\002\022\r\n\010POSIT" +
-      "ION\020\217\002\022\027\n\022CUDA_ARGUMENT_LIST\020\220\002\022\022\n\rOMP_D" +
-      "IRECTIVE\020\221\002\022\r\n\010OMP_NAME\020\222\002\022\017\n\nOMP_CLAUSE" +
-      "\020\223\002\022\026\n\021OMP_ARGUMENT_LIST\020\224\002\022\021\n\014OMP_ARGUM" +
-      "ENT\020\225\002\022\023\n\016OMP_EXPRESSION\020\226\002\022\026\n\021END_ELEME" +
-      "NT_TOKEN\020\227\002\022\t\n\004MAIN\020\230\002\022\n\n\005BREAK\020\231\002\022\r\n\010CO" +
-      "NTINUE\020\232\002\022\n\n\005WHILE\020\233\002\022\007\n\002DO\020\234\002\022\010\n\003FOR\020\235\002",
-      "\022\007\n\002IF\020\236\002\022\t\n\004GOTO\020\245\002\022\023\n\016VISUAL_CXX_ASM\020\247" +
-      "\002\022\013\n\006SIZEOF\020\250\002\022\t\n\004AUTO\020\252\002\022\r\n\010REGISTER\020\253\002" +
-      "\022\r\n\010RESTRICT\020\254\002\022\016\n\tIMAGINARY\020\260\002\022\r\n\010NORET" +
-      "URN\020\261\002\022\022\n\rSTATIC_ASSERT\020\262\002\022\016\n\tCRESTRICT\020" +
-      "\263\002\022\014\n\007CXX_TRY\020\264\002\022\016\n\tCXX_CATCH\020\265\002\022\016\n\tCXX_" +
-      "CLASS\020\266\002\022\016\n\tCONSTEXPR\020\267\002\022\021\n\014THREAD_LOCAL" +
-      "\020\271\002\022\014\n\007NULLPTR\020\272\002\022\t\n\004VOID\020\306\002\022\013\n\006RETURN\020\307" +
-      "\002\022\014\n\007INCLUDE\020\310\002\022\013\n\006DEFINE\020\311\002\022\t\n\004ELIF\020\312\002\022" +
-      "\n\n\005ENDIF\020\313\002\022\016\n\tERRORPREC\020\314\002\022\014\n\007WARNING\020\315" +
-      "\002\022\n\n\005IFDEF\020\316\002\022\013\n\006IFNDEF\020\317\002\022\t\n\004LINE\020\320\002\022\013\n",
-      "\006PRAGMA\020\321\002\022\n\n\005UNDEF\020\322\002\022\013\n\006INLINE\020\323\002\022\024\n\017M" +
-      "ACRO_TYPE_NAME\020\324\002\022\017\n\nMACRO_CASE\020\325\002\022\020\n\013MA" +
-      "CRO_LABEL\020\326\002\022\016\n\tSPECIFIER\020\330\002\022\010\n\003TRY\020\331\002\022\n" +
-      "\n\005CATCH\020\332\002\022\n\n\005THROW\020\333\002\022\013\n\006THROWS\020\334\002\022\013\n\006P" +
-      "UBLIC\020\336\002\022\014\n\007PRIVATE\020\337\002\022\016\n\tPROTECTED\020\340\002\022\014" +
-      "\n\007VIRTUAL\020\341\002\022\r\n\010EXPLICIT\020\344\002\022\014\n\007FOREVER\020\345" +
-      "\002\022\013\n\006SIGNAL\020\346\002\022\t\n\004EMIT\020\347\002\022\010\n\003NEW\020\353\002\022\013\n\006D" +
-      "ELETE\020\354\002\022\013\n\006STATIC\020\355\002\022\n\n\005CONST\020\356\002\022\014\n\007MUT" +
-      "ABLE\020\357\002\022\r\n\010VOLATILE\020\360\002\022\016\n\tTRANSIENT\020\361\002\022\014" +
-      "\n\007FINALLY\020\364\002\022\n\n\005FINAL\020\370\002\022\r\n\010ABSTRACT\020\371\002\022",
-      "\n\n\005SUPER\020\372\002\022\021\n\014SYNCHRONIZED\020\373\002\022\013\n\006NATIVE" +
-      "\020\374\002\022\r\n\010STRICTFP\020\375\002\022\020\n\013NULLLITERAL\020\376\002\022\013\n\006" +
-      "ASSERT\020\377\002\022\014\n\007FOREACH\020\200\003\022\010\n\003REF\020\201\003\022\010\n\003OUT" +
-      "\020\202\003\022\t\n\004LOCK\020\204\003\022\007\n\002IS\020\205\003\022\r\n\010INTERNAL\020\206\003\022\013" +
-      "\n\006SEALED\020\207\003\022\r\n\010OVERRIDE\020\210\003\022\r\n\010IMPLICIT\020\211" +
-      "\003\022\017\n\nSTACKALLOC\020\212\003\022\007\n\002AS\020\213\003\022\r\n\010DELEGATE\020" +
-      "\214\003\022\n\n\005FIXED\020\215\003\022\014\n\007CHECKED\020\216\003\022\016\n\tUNCHECKE" +
-      "D\020\217\003\022\013\n\006REGION\020\220\003\022\016\n\tENDREGION\020\221\003\022\013\n\006UNS" +
-      "AFE\020\222\003\022\r\n\010READONLY\020\223\003\022\010\n\003GET\020\224\003\022\010\n\003SET\020\225" +
-      "\003\022\010\n\003ADD\020\226\003\022\013\n\006REMOVE\020\227\003\022\n\n\005YIELD\020\230\003\022\014\n\007",
-      "PARTIAL\020\231\003\022\n\n\005AWAIT\020\232\003\022\n\n\005ASYNC\020\234\003\022\t\n\004TH" +
-      "IS\020\235\003\022\013\n\006PARAMS\020\236\003\022\n\n\005ALIAS\020\240\003\022\016\n\tASCEND" +
-      "ING\020\246\003\022\017\n\nDESCENDING\020\247\003\022\020\n\013ATINTERFACE\020\256" +
-      "\003\022\025\n\020ATIMPLEMENTATION\020\257\003\022\n\n\005ATEND\020\260\003\022\017\n\n" +
-      "ATPROTOCOL\020\261\003\022\017\n\nATREQUIRED\020\262\003\022\017\n\nATOPTI" +
-      "ONAL\020\263\003\022\014\n\007ATCLASS\020\271\003\022\t\n\004WEAK\020\273\003\022\013\n\006STRO" +
-      "NG\020\274\003\022\014\n\007OMP_OMP\020\300\003\022\022\n\rSPECIAL_CHARS\020\301\003\"" +
-      "\237\'\n\tSmaliKind\022\013\n\007INVALID\020\000\022\007\n\003EOR\020\001\022\010\n\004D" +
-      "OWN\020\002\022\006\n\002UP\020\003\022\017\n\013ACCESS_SPEC\020\004\022\030\n\024ANNOTA" +
-      "TION_DIRECTIVE\020\005\022\031\n\025ANNOTATION_VISIBILIT",
-      "Y\020\006\022\030\n\024ARRAY_DATA_DIRECTIVE\020\007\022\025\n\021ARRAY_T" +
-      "YPE_PREFIX\020\010\022\t\n\005ARROW\020\t\022\020\n\014BOOL_LITERAL\020" +
-      "\n\022\020\n\014BYTE_LITERAL\020\013\022\026\n\022CATCHALL_DIRECTIV" +
-      "E\020\014\022\023\n\017CATCH_DIRECTIVE\020\r\022\020\n\014CHAR_LITERAL" +
-      "\020\016\022\024\n\020CLASS_DESCRIPTOR\020\017\022\023\n\017CLASS_DIRECT" +
-      "IVE\020\020\022\017\n\013CLOSE_BRACE\020\021\022\017\n\013CLOSE_PAREN\020\022\022" +
-      "\t\n\005COLON\020\023\022\t\n\005COMMA\020\024\022\n\n\006DOTDOT\020\025\022\022\n\016DOU" +
-      "BLE_LITERAL\020\026\022\030\n\024DOUBLE_LITERAL_OR_ID\020\027\022" +
-      "\034\n\030END_ANNOTATION_DIRECTIVE\020\030\022\034\n\030END_ARR" +
-      "AY_DATA_DIRECTIVE\020\031\022\027\n\023END_FIELD_DIRECTI",
-      "VE\020\032\022\027\n\023END_LOCAL_DIRECTIVE\020\033\022\030\n\024END_MET" +
-      "HOD_DIRECTIVE\020\034\022\037\n\033END_PACKED_SWITCH_DIR" +
-      "ECTIVE\020\035\022\033\n\027END_PARAMETER_DIRECTIVE\020\036\022\037\n" +
-      "\033END_SPARSE_SWITCH_DIRECTIVE\020\037\022\037\n\033END_SU" +
-      "BANNOTATION_DIRECTIVE\020 \022\022\n\016ENUM_DIRECTIV" +
-      "E\020!\022\026\n\022EPILOGUE_DIRECTIVE\020\"\022\t\n\005EQUAL\020#\022\023" +
-      "\n\017FIELD_DIRECTIVE\020$\022\020\n\014FIELD_OFFSET\020%\022\021\n" +
-      "\rFLOAT_LITERAL\020&\022\027\n\023FLOAT_LITERAL_OR_ID\020" +
-      "\'\022\030\n\024IMPLEMENTS_DIRECTIVE\020(\022\020\n\014INLINE_IN" +
-      "DEX\020)\022\031\n\025INSTRUCTION_FORMAT10t\020*\022\031\n\025INST",
-      "RUCTION_FORMAT10x\020+\022\036\n\032INSTRUCTION_FORMA" +
-      "T10x_ODEX\020,\022\031\n\025INSTRUCTION_FORMAT11n\020-\022\031" +
-      "\n\025INSTRUCTION_FORMAT11x\020.\022\031\n\025INSTRUCTION" +
-      "_FORMAT12x\020/\022\037\n\033INSTRUCTION_FORMAT12x_OR" +
-      "_ID\0200\022\032\n\026INSTRUCTION_FORMAT20bc\0201\022\031\n\025INS" +
-      "TRUCTION_FORMAT20t\0202\022\037\n\033INSTRUCTION_FORM" +
-      "AT21c_FIELD\0203\022$\n INSTRUCTION_FORMAT21c_F" +
-      "IELD_ODEX\0204\022 \n\034INSTRUCTION_FORMAT21c_STR" +
-      "ING\0205\022\036\n\032INSTRUCTION_FORMAT21c_TYPE\0206\022\032\n" +
-      "\026INSTRUCTION_FORMAT21ih\0207\022\032\n\026INSTRUCTION",
-      "_FORMAT21lh\0208\022\031\n\025INSTRUCTION_FORMAT21s\0209" +
-      "\022\031\n\025INSTRUCTION_FORMAT21t\020:\022\031\n\025INSTRUCTI" +
-      "ON_FORMAT22b\020;\022\037\n\033INSTRUCTION_FORMAT22c_" +
-      "FIELD\020<\022$\n INSTRUCTION_FORMAT22c_FIELD_O" +
-      "DEX\020=\022\036\n\032INSTRUCTION_FORMAT22c_TYPE\020>\022 \n" +
-      "\034INSTRUCTION_FORMAT22cs_FIELD\020?\022\031\n\025INSTR" +
-      "UCTION_FORMAT22s\020@\022\037\n\033INSTRUCTION_FORMAT" +
-      "22s_OR_ID\020A\022\031\n\025INSTRUCTION_FORMAT22t\020B\022\031" +
-      "\n\025INSTRUCTION_FORMAT22x\020C\022\031\n\025INSTRUCTION" +
-      "_FORMAT23x\020D\022\031\n\025INSTRUCTION_FORMAT30t\020E\022",
-      "\031\n\025INSTRUCTION_FORMAT31c\020F\022\031\n\025INSTRUCTIO" +
-      "N_FORMAT31i\020G\022\037\n\033INSTRUCTION_FORMAT31i_O" +
-      "R_ID\020H\022\031\n\025INSTRUCTION_FORMAT31t\020I\022\031\n\025INS" +
-      "TRUCTION_FORMAT32x\020J\022 \n\034INSTRUCTION_FORM" +
-      "AT35c_METHOD\020K\022%\n!INSTRUCTION_FORMAT35c_" +
-      "METHOD_ODEX\020L\022\036\n\032INSTRUCTION_FORMAT35c_T" +
-      "YPE\020M\022!\n\035INSTRUCTION_FORMAT35mi_METHOD\020N" +
-      "\022!\n\035INSTRUCTION_FORMAT35ms_METHOD\020O\022 \n\034I" +
-      "NSTRUCTION_FORMAT3rc_METHOD\020P\022%\n!INSTRUC" +
-      "TION_FORMAT3rc_METHOD_ODEX\020Q\022\036\n\032INSTRUCT",
-      "ION_FORMAT3rc_TYPE\020R\022!\n\035INSTRUCTION_FORM" +
-      "AT3rmi_METHOD\020S\022!\n\035INSTRUCTION_FORMAT3rm" +
-      "s_METHOD\020T\022!\n\035INSTRUCTION_FORMAT45cc_MET" +
-      "HOD\020U\022!\n\035INSTRUCTION_FORMAT4rcc_METHOD\020V" +
-      "\022\031\n\025INSTRUCTION_FORMAT51l\020W\022\023\n\017INTEGER_L" +
-      "ITERAL\020X\022\021\n\rINVALID_TOKEN\020Y\022\021\n\rI_ACCESS_" +
-      "LIST\020Z\022\020\n\014I_ANNOTATION\020[\022\021\n\rI_ANNOTATION" +
-      "S\020\\\022\030\n\024I_ANNOTATION_ELEMENT\020]\022\024\n\020I_ARRAY" +
-      "_ELEMENTS\020^\022\030\n\024I_ARRAY_ELEMENT_SIZE\020_\022\013\n" +
-      "\007I_CATCH\020`\022\016\n\nI_CATCHALL\020a\022\r\n\tI_CATCHES\020",
-      "b\022\017\n\013I_CLASS_DEF\020c\022\023\n\017I_ENCODED_ARRAY\020d\022" +
-      "\022\n\016I_ENCODED_ENUM\020e\022\023\n\017I_ENCODED_FIELD\020f" +
-      "\022\024\n\020I_ENCODED_METHOD\020g\022\017\n\013I_END_LOCAL\020h\022" +
-      "\016\n\nI_EPILOGUE\020i\022\013\n\007I_FIELD\020j\022\014\n\010I_FIELDS" +
-      "\020k\022\031\n\025I_FIELD_INITIAL_VALUE\020l\022\020\n\014I_FIELD" +
-      "_TYPE\020m\022\020\n\014I_IMPLEMENTS\020n\022\013\n\007I_LABEL\020o\022\n" +
-      "\n\006I_LINE\020p\022\013\n\007I_LOCAL\020q\022\014\n\010I_LOCALS\020r\022\014\n" +
-      "\010I_METHOD\020s\022\r\n\tI_METHODS\020t\022\026\n\022I_METHOD_P" +
-      "ROTOTYPE\020u\022\030\n\024I_METHOD_RETURN_TYPE\020v\022\032\n\026" +
-      "I_ORDERED_METHOD_ITEMS\020w\022\034\n\030I_PACKED_SWI",
-      "TCH_ELEMENTS\020x\022\035\n\031I_PACKED_SWITCH_START_" +
-      "KEY\020y\022\017\n\013I_PARAMETER\020z\022\020\n\014I_PARAMETERS\020{" +
-      "\022\035\n\031I_PARAMETER_NOT_SPECIFIED\020|\022\016\n\nI_PRO" +
-      "LOGUE\020}\022\017\n\013I_REGISTERS\020~\022\023\n\017I_REGISTER_L" +
-      "IST\020\177\022\025\n\020I_REGISTER_RANGE\020\200\001\022\024\n\017I_RESTAR" +
-      "T_LOCAL\020\201\001\022\r\n\010I_SOURCE\020\202\001\022\035\n\030I_SPARSE_SW" +
-      "ITCH_ELEMENTS\020\203\001\022\033\n\026I_STATEMENT_ARRAY_DA" +
-      "TA\020\204\001\022\032\n\025I_STATEMENT_FORMAT10t\020\205\001\022\032\n\025I_S" +
-      "TATEMENT_FORMAT10x\020\206\001\022\032\n\025I_STATEMENT_FOR" +
-      "MAT11n\020\207\001\022\032\n\025I_STATEMENT_FORMAT11x\020\210\001\022\032\n",
-      "\025I_STATEMENT_FORMAT12x\020\211\001\022\033\n\026I_STATEMENT" +
-      "_FORMAT20bc\020\212\001\022\032\n\025I_STATEMENT_FORMAT20t\020" +
-      "\213\001\022 \n\033I_STATEMENT_FORMAT21c_FIELD\020\214\001\022!\n\034" +
-      "I_STATEMENT_FORMAT21c_STRING\020\215\001\022\037\n\032I_STA" +
-      "TEMENT_FORMAT21c_TYPE\020\216\001\022\033\n\026I_STATEMENT_" +
-      "FORMAT21ih\020\217\001\022\033\n\026I_STATEMENT_FORMAT21lh\020" +
-      "\220\001\022\032\n\025I_STATEMENT_FORMAT21s\020\221\001\022\032\n\025I_STAT" +
-      "EMENT_FORMAT21t\020\222\001\022\032\n\025I_STATEMENT_FORMAT" +
-      "22b\020\223\001\022 \n\033I_STATEMENT_FORMAT22c_FIELD\020\224\001" +
-      "\022\037\n\032I_STATEMENT_FORMAT22c_TYPE\020\225\001\022\032\n\025I_S",
-      "TATEMENT_FORMAT22s\020\226\001\022\032\n\025I_STATEMENT_FOR" +
-      "MAT22t\020\227\001\022\032\n\025I_STATEMENT_FORMAT22x\020\230\001\022\032\n" +
-      "\025I_STATEMENT_FORMAT23x\020\231\001\022\032\n\025I_STATEMENT" +
-      "_FORMAT30t\020\232\001\022\032\n\025I_STATEMENT_FORMAT31c\020\233" +
-      "\001\022\032\n\025I_STATEMENT_FORMAT31i\020\234\001\022\032\n\025I_STATE" +
-      "MENT_FORMAT31t\020\235\001\022\032\n\025I_STATEMENT_FORMAT3" +
-      "2x\020\236\001\022!\n\034I_STATEMENT_FORMAT35c_METHOD\020\237\001" +
-      "\022\037\n\032I_STATEMENT_FORMAT35c_TYPE\020\240\001\022!\n\034I_S" +
-      "TATEMENT_FORMAT3rc_METHOD\020\241\001\022\037\n\032I_STATEM" +
-      "ENT_FORMAT3rc_TYPE\020\242\001\022\"\n\035I_STATEMENT_FOR",
-      "MAT45cc_METHOD\020\243\001\022\"\n\035I_STATEMENT_FORMAT4" +
-      "rcc_METHOD\020\244\001\022\032\n\025I_STATEMENT_FORMAT51l\020\245" +
-      "\001\022\036\n\031I_STATEMENT_PACKED_SWITCH\020\246\001\022\036\n\031I_S" +
-      "TATEMENT_SPARSE_SWITCH\020\247\001\022\024\n\017I_SUBANNOTA" +
-      "TION\020\250\001\022\014\n\007I_SUPER\020\251\001\022\021\n\014LINE_COMMENT\020\252\001" +
-      "\022\023\n\016LINE_DIRECTIVE\020\253\001\022\025\n\020LOCALS_DIRECTIV" +
-      "E\020\254\001\022\024\n\017LOCAL_DIRECTIVE\020\255\001\022\021\n\014LONG_LITER" +
-      "AL\020\256\001\022\020\n\013MEMBER_NAME\020\257\001\022\025\n\020METHOD_DIRECT" +
-      "IVE\020\260\001\022\035\n\030NEGATIVE_INTEGER_LITERAL\020\261\001\022\021\n" +
-      "\014NULL_LITERAL\020\262\001\022\017\n\nOPEN_BRACE\020\263\001\022\017\n\nOPE",
-      "N_PAREN\020\264\001\022\034\n\027PACKED_SWITCH_DIRECTIVE\020\265\001" +
-      "\022\030\n\023PARAMETER_DIRECTIVE\020\266\001\022$\n\037PARAM_LIST" +
-      "_OR_ID_PRIMITIVE_TYPE\020\267\001\022\035\n\030POSITIVE_INT" +
-      "EGER_LITERAL\020\270\001\022\023\n\016PRIMITIVE_TYPE\020\271\001\022\027\n\022" +
-      "PROLOGUE_DIRECTIVE\020\272\001\022\023\n\016SMALI_REGISTER\020" +
-      "\273\001\022\030\n\023REGISTERS_DIRECTIVE\020\274\001\022\034\n\027RESTART_" +
-      "LOCAL_DIRECTIVE\020\275\001\022\022\n\rSHORT_LITERAL\020\276\001\022\020" +
-      "\n\013SIMPLE_NAME\020\277\001\022\025\n\020SOURCE_DIRECTIVE\020\300\001\022" +
-      "\034\n\027SPARSE_SWITCH_DIRECTIVE\020\301\001\022\023\n\016STRING_" +
-      "LITERAL\020\302\001\022\034\n\027SUBANNOTATION_DIRECTIVE\020\303\001",
-      "\022\024\n\017SUPER_DIRECTIVE\020\304\001\022\034\n\027VERIFICATION_E" +
-      "RROR_TYPE\020\305\001\022\016\n\tVOID_TYPE\020\306\001\022\021\n\014VTABLE_I" +
-      "NDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001B\007\n\005extra\"\306\004\n\005D" +
-      "elta\022\013\n\003src\030\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003" +
-      " \003(\0132\020.fast.Delta.Diff\032\202\004\n\004Diff\022(\n\004type\030" +
-      "\001 \001(\0162\032.fast.Delta.Diff.DeltaType\022\'\n\005mat" +
-      "ch\030\002 \001(\0132\026.fast.Delta.Diff.MatchH\000\022#\n\003ad" +
-      "d\030\003 \001(\0132\024.fast.Delta.Diff.AddH\000\022#\n\003del\030\004" +
-      " \001(\0132\024.fast.Delta.Diff.DelH\000\022%\n\004move\030\005 \001" +
-      "(\0132\025.fast.Delta.Diff.MoveH\000\022)\n\006update\030\006 ",
-      "\001(\0132\027.fast.Delta.Diff.UpdateH\000\032!\n\005Match\022" +
-      "\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030" +
-      "\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003" +
-      "Del\022\013\n\003src\030\001 \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n" +
-      "\003dst\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032$\n\006Update\022\013" +
-      "\n\003src\030\001 \001(\005\022\r\n\005label\030\002 \001(\t\">\n\tDeltaType\022" +
-      "\t\n\005MATCH\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n" +
-      "\n\006UPDATE\020\004B\007\n\005delta\"\374\002\n\005Pairs\022\036\n\004pair\030\001 " +
-      "\003(\0132\020.fast.Pairs.Pair\032\322\002\n\004Pair\022\017\n\007projec" +
-      "t\030\001 \001(\t\022#\n\004left\030\002 \001(\0132\025.fast.Pairs.Pair.",
-      "Diff\022$\n\005right\030\003 \001(\0132\025.fast.Pairs.Pair.Di" +
-      "ff\022(\n\004type\030\004 \001(\0162\032.fast.Pairs.Pair.Clone" +
-      "Type\032\232\001\n\004Diff\022\021\n\tleft_line\030\001 \001(\005\022\023\n\013left" +
-      "_column\030\002 \001(\005\022\022\n\nright_line\030\003 \001(\005\022\024\n\014rig" +
-      "ht_column\030\004 \001(\005\022\037\n\010old_code\030\005 \001(\0132\r.fast" +
-      ".Element\022\037\n\010new_code\030\006 \001(\0132\r.fast.Elemen" +
-      "t\"\'\n\tCloneType\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO" +
-      "\020\002\"\362\005\n\003Log\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Co" +
-      "mmit\022 \n\006author\030\002 \003(\0132\020.fast.Log.Author\032\363" +
-      "\004\n\006Commit\022\n\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\ta",
-      "uthor_id\030\003 \001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tc" +
-      "ommitter\030\005 \001(\0132\032.fast.Log.Commit.Committ" +
-      "erH\000\022#\n\004diff\030\006 \003(\0132\025.fast.Log.Commit.Dif" +
-      "f\0326\n\tCommitter\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013" +
-      "commit_date\030\002 \001(\t\032\217\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n" +
-      "\001b\030\002 \001(\t\022\016\n\006is_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001(" +
-      "\t\022\022\n\nindex_from\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022" +
-      "\014\n\004mode\030\007 \001(\t\022(\n\004hunk\030\010 \003(\0132\032.fast.Log.C" +
-      "ommit.Diff.Hunk\032\361\001\n\004Hunk\022\023\n\013from_lineno\030" +
-      "\001 \001(\005\022\023\n\013from_column\030\002 \001(\005\022\021\n\tto_lineno\030",
-      "\003 \001(\005\022\021\n\tto_column\030\004 \001(\005\022\017\n\007context\030\005 \001(" +
-      "\t\022\036\n\007element\030\006 \003(\0132\r.fast.Element\022/\n\003mod" +
-      "\030\007 \003(\0132\".fast.Log.Commit.Diff.Hunk.ModLi" +
-      "ne\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 " +
-      "\001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n" +
-      "\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"" +
-      "\303\007\n\006Slices\022!\n\005slice\030\001 \003(\0132\022.fast.Slices." +
-      "Slice\032\225\007\n\005Slice\022+\n\004file\030\001 \003(\0132\035.fast.Sli" +
-      "ces.Slice.SourceFile\022\014\n\004hash\030\002 \001(\t\032\241\006\n\nS" +
-      "ourceFile\0228\n\010function\030\001 \003(\0132&.fast.Slice",
-      "s.Slice.SourceFile.Function\022\014\n\004name\030\002 \001(" +
-      "\t\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Slice.Chan" +
-      "geType\032\235\005\n\010Function\022A\n\010variable\030\001 \003(\0132/." +
-      "fast.Slices.Slice.SourceFile.Function.Va" +
-      "riable\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fas" +
-      "t.Slices.Slice.ChangeType\032\222\004\n\010Variable\022\014" +
-      "\n\004name\030\001 \001(\t\022E\n\003pos\030\002 \001(\01328.fast.Slices." +
-      "Slice.SourceFile.Function.Variable.Posit" +
-      "ion\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Slice.Ch" +
-      "angeType\022F\n\004defn\030\004 \003(\01328.fast.Slices.Sli",
-      "ce.SourceFile.Function.Variable.Position" +
-      "\022E\n\003use\030\005 \003(\01328.fast.Slices.Slice.Source" +
-      "File.Function.Variable.Position\022\014\n\004dvar\030" +
-      "\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022K\n\005cfunc\030\010 \003(\0132<.fa" +
-      "st.Slices.Slice.SourceFile.Function.Vari" +
-      "able.FunctionDecl\032]\n\010Position\022\016\n\006lineno\030" +
-      "\001 \001(\005\022+\n\004type\030\002 \001(\0162\035.fast.Slices.Slice." +
-      "ChangeType\022\024\n\014delta_lineno\030\005 \001(\005\032,\n\014Func" +
-      "tionDecl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-" +
-      "\n\nChangeType\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003",
-      "DEL\020\002\"\254\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.E" +
-      "lementH\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005de" +
-      "lta\030\003 \001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132" +
-      "\013.fast.PairsH\000\022\036\n\006slices\030\005 \001(\0132\014.fast.Sl" +
-      "icesH\000B\014\n\nRecordTypeb\006proto3"
+      "\n\nfast.proto\022\004fast\"\3727\n\007Element\022\"\n\004kind\030\001" +
+      " \001(\0162\022.fast.Element.KindH\000\022%\n\nsmali_kind" +
+      "\030\002 \001(\0162\017.fast.SmaliKindH\000\022,\n\016smali_cpp_k" +
+      "ind\030\003 \001(\0162\022.fast.SmaliCppKindH\000\022\014\n\004text\030" +
+      "\004 \001(\t\022\013\n\003pos\030\005 \001(\005\022\016\n\006length\030\006 \001(\005\022\034\n\005ch" +
+      "ild\030\007 \003(\0132\r.fast.Element\022\014\n\004tail\030\010 \001(\t\022\"" +
+      "\n\004unit\030\t \001(\0132\022.fast.Element.UnitH\001\022(\n\007li" +
+      "teral\030\n \001(\0132\025.fast.Element.LiteralH\001\022\014\n\004" +
+      "line\030\013 \001(\005\022\016\n\006column\030\014 \001(\005\032\321\001\n\004Unit\022\020\n\010f" +
+      "ilename\030\001 \001(\t\022\020\n\010revision\030\002 \001(\t\0221\n\010langu",
+      "age\030\003 \001(\0162\037.fast.Element.Unit.LanguageTy" +
+      "pe\022\014\n\004item\030\004 \001(\005\"d\n\014LanguageType\022\007\n\003ALL\020" +
+      "\000\022\006\n\002OO\020\001\022\007\n\003CXX\020\002\022\005\n\001C\020\003\022\014\n\010C_FAMILY\020\004\022" +
+      "\010\n\004JAVA\020\005\022\n\n\006CSHARP\020\006\022\017\n\013OBJECTIVE_C\020\007\032\233" +
+      "\001\n\007Literal\022/\n\004type\030\001 \001(\0162!.fast.Element." +
+      "Literal.LiteralType\"_\n\013LiteralType\022\017\n\013nu" +
+      "mber_type\020\000\022\r\n\tchar_type\020\001\022\017\n\013string_typ" +
+      "e\020\002\022\020\n\014boolean_type\020\003\022\r\n\tnull_type\020\004\"\2572\n" +
+      "\004Kind\022\r\n\tUNIT_KIND\020\000\022\010\n\004DECL\020\001\022\r\n\tDECL_S" +
+      "TMT\020\002\022\010\n\004INIT\020\003\022\010\n\004EXPR\020\004\022\r\n\tEXPR_STMT\020\005",
+      "\022\013\n\007COMMENT\020\006\022\010\n\004CALL\020\007\022\013\n\007CONTROL\020\010\022\010\n\004" +
+      "INCR\020\t\022\010\n\004NONE\020\n\022\014\n\010VARIABLE\020\013\022\014\n\010FUNCTI" +
+      "ON\020\014\022\021\n\rFUNCTION_DECL\020\r\022\017\n\013CONSTRUCTOR\020\016" +
+      "\022\024\n\020CONSTRUCTOR_DECL\020\017\022\016\n\nDESTRUCTOR\020\020\022\023" +
+      "\n\017DESTRUCTOR_DECL\020\021\022\t\n\005MACRO\020\022\022\020\n\014SINGLE" +
+      "_MACRO\020\023\022\020\n\014NULLOPERATOR\020\024\022\r\n\tENUM_DEFN\020" +
+      "\025\022\r\n\tENUM_DECL\020\026\022\024\n\020GLOBAL_ATTRIBUTE\020\027\022\025" +
+      "\n\021PROPERTY_ACCESSOR\020\030\022\032\n\026PROPERTY_ACCESS" +
+      "OR_DECL\020\031\022\016\n\nEXPRESSION\020\032\022\016\n\nCLASS_DEFN\020" +
+      "\033\022\016\n\nCLASS_DECL\020\034\022\016\n\nUNION_DEFN\020\035\022\016\n\nUNI",
+      "ON_DECL\020\036\022\017\n\013STRUCT_DEFN\020\037\022\017\n\013STRUCT_DEC" +
+      "L\020 \022\022\n\016INTERFACE_DEFN\020!\022\022\n\016INTERFACE_DEC" +
+      "L\020\"\022\021\n\rACCESS_REGION\020#\022\t\n\005USING\020$\022\025\n\021OPE" +
+      "RATOR_FUNCTION\020%\022\032\n\026OPERATOR_FUNCTION_DE" +
+      "CL\020&\022\t\n\005EVENT\020\'\022\014\n\010PROPERTY\020(\022\023\n\017ANNOTAT" +
+      "ION_DEFN\020)\022\023\n\017GLOBAL_TEMPLATE\020*\022\010\n\004UNIT\020" +
+      "+\022\026\n\022TART_ELEMENT_TOKEN\020,\022\007\n\003NOP\020-\022\n\n\006ST" +
+      "RING\020.\022\010\n\004CHAR\020/\022\013\n\007LITERAL\0200\022\013\n\007BOOLEAN" +
+      "\0201\022\010\n\004NULL\0202\022\013\n\007COMPLEX\0203\022\014\n\010OPERATOR\0204\022" +
+      "\014\n\010MODIFIER\0205\022\010\n\004NAME\0206\022\t\n\005ONAME\0207\022\t\n\005CN",
+      "AME\0208\022\010\n\004TYPE\0209\022\014\n\010TYPEPREV\020:\022\r\n\tCONDITI" +
+      "ON\020;\022\t\n\005BLOCK\020<\022\020\n\014PSEUDO_BLOCK\020=\022\t\n\005IND" +
+      "EX\020>\022\010\n\004ENUM\020?\022\024\n\020ENUM_DECLARATION\020@\022\020\n\014" +
+      "IF_STATEMENT\020A\022\013\n\007TERNARY\020B\022\010\n\004THEN\020C\022\010\n" +
+      "\004ELSE\020D\022\n\n\006ELSEIF\020E\022\023\n\017WHILE_STATEMENT\020F" +
+      "\022\020\n\014DO_STATEMENT\020G\022\021\n\rFOR_STATEMENT\020H\022\025\n" +
+      "\021FOREACH_STATEMENT\020I\022\017\n\013FOR_CONTROL\020J\022\026\n" +
+      "\022FOR_INITIALIZATION\020K\022\021\n\rFOR_CONDITION\020L" +
+      "\022\021\n\rFOR_INCREMENT\020M\022\024\n\020FOR_LIKE_CONTROL\020" +
+      "N\022\030\n\024EXPRESSION_STATEMENT\020O\022\021\n\rFUNCTION_",
+      "CALL\020Q\022\031\n\025DECLARATION_STATEMENT\020R\022\017\n\013DEC" +
+      "LARATION\020S\022\036\n\032DECLARATION_INITIALIZATION" +
+      "\020T\022\025\n\021DECLARATION_RANGE\020U\022\t\n\005RANGE\020V\022\022\n\016" +
+      "GOTO_STATEMENT\020W\022\026\n\022CONTINUE_STATEMENT\020X" +
+      "\022\023\n\017BREAK_STATEMENT\020Y\022\023\n\017LABEL_STATEMENT" +
+      "\020Z\022\t\n\005LABEL\020[\022\n\n\006SWITCH\020\\\022\010\n\004CASE\020]\022\013\n\007D" +
+      "EFAULT\020^\022\027\n\023FUNCTION_DEFINITION\020_\022\030\n\024FUN" +
+      "CTION_DECLARATION\020`\022\n\n\006LAMBDA\020a\022\023\n\017FUNCT" +
+      "ION_LAMBDA\020b\022\026\n\022FUNCTION_SPECIFIER\020c\022\024\n\020" +
+      "RETURN_STATEMENT\020d\022\022\n\016PARAMETER_LIST\020e\022\r",
+      "\n\tPARAMETER\020f\022\024\n\020KRPARAMETER_LIST\020g\022\017\n\013K" +
+      "RPARAMETER\020h\022\021\n\rARGUMENT_LIST\020i\022\014\n\010ARGUM" +
+      "ENT\020j\022\031\n\025PSEUDO_PARAMETER_LIST\020k\022\032\n\026INDE" +
+      "XER_PARAMETER_LIST\020l\022\t\n\005CLASS\020m\022\025\n\021CLASS" +
+      "_DECLARATION\020n\022\n\n\006STRUCT\020o\022\026\n\022STRUCT_DEC" +
+      "LARATION\020p\022\t\n\005UNION\020q\022\025\n\021UNION_DECLARATI" +
+      "ON\020r\022\023\n\017DERIVATION_LIST\020s\022\021\n\rPUBLIC_ACCE" +
+      "SS\020t\022\031\n\025PUBLIC_ACCESS_DEFAULT\020u\022\022\n\016PRIVA" +
+      "TE_ACCESS\020v\022\032\n\026PRIVATE_ACCESS_DEFAULT\020w\022" +
+      "\024\n\020PROTECTED_ACCESS\020x\022\034\n\030PROTECTED_ACCES",
+      "S_DEFAULT\020y\022\024\n\020MEMBER_INIT_LIST\020z\022\036\n\032MEM" +
+      "BER_INITIALIZATION_LIST\020{\022\031\n\025MEMBER_INIT" +
+      "IALIZATION\020|\022\032\n\026CONSTRUCTOR_DEFINITION\020}" +
+      "\022\033\n\027CONSTRUCTOR_DECLARATION\020~\022\031\n\025DESTRUC" +
+      "TOR_DEFINITION\020\177\022\033\n\026DESTRUCTOR_DECLARATI" +
+      "ON\020\200\001\022\013\n\006FRIEND\020\201\001\022\024\n\017CLASS_SPECIFIER\020\202\001" +
+      "\022\016\n\tTRY_BLOCK\020\203\001\022\020\n\013CATCH_BLOCK\020\204\001\022\022\n\rFI" +
+      "NALLY_BLOCK\020\205\001\022\024\n\017THROW_STATEMENT\020\206\001\022\024\n\017" +
+      "THROW_SPECIFIER\020\207\001\022\031\n\024THROW_SPECIFIER_JA" +
+      "VA\020\210\001\022\r\n\010TEMPLATE\020\211\001\022\025\n\020GENERIC_ARGUMENT",
+      "\020\212\001\022\032\n\025GENERIC_ARGUMENT_LIST\020\213\001\022\027\n\022TEMPL" +
+      "ATE_PARAMETER\020\214\001\022\034\n\027TEMPLATE_PARAMETER_L" +
+      "IST\020\215\001\022\026\n\021GENERIC_PARAMETER\020\216\001\022\033\n\026GENERI" +
+      "C_PARAMETER_LIST\020\217\001\022\014\n\007TYPEDEF\020\220\001\022\010\n\003ASM" +
+      "\020\221\001\022\017\n\nMACRO_CALL\020\222\001\022\020\n\013SIZEOF_CALL\020\223\001\022\013" +
+      "\n\006EXTERN\020\224\001\022\016\n\tNAMESPACE\020\225\001\022\024\n\017USING_DIR" +
+      "ECTIVE\020\226\001\022\016\n\tDIRECTIVE\020\227\001\022\013\n\006ATOMIC\020\230\001\022\034" +
+      "\n\027STATIC_ASSERT_STATEMENT\020\231\001\022\026\n\021GENERIC_" +
+      "SELECTION\020\232\001\022\025\n\020GENERIC_SELECTOR\020\233\001\022\035\n\030G" +
+      "ENERIC_ASSOCIATION_LIST\020\234\001\022\030\n\023GENERIC_AS",
+      "SOCIATION\020\235\001\022\014\n\007ALIGNAS\020\236\001\022\r\n\010DECLTYPE\020\237" +
+      "\001\022\014\n\007CAPTURE\020\240\001\022\023\n\016LAMBDA_CAPTURE\020\241\001\022\r\n\010" +
+      "NOEXCEPT\020\242\001\022\r\n\010TYPENAME\020\243\001\022\014\n\007ALIGNOF\020\244\001" +
+      "\022\013\n\006TYPEID\020\245\001\022\020\n\013SIZEOF_PACK\020\246\001\022\017\n\nENUM_" +
+      "CLASS\020\247\001\022\033\n\026ENUM_CLASS_DECLARATION\020\250\001\022\022\n" +
+      "\rREF_QUALIFIER\020\253\001\022\022\n\rSIGNAL_ACCESS\020\254\001\022\026\n" +
+      "\021FOREVER_STATEMENT\020\255\001\022\023\n\016EMIT_STATEMENT\020" +
+      "\256\001\022\022\n\rCPP_DIRECTIVE\020\257\001\022\021\n\014CPP_FILENAME\020\260" +
+      "\001\022\t\n\004FILE\020\261\001\022\013\n\006NUMBER\020\262\001\022\017\n\nCPP_NUMBER\020" +
+      "\263\001\022\020\n\013CPP_LITERAL\020\264\001\022\023\n\016CPP_MACRO_DEFN\020\265",
+      "\001\022\024\n\017CPP_MACRO_VALUE\020\266\001\022\n\n\005ERROR\020\267\001\022\016\n\tC" +
+      "PP_ERROR\020\270\001\022\020\n\013CPP_WARNING\020\271\001\022\017\n\nCPP_PRA" +
+      "GMA\020\272\001\022\020\n\013CPP_INCLUDE\020\273\001\022\017\n\nCPP_DEFINE\020\274" +
+      "\001\022\016\n\tCPP_UNDEF\020\275\001\022\r\n\010CPP_LINE\020\276\001\022\013\n\006CPP_" +
+      "IF\020\277\001\022\016\n\tCPP_IFDEF\020\300\001\022\017\n\nCPP_IFNDEF\020\301\001\022\r" +
+      "\n\010CPP_THEN\020\302\001\022\r\n\010CPP_ELSE\020\303\001\022\r\n\010CPP_ELIF" +
+      "\020\304\001\022\016\n\tCPP_EMPTY\020\305\001\022\017\n\nCPP_REGION\020\306\001\022\022\n\r" +
+      "CPP_ENDREGION\020\307\001\022\017\n\nUSING_STMT\020\310\001\022\013\n\006ESC" +
+      "APE\020\311\001\022\n\n\005VALUE\020\312\001\022\017\n\nCPP_IMPORT\020\313\001\022\016\n\tC" +
+      "PP_ENDIF\020\314\001\022\013\n\006MARKER\020\315\001\022\020\n\013ERROR_PARSE\020",
+      "\316\001\022\017\n\nERROR_MODE\020\317\001\022\017\n\nIMPLEMENTS\020\320\001\022\014\n\007" +
+      "EXTENDS\020\321\001\022\013\n\006IMPORT\020\322\001\022\014\n\007PACKAGE\020\323\001\022\025\n" +
+      "\020ASSERT_STATEMENT\020\324\001\022\016\n\tINTERFACE\020\325\001\022\032\n\025" +
+      "INTERFACE_DECLARATION\020\326\001\022\033\n\026SYNCHRONIZED" +
+      "_STATEMENT\020\327\001\022\017\n\nANNOTATION\020\330\001\022\021\n\014STATIC" +
+      "_BLOCK\020\332\001\022\026\n\021CHECKED_STATEMENT\020\333\001\022\030\n\023UNC" +
+      "HECKED_STATEMENT\020\334\001\022\016\n\tATTRIBUTE\020\335\001\022\013\n\006T" +
+      "ARGET\020\336\001\022\025\n\020UNSAFE_STATEMENT\020\337\001\022\023\n\016LOCK_" +
+      "STATEMENT\020\340\001\022\024\n\017FIXED_STATEMENT\020\341\001\022\013\n\006TY" +
+      "PEOF\020\342\001\022\024\n\017USING_STATEMENT\020\343\001\022\026\n\021FUNCTIO",
+      "N_DELEGATE\020\344\001\022\017\n\nCONSTRAINT\020\346\001\022\t\n\004LINQ\020\347" +
+      "\001\022\t\n\004FROM\020\350\001\022\n\n\005WHERE\020\351\001\022\013\n\006SELECT\020\352\001\022\010\n" +
+      "\003LET\020\353\001\022\014\n\007ORDERBY\020\354\001\022\t\n\004JOIN\020\355\001\022\n\n\005GROU" +
+      "P\020\356\001\022\007\n\002IN\020\357\001\022\007\n\002ON\020\360\001\022\013\n\006EQUALS\020\361\001\022\007\n\002B" +
+      "Y\020\362\001\022\t\n\004INTO\020\363\001\022\n\n\005EMPTY\020\364\001\022\017\n\nEMPTY_STM" +
+      "T\020\365\001\022\r\n\010RECEIVER\020\366\001\022\014\n\007MESSAGE\020\367\001\022\r\n\010SEL" +
+      "ECTOR\020\370\001\022\022\n\rPROTOCOL_LIST\020\371\001\022\r\n\010CATEGORY" +
+      "\020\372\001\022\r\n\010PROTOCOL\020\373\001\022\025\n\020REQUIRED_DEFAULT\020\374" +
+      "\001\022\r\n\010REQUIRED\020\375\001\022\r\n\010OPTIONAL\020\376\001\022\023\n\016ATTRI" +
+      "BUTE_LIST\020\200\002\022\017\n\nSYNTHESIZE\020\201\002\022\014\n\007DYNAMIC",
+      "\020\202\002\022\013\n\006ENCODE\020\203\002\022\024\n\017AUTORELEASEPOOL\020\204\002\022\030" +
+      "\n\023COMPATIBILITY_ALIAS\020\205\002\022\010\n\003NIL\020\206\002\022\024\n\017CL" +
+      "ASS_INTERFACE\020\207\002\022\031\n\024CLASS_IMPLEMENTATION" +
+      "\020\210\002\022\031\n\024PROTOCOL_DECLARATION\020\211\002\022\t\n\004CAST\020\212" +
+      "\002\022\017\n\nCONST_CAST\020\213\002\022\021\n\014DYNAMIC_CAST\020\214\002\022\025\n" +
+      "\020REINTERPRET_CAST\020\215\002\022\020\n\013STATIC_CAST\020\216\002\022\r" +
+      "\n\010POSITION\020\217\002\022\027\n\022CUDA_ARGUMENT_LIST\020\220\002\022\022" +
+      "\n\rOMP_DIRECTIVE\020\221\002\022\r\n\010OMP_NAME\020\222\002\022\017\n\nOMP" +
+      "_CLAUSE\020\223\002\022\026\n\021OMP_ARGUMENT_LIST\020\224\002\022\021\n\014OM" +
+      "P_ARGUMENT\020\225\002\022\023\n\016OMP_EXPRESSION\020\226\002\022\026\n\021EN",
+      "D_ELEMENT_TOKEN\020\227\002\022\t\n\004MAIN\020\230\002\022\n\n\005BREAK\020\231" +
+      "\002\022\r\n\010CONTINUE\020\232\002\022\n\n\005WHILE\020\233\002\022\007\n\002DO\020\234\002\022\010\n" +
+      "\003FOR\020\235\002\022\007\n\002IF\020\236\002\022\t\n\004GOTO\020\245\002\022\023\n\016VISUAL_CX" +
+      "X_ASM\020\247\002\022\013\n\006SIZEOF\020\250\002\022\t\n\004AUTO\020\252\002\022\r\n\010REGI" +
+      "STER\020\253\002\022\r\n\010RESTRICT\020\254\002\022\016\n\tIMAGINARY\020\260\002\022\r" +
+      "\n\010NORETURN\020\261\002\022\022\n\rSTATIC_ASSERT\020\262\002\022\016\n\tCRE" +
+      "STRICT\020\263\002\022\014\n\007CXX_TRY\020\264\002\022\016\n\tCXX_CATCH\020\265\002\022" +
+      "\016\n\tCXX_CLASS\020\266\002\022\016\n\tCONSTEXPR\020\267\002\022\021\n\014THREA" +
+      "D_LOCAL\020\271\002\022\014\n\007NULLPTR\020\272\002\022\t\n\004VOID\020\306\002\022\013\n\006R" +
+      "ETURN\020\307\002\022\014\n\007INCLUDE\020\310\002\022\013\n\006DEFINE\020\311\002\022\t\n\004E",
+      "LIF\020\312\002\022\n\n\005ENDIF\020\313\002\022\016\n\tERRORPREC\020\314\002\022\014\n\007WA" +
+      "RNING\020\315\002\022\n\n\005IFDEF\020\316\002\022\013\n\006IFNDEF\020\317\002\022\t\n\004LIN" +
+      "E\020\320\002\022\013\n\006PRAGMA\020\321\002\022\n\n\005UNDEF\020\322\002\022\013\n\006INLINE\020" +
+      "\323\002\022\024\n\017MACRO_TYPE_NAME\020\324\002\022\017\n\nMACRO_CASE\020\325" +
+      "\002\022\020\n\013MACRO_LABEL\020\326\002\022\016\n\tSPECIFIER\020\330\002\022\010\n\003T" +
+      "RY\020\331\002\022\n\n\005CATCH\020\332\002\022\n\n\005THROW\020\333\002\022\013\n\006THROWS\020" +
+      "\334\002\022\013\n\006PUBLIC\020\336\002\022\014\n\007PRIVATE\020\337\002\022\016\n\tPROTECT" +
+      "ED\020\340\002\022\014\n\007VIRTUAL\020\341\002\022\r\n\010EXPLICIT\020\344\002\022\014\n\007FO" +
+      "REVER\020\345\002\022\013\n\006SIGNAL\020\346\002\022\t\n\004EMIT\020\347\002\022\010\n\003NEW\020" +
+      "\353\002\022\013\n\006DELETE\020\354\002\022\013\n\006STATIC\020\355\002\022\n\n\005CONST\020\356\002",
+      "\022\014\n\007MUTABLE\020\357\002\022\r\n\010VOLATILE\020\360\002\022\016\n\tTRANSIE" +
+      "NT\020\361\002\022\014\n\007FINALLY\020\364\002\022\n\n\005FINAL\020\370\002\022\r\n\010ABSTR" +
+      "ACT\020\371\002\022\n\n\005SUPER\020\372\002\022\021\n\014SYNCHRONIZED\020\373\002\022\013\n" +
+      "\006NATIVE\020\374\002\022\r\n\010STRICTFP\020\375\002\022\020\n\013NULLLITERAL" +
+      "\020\376\002\022\013\n\006ASSERT\020\377\002\022\014\n\007FOREACH\020\200\003\022\010\n\003REF\020\201\003" +
+      "\022\010\n\003OUT\020\202\003\022\t\n\004LOCK\020\204\003\022\007\n\002IS\020\205\003\022\r\n\010INTERN" +
+      "AL\020\206\003\022\013\n\006SEALED\020\207\003\022\r\n\010OVERRIDE\020\210\003\022\r\n\010IMP" +
+      "LICIT\020\211\003\022\017\n\nSTACKALLOC\020\212\003\022\007\n\002AS\020\213\003\022\r\n\010DE" +
+      "LEGATE\020\214\003\022\n\n\005FIXED\020\215\003\022\014\n\007CHECKED\020\216\003\022\016\n\tU" +
+      "NCHECKED\020\217\003\022\013\n\006REGION\020\220\003\022\016\n\tENDREGION\020\221\003",
+      "\022\013\n\006UNSAFE\020\222\003\022\r\n\010READONLY\020\223\003\022\010\n\003GET\020\224\003\022\010" +
+      "\n\003SET\020\225\003\022\010\n\003ADD\020\226\003\022\013\n\006REMOVE\020\227\003\022\n\n\005YIELD" +
+      "\020\230\003\022\014\n\007PARTIAL\020\231\003\022\n\n\005AWAIT\020\232\003\022\n\n\005ASYNC\020\234" +
+      "\003\022\t\n\004THIS\020\235\003\022\013\n\006PARAMS\020\236\003\022\n\n\005ALIAS\020\240\003\022\016\n" +
+      "\tASCENDING\020\246\003\022\017\n\nDESCENDING\020\247\003\022\020\n\013ATINTE" +
+      "RFACE\020\256\003\022\025\n\020ATIMPLEMENTATION\020\257\003\022\n\n\005ATEND" +
+      "\020\260\003\022\017\n\nATPROTOCOL\020\261\003\022\017\n\nATREQUIRED\020\262\003\022\017\n" +
+      "\nATOPTIONAL\020\263\003\022\014\n\007ATCLASS\020\271\003\022\t\n\004WEAK\020\273\003\022" +
+      "\013\n\006STRONG\020\274\003\022\014\n\007OMP_OMP\020\300\003\022\022\n\rSPECIAL_CH" +
+      "ARS\020\301\003B\006\n\004typeB\007\n\005extra\"\306\004\n\005Delta\022\013\n\003src",
+      "\030\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003 \003(\0132\020.fast" +
+      ".Delta.Diff\032\202\004\n\004Diff\022(\n\004type\030\001 \001(\0162\032.fas" +
+      "t.Delta.Diff.DeltaType\022\'\n\005match\030\002 \001(\0132\026." +
+      "fast.Delta.Diff.MatchH\000\022#\n\003add\030\003 \001(\0132\024.f" +
+      "ast.Delta.Diff.AddH\000\022#\n\003del\030\004 \001(\0132\024.fast" +
+      ".Delta.Diff.DelH\000\022%\n\004move\030\005 \001(\0132\025.fast.D" +
+      "elta.Diff.MoveH\000\022)\n\006update\030\006 \001(\0132\027.fast." +
+      "Delta.Diff.UpdateH\000\032!\n\005Match\022\013\n\003src\030\001 \001(" +
+      "\005\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030\001 \001(\005\022\013\n\003ds" +
+      "t\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003Del\022\013\n\003src\030",
+      "\001 \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022" +
+      "\020\n\010position\030\003 \001(\005\032$\n\006Update\022\013\n\003src\030\001 \001(\005" +
+      "\022\r\n\005label\030\002 \001(\t\">\n\tDeltaType\022\t\n\005MATCH\020\000\022" +
+      "\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n\n\006UPDATE\020\004B" +
+      "\007\n\005delta\"\374\002\n\005Pairs\022\036\n\004pair\030\001 \003(\0132\020.fast." +
+      "Pairs.Pair\032\322\002\n\004Pair\022\017\n\007project\030\001 \001(\t\022#\n\004" +
+      "left\030\002 \001(\0132\025.fast.Pairs.Pair.Diff\022$\n\005rig" +
+      "ht\030\003 \001(\0132\025.fast.Pairs.Pair.Diff\022(\n\004type\030" +
+      "\004 \001(\0162\032.fast.Pairs.Pair.CloneType\032\232\001\n\004Di" +
+      "ff\022\021\n\tleft_line\030\001 \001(\005\022\023\n\013left_column\030\002 \001",
+      "(\005\022\022\n\nright_line\030\003 \001(\005\022\024\n\014right_column\030\004" +
+      " \001(\005\022\037\n\010old_code\030\005 \001(\0132\r.fast.Element\022\037\n" +
+      "\010new_code\030\006 \001(\0132\r.fast.Element\"\'\n\tCloneT" +
+      "ype\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020\002\"\362\005\n\003Log\022" +
+      " \n\006commit\030\001 \003(\0132\020.fast.Log.Commit\022 \n\006aut" +
+      "hor\030\002 \003(\0132\020.fast.Log.Author\032\363\004\n\006Commit\022\n" +
+      "\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\tauthor_id\030\003 " +
+      "\001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tcommitter\030\005 " +
+      "\001(\0132\032.fast.Log.Commit.CommitterH\000\022#\n\004dif" +
+      "f\030\006 \003(\0132\025.fast.Log.Commit.Diff\0326\n\tCommit",
+      "ter\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013commit_date" +
+      "\030\002 \001(\t\032\217\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n\001b\030\002 \001(\t\022\016\n" +
+      "\006is_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001(\t\022\022\n\nindex_" +
+      "from\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022\014\n\004mode\030\007 \001" +
+      "(\t\022(\n\004hunk\030\010 \003(\0132\032.fast.Log.Commit.Diff." +
+      "Hunk\032\361\001\n\004Hunk\022\023\n\013from_lineno\030\001 \001(\005\022\023\n\013fr" +
+      "om_column\030\002 \001(\005\022\021\n\tto_lineno\030\003 \001(\005\022\021\n\tto" +
+      "_column\030\004 \001(\005\022\017\n\007context\030\005 \001(\t\022\036\n\007elemen" +
+      "t\030\006 \003(\0132\r.fast.Element\022/\n\003mod\030\007 \003(\0132\".fa" +
+      "st.Log.Commit.Diff.Hunk.ModLine\0327\n\007ModLi",
+      "ne\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 \001(\010\022\016\n\006is_d" +
+      "el\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n\n\002id\030\001 \001(\005\022" +
+      "\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"\303\007\n\006Slices\022" +
+      "!\n\005slice\030\001 \003(\0132\022.fast.Slices.Slice\032\225\007\n\005S" +
+      "lice\022+\n\004file\030\001 \003(\0132\035.fast.Slices.Slice.S" +
+      "ourceFile\022\014\n\004hash\030\002 \001(\t\032\241\006\n\nSourceFile\0228" +
+      "\n\010function\030\001 \003(\0132&.fast.Slices.Slice.Sou" +
+      "rceFile.Function\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003" +
+      " \001(\0162\035.fast.Slices.Slice.ChangeType\032\235\005\n\010" +
+      "Function\022A\n\010variable\030\001 \003(\0132/.fast.Slices",
+      ".Slice.SourceFile.Function.Variable\022\014\n\004n" +
+      "ame\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Sl" +
+      "ice.ChangeType\032\222\004\n\010Variable\022\014\n\004name\030\001 \001(" +
+      "\t\022E\n\003pos\030\002 \001(\01328.fast.Slices.Slice.Sourc" +
+      "eFile.Function.Variable.Position\022+\n\004type" +
+      "\030\003 \001(\0162\035.fast.Slices.Slice.ChangeType\022F\n" +
+      "\004defn\030\004 \003(\01328.fast.Slices.Slice.SourceFi" +
+      "le.Function.Variable.Position\022E\n\003use\030\005 \003" +
+      "(\01328.fast.Slices.Slice.SourceFile.Functi" +
+      "on.Variable.Position\022\014\n\004dvar\030\006 \003(\t\022\r\n\005al",
+      "ias\030\007 \003(\t\022K\n\005cfunc\030\010 \003(\0132<.fast.Slices.S" +
+      "lice.SourceFile.Function.Variable.Functi" +
+      "onDecl\032]\n\010Position\022\016\n\006lineno\030\001 \001(\005\022+\n\004ty" +
+      "pe\030\002 \001(\0162\035.fast.Slices.Slice.ChangeType\022" +
+      "\024\n\014delta_lineno\030\005 \001(\005\032,\n\014FunctionDecl\022\014\n" +
+      "\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-\n\nChangeTyp" +
+      "e\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\"\254\001\n\004D" +
+      "ata\022 \n\007element\030\001 \001(\0132\r.fast.ElementH\000\022\030\n" +
+      "\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030\003 \001(\0132\013" +
+      ".fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fast.Pair",
+      "sH\000\022\036\n\006slices\030\005 \001(\0132\014.fast.SlicesH\000B\014\n\nR" +
+      "ecordType*\237\'\n\tSmaliKind\022\013\n\007INVALID\020\000\022\007\n\003" +
+      "EOR\020\001\022\010\n\004DOWN\020\002\022\006\n\002UP\020\003\022\017\n\013ACCESS_SPEC\020\004" +
+      "\022\030\n\024ANNOTATION_DIRECTIVE\020\005\022\031\n\025ANNOTATION" +
+      "_VISIBILITY\020\006\022\030\n\024ARRAY_DATA_DIRECTIVE\020\007\022" +
+      "\025\n\021ARRAY_TYPE_PREFIX\020\010\022\t\n\005ARROW\020\t\022\020\n\014BOO" +
+      "L_LITERAL\020\n\022\020\n\014BYTE_LITERAL\020\013\022\026\n\022CATCHAL" +
+      "L_DIRECTIVE\020\014\022\023\n\017CATCH_DIRECTIVE\020\r\022\020\n\014CH" +
+      "AR_LITERAL\020\016\022\024\n\020CLASS_DESCRIPTOR\020\017\022\023\n\017CL" +
+      "ASS_DIRECTIVE\020\020\022\017\n\013CLOSE_BRACE\020\021\022\017\n\013CLOS",
+      "E_PAREN\020\022\022\t\n\005COLON\020\023\022\t\n\005COMMA\020\024\022\n\n\006DOTDO" +
+      "T\020\025\022\022\n\016DOUBLE_LITERAL\020\026\022\030\n\024DOUBLE_LITERA" +
+      "L_OR_ID\020\027\022\034\n\030END_ANNOTATION_DIRECTIVE\020\030\022" +
+      "\034\n\030END_ARRAY_DATA_DIRECTIVE\020\031\022\027\n\023END_FIE" +
+      "LD_DIRECTIVE\020\032\022\027\n\023END_LOCAL_DIRECTIVE\020\033\022" +
+      "\030\n\024END_METHOD_DIRECTIVE\020\034\022\037\n\033END_PACKED_" +
+      "SWITCH_DIRECTIVE\020\035\022\033\n\027END_PARAMETER_DIRE" +
+      "CTIVE\020\036\022\037\n\033END_SPARSE_SWITCH_DIRECTIVE\020\037" +
+      "\022\037\n\033END_SUBANNOTATION_DIRECTIVE\020 \022\022\n\016ENU" +
+      "M_DIRECTIVE\020!\022\026\n\022EPILOGUE_DIRECTIVE\020\"\022\t\n",
+      "\005EQUAL\020#\022\023\n\017FIELD_DIRECTIVE\020$\022\020\n\014FIELD_O" +
+      "FFSET\020%\022\021\n\rFLOAT_LITERAL\020&\022\027\n\023FLOAT_LITE" +
+      "RAL_OR_ID\020\'\022\030\n\024IMPLEMENTS_DIRECTIVE\020(\022\020\n" +
+      "\014INLINE_INDEX\020)\022\031\n\025INSTRUCTION_FORMAT10t" +
+      "\020*\022\031\n\025INSTRUCTION_FORMAT10x\020+\022\036\n\032INSTRUC" +
+      "TION_FORMAT10x_ODEX\020,\022\031\n\025INSTRUCTION_FOR" +
+      "MAT11n\020-\022\031\n\025INSTRUCTION_FORMAT11x\020.\022\031\n\025I" +
+      "NSTRUCTION_FORMAT12x\020/\022\037\n\033INSTRUCTION_FO" +
+      "RMAT12x_OR_ID\0200\022\032\n\026INSTRUCTION_FORMAT20b" +
+      "c\0201\022\031\n\025INSTRUCTION_FORMAT20t\0202\022\037\n\033INSTRU",
+      "CTION_FORMAT21c_FIELD\0203\022$\n INSTRUCTION_F" +
+      "ORMAT21c_FIELD_ODEX\0204\022 \n\034INSTRUCTION_FOR" +
+      "MAT21c_STRING\0205\022\036\n\032INSTRUCTION_FORMAT21c" +
+      "_TYPE\0206\022\032\n\026INSTRUCTION_FORMAT21ih\0207\022\032\n\026I" +
+      "NSTRUCTION_FORMAT21lh\0208\022\031\n\025INSTRUCTION_F" +
+      "ORMAT21s\0209\022\031\n\025INSTRUCTION_FORMAT21t\020:\022\031\n" +
+      "\025INSTRUCTION_FORMAT22b\020;\022\037\n\033INSTRUCTION_" +
+      "FORMAT22c_FIELD\020<\022$\n INSTRUCTION_FORMAT2" +
+      "2c_FIELD_ODEX\020=\022\036\n\032INSTRUCTION_FORMAT22c" +
+      "_TYPE\020>\022 \n\034INSTRUCTION_FORMAT22cs_FIELD\020",
+      "?\022\031\n\025INSTRUCTION_FORMAT22s\020@\022\037\n\033INSTRUCT" +
+      "ION_FORMAT22s_OR_ID\020A\022\031\n\025INSTRUCTION_FOR" +
+      "MAT22t\020B\022\031\n\025INSTRUCTION_FORMAT22x\020C\022\031\n\025I" +
+      "NSTRUCTION_FORMAT23x\020D\022\031\n\025INSTRUCTION_FO" +
+      "RMAT30t\020E\022\031\n\025INSTRUCTION_FORMAT31c\020F\022\031\n\025" +
+      "INSTRUCTION_FORMAT31i\020G\022\037\n\033INSTRUCTION_F" +
+      "ORMAT31i_OR_ID\020H\022\031\n\025INSTRUCTION_FORMAT31" +
+      "t\020I\022\031\n\025INSTRUCTION_FORMAT32x\020J\022 \n\034INSTRU" +
+      "CTION_FORMAT35c_METHOD\020K\022%\n!INSTRUCTION_" +
+      "FORMAT35c_METHOD_ODEX\020L\022\036\n\032INSTRUCTION_F",
+      "ORMAT35c_TYPE\020M\022!\n\035INSTRUCTION_FORMAT35m" +
+      "i_METHOD\020N\022!\n\035INSTRUCTION_FORMAT35ms_MET" +
+      "HOD\020O\022 \n\034INSTRUCTION_FORMAT3rc_METHOD\020P\022" +
+      "%\n!INSTRUCTION_FORMAT3rc_METHOD_ODEX\020Q\022\036" +
+      "\n\032INSTRUCTION_FORMAT3rc_TYPE\020R\022!\n\035INSTRU" +
+      "CTION_FORMAT3rmi_METHOD\020S\022!\n\035INSTRUCTION" +
+      "_FORMAT3rms_METHOD\020T\022!\n\035INSTRUCTION_FORM" +
+      "AT45cc_METHOD\020U\022!\n\035INSTRUCTION_FORMAT4rc" +
+      "c_METHOD\020V\022\031\n\025INSTRUCTION_FORMAT51l\020W\022\023\n" +
+      "\017INTEGER_LITERAL\020X\022\021\n\rINVALID_TOKEN\020Y\022\021\n",
+      "\rI_ACCESS_LIST\020Z\022\020\n\014I_ANNOTATION\020[\022\021\n\rI_" +
+      "ANNOTATIONS\020\\\022\030\n\024I_ANNOTATION_ELEMENT\020]\022" +
+      "\024\n\020I_ARRAY_ELEMENTS\020^\022\030\n\024I_ARRAY_ELEMENT" +
+      "_SIZE\020_\022\013\n\007I_CATCH\020`\022\016\n\nI_CATCHALL\020a\022\r\n\t" +
+      "I_CATCHES\020b\022\017\n\013I_CLASS_DEF\020c\022\023\n\017I_ENCODE" +
+      "D_ARRAY\020d\022\022\n\016I_ENCODED_ENUM\020e\022\023\n\017I_ENCOD" +
+      "ED_FIELD\020f\022\024\n\020I_ENCODED_METHOD\020g\022\017\n\013I_EN" +
+      "D_LOCAL\020h\022\016\n\nI_EPILOGUE\020i\022\013\n\007I_FIELD\020j\022\014" +
+      "\n\010I_FIELDS\020k\022\031\n\025I_FIELD_INITIAL_VALUE\020l\022" +
+      "\020\n\014I_FIELD_TYPE\020m\022\020\n\014I_IMPLEMENTS\020n\022\013\n\007I",
+      "_LABEL\020o\022\n\n\006I_LINE\020p\022\013\n\007I_LOCAL\020q\022\014\n\010I_L" +
+      "OCALS\020r\022\014\n\010I_METHOD\020s\022\r\n\tI_METHODS\020t\022\026\n\022" +
+      "I_METHOD_PROTOTYPE\020u\022\030\n\024I_METHOD_RETURN_" +
+      "TYPE\020v\022\032\n\026I_ORDERED_METHOD_ITEMS\020w\022\034\n\030I_" +
+      "PACKED_SWITCH_ELEMENTS\020x\022\035\n\031I_PACKED_SWI" +
+      "TCH_START_KEY\020y\022\017\n\013I_PARAMETER\020z\022\020\n\014I_PA" +
+      "RAMETERS\020{\022\035\n\031I_PARAMETER_NOT_SPECIFIED\020" +
+      "|\022\016\n\nI_PROLOGUE\020}\022\017\n\013I_REGISTERS\020~\022\023\n\017I_" +
+      "REGISTER_LIST\020\177\022\025\n\020I_REGISTER_RANGE\020\200\001\022\024" +
+      "\n\017I_RESTART_LOCAL\020\201\001\022\r\n\010I_SOURCE\020\202\001\022\035\n\030I",
+      "_SPARSE_SWITCH_ELEMENTS\020\203\001\022\033\n\026I_STATEMEN" +
+      "T_ARRAY_DATA\020\204\001\022\032\n\025I_STATEMENT_FORMAT10t" +
+      "\020\205\001\022\032\n\025I_STATEMENT_FORMAT10x\020\206\001\022\032\n\025I_STA" +
+      "TEMENT_FORMAT11n\020\207\001\022\032\n\025I_STATEMENT_FORMA" +
+      "T11x\020\210\001\022\032\n\025I_STATEMENT_FORMAT12x\020\211\001\022\033\n\026I" +
+      "_STATEMENT_FORMAT20bc\020\212\001\022\032\n\025I_STATEMENT_" +
+      "FORMAT20t\020\213\001\022 \n\033I_STATEMENT_FORMAT21c_FI" +
+      "ELD\020\214\001\022!\n\034I_STATEMENT_FORMAT21c_STRING\020\215" +
+      "\001\022\037\n\032I_STATEMENT_FORMAT21c_TYPE\020\216\001\022\033\n\026I_" +
+      "STATEMENT_FORMAT21ih\020\217\001\022\033\n\026I_STATEMENT_F",
+      "ORMAT21lh\020\220\001\022\032\n\025I_STATEMENT_FORMAT21s\020\221\001" +
+      "\022\032\n\025I_STATEMENT_FORMAT21t\020\222\001\022\032\n\025I_STATEM" +
+      "ENT_FORMAT22b\020\223\001\022 \n\033I_STATEMENT_FORMAT22" +
+      "c_FIELD\020\224\001\022\037\n\032I_STATEMENT_FORMAT22c_TYPE" +
+      "\020\225\001\022\032\n\025I_STATEMENT_FORMAT22s\020\226\001\022\032\n\025I_STA" +
+      "TEMENT_FORMAT22t\020\227\001\022\032\n\025I_STATEMENT_FORMA" +
+      "T22x\020\230\001\022\032\n\025I_STATEMENT_FORMAT23x\020\231\001\022\032\n\025I" +
+      "_STATEMENT_FORMAT30t\020\232\001\022\032\n\025I_STATEMENT_F" +
+      "ORMAT31c\020\233\001\022\032\n\025I_STATEMENT_FORMAT31i\020\234\001\022" +
+      "\032\n\025I_STATEMENT_FORMAT31t\020\235\001\022\032\n\025I_STATEME",
+      "NT_FORMAT32x\020\236\001\022!\n\034I_STATEMENT_FORMAT35c" +
+      "_METHOD\020\237\001\022\037\n\032I_STATEMENT_FORMAT35c_TYPE" +
+      "\020\240\001\022!\n\034I_STATEMENT_FORMAT3rc_METHOD\020\241\001\022\037" +
+      "\n\032I_STATEMENT_FORMAT3rc_TYPE\020\242\001\022\"\n\035I_STA" +
+      "TEMENT_FORMAT45cc_METHOD\020\243\001\022\"\n\035I_STATEME" +
+      "NT_FORMAT4rcc_METHOD\020\244\001\022\032\n\025I_STATEMENT_F" +
+      "ORMAT51l\020\245\001\022\036\n\031I_STATEMENT_PACKED_SWITCH" +
+      "\020\246\001\022\036\n\031I_STATEMENT_SPARSE_SWITCH\020\247\001\022\024\n\017I" +
+      "_SUBANNOTATION\020\250\001\022\014\n\007I_SUPER\020\251\001\022\021\n\014LINE_" +
+      "COMMENT\020\252\001\022\023\n\016LINE_DIRECTIVE\020\253\001\022\025\n\020LOCAL",
+      "S_DIRECTIVE\020\254\001\022\024\n\017LOCAL_DIRECTIVE\020\255\001\022\021\n\014" +
+      "LONG_LITERAL\020\256\001\022\020\n\013MEMBER_NAME\020\257\001\022\025\n\020MET" +
+      "HOD_DIRECTIVE\020\260\001\022\035\n\030NEGATIVE_INTEGER_LIT" +
+      "ERAL\020\261\001\022\021\n\014NULL_LITERAL\020\262\001\022\017\n\nOPEN_BRACE" +
+      "\020\263\001\022\017\n\nOPEN_PAREN\020\264\001\022\034\n\027PACKED_SWITCH_DI" +
+      "RECTIVE\020\265\001\022\030\n\023PARAMETER_DIRECTIVE\020\266\001\022$\n\037" +
+      "PARAM_LIST_OR_ID_PRIMITIVE_TYPE\020\267\001\022\035\n\030PO" +
+      "SITIVE_INTEGER_LITERAL\020\270\001\022\023\n\016PRIMITIVE_T" +
+      "YPE\020\271\001\022\027\n\022PROLOGUE_DIRECTIVE\020\272\001\022\023\n\016SMALI" +
+      "_REGISTER\020\273\001\022\030\n\023REGISTERS_DIRECTIVE\020\274\001\022\034",
+      "\n\027RESTART_LOCAL_DIRECTIVE\020\275\001\022\022\n\rSHORT_LI" +
+      "TERAL\020\276\001\022\020\n\013SIMPLE_NAME\020\277\001\022\025\n\020SOURCE_DIR" +
+      "ECTIVE\020\300\001\022\034\n\027SPARSE_SWITCH_DIRECTIVE\020\301\001\022" +
+      "\023\n\016STRING_LITERAL\020\302\001\022\034\n\027SUBANNOTATION_DI" +
+      "RECTIVE\020\303\001\022\024\n\017SUPER_DIRECTIVE\020\304\001\022\034\n\027VERI" +
+      "FICATION_ERROR_TYPE\020\305\001\022\016\n\tVOID_TYPE\020\306\001\022\021" +
+      "\n\014VTABLE_INDEX\020\307\001\022\020\n\013WHITE_SPACE\020\310\001*\276\022\n\014" +
+      "SmaliCppKind\022\016\n\nsmali_file\020\000\022\016\n\nclass_sp" +
+      "ec\020\001\022\016\n\nsuper_spec\020\002\022\023\n\017implements_spec\020" +
+      "\003\022\017\n\013source_spec\020\004\022\017\n\013access_list\020\005\022\t\n\005f",
+      "ield\020\006\022\n\n\006method\020\007\022\035\n\031statements_and_dir" +
+      "ectives\020\010\022\027\n\023ordered_method_item\020\t\022\027\n\023re" +
+      "gisters_directive\020\n\022\024\n\020param_list_or_id\020" +
+      "\013\022\017\n\013simple_name\020\014\022\017\n\013member_name\020\r\022\024\n\020m" +
+      "ethod_prototype\020\016\022#\n\037param_list_or_id_pr" +
+      "imitive_type\020\017\022\016\n\nparam_list\020\020\022\024\n\020array_" +
+      "descriptor\020\021\022\023\n\017type_descriptor\020\022\022\033\n\027non" +
+      "void_type_descriptor\020\023\022\035\n\031reference_type" +
+      "_descriptor\020\024\022\023\n\017integer_literal\020\025\022\021\n\rfl" +
+      "oat_literal\020\026\022\022\n\016double_literal\020\027\022\013\n\007lit",
+      "eral\020\030\022\032\n\026parsed_integer_literal\020\031\022\024\n\020in" +
+      "tegral_literal\020\032\022\027\n\023fixed_32bit_literal\020" +
+      "\033\022\021\n\rfixed_literal\020\034\022\021\n\rarray_literal\020\035\022" +
+      "\026\n\022annotation_element\020\036\022\016\n\nannotation\020\037\022" +
+      "\021\n\rsubannotation\020 \022\020\n\014enum_literal\020!\022\035\n\031" +
+      "type_field_method_literal\020\"\022\024\n\020method_re" +
+      "ference\020#\022\023\n\017field_reference\020$\022\t\n\005label\020" +
+      "%\022\r\n\tlabel_ref\020&\022\021\n\rregister_list\020\'\022\022\n\016r" +
+      "egister_range\020(\022 \n\034verification_error_re" +
+      "ference\020)\022\023\n\017catch_directive\020*\022\026\n\022catcha",
+      "ll_directive\020+\022\027\n\023parameter_directive\020,\022" +
+      "\023\n\017debug_directive\020-\022\022\n\016line_directive\020." +
+      "\022\023\n\017local_directive\020/\022\027\n\023end_local_direc" +
+      "tive\0200\022\033\n\027restart_local_directive\0201\022\026\n\022p" +
+      "rologue_directive\0202\022\026\n\022epilogue_directiv" +
+      "e\0203\022\024\n\020source_directive\0204\022\031\n\025instruction" +
+      "_format12x\0205\022\031\n\025instruction_format22s\0206\022" +
+      "\031\n\025instruction_format31i\0207\022\017\n\013instructio" +
+      "n\0208\022\022\n\016insn_format10t\0209\022\022\n\016insn_format10" +
+      "x\020:\022\027\n\023insn_format10x_odex\020;\022\022\n\016insn_for",
+      "mat11n\020<\022\022\n\016insn_format11x\020=\022\022\n\016insn_for" +
+      "mat12x\020>\022\023\n\017insn_format20bc\020?\022\022\n\016insn_fo" +
+      "rmat20t\020@\022\030\n\024insn_format21c_field\020A\022\035\n\031i" +
+      "nsn_format21c_field_odex\020B\022\031\n\025insn_forma" +
+      "t21c_string\020C\022\027\n\023insn_format21c_type\020D\022\023" +
+      "\n\017insn_format21ih\020E\022\023\n\017insn_format21lh\020F" +
+      "\022\022\n\016insn_format21s\020G\022\022\n\016insn_format21t\020H" +
+      "\022\022\n\016insn_format22b\020I\022\030\n\024insn_format22c_f" +
+      "ield\020J\022\035\n\031insn_format22c_field_odex\020K\022\027\n" +
+      "\023insn_format22c_type\020L\022\031\n\025insn_format22c",
+      "s_field\020M\022\022\n\016insn_format22s\020N\022\022\n\016insn_fo" +
+      "rmat22t\020O\022\022\n\016insn_format22x\020P\022\022\n\016insn_fo" +
+      "rmat23x\020Q\022\022\n\016insn_format30t\020R\022\022\n\016insn_fo" +
+      "rmat31c\020S\022\022\n\016insn_format31i\020T\022\022\n\016insn_fo" +
+      "rmat31t\020U\022\022\n\016insn_format32x\020V\022\031\n\025insn_fo" +
+      "rmat35c_method\020W\022\027\n\023insn_format35c_type\020" +
+      "X\022\036\n\032insn_format35c_method_odex\020Y\022\032\n\026ins" +
+      "n_format35mi_method\020Z\022\032\n\026insn_format35ms" +
+      "_method\020[\022\031\n\025insn_format3rc_method\020\\\022\036\n\032" +
+      "insn_format3rc_method_odex\020]\022\027\n\023insn_for",
+      "mat3rc_type\020^\022\032\n\026insn_format3rmi_method\020" +
+      "_\022\032\n\026insn_format3rms_method\020`\022\032\n\026insn_fo" +
+      "rmat45cc_method\020a\022\032\n\026insn_format4rcc_met" +
+      "hod\020b\022\022\n\016insn_format51l\020c\022\035\n\031insn_array_" +
+      "data_directive\020d\022 \n\034insn_packed_switch_d" +
+      "irective\020e\022 \n\034insn_sparse_switch_directi" +
+      "ve\020fb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -34433,7 +35874,7 @@ public final class Fast {
     internal_static_fast_Element_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Element_descriptor,
-        new java.lang.String[] { "Kind", "Text", "Pos", "Length", "Child", "Tail", "Unit", "Literal", "Line", "Column", "Extra", });
+        new java.lang.String[] { "Kind", "SmaliKind", "SmaliCppKind", "Text", "Pos", "Length", "Child", "Tail", "Unit", "Literal", "Line", "Column", "Type", "Extra", });
     internal_static_fast_Element_Unit_descriptor =
       internal_static_fast_Element_descriptor.getNestedTypes().get(0);
     internal_static_fast_Element_Unit_fieldAccessorTable = new
