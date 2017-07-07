@@ -3,7 +3,7 @@
 #include "antlr4-runtime.h"
 #include "smaliLexer.h"
 #include "smaliParser.h"
-#include "smaliBaseListener.h"
+#include "smaliParserBaseListener.h"
 
 #include <vector>
 
@@ -27,7 +27,7 @@ static map<int, string> tag_map;
 static map<int, vector<int>> type_map;
 static bool xml_output = false;
 
-class TreeShapeListener : public smaliBaseListener {
+class TreeShapeListener : public smaliParserBaseListener {
 public:
 	void exitEveryRule(ParserRuleContext *ctx) {
 		if (dynamic_cast<antlr4::tree::TerminalNode*>(ctx->getStop()))
