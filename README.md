@@ -10,9 +10,9 @@ the code.
 But, can we think differently?
 
 Instead of [parsing code structures](doc/architecture.md), why cannot we load
-them before any further analysis? 
+them into memory as an efficient binary structure before any further analysis? 
 
-This project adopts flatbuffers, a one diemnsional array to represent the ASTs
+This project adopts flatbuffers, a 1D array to represent the ASTs
 as a binary file, and demonstates the improved efficiency and wide
 applicability to software development.
 
