@@ -118,7 +118,7 @@ fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smal
 PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
-src/antlr4/pb/PB.cpp: PB/PBLexer.h
+src/antlr4/pb/PB.cpp: PB/src/antlr4/pb/PBLexer.h
 
 src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
 	touch $@
