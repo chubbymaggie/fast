@@ -259,23 +259,23 @@ fast-$V: fast_$V.orig.tar.gz fast_$(V0).orig.tar.gz
 fast-$V/debian: fast-$V
 	mkdir -p $@
 
-fast-$V/debian/changelog: changelog
+fast-$V/debian/changelog: lib/debian/changelog
 	cp $^ $@
 
 fast-$V/debian/compat: fast-$V/debian
 	echo 9 > $@
 
-fast-$V/debian/control: control
+fast-$V/debian/control: lib/debian/control
 	cp $^ $@
 
-fast-$V/debian/copyright: copyright
+fast-$V/debian/copyright: lib/debian/copyright
 	cp $^ $@
 
-fast-$V/debian/source/format: format
+fast-$V/debian/source/format: lib/debian/format
 	mkdir -p fast-$V/debian/source
 	cp $^ $@
 
-fast-$V/debian/rules: rules
+fast-$V/debian/rules: lib/debian/rules
 	cp $^ $@
 
 test:: install
