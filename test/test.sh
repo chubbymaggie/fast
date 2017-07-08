@@ -1766,6 +1766,7 @@ testLoadPB() {
 
 testFinalReport() {
 	rm -f *.pb *.fbs
+	rm -f Hello.* example.* *.xml *.cs *.txt *.smali a.csv *.slice smali.proto
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then

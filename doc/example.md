@@ -1,38 +1,31 @@
-# Examples of supported programming languages
+# Supported programming languages
 ## SrcML
 ### Java, C, C++, C#, Objective C
-* [Hello.java](../test/Hello.java)
-* [example.cc](../test/example.cc)
-## Antlr3
+## ANTLR4
 ### Smali
-* [DuplicateVirtualMethods.smali](../test/DuplicateVirtualMethods.smali) 
-* [DuplicateVirtualMethods-v2.smali](../test/DuplicateVirtualMethods-v2.smali) 
 ## Binary 
 ### Protobuf 3.3.0
-* CST Without positions: [Hello.pb](../test/Hello.pb)
-* CST With positions: [Hello.pb](../test/Hello.position.pb) 
-* AST: [DuplicateVirtualMethods.pb](../test/DuplicateVirtualMethods.pb)
-* Editing Script: [DuplicateVirtualMethods-diff.pb](../test/DuplicateVirtualMethods-diff.pb)
-* Program Slices: [Hello.slice.pb](../test/Hello.slice.pb) [example.slice.pb](../test/example.slice.pb)
+* CST without positions
+* CST with positions
+* AST
+* Editing Script
+* Program Slices
 ### FlatBuffers 1.6.0
-* Without positions: [example.fbs](../test/example.fbs)
-* With positions: [example.fbs](../test/example.position.fbs)
+* CST without positions
+* CST with positions
+### Textual format
 ## XML
-* Without positions: [Hello.xml](../test/Hello.xml)
-* With positions: [Hello.xml](../test/Hello.position.xml)
-* Merged: [DuplicateVirtualMethods.xml](../test/DuplicateVirtualMethods.xml)
-## Textual format
-* Textual format of the protobuf structures: [Hello.txt](../test/Hello.txt)
-* Structures: [DuplicateVirtualMethods.txt](../test/DuplicateVirtualMethods.txt)
-* Slices: [example.slice](../test/example-s.slice)
-* Slices: [Hello.slice](../test/Hello-s.slice)
+* CST without positions
+* CST with positions
+## CSV
+* Slices
 
-## Benchmarks
-### C
+# Benchmarks
+## C
 * [Linux Kernel](https://github.com/torvalds/linux)
-### C++
+## C++
 * [Tensorflow](https://github.com/tensorflow/tensorflow)
-### Java
+## Java
 * [Apache Tomcat](https://github.com/apache/tomcat)
 * [Eclipse AspectJ](https://git.eclipse.org/gitroot/aspectj/org.aspectj)
 * [Eclipse BIRT](https://github.com/eclipse/birt)
@@ -40,7 +33,9 @@
 * [Eclipse Platform](https://git.eclipse.org/r/p/platform/eclipse.platform.ui)
 * [Eclipse SWT](https://git.eclipse.org/r/p/platform/eclipse.platform.swt)
 * [RxJava](https://github.com/ReactiveX/RxJava)
-### C#
+## C#
 * [Corefx](https://github.com/dotnet/corefx)
-### Objective C
+## Objective C
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+## Android Apps
+* [Instagram](https://play.google.com/store/apps/details?id=com.instagram.android&hl=en_GB)
