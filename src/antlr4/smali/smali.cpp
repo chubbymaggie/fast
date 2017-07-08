@@ -27,7 +27,7 @@ static map<int, string> tag_map;
 static map<int, vector<int>> type_map;
 static bool xml_output = false;
 
-class TreeShapeListener : public smaliParserBaseListener {
+class SmaliTreeShapeListener : public smaliParserBaseListener {
 public:
 	void exitEveryRule(ParserRuleContext *ctx) {
 		if (dynamic_cast<antlr4::tree::TerminalNode*>(ctx->getStop()))
@@ -229,7 +229,7 @@ int smaliMainRoutine(int argc, char**argv) {
 	  proto_output << "}" << endl;
 	  proto_output.close();
   }
-  TreeShapeListener listener;
+  SmaliTreeShapeListener listener;
   tree::ParseTree *tree = parser.smali_file();
   tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
   FILE *file = fopen(argv[1], "r");

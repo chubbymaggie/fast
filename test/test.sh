@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cleanup=$1
 fast=$(which fast)
 process=$(which process)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
@@ -12,6 +12,7 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 fi
 fast=${fast:=../fast}
 process=${process:=../process}
+slicediff=${slicediff:=../slice-diff}
 
 stdout() {
 	hash=$1
@@ -1780,8 +1781,7 @@ slice() {
 		$fast -S $1/t.pb $1/slice.pb > $1/slice.txt
 	fi
 	if [ ! -f $1/slice.pb.txt ]; then
-		$fast -d $1/slice.pb > $1/slice.pb.txt
-		$fast -x $1/slice.pb.txt > $1/slice.pb.xml
+		$fast -x $1/slice.pb $1/slice.pb.txt > $1/slice.pb.xml
 	fi
 }
 export -f position
@@ -1791,10 +1791,14 @@ testSliceDiff() {
 	position 72a7a1db7fd764455436344e885a9feb6438e803 
 	slice d84081c8399be29a89044e18c784eed17740a271
 	slice 72a7a1db7fd764455436344e885a9feb6438e803 
-	slice-diff 72a7a1db7fd764455436344e885a9feb6438e803/slice.pb d84081c8399be29a89044e18c784eed17740a271/slice.pb diff.pb
-	stdout fast -d diff.pb
-	gumtree diff 72a7a1db7fd764455436344e885a9feb6438e803/slice.pb.xml d84081c8399be29a89044e18c784eed17740a271/slice.pb.xml
+	$slicediff 72a7a1db7fd764455436344e885a9feb6438e803/slice.pb d84081c8399be29a89044e18c784eed17740a271/slice.pb diff.pb
+	stdout 0baf3cc844dd78a4f5094cef532fadf59cd014d50ce0a44a4fc69ccda221294d -d diff.pb
+	#gumtree diff 72a7a1db7fd764455436344e885a9feb6438e803/slice.pb.xml d84081c8399be29a89044e18c784eed17740a271/slice.pb.xml
+	diff 72a7a1db7fd764455436344e885a9feb6438e803/slice.pb.xml d84081c8399be29a89044e18c784eed17740a271/slice.pb.xml
 	rm -rf d84081c8399be29a89044e18c784eed17740a271 72a7a1db7fd764455436344e885a9feb6438e803
+	if [ "$cleanup" == "" ]; then
+		cleanup_examples
+	fi
 }
 
 cleanup_examples() {
@@ -1809,6 +1813,3 @@ fi
 rm -f ../*.gcda
 rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
-if [ "$1" == "" ]; then
-	cleanup_examples
-fi

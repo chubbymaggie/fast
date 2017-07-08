@@ -837,7 +837,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hpsSv")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hpsSvx")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -871,11 +871,12 @@ int main(int argc, char* argv[]) {
 	    decode = 1;
 	    break;
       case 'c':
-        load_only = 1;
-        break;
+            load_only = 1;
+            break;
       case 'x':
-	pb2xml = 1;
-	break;
+	    pb2xml = 1;
+	    decode = 1;
+	    break;
       case '?':
 	if (isprint (optopt))
           fprintf (stderr, "Unknown option `-%c'.\n", optopt);

@@ -1,12 +1,10 @@
 ## Synopsis
 
 ```
-$ fast [-acdehpsSt] $input [$output]
+$ fast [-cdehpsStx] $input [$output]
 ```
 
 ## Options
-
-     -a      Use Antlr instead of srcML, supporting .smali for Android.
 
      -c      Load the file only, no output.
 
@@ -21,4 +19,6 @@ $ fast [-acdehpsSt] $input [$output]
      -s      Invoke srcSlice. This option turns on the -p option.
 
      -S      Invoke modified srcSlice to use the binary AST directly.
+
+     -x      Print the XML output from textual protobuf. This option turns on the -d option.
 

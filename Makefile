@@ -83,12 +83,13 @@ prefix=/usr/local
 fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
 	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast process fast.proto
+install: fast process slice-diff fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
+	install -m 0755 slice-diff $(DESTDIR)$(prefix)/bin/slice-diff
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
@@ -122,12 +123,13 @@ src/antlr4/pb/PB.cpp: PB/PBLexer.h
 src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
 	touch $@
 
-install: fast process fast.proto
+install: fast process slice-diff fast.proto
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
+	install -m 0755 slice-diff $(DESTDIR)$(prefix)/bin/slice-diff
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
