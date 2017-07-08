@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/yijunyu/fast.svg?branch=master)](https://travis-ci.org/yijunyu/fast)
-[Coverage](https://htmlpreview.github.io/?https://github.com/yijunyu/fast/blob/master/test/src/index.html)
+[![Coverage Status](https://coveralls.io/repos/github/yijunyu/fast/badge.svg?branch=master)](https://coveralls.io/github/yijunyu/fast?branch=master)
 
 # `fast` -- Flat Abstract Syntax Trees
 
