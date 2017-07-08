@@ -19,9 +19,10 @@ before_install:
     sudo su -c "echo deb https://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list";
     sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
     sudo apt-get update;
-    sudo apt-get install gcc-4.9 g++-4.9;
-    sudo ln -s -v -f $(which g++-4.9) /usr/bin/g++; 
-    sudo ln -s -v -f $(which gcc-4.9) /usr/bin/gcc; 
+    sudo apt-get install gcc-5 g++-5;
+    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1;
+    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 1;
+    sudo apt-get install uuid-dev;
     sudo apt-get install -y --force-yes srcml;
     sudo apt-get install libarchive13;
     sudo apt-get install libxml2;
@@ -32,9 +33,8 @@ before_install:
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     sudo apt-get install lcov;
     pip install --user cpp-coveralls;
-    sudo apt-get install antlr4;
     wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; cmake .; make; sudo make install; cd ..;
-    git clone https://github.com/antlr/antlr4; cd antlr4; mvn package; sudo cp ./tool/target/antlr4-4.7.1-SNAPSHOT.jar /usr/share/java/antlr4.jar; sudo cp ./runtime/Java/lib/org.abego.treelayout.core.jar /usr/share/java/; sudo cp ./runtime/Java/target/antlr4-runtime-4.7.1-SNAPSHOT.jar /usr/share/java/antlr4-runtime.jar; cd ..;
+    wget http://www.antlr.org/download/antlr-4.7-complete.jar; sudo mv antlr-4.7-complete.jar /usr/local/lib;
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
