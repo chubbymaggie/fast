@@ -11,7 +11,7 @@ before_install:
     brew tap yijunyu/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers;
     brew install antlr; brew install antlr4-cpp-runtime;
-    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
+    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -f srcSlice;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;
@@ -26,12 +26,12 @@ before_install:
     sudo apt-get install libarchive13;
     sudo apt-get install libxml2;
     sudo apt-get install mono;
-    wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -;
-    wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -;
+    wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -; rm -rf flatbuffers-1.6.0;
+    wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -; rm -rf protobuf-3.3.0;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     pip install --user cpp-coveralls;
-    wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; sed -i -e '/CMP0059/d' CMakeLists.txt; cmake .; make; sudo make install; cd ..;
+    wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; sed -i -e '/CMP0059/d' CMakeLists.txt; cmake .; make; sudo make install; cd ..; rm -rf antlr4-cpp-runtime;
     wget http://www.antlr.org/download/antlr-4.7-complete.jar; sudo mv antlr-4.7-complete.jar /usr/local/lib;
     fi
 script:
