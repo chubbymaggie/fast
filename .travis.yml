@@ -33,7 +33,7 @@ before_install:
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     sudo apt-get install lcov;
     pip install --user cpp-coveralls;
-    wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; cmake .; make; sudo make install; cd ..;
+    wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; sed -i -e '/CMP0059/d' CMakeLists.txt; cmake .; make; sudo make install; cd ..;
     wget http://www.antlr.org/download/antlr-4.7-complete.jar; sudo mv antlr-4.7-complete.jar /usr/local/lib;
     fi
 script:
