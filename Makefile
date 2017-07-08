@@ -80,7 +80,7 @@ CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/u
 CFLAGS+=$(shell xml2-config --cflags)
 
 prefix=/usr/local
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
 install: fast process slice-diff fast.proto
@@ -115,7 +115,7 @@ fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smal
 %.o: src/antlr4/pb/%.cpp
 	c++ -c $(CFLAGS) $^
 
-PB/PBLexer.cpp PB/PBLexer.h PB/PBLexer.tokens PB/PBParser.cpp PB/PBParser.h: src/antlr4/pb/PB.g4
+PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
 src/antlr4/pb/PB.cpp: PB/PBLexer.h

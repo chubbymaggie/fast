@@ -1,0 +1,140 @@
+element {
+  kind: UNIT_KIND
+  text: "\n"
+  child {
+    kind: CLASS
+    child {
+      kind: SPECIFIER
+      text: "public"
+      tail: " class "
+    }
+    child {
+      kind: NAME
+      text: "Hello"
+      tail: " "
+    }
+    child {
+      kind: BLOCK
+      text: "{\n\t"
+      child {
+        kind: FUNCTION
+        child {
+          kind: SPECIFIER
+          text: "public"
+          tail: " "
+        }
+        child {
+          kind: SPECIFIER
+          text: "static"
+          tail: " "
+        }
+        child {
+          kind: TYPE
+          child {
+            kind: NAME
+            text: "void"
+          }
+          tail: " "
+        }
+        child {
+          kind: NAME
+          text: "main"
+        }
+        child {
+          kind: PARAMETER_LIST
+          text: "("
+          child {
+            kind: PARAMETER
+            child {
+              kind: DECL
+              child {
+                kind: TYPE
+                child {
+                  kind: NAME
+                  text: "String"
+                }
+                tail: " "
+              }
+              child {
+                kind: NAME
+                child {
+                  kind: NAME
+                  text: "args"
+                }
+                child {
+                  kind: INDEX
+                  text: "[]"
+                }
+              }
+            }
+            tail: ")"
+          }
+          tail: " "
+        }
+        child {
+          kind: BLOCK
+          text: "{\n\t\t"
+          child {
+            kind: EXPR_STMT
+            child {
+              kind: EXPR
+              child {
+                kind: CALL
+                child {
+                  kind: NAME
+                  child {
+                    kind: NAME
+                    text: "System"
+                  }
+                  child {
+                    kind: OPERATOR
+                    text: "."
+                  }
+                  child {
+                    kind: NAME
+                    text: "out"
+                  }
+                  child {
+                    kind: OPERATOR
+                    text: "."
+                  }
+                  child {
+                    kind: NAME
+                    text: "println"
+                  }
+                }
+                child {
+                  kind: ARGUMENT_LIST
+                  text: "("
+                  child {
+                    kind: ARGUMENT
+                    child {
+                      kind: EXPR
+                      child {
+                        kind: LITERAL
+                        text: "\"Hello, world!\""
+                        literal {
+                          type: string_type
+                        }
+                      }
+                    }
+                    tail: ")"
+                  }
+                }
+              }
+              tail: ";"
+            }
+            tail: "\n\t}"
+          }
+        }
+        tail: "\n}"
+      }
+    }
+    tail: "\n"
+  }
+  unit {
+    filename: "Hello.java"
+    revision: "0.9.5"
+    language: JAVA
+  }
+}

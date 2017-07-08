@@ -3,7 +3,7 @@
 All the examples can be obtained when you run the testing script 
 with any argument, e.g.:
 
-  $ cd test && ./test.sh keep
+  $ cd test && keep=1 ./test.sh
 
 ### Convert from source code to SrcML
 
