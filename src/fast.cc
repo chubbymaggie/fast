@@ -57,6 +57,7 @@ int slice = 0;
 int mySlice = 0; 
 int load_only = 0; 
 int git = 0; 
+int pb2xml = 0;
 bool delta = false; 
 string head = "HEAD";
 #endif
@@ -65,6 +66,7 @@ int loadSrcML(int load_only, int argc, char **argv);
 
 int mainRoutine(int argc, char* argv[]);
 int smaliMainRoutine(int argc, char** argv);
+int pbMainRoutine(int argc, const char* argv[]);
 
 inline bool exists_test (const std::string& name) {
 	struct stat buffer;   
@@ -481,6 +483,12 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
 		system(buf);
 	} 
+	if (pb2xml && output_file !=NULL ) {
+		const char *my_argv[] = {
+			"fast", output_file
+		};
+		pbMainRoutine(2, my_argv);
+	}
 }
 void saveTxtFromPB(char *input_file) {
 	saveTxtFromPB(input_file, NULL);
@@ -768,7 +776,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 }
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hpsSv] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdeDg:hpsSvx] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
@@ -778,7 +786,8 @@ void usage() {
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
 	 << "-S\tSlice programs on the binary format" << endl
-	 << "-v\tTell version number" << endl;
+	 << "-v\tTell version number" << endl
+	 << "-x\tDump any protobuf text format to XML" << endl;
 }
 
 int mainRoutine(int argc, char* argv[]) {
@@ -864,6 +873,9 @@ int main(int argc, char* argv[]) {
       case 'c':
         load_only = 1;
         break;
+      case 'x':
+	pb2xml = 1;
+	break;
       case '?':
 	if (isprint (optopt))
           fprintf (stderr, "Unknown option `-%c'.\n", optopt);

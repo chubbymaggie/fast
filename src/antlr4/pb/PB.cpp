@@ -29,7 +29,7 @@ public:
   }
 };
 
-int main(int argc, const char* argv[]) {
+int pbMainRoutine(int argc, const char* argv[]) {
   ifstream stream;
   stream.open(argv[1]);
   ANTLRInputStream input(stream);

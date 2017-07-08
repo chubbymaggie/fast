@@ -23,18 +23,17 @@ OPT=-g -O0 -coverage
 ifeq ($(UNAME_S),Linux)
 ANTLR4=java -jar /usr/local/lib/antlr-4.7-complete.jar
 ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
-ANTLR4_INCLUDE=-I/usr/local/include
 else
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
-ANTLR4_INCLUDE=-Isrc/antlr4-runtime
 endif
+ANTLR4_INCLUDE=-Isrc/antlr4-runtime
 
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 PB_LIB=-L/usr/local/lib -lprotobuf
 
-CFLAGS+=-Isrc -Isrc/gen -Isrc/srcslice -Ismali/src/antlr4/smali -I/usr/local/include $(ANTLR4_INCLUDE) -I/usr/local/include/antlr4-runtime -std=c++11
+CFLAGS+=-Isrc -Isrc/gen -Ismali/src/antlr4/smali -IPB/src/antlr4/pb -Isrc/srcslice -I/usr/local/include $(ANTLR4_INCLUDE) -std=c++11
 LDFLAGS+=$(ANTLR4_LIB)
 
 all: $(target)
@@ -106,8 +105,19 @@ endif
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
 CFLAGS+=$(shell xml2-config --cflags)
 
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) $^ -o $@
+
+%.o: PB/src/antlr4/pb/%.cpp
+	c++ -c $(CFLAGS) $^
+
+%.o: src/antlr4/pb/%.cpp
+	c++ -c $(CFLAGS) $^
+
+PB/PBLexer.cpp PB/PBLexer.h PB/PBLexer.tokens PB/PBParser.cpp PB/PBParser.h: src/antlr4/pb/PB.g4
+	$(ANTLR4) -o PB -Dlanguage=Cpp $^
+
+src/antlr4/pb/PB.cpp: PB/PBLexer.h
 
 src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
 	touch $@
@@ -168,7 +178,7 @@ _fast/Element.py: fast.fbs
 	$(flatc) -p -o . fast.fbs
 
 src/gen/fast_generated.h: fast.fbs
-	$(flatc) --cpp -o src fast.fbs
+	$(flatc) --cpp -o src/gen fast.fbs
 
 src/fast.proto.in: ElementType.proto Smali.proto \
 	Unit.proto Literal.proto \

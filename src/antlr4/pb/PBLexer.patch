@@ -1,7 +1,0 @@
-std::vector<std::string> PBLexer::_channelNames = { 
-	"C__0"
-};
-
-const std::vector<std::string>& PBLexer::getChannelNames() const {
-	return _channelNames;
-}
