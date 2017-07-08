@@ -1,3 +1,4 @@
+V0=0.0.2
 V=0.0.3
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -20,7 +21,7 @@ OPT=-O3
 OPT=-g
 OPT=-g -O0 -coverage
 ifeq ($(UNAME_S),Linux)
-ANTLR4=antlr4
+ANTLR4="java -jar /usr/local/lib/antlr-4.7-complete.jar"
 ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
 ANTLR4_INCLUDE=-I/usr/local/include
 else
@@ -239,7 +240,7 @@ ifeq ($(UNAME_S),Darwin)
 endif
 
 v$V.tar.gz:
-	wget https://github.com/yijunyu/fast/archive/v0.0.1.tar.gz
+	wget https://github.com/yijunyu/fast/archive/v$(V0).tar.gz
 	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
 
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
@@ -250,9 +251,9 @@ debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyrig
 fast_%.orig.tar.gz: v%.tar.gz
 	mv $^ $@
 
-fast-$V: fast_$V.orig.tar.gz fast_0.0.1.orig.tar.gz
+fast-$V: fast_$V.orig.tar.gz fast_$(V0).orig.tar.gz
 	tar xf fast_$V.orig.tar.gz 
-	tar xf fast_0.0.1.orig.tar.gz
+	tar xf fast_$(V0).orig.tar.gz
 	rm -rf fast-$V/lib
 
 fast-$V/debian: fast-$V
