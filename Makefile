@@ -21,7 +21,7 @@ OPT=-O3
 OPT=-g
 OPT=-g -O0 -coverage
 ifeq ($(UNAME_S),Linux)
-ANTLR4="java -jar /usr/local/lib/antlr-4.7-complete.jar"
+ANTLR4=java -jar /usr/local/lib/antlr-4.7-complete.jar
 ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
 ANTLR4_INCLUDE=-I/usr/local/include
 else
