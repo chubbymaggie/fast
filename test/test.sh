@@ -1765,6 +1765,7 @@ testLoadPB() {
 }
 
 testFinalReport() {
+	rm -f *.pb *.fbs
 	lcov --directory .. --capture --output-file ../fast.info
 	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/smali/src/antlr4/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' '*/src/antlr4-runtime/*' > fast.info
 	genhtml fast.info

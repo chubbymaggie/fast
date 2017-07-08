@@ -94,7 +94,7 @@ install: fast process fast.proto
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
 	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
-
+	rm -f srcslice
 endif
 
 ifeq ($(UNAME_S),Darwin)
