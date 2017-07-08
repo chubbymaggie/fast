@@ -34,7 +34,7 @@ FBS_LIB=-L/usr/local/lib -lflatbuffers
 PB_LIB=$(shell pkg-config --libs protobuf)
 PB_LIB=-L/usr/local/lib -lprotobuf
 
-CFLAGS+=-Isrc -I/usr/local/include $(ANTLR4_INCLUDE) -Ismali/src/antlr4/smali -I/usr/local/include/antlr4-runtime -std=c++11
+CFLAGS+=-Isrc -Isrc/gen -Isrc/srcslice -Ismali/src/antlr4/smali -I/usr/local/include $(ANTLR4_INCLUDE) -I/usr/local/include/antlr4-runtime -std=c++11
 LDFLAGS+=$(ANTLR4_LIB)
 
 all: $(target)
@@ -45,7 +45,7 @@ all: $(target)
 ./slice-diff: slice-diff.o fast.pb.o
 	c++ $(OPT) $^ $(PB_LIB) -o $@
 
-fast.pb.o: src/fast.pb.cc 
+fast.pb.o: src/gen/fast.pb.cc 
 	c++ $(OPT) $(CFLAGS) -c $^
 
 %.o: smali/src/antlr4/smali/%.cpp
@@ -62,7 +62,7 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 
 src/antlr/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
 
-src/fast.cc: src/rapidxml/rapidxml.hpp src/fast_generated.h src/fast.pb.h src/ver.h
+src/fast.cc: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
 	touch $@
 
 fast-$V.tar.gz:
@@ -81,7 +81,7 @@ CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/u
 CFLAGS+=$(shell xml2-config --cflags)
 
 prefix=/usr/local
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
 	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
 install: fast process fast.proto
@@ -106,10 +106,10 @@ endif
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
 CFLAGS+=$(shell xml2-config --cflags)
 
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
+fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o
 	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) $^ -o $@
 
-src/cpp/srcSliceHandler.cpp: src/srcSliceHandler.hpp
+src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
 	touch $@
 
 install: fast process fast.proto
@@ -150,16 +150,16 @@ srcML-src: srcML-src.tar.gz
 %.o: src/%.cc
 	c++ $(OPT) -c $(CFLAGS) $^ -o $@
 
-%.o: src/cpp/%.cpp
+%.o: src/srcslice/%.cpp
 	c++ $(OPT) -c $(CFLAGS) $^ -o $@
 
 __main__.py: fast_pb2.py
 
-src/fast_pb2.py: fast.proto
-	$(protoc) -I=. --python_out=src fast.proto
+src/gen/fast_pb2.py: fast.proto
+	$(protoc) -I=. --python_out=src/gen fast.proto
 
-src/fast.pb.h src/fast.pb.cc: fast.proto
-	$(protoc) -I=. --cpp_out=src fast.proto
+src/gen/fast.pb.h src/gen/fast.pb.cc: fast.proto
+	$(protoc) -I=. --cpp_out=src/gen fast.proto
 
 fast.fbs: fast.proto
 	$(flatc) --proto fast.proto
@@ -167,7 +167,7 @@ fast.fbs: fast.proto
 _fast/Element.py: fast.fbs
 	$(flatc) -p -o . fast.fbs
 
-src/fast_generated.h: fast.fbs
+src/gen/fast_generated.h: fast.fbs
 	$(flatc) --cpp -o src fast.fbs
 
 src/fast.proto.in: ElementType.proto Smali.proto \
@@ -283,3 +283,6 @@ test:: install
 
 src/ver.h: src/version.h.in
 	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
+
+coverage::
+	COVERALLS_REPO_TOKEN=dSF4VnbZH7qKlWVxj8HrMrDvN9XIrAUBp coveralls --exclude lib --exclude test --gcov-options '\-lp'
