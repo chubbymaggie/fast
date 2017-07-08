@@ -1,6 +1,6 @@
-V=0.0.2
-#git push && make -f Makefile.in release clean debian
-#cp fast_$V-1_amd64.deb ../yijunyu.github.io/ubuntu
+V=0.0.3
+git push && make release clean debian
+cp fast_$V-1_amd64.deb ../yijunyu.github.io/ubuntu
 cd ../yijunyu.github.io/ubuntu
 dpkg-scanpackages . | gzip -9c > Packages.gz
 git commit -am "update fast's debian package"
