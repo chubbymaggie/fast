@@ -1766,9 +1766,6 @@ testLoadPB() {
 
 testFinalReport() {
 	rm -f *.pb *.fbs
-	lcov --directory .. --capture --output-file ../fast.info
-	lcov --remove ../fast.info '/usr/*' '/Applications/*' '*/smali/src/antlr4/*' '*/src/rapidxml/*' '*/src/*.hpp' '*/src/*.pb.*' '*/src/cpp/src*' '*/src/fast_generated.h' '*/src/antlr4-runtime/*' > fast.info
-	genhtml fast.info
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then
@@ -1777,5 +1774,4 @@ fi
 
 rm -f ../*.gcda
 rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
-lcov --directory .. --zerocounters
 . ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2
