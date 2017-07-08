@@ -11,7 +11,7 @@ before_install:
     brew tap yijunyu/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers;
     brew install antlr; brew install antlr4-cpp-runtime;
-    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -f srcSlice;
+    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -rf srcSlice;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;
