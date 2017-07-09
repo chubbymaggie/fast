@@ -23,19 +23,21 @@ faster](doc/performance.md).
 Your software development projects may benefit directly from `fast` if you have
 used one of the following related tools:
 
-## *Parsing* 
+### *Parsing* 
 * Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
 * Smali/Android -- supported by [smali](https://github.com/JesusFreke/smali) in [apktool](https://ibotpeaches.github.io/Apktool)
 * or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
-## *Slicing*
+### *Program slicing*
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
-## *Diff-Patching*
+### *Diff-Patching*
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [mct](https://github.com/yijunyu/meaningful-changes)
-## *Synchronisation*
+### *Synchronisation*
 * [biyacc](http://biyacc.yozora.moe)
+### *Clone Detection*
+* [deckard](https://github.com/skyhover/Deckard)
 
-### Contributors
+## Contributors
 | Contributors | Expertise |
 | ---------------------- |:-------------:| 
 | Bram Adams 		         |program slicing|
@@ -98,6 +100,7 @@ Our tool cannot be made without standing on the shoulders of these great tools:
 
 * [antlr4](https://github.com/antlr/antlr4)
 * [biyacc](http://biyacc.yozora.moe)
+* [deckard](https://github.com/skyhover/Deckard)
 * [flatbuffers](https://github.com/google/flatbuffers)
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [mct](https://github.com/yijunyu/meaningful-changes)
