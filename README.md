@@ -21,7 +21,7 @@ software development.
 faster](doc/performance.md). 
 
 Your software development projects may benefit directly from `fast` if you find
-one of the following activities not fast enough:
+the following activities slow:
 
 ### *Parsing* => [10-100x faster](doc/performance.md)
 * Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
