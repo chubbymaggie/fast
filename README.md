@@ -12,7 +12,7 @@ But, can we think differently?
 Instead of [parsing code structures](doc/architecture.md), why cannot we load
 them into memory as an efficient binary structure before any further analysis? 
 
-This project adopts flatbuffers, a one-dimensional array to represent the ASTs
+This project adopts [flatbuffers](https://github.com/google/flatbuffers), a one-dimensional array to represent the ASTs
 as a binary file, and demonstates the improved efficiency and applicability to
 software development.
 
@@ -23,29 +23,30 @@ faster](doc/performance.md).
 Your software development projects may benefit directly from `fast` if you have
 used one of the following related tools:
 
-* [antlr4](https://github.com/antlr/antlr4)
-* [biyacc](http://biyacc.yozora.moe)
-* [flatbuffers](https://github.com/google/flatbuffers)
+## *Parsing* 
+* Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
+* Smali/Android -- supported by [smali](https://github.com/JesusFreke/smali) in [apktool](https://ibotpeaches.github.io/Apktool)
+* or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
+## *Slicing*
+* [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
+## *Diff-Patching*
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [mct](https://github.com/yijunyu/meaningful-changes)
-* [protobuf](https://github.com/google/protobuf)
-* [rapidxml](https://github.com/dwd/rapidxml)
-* [smali](https://github.com/JesusFreke/smali)
-* [srcML](http://www.srcml.org/)
-* [txl](http://txl.ca)
+## *Synchronisation*
+* [biyacc](http://biyacc.yozora.moe)
 
 ### Contributors and expertise
-* Bram Adams 		program slicing
-* Duy Quoc Nghi Bui 	clone detection
-* Julian Harty 		mobile analytics
-* Zhenjiang Hu 		bidirectional programming
-* Lingxiao Jiang 	clone detection
-* Chunmiao Li 		bidirectional programming
-* Qiuchi Li 		information retrieval
-* Angus Marshall 	mobile forensics
-* Mohammed Sayagh 	program slicing
-* Meng Wang		bidirectional programming
-* Yijun Yu		compiler optimization
+* Bram Adams 		| program slicing
+* Duy Quoc Nghi Bui 	| clone detection
+* Julian Harty 		| mobile analytics
+* Zhenjiang Hu 		| bidirectional programming
+* Lingxiao Jiang 	| clone detection
+* Chunmiao Li 		| bidirectional programming
+* Qiuchi Li 		| information retrieval
+* Angus Marshall 	| mobile forensics
+* Mohammed Sayagh 	| program slicing
+* Meng Wang		| bidirectional programming
+* Yijun Yu		| compiler optimization
 
 ### Version History
 
@@ -89,5 +90,20 @@ used one of the following related tools:
 *0.0.1* (April 11, 2017)
 
 * Initial public release: support round-trip translation between srcML and protobuf/flatbuffers binary ASTs, improving the parsing speed by 10x.
+
+## Acknowledgement
+Our tool cannot be made without standing on the shoulders of these great tools:
+
+* [antlr4](https://github.com/antlr/antlr4)
+* [biyacc](http://biyacc.yozora.moe)
+* [flatbuffers](https://github.com/google/flatbuffers)
+* [gumtreediff](https://github.com/GumTreeDiff/gumtree)
+* [mct](https://github.com/yijunyu/meaningful-changes)
+* [protobuf](https://github.com/google/protobuf)
+* [rapidxml](https://github.com/dwd/rapidxml)
+* [smali](https://github.com/JesusFreke/smali)
+* [srcML](http://www.srcml.org/)
+* [txl](http://txl.ca)
+
 ---
 © 2017 Yijun Yu. FAST is released under GPL v3, see [license.txt](license.txt) for details.
