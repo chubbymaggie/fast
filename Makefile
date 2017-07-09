@@ -19,6 +19,7 @@ gtime=/usr/bin/time
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --libs)
 ANTLR4=java -jar /usr/local/lib/antlr-4.7-complete.jar
 ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
+PB_LIB=/usr/local/lib/libprotobuf.a
 prefix=/usr/local
 endif
 
@@ -27,6 +28,7 @@ gtime=gtime
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --libs)
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
+PB_LIB=-L/usr/local/lib -lprotobuf
 prefix=$(HOMEBREW_FORMULA_PREFIX)
 ifeq ($(prefix),)
 prefix=/usr/local
@@ -35,8 +37,6 @@ endif
 
 ANTLR4_INCLUDE=-Isrc/antlr4-runtime
 FBS_LIB=-L/usr/local/lib -lflatbuffers
-#PB_LIB=$(shell pkg-config --libs protobuf)
-PB_LIB=-L/usr/local/lib -lprotobuf
 
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
 CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
