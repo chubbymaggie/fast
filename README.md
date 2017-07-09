@@ -5,7 +5,7 @@
 
 Abstract syntax trees (ASTs) are hierarchical, recursive structures for
 representing source code.  Parsing them typically requires a full traversal of
-the code, which costs O(n log(n)) operations.  
+the code, which costs O(n) operations.  
 
 But, can we think differently?
 
