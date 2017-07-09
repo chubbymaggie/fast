@@ -226,15 +226,6 @@ benchmarks/Hello8192/%8192.java: /tmp/%4096.java
 /tmp/%2.java: benchmarks/Hello/%.java
 	cat $^ $^ > $@
 
-clean:
-	rm -f fast.cc fast_pb2.py fast.fbs
-	rm -rf $(target) *.proto *.dSYM	_fast/ *.o HEAD
-	rm -rf Release autom4te.cache config.h config.log config.status configure.scan
-	rm -rf protobuf-3.3.0 protobuf-cpp-3.3.0.tar.gz
-	rm -rf fast_*-1* fast-*
-	rm -f *.gcno *.gcov *.gcda
-	rm -rf fast.info index*.html *.png v1/ gcov.css Users usr
-
 release::
 	git tag -f v$V
 	git push -f origin v$V
@@ -285,6 +276,15 @@ fast-$V/debian/rules: lib/debian/rules
 test:: install
 	cd test && ./test.sh
 
-
 coverage::
 	COVERALLS_REPO_TOKEN=dSF4VnbZH7qKlWVxj8HrMrDvN9XIrAUBp coveralls --exclude lib --exclude test --gcov-options '\-lp'
+
+clean::
+	rm -f fast_pb2.py fast.fbs
+	rm -rf $(target) *.proto *.dSYM	_fast/ *.o HEAD
+	rm -rf Release autom4te.cache config.h config.log config.status configure.scan
+	rm -rf protobuf-3.3.0 protobuf-cpp-3.3.0.tar.gz
+	rm -rf fast_*-1* fast-*
+	rm -f *.gcno *.gcov *.gcda
+	rm -rf fast.info index*.html *.png v1/ gcov.css Users usr
+	rm -rf PB smali src/gen
