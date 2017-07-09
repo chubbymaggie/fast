@@ -37,6 +37,7 @@ used one of the following related tools:
 ### Users and contributors
 * Bram Adams
 * Duy Quoc Nghi Bui
+* Julian Harty
 * Zhenjiang Hu
 * Lingxiao Jiang
 * Chunmiao Li
