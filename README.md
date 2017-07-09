@@ -20,21 +20,21 @@ software development.
 [manipulates](doc/usage.md) [source code](doc/example.md) [10x
 faster](doc/performance.md). 
 
-Your software development projects may benefit directly from `fast` if you have
-used one of the following related tools:
+Your software development projects may benefit directly from `fast` if you find
+one of the following activities not fast enough:
 
-### *Parsing* 
+### *Parsing* => 10-20x faster
 * Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
 * Smali/Android -- supported by [smali](https://github.com/JesusFreke/smali) in [apktool](https://ibotpeaches.github.io/Apktool)
 * or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
-### *Program slicing*
+### *Program slicing* => 2.5x faster
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
-### *Diff-Patching*
+### *Diff-Patching* => (est.) faster
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [mct](https://github.com/yijunyu/meaningful-changes)
-### *Synchronisation*
+### *Synchronisation* => (est.) faster
 * [biyacc](http://biyacc.yozora.moe)
-### *Clone Detection*
+### *Clone Detection* => (est.) faster
 * [deckard](https://github.com/skyhover/Deckard)
 
 ## Contributors
@@ -89,7 +89,7 @@ used one of the following related tools:
 
 * Added support for smali code through its ANTLR3 grammar in Java => Julian Harty
 * Added srcSlice support to improve the speed of forward slicing by 2x. => Bram Adams
-* Added ANTLR3 libraries to improve GumTreeDiff speed by 2x.
+* Added ANTLR3 libraries to improve GumTreeDiff speed.
 
 *0.0.1* (April 11, 2017)
 
