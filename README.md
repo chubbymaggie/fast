@@ -29,12 +29,12 @@ one of the following activities not fast enough:
 * or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
 ### *Program slicing* => 2.5x faster
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
-### *Diff-Patching* => (est.) faster
+### *Diff-Patching* => smaller and faster
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [mct](https://github.com/yijunyu/meaningful-changes)
-### *Synchronisation* => (est.) faster
+### *Synchronisation* => smaller and faster
 * [biyacc](http://biyacc.yozora.moe)
-### *Clone Detection* => (est.) faster
+### *Clone Detection* => more precise
 * [deckard](https://github.com/skyhover/Deckard)
 
 ## Contributors
