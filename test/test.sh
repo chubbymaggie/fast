@@ -1772,7 +1772,7 @@ testLoadPB() {
 
 position() {
 	if [ ! -f $1/t.pb ]; then
-		cd .. && $fast -p -g $1 . t.pb && mv $1 test/ && cd -
+		cd .. && fast -p -g $1 . t.pb && mv $1 test/ && cd -
 	fi
 }
 slice() {
