@@ -49,17 +49,32 @@ used one of the following related tools:
 
 ### Version History
 
-* Updated the schema's Kinds as a union type, accommodating more ANTLR4 languages when needed (currently, Kind => srcml; SmaliKind => smali)
-* Added `apk2pb` script to process an APK into a tarball of protobuf representations (TODO: may concatenate all compilation unit pb's into a single archive)
+*TODOs* Ordering not prioritised 
+
+* Rewrite the interface to [GumTreeDiff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
+* Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/yijunyu/meaningful-changes)
+  by migrating the [txl](http://txl.ca)-based implementation
+* Extract code pairs from Git repositories
+* Complete slice-diff
+* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy
+* Generate efficient slices from srcML inputs
+* Support more ANTLR languages
+
+*0.0.4* TBD
+
+* Updated schema's Kinds as a union type, accommodating more ANTLR4 languages when needed
+  (currently, Kind => srcml; SmaliKind => smali)
+* Added `apk2pb` script to process an APK into a tarball of protobuf representations 
 * Fixed some lexer errors in `smaliLexer.g4` (now all code of `Instagram` apk can be processed 10x faster)
-* Removed the ANTLR3 branch to take full advantage of latest ANTLR4 (TODO: it may require rewriting the interface to GumTreeDiff)
+* Removed the ANTLR3 branch to take full advantage of latest ANTLR4 
 
 *0.0.3* (July 6, 2017)
 
-* Added support to ANTLR4 in C++ (which unfortunately caused a conflict in the older dependencies of antlr@2 (required by srcml). There is a workaround 
-  (see an update to the installation guide.)
-* Modified the code schema to place "tail" information after "child", so that it is easier to remove the shift-reduce error in the application of BiYacc
-* Generalised the schema to support other type of information for automated software engineering, such as slicing and diff-patch
+* Added support to ANTLR4 in C++ (which unfortunately caused a conflict in the older dependencies of antlr@2 (required by srcml).
+  A workaround (see an update to the installation guide.)
+* Placed "tail" information after "child" in schema to remove shift-reduce errors in the application of BiYacc
+* Generalised the code schema to support automated software engineering activities, e.g. slicing, diffing, cloning
+* Converted srcSlicing CSV output into the supported protobuf schema
 
 *0.0.2* (June 21, 2017)
 
@@ -71,5 +86,4 @@ used one of the following related tools:
 
 * Initial public release: support round-trip translation between srcML and protobuf/flatbuffers binary ASTs, improving the parsing speed by 10x.
 ---
-© 2017 Yijun Yu. Fast is released under an GPL license;
-see [license.txt](license.txt) for details.
+© 2017 Yijun Yu. FAST is released under GPL v3, see [license.txt](license.txt) for details.
