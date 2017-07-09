@@ -1791,7 +1791,7 @@ cleanup_examples() {
 export -f cleanup_examples
 
 testSliceDiff() {
-	HEAD=1b27c3c53c71a5c7c469b773829490233ad1935c
+	HEAD=310532a6fbe6c7347c413c39f1f6ca4a478a36f6
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)
 	position $r1
