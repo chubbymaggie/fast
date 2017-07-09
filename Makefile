@@ -100,7 +100,7 @@ fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBase
 fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 
 fast: $(fast_objects) 
-	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) $^ -o $@
+	$(CXX) $(OPT) $(CFLAGS) $^ $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
 install: fast process slice-diff fast.proto install-srcslice
 	mkdir -p $(DESTDIR)$(prefix)/bin
