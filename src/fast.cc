@@ -130,7 +130,7 @@ int loadXML(int load_only, int argc, char**argv) {
 	}
 #endif
     } catch(parse_error & e) {
-        std::cout << "Parse error: " << e.what() << std::endl << "At: " << e.where<char>() << std::endl;
+        // std::cout << "Parse error: " << e.what() << std::endl << "At: " << e.where<char>() << std::endl;
     } catch(validation_error & e) {
         std::cout << "Validation error: " << e.what() << std::endl;
     }

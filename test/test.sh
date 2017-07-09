@@ -1795,17 +1795,17 @@ testSliceDiff() {
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)
 	position $r1
-	position $r2 
-	slice $r1
-	slice $r2 
-	$slicediff $r1/slice.pb $r2/slice.pb diff.pb
-	$fast -d diff.pb > diff.txt
-	#gumtree diff 72a7a1db7fd764455436344e885a9feb6438e803/slice.pb.xml d84081c8399be29a89044e18c784eed17740a271/slice.pb.xml
-	diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
-	rm -rf $r1 $r2
-	if [ "$keep" == "" ]; then
-		cleanup_examples
-	fi
+	echo $r1
+	#position $r2 
+	#slice $r1
+	#slice $r2 
+	#$slicediff $r1/slice.pb $r2/slice.pb diff.pb
+	#$fast -d diff.pb > diff.txt
+	#diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
+	#rm -rf $r1 $r2
+	#if [ "$keep" == "" ]; then
+	#	cleanup_examples
+	#fi
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then

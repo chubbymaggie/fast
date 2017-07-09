@@ -35,7 +35,7 @@ prefix=/usr/local
 endif
 endif
 
-ANTLR4_INCLUDE=-Isrc/antlr4-runtime
+ANTLR4_INCLUDE=-I/usr/local/include/antlr4-runtime
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
