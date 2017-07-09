@@ -161,9 +161,7 @@ void replaceAll( std::string &s, const std::string &search, const std::string &r
     }
 }
 
-
-
-int main(int argc, char ** argv) {
+int processMainRoutine(int argc, char ** argv) {
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 	std::fstream input(argv[1]);
 	std::string line;
@@ -210,4 +208,5 @@ int main(int argc, char ** argv) {
 	data->SerializeToOstream(&output);
 	output.close();
 	google::protobuf::ShutdownProtobufLibrary();
+	return 0;
 }

@@ -58,6 +58,8 @@ int mySlice = 0;
 int load_only = 0; 
 int git = 0; 
 int pb2xml = 0;
+int process = 0;
+int slicediff = 0;
 bool delta = false; 
 string head = "HEAD";
 #endif
@@ -67,6 +69,8 @@ int loadSrcML(int load_only, int argc, char **argv);
 int mainRoutine(int argc, char* argv[]);
 int smaliMainRoutine(int argc, char** argv);
 int pbMainRoutine(int argc, const char* argv[]);
+int processMainRoutine(int argc, char**argv);
+int sliceDiffMainRoutine(int argc, char**argv);
 
 inline bool exists_test (const std::string& name) {
 	struct stat buffer;   
@@ -179,16 +183,16 @@ int loadFBS(int load_only, int argc, char **argv) {
 			if (slice) {
 				string sliceCommand = "srcSlice ";
 				sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
-				system(sliceCommand.c_str());
+				(void) system(sliceCommand.c_str());
 				string catCommand = "cat ";
 				catCommand = catCommand + xml_filename + ".slice";
-				system(catCommand.c_str());
+				(void) system(catCommand.c_str());
 				out.close();
 				remove((xml_filename + ".slice").c_str());
 			} else {
 				string catCommand = "cat ";
 				catCommand = catCommand + xml_filename;
-				system(catCommand.c_str());
+				(void) system(catCommand.c_str());
 			}
 			out.close();
 			return remove(xml_filename.c_str());
@@ -254,15 +258,15 @@ int loadPB(int load_only, int argc, char **argv) {
 		if (slice) {
 			string sliceCommand = "srcSlice ";
 			sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
-			system(sliceCommand.c_str());
+			(void) system(sliceCommand.c_str());
 			string catCommand = "cat ";
 			catCommand = catCommand + xml_filename + ".slice";
-			system(catCommand.c_str());
+			(void) system(catCommand.c_str());
 			remove((xml_filename + ".slice").c_str());
 		} else {
 			string catCommand = "cat ";
 			catCommand = catCommand + xml_filename;
-			system(catCommand.c_str());
+			(void) system(catCommand.c_str());
 		}
 		return remove(xml_filename.c_str());
 	}
@@ -477,17 +481,17 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 		const char *filename = unit.unit().filename().c_str();
 		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
 			input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
-		system(buf);
+		(void) system(buf);
 	} else {
 		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto%s%s",
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
-		system(buf);
+		(void) system(buf);
 	} 
 	if (pb2xml && output_file !=NULL ) {
 		const char *my_argv[] = {
 			"fast", output_file
 		};
-		pbMainRoutine(2, my_argv);
+		(void) pbMainRoutine(2, my_argv);
 	}
 }
 void saveTxtFromPB(char *input_file) {
@@ -496,12 +500,12 @@ void saveTxtFromPB(char *input_file) {
 void savePBfromTxt(char *input_file) {
 	char buf[100];
 	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto", input_file);
-	system(buf);
+	(void) system(buf);
 }
 void savePBfromTxt(char *input_file, char *output_file) {
 	char buf[1000];
 	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto > %s", input_file, output_file);
-	system(buf);
+	(void) system(buf);
 }
 
 #ifdef PB_fast
@@ -700,9 +704,10 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	string srcmlCommand = "srcml";
 	bool input_is_xml = false;
 	bool output_is_xml = false;
+	bool output_is_pb = false;
 	string xml_filename;
 	bool is_smali = false;
-	char *my_argv[3];
+	char *my_argv[4];
 	for (int i = 1; i < (argc == 2? 2 : argc - 1); i++) { // process the inputs, and reserve the last argument as output
 		if (!check_exists(argv[i])) {
 			cerr << "file or folder " << argv[i] << "does not exist!" << endl;
@@ -727,6 +732,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	bool is_tmp = false;
 	if (!input_is_xml) { // input is not yet xml, first convert it into xml using srcml
 		output_is_xml = argc == 2 || strcmp(argv[argc-1]+strlen(argv[argc-1])-4, ".xml")==0;
+		output_is_pb = argc > 2 && strcmp(argv[argc-1]+strlen(argv[argc-1])-3, ".pb")==0;
 		if (!slice && output_is_xml) {
 			if (argc == 2)
 				xml_filename = "stdout://-";
@@ -742,33 +748,44 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			is_tmp = true;
 		}
 		if (is_smali && argc == 2) {
-			smaliMainRoutine(2, my_argv);
-			return 0;
+			return smaliMainRoutine(2, my_argv);
 		} else if (is_smali) {
 			my_argv[2] = argv[argc-1];
-			smaliMainRoutine(3, my_argv);
-			return 0;
+			return smaliMainRoutine(3, my_argv);
 		}
-		srcmlCommand = srcmlCommand + " -o " + xml_filename;
-		// cout << srcmlCommand << endl;
-		system(srcmlCommand.c_str());
+		if (!process && !slicediff) {
+			srcmlCommand = srcmlCommand + " -o " + xml_filename;
+			// cout << srcmlCommand << endl;
+			(void) system(srcmlCommand.c_str());
+		}
 	}
 	if (slice) {
 		string sliceCommand = "srcSlice ";
 		sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
-		system(sliceCommand.c_str());
+		(void) system(sliceCommand.c_str());
 		string catCommand = "cat ";
 		catCommand = catCommand + xml_filename + ".slice";
-		system(catCommand.c_str());
+		(void) system(catCommand.c_str());
 		remove((xml_filename + ".slice").c_str());
-	} else if (!input_is_xml && !output_is_xml) { // target is not xml
+	} else if (!input_is_xml && !output_is_xml && !process && !slicediff) { // target is not xml
 		argv[argc-2] = strdup(xml_filename.c_str());
 		loadXML(load_only, 3, argv + argc-3);
+	} else if (argc == 3 && process && output_is_pb) {
+		my_argv[0] = argv[0];
+		my_argv[1] = argv[1];
+		my_argv[2] = argv[2];
+		(void) processMainRoutine(3, my_argv);
+	} else if (argc == 4 && slicediff && output_is_pb) {
+		my_argv[0] = argv[0];
+		my_argv[1] = argv[1];
+		my_argv[2] = argv[2];
+		my_argv[3] = argv[3];
+		(void) sliceDiffMainRoutine(4, my_argv);
 	} else {
 		if (argc == 3 && input_is_xml) {
 			srcmlCommand = srcmlCommand + " -o " + argv[2];
 		}
-		system(srcmlCommand.c_str());
+		(void) system(srcmlCommand.c_str());
 	}
 	if (is_tmp)
 		remove(xml_filename.c_str());
@@ -776,13 +793,15 @@ int loadSrcML(int load_only, int argc, char **argv) {
 }
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hpsSvx] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdeDg:hlLpsSvx] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
 	 << "-e\tEncode text format into protobuf" << endl
 	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
 	 << "-h\tPrint this help message" << endl
+	 << "-l\tProcess log pairs from cross-language repositories" << endl
+	 << "-L\tDifferentiate on the slices" << endl
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
 	 << "-S\tSlice programs on the binary format" << endl
@@ -800,7 +819,7 @@ int mainRoutine(int argc, char* argv[]) {
 	   return 1;
    }
 #ifdef PB_fast
-   if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0) {
+   if (strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0 && !slicediff) {
 	  if (decode && argc == 2) {
 	    saveTxtFromPB(argv[1]);
 	    return 0;
@@ -837,7 +856,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hpsSvx")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hlLpsSvx")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -876,6 +895,12 @@ int main(int argc, char* argv[]) {
       case 'x':
 	    pb2xml = 1;
 	    decode = 1;
+	    break;
+      case 'l':
+	    process = 1;
+	    break;
+      case 'L':
+	    slicediff = 1;
 	    break;
       case '?':
 	if (isprint (optopt))

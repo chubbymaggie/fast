@@ -2,8 +2,6 @@ V0=0.0.2
 V=0.0.3
 
 target+=fast
-target+=process
-target+=slice-diff
 
 CXX=c++
 protoc=/usr/local/bin/protoc
@@ -45,12 +43,6 @@ CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
 LDFLAGS+=$(ANTLR4_LIB)
 
 all: $(target)
-
-./process: process.o fast.pb.o
-	c++ $(OPT) $^ $(PB_LIB) -o $@
-
-./slice-diff: slice-diff.o fast.pb.o
-	c++ $(OPT) $^ $(PB_LIB) -o $@
 
 fast.pb.o: src/gen/fast.pb.cc 
 	c++ $(OPT) $(CFLAGS) -c $^
@@ -98,17 +90,17 @@ fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o
 fast_objects += git.o 
 fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o 
 fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
+fast_objects += process.o
+fast_objects += slice-diff.o
 
 fast: $(fast_objects) 
 	$(CXX) $(OPT) $(CFLAGS) $^ $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast process slice-diff fast.proto install-srcslice
+install: fast fast.proto install-srcslice
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
-	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
-	install -m 0755 slice-diff $(DESTDIR)$(prefix)/bin/slice-diff
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 

@@ -1,8 +1,7 @@
 #!/bin/bash
 fast=$(which fast)
-process=$(which process)
 if [ "$fast" != "/usr/local/bin/fast" ]; then
-	if [ ! -f ../fast -o ! -f ../process ]; then
+	if [ ! -f ../fast ]; then
 		cd .. 
 		make OPT="-g -O0 --coverage"
 		sudo make install
@@ -10,8 +9,6 @@ if [ "$fast" != "/usr/local/bin/fast" ]; then
 	fi
 fi
 fast=${fast:=../fast}
-process=${process:=../process}
-slicediff=${slicediff:=../slice-diff}
 
 stdout() {
 	hash=$1
@@ -1711,14 +1708,14 @@ EOF
 ### rather lengthy test :-) 
 notestFastPairs() {
 	cat codelabel_new.csv > a.csv
-	$process a.csv a.pb
+	$fast -l a.csv a.pb
 	stdout 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 -d a.pb
 }
 
 testFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
-	$process a.csv a.pb
+	$fast -l a.csv a.pb
 	stdout 1a87bcd1e9f8ce710022a99d68fbce48029189e20bce3a923a01fd184c6c9fe6 -d a.pb
 }
 
@@ -1795,17 +1792,16 @@ testSliceDiff() {
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)
 	position $r1
-	echo $r1
-	#position $r2 
-	#slice $r1
-	#slice $r2 
-	#$slicediff $r1/slice.pb $r2/slice.pb diff.pb
-	#$fast -d diff.pb > diff.txt
-	#diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
-	#rm -rf $r1 $r2
-	#if [ "$keep" == "" ]; then
-	#	cleanup_examples
-	#fi
+	position $r2 
+	slice $r1
+	slice $r2 
+	$fast -L $r1/slice.pb $r2/slice.pb diff.pb
+	$fast -d diff.pb > diff.txt
+	diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
+	if [ "$keep" == "" ]; then
+		rm -rf $r1 $r2
+		cleanup_examples
+	fi
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then

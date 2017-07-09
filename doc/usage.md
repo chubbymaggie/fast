@@ -98,3 +98,24 @@ form.
   $ fast -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
 
   $ fast -x DuplicateVirtualMethods.smali.pb.txt > DuplicateVirtualMethods.smali.pb.txt.xml
+
+### Differentiate on the slices
+
+  $fast -L slice1.pb slice2.pb slice-diff.pb
+
+Assuming slice1.pb and slice2.pb are outputs of progra slicing using the option
+`-S` on two versions of the code, the output of this command is a diff
+representation of the differences.
+
+### Process log pairs from cross-language repositories
+  $cat codelabel_new.csv > a.csv
+
+  $fast -l a.csv a.pb
+
+Assuming that the input file is a comma-separate file where each row of the
+record indicates the project name, diff position of the source project, textual
+differences of the source project, diff positions of the target project,
+textual differences of the target project, and the judgement whether the pair
+of differences are clones.  The output of the command is a protobuf
+representation of the above pairs.
+

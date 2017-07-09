@@ -5,18 +5,8 @@
 #include "fast.pb.h"
 using namespace std;
 
-fast::Data* readData(char *input_filename) {
-	// Verify that the version of the library that we linked against is
-	// compatible with the version of the headers we compiled against.
-	GOOGLE_PROTOBUF_VERIFY_VERSION;
-	fast::Data* data = new fast::Data();
-	ifstream input(input_filename, ios::in | ios::binary);
-    	if (!data->ParseFromIstream(&input)) {
-	      cerr << "Failed to parse compilation unit." << endl;
-	}
-	input.close();
-	return data;
-}
+fast::Data readData(char *input_filename);
+
 set<int> get_defns(const fast::Slices_Slice_SourceFile_Function_Variable *variable, string name) {
 	set<int> defns;
 	for (int i=0; i< variable->defn_size(); i++) {
@@ -214,12 +204,14 @@ void merge_files(fast::Slices_Slice *c_slice, const fast::Slices_Slice *a_slice,
  * Assume that a, b are singleton slices, named after <40-character long hash>/slice.pb
  *
  */
-int main(int argc, char **argv)
+int sliceDiffMainRoutine(int argc, char **argv)
 {
-	fast::Data *a = readData(argv[1]);
-	fast::Data *b = readData(argv[2]);
-	assert(a->slices().slice_size() == 1);
-	assert(b->slices().slice_size() == 1);
+	fast::Data A = readData(argv[1]);
+	fast::Data B = readData(argv[2]);
+	fast::Data *a = &A;
+	fast::Data *b = &B;
+	assert(a->slices().slice_size() > 0);
+	assert(b->slices().slice_size() > 0);
 	fast::Data *c = new fast::Data();
 	string a_name = argv[1];
 	string b_name = argv[2];
@@ -231,4 +223,5 @@ int main(int argc, char **argv)
 	ofstream output(argv[3], ios::out | ios::trunc | ios::binary);
 	c->SerializeToOstream(&output);
 	output.close();
+	return 0;
 }
