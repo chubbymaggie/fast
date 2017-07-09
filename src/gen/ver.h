@@ -1,0 +1,3 @@
+#define __FAST_VERSION__ "v0.0.3"
+#define __FAST_HASH__ "918c5561ff4b50868576460ab1be824400dafb1f"
+#define __FAST_WORK__ "bf1d8134adac62be5f12561681f6750b569c856224f614dc5fcb8a0de1a24e94"

@@ -73,13 +73,13 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 %.o: src/antlr4/pb/%.cpp
 	c++ -c $(CFLAGS) $^
 
-PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
+PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBListener.cpp PB/src/antlr4/pb/PBBaseListener.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
-fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
-smali.o: smali/src/antlr4/smali/smaliLexer.h
-PB.o: PB/src/antlr4/pb/PBLexer.h
-srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp
+src/fast.cc: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
+src/antlr4/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
+src/antlr4/pb/PB.cpp: PB/src/antlr4/pb/PBLexer.h
+src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
@@ -156,7 +156,7 @@ srcML-src: srcML-src.tar.gz
 
 __main__.py: fast_pb2.py
 
-src/ver.h: src/version.h.in
+src/gen/ver.h: src/version.h.in
 	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
 
 src/gen/fast_pb2.py: fast.proto
