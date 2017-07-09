@@ -5,12 +5,13 @@
 
 Abstract syntax trees (ASTs) are hierarchical, recursive structures for
 representing source code.  Parsing them typically requires a full traversal of
-the code.  
+the code, which costs O(n) operations.  
 
 But, can we think differently?
 
 Instead of [parsing code structures](doc/architecture.md), why cannot we load
 them into memory as an efficient binary structure before any further analysis? 
+This would only cost O(1) operations.
 
 This project adopts [flatbuffers](https://github.com/google/flatbuffers), a one-dimensional array to represent the ASTs
 as a binary file, and demonstates the improved efficiency and applicability to
