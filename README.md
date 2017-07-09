@@ -23,18 +23,18 @@ faster](doc/performance.md).
 Your software development projects may benefit directly from `fast` if you find
 one of the following activities not fast enough:
 
-### *Parsing* => 10-20x faster
+### *Parsing* => [10-100x faster](doc/performance.md)
 * Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
 * Smali/Android -- supported by [smali](https://github.com/JesusFreke/smali) in [apktool](https://ibotpeaches.github.io/Apktool)
 * or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
-### *Program slicing* => 2.5x faster
+### *Program slicing* => [2.5x faster](doc/performance.md)
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
-### *Diff-Patching* => smaller and faster
+### *Diff-Patching* => smaller and faster (to measure)
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
 * [mct](https://github.com/yijunyu/meaningful-changes)
-### *Synchronisation* => smaller and faster
+### *Synchronisation* => smaller and faster (to measure)
 * [biyacc](http://biyacc.yozora.moe)
-### *Clone Detection* => more precise
+### *Clone Detection* => more precise (to measure)
 * [deckard](https://github.com/skyhover/Deckard)
 
 ## Contributors
