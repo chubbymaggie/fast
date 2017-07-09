@@ -1,39 +1,47 @@
 V0=0.0.2
 V=0.0.3
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	gtime=/usr/bin/time
-SRCSAX_LIB=/usr/local/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --libs)
-endif
-ifeq ($(UNAME_S),Darwin)
-	gtime=gtime
-SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --libs)
-endif
 
 target+=fast
 target+=process
 target+=slice-diff
+
 CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
-OPT=-O3
-OPT=-g
+#OPT=-O3
+#OPT=-g
 OPT=-g -O0 -coverage
+
+UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
+gtime=/usr/bin/time
+SRCSAX_LIB=/usr/local/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --libs)
 ANTLR4=java -jar /usr/local/lib/antlr-4.7-complete.jar
 ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
-else
+prefix=/usr/local
+endif
+
+ifeq ($(UNAME_S),Darwin)
+gtime=gtime
+SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --libs)
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
+prefix=$(HOMEBREW_FORMULA_PREFIX)
+ifeq ($(prefix),)
+prefix=/usr/local
 endif
-ANTLR4_INCLUDE=-Isrc/antlr4-runtime
+endif
 
+ANTLR4_INCLUDE=-Isrc/antlr4-runtime
 FBS_LIB=-L/usr/local/lib -lflatbuffers
-PB_LIB=$(shell pkg-config --libs protobuf)
+#PB_LIB=$(shell pkg-config --libs protobuf)
 PB_LIB=-L/usr/local/lib -lprotobuf
 
-CFLAGS+=-Isrc -Isrc/gen -Ismali/src/antlr4/smali -IPB/src/antlr4/pb -Isrc/srcslice -I/usr/local/include $(ANTLR4_INCLUDE) -std=c++11
+CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
+CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
+CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
+
 LDFLAGS+=$(ANTLR4_LIB)
 
 all: $(target)
@@ -59,10 +67,19 @@ smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smal
 smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
-src/antlr/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
+%.o: PB/src/antlr4/pb/%.cpp
+	c++ -c $(CFLAGS) $^
 
-src/fast.cc: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
-	touch $@
+%.o: src/antlr4/pb/%.cpp
+	c++ -c $(CFLAGS) $^
+
+PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
+	$(ANTLR4) -o PB -Dlanguage=Cpp $^
+
+fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
+smali.o: smali/src/antlr4/smali/smaliLexer.h
+PB.o: PB/src/antlr4/pb/PBLexer.h
+srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
@@ -75,15 +92,17 @@ endif
 
 DESTDIR=
 
-ifeq ($(UNAME_S),Linux)
-CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/local/include -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp
-CFLAGS+=$(shell xml2-config --cflags)
+fast_objects += fast.o 
+fast_objects += fast.pb.o 
+fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
+fast_objects += git.o 
+fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o 
+fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 
-prefix=/usr/local
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
-	$(CXX) $(OPT) $(CFLAGS) $^ /usr/local/lib/libprotobuf.a $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
+fast: $(fast_objects) 
+	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) $^ -o $@
 
-install: fast process slice-diff fast.proto
+install: fast process slice-diff fast.proto install-srcslice
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
@@ -92,46 +111,16 @@ install: fast process slice-diff fast.proto
 	install -m 0755 slice-diff $(DESTDIR)$(prefix)/bin/slice-diff
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
+
+ifeq ($(UNAME_S),Linux)
+install-srcslice::
 	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
 	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
 	rm -f srcslice
 endif
 
 ifeq ($(UNAME_S),Darwin)
-prefix=$(HOMEBREW_FORMULA_PREFIX)
-ifeq ($(prefix),)
-prefix=/usr/local
-endif
-
-CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -I/usr/include -I/usr/local/include -Isrc/rapidxml -Isrc -Isrc/headers -Isrc/cpp 
-CFLAGS+=$(shell xml2-config --cflags)
-
-fast: fast.o fast.pb.o srcSlice.o srcSliceHandler.o srcslice_output.o git.o smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
-	$(CXX) $(OPT) $(CFLAGS) $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) $^ -o $@
-
-%.o: PB/src/antlr4/pb/%.cpp
-	c++ -c $(CFLAGS) $^
-
-%.o: src/antlr4/pb/%.cpp
-	c++ -c $(CFLAGS) $^
-
-PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
-	$(ANTLR4) -o PB -Dlanguage=Cpp $^
-
-src/antlr4/pb/PB.cpp: PB/src/antlr4/pb/PBLexer.h
-
-src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
-	touch $@
-
-install: fast process slice-diff fast.proto
-	mkdir -p $(DESTDIR)$(prefix)/bin
-	mkdir -p $(DESTDIR)$(prefix)/lib
-	mkdir -p $(DESTDIR)$(prefix)/share
-	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
-	install -m 0755 process $(DESTDIR)$(prefix)/bin/process
-	install -m 0755 slice-diff $(DESTDIR)$(prefix)/bin/slice-diff
-	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
-	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
+install-srcslice::
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0755 lib/osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
 	install -m 0755 lib/osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
@@ -166,6 +155,9 @@ srcML-src: srcML-src.tar.gz
 	c++ $(OPT) -c $(CFLAGS) $^ -o $@
 
 __main__.py: fast_pb2.py
+
+src/ver.h: src/version.h.in
+	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
 
 src/gen/fast_pb2.py: fast.proto
 	$(protoc) -I=. --python_out=src/gen fast.proto
@@ -293,8 +285,6 @@ fast-$V/debian/rules: lib/debian/rules
 test:: install
 	cd test && ./test.sh
 
-src/ver.h: src/version.h.in
-	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
 
 coverage::
 	COVERALLS_REPO_TOKEN=dSF4VnbZH7qKlWVxj8HrMrDvN9XIrAUBp coveralls --exclude lib --exclude test --gcov-options '\-lp'
