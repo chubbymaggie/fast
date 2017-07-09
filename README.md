@@ -34,18 +34,20 @@ used one of the following related tools:
 * [srcML](http://www.srcml.org/)
 * [txl](http://txl.ca)
 
-### Contributors and expertise
-* Bram Adams 		program slicing
-* Duy Quoc Nghi Bui 	clone detection
-* Julian Harty 		mobile analytics
-* Zhenjiang Hu 		bidirectional programming
-* Lingxiao Jiang 	clone detection
-* Chunmiao Li 		bidirectional programming
-* Qiuchi Li 		information retrieval
-* Angus Marshall 	mobile forensics
-* Mohammed Sayagh 	program slicing
-* Meng Wang		bidirectional programming
-* Yijun Yu		compiler optimization
+### Contributors
+| Contributors | Expertise |
+| ---------------------- |:-------------:| 
+| Bram Adams 		         |program slicing|
+| Duy Quoc Nghi Bui 	   |clone detection|
+| Julian Harty 		       |mobile analytics|
+| Zhenjiang Hu 		|bidirectional programming|
+| Lingxiao Jiang 	|clone detection|
+| Chunmiao Li 		|bidirectional programming|
+| Qiuchi Li 		|information retrieval|
+| Angus Marshall 	|mobile forensics|
+| Mohammed Sayagh 	|program slicing|
+| Meng Wang		|bidirectional programming|
+| Yijun Yu		|compiler optimization|
 
 ### Version History
 
