@@ -92,6 +92,7 @@ message Pairs {
 		int32 right_column = 4;
 		Element old_code = 5;
 		Element new_code = 6;
+		string hash = 7;
 	}
    } 
    repeated Pair pair = 1;

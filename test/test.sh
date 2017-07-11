@@ -1712,11 +1712,19 @@ notestFastPairs() {
 	stdout 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 -d a.pb
 }
 
-testFastPairs564() {
+notestFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
 	$fast -l a.csv a.pb
 	stdout 1a87bcd1e9f8ce710022a99d68fbce48029189e20bce3a923a01fd184c6c9fe6 -d a.pb
+}
+
+### The new format contains the hash number for the pair
+testFastPairsWithHash564() {
+	head -564 codelabel_new_with_hash.csv | tail -1 > a.csv
+	catout e0826592a7cfe281598c9322963a7d9add10d888468e0a0b0b25f2680deef1f4 a.csv
+	$fast -l a.csv a.pb
+	stdout 16bc1151bec9fa04f8a1106e3f9d7a6c1feea9451e868c4e388d25c5699113f2 -d a.pb
 }
 
 testFastSlice() {
