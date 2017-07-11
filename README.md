@@ -75,21 +75,23 @@ the following activities slow:
 * Updated schema's Kinds as a union type, accommodating more ANTLR4 languages when needed
   (currently, Kind => srcml; SmaliKind => smali)
 * Removed the ANTLR3 branch to take full advantage of latest ANTLR4 
-* Fixed some lexer errors in `smaliLexer.g4` (now all code of `Instagram` apk can be processed 10x faster) => Angus Marshall
-* Added `apk2pb` script to process an APK into a tarball of protobuf representations  => Angus Marshall
+* Fixed some lexer errors in `smaliLexer.g4` (now all code of `Instagram` apk can be processed 10x faster) // for Angus Marshall
+* Added `apk2pb` script to process an APK into a tarball of protobuf representations // for Angus Marshall, Julian Harty
+* Modified the `Paris` schema to include hashes // for Nghi Bui
+* Formed the `f-ast' team to maintain the project // for Qiuchi Li
 
 *0.0.3* (July 6, 2017)
 
 * Generalised the code schema to support automated software engineering activities, e.g. slicing, diffing, cloning
-* Placed "tail" information after "child" in schema to remove shift-reduce errors in the application of BiYacc => Chunmiao Li
+* Placed "tail" information after "child" in schema to remove shift-reduce errors in the application of BiYacc // for Chunmiao Li
 * Added support to ANTLR4 in C++ (which unfortunately caused a conflict in the older dependencies of antlr@2 (required by srcml).
-  A workaround (see an update to the installation guide.) => Meng Wang
-* Converted srcSlicing CSV output into the supported protobuf schema => Qiuchi Li
+  A workaround (see an update to the installation guide.) // for Meng Wang
+* Converted srcSlicing CSV output into the supported protobuf schema // for Qiuchi Li
 
 *0.0.2* (June 21, 2017)
 
-* Added support for smali code through its ANTLR3 grammar in Java => Julian Harty
-* Added srcSlice support to improve the speed of forward slicing by 2x. => Bram Adams
+* Added support for smali code through its ANTLR3 grammar in Java // for Julian Harty
+* Added srcSlice support to improve the speed of forward slicing by 2x. // for Bram Adams
 * Added ANTLR3 libraries to improve GumTreeDiff speed.
 
 *0.0.1* (April 11, 2017)
