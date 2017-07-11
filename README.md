@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/yijunyu/fast.svg?branch=master)](https://travis-ci.org/yijunyu/fast)
-[![Coverage Status](https://coveralls.io/repos/github/yijunyu/fast/badge.svg?branch=master)](https://coveralls.io/github/yijunyu/fast?branch=master)
+[![Build Status](https://travis-ci.org/f-ast/fast.svg?branch=master)](https://travis-ci.org/f-ast/fast)
+[![Coverage Status](https://coveralls.io/repos/github/f-ast/fast/badge.svg?branch=master)](https://coveralls.io/github/f-ast/fast?branch=master)
 
 # `fast` -- Flat Abstract Syntax Trees
 
@@ -32,7 +32,7 @@ the following activities slow:
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
 ### *Diff-Patching* => smaller and faster (to measure)
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
-* [mct](https://github.com/yijunyu/meaningful-changes)
+* [mct](https://github.com/f-ast/meaningful-changes)
 ### *Synchronisation* => smaller and faster (to measure)
 * [biyacc](http://biyacc.yozora.moe)
 ### *Clone Detection* => more precise (to measure)
@@ -60,7 +60,7 @@ the following activities slow:
 #### Feature requests ####
 * Complete slice-diff
 * Extract code pair hashes from Git repositories
-* Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/yijunyu/meaningful-changes)
+* Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation
 * Rewrite the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
 * Integrate with [biyacc](http://biyacc.yozora.moe) <= Chunmiao Li
@@ -104,7 +104,7 @@ Our tool cannot be made without standing on the shoulders of these great tools:
 * [deckard](https://github.com/skyhover/Deckard)
 * [flatbuffers](https://github.com/google/flatbuffers)
 * [gumtreediff](https://github.com/GumTreeDiff/gumtree)
-* [mct](https://github.com/yijunyu/meaningful-changes)
+* [mct](https://github.com/f-ast/meaningful-changes)
 * [protobuf](https://github.com/google/protobuf)
 * [rapidxml](https://github.com/dwd/rapidxml)
 * [smali](https://github.com/JesusFreke/smali)
