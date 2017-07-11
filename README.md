@@ -114,4 +114,4 @@ Our tool cannot be made without standing on the shoulders of these great tools:
 * [txl](http://txl.ca)
 
 ---
-© 2017 Yijun Yu. FAST is released under GPL v3, see [license.txt](license.txt) for details.
+© 2017 F-AST team. FAST is released under GPL v3, see [license.txt](license.txt) for details.
