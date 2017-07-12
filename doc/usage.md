@@ -113,9 +113,9 @@ representation of the differences.
   $fast -l a.csv a.pb
 
 Assuming that the input file is a comma-separate file where each row of the
-record indicates the project name, diff position of the source project, textual
-differences of the source project, diff positions of the target project,
-textual differences of the target project, and the judgement whether the pair
-of differences are clones.  The output of the command is a protobuf
-representation of the above pairs.
-
+record indicates the project name, the hash of a changeset of the source
+project, diff position of the source project, textual differences of the source
+project, the hash of the changeset of the target project, diff positions of the
+target project, textual differences of the target project, and the judgement
+whether the pair of differences are clones.  The output of the command is a
+protobuf representation of the above pairs.
