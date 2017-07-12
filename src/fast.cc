@@ -52,6 +52,8 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element);
 #ifdef GET_OPT
 int decode = 0; 
 int encode = 0; 
+int json = 0;
+int jq = 0;
 int position = 0; 
 int slice = 0; 
 int mySlice = 0; 
@@ -62,6 +64,7 @@ int process = 0;
 int slicediff = 0;
 bool delta = false; 
 string head = "HEAD";
+string jq_query = ".";
 #endif
 
 int loadSrcML(int load_only, int argc, char **argv);
@@ -479,12 +482,28 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 	if (data.has_element()) {
 		fast::Element unit = data.element();
 		const char *filename = unit.unit().filename().c_str();
-		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
-			input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		if (json && jq && output_file==NULL) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s | jq \"%s\"", 
+				input_file, jq_query.c_str());
+		} else if (json) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		} else {
+			sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		}
 		(void) system(buf);
 	} else {
-		sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto%s%s",
+		if (json && jq && output_file==NULL) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s | jq \"%s\"", 
+				input_file, jq_query.c_str());
+		} else if (json) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s %s %s", 
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		} else {
+			sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto%s%s",
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		}
 		(void) system(buf);
 	} 
 	if (pb2xml && output_file !=NULL ) {
@@ -793,13 +812,15 @@ int loadSrcML(int load_only, int argc, char **argv) {
 }
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hlLpsSvx] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdeDg:hjJ:lLpsSvx] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
 	 << "-e\tEncode text format into protobuf" << endl
 	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
 	 << "-h\tPrint this help message" << endl
+	 << "-j\tuse JSON instead of textual format to encode/decode" << endl
+	 << "-J <jq>\tuse jq query to process the decoded JSON content, turn on -d -j options" << endl
 	 << "-l\tProcess log pairs from cross-language repositories" << endl
 	 << "-L\tDifferentiate on the slices" << endl
 	 << "-p\tPreserve the position (line, column) numbers" << endl
@@ -856,7 +877,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hlLpsSvx")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hjJ:lLpsSvx")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -901,6 +922,15 @@ int main(int argc, char* argv[]) {
 	    break;
       case 'L':
 	    slicediff = 1;
+	    break;
+      case 'j':
+	    json = 1;
+	    break;
+      case 'J':
+	    jq = 1;
+	    json = 1;
+	    decode = 1;
+	    jq_query = optarg;
 	    break;
       case '?':
 	if (isprint (optopt))

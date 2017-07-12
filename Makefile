@@ -96,13 +96,15 @@ fast_objects += slice-diff.o
 fast: $(fast_objects) 
 	$(CXX) $(OPT) $(CFLAGS) $^ $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast fast.proto install-srcslice
+install: fast fast.proto install-srcslice src/gen/fast_pb2.py
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
+	install -m 0644 src/fast-json.py $(DESTDIR)$(prefix)/share/fast-json.py
+	install -m 0644 src/gen/fast_pb2.py $(DESTDIR)$(prefix)/share/fast_pb2.py
 
 ifeq ($(UNAME_S),Linux)
 install-srcslice::

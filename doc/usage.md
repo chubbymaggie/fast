@@ -45,6 +45,12 @@ with any argument, e.g.:
 
   $ fast -d Hello.pb Hello.txt
 
+### Print the JSON representation of the protocol buffer using the generated fAST schema.
+
+  $ fast -d -j Hello.pb
+
+  $ fast -d -j Hello.json
+
 ### Translate the textual representations into the corresponding protobuf file. 
 
   $ fast -e Hello.txt Hello.pb

@@ -1,13 +1,4 @@
 #!/bin/bash
-fast=$(which fast)
-if [ "$fast" != "/usr/local/bin/fast" ]; then
-	if [ ! -f ../fast ]; then
-		cd .. 
-		make OPT="-g -O0 --coverage"
-		sudo make install
-		cd -
-	fi
-fi
 fast=${fast:=../fast}
 
 stdout() {
@@ -58,6 +49,7 @@ EOF
 	stdout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 -d Hello.pb
 	$fast -d Hello.pb Hello.txt
 	catout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 Hello.txt
+	stdout 5880a0c45b7bb4bf441aacfd63e4471d972457f88e28596d3a611d972f3e3bf0 -d -j Hello.pb
 }
 testCC() 
 {
@@ -1797,13 +1789,13 @@ export -f cleanup_examples
 
 testSliceDiff() {
 	cd a
-	$fast -p example.cc example.positions.pb
-	$fast -S example.positions.pb example.slice.pb
+	../$fast -p example.cc example.positions.pb
 	cd -
+	$fast -S a/example.positions.pb a/example.slice.pb
 	cd b
-	$fast -p example.cc example.positions.pb
-	$fast -S example.positions.pb example.slice.pb
+	../$fast -p example.cc example.positions.pb
 	cd -
+	$fast -S b/example.positions.pb b/example.slice.pb
 	$fast -L a/example.slice.pb b/example.slice.pb diff.pb
 	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
 }
