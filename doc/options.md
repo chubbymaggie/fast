@@ -1,7 +1,7 @@
 ## Synopsis
 
 ```
-$ fast [-cdehjJ:lLpsStx] $input [$output]
+$ fast [-cdehpsStx] $input [$output]
 ```
 
 ## Options
@@ -13,14 +13,6 @@ $ fast [-cdehjJ:lLpsStx] $input [$output]
      -e      Encode the protobuf binary AST from the textual input.
 
      -h      Print this help message.
-
-     -j      Decode the JSON representation from protobuf AST input.
-
-     -J <jq> use `jq` query to process the decoded JSON content, turn on -d -j options
-
-     -l      Process log pairs from cross-language repositories.
-
-     -L      Differentiate on the slices.
 
      -p      Position (line, column) is added to source code elements.
 
