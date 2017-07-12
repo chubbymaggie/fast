@@ -78,6 +78,7 @@ the following activities slow:
 * Modified the `Pairs` schema to include hashes // for Nghi Bui
 * Formed the `f-ast' team to maintain the project // for Qiuchi Li
 * Complete slice-diff feature // for Qiuchi Li
+* Added JSON output for decoding FAST and pipe to jq for further querying
 
 *0.0.3* (July 6, 2017)
 

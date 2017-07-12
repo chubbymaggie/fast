@@ -1800,6 +1800,10 @@ testSliceDiff() {
 	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
 }
 
+testJSON() {
+	stdout 4692fd4ea5c4513c89747657056e8f598bf4bb77fa6ad4101f858f373f7e5aeb -d -J '.slices.slice[].file[].function[].name' a/example.slice.pb
+}
+
 testGitSliceDiff() {
 	HEAD=fc55833f16eb9101fcc6cacc1b2b4b898275f7c6
 	r2=$(git rev-list $HEAD | head -1)
