@@ -45,11 +45,15 @@ with any argument, e.g.:
 
   $ fast -d Hello.pb Hello.txt
 
-### Print the JSON representation of the protocol buffer using the generated fAST schema.
+### Print the JSON representation of the protocol buffer using the generated fAST schema. 
 
   $ fast -d -j Hello.pb
 
-  $ fast -d -j Hello.json
+  $ fast -d -j Hello.pb Hello.json
+
+  $ fast -J '.slices.slice[].file[].function[].name' example.slice.pb
+
+The last command can also pipe results on to a `jq` query, e.g., getting from the slices all the function names.
 
 ### Translate the textual representations into the corresponding protobuf file. 
 
