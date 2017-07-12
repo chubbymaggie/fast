@@ -1796,6 +1796,19 @@ cleanup_examples() {
 export -f cleanup_examples
 
 testSliceDiff() {
+	cd a
+	$fast -p example.cc example.positions.pb
+	$fast -S example.positions.pb example.slice.pb
+	cd -
+	cd b
+	$fast -p example.cc example.positions.pb
+	$fast -S example.positions.pb example.slice.pb
+	cd -
+	$fast -L a/example.slice.pb b/example.slice.pb diff.pb
+	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
+}
+
+testGitSliceDiff() {
 	HEAD=fc55833f16eb9101fcc6cacc1b2b4b898275f7c6
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)

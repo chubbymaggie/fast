@@ -17,6 +17,17 @@ set<int> get_defns(const fast::Slices_Slice_SourceFile_Function_Variable *variab
 	return defns;
 }
 
+set<int> get_uses(const fast::Slices_Slice_SourceFile_Function_Variable *variable, string name) {
+	set<int> uses;
+	for (int i=0; i< variable->use_size(); i++) {
+		int lineno = variable->use(i).lineno();
+		if (lineno!=0)
+			uses.insert(lineno); 
+	}
+	return uses;
+}
+
+
 set<string> get_variables(const fast::Slices_Slice_SourceFile_Function *function, string name) {
 	set<string> variables;
 	for (int i=0; i< function->variable_size(); i++) {
@@ -77,8 +88,34 @@ const fast::Slices_Slice_SourceFile* find_file(const fast::Slices_Slice *slice, 
 	}
 	return NULL;
 }
-void copy_variable(fast::Slices_Slice_SourceFile_Function_Variable *c_variable, const fast::Slices_Slice_SourceFile_Function *a_function, const string name) {
-	cout << "Looking for variable" + name << endl;
+
+
+void merge_positions(fast::Slices_Slice_SourceFile_Function_Variable_Position* fn(void*), 
+	fast::Slices_Slice_SourceFile_Function_Variable *c_variable, 
+	const set<int> defns_a, const set<int> defns_b)
+{
+	for (int lineno_b: defns_b) {
+		for (int lineno_a: defns_a) {
+			fast::Slices_Slice_SourceFile_Function_Variable_Position *defn = fn(c_variable); 
+			defn->set_lineno(lineno_b);
+			int delta_lineno = lineno_b - lineno_a;
+			if (delta_lineno != 0) { // change
+				defn->set_delta_lineno(delta_lineno);
+				if (delta_lineno > 0)
+					defn->set_type(fast::Slices_Slice_ChangeType_ADD);
+				else 
+					defn->set_type(fast::Slices_Slice_ChangeType_DEL);
+			}
+		}	
+	}
+}
+
+fast::Slices_Slice_SourceFile_Function_Variable_Position* add_defn(void* context) {
+    return static_cast<fast::Slices_Slice_SourceFile_Function_Variable*>(context)->add_defn();
+}
+
+fast::Slices_Slice_SourceFile_Function_Variable_Position* add_use(void* context) {
+    return static_cast<fast::Slices_Slice_SourceFile_Function_Variable*>(context)->add_use();
 }
 
 void merge_variable(fast::Slices_Slice_SourceFile_Function_Variable *c_variable, const fast::Slices_Slice_SourceFile_Function *a_function, 
@@ -88,25 +125,15 @@ void merge_variable(fast::Slices_Slice_SourceFile_Function_Variable *c_variable,
 	const fast::Slices_Slice_SourceFile_Function_Variable *b_variable = find_variable(b_function, name);
 	set<int> defns_a = get_defns(a_variable, name);
 	set<int> defns_b = get_defns(b_variable, name);
-	set<int> defns_c;
-       	set_union(defns_a.begin(), defns_a.end(), defns_b.begin(), defns_b.end(), 
-			inserter(defns_c, defns_c.begin()));
-	for (int lineno: defns_c) {
-		fast::Slices_Slice_SourceFile_Function_Variable_Position *defn = c_variable->add_defn();
-		defn->set_lineno(lineno);
-		bool in_a = defns_a.find(lineno) != defns_a.end();
-		bool in_b = defns_b.find(lineno) != defns_b.end();
-		if (in_a && in_b) {
-			defn->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
-			// merge_variable(variable, a_variable, b_variable, name); 
-		} else if (in_a) {
-			defn->set_type(fast::Slices_Slice_ChangeType_DEL);
-			//copy_variable(variable, a_variable, name); 
-		} else if (in_b) {
-			defn->set_type(fast::Slices_Slice_ChangeType_ADD);
-			//copy_variable(variable, b_variable, name); 
-		}
-	}
+	merge_positions(&add_defn, c_variable, defns_a, defns_b);
+	set<int> uses_a = get_uses(a_variable, name);
+	set<int> uses_b = get_uses(b_variable, name);
+	merge_positions(&add_use, c_variable, uses_a, uses_b);
+}
+
+void copy_variable(fast::Slices_Slice_SourceFile_Function_Variable *c_variable, const fast::Slices_Slice_SourceFile_Function *a_function, const string name) {
+	const fast::Slices_Slice_SourceFile_Function_Variable *a_variable = find_variable(a_function, name);
+	c_variable->CopyFrom(*a_variable);
 }
 
 void merge_function(fast::Slices_Slice_SourceFile_Function *c_function, const fast::Slices_Slice_SourceFile *a_file, 
@@ -125,20 +152,21 @@ void merge_function(fast::Slices_Slice_SourceFile_Function *c_function, const fa
 		bool in_a = variables_a.find(name) != variables_a.end();
 		bool in_b = variables_b.find(name) != variables_b.end();
 		if (in_a && in_b) {
-			variable->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
 			merge_variable(variable, a_function, b_function, name); 
+			variable->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
 		} else if (in_a) {
-			variable->set_type(fast::Slices_Slice_ChangeType_DEL);
 			copy_variable(variable, a_function, name); 
+			variable->set_type(fast::Slices_Slice_ChangeType_DEL);
 		} else if (in_b) {
-			variable->set_type(fast::Slices_Slice_ChangeType_ADD);
 			copy_variable(variable, b_function, name); 
+			variable->set_type(fast::Slices_Slice_ChangeType_ADD);
 		}
 	}
 }
 
 void copy_function(fast::Slices_Slice_SourceFile_Function *c_function, const fast::Slices_Slice_SourceFile *a_file, const string name) {
-	cout << "Looking for function" + name << endl;
+	const fast::Slices_Slice_SourceFile_Function *a_function = find_function(a_file, name);
+	c_function->CopyFrom(*a_function);
 }
 
 void merge_file(fast::Slices_Slice_SourceFile *c_file, const fast::Slices_Slice *a_slice, const fast::Slices_Slice *b_slice, const string name) {
@@ -156,14 +184,14 @@ void merge_file(fast::Slices_Slice_SourceFile *c_file, const fast::Slices_Slice 
 		bool in_a = functions_a.find(name) != functions_a.end();
 		bool in_b = functions_b.find(name) != functions_b.end();
 		if (in_a && in_b) {
-			function->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
 			merge_function(function, a_file, b_file, name); 
+			function->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
 		} else if (in_a) {
-			function->set_type(fast::Slices_Slice_ChangeType_DEL);
 			copy_function(function, a_file, name); 
+			function->set_type(fast::Slices_Slice_ChangeType_DEL);
 		} else if (in_b) {
-			function->set_type(fast::Slices_Slice_ChangeType_ADD);
 			copy_function(function, b_file, name); 
+			function->set_type(fast::Slices_Slice_ChangeType_ADD);
 		}
 	}
 }
@@ -173,7 +201,8 @@ void merge_file(fast::Slices_Slice_SourceFile *c_file, const fast::Slices_Slice 
  * copy everything from Slices_Slice_SourceFile named name to target slice
  */
 void copy_file(fast::Slices_Slice_SourceFile *c_file, const fast::Slices_Slice *a_slice, const string name) {
-	cout << "Looking for " + name << endl;
+	const fast::Slices_Slice_SourceFile *a_file = find_file(a_slice, name);
+	c_file->CopyFrom(*a_file);
 }
 
 void merge_files(fast::Slices_Slice *c_slice, const fast::Slices_Slice *a_slice, const fast::Slices_Slice *b_slice) {
@@ -188,14 +217,14 @@ void merge_files(fast::Slices_Slice *c_slice, const fast::Slices_Slice *a_slice,
 		bool in_a = files_a.find(name) != files_a.end();
 		bool in_b = files_b.find(name) != files_b.end();
 		if (in_a && in_b) {
-			file->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
 			merge_file(file, a_slice, b_slice, name); 
+			file->set_type(fast::Slices_Slice_ChangeType_UNCHANGED);
 		} else if (in_a) {
-			file->set_type(fast::Slices_Slice_ChangeType_DEL);
 			copy_file(file, a_slice, name); 
+			file->set_type(fast::Slices_Slice_ChangeType_DEL);
 		} else if (in_b) {
-			file->set_type(fast::Slices_Slice_ChangeType_ADD);
 			copy_file(file, b_slice, name); 
+			file->set_type(fast::Slices_Slice_ChangeType_ADD);
 		}
 	}
 }

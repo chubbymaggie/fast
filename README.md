@@ -58,13 +58,11 @@ the following activities slow:
 *TODOs* 
 
 #### Feature requests ####
-* Complete slice-diff
-* Extract code pair hashes from Git repositories
 * Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation
 * Rewrite the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
-* Integrate with [biyacc](http://biyacc.yozora.moe) <= Chunmiao Li
-* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy <= Qiuchi Li
+* Integrate with [biyacc](http://biyacc.yozora.moe) with Chunmiao Li
+* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy with Qiuchi Li
 * Support more ANTLR4 languages (long term)
 
 #### Known bugs to fix #### 
@@ -77,8 +75,9 @@ the following activities slow:
 * Removed the ANTLR3 branch to take full advantage of latest ANTLR4 
 * Fixed some lexer errors in `smaliLexer.g4` (now all code of `Instagram` apk can be processed 10x faster) // for Angus Marshall
 * Added `apk2pb` script to process an APK into a tarball of protobuf representations // for Angus Marshall, Julian Harty
-* Modified the `Paris` schema to include hashes // for Nghi Bui
+* Modified the `Pairs` schema to include hashes // for Nghi Bui
 * Formed the `f-ast' team to maintain the project // for Qiuchi Li
+* Complete slice-diff feature // for Qiuchi Li
 
 *0.0.3* (July 6, 2017)
 
