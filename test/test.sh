@@ -1,17 +1,8 @@
 #!/bin/bash
-fast=$(which fast)
-process=$(which process)
-if [ "$fast" != "/usr/local/bin/fast" ]; then
-	if [ ! -f ../fast -o ! -f ../process ]; then
-		cd .. 
-		make OPT="-g -O0 --coverage"
-		sudo make install
-		cd -
-	fi
-fi
 fast=${fast:=../fast}
-process=${process:=../process}
-slicediff=${slicediff:=../slice-diff}
+cd ..
+sudo make install
+cd -
 
 stdout() {
 	hash=$1
@@ -61,6 +52,7 @@ EOF
 	stdout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 -d Hello.pb
 	$fast -d Hello.pb Hello.txt
 	catout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 Hello.txt
+	stdout 5880a0c45b7bb4bf441aacfd63e4471d972457f88e28596d3a611d972f3e3bf0 -d -j Hello.pb
 }
 testCC() 
 {
@@ -1711,15 +1703,28 @@ EOF
 ### rather lengthy test :-) 
 notestFastPairs() {
 	cat codelabel_new.csv > a.csv
-	$process a.csv a.pb
+	$fast -l a.csv a.pb
 	stdout 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 -d a.pb
 }
 
-testFastPairs564() {
+notestFastPairs564() {
 	head -564 codelabel_new.csv | tail -1 > a.csv
 	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
-	$process a.csv a.pb
+	$fast -l a.csv a.pb
 	stdout 1a87bcd1e9f8ce710022a99d68fbce48029189e20bce3a923a01fd184c6c9fe6 -d a.pb
+}
+
+### The new format contains the hash number for the pair
+testFastPairs() {
+	$fast -l codelabel_new_with_hash.csv codelabel_new_with_hash.pb
+	stdout 1729db9c2e2ec48a7f23727ff2715115c2e5559ed036de7c3b1f98174f202f6d -d codelabel_new_with_hash.pb
+}
+
+testFastPairsWithHash564() {
+	head -564 codelabel_new_with_hash.csv | tail -1 > a.csv
+	catout e0826592a7cfe281598c9322963a7d9add10d888468e0a0b0b25f2680deef1f4 a.csv
+	$fast -l a.csv a.pb
+	stdout 16bc1151bec9fa04f8a1106e3f9d7a6c1feea9451e868c4e388d25c5699113f2 -d a.pb
 }
 
 testFastSlice() {
@@ -1791,21 +1796,37 @@ cleanup_examples() {
 export -f cleanup_examples
 
 testSliceDiff() {
-	HEAD=310532a6fbe6c7347c413c39f1f6ca4a478a36f6
+	cd a
+	../$fast -p example.cc example.positions.pb
+	cd -
+	$fast -S a/example.positions.pb a/example.slice.pb
+	cd b
+	../$fast -p example.cc example.positions.pb
+	cd -
+	$fast -S b/example.positions.pb b/example.slice.pb
+	$fast -L a/example.slice.pb b/example.slice.pb diff.pb
+	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
+}
+
+testJSON() {
+	stdout 4692fd4ea5c4513c89747657056e8f598bf4bb77fa6ad4101f858f373f7e5aeb -d -J '.slices.slice[].file[].function[].name' a/example.slice.pb
+}
+
+testGitSliceDiff() {
+	HEAD=fc55833f16eb9101fcc6cacc1b2b4b898275f7c6
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)
 	position $r1
-	echo $r1
-	#position $r2 
-	#slice $r1
-	#slice $r2 
-	#$slicediff $r1/slice.pb $r2/slice.pb diff.pb
-	#$fast -d diff.pb > diff.txt
-	#diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
-	#rm -rf $r1 $r2
-	#if [ "$keep" == "" ]; then
-	#	cleanup_examples
-	#fi
+	position $r2 
+	slice $r1
+	slice $r2 
+	$fast -L $r1/slice.pb $r2/slice.pb diff.pb
+	$fast -d diff.pb > diff.txt
+	diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
+	rm -rf $r1 $r2
+	if [ "$keep" == "" ]; then
+		cleanup_examples
+	fi
 }
 
 if [ ! -f ~/mirror/github.com/kward/shunit2/source/2.1/src/shunit2 ]; then

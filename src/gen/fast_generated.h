@@ -234,6 +234,115 @@ enum SmaliKind {
   SmaliKind_MAX = SmaliKind_insn_sparse_switch_directive
 };
 
+inline SmaliKind (&EnumValuesSmaliKind())[103] {
+  static SmaliKind values[] = {
+    SmaliKind_smali_file,
+    SmaliKind_class_spec,
+    SmaliKind_super_spec,
+    SmaliKind_implements_spec,
+    SmaliKind_source_spec,
+    SmaliKind_access_list,
+    SmaliKind_field,
+    SmaliKind_method,
+    SmaliKind_statements_and_directives,
+    SmaliKind_ordered_method_item,
+    SmaliKind_registers_directive,
+    SmaliKind_param_list_or_id,
+    SmaliKind_simple_name,
+    SmaliKind_member_name,
+    SmaliKind_method_prototype,
+    SmaliKind_param_list_or_id_primitive_type,
+    SmaliKind_param_list,
+    SmaliKind_array_descriptor,
+    SmaliKind_type_descriptor,
+    SmaliKind_nonvoid_type_descriptor,
+    SmaliKind_reference_type_descriptor,
+    SmaliKind_integer_literal,
+    SmaliKind_float_literal,
+    SmaliKind_double_literal,
+    SmaliKind_literal,
+    SmaliKind_parsed_integer_literal,
+    SmaliKind_integral_literal,
+    SmaliKind_fixed_32bit_literal,
+    SmaliKind_fixed_literal,
+    SmaliKind_array_literal,
+    SmaliKind_annotation_element,
+    SmaliKind_annotation,
+    SmaliKind_subannotation,
+    SmaliKind_enum_literal,
+    SmaliKind_type_field_method_literal,
+    SmaliKind_method_reference,
+    SmaliKind_field_reference,
+    SmaliKind_label,
+    SmaliKind_label_ref,
+    SmaliKind_register_list,
+    SmaliKind_register_range,
+    SmaliKind_verification_error_reference,
+    SmaliKind_catch_directive,
+    SmaliKind_catchall_directive,
+    SmaliKind_parameter_directive,
+    SmaliKind_debug_directive,
+    SmaliKind_line_directive,
+    SmaliKind_local_directive,
+    SmaliKind_end_local_directive,
+    SmaliKind_restart_local_directive,
+    SmaliKind_prologue_directive,
+    SmaliKind_epilogue_directive,
+    SmaliKind_source_directive,
+    SmaliKind_instruction_format12x,
+    SmaliKind_instruction_format22s,
+    SmaliKind_instruction_format31i,
+    SmaliKind_instruction,
+    SmaliKind_insn_format10t,
+    SmaliKind_insn_format10x,
+    SmaliKind_insn_format10x_odex,
+    SmaliKind_insn_format11n,
+    SmaliKind_insn_format11x,
+    SmaliKind_insn_format12x,
+    SmaliKind_insn_format20bc,
+    SmaliKind_insn_format20t,
+    SmaliKind_insn_format21c_field,
+    SmaliKind_insn_format21c_field_odex,
+    SmaliKind_insn_format21c_string,
+    SmaliKind_insn_format21c_type,
+    SmaliKind_insn_format21ih,
+    SmaliKind_insn_format21lh,
+    SmaliKind_insn_format21s,
+    SmaliKind_insn_format21t,
+    SmaliKind_insn_format22b,
+    SmaliKind_insn_format22c_field,
+    SmaliKind_insn_format22c_field_odex,
+    SmaliKind_insn_format22c_type,
+    SmaliKind_insn_format22cs_field,
+    SmaliKind_insn_format22s,
+    SmaliKind_insn_format22t,
+    SmaliKind_insn_format22x,
+    SmaliKind_insn_format23x,
+    SmaliKind_insn_format30t,
+    SmaliKind_insn_format31c,
+    SmaliKind_insn_format31i,
+    SmaliKind_insn_format31t,
+    SmaliKind_insn_format32x,
+    SmaliKind_insn_format35c_method,
+    SmaliKind_insn_format35c_type,
+    SmaliKind_insn_format35c_method_odex,
+    SmaliKind_insn_format35mi_method,
+    SmaliKind_insn_format35ms_method,
+    SmaliKind_insn_format3rc_method,
+    SmaliKind_insn_format3rc_method_odex,
+    SmaliKind_insn_format3rc_type,
+    SmaliKind_insn_format3rmi_method,
+    SmaliKind_insn_format3rms_method,
+    SmaliKind_insn_format45cc_method,
+    SmaliKind_insn_format4rcc_method,
+    SmaliKind_insn_format51l,
+    SmaliKind_insn_array_data_directive,
+    SmaliKind_insn_packed_switch_directive,
+    SmaliKind_insn_sparse_switch_directive
+  };
+  return values;
+}
+
 inline const char **EnumNamesSmaliKind() {
   static const char *names[] = {
     "smali_file",
@@ -432,315 +541,707 @@ enum Kind {
   Kind_FOR_INCREMENT = 77,
   Kind_FOR_LIKE_CONTROL = 78,
   Kind_EXPRESSION_STATEMENT = 79,
-  Kind_FUNCTION_CALL = 80,
-  Kind_DECLARATION_STATEMENT = 81,
-  Kind_DECLARATION = 82,
-  Kind_DECLARATION_INITIALIZATION = 83,
-  Kind_DECLARATION_RANGE = 84,
-  Kind_RANGE = 85,
-  Kind_GOTO_STATEMENT = 86,
-  Kind_CONTINUE_STATEMENT = 87,
-  Kind_BREAK_STATEMENT = 88,
-  Kind_LABEL_STATEMENT = 89,
-  Kind_LABEL = 90,
-  Kind_SWITCH = 91,
-  Kind_CASE = 92,
-  Kind_DEFAULT = 93,
-  Kind_FUNCTION_DEFINITION = 94,
-  Kind_FUNCTION_DECLARATION = 95,
-  Kind_LAMBDA = 96,
-  Kind_FUNCTION_LAMBDA = 97,
-  Kind_FUNCTION_SPECIFIER = 98,
-  Kind_RETURN_STATEMENT = 99,
-  Kind_PARAMETER_LIST = 100,
-  Kind_PARAMETER = 101,
-  Kind_KRPARAMETER_LIST = 102,
-  Kind_KRPARAMETER = 103,
-  Kind_ARGUMENT_LIST = 104,
-  Kind_ARGUMENT = 105,
-  Kind_PSEUDO_PARAMETER_LIST = 106,
-  Kind_INDEXER_PARAMETER_LIST = 107,
-  Kind_CLASS = 108,
-  Kind_CLASS_DECLARATION = 109,
-  Kind_STRUCT = 110,
-  Kind_STRUCT_DECLARATION = 111,
-  Kind_UNION = 112,
-  Kind_UNION_DECLARATION = 113,
-  Kind_DERIVATION_LIST = 114,
-  Kind_PUBLIC_ACCESS = 115,
-  Kind_PUBLIC_ACCESS_DEFAULT = 116,
-  Kind_PRIVATE_ACCESS = 117,
-  Kind_PRIVATE_ACCESS_DEFAULT = 118,
-  Kind_PROTECTED_ACCESS = 119,
-  Kind_PROTECTED_ACCESS_DEFAULT = 120,
-  Kind_MEMBER_INIT_LIST = 121,
-  Kind_MEMBER_INITIALIZATION_LIST = 122,
-  Kind_MEMBER_INITIALIZATION = 123,
-  Kind_CONSTRUCTOR_DEFINITION = 124,
-  Kind_CONSTRUCTOR_DECLARATION = 125,
-  Kind_DESTRUCTOR_DEFINITION = 126,
-  Kind_DESTRUCTOR_DECLARATION = 127,
-  Kind_FRIEND = 128,
-  Kind_CLASS_SPECIFIER = 129,
-  Kind_TRY_BLOCK = 130,
-  Kind_CATCH_BLOCK = 131,
-  Kind_FINALLY_BLOCK = 132,
-  Kind_THROW_STATEMENT = 133,
-  Kind_THROW_SPECIFIER = 134,
-  Kind_THROW_SPECIFIER_JAVA = 135,
-  Kind_TEMPLATE = 136,
-  Kind_GENERIC_ARGUMENT = 137,
-  Kind_GENERIC_ARGUMENT_LIST = 138,
-  Kind_TEMPLATE_PARAMETER = 139,
-  Kind_TEMPLATE_PARAMETER_LIST = 140,
-  Kind_GENERIC_PARAMETER = 141,
-  Kind_GENERIC_PARAMETER_LIST = 142,
-  Kind_TYPEDEF = 143,
-  Kind_ASM = 144,
-  Kind_MACRO_CALL = 145,
-  Kind_SIZEOF_CALL = 146,
-  Kind_EXTERN = 147,
-  Kind_NAMESPACE = 148,
-  Kind_USING_DIRECTIVE = 149,
-  Kind_DIRECTIVE = 150,
-  Kind_ATOMIC = 151,
-  Kind_STATIC_ASSERT_STATEMENT = 152,
-  Kind_GENERIC_SELECTION = 153,
-  Kind_GENERIC_SELECTOR = 154,
-  Kind_GENERIC_ASSOCIATION_LIST = 155,
-  Kind_GENERIC_ASSOCIATION = 156,
-  Kind_ALIGNAS = 157,
-  Kind_DECLTYPE = 158,
-  Kind_CAPTURE = 159,
-  Kind_LAMBDA_CAPTURE = 160,
-  Kind_NOEXCEPT = 161,
-  Kind_TYPENAME = 162,
-  Kind_ALIGNOF = 163,
-  Kind_TYPEID = 164,
-  Kind_SIZEOF_PACK = 165,
-  Kind_ENUM_CLASS = 166,
-  Kind_ENUM_CLASS_DECLARATION = 167,
-  Kind_REF_QUALIFIER = 168,
-  Kind_SIGNAL_ACCESS = 169,
-  Kind_FOREVER_STATEMENT = 170,
-  Kind_EMIT_STATEMENT = 171,
-  Kind_CPP_DIRECTIVE = 172,
-  Kind_CPP_FILENAME = 173,
-  Kind_FILE = 174,
-  Kind_NUMBER = 175,
-  Kind_CPP_NUMBER = 176,
-  Kind_CPP_LITERAL = 177,
-  Kind_CPP_MACRO_DEFN = 178,
-  Kind_CPP_MACRO_VALUE = 179,
-  Kind_ERROR = 180,
-  Kind_CPP_ERROR = 181,
-  Kind_CPP_WARNING = 182,
-  Kind_CPP_PRAGMA = 183,
-  Kind_CPP_INCLUDE = 184,
-  Kind_CPP_DEFINE = 185,
-  Kind_CPP_UNDEF = 186,
-  Kind_CPP_LINE = 187,
-  Kind_CPP_IF = 188,
-  Kind_CPP_IFDEF = 189,
-  Kind_CPP_IFNDEF = 190,
-  Kind_CPP_THEN = 191,
-  Kind_CPP_ELSE = 192,
-  Kind_CPP_ELIF = 193,
-  Kind_CPP_EMPTY = 194,
-  Kind_CPP_REGION = 195,
-  Kind_CPP_ENDREGION = 196,
-  Kind_USING_STMT = 197,
-  Kind_ESCAPE = 198,
-  Kind_VALUE = 199,
-  Kind_CPP_IMPORT = 200,
-  Kind_CPP_ENDIF = 201,
-  Kind_MARKER = 202,
-  Kind_ERROR_PARSE = 203,
-  Kind_ERROR_MODE = 204,
-  Kind_IMPLEMENTS = 205,
-  Kind_EXTENDS = 206,
-  Kind_IMPORT = 207,
-  Kind_PACKAGE = 208,
-  Kind_ASSERT_STATEMENT = 209,
-  Kind_INTERFACE = 210,
-  Kind_INTERFACE_DECLARATION = 211,
-  Kind_SYNCHRONIZED_STATEMENT = 212,
-  Kind_ANNOTATION = 213,
-  Kind_STATIC_BLOCK = 214,
-  Kind_CHECKED_STATEMENT = 215,
-  Kind_UNCHECKED_STATEMENT = 216,
-  Kind_ATTRIBUTE = 217,
-  Kind_TARGET = 218,
-  Kind_UNSAFE_STATEMENT = 219,
-  Kind_LOCK_STATEMENT = 220,
-  Kind_FIXED_STATEMENT = 221,
-  Kind_TYPEOF = 222,
-  Kind_USING_STATEMENT = 223,
-  Kind_FUNCTION_DELEGATE = 224,
-  Kind_CONSTRAINT = 225,
-  Kind_LINQ = 226,
-  Kind_FROM = 227,
-  Kind_WHERE = 228,
-  Kind_SELECT = 229,
-  Kind_LET = 230,
-  Kind_ORDERBY = 231,
-  Kind_JOIN = 232,
-  Kind_GROUP = 233,
-  Kind_IN = 234,
-  Kind_ON = 235,
-  Kind_EQUALS = 236,
-  Kind_BY = 237,
-  Kind_INTO = 238,
-  Kind_EMPTY = 239,
-  Kind_EMPTY_STMT = 240,
-  Kind_RECEIVER = 241,
-  Kind_MESSAGE = 242,
-  Kind_SELECTOR = 243,
-  Kind_PROTOCOL_LIST = 244,
-  Kind_CATEGORY = 245,
-  Kind_PROTOCOL = 246,
-  Kind_REQUIRED_DEFAULT = 247,
-  Kind_REQUIRED = 248,
-  Kind_OPTIONAL = 249,
-  Kind_ATTRIBUTE_LIST = 250,
-  Kind_SYNTHESIZE = 251,
-  Kind_DYNAMIC = 252,
-  Kind_ENCODE = 253,
-  Kind_AUTORELEASEPOOL = 254,
-  Kind_COMPATIBILITY_ALIAS = 255,
-  Kind_NIL = 256,
-  Kind_CLASS_INTERFACE = 257,
-  Kind_CLASS_IMPLEMENTATION = 258,
-  Kind_PROTOCOL_DECLARATION = 259,
-  Kind_CAST = 260,
-  Kind_CONST_CAST = 261,
-  Kind_DYNAMIC_CAST = 262,
-  Kind_REINTERPRET_CAST = 263,
-  Kind_STATIC_CAST = 264,
-  Kind_POSITION = 265,
-  Kind_CUDA_ARGUMENT_LIST = 266,
-  Kind_OMP_DIRECTIVE = 267,
-  Kind_OMP_NAME = 268,
-  Kind_OMP_CLAUSE = 269,
-  Kind_OMP_ARGUMENT_LIST = 270,
-  Kind_OMP_ARGUMENT = 271,
-  Kind_OMP_EXPRESSION = 272,
-  Kind_END_ELEMENT_TOKEN = 273,
-  Kind_MAIN = 274,
-  Kind_BREAK = 275,
-  Kind_CONTINUE = 276,
-  Kind_WHILE = 277,
-  Kind_DO = 278,
-  Kind_FOR = 279,
-  Kind_IF = 280,
-  Kind_GOTO = 281,
-  Kind_VISUAL_CXX_ASM = 282,
-  Kind_SIZEOF = 283,
-  Kind_AUTO = 284,
-  Kind_REGISTER = 285,
-  Kind_RESTRICT = 286,
-  Kind_IMAGINARY = 287,
-  Kind_NORETURN = 288,
-  Kind_STATIC_ASSERT = 289,
-  Kind_CRESTRICT = 290,
-  Kind_CXX_TRY = 291,
-  Kind_CXX_CATCH = 292,
-  Kind_CXX_CLASS = 293,
-  Kind_CONSTEXPR = 294,
-  Kind_THREAD_LOCAL = 295,
-  Kind_NULLPTR = 296,
-  Kind_VOID = 297,
-  Kind_RETURN = 298,
-  Kind_INCLUDE = 299,
-  Kind_DEFINE = 300,
-  Kind_ELIF = 301,
-  Kind_ENDIF = 302,
-  Kind_ERRORPREC = 303,
-  Kind_WARNING = 304,
-  Kind_IFDEF = 305,
-  Kind_IFNDEF = 306,
-  Kind_LINE = 307,
-  Kind_PRAGMA = 308,
-  Kind_UNDEF = 309,
-  Kind_INLINE = 310,
-  Kind_MACRO_TYPE_NAME = 311,
-  Kind_MACRO_CASE = 312,
-  Kind_MACRO_LABEL = 313,
-  Kind_SPECIFIER = 314,
-  Kind_TRY = 315,
-  Kind_CATCH = 316,
-  Kind_THROW = 317,
-  Kind_THROWS = 318,
-  Kind_PUBLIC = 319,
-  Kind_PRIVATE = 320,
-  Kind_PROTECTED = 321,
-  Kind_VIRTUAL = 322,
-  Kind_EXPLICIT = 323,
-  Kind_FOREVER = 324,
-  Kind_SIGNAL = 325,
-  Kind_EMIT = 326,
-  Kind_NEW = 327,
-  Kind_DELETE = 328,
-  Kind_STATIC = 329,
-  Kind_CONST = 330,
-  Kind_MUTABLE = 331,
-  Kind_VOLATILE = 332,
-  Kind_TRANSIENT = 333,
-  Kind_FINALLY = 334,
-  Kind_FINAL = 335,
-  Kind_ABSTRACT = 336,
-  Kind_SUPER = 337,
-  Kind_SYNCHRONIZED = 338,
-  Kind_NATIVE = 339,
-  Kind_STRICTFP = 340,
-  Kind_NULLLITERAL = 341,
-  Kind_ASSERT = 342,
-  Kind_FOREACH = 343,
-  Kind_REF = 344,
-  Kind_OUT = 345,
-  Kind_LOCK = 346,
-  Kind_IS = 347,
-  Kind_INTERNAL = 348,
-  Kind_SEALED = 349,
-  Kind_OVERRIDE = 350,
-  Kind_IMPLICIT = 351,
-  Kind_STACKALLOC = 352,
-  Kind_AS = 353,
-  Kind_DELEGATE = 354,
-  Kind_FIXED = 355,
-  Kind_CHECKED = 356,
-  Kind_UNCHECKED = 357,
-  Kind_REGION = 358,
-  Kind_ENDREGION = 359,
-  Kind_UNSAFE = 360,
-  Kind_READONLY = 361,
-  Kind_GET = 362,
-  Kind_SET = 363,
-  Kind_ADD = 364,
-  Kind_REMOVE = 365,
-  Kind_YIELD = 366,
-  Kind_PARTIAL = 367,
-  Kind_AWAIT = 368,
-  Kind_ASYNC = 369,
-  Kind_THIS = 370,
-  Kind_PARAMS = 371,
-  Kind_ALIAS = 372,
-  Kind_ASCENDING = 373,
-  Kind_DESCENDING = 374,
-  Kind_ATINTERFACE = 375,
-  Kind_ATIMPLEMENTATION = 376,
-  Kind_ATEND = 377,
-  Kind_ATPROTOCOL = 378,
-  Kind_ATREQUIRED = 379,
-  Kind_ATOPTIONAL = 380,
-  Kind_ATCLASS = 381,
-  Kind_WEAK = 382,
-  Kind_STRONG = 383,
-  Kind_OMP_OMP = 384,
-  Kind_SPECIAL_CHARS = 385,
+  Kind_FUNCTION_CALL = 81,
+  Kind_DECLARATION_STATEMENT = 82,
+  Kind_DECLARATION = 83,
+  Kind_DECLARATION_INITIALIZATION = 84,
+  Kind_DECLARATION_RANGE = 85,
+  Kind_RANGE = 86,
+  Kind_GOTO_STATEMENT = 87,
+  Kind_CONTINUE_STATEMENT = 88,
+  Kind_BREAK_STATEMENT = 89,
+  Kind_LABEL_STATEMENT = 90,
+  Kind_LABEL = 91,
+  Kind_SWITCH = 92,
+  Kind_CASE = 93,
+  Kind_DEFAULT = 94,
+  Kind_FUNCTION_DEFINITION = 95,
+  Kind_FUNCTION_DECLARATION = 96,
+  Kind_LAMBDA = 97,
+  Kind_FUNCTION_LAMBDA = 98,
+  Kind_FUNCTION_SPECIFIER = 99,
+  Kind_RETURN_STATEMENT = 100,
+  Kind_PARAMETER_LIST = 101,
+  Kind_PARAMETER = 102,
+  Kind_KRPARAMETER_LIST = 103,
+  Kind_KRPARAMETER = 104,
+  Kind_ARGUMENT_LIST = 105,
+  Kind_ARGUMENT = 106,
+  Kind_PSEUDO_PARAMETER_LIST = 107,
+  Kind_INDEXER_PARAMETER_LIST = 108,
+  Kind_CLASS = 109,
+  Kind_CLASS_DECLARATION = 110,
+  Kind_STRUCT = 111,
+  Kind_STRUCT_DECLARATION = 112,
+  Kind_UNION = 113,
+  Kind_UNION_DECLARATION = 114,
+  Kind_DERIVATION_LIST = 115,
+  Kind_PUBLIC_ACCESS = 116,
+  Kind_PUBLIC_ACCESS_DEFAULT = 117,
+  Kind_PRIVATE_ACCESS = 118,
+  Kind_PRIVATE_ACCESS_DEFAULT = 119,
+  Kind_PROTECTED_ACCESS = 120,
+  Kind_PROTECTED_ACCESS_DEFAULT = 121,
+  Kind_MEMBER_INIT_LIST = 122,
+  Kind_MEMBER_INITIALIZATION_LIST = 123,
+  Kind_MEMBER_INITIALIZATION = 124,
+  Kind_CONSTRUCTOR_DEFINITION = 125,
+  Kind_CONSTRUCTOR_DECLARATION = 126,
+  Kind_DESTRUCTOR_DEFINITION = 127,
+  Kind_DESTRUCTOR_DECLARATION = 128,
+  Kind_FRIEND = 129,
+  Kind_CLASS_SPECIFIER = 130,
+  Kind_TRY_BLOCK = 131,
+  Kind_CATCH_BLOCK = 132,
+  Kind_FINALLY_BLOCK = 133,
+  Kind_THROW_STATEMENT = 134,
+  Kind_THROW_SPECIFIER = 135,
+  Kind_THROW_SPECIFIER_JAVA = 136,
+  Kind_TEMPLATE = 137,
+  Kind_GENERIC_ARGUMENT = 138,
+  Kind_GENERIC_ARGUMENT_LIST = 139,
+  Kind_TEMPLATE_PARAMETER = 140,
+  Kind_TEMPLATE_PARAMETER_LIST = 141,
+  Kind_GENERIC_PARAMETER = 142,
+  Kind_GENERIC_PARAMETER_LIST = 143,
+  Kind_TYPEDEF = 144,
+  Kind_ASM = 145,
+  Kind_MACRO_CALL = 146,
+  Kind_SIZEOF_CALL = 147,
+  Kind_EXTERN = 148,
+  Kind_NAMESPACE = 149,
+  Kind_USING_DIRECTIVE = 150,
+  Kind_DIRECTIVE = 151,
+  Kind_ATOMIC = 152,
+  Kind_STATIC_ASSERT_STATEMENT = 153,
+  Kind_GENERIC_SELECTION = 154,
+  Kind_GENERIC_SELECTOR = 155,
+  Kind_GENERIC_ASSOCIATION_LIST = 156,
+  Kind_GENERIC_ASSOCIATION = 157,
+  Kind_ALIGNAS = 158,
+  Kind_DECLTYPE = 159,
+  Kind_CAPTURE = 160,
+  Kind_LAMBDA_CAPTURE = 161,
+  Kind_NOEXCEPT = 162,
+  Kind_TYPENAME = 163,
+  Kind_ALIGNOF = 164,
+  Kind_TYPEID = 165,
+  Kind_SIZEOF_PACK = 166,
+  Kind_ENUM_CLASS = 167,
+  Kind_ENUM_CLASS_DECLARATION = 168,
+  Kind_REF_QUALIFIER = 171,
+  Kind_SIGNAL_ACCESS = 172,
+  Kind_FOREVER_STATEMENT = 173,
+  Kind_EMIT_STATEMENT = 174,
+  Kind_CPP_DIRECTIVE = 175,
+  Kind_CPP_FILENAME = 176,
+  Kind_FILE = 177,
+  Kind_NUMBER = 178,
+  Kind_CPP_NUMBER = 179,
+  Kind_CPP_LITERAL = 180,
+  Kind_CPP_MACRO_DEFN = 181,
+  Kind_CPP_MACRO_VALUE = 182,
+  Kind_ERROR = 183,
+  Kind_CPP_ERROR = 184,
+  Kind_CPP_WARNING = 185,
+  Kind_CPP_PRAGMA = 186,
+  Kind_CPP_INCLUDE = 187,
+  Kind_CPP_DEFINE = 188,
+  Kind_CPP_UNDEF = 189,
+  Kind_CPP_LINE = 190,
+  Kind_CPP_IF = 191,
+  Kind_CPP_IFDEF = 192,
+  Kind_CPP_IFNDEF = 193,
+  Kind_CPP_THEN = 194,
+  Kind_CPP_ELSE = 195,
+  Kind_CPP_ELIF = 196,
+  Kind_CPP_EMPTY = 197,
+  Kind_CPP_REGION = 198,
+  Kind_CPP_ENDREGION = 199,
+  Kind_USING_STMT = 200,
+  Kind_ESCAPE = 201,
+  Kind_VALUE = 202,
+  Kind_CPP_IMPORT = 203,
+  Kind_CPP_ENDIF = 204,
+  Kind_MARKER = 205,
+  Kind_ERROR_PARSE = 206,
+  Kind_ERROR_MODE = 207,
+  Kind_IMPLEMENTS = 208,
+  Kind_EXTENDS = 209,
+  Kind_IMPORT = 210,
+  Kind_PACKAGE = 211,
+  Kind_ASSERT_STATEMENT = 212,
+  Kind_INTERFACE = 213,
+  Kind_INTERFACE_DECLARATION = 214,
+  Kind_SYNCHRONIZED_STATEMENT = 215,
+  Kind_ANNOTATION = 216,
+  Kind_STATIC_BLOCK = 218,
+  Kind_CHECKED_STATEMENT = 219,
+  Kind_UNCHECKED_STATEMENT = 220,
+  Kind_ATTRIBUTE = 221,
+  Kind_TARGET = 222,
+  Kind_UNSAFE_STATEMENT = 223,
+  Kind_LOCK_STATEMENT = 224,
+  Kind_FIXED_STATEMENT = 225,
+  Kind_TYPEOF = 226,
+  Kind_USING_STATEMENT = 227,
+  Kind_FUNCTION_DELEGATE = 228,
+  Kind_CONSTRAINT = 230,
+  Kind_LINQ = 231,
+  Kind_FROM = 232,
+  Kind_WHERE = 233,
+  Kind_SELECT = 234,
+  Kind_LET = 235,
+  Kind_ORDERBY = 236,
+  Kind_JOIN = 237,
+  Kind_GROUP = 238,
+  Kind_IN = 239,
+  Kind_ON = 240,
+  Kind_EQUALS = 241,
+  Kind_BY = 242,
+  Kind_INTO = 243,
+  Kind_EMPTY = 244,
+  Kind_EMPTY_STMT = 245,
+  Kind_RECEIVER = 246,
+  Kind_MESSAGE = 247,
+  Kind_SELECTOR = 248,
+  Kind_PROTOCOL_LIST = 249,
+  Kind_CATEGORY = 250,
+  Kind_PROTOCOL = 251,
+  Kind_REQUIRED_DEFAULT = 252,
+  Kind_REQUIRED = 253,
+  Kind_OPTIONAL = 254,
+  Kind_ATTRIBUTE_LIST = 256,
+  Kind_SYNTHESIZE = 257,
+  Kind_DYNAMIC = 258,
+  Kind_ENCODE = 259,
+  Kind_AUTORELEASEPOOL = 260,
+  Kind_COMPATIBILITY_ALIAS = 261,
+  Kind_NIL = 262,
+  Kind_CLASS_INTERFACE = 263,
+  Kind_CLASS_IMPLEMENTATION = 264,
+  Kind_PROTOCOL_DECLARATION = 265,
+  Kind_CAST = 266,
+  Kind_CONST_CAST = 267,
+  Kind_DYNAMIC_CAST = 268,
+  Kind_REINTERPRET_CAST = 269,
+  Kind_STATIC_CAST = 270,
+  Kind_POSITION = 271,
+  Kind_CUDA_ARGUMENT_LIST = 272,
+  Kind_OMP_DIRECTIVE = 273,
+  Kind_OMP_NAME = 274,
+  Kind_OMP_CLAUSE = 275,
+  Kind_OMP_ARGUMENT_LIST = 276,
+  Kind_OMP_ARGUMENT = 277,
+  Kind_OMP_EXPRESSION = 278,
+  Kind_END_ELEMENT_TOKEN = 279,
+  Kind_MAIN = 280,
+  Kind_BREAK = 281,
+  Kind_CONTINUE = 282,
+  Kind_WHILE = 283,
+  Kind_DO = 284,
+  Kind_FOR = 285,
+  Kind_IF = 286,
+  Kind_GOTO = 293,
+  Kind_VISUAL_CXX_ASM = 295,
+  Kind_SIZEOF = 296,
+  Kind_AUTO = 298,
+  Kind_REGISTER = 299,
+  Kind_RESTRICT = 300,
+  Kind_IMAGINARY = 304,
+  Kind_NORETURN = 305,
+  Kind_STATIC_ASSERT = 306,
+  Kind_CRESTRICT = 307,
+  Kind_CXX_TRY = 308,
+  Kind_CXX_CATCH = 309,
+  Kind_CXX_CLASS = 310,
+  Kind_CONSTEXPR = 311,
+  Kind_THREAD_LOCAL = 313,
+  Kind_NULLPTR = 314,
+  Kind_VOID = 326,
+  Kind_RETURN = 327,
+  Kind_INCLUDE = 328,
+  Kind_DEFINE = 329,
+  Kind_ELIF = 330,
+  Kind_ENDIF = 331,
+  Kind_ERRORPREC = 332,
+  Kind_WARNING = 333,
+  Kind_IFDEF = 334,
+  Kind_IFNDEF = 335,
+  Kind_LINE = 336,
+  Kind_PRAGMA = 337,
+  Kind_UNDEF = 338,
+  Kind_INLINE = 339,
+  Kind_MACRO_TYPE_NAME = 340,
+  Kind_MACRO_CASE = 341,
+  Kind_MACRO_LABEL = 342,
+  Kind_SPECIFIER = 344,
+  Kind_TRY = 345,
+  Kind_CATCH = 346,
+  Kind_THROW = 347,
+  Kind_THROWS = 348,
+  Kind_PUBLIC = 350,
+  Kind_PRIVATE = 351,
+  Kind_PROTECTED = 352,
+  Kind_VIRTUAL = 353,
+  Kind_EXPLICIT = 356,
+  Kind_FOREVER = 357,
+  Kind_SIGNAL = 358,
+  Kind_EMIT = 359,
+  Kind_NEW = 363,
+  Kind_DELETE = 364,
+  Kind_STATIC = 365,
+  Kind_CONST = 366,
+  Kind_MUTABLE = 367,
+  Kind_VOLATILE = 368,
+  Kind_TRANSIENT = 369,
+  Kind_FINALLY = 372,
+  Kind_FINAL = 376,
+  Kind_ABSTRACT = 377,
+  Kind_SUPER = 378,
+  Kind_SYNCHRONIZED = 379,
+  Kind_NATIVE = 380,
+  Kind_STRICTFP = 381,
+  Kind_NULLLITERAL = 382,
+  Kind_ASSERT = 383,
+  Kind_FOREACH = 384,
+  Kind_REF = 385,
+  Kind_OUT = 386,
+  Kind_LOCK = 388,
+  Kind_IS = 389,
+  Kind_INTERNAL = 390,
+  Kind_SEALED = 391,
+  Kind_OVERRIDE = 392,
+  Kind_IMPLICIT = 393,
+  Kind_STACKALLOC = 394,
+  Kind_AS = 395,
+  Kind_DELEGATE = 396,
+  Kind_FIXED = 397,
+  Kind_CHECKED = 398,
+  Kind_UNCHECKED = 399,
+  Kind_REGION = 400,
+  Kind_ENDREGION = 401,
+  Kind_UNSAFE = 402,
+  Kind_READONLY = 403,
+  Kind_GET = 404,
+  Kind_SET = 405,
+  Kind_ADD = 406,
+  Kind_REMOVE = 407,
+  Kind_YIELD = 408,
+  Kind_PARTIAL = 409,
+  Kind_AWAIT = 410,
+  Kind_ASYNC = 412,
+  Kind_THIS = 413,
+  Kind_PARAMS = 414,
+  Kind_ALIAS = 416,
+  Kind_ASCENDING = 422,
+  Kind_DESCENDING = 423,
+  Kind_ATINTERFACE = 430,
+  Kind_ATIMPLEMENTATION = 431,
+  Kind_ATEND = 432,
+  Kind_ATPROTOCOL = 433,
+  Kind_ATREQUIRED = 434,
+  Kind_ATOPTIONAL = 435,
+  Kind_ATCLASS = 441,
+  Kind_WEAK = 443,
+  Kind_STRONG = 444,
+  Kind_OMP_OMP = 448,
+  Kind_SPECIAL_CHARS = 449,
   Kind_MIN = Kind_UNIT_KIND,
   Kind_MAX = Kind_SPECIAL_CHARS
 };
+
+inline Kind (&EnumValuesKind())[386] {
+  static Kind values[] = {
+    Kind_UNIT_KIND,
+    Kind_DECL,
+    Kind_DECL_STMT,
+    Kind_INIT,
+    Kind_EXPR,
+    Kind_EXPR_STMT,
+    Kind_COMMENT,
+    Kind_CALL,
+    Kind_CONTROL,
+    Kind_INCR,
+    Kind_NONE,
+    Kind_VARIABLE,
+    Kind_FUNCTION,
+    Kind_FUNCTION_DECL,
+    Kind_CONSTRUCTOR,
+    Kind_CONSTRUCTOR_DECL,
+    Kind_DESTRUCTOR,
+    Kind_DESTRUCTOR_DECL,
+    Kind_MACRO,
+    Kind_SINGLE_MACRO,
+    Kind_NULLOPERATOR,
+    Kind_ENUM_DEFN,
+    Kind_ENUM_DECL,
+    Kind_GLOBAL_ATTRIBUTE,
+    Kind_PROPERTY_ACCESSOR,
+    Kind_PROPERTY_ACCESSOR_DECL,
+    Kind_EXPRESSION,
+    Kind_CLASS_DEFN,
+    Kind_CLASS_DECL,
+    Kind_UNION_DEFN,
+    Kind_UNION_DECL,
+    Kind_STRUCT_DEFN,
+    Kind_STRUCT_DECL,
+    Kind_INTERFACE_DEFN,
+    Kind_INTERFACE_DECL,
+    Kind_ACCESS_REGION,
+    Kind_USING,
+    Kind_OPERATOR_FUNCTION,
+    Kind_OPERATOR_FUNCTION_DECL,
+    Kind_EVENT,
+    Kind_PROPERTY,
+    Kind_ANNOTATION_DEFN,
+    Kind_GLOBAL_TEMPLATE,
+    Kind_UNIT,
+    Kind_TART_ELEMENT_TOKEN,
+    Kind_NOP,
+    Kind_STRING,
+    Kind_CHAR,
+    Kind_LITERAL,
+    Kind_BOOLEAN,
+    Kind_NULL,
+    Kind_COMPLEX,
+    Kind_OPERATOR,
+    Kind_MODIFIER,
+    Kind_NAME,
+    Kind_ONAME,
+    Kind_CNAME,
+    Kind_TYPE,
+    Kind_TYPEPREV,
+    Kind_CONDITION,
+    Kind_BLOCK,
+    Kind_PSEUDO_BLOCK,
+    Kind_INDEX,
+    Kind_ENUM,
+    Kind_ENUM_DECLARATION,
+    Kind_IF_STATEMENT,
+    Kind_TERNARY,
+    Kind_THEN,
+    Kind_ELSE,
+    Kind_ELSEIF,
+    Kind_WHILE_STATEMENT,
+    Kind_DO_STATEMENT,
+    Kind_FOR_STATEMENT,
+    Kind_FOREACH_STATEMENT,
+    Kind_FOR_CONTROL,
+    Kind_FOR_INITIALIZATION,
+    Kind_FOR_CONDITION,
+    Kind_FOR_INCREMENT,
+    Kind_FOR_LIKE_CONTROL,
+    Kind_EXPRESSION_STATEMENT,
+    Kind_FUNCTION_CALL,
+    Kind_DECLARATION_STATEMENT,
+    Kind_DECLARATION,
+    Kind_DECLARATION_INITIALIZATION,
+    Kind_DECLARATION_RANGE,
+    Kind_RANGE,
+    Kind_GOTO_STATEMENT,
+    Kind_CONTINUE_STATEMENT,
+    Kind_BREAK_STATEMENT,
+    Kind_LABEL_STATEMENT,
+    Kind_LABEL,
+    Kind_SWITCH,
+    Kind_CASE,
+    Kind_DEFAULT,
+    Kind_FUNCTION_DEFINITION,
+    Kind_FUNCTION_DECLARATION,
+    Kind_LAMBDA,
+    Kind_FUNCTION_LAMBDA,
+    Kind_FUNCTION_SPECIFIER,
+    Kind_RETURN_STATEMENT,
+    Kind_PARAMETER_LIST,
+    Kind_PARAMETER,
+    Kind_KRPARAMETER_LIST,
+    Kind_KRPARAMETER,
+    Kind_ARGUMENT_LIST,
+    Kind_ARGUMENT,
+    Kind_PSEUDO_PARAMETER_LIST,
+    Kind_INDEXER_PARAMETER_LIST,
+    Kind_CLASS,
+    Kind_CLASS_DECLARATION,
+    Kind_STRUCT,
+    Kind_STRUCT_DECLARATION,
+    Kind_UNION,
+    Kind_UNION_DECLARATION,
+    Kind_DERIVATION_LIST,
+    Kind_PUBLIC_ACCESS,
+    Kind_PUBLIC_ACCESS_DEFAULT,
+    Kind_PRIVATE_ACCESS,
+    Kind_PRIVATE_ACCESS_DEFAULT,
+    Kind_PROTECTED_ACCESS,
+    Kind_PROTECTED_ACCESS_DEFAULT,
+    Kind_MEMBER_INIT_LIST,
+    Kind_MEMBER_INITIALIZATION_LIST,
+    Kind_MEMBER_INITIALIZATION,
+    Kind_CONSTRUCTOR_DEFINITION,
+    Kind_CONSTRUCTOR_DECLARATION,
+    Kind_DESTRUCTOR_DEFINITION,
+    Kind_DESTRUCTOR_DECLARATION,
+    Kind_FRIEND,
+    Kind_CLASS_SPECIFIER,
+    Kind_TRY_BLOCK,
+    Kind_CATCH_BLOCK,
+    Kind_FINALLY_BLOCK,
+    Kind_THROW_STATEMENT,
+    Kind_THROW_SPECIFIER,
+    Kind_THROW_SPECIFIER_JAVA,
+    Kind_TEMPLATE,
+    Kind_GENERIC_ARGUMENT,
+    Kind_GENERIC_ARGUMENT_LIST,
+    Kind_TEMPLATE_PARAMETER,
+    Kind_TEMPLATE_PARAMETER_LIST,
+    Kind_GENERIC_PARAMETER,
+    Kind_GENERIC_PARAMETER_LIST,
+    Kind_TYPEDEF,
+    Kind_ASM,
+    Kind_MACRO_CALL,
+    Kind_SIZEOF_CALL,
+    Kind_EXTERN,
+    Kind_NAMESPACE,
+    Kind_USING_DIRECTIVE,
+    Kind_DIRECTIVE,
+    Kind_ATOMIC,
+    Kind_STATIC_ASSERT_STATEMENT,
+    Kind_GENERIC_SELECTION,
+    Kind_GENERIC_SELECTOR,
+    Kind_GENERIC_ASSOCIATION_LIST,
+    Kind_GENERIC_ASSOCIATION,
+    Kind_ALIGNAS,
+    Kind_DECLTYPE,
+    Kind_CAPTURE,
+    Kind_LAMBDA_CAPTURE,
+    Kind_NOEXCEPT,
+    Kind_TYPENAME,
+    Kind_ALIGNOF,
+    Kind_TYPEID,
+    Kind_SIZEOF_PACK,
+    Kind_ENUM_CLASS,
+    Kind_ENUM_CLASS_DECLARATION,
+    Kind_REF_QUALIFIER,
+    Kind_SIGNAL_ACCESS,
+    Kind_FOREVER_STATEMENT,
+    Kind_EMIT_STATEMENT,
+    Kind_CPP_DIRECTIVE,
+    Kind_CPP_FILENAME,
+    Kind_FILE,
+    Kind_NUMBER,
+    Kind_CPP_NUMBER,
+    Kind_CPP_LITERAL,
+    Kind_CPP_MACRO_DEFN,
+    Kind_CPP_MACRO_VALUE,
+    Kind_ERROR,
+    Kind_CPP_ERROR,
+    Kind_CPP_WARNING,
+    Kind_CPP_PRAGMA,
+    Kind_CPP_INCLUDE,
+    Kind_CPP_DEFINE,
+    Kind_CPP_UNDEF,
+    Kind_CPP_LINE,
+    Kind_CPP_IF,
+    Kind_CPP_IFDEF,
+    Kind_CPP_IFNDEF,
+    Kind_CPP_THEN,
+    Kind_CPP_ELSE,
+    Kind_CPP_ELIF,
+    Kind_CPP_EMPTY,
+    Kind_CPP_REGION,
+    Kind_CPP_ENDREGION,
+    Kind_USING_STMT,
+    Kind_ESCAPE,
+    Kind_VALUE,
+    Kind_CPP_IMPORT,
+    Kind_CPP_ENDIF,
+    Kind_MARKER,
+    Kind_ERROR_PARSE,
+    Kind_ERROR_MODE,
+    Kind_IMPLEMENTS,
+    Kind_EXTENDS,
+    Kind_IMPORT,
+    Kind_PACKAGE,
+    Kind_ASSERT_STATEMENT,
+    Kind_INTERFACE,
+    Kind_INTERFACE_DECLARATION,
+    Kind_SYNCHRONIZED_STATEMENT,
+    Kind_ANNOTATION,
+    Kind_STATIC_BLOCK,
+    Kind_CHECKED_STATEMENT,
+    Kind_UNCHECKED_STATEMENT,
+    Kind_ATTRIBUTE,
+    Kind_TARGET,
+    Kind_UNSAFE_STATEMENT,
+    Kind_LOCK_STATEMENT,
+    Kind_FIXED_STATEMENT,
+    Kind_TYPEOF,
+    Kind_USING_STATEMENT,
+    Kind_FUNCTION_DELEGATE,
+    Kind_CONSTRAINT,
+    Kind_LINQ,
+    Kind_FROM,
+    Kind_WHERE,
+    Kind_SELECT,
+    Kind_LET,
+    Kind_ORDERBY,
+    Kind_JOIN,
+    Kind_GROUP,
+    Kind_IN,
+    Kind_ON,
+    Kind_EQUALS,
+    Kind_BY,
+    Kind_INTO,
+    Kind_EMPTY,
+    Kind_EMPTY_STMT,
+    Kind_RECEIVER,
+    Kind_MESSAGE,
+    Kind_SELECTOR,
+    Kind_PROTOCOL_LIST,
+    Kind_CATEGORY,
+    Kind_PROTOCOL,
+    Kind_REQUIRED_DEFAULT,
+    Kind_REQUIRED,
+    Kind_OPTIONAL,
+    Kind_ATTRIBUTE_LIST,
+    Kind_SYNTHESIZE,
+    Kind_DYNAMIC,
+    Kind_ENCODE,
+    Kind_AUTORELEASEPOOL,
+    Kind_COMPATIBILITY_ALIAS,
+    Kind_NIL,
+    Kind_CLASS_INTERFACE,
+    Kind_CLASS_IMPLEMENTATION,
+    Kind_PROTOCOL_DECLARATION,
+    Kind_CAST,
+    Kind_CONST_CAST,
+    Kind_DYNAMIC_CAST,
+    Kind_REINTERPRET_CAST,
+    Kind_STATIC_CAST,
+    Kind_POSITION,
+    Kind_CUDA_ARGUMENT_LIST,
+    Kind_OMP_DIRECTIVE,
+    Kind_OMP_NAME,
+    Kind_OMP_CLAUSE,
+    Kind_OMP_ARGUMENT_LIST,
+    Kind_OMP_ARGUMENT,
+    Kind_OMP_EXPRESSION,
+    Kind_END_ELEMENT_TOKEN,
+    Kind_MAIN,
+    Kind_BREAK,
+    Kind_CONTINUE,
+    Kind_WHILE,
+    Kind_DO,
+    Kind_FOR,
+    Kind_IF,
+    Kind_GOTO,
+    Kind_VISUAL_CXX_ASM,
+    Kind_SIZEOF,
+    Kind_AUTO,
+    Kind_REGISTER,
+    Kind_RESTRICT,
+    Kind_IMAGINARY,
+    Kind_NORETURN,
+    Kind_STATIC_ASSERT,
+    Kind_CRESTRICT,
+    Kind_CXX_TRY,
+    Kind_CXX_CATCH,
+    Kind_CXX_CLASS,
+    Kind_CONSTEXPR,
+    Kind_THREAD_LOCAL,
+    Kind_NULLPTR,
+    Kind_VOID,
+    Kind_RETURN,
+    Kind_INCLUDE,
+    Kind_DEFINE,
+    Kind_ELIF,
+    Kind_ENDIF,
+    Kind_ERRORPREC,
+    Kind_WARNING,
+    Kind_IFDEF,
+    Kind_IFNDEF,
+    Kind_LINE,
+    Kind_PRAGMA,
+    Kind_UNDEF,
+    Kind_INLINE,
+    Kind_MACRO_TYPE_NAME,
+    Kind_MACRO_CASE,
+    Kind_MACRO_LABEL,
+    Kind_SPECIFIER,
+    Kind_TRY,
+    Kind_CATCH,
+    Kind_THROW,
+    Kind_THROWS,
+    Kind_PUBLIC,
+    Kind_PRIVATE,
+    Kind_PROTECTED,
+    Kind_VIRTUAL,
+    Kind_EXPLICIT,
+    Kind_FOREVER,
+    Kind_SIGNAL,
+    Kind_EMIT,
+    Kind_NEW,
+    Kind_DELETE,
+    Kind_STATIC,
+    Kind_CONST,
+    Kind_MUTABLE,
+    Kind_VOLATILE,
+    Kind_TRANSIENT,
+    Kind_FINALLY,
+    Kind_FINAL,
+    Kind_ABSTRACT,
+    Kind_SUPER,
+    Kind_SYNCHRONIZED,
+    Kind_NATIVE,
+    Kind_STRICTFP,
+    Kind_NULLLITERAL,
+    Kind_ASSERT,
+    Kind_FOREACH,
+    Kind_REF,
+    Kind_OUT,
+    Kind_LOCK,
+    Kind_IS,
+    Kind_INTERNAL,
+    Kind_SEALED,
+    Kind_OVERRIDE,
+    Kind_IMPLICIT,
+    Kind_STACKALLOC,
+    Kind_AS,
+    Kind_DELEGATE,
+    Kind_FIXED,
+    Kind_CHECKED,
+    Kind_UNCHECKED,
+    Kind_REGION,
+    Kind_ENDREGION,
+    Kind_UNSAFE,
+    Kind_READONLY,
+    Kind_GET,
+    Kind_SET,
+    Kind_ADD,
+    Kind_REMOVE,
+    Kind_YIELD,
+    Kind_PARTIAL,
+    Kind_AWAIT,
+    Kind_ASYNC,
+    Kind_THIS,
+    Kind_PARAMS,
+    Kind_ALIAS,
+    Kind_ASCENDING,
+    Kind_DESCENDING,
+    Kind_ATINTERFACE,
+    Kind_ATIMPLEMENTATION,
+    Kind_ATEND,
+    Kind_ATPROTOCOL,
+    Kind_ATREQUIRED,
+    Kind_ATOPTIONAL,
+    Kind_ATCLASS,
+    Kind_WEAK,
+    Kind_STRONG,
+    Kind_OMP_OMP,
+    Kind_SPECIAL_CHARS
+  };
+  return values;
+}
 
 inline const char **EnumNamesKind() {
   static const char *names[] = {
@@ -824,6 +1325,7 @@ inline const char **EnumNamesKind() {
     "FOR_INCREMENT",
     "FOR_LIKE_CONTROL",
     "EXPRESSION_STATEMENT",
+    "",
     "FUNCTION_CALL",
     "DECLARATION_STATEMENT",
     "DECLARATION",
@@ -912,6 +1414,8 @@ inline const char **EnumNamesKind() {
     "SIZEOF_PACK",
     "ENUM_CLASS",
     "ENUM_CLASS_DECLARATION",
+    "",
+    "",
     "REF_QUALIFIER",
     "SIGNAL_ACCESS",
     "FOREVER_STATEMENT",
@@ -958,6 +1462,7 @@ inline const char **EnumNamesKind() {
     "INTERFACE_DECLARATION",
     "SYNCHRONIZED_STATEMENT",
     "ANNOTATION",
+    "",
     "STATIC_BLOCK",
     "CHECKED_STATEMENT",
     "UNCHECKED_STATEMENT",
@@ -969,6 +1474,7 @@ inline const char **EnumNamesKind() {
     "TYPEOF",
     "USING_STATEMENT",
     "FUNCTION_DELEGATE",
+    "",
     "CONSTRAINT",
     "LINQ",
     "FROM",
@@ -994,6 +1500,7 @@ inline const char **EnumNamesKind() {
     "REQUIRED_DEFAULT",
     "REQUIRED",
     "OPTIONAL",
+    "",
     "ATTRIBUTE_LIST",
     "SYNTHESIZE",
     "DYNAMIC",
@@ -1025,12 +1532,23 @@ inline const char **EnumNamesKind() {
     "DO",
     "FOR",
     "IF",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "GOTO",
+    "",
     "VISUAL_CXX_ASM",
     "SIZEOF",
+    "",
     "AUTO",
     "REGISTER",
     "RESTRICT",
+    "",
+    "",
+    "",
     "IMAGINARY",
     "NORETURN",
     "STATIC_ASSERT",
@@ -1039,8 +1557,20 @@ inline const char **EnumNamesKind() {
     "CXX_CATCH",
     "CXX_CLASS",
     "CONSTEXPR",
+    "",
     "THREAD_LOCAL",
     "NULLPTR",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "VOID",
     "RETURN",
     "INCLUDE",
@@ -1058,19 +1588,26 @@ inline const char **EnumNamesKind() {
     "MACRO_TYPE_NAME",
     "MACRO_CASE",
     "MACRO_LABEL",
+    "",
     "SPECIFIER",
     "TRY",
     "CATCH",
     "THROW",
     "THROWS",
+    "",
     "PUBLIC",
     "PRIVATE",
     "PROTECTED",
     "VIRTUAL",
+    "",
+    "",
     "EXPLICIT",
     "FOREVER",
     "SIGNAL",
     "EMIT",
+    "",
+    "",
+    "",
     "NEW",
     "DELETE",
     "STATIC",
@@ -1078,7 +1615,12 @@ inline const char **EnumNamesKind() {
     "MUTABLE",
     "VOLATILE",
     "TRANSIENT",
+    "",
+    "",
     "FINALLY",
+    "",
+    "",
+    "",
     "FINAL",
     "ABSTRACT",
     "SUPER",
@@ -1090,6 +1632,7 @@ inline const char **EnumNamesKind() {
     "FOREACH",
     "REF",
     "OUT",
+    "",
     "LOCK",
     "IS",
     "INTERNAL",
@@ -1113,21 +1656,43 @@ inline const char **EnumNamesKind() {
     "YIELD",
     "PARTIAL",
     "AWAIT",
+    "",
     "ASYNC",
     "THIS",
     "PARAMS",
+    "",
     "ALIAS",
+    "",
+    "",
+    "",
+    "",
+    "",
     "ASCENDING",
     "DESCENDING",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
     "ATINTERFACE",
     "ATIMPLEMENTATION",
     "ATEND",
     "ATPROTOCOL",
     "ATREQUIRED",
     "ATOPTIONAL",
+    "",
+    "",
+    "",
+    "",
+    "",
     "ATCLASS",
+    "",
     "WEAK",
     "STRONG",
+    "",
+    "",
+    "",
     "OMP_OMP",
     "SPECIAL_CHARS",
     nullptr
@@ -1154,6 +1719,20 @@ enum LanguageType {
   LanguageType_MIN = LanguageType_ALL,
   LanguageType_MAX = LanguageType_OBJECTIVE_C
 };
+
+inline LanguageType (&EnumValuesLanguageType())[8] {
+  static LanguageType values[] = {
+    LanguageType_ALL,
+    LanguageType_OO,
+    LanguageType_CXX,
+    LanguageType_C,
+    LanguageType_C_FAMILY,
+    LanguageType_JAVA,
+    LanguageType_CSHARP,
+    LanguageType_OBJECTIVE_C
+  };
+  return values;
+}
 
 inline const char **EnumNamesLanguageType() {
   static const char *names[] = {
@@ -1189,6 +1768,17 @@ enum LiteralType {
   LiteralType_MAX = LiteralType_null_type
 };
 
+inline LiteralType (&EnumValuesLiteralType())[5] {
+  static LiteralType values[] = {
+    LiteralType_number_type,
+    LiteralType_char_type,
+    LiteralType_string_type,
+    LiteralType_boolean_type,
+    LiteralType_null_type
+  };
+  return values;
+}
+
 inline const char **EnumNamesLiteralType() {
   static const char *names[] = {
     "number_type",
@@ -1222,6 +1812,17 @@ enum DeltaType {
   DeltaType_MAX = DeltaType_UPDATE
 };
 
+inline DeltaType (&EnumValuesDeltaType())[5] {
+  static DeltaType values[] = {
+    DeltaType_MATCH,
+    DeltaType_ADD,
+    DeltaType_DEL,
+    DeltaType_MOVE,
+    DeltaType_UPDATE
+  };
+  return values;
+}
+
 inline const char **EnumNamesDeltaType() {
   static const char *names[] = {
     "MATCH",
@@ -1253,6 +1854,15 @@ enum CloneType {
   CloneType_MAX = CloneType_NO
 };
 
+inline CloneType (&EnumValuesCloneType())[3] {
+  static CloneType values[] = {
+    CloneType_MAYBE,
+    CloneType_YES,
+    CloneType_NO
+  };
+  return values;
+}
+
 inline const char **EnumNamesCloneType() {
   static const char *names[] = {
     "MAYBE",
@@ -1281,6 +1891,15 @@ enum ChangeType {
   ChangeType_MIN = ChangeType_UNCHANGED,
   ChangeType_MAX = ChangeType_DEL
 };
+
+inline ChangeType (&EnumValuesChangeType())[3] {
+  static ChangeType values[] = {
+    ChangeType_UNCHANGED,
+    ChangeType_ADD,
+    ChangeType_DEL
+  };
+  return values;
+}
 
 inline const char **EnumNamesChangeType() {
   static const char *names[] = {
@@ -1341,18 +1960,18 @@ struct Element FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TYPE) &&
+           VerifyOffset(verifier, VT_TYPE) &&
            verifier.VerifyTable(type()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TEXT) &&
+           VerifyOffset(verifier, VT_TEXT) &&
            verifier.Verify(text()) &&
            VerifyField<int32_t>(verifier, VT_POS) &&
            VerifyField<int32_t>(verifier, VT_LENGTH) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CHILD) &&
+           VerifyOffset(verifier, VT_CHILD) &&
            verifier.Verify(child()) &&
            verifier.VerifyVectorOfTables(child()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TAIL) &&
+           VerifyOffset(verifier, VT_TAIL) &&
            verifier.Verify(tail()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_EXTRA) &&
+           VerifyOffset(verifier, VT_EXTRA) &&
            verifier.VerifyTable(extra()) &&
            VerifyField<int32_t>(verifier, VT_LINE) &&
            VerifyField<int32_t>(verifier, VT_COLUMN) &&
@@ -1515,9 +2134,9 @@ struct Anonymous1 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_UNIT) &&
+           VerifyOffset(verifier, VT_UNIT) &&
            verifier.VerifyTable(unit()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LITERAL) &&
+           VerifyOffset(verifier, VT_LITERAL) &&
            verifier.VerifyTable(literal()) &&
            verifier.EndTable();
   }
@@ -1575,9 +2194,9 @@ struct Unit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FILENAME) &&
+           VerifyOffset(verifier, VT_FILENAME) &&
            verifier.Verify(filename()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_REVISION) &&
+           VerifyOffset(verifier, VT_REVISION) &&
            verifier.Verify(revision()) &&
            VerifyField<int32_t>(verifier, VT_LANGUAGE) &&
            VerifyField<int32_t>(verifier, VT_ITEM) &&
@@ -1699,11 +2318,11 @@ struct Delta FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SRC) &&
+           VerifyOffset(verifier, VT_SRC) &&
            verifier.Verify(src()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DST) &&
+           VerifyOffset(verifier, VT_DST) &&
            verifier.Verify(dst()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DIFF) &&
+           VerifyOffset(verifier, VT_DIFF) &&
            verifier.Verify(diff()) &&
            verifier.VerifyVectorOfTables(diff()) &&
            verifier.EndTable();
@@ -1774,7 +2393,7 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DELTA) &&
+           VerifyOffset(verifier, VT_DELTA) &&
            verifier.VerifyTable(delta()) &&
            verifier.EndTable();
   }
@@ -1838,15 +2457,15 @@ struct Anonymous2 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MATCH) &&
+           VerifyOffset(verifier, VT_MATCH) &&
            verifier.VerifyTable(match()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ADD) &&
+           VerifyOffset(verifier, VT_ADD) &&
            verifier.VerifyTable(add()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEL) &&
+           VerifyOffset(verifier, VT_DEL) &&
            verifier.VerifyTable(del()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MOVE) &&
+           VerifyOffset(verifier, VT_MOVE) &&
            verifier.VerifyTable(move()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_UPDATE) &&
+           VerifyOffset(verifier, VT_UPDATE) &&
            verifier.VerifyTable(update()) &&
            verifier.EndTable();
   }
@@ -2122,7 +2741,7 @@ struct Update FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_SRC) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LABEL) &&
+           VerifyOffset(verifier, VT_LABEL) &&
            verifier.Verify(label()) &&
            verifier.EndTable();
   }
@@ -2181,7 +2800,7 @@ struct Pairs FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_PAIR) &&
+           VerifyOffset(verifier, VT_PAIR) &&
            verifier.Verify(pair()) &&
            verifier.VerifyVectorOfTables(pair()) &&
            verifier.EndTable();
@@ -2245,11 +2864,11 @@ struct Pair FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_PROJECT) &&
+           VerifyOffset(verifier, VT_PROJECT) &&
            verifier.Verify(project()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LEFT) &&
+           VerifyOffset(verifier, VT_LEFT) &&
            verifier.VerifyTable(left()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_RIGHT) &&
+           VerifyOffset(verifier, VT_RIGHT) &&
            verifier.VerifyTable(right()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
            verifier.EndTable();
@@ -2320,7 +2939,8 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_RIGHT_LINE = 8,
     VT_RIGHT_COLUMN = 10,
     VT_OLD_CODE = 12,
-    VT_NEW_CODE = 14
+    VT_NEW_CODE = 14,
+    VT_HASH = 16
   };
   int32_t left_line() const {
     return GetField<int32_t>(VT_LEFT_LINE, 0);
@@ -2340,16 +2960,21 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const _fast::Element *new_code() const {
     return GetPointer<const _fast::Element *>(VT_NEW_CODE);
   }
+  const flatbuffers::String *hash() const {
+    return GetPointer<const flatbuffers::String *>(VT_HASH);
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_LEFT_LINE) &&
            VerifyField<int32_t>(verifier, VT_LEFT_COLUMN) &&
            VerifyField<int32_t>(verifier, VT_RIGHT_LINE) &&
            VerifyField<int32_t>(verifier, VT_RIGHT_COLUMN) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_OLD_CODE) &&
+           VerifyOffset(verifier, VT_OLD_CODE) &&
            verifier.VerifyTable(old_code()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NEW_CODE) &&
+           VerifyOffset(verifier, VT_NEW_CODE) &&
            verifier.VerifyTable(new_code()) &&
+           VerifyOffset(verifier, VT_HASH) &&
+           verifier.Verify(hash()) &&
            verifier.EndTable();
   }
 };
@@ -2375,13 +3000,16 @@ struct DiffBuilder {
   void add_new_code(flatbuffers::Offset<_fast::Element> new_code) {
     fbb_.AddOffset(Diff::VT_NEW_CODE, new_code);
   }
+  void add_hash(flatbuffers::Offset<flatbuffers::String> hash) {
+    fbb_.AddOffset(Diff::VT_HASH, hash);
+  }
   DiffBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
   DiffBuilder &operator=(const DiffBuilder &);
   flatbuffers::Offset<Diff> Finish() {
-    const auto end = fbb_.EndTable(start_, 6);
+    const auto end = fbb_.EndTable(start_, 7);
     auto o = flatbuffers::Offset<Diff>(end);
     return o;
   }
@@ -2394,8 +3022,10 @@ inline flatbuffers::Offset<Diff> CreateDiff(
     int32_t right_line = 0,
     int32_t right_column = 0,
     flatbuffers::Offset<_fast::Element> old_code = 0,
-    flatbuffers::Offset<_fast::Element> new_code = 0) {
+    flatbuffers::Offset<_fast::Element> new_code = 0,
+    flatbuffers::Offset<flatbuffers::String> hash = 0) {
   DiffBuilder builder_(_fbb);
+  builder_.add_hash(hash);
   builder_.add_new_code(new_code);
   builder_.add_old_code(old_code);
   builder_.add_right_column(right_column);
@@ -2403,6 +3033,26 @@ inline flatbuffers::Offset<Diff> CreateDiff(
   builder_.add_left_column(left_column);
   builder_.add_left_line(left_line);
   return builder_.Finish();
+}
+
+inline flatbuffers::Offset<Diff> CreateDiffDirect(
+    flatbuffers::FlatBufferBuilder &_fbb,
+    int32_t left_line = 0,
+    int32_t left_column = 0,
+    int32_t right_line = 0,
+    int32_t right_column = 0,
+    flatbuffers::Offset<_fast::Element> old_code = 0,
+    flatbuffers::Offset<_fast::Element> new_code = 0,
+    const char *hash = nullptr) {
+  return _fast::_Pairs::_Pair::CreateDiff(
+      _fbb,
+      left_line,
+      left_column,
+      right_line,
+      right_column,
+      old_code,
+      new_code,
+      hash ? _fbb.CreateString(hash) : 0);
 }
 
 }  // namespace _Pair
@@ -2421,10 +3071,10 @@ struct Log FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_COMMIT) &&
+           VerifyOffset(verifier, VT_COMMIT) &&
            verifier.Verify(commit()) &&
            verifier.VerifyVectorOfTables(commit()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_AUTHOR) &&
+           VerifyOffset(verifier, VT_AUTHOR) &&
            verifier.Verify(author()) &&
            verifier.VerifyVectorOfTables(author()) &&
            verifier.EndTable();
@@ -2503,16 +3153,16 @@ struct Commit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ID) &&
+           VerifyOffset(verifier, VT_ID) &&
            verifier.Verify(id()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_TEXT) &&
+           VerifyOffset(verifier, VT_TEXT) &&
            verifier.Verify(text()) &&
            VerifyField<int32_t>(verifier, VT_AUTHOR_ID) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_AUTHOR_DATE) &&
+           VerifyOffset(verifier, VT_AUTHOR_DATE) &&
            verifier.Verify(author_date()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_EXTRA) &&
+           VerifyOffset(verifier, VT_EXTRA) &&
            verifier.VerifyTable(extra()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DIFF) &&
+           VerifyOffset(verifier, VT_DIFF) &&
            verifier.Verify(diff()) &&
            verifier.VerifyVectorOfTables(diff()) &&
            verifier.EndTable();
@@ -2599,7 +3249,7 @@ struct Anonymous3 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_COMMITTER) &&
+           VerifyOffset(verifier, VT_COMMITTER) &&
            verifier.VerifyTable(committer()) &&
            verifier.EndTable();
   }
@@ -2645,7 +3295,7 @@ struct Committer FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_COMMITTER_ID) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_COMMIT_DATE) &&
+           VerifyOffset(verifier, VT_COMMIT_DATE) &&
            verifier.Verify(commit_date()) &&
            verifier.EndTable();
   }
@@ -2729,20 +3379,20 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_A) &&
+           VerifyOffset(verifier, VT_A) &&
            verifier.Verify(a()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_B) &&
+           VerifyOffset(verifier, VT_B) &&
            verifier.Verify(b()) &&
            VerifyField<uint8_t>(verifier, VT_IS_NEW) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_IS_CODE) &&
+           VerifyOffset(verifier, VT_IS_CODE) &&
            verifier.Verify(is_code()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_INDEX_FROM) &&
+           VerifyOffset(verifier, VT_INDEX_FROM) &&
            verifier.Verify(index_from()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_INDEX_TO) &&
+           VerifyOffset(verifier, VT_INDEX_TO) &&
            verifier.Verify(index_to()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MODE) &&
+           VerifyOffset(verifier, VT_MODE) &&
            verifier.Verify(mode()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_HUNK) &&
+           VerifyOffset(verifier, VT_HUNK) &&
            verifier.Verify(hunk()) &&
            verifier.VerifyVectorOfTables(hunk()) &&
            verifier.EndTable();
@@ -2871,12 +3521,12 @@ struct Hunk FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyField<int32_t>(verifier, VT_FROM_COLUMN) &&
            VerifyField<int32_t>(verifier, VT_TO_LINENO) &&
            VerifyField<int32_t>(verifier, VT_TO_COLUMN) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CONTEXT) &&
+           VerifyOffset(verifier, VT_CONTEXT) &&
            verifier.Verify(context()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ELEMENT) &&
+           VerifyOffset(verifier, VT_ELEMENT) &&
            verifier.Verify(element()) &&
            verifier.VerifyVectorOfTables(element()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_MOD) &&
+           VerifyOffset(verifier, VT_MOD) &&
            verifier.Verify(mod()) &&
            verifier.VerifyVectorOfTables(mod()) &&
            verifier.EndTable();
@@ -2978,7 +3628,7 @@ struct ModLine FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LINE) &&
+           VerifyOffset(verifier, VT_LINE) &&
            verifier.Verify(line()) &&
            VerifyField<uint8_t>(verifier, VT_IS_ADD) &&
            VerifyField<uint8_t>(verifier, VT_IS_DEL) &&
@@ -3056,9 +3706,9 @@ struct Author FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_ID) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_EMAIL) &&
+           VerifyOffset(verifier, VT_EMAIL) &&
            verifier.Verify(email()) &&
            verifier.EndTable();
   }
@@ -3123,7 +3773,7 @@ struct Slices FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICE) &&
+           VerifyOffset(verifier, VT_SLICE) &&
            verifier.Verify(slice()) &&
            verifier.VerifyVectorOfTables(slice()) &&
            verifier.EndTable();
@@ -3179,10 +3829,10 @@ struct Slice FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FILE) &&
+           VerifyOffset(verifier, VT_FILE) &&
            verifier.Verify(file()) &&
            verifier.VerifyVectorOfTables(file()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_HASH) &&
+           VerifyOffset(verifier, VT_HASH) &&
            verifier.Verify(hash()) &&
            verifier.EndTable();
   }
@@ -3248,10 +3898,10 @@ struct SourceFile FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_FUNCTION) &&
+           VerifyOffset(verifier, VT_FUNCTION) &&
            verifier.Verify(function()) &&
            verifier.VerifyVectorOfTables(function()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
            verifier.EndTable();
@@ -3325,10 +3975,10 @@ struct Function FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_VARIABLE) &&
+           VerifyOffset(verifier, VT_VARIABLE) &&
            verifier.Verify(variable()) &&
            verifier.VerifyVectorOfTables(variable()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
            verifier.EndTable();
@@ -3422,24 +4072,24 @@ struct Variable FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_POS) &&
+           VerifyOffset(verifier, VT_POS) &&
            verifier.VerifyTable(pos()) &&
            VerifyField<int32_t>(verifier, VT_TYPE) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DEFN) &&
+           VerifyOffset(verifier, VT_DEFN) &&
            verifier.Verify(defn()) &&
            verifier.VerifyVectorOfTables(defn()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_USE) &&
+           VerifyOffset(verifier, VT_USE) &&
            verifier.Verify(use()) &&
            verifier.VerifyVectorOfTables(use()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DVAR) &&
+           VerifyOffset(verifier, VT_DVAR) &&
            verifier.Verify(dvar()) &&
            verifier.VerifyVectorOfStrings(dvar()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ALIAS) &&
+           VerifyOffset(verifier, VT_ALIAS) &&
            verifier.Verify(alias()) &&
            verifier.VerifyVectorOfStrings(alias()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_CFUNC) &&
+           VerifyOffset(verifier, VT_CFUNC) &&
            verifier.Verify(cfunc()) &&
            verifier.VerifyVectorOfTables(cfunc()) &&
            verifier.EndTable();
@@ -3604,7 +4254,7 @@ struct FunctionDecl FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_NAME) &&
+           VerifyOffset(verifier, VT_NAME) &&
            verifier.Verify(name()) &&
            VerifyField<int32_t>(verifier, VT_LINENO) &&
            verifier.EndTable();
@@ -3667,7 +4317,7 @@ struct Data FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_RECORDTYPE) &&
+           VerifyOffset(verifier, VT_RECORDTYPE) &&
            verifier.VerifyTable(RecordType()) &&
            verifier.EndTable();
   }
@@ -3726,15 +4376,15 @@ struct Anonymous4 FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_ELEMENT) &&
+           VerifyOffset(verifier, VT_ELEMENT) &&
            verifier.VerifyTable(element()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_LOG) &&
+           VerifyOffset(verifier, VT_LOG) &&
            verifier.VerifyTable(log()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_DELTA) &&
+           VerifyOffset(verifier, VT_DELTA) &&
            verifier.VerifyTable(delta()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_PAIRS) &&
+           VerifyOffset(verifier, VT_PAIRS) &&
            verifier.VerifyTable(pairs()) &&
-           VerifyField<flatbuffers::uoffset_t>(verifier, VT_SLICES) &&
+           VerifyOffset(verifier, VT_SLICES) &&
            verifier.VerifyTable(slices()) &&
            verifier.EndTable();
   }

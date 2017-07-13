@@ -45,6 +45,16 @@ with any argument, e.g.:
 
   $ fast -d Hello.pb Hello.txt
 
+### Print the JSON representation of the protocol buffer using the generated fAST schema. 
+
+  $ fast -d -j Hello.pb
+
+  $ fast -d -j Hello.pb Hello.json
+
+  $ fast -J '.slices.slice[].file[].function[].name' example.slice.pb
+
+The last command can also pipe results on to a `jq` query, e.g., getting from the slices all the function names.
+
 ### Translate the textual representations into the corresponding protobuf file. 
 
   $ fast -e Hello.txt Hello.pb
@@ -98,3 +108,24 @@ form.
   $ fast -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
 
   $ fast -x DuplicateVirtualMethods.smali.pb.txt > DuplicateVirtualMethods.smali.pb.txt.xml
+
+### Differentiate on the slices
+
+  $fast -L slice1.pb slice2.pb slice-diff.pb
+
+Assuming slice1.pb and slice2.pb are outputs of progra slicing using the option
+`-S` on two versions of the code, the output of this command is a diff
+representation of the differences.
+
+### Process log pairs from cross-language repositories
+  $cat codelabel_new.csv > a.csv
+
+  $fast -l a.csv a.pb
+
+Assuming that the input file is a comma-separate file where each row of the
+record indicates the project name, the hash of a changeset of the source
+project, diff position of the source project, textual differences of the source
+project, the hash of the changeset of the target project, diff positions of the
+target project, textual differences of the target project, and the judgement
+whether the pair of differences are clones.  The output of the command is a
+protobuf representation of the above pairs.
