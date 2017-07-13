@@ -9,3 +9,4 @@ message ModLine {
 }
 repeated Element element = __COUNTER__;
 repeated ModLine mod = __COUNTER__;
+Slices slice = __COUNTER__;

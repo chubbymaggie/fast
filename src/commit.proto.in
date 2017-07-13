@@ -14,3 +14,4 @@ message Diff {
 #include "diff.proto"
 }
 repeated Diff diff = __COUNTER__;
+Slices slice = __COUNTER__;

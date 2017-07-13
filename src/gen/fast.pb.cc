@@ -289,6 +289,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit_Diff_Hunk, context_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit_Diff_Hunk, element_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit_Diff_Hunk, mod_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit_Diff_Hunk, slice_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit_Diff, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -313,6 +314,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit, author_date_),
   GOOGLE_PROTOBUF_GENERATED_DEFAULT_ONEOF_FIELD_OFFSET((&_Log_Commit_default_instance_), committer_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit, diff_),
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit, slice_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Commit, extra_),
   ~0u,  // no _has_bits_
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Log_Author, _internal_metadata_),
@@ -416,18 +418,18 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 116, -1, sizeof(Log_Commit_Committer)},
   { 123, -1, sizeof(Log_Commit_Diff_Hunk_ModLine)},
   { 131, -1, sizeof(Log_Commit_Diff_Hunk)},
-  { 143, -1, sizeof(Log_Commit_Diff)},
-  { 156, -1, sizeof(Log_Commit)},
-  { 168, -1, sizeof(Log_Author)},
-  { 176, -1, sizeof(Log)},
-  { 183, -1, sizeof(Slices_Slice_SourceFile_Function_Variable_Position)},
-  { 191, -1, sizeof(Slices_Slice_SourceFile_Function_Variable_FunctionDecl)},
-  { 198, -1, sizeof(Slices_Slice_SourceFile_Function_Variable)},
-  { 211, -1, sizeof(Slices_Slice_SourceFile_Function)},
-  { 219, -1, sizeof(Slices_Slice_SourceFile)},
-  { 227, -1, sizeof(Slices_Slice)},
-  { 234, -1, sizeof(Slices)},
-  { 240, -1, sizeof(Data)},
+  { 144, -1, sizeof(Log_Commit_Diff)},
+  { 157, -1, sizeof(Log_Commit)},
+  { 170, -1, sizeof(Log_Author)},
+  { 178, -1, sizeof(Log)},
+  { 185, -1, sizeof(Slices_Slice_SourceFile_Function_Variable_Position)},
+  { 193, -1, sizeof(Slices_Slice_SourceFile_Function_Variable_FunctionDecl)},
+  { 200, -1, sizeof(Slices_Slice_SourceFile_Function_Variable)},
+  { 213, -1, sizeof(Slices_Slice_SourceFile_Function)},
+  { 221, -1, sizeof(Slices_Slice_SourceFile)},
+  { 229, -1, sizeof(Slices_Slice)},
+  { 236, -1, sizeof(Slices)},
+  { 242, -1, sizeof(Data)},
 };
 
 static ::google::protobuf::Message const * const file_default_instances[] = {
@@ -599,8 +601,12 @@ void TableStruct::InitDefaultsImpl() {
       ::fast::Pairs_Pair_Diff::internal_default_instance());
   _Pairs_Pair_default_instance_.get_mutable()->right_ = const_cast< ::fast::Pairs_Pair_Diff*>(
       ::fast::Pairs_Pair_Diff::internal_default_instance());
+  _Log_Commit_Diff_Hunk_default_instance_.get_mutable()->slice_ = const_cast< ::fast::Slices*>(
+      ::fast::Slices::internal_default_instance());
   _Log_Commit_default_instance_.committer_ = const_cast< ::fast::Log_Commit_Committer*>(
       ::fast::Log_Commit_Committer::internal_default_instance());
+  _Log_Commit_default_instance_.get_mutable()->slice_ = const_cast< ::fast::Slices*>(
+      ::fast::Slices::internal_default_instance());
   _Slices_Slice_SourceFile_Function_Variable_default_instance_.get_mutable()->pos_ = const_cast< ::fast::Slices_Slice_SourceFile_Function_Variable_Position*>(
       ::fast::Slices_Slice_SourceFile_Function_Variable_Position::internal_default_instance());
   _Data_default_instance_.element_ = const_cast< ::fast::Element*>(
@@ -825,116 +831,118 @@ void AddDescriptorsImpl() {
       "\n\010old_code\030\005 \001(\0132\r.fast.Element\022\037\n\010new_c"
       "ode\030\006 \001(\0132\r.fast.Element\022\014\n\004hash\030\007 \001(\t\"\'"
       "\n\tCloneType\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020\002\""
-      "\362\005\n\003Log\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Commi"
-      "t\022 \n\006author\030\002 \003(\0132\020.fast.Log.Author\032\363\004\n\006"
+      "\254\006\n\003Log\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Commi"
+      "t\022 \n\006author\030\002 \003(\0132\020.fast.Log.Author\032\255\005\n\006"
       "Commit\022\n\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\tauth"
       "or_id\030\003 \001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tcomm"
       "itter\030\005 \001(\0132\032.fast.Log.Commit.CommitterH"
-      "\000\022#\n\004diff\030\006 \003(\0132\025.fast.Log.Commit.Diff\0326"
-      "\n\tCommitter\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013com"
-      "mit_date\030\002 \001(\t\032\217\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n\001b\030"
-      "\002 \001(\t\022\016\n\006is_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001(\t\022\022"
-      "\n\nindex_from\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022\014\n\004"
-      "mode\030\007 \001(\t\022(\n\004hunk\030\010 \003(\0132\032.fast.Log.Comm"
-      "it.Diff.Hunk\032\361\001\n\004Hunk\022\023\n\013from_lineno\030\001 \001"
-      "(\005\022\023\n\013from_column\030\002 \001(\005\022\021\n\tto_lineno\030\003 \001"
-      "(\005\022\021\n\tto_column\030\004 \001(\005\022\017\n\007context\030\005 \001(\t\022\036"
-      "\n\007element\030\006 \003(\0132\r.fast.Element\022/\n\003mod\030\007 "
-      "\003(\0132\".fast.Log.Commit.Diff.Hunk.ModLine\032"
-      "7\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is_add\030\002 \001(\010"
-      "\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006Author\022\n\n\002i"
-      "d\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\"\303\007\n"
-      "\006Slices\022!\n\005slice\030\001 \003(\0132\022.fast.Slices.Sli"
-      "ce\032\225\007\n\005Slice\022+\n\004file\030\001 \003(\0132\035.fast.Slices"
-      ".Slice.SourceFile\022\014\n\004hash\030\002 \001(\t\032\241\006\n\nSour"
-      "ceFile\0228\n\010function\030\001 \003(\0132&.fast.Slices.S"
-      "lice.SourceFile.Function\022\014\n\004name\030\002 \001(\t\022+"
-      "\n\004type\030\003 \001(\0162\035.fast.Slices.Slice.ChangeT"
-      "ype\032\235\005\n\010Function\022A\n\010variable\030\001 \003(\0132/.fas"
-      "t.Slices.Slice.SourceFile.Function.Varia"
-      "ble\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fast.S"
-      "lices.Slice.ChangeType\032\222\004\n\010Variable\022\014\n\004n"
-      "ame\030\001 \001(\t\022E\n\003pos\030\002 \001(\01328.fast.Slices.Sli"
-      "ce.SourceFile.Function.Variable.Position"
-      "\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Slice.Chang"
-      "eType\022F\n\004defn\030\004 \003(\01328.fast.Slices.Slice."
-      "SourceFile.Function.Variable.Position\022E\n"
-      "\003use\030\005 \003(\01328.fast.Slices.Slice.SourceFil"
-      "e.Function.Variable.Position\022\014\n\004dvar\030\006 \003"
-      "(\t\022\r\n\005alias\030\007 \003(\t\022K\n\005cfunc\030\010 \003(\0132<.fast."
-      "Slices.Slice.SourceFile.Function.Variabl"
-      "e.FunctionDecl\032]\n\010Position\022\016\n\006lineno\030\001 \001"
-      "(\005\022+\n\004type\030\002 \001(\0162\035.fast.Slices.Slice.Cha"
-      "ngeType\022\024\n\014delta_lineno\030\005 \001(\005\032,\n\014Functio"
-      "nDecl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030\002 \001(\005\"-\n\nC"
-      "hangeType\022\r\n\tUNCHANGED\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL"
-      "\020\002\"\254\001\n\004Data\022 \n\007element\030\001 \001(\0132\r.fast.Elem"
-      "entH\000\022\030\n\003log\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta"
-      "\030\003 \001(\0132\013.fast.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.f"
-      "ast.PairsH\000\022\036\n\006slices\030\005 \001(\0132\014.fast.Slice"
-      "sH\000B\014\n\nRecordType*\273\022\n\tSmaliKind\022\016\n\nsmali"
-      "_file\020\000\022\016\n\nclass_spec\020\001\022\016\n\nsuper_spec\020\002\022"
-      "\023\n\017implements_spec\020\003\022\017\n\013source_spec\020\004\022\017\n"
-      "\013access_list\020\005\022\t\n\005field\020\006\022\n\n\006method\020\007\022\035\n"
-      "\031statements_and_directives\020\010\022\027\n\023ordered_"
-      "method_item\020\t\022\027\n\023registers_directive\020\n\022\024"
-      "\n\020param_list_or_id\020\013\022\017\n\013simple_name\020\014\022\017\n"
-      "\013member_name\020\r\022\024\n\020method_prototype\020\016\022#\n\037"
-      "param_list_or_id_primitive_type\020\017\022\016\n\npar"
-      "am_list\020\020\022\024\n\020array_descriptor\020\021\022\023\n\017type_"
-      "descriptor\020\022\022\033\n\027nonvoid_type_descriptor\020"
-      "\023\022\035\n\031reference_type_descriptor\020\024\022\023\n\017inte"
-      "ger_literal\020\025\022\021\n\rfloat_literal\020\026\022\022\n\016doub"
-      "le_literal\020\027\022\013\n\007literal\020\030\022\032\n\026parsed_inte"
-      "ger_literal\020\031\022\024\n\020integral_literal\020\032\022\027\n\023f"
-      "ixed_32bit_literal\020\033\022\021\n\rfixed_literal\020\034\022"
-      "\021\n\rarray_literal\020\035\022\026\n\022annotation_element"
-      "\020\036\022\016\n\nannotation\020\037\022\021\n\rsubannotation\020 \022\020\n"
-      "\014enum_literal\020!\022\035\n\031type_field_method_lit"
-      "eral\020\"\022\024\n\020method_reference\020#\022\023\n\017field_re"
-      "ference\020$\022\t\n\005label\020%\022\r\n\tlabel_ref\020&\022\021\n\rr"
-      "egister_list\020\'\022\022\n\016register_range\020(\022 \n\034ve"
-      "rification_error_reference\020)\022\023\n\017catch_di"
-      "rective\020*\022\026\n\022catchall_directive\020+\022\027\n\023par"
-      "ameter_directive\020,\022\023\n\017debug_directive\020-\022"
-      "\022\n\016line_directive\020.\022\023\n\017local_directive\020/"
-      "\022\027\n\023end_local_directive\0200\022\033\n\027restart_loc"
-      "al_directive\0201\022\026\n\022prologue_directive\0202\022\026"
-      "\n\022epilogue_directive\0203\022\024\n\020source_directi"
-      "ve\0204\022\031\n\025instruction_format12x\0205\022\031\n\025instr"
-      "uction_format22s\0206\022\031\n\025instruction_format"
-      "31i\0207\022\017\n\013instruction\0208\022\022\n\016insn_format10t"
-      "\0209\022\022\n\016insn_format10x\020:\022\027\n\023insn_format10x"
-      "_odex\020;\022\022\n\016insn_format11n\020<\022\022\n\016insn_form"
-      "at11x\020=\022\022\n\016insn_format12x\020>\022\023\n\017insn_form"
-      "at20bc\020\?\022\022\n\016insn_format20t\020@\022\030\n\024insn_for"
-      "mat21c_field\020A\022\035\n\031insn_format21c_field_o"
-      "dex\020B\022\031\n\025insn_format21c_string\020C\022\027\n\023insn"
-      "_format21c_type\020D\022\023\n\017insn_format21ih\020E\022\023"
-      "\n\017insn_format21lh\020F\022\022\n\016insn_format21s\020G\022"
-      "\022\n\016insn_format21t\020H\022\022\n\016insn_format22b\020I\022"
-      "\030\n\024insn_format22c_field\020J\022\035\n\031insn_format"
-      "22c_field_odex\020K\022\027\n\023insn_format22c_type\020"
-      "L\022\031\n\025insn_format22cs_field\020M\022\022\n\016insn_for"
-      "mat22s\020N\022\022\n\016insn_format22t\020O\022\022\n\016insn_for"
-      "mat22x\020P\022\022\n\016insn_format23x\020Q\022\022\n\016insn_for"
-      "mat30t\020R\022\022\n\016insn_format31c\020S\022\022\n\016insn_for"
-      "mat31i\020T\022\022\n\016insn_format31t\020U\022\022\n\016insn_for"
-      "mat32x\020V\022\031\n\025insn_format35c_method\020W\022\027\n\023i"
-      "nsn_format35c_type\020X\022\036\n\032insn_format35c_m"
-      "ethod_odex\020Y\022\032\n\026insn_format35mi_method\020Z"
-      "\022\032\n\026insn_format35ms_method\020[\022\031\n\025insn_for"
-      "mat3rc_method\020\\\022\036\n\032insn_format3rc_method"
-      "_odex\020]\022\027\n\023insn_format3rc_type\020^\022\032\n\026insn"
-      "_format3rmi_method\020_\022\032\n\026insn_format3rms_"
-      "method\020`\022\032\n\026insn_format45cc_method\020a\022\032\n\026"
-      "insn_format4rcc_method\020b\022\022\n\016insn_format5"
-      "1l\020c\022\035\n\031insn_array_data_directive\020d\022 \n\034i"
-      "nsn_packed_switch_directive\020e\022 \n\034insn_sp"
-      "arse_switch_directive\020fb\006proto3"
+      "\000\022#\n\004diff\030\006 \003(\0132\025.fast.Log.Commit.Diff\022\033"
+      "\n\005slice\030\007 \001(\0132\014.fast.Slices\0326\n\tCommitter"
+      "\022\024\n\014committer_id\030\001 \001(\005\022\023\n\013commit_date\030\002 "
+      "\001(\t\032\254\003\n\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n\001b\030\002 \001(\t\022\016\n\006is"
+      "_new\030\003 \001(\010\022\017\n\007is_code\030\004 \001(\t\022\022\n\nindex_fro"
+      "m\030\005 \001(\t\022\020\n\010index_to\030\006 \001(\t\022\014\n\004mode\030\007 \001(\t\022"
+      "(\n\004hunk\030\010 \003(\0132\032.fast.Log.Commit.Diff.Hun"
+      "k\032\216\002\n\004Hunk\022\023\n\013from_lineno\030\001 \001(\005\022\023\n\013from_"
+      "column\030\002 \001(\005\022\021\n\tto_lineno\030\003 \001(\005\022\021\n\tto_co"
+      "lumn\030\004 \001(\005\022\017\n\007context\030\005 \001(\t\022\036\n\007element\030\006"
+      " \003(\0132\r.fast.Element\022/\n\003mod\030\007 \003(\0132\".fast."
+      "Log.Commit.Diff.Hunk.ModLine\022\033\n\005slice\030\010 "
+      "\001(\0132\014.fast.Slices\0327\n\007ModLine\022\014\n\004line\030\001 \001"
+      "(\014\022\016\n\006is_add\030\002 \001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005ex"
+      "tra\0321\n\006Author\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022"
+      "\r\n\005email\030\003 \001(\t\"\303\007\n\006Slices\022!\n\005slice\030\001 \003(\013"
+      "2\022.fast.Slices.Slice\032\225\007\n\005Slice\022+\n\004file\030\001"
+      " \003(\0132\035.fast.Slices.Slice.SourceFile\022\014\n\004h"
+      "ash\030\002 \001(\t\032\241\006\n\nSourceFile\0228\n\010function\030\001 \003"
+      "(\0132&.fast.Slices.Slice.SourceFile.Functi"
+      "on\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fast.Sl"
+      "ices.Slice.ChangeType\032\235\005\n\010Function\022A\n\010va"
+      "riable\030\001 \003(\0132/.fast.Slices.Slice.SourceF"
+      "ile.Function.Variable\022\014\n\004name\030\002 \001(\t\022+\n\004t"
+      "ype\030\003 \001(\0162\035.fast.Slices.Slice.ChangeType"
+      "\032\222\004\n\010Variable\022\014\n\004name\030\001 \001(\t\022E\n\003pos\030\002 \001(\013"
+      "28.fast.Slices.Slice.SourceFile.Function"
+      ".Variable.Position\022+\n\004type\030\003 \001(\0162\035.fast."
+      "Slices.Slice.ChangeType\022F\n\004defn\030\004 \003(\01328."
+      "fast.Slices.Slice.SourceFile.Function.Va"
+      "riable.Position\022E\n\003use\030\005 \003(\01328.fast.Slic"
+      "es.Slice.SourceFile.Function.Variable.Po"
+      "sition\022\014\n\004dvar\030\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022K\n\005c"
+      "func\030\010 \003(\0132<.fast.Slices.Slice.SourceFil"
+      "e.Function.Variable.FunctionDecl\032]\n\010Posi"
+      "tion\022\016\n\006lineno\030\001 \001(\005\022+\n\004type\030\002 \001(\0162\035.fas"
+      "t.Slices.Slice.ChangeType\022\024\n\014delta_linen"
+      "o\030\005 \001(\005\032,\n\014FunctionDecl\022\014\n\004name\030\001 \001(\t\022\016\n"
+      "\006lineno\030\002 \001(\005\"-\n\nChangeType\022\r\n\tUNCHANGED"
+      "\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\"\254\001\n\004Data\022 \n\007element"
+      "\030\001 \001(\0132\r.fast.ElementH\000\022\030\n\003log\030\002 \001(\0132\t.f"
+      "ast.LogH\000\022\034\n\005delta\030\003 \001(\0132\013.fast.DeltaH\000\022"
+      "\034\n\005pairs\030\004 \001(\0132\013.fast.PairsH\000\022\036\n\006slices\030"
+      "\005 \001(\0132\014.fast.SlicesH\000B\014\n\nRecordType*\273\022\n\t"
+      "SmaliKind\022\016\n\nsmali_file\020\000\022\016\n\nclass_spec\020"
+      "\001\022\016\n\nsuper_spec\020\002\022\023\n\017implements_spec\020\003\022\017"
+      "\n\013source_spec\020\004\022\017\n\013access_list\020\005\022\t\n\005fiel"
+      "d\020\006\022\n\n\006method\020\007\022\035\n\031statements_and_direct"
+      "ives\020\010\022\027\n\023ordered_method_item\020\t\022\027\n\023regis"
+      "ters_directive\020\n\022\024\n\020param_list_or_id\020\013\022\017"
+      "\n\013simple_name\020\014\022\017\n\013member_name\020\r\022\024\n\020meth"
+      "od_prototype\020\016\022#\n\037param_list_or_id_primi"
+      "tive_type\020\017\022\016\n\nparam_list\020\020\022\024\n\020array_des"
+      "criptor\020\021\022\023\n\017type_descriptor\020\022\022\033\n\027nonvoi"
+      "d_type_descriptor\020\023\022\035\n\031reference_type_de"
+      "scriptor\020\024\022\023\n\017integer_literal\020\025\022\021\n\rfloat"
+      "_literal\020\026\022\022\n\016double_literal\020\027\022\013\n\007litera"
+      "l\020\030\022\032\n\026parsed_integer_literal\020\031\022\024\n\020integ"
+      "ral_literal\020\032\022\027\n\023fixed_32bit_literal\020\033\022\021"
+      "\n\rfixed_literal\020\034\022\021\n\rarray_literal\020\035\022\026\n\022"
+      "annotation_element\020\036\022\016\n\nannotation\020\037\022\021\n\r"
+      "subannotation\020 \022\020\n\014enum_literal\020!\022\035\n\031typ"
+      "e_field_method_literal\020\"\022\024\n\020method_refer"
+      "ence\020#\022\023\n\017field_reference\020$\022\t\n\005label\020%\022\r"
+      "\n\tlabel_ref\020&\022\021\n\rregister_list\020\'\022\022\n\016regi"
+      "ster_range\020(\022 \n\034verification_error_refer"
+      "ence\020)\022\023\n\017catch_directive\020*\022\026\n\022catchall_"
+      "directive\020+\022\027\n\023parameter_directive\020,\022\023\n\017"
+      "debug_directive\020-\022\022\n\016line_directive\020.\022\023\n"
+      "\017local_directive\020/\022\027\n\023end_local_directiv"
+      "e\0200\022\033\n\027restart_local_directive\0201\022\026\n\022prol"
+      "ogue_directive\0202\022\026\n\022epilogue_directive\0203"
+      "\022\024\n\020source_directive\0204\022\031\n\025instruction_fo"
+      "rmat12x\0205\022\031\n\025instruction_format22s\0206\022\031\n\025"
+      "instruction_format31i\0207\022\017\n\013instruction\0208"
+      "\022\022\n\016insn_format10t\0209\022\022\n\016insn_format10x\020:"
+      "\022\027\n\023insn_format10x_odex\020;\022\022\n\016insn_format"
+      "11n\020<\022\022\n\016insn_format11x\020=\022\022\n\016insn_format"
+      "12x\020>\022\023\n\017insn_format20bc\020\?\022\022\n\016insn_forma"
+      "t20t\020@\022\030\n\024insn_format21c_field\020A\022\035\n\031insn"
+      "_format21c_field_odex\020B\022\031\n\025insn_format21"
+      "c_string\020C\022\027\n\023insn_format21c_type\020D\022\023\n\017i"
+      "nsn_format21ih\020E\022\023\n\017insn_format21lh\020F\022\022\n"
+      "\016insn_format21s\020G\022\022\n\016insn_format21t\020H\022\022\n"
+      "\016insn_format22b\020I\022\030\n\024insn_format22c_fiel"
+      "d\020J\022\035\n\031insn_format22c_field_odex\020K\022\027\n\023in"
+      "sn_format22c_type\020L\022\031\n\025insn_format22cs_f"
+      "ield\020M\022\022\n\016insn_format22s\020N\022\022\n\016insn_forma"
+      "t22t\020O\022\022\n\016insn_format22x\020P\022\022\n\016insn_forma"
+      "t23x\020Q\022\022\n\016insn_format30t\020R\022\022\n\016insn_forma"
+      "t31c\020S\022\022\n\016insn_format31i\020T\022\022\n\016insn_forma"
+      "t31t\020U\022\022\n\016insn_format32x\020V\022\031\n\025insn_forma"
+      "t35c_method\020W\022\027\n\023insn_format35c_type\020X\022\036"
+      "\n\032insn_format35c_method_odex\020Y\022\032\n\026insn_f"
+      "ormat35mi_method\020Z\022\032\n\026insn_format35ms_me"
+      "thod\020[\022\031\n\025insn_format3rc_method\020\\\022\036\n\032ins"
+      "n_format3rc_method_odex\020]\022\027\n\023insn_format"
+      "3rc_type\020^\022\032\n\026insn_format3rmi_method\020_\022\032"
+      "\n\026insn_format3rms_method\020`\022\032\n\026insn_forma"
+      "t45cc_method\020a\022\032\n\026insn_format4rcc_method"
+      "\020b\022\022\n\016insn_format51l\020c\022\035\n\031insn_array_dat"
+      "a_directive\020d\022 \n\034insn_packed_switch_dire"
+      "ctive\020e\022 \n\034insn_sparse_switch_directive\020"
+      "fb\006proto3"
   };
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-      descriptor, 12391);
+      descriptor, 12449);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "fast.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&TableStruct::Shutdown);
@@ -8780,6 +8788,7 @@ const int Log_Commit_Diff_Hunk::kToColumnFieldNumber;
 const int Log_Commit_Diff_Hunk::kContextFieldNumber;
 const int Log_Commit_Diff_Hunk::kElementFieldNumber;
 const int Log_Commit_Diff_Hunk::kModFieldNumber;
+const int Log_Commit_Diff_Hunk::kSliceFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Log_Commit_Diff_Hunk::Log_Commit_Diff_Hunk()
@@ -8801,6 +8810,11 @@ Log_Commit_Diff_Hunk::Log_Commit_Diff_Hunk(const Log_Commit_Diff_Hunk& from)
   if (from.context().size() > 0) {
     context_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.context_);
   }
+  if (from.has_slice()) {
+    slice_ = new ::fast::Slices(*from.slice_);
+  } else {
+    slice_ = NULL;
+  }
   ::memcpy(&from_lineno_, &from.from_lineno_,
     reinterpret_cast<char*>(&to_column_) -
     reinterpret_cast<char*>(&from_lineno_) + sizeof(to_column_));
@@ -8809,8 +8823,8 @@ Log_Commit_Diff_Hunk::Log_Commit_Diff_Hunk(const Log_Commit_Diff_Hunk& from)
 
 void Log_Commit_Diff_Hunk::SharedCtor() {
   context_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  ::memset(&from_lineno_, 0, reinterpret_cast<char*>(&to_column_) -
-    reinterpret_cast<char*>(&from_lineno_) + sizeof(to_column_));
+  ::memset(&slice_, 0, reinterpret_cast<char*>(&to_column_) -
+    reinterpret_cast<char*>(&slice_) + sizeof(to_column_));
   _cached_size_ = 0;
 }
 
@@ -8821,6 +8835,9 @@ Log_Commit_Diff_Hunk::~Log_Commit_Diff_Hunk() {
 
 void Log_Commit_Diff_Hunk::SharedDtor() {
   context_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) {
+    delete slice_;
+  }
 }
 
 void Log_Commit_Diff_Hunk::SetCachedSize(int size) const {
@@ -8851,6 +8868,10 @@ void Log_Commit_Diff_Hunk::Clear() {
   element_.Clear();
   mod_.Clear();
   context_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && slice_ != NULL) {
+    delete slice_;
+  }
+  slice_ = NULL;
   ::memset(&from_lineno_, 0, reinterpret_cast<char*>(&to_column_) -
     reinterpret_cast<char*>(&from_lineno_) + sizeof(to_column_));
 }
@@ -8961,6 +8982,18 @@ bool Log_Commit_Diff_Hunk::MergePartialFromCodedStream(
         break;
       }
 
+      // .fast.Slices slice = 8;
+      case 8: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(66u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_slice()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -9030,6 +9063,12 @@ void Log_Commit_Diff_Hunk::SerializeWithCachedSizes(
       7, this->mod(i), output);
   }
 
+  // .fast.Slices slice = 8;
+  if (this->has_slice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, *this->slice_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:fast.Log.Commit.Diff.Hunk)
 }
 
@@ -9084,6 +9123,13 @@ void Log_Commit_Diff_Hunk::SerializeWithCachedSizes(
         7, this->mod(i), deterministic, target);
   }
 
+  // .fast.Slices slice = 8;
+  if (this->has_slice()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        8, *this->slice_, deterministic, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:fast.Log.Commit.Diff.Hunk)
   return target;
 }
@@ -9119,6 +9165,13 @@ size_t Log_Commit_Diff_Hunk::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->context());
+  }
+
+  // .fast.Slices slice = 8;
+  if (this->has_slice()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->slice_);
   }
 
   // int32 from_lineno = 1;
@@ -9184,6 +9237,9 @@ void Log_Commit_Diff_Hunk::MergeFrom(const Log_Commit_Diff_Hunk& from) {
 
     context_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.context_);
   }
+  if (from.has_slice()) {
+    mutable_slice()->::fast::Slices::MergeFrom(from.slice());
+  }
   if (from.from_lineno() != 0) {
     set_from_lineno(from.from_lineno());
   }
@@ -9224,6 +9280,7 @@ void Log_Commit_Diff_Hunk::InternalSwap(Log_Commit_Diff_Hunk* other) {
   element_.InternalSwap(&other->element_);
   mod_.InternalSwap(&other->mod_);
   context_.Swap(&other->context_);
+  std::swap(slice_, other->slice_);
   std::swap(from_lineno_, other->from_lineno_);
   std::swap(from_column_, other->from_column_);
   std::swap(to_lineno_, other->to_lineno_);
@@ -9406,6 +9463,45 @@ const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine
 Log_Commit_Diff_Hunk::mod() const {
   // @@protoc_insertion_point(field_list:fast.Log.Commit.Diff.Hunk.mod)
   return mod_;
+}
+
+// .fast.Slices slice = 8;
+bool Log_Commit_Diff_Hunk::has_slice() const {
+  return this != internal_default_instance() && slice_ != NULL;
+}
+void Log_Commit_Diff_Hunk::clear_slice() {
+  if (GetArenaNoVirtual() == NULL && slice_ != NULL) delete slice_;
+  slice_ = NULL;
+}
+const ::fast::Slices& Log_Commit_Diff_Hunk::slice() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.slice)
+  return slice_ != NULL ? *slice_
+                         : *::fast::Slices::internal_default_instance();
+}
+::fast::Slices* Log_Commit_Diff_Hunk::mutable_slice() {
+  
+  if (slice_ == NULL) {
+    slice_ = new ::fast::Slices;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.Hunk.slice)
+  return slice_;
+}
+::fast::Slices* Log_Commit_Diff_Hunk::release_slice() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.Hunk.slice)
+  
+  ::fast::Slices* temp = slice_;
+  slice_ = NULL;
+  return temp;
+}
+void Log_Commit_Diff_Hunk::set_allocated_slice(::fast::Slices* slice) {
+  delete slice_;
+  slice_ = slice;
+  if (slice) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.Hunk.slice)
 }
 
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
@@ -10382,6 +10478,7 @@ const int Log_Commit::kAuthorIdFieldNumber;
 const int Log_Commit::kAuthorDateFieldNumber;
 const int Log_Commit::kCommitterFieldNumber;
 const int Log_Commit::kDiffFieldNumber;
+const int Log_Commit::kSliceFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
 Log_Commit::Log_Commit()
@@ -10410,6 +10507,11 @@ Log_Commit::Log_Commit(const Log_Commit& from)
   if (from.author_date().size() > 0) {
     author_date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.author_date_);
   }
+  if (from.has_slice()) {
+    slice_ = new ::fast::Slices(*from.slice_);
+  } else {
+    slice_ = NULL;
+  }
   author_id_ = from.author_id_;
   clear_has_extra();
   switch (from.extra_case()) {
@@ -10428,7 +10530,8 @@ void Log_Commit::SharedCtor() {
   id_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   text_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   author_date_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  author_id_ = 0;
+  ::memset(&slice_, 0, reinterpret_cast<char*>(&author_id_) -
+    reinterpret_cast<char*>(&slice_) + sizeof(author_id_));
   clear_has_extra();
   _cached_size_ = 0;
 }
@@ -10442,6 +10545,9 @@ void Log_Commit::SharedDtor() {
   id_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   text_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   author_date_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) {
+    delete slice_;
+  }
   if (has_extra()) {
     clear_extra();
   }
@@ -10491,6 +10597,10 @@ void Log_Commit::Clear() {
   id_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   text_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   author_date_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == NULL && slice_ != NULL) {
+    delete slice_;
+  }
+  slice_ = NULL;
   author_id_ = 0;
   clear_extra();
 }
@@ -10587,6 +10697,18 @@ bool Log_Commit::MergePartialFromCodedStream(
         break;
       }
 
+      // .fast.Slices slice = 7;
+      case 7: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(58u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_slice()));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
       default: {
       handle_unusual:
         if (tag == 0 ||
@@ -10657,6 +10779,12 @@ void Log_Commit::SerializeWithCachedSizes(
       6, this->diff(i), output);
   }
 
+  // .fast.Slices slice = 7;
+  if (this->has_slice()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      7, *this->slice_, output);
+  }
+
   // @@protoc_insertion_point(serialize_end:fast.Log.Commit)
 }
 
@@ -10714,6 +10842,13 @@ void Log_Commit::SerializeWithCachedSizes(
         6, this->diff(i), deterministic, target);
   }
 
+  // .fast.Slices slice = 7;
+  if (this->has_slice()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      InternalWriteMessageNoVirtualToArray(
+        7, *this->slice_, deterministic, target);
+  }
+
   // @@protoc_insertion_point(serialize_to_array_end:fast.Log.Commit)
   return target;
 }
@@ -10752,6 +10887,13 @@ size_t Log_Commit::ByteSizeLong() const {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->author_date());
+  }
+
+  // .fast.Slices slice = 7;
+  if (this->has_slice()) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        *this->slice_);
   }
 
   // int32 author_id = 3;
@@ -10815,6 +10957,9 @@ void Log_Commit::MergeFrom(const Log_Commit& from) {
 
     author_date_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.author_date_);
   }
+  if (from.has_slice()) {
+    mutable_slice()->::fast::Slices::MergeFrom(from.slice());
+  }
   if (from.author_id() != 0) {
     set_author_id(from.author_id());
   }
@@ -10856,6 +11001,7 @@ void Log_Commit::InternalSwap(Log_Commit* other) {
   id_.Swap(&other->id_);
   text_.Swap(&other->text_);
   author_date_.Swap(&other->author_date_);
+  std::swap(slice_, other->slice_);
   std::swap(author_id_, other->author_id_);
   std::swap(extra_, other->extra_);
   std::swap(_oneof_case_[0], other->_oneof_case_[0]);
@@ -11119,6 +11265,45 @@ const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff >&
 Log_Commit::diff() const {
   // @@protoc_insertion_point(field_list:fast.Log.Commit.diff)
   return diff_;
+}
+
+// .fast.Slices slice = 7;
+bool Log_Commit::has_slice() const {
+  return this != internal_default_instance() && slice_ != NULL;
+}
+void Log_Commit::clear_slice() {
+  if (GetArenaNoVirtual() == NULL && slice_ != NULL) delete slice_;
+  slice_ = NULL;
+}
+const ::fast::Slices& Log_Commit::slice() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.slice)
+  return slice_ != NULL ? *slice_
+                         : *::fast::Slices::internal_default_instance();
+}
+::fast::Slices* Log_Commit::mutable_slice() {
+  
+  if (slice_ == NULL) {
+    slice_ = new ::fast::Slices;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.slice)
+  return slice_;
+}
+::fast::Slices* Log_Commit::release_slice() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.slice)
+  
+  ::fast::Slices* temp = slice_;
+  slice_ = NULL;
+  return temp;
+}
+void Log_Commit::set_allocated_slice(::fast::Slices* slice) {
+  delete slice_;
+  slice_ = slice;
+  if (slice) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.slice)
 }
 
 bool Log_Commit::has_extra() const {

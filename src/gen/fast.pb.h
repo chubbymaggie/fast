@@ -3494,6 +3494,15 @@ class Log_Commit_Diff_Hunk : public ::google::protobuf::Message /* @@protoc_inse
   ::std::string* release_context();
   void set_allocated_context(::std::string* context);
 
+  // .fast.Slices slice = 8;
+  bool has_slice() const;
+  void clear_slice();
+  static const int kSliceFieldNumber = 8;
+  const ::fast::Slices& slice() const;
+  ::fast::Slices* mutable_slice();
+  ::fast::Slices* release_slice();
+  void set_allocated_slice(::fast::Slices* slice);
+
   // int32 from_lineno = 1;
   void clear_from_lineno();
   static const int kFromLinenoFieldNumber = 1;
@@ -3525,6 +3534,7 @@ class Log_Commit_Diff_Hunk : public ::google::protobuf::Message /* @@protoc_inse
   ::google::protobuf::RepeatedPtrField< ::fast::Element > element_;
   ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff_Hunk_ModLine > mod_;
   ::google::protobuf::internal::ArenaStringPtr context_;
+  ::fast::Slices* slice_;
   ::google::protobuf::int32 from_lineno_;
   ::google::protobuf::int32 from_column_;
   ::google::protobuf::int32 to_lineno_;
@@ -3845,6 +3855,15 @@ class Log_Commit : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::std::string* release_author_date();
   void set_allocated_author_date(::std::string* author_date);
 
+  // .fast.Slices slice = 7;
+  bool has_slice() const;
+  void clear_slice();
+  static const int kSliceFieldNumber = 7;
+  const ::fast::Slices& slice() const;
+  ::fast::Slices* mutable_slice();
+  ::fast::Slices* release_slice();
+  void set_allocated_slice(::fast::Slices* slice);
+
   // int32 author_id = 3;
   void clear_author_id();
   static const int kAuthorIdFieldNumber = 3;
@@ -3874,6 +3893,7 @@ class Log_Commit : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::internal::ArenaStringPtr id_;
   ::google::protobuf::internal::ArenaStringPtr text_;
   ::google::protobuf::internal::ArenaStringPtr author_date_;
+  ::fast::Slices* slice_;
   ::google::protobuf::int32 author_id_;
   union ExtraUnion {
     ExtraUnion() {}
@@ -6915,6 +6935,45 @@ Log_Commit_Diff_Hunk::mod() const {
   return mod_;
 }
 
+// .fast.Slices slice = 8;
+inline bool Log_Commit_Diff_Hunk::has_slice() const {
+  return this != internal_default_instance() && slice_ != NULL;
+}
+inline void Log_Commit_Diff_Hunk::clear_slice() {
+  if (GetArenaNoVirtual() == NULL && slice_ != NULL) delete slice_;
+  slice_ = NULL;
+}
+inline const ::fast::Slices& Log_Commit_Diff_Hunk::slice() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.Diff.Hunk.slice)
+  return slice_ != NULL ? *slice_
+                         : *::fast::Slices::internal_default_instance();
+}
+inline ::fast::Slices* Log_Commit_Diff_Hunk::mutable_slice() {
+  
+  if (slice_ == NULL) {
+    slice_ = new ::fast::Slices;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.Diff.Hunk.slice)
+  return slice_;
+}
+inline ::fast::Slices* Log_Commit_Diff_Hunk::release_slice() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.Diff.Hunk.slice)
+  
+  ::fast::Slices* temp = slice_;
+  slice_ = NULL;
+  return temp;
+}
+inline void Log_Commit_Diff_Hunk::set_allocated_slice(::fast::Slices* slice) {
+  delete slice_;
+  slice_ = slice;
+  if (slice) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.Diff.Hunk.slice)
+}
+
 // -------------------------------------------------------------------
 
 // Log_Commit_Diff
@@ -7534,6 +7593,45 @@ inline const ::google::protobuf::RepeatedPtrField< ::fast::Log_Commit_Diff >&
 Log_Commit::diff() const {
   // @@protoc_insertion_point(field_list:fast.Log.Commit.diff)
   return diff_;
+}
+
+// .fast.Slices slice = 7;
+inline bool Log_Commit::has_slice() const {
+  return this != internal_default_instance() && slice_ != NULL;
+}
+inline void Log_Commit::clear_slice() {
+  if (GetArenaNoVirtual() == NULL && slice_ != NULL) delete slice_;
+  slice_ = NULL;
+}
+inline const ::fast::Slices& Log_Commit::slice() const {
+  // @@protoc_insertion_point(field_get:fast.Log.Commit.slice)
+  return slice_ != NULL ? *slice_
+                         : *::fast::Slices::internal_default_instance();
+}
+inline ::fast::Slices* Log_Commit::mutable_slice() {
+  
+  if (slice_ == NULL) {
+    slice_ = new ::fast::Slices;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Log.Commit.slice)
+  return slice_;
+}
+inline ::fast::Slices* Log_Commit::release_slice() {
+  // @@protoc_insertion_point(field_release:fast.Log.Commit.slice)
+  
+  ::fast::Slices* temp = slice_;
+  slice_ = NULL;
+  return temp;
+}
+inline void Log_Commit::set_allocated_slice(::fast::Slices* slice) {
+  delete slice_;
+  slice_ = slice;
+  if (slice) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Log.Commit.slice)
 }
 
 inline bool Log_Commit::has_extra() const {

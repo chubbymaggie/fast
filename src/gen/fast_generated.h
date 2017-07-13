@@ -3131,7 +3131,8 @@ struct Commit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_AUTHOR_ID = 8,
     VT_AUTHOR_DATE = 10,
     VT_EXTRA = 12,
-    VT_DIFF = 14
+    VT_DIFF = 14,
+    VT_SLICE = 16
   };
   const flatbuffers::String *id() const {
     return GetPointer<const flatbuffers::String *>(VT_ID);
@@ -3151,6 +3152,9 @@ struct Commit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>> *diff() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>> *>(VT_DIFF);
   }
+  const _fast::Slices *slice() const {
+    return GetPointer<const _fast::Slices *>(VT_SLICE);
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyOffset(verifier, VT_ID) &&
@@ -3165,6 +3169,8 @@ struct Commit FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyOffset(verifier, VT_DIFF) &&
            verifier.Verify(diff()) &&
            verifier.VerifyVectorOfTables(diff()) &&
+           VerifyOffset(verifier, VT_SLICE) &&
+           verifier.VerifyTable(slice()) &&
            verifier.EndTable();
   }
 };
@@ -3190,13 +3196,16 @@ struct CommitBuilder {
   void add_diff(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>>> diff) {
     fbb_.AddOffset(Commit::VT_DIFF, diff);
   }
+  void add_slice(flatbuffers::Offset<_fast::Slices> slice) {
+    fbb_.AddOffset(Commit::VT_SLICE, slice);
+  }
   CommitBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
   CommitBuilder &operator=(const CommitBuilder &);
   flatbuffers::Offset<Commit> Finish() {
-    const auto end = fbb_.EndTable(start_, 6);
+    const auto end = fbb_.EndTable(start_, 7);
     auto o = flatbuffers::Offset<Commit>(end);
     return o;
   }
@@ -3209,8 +3218,10 @@ inline flatbuffers::Offset<Commit> CreateCommit(
     int32_t author_id = 0,
     flatbuffers::Offset<flatbuffers::String> author_date = 0,
     flatbuffers::Offset<_fast::_Log::_Commit::Anonymous3> extra = 0,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>>> diff = 0) {
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>>> diff = 0,
+    flatbuffers::Offset<_fast::Slices> slice = 0) {
   CommitBuilder builder_(_fbb);
+  builder_.add_slice(slice);
   builder_.add_diff(diff);
   builder_.add_extra(extra);
   builder_.add_author_date(author_date);
@@ -3227,7 +3238,8 @@ inline flatbuffers::Offset<Commit> CreateCommitDirect(
     int32_t author_id = 0,
     const char *author_date = nullptr,
     flatbuffers::Offset<_fast::_Log::_Commit::Anonymous3> extra = 0,
-    const std::vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>> *diff = nullptr) {
+    const std::vector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>> *diff = nullptr,
+    flatbuffers::Offset<_fast::Slices> slice = 0) {
   return _fast::_Log::CreateCommit(
       _fbb,
       id ? _fbb.CreateString(id) : 0,
@@ -3235,7 +3247,8 @@ inline flatbuffers::Offset<Commit> CreateCommitDirect(
       author_id,
       author_date ? _fbb.CreateString(author_date) : 0,
       extra,
-      diff ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>>(*diff) : 0);
+      diff ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Log::_Commit::Diff>>(*diff) : 0,
+      slice);
 }
 
 namespace _Commit {
@@ -3492,7 +3505,8 @@ struct Hunk FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_TO_COLUMN = 10,
     VT_CONTEXT = 12,
     VT_ELEMENT = 14,
-    VT_MOD = 16
+    VT_MOD = 16,
+    VT_SLICE = 18
   };
   int32_t from_lineno() const {
     return GetField<int32_t>(VT_FROM_LINENO, 0);
@@ -3515,6 +3529,9 @@ struct Hunk FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>> *mod() const {
     return GetPointer<const flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>> *>(VT_MOD);
   }
+  const _fast::Slices *slice() const {
+    return GetPointer<const _fast::Slices *>(VT_SLICE);
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_FROM_LINENO) &&
@@ -3529,6 +3546,8 @@ struct Hunk FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            VerifyOffset(verifier, VT_MOD) &&
            verifier.Verify(mod()) &&
            verifier.VerifyVectorOfTables(mod()) &&
+           VerifyOffset(verifier, VT_SLICE) &&
+           verifier.VerifyTable(slice()) &&
            verifier.EndTable();
   }
 };
@@ -3557,13 +3576,16 @@ struct HunkBuilder {
   void add_mod(flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>>> mod) {
     fbb_.AddOffset(Hunk::VT_MOD, mod);
   }
+  void add_slice(flatbuffers::Offset<_fast::Slices> slice) {
+    fbb_.AddOffset(Hunk::VT_SLICE, slice);
+  }
   HunkBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
   HunkBuilder &operator=(const HunkBuilder &);
   flatbuffers::Offset<Hunk> Finish() {
-    const auto end = fbb_.EndTable(start_, 7);
+    const auto end = fbb_.EndTable(start_, 8);
     auto o = flatbuffers::Offset<Hunk>(end);
     return o;
   }
@@ -3577,8 +3599,10 @@ inline flatbuffers::Offset<Hunk> CreateHunk(
     int32_t to_column = 0,
     flatbuffers::Offset<flatbuffers::String> context = 0,
     flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::Element>>> element = 0,
-    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>>> mod = 0) {
+    flatbuffers::Offset<flatbuffers::Vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>>> mod = 0,
+    flatbuffers::Offset<_fast::Slices> slice = 0) {
   HunkBuilder builder_(_fbb);
+  builder_.add_slice(slice);
   builder_.add_mod(mod);
   builder_.add_element(element);
   builder_.add_context(context);
@@ -3597,7 +3621,8 @@ inline flatbuffers::Offset<Hunk> CreateHunkDirect(
     int32_t to_column = 0,
     const char *context = nullptr,
     const std::vector<flatbuffers::Offset<_fast::Element>> *element = nullptr,
-    const std::vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>> *mod = nullptr) {
+    const std::vector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>> *mod = nullptr,
+    flatbuffers::Offset<_fast::Slices> slice = 0) {
   return _fast::_Log::_Commit::_Diff::CreateHunk(
       _fbb,
       from_lineno,
@@ -3606,7 +3631,8 @@ inline flatbuffers::Offset<Hunk> CreateHunkDirect(
       to_column,
       context ? _fbb.CreateString(context) : 0,
       element ? _fbb.CreateVector<flatbuffers::Offset<_fast::Element>>(*element) : 0,
-      mod ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>>(*mod) : 0);
+      mod ? _fbb.CreateVector<flatbuffers::Offset<_fast::_Log::_Commit::_Diff::_Hunk::ModLine>>(*mod) : 0,
+      slice);
 }
 
 namespace _Hunk {
