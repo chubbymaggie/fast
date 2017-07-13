@@ -1717,14 +1717,14 @@ notestFastPairs564() {
 ### The new format contains the hash number for the pair
 testFastPairs() {
 	$fast -l codelabel_new_with_hash.csv codelabel_new_with_hash.pb
-	stdout 1729db9c2e2ec48a7f23727ff2715115c2e5559ed036de7c3b1f98174f202f6d -d codelabel_new_with_hash.pb
+	stdout 4e25d4ccd0dfaa46c91b8853c620c59e961035c07ee293052d800071e5b53c4a -d codelabel_new_with_hash.pb
 }
 
 testFastPairsWithHash564() {
 	head -564 codelabel_new_with_hash.csv | tail -1 > a.csv
-	catout e0826592a7cfe281598c9322963a7d9add10d888468e0a0b0b25f2680deef1f4 a.csv
+	catout 0ad9ccb4b51e1e62bb85317196aa4ce85376d454ec8b8caa7e97c6c9ff0b358d a.csv
 	$fast -l a.csv a.pb
-	stdout 16bc1151bec9fa04f8a1106e3f9d7a6c1feea9451e868c4e388d25c5699113f2 -d a.pb
+	stdout 06135ac018536c1ebec90d98455e0fbb4bcbd05c3336bd674d5fc61e0c83cdf6 -d a.pb
 }
 
 testFastSlice() {
@@ -1804,7 +1804,7 @@ testSliceDiff() {
 	../$fast -p example.cc example.positions.pb
 	cd -
 	$fast -S b/example.positions.pb b/example.slice.pb
-	$fast -L a/example.slice.pb b/example.slice.pb diff.pb
+	$fast -L a/example.slice.pb b/example.slice.pb diff.pb > tmp.txt
 	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
 }
 
