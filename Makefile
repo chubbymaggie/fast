@@ -110,6 +110,7 @@ install: fast fast.proto install-srcslice src/gen/fast_pb2.py
 
 ifeq ($(UNAME_S),Linux)
 install-srcslice::
+	mkdir -p $(DESTDIR)$(prefix)/bin
 	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
 	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
 	rm -f srcslice
@@ -117,6 +118,8 @@ endif
 
 ifeq ($(UNAME_S),Darwin)
 install-srcslice::
+	mkdir -p $(DESTDIR)$(prefix)/bin
+	mkdir -p $(DESTDIR)$(prefix)/lib
 	install -m 0755 lib/osx/srcSlice $(DESTDIR)$(prefix)/bin/srcSlice
 	install -m 0755 lib/osx/libsrcsax.dylib $(DESTDIR)$(prefix)/lib/libsrcsax.dylib
 	install -m 0755 lib/osx/libsrcml.dylib $(DESTDIR)$(prefix)/bin/libsrcml.dylib
