@@ -1,0 +1,4 @@
+git clone https://github.com/antlr/antlr3 antlrjava
+git clone https://github.com/antlr/antlrcs antlrcs
+grep "^antlr" codelabel_new_with_hash.csv > antlr.csv
+fast -l antlr.csv antlr.pb
