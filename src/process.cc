@@ -127,7 +127,7 @@ bool process_hunk_xml(fast::Element **old_code, fast::Element **new_code, std::s
 	return true;
 }
 
-fast::Pairs_Pair_Diff *set_diff(std::string index, std::string code, std::string ext, std::string hash) {
+fast::Pairs_Pair_Diff *set_diff(std::string index, std::string code, std::string ext) {
 	fast::Pairs_Pair_Diff *diff = new fast::Pairs_Pair_Diff();
 	size_t spacePos = index.find(" ");
 	size_t leftCommaPos = index.find(",");
@@ -146,7 +146,6 @@ fast::Pairs_Pair_Diff *set_diff(std::string index, std::string code, std::string
 	process_hunk_xml(&old_code, &new_code, code, ext);
 	diff->set_allocated_old_code(old_code);
 	diff->set_allocated_new_code(new_code);
-	diff->set_hash(hash);
 
 	return diff;
 }
@@ -162,6 +161,41 @@ void replaceAll( std::string &s, const std::string &search, const std::string &r
     }
 }
 
+void slice_diff(fast::Pairs_Pair *pair) {
+	char buf[2000];
+	// assume that the project has been checked out from their git repositories
+	sprintf(buf, "cd %s; fast -p -g %s^ . ../source-%s.pb; fast -S source-%s^.pb slice-%s^.pb; cd ..", 
+		pair->project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str(), 
+			pair->left().hash().c_str(), pair->left().hash().c_str());
+	(void) system(buf);
+	sprintf(buf, "cd %s; fast -p -g %s . ../source-%s.pb; fast -S source-%s.pb slice-%s.pb; cd ..", 
+			pair->project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str(), 
+			pair->right().hash().c_str(), pair->right().hash().c_str());
+	(void) system(buf);
+	sprintf(buf, "fast -L %s/slice-%s^.pb %s/slice-%s.pb slicediff-%s-%s^..%s.pb; cd ..", 
+			pair->project().c_str(), pair->left().hash().c_str(),
+			pair->project().c_str(), pair->left().hash().c_str(),
+			pair->project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
+	(void) system(buf);
+	sprintf(buf, "fast -L %s/slice-%s^.pb %s/slice-%s.pb slicediff-%s-%s^..%s.pb; cd ..", 
+			pair->project().c_str(), pair->right().hash().c_str(),
+			pair->project().c_str(), pair->right().hash().c_str(),
+			pair->project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
+	(void) system(buf);
+	sprintf(buf, "slicediff-%s-%s^..%s.pb", pair->project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
+	std::fstream left_input(buf);
+	fast::Data * data = new fast::Data(); 
+	data->ParseFromIstream(&left_input);
+	left_input.close();
+	pair->mutable_left()->mutable_slices()->CopyFrom(data->slices());
+	sprintf(buf, "slicediff-%s-%s^..%s.pb", pair->project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
+	std::fstream right_input(buf);
+	data = new fast::Data(); 
+	data->ParseFromIstream(&right_input);
+	right_input.close();
+	pair->mutable_right()->mutable_slices()->CopyFrom(data->slices());
+}
+
 int processMainRoutine(int argc, char ** argv) {
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 	std::fstream input(argv[1]);
@@ -173,15 +207,8 @@ int processMainRoutine(int argc, char ** argv) {
 		if (linePos0 != std::string::npos) {
 			fast::Pairs_Pair *pair = pairs->add_pair();
 			std::string project = line.substr(0,linePos0);
-			pair->set_project(project); // std::cout << project <<  std::endl;
-			size_t hashPos0 = line.substr(linePos0 + 1).find(",");
-			std::string hash1 = ""; 
-			if (hashPos0 != std::string::npos) {
-				hash1 = line.substr(linePos0 + 1, hashPos0); 
-			}
-			if (hash1.length() == 40) {
-				linePos0 = hashPos0; // std::cout << hash1 <<  std::endl;
-			}
+			pair->set_project(project);
+			// std::cout << project <<  std::endl;
 			size_t linePos1 = line.substr(linePos0+1).find(SEPARATOR);
 			std::string line2 = line.substr(linePos0+1).substr(linePos1 + strlen(SEPARATOR) + 1);
 			size_t linePos2 = line2.find(SEPARATOR);
@@ -189,17 +216,9 @@ int processMainRoutine(int argc, char ** argv) {
 			std::string code = line2.substr(linePos2 + strlen(SEPARATOR) + 1);
 			size_t linePos3 = code.find(SEPARATOR);
 			std::string code1 = code.substr(0, linePos3-1);
-			size_t hashPos1 = code1.rfind(",");
-			std::string hash2 = ""; 
-			if (hashPos1 != std::string::npos) {
-				hash2 = code1.substr(hashPos1+1); // std::cout << hash2 << std::endl;
-			}
-			if (hash2.length() == 40) {
-				code1 = code1.substr(0, hashPos1); // std::cout << hash2 << std::endl;
-			}
 			replaceAll(code1, "$$", "\n");
 			// std::cout << code1 << std::endl;
-			fast::Pairs_Pair_Diff *diff1 = set_diff(index1, code1, "java", hash1);
+			fast::Pairs_Pair_Diff *diff1 = set_diff(index1, code1, "java");
 			pair->set_allocated_left(diff1);
 			// std::cout << "======" << std::endl;
 			std::string index = code.substr(linePos3 + strlen(SEPARATOR) + 1);
@@ -209,12 +228,13 @@ int processMainRoutine(int argc, char ** argv) {
 			replaceAll(code2, "$$", "\n");
 			size_t lastPos = code2.rfind(",");
 			// std::cout << code2 << std::endl;
-			fast::Pairs_Pair_Diff *diff2 = set_diff(index2, code2.substr(0, lastPos - 1), "cs", hash2);
+			fast::Pairs_Pair_Diff *diff2 = set_diff(index2, code2.substr(0, lastPos - 1), "cs");
 			pair->set_allocated_right(diff2);
 			int type = std::atoi(code2.substr(lastPos+1).c_str());
 			if (type == 0) pair->set_type(fast::Pairs_Pair_CloneType_MAYBE);
 			if (type == 1) pair->set_type(fast::Pairs_Pair_CloneType_YES);
 			if (type == 2) pair->set_type(fast::Pairs_Pair_CloneType_NO);
+			slice_diff(pair);
 		}
 	}
 	fast::Data * data = new fast::Data(); 

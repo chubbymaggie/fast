@@ -1708,20 +1708,22 @@ inline const char *EnumNameKind(Kind e) {
 namespace _Unit {
 
 enum LanguageType {
-  LanguageType_ALL = 0,
-  LanguageType_OO = 1,
-  LanguageType_CXX = 2,
-  LanguageType_C = 3,
-  LanguageType_C_FAMILY = 4,
-  LanguageType_JAVA = 5,
-  LanguageType_CSHARP = 6,
-  LanguageType_OBJECTIVE_C = 7,
-  LanguageType_MIN = LanguageType_ALL,
+  LanguageType_DUMMY = 0,
+  LanguageType_ALL = 1,
+  LanguageType_OO = 2,
+  LanguageType_CXX = 3,
+  LanguageType_C = 4,
+  LanguageType_C_FAMILY = 5,
+  LanguageType_JAVA = 6,
+  LanguageType_CSHARP = 7,
+  LanguageType_OBJECTIVE_C = 8,
+  LanguageType_MIN = LanguageType_DUMMY,
   LanguageType_MAX = LanguageType_OBJECTIVE_C
 };
 
-inline LanguageType (&EnumValuesLanguageType())[8] {
+inline LanguageType (&EnumValuesLanguageType())[9] {
   static LanguageType values[] = {
+    LanguageType_DUMMY,
     LanguageType_ALL,
     LanguageType_OO,
     LanguageType_CXX,
@@ -1736,6 +1738,7 @@ inline LanguageType (&EnumValuesLanguageType())[8] {
 
 inline const char **EnumNamesLanguageType() {
   static const char *names[] = {
+    "DUMMY",
     "ALL",
     "OO",
     "CXX",
@@ -1759,17 +1762,19 @@ inline const char *EnumNameLanguageType(LanguageType e) {
 namespace _Literal {
 
 enum LiteralType {
-  LiteralType_number_type = 0,
-  LiteralType_char_type = 1,
-  LiteralType_string_type = 2,
-  LiteralType_boolean_type = 3,
-  LiteralType_null_type = 4,
-  LiteralType_MIN = LiteralType_number_type,
+  LiteralType_dummy_type = 0,
+  LiteralType_number_type = 1,
+  LiteralType_char_type = 2,
+  LiteralType_string_type = 3,
+  LiteralType_boolean_type = 4,
+  LiteralType_null_type = 5,
+  LiteralType_MIN = LiteralType_dummy_type,
   LiteralType_MAX = LiteralType_null_type
 };
 
-inline LiteralType (&EnumValuesLiteralType())[5] {
+inline LiteralType (&EnumValuesLiteralType())[6] {
   static LiteralType values[] = {
+    LiteralType_dummy_type,
     LiteralType_number_type,
     LiteralType_char_type,
     LiteralType_string_type,
@@ -1781,6 +1786,7 @@ inline LiteralType (&EnumValuesLiteralType())[5] {
 
 inline const char **EnumNamesLiteralType() {
   static const char *names[] = {
+    "dummy_type",
     "number_type",
     "char_type",
     "string_type",
@@ -2940,7 +2946,8 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
     VT_RIGHT_COLUMN = 10,
     VT_OLD_CODE = 12,
     VT_NEW_CODE = 14,
-    VT_HASH = 16
+    VT_HASH = 16,
+    VT_SLICES = 18
   };
   int32_t left_line() const {
     return GetField<int32_t>(VT_LEFT_LINE, 0);
@@ -2963,6 +2970,9 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   const flatbuffers::String *hash() const {
     return GetPointer<const flatbuffers::String *>(VT_HASH);
   }
+  const _fast::Slices *slices() const {
+    return GetPointer<const _fast::Slices *>(VT_SLICES);
+  }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
            VerifyField<int32_t>(verifier, VT_LEFT_LINE) &&
@@ -2975,6 +2985,8 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
            verifier.VerifyTable(new_code()) &&
            VerifyOffset(verifier, VT_HASH) &&
            verifier.Verify(hash()) &&
+           VerifyOffset(verifier, VT_SLICES) &&
+           verifier.VerifyTable(slices()) &&
            verifier.EndTable();
   }
 };
@@ -3003,13 +3015,16 @@ struct DiffBuilder {
   void add_hash(flatbuffers::Offset<flatbuffers::String> hash) {
     fbb_.AddOffset(Diff::VT_HASH, hash);
   }
+  void add_slices(flatbuffers::Offset<_fast::Slices> slices) {
+    fbb_.AddOffset(Diff::VT_SLICES, slices);
+  }
   DiffBuilder(flatbuffers::FlatBufferBuilder &_fbb)
         : fbb_(_fbb) {
     start_ = fbb_.StartTable();
   }
   DiffBuilder &operator=(const DiffBuilder &);
   flatbuffers::Offset<Diff> Finish() {
-    const auto end = fbb_.EndTable(start_, 7);
+    const auto end = fbb_.EndTable(start_, 8);
     auto o = flatbuffers::Offset<Diff>(end);
     return o;
   }
@@ -3023,8 +3038,10 @@ inline flatbuffers::Offset<Diff> CreateDiff(
     int32_t right_column = 0,
     flatbuffers::Offset<_fast::Element> old_code = 0,
     flatbuffers::Offset<_fast::Element> new_code = 0,
-    flatbuffers::Offset<flatbuffers::String> hash = 0) {
+    flatbuffers::Offset<flatbuffers::String> hash = 0,
+    flatbuffers::Offset<_fast::Slices> slices = 0) {
   DiffBuilder builder_(_fbb);
+  builder_.add_slices(slices);
   builder_.add_hash(hash);
   builder_.add_new_code(new_code);
   builder_.add_old_code(old_code);
@@ -3043,7 +3060,8 @@ inline flatbuffers::Offset<Diff> CreateDiffDirect(
     int32_t right_column = 0,
     flatbuffers::Offset<_fast::Element> old_code = 0,
     flatbuffers::Offset<_fast::Element> new_code = 0,
-    const char *hash = nullptr) {
+    const char *hash = nullptr,
+    flatbuffers::Offset<_fast::Slices> slices = 0) {
   return _fast::_Pairs::_Pair::CreateDiff(
       _fbb,
       left_line,
@@ -3052,7 +3070,8 @@ inline flatbuffers::Offset<Diff> CreateDiffDirect(
       right_column,
       old_code,
       new_code,
-      hash ? _fbb.CreateString(hash) : 0);
+      hash ? _fbb.CreateString(hash) : 0,
+      slices);
 }
 
 }  // namespace _Pair

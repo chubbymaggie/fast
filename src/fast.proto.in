@@ -93,6 +93,7 @@ message Pairs {
 		Element old_code = 5;
 		Element new_code = 6;
 		string hash = 7;
+		Slices slices = 8;
 	}
    } 
    repeated Pair pair = 1;

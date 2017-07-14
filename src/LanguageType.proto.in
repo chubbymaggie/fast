@@ -1,4 +1,5 @@
 enum LanguageType {
+DUMMY = __COUNTER__;
 ALL = __COUNTER__;
 OO = __COUNTER__;
 CXX = __COUNTER__;

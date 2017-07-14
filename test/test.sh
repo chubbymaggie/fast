@@ -1722,9 +1722,9 @@ notestFastPairs() {
 
 testFastPairsWithHash564() {
 	head -564 codelabel_new_with_hash.csv | tail -1 > a.csv
-	catout 0ad9ccb4b51e1e62bb85317196aa4ce85376d454ec8b8caa7e97c6c9ff0b358d a.csv
+	catout c751a683e045b36af5d58e103f79daab9cb42b0c23a260392f39828212fa8bad a.csv
 	$fast -l a.csv a.pb
-	stdout 06135ac018536c1ebec90d98455e0fbb4bcbd05c3336bd674d5fc61e0c83cdf6 -d a.pb
+	stdout a9bd4d6834ccc4ce4683c04aeac949bc8c208b17af616071dcaa1e81457d544e -d a.pb
 }
 
 testFastSlice() {
@@ -1791,7 +1791,7 @@ slice() {
 export -f position
 
 cleanup_examples() {
-	rm -f *.pb *.fbs Hello.* example.* DuplicateVirtualMethods.* *.xml *.cs *.txt a.csv *.slice smali.proto
+	rm -f *.pb *.fbs Hello.* example.* DuplicateVirtualMethods.* *.xml *.cs *.txt a.csv *.slice smali.proto a/*.pb b/*.pb
 }
 export -f cleanup_examples
 

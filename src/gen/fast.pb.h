@@ -135,19 +135,20 @@ void InitDefaults();
 }  // namespace protobuf_fast_2eproto
 
 enum Element_Unit_LanguageType {
-  Element_Unit_LanguageType_ALL = 0,
-  Element_Unit_LanguageType_OO = 1,
-  Element_Unit_LanguageType_CXX = 2,
-  Element_Unit_LanguageType_C = 3,
-  Element_Unit_LanguageType_C_FAMILY = 4,
-  Element_Unit_LanguageType_JAVA = 5,
-  Element_Unit_LanguageType_CSHARP = 6,
-  Element_Unit_LanguageType_OBJECTIVE_C = 7,
+  Element_Unit_LanguageType_DUMMY = 0,
+  Element_Unit_LanguageType_ALL = 1,
+  Element_Unit_LanguageType_OO = 2,
+  Element_Unit_LanguageType_CXX = 3,
+  Element_Unit_LanguageType_C = 4,
+  Element_Unit_LanguageType_C_FAMILY = 5,
+  Element_Unit_LanguageType_JAVA = 6,
+  Element_Unit_LanguageType_CSHARP = 7,
+  Element_Unit_LanguageType_OBJECTIVE_C = 8,
   Element_Unit_LanguageType_Element_Unit_LanguageType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   Element_Unit_LanguageType_Element_Unit_LanguageType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool Element_Unit_LanguageType_IsValid(int value);
-const Element_Unit_LanguageType Element_Unit_LanguageType_LanguageType_MIN = Element_Unit_LanguageType_ALL;
+const Element_Unit_LanguageType Element_Unit_LanguageType_LanguageType_MIN = Element_Unit_LanguageType_DUMMY;
 const Element_Unit_LanguageType Element_Unit_LanguageType_LanguageType_MAX = Element_Unit_LanguageType_OBJECTIVE_C;
 const int Element_Unit_LanguageType_LanguageType_ARRAYSIZE = Element_Unit_LanguageType_LanguageType_MAX + 1;
 
@@ -162,16 +163,17 @@ inline bool Element_Unit_LanguageType_Parse(
     Element_Unit_LanguageType_descriptor(), name, value);
 }
 enum Element_Literal_LiteralType {
-  Element_Literal_LiteralType_number_type = 0,
-  Element_Literal_LiteralType_char_type = 1,
-  Element_Literal_LiteralType_string_type = 2,
-  Element_Literal_LiteralType_boolean_type = 3,
-  Element_Literal_LiteralType_null_type = 4,
+  Element_Literal_LiteralType_dummy_type = 0,
+  Element_Literal_LiteralType_number_type = 1,
+  Element_Literal_LiteralType_char_type = 2,
+  Element_Literal_LiteralType_string_type = 3,
+  Element_Literal_LiteralType_boolean_type = 4,
+  Element_Literal_LiteralType_null_type = 5,
   Element_Literal_LiteralType_Element_Literal_LiteralType_INT_MIN_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32min,
   Element_Literal_LiteralType_Element_Literal_LiteralType_INT_MAX_SENTINEL_DO_NOT_USE_ = ::google::protobuf::kint32max
 };
 bool Element_Literal_LiteralType_IsValid(int value);
-const Element_Literal_LiteralType Element_Literal_LiteralType_LiteralType_MIN = Element_Literal_LiteralType_number_type;
+const Element_Literal_LiteralType Element_Literal_LiteralType_LiteralType_MIN = Element_Literal_LiteralType_dummy_type;
 const Element_Literal_LiteralType Element_Literal_LiteralType_LiteralType_MAX = Element_Literal_LiteralType_null_type;
 const int Element_Literal_LiteralType_LiteralType_ARRAYSIZE = Element_Literal_LiteralType_LiteralType_MAX + 1;
 
@@ -845,6 +847,8 @@ class Element_Unit : public ::google::protobuf::Message /* @@protoc_insertion_po
   // nested types ----------------------------------------------------
 
   typedef Element_Unit_LanguageType LanguageType;
+  static const LanguageType DUMMY =
+    Element_Unit_LanguageType_DUMMY;
   static const LanguageType ALL =
     Element_Unit_LanguageType_ALL;
   static const LanguageType OO =
@@ -1000,6 +1004,8 @@ class Element_Literal : public ::google::protobuf::Message /* @@protoc_insertion
   // nested types ----------------------------------------------------
 
   typedef Element_Literal_LiteralType LiteralType;
+  static const LiteralType dummy_type =
+    Element_Literal_LiteralType_dummy_type;
   static const LiteralType number_type =
     Element_Literal_LiteralType_number_type;
   static const LiteralType char_type =
@@ -2920,6 +2926,15 @@ class Pairs_Pair_Diff : public ::google::protobuf::Message /* @@protoc_insertion
   ::fast::Element* release_new_code();
   void set_allocated_new_code(::fast::Element* new_code);
 
+  // .fast.Slices slices = 8;
+  bool has_slices() const;
+  void clear_slices();
+  static const int kSlicesFieldNumber = 8;
+  const ::fast::Slices& slices() const;
+  ::fast::Slices* mutable_slices();
+  ::fast::Slices* release_slices();
+  void set_allocated_slices(::fast::Slices* slices);
+
   // int32 left_line = 1;
   void clear_left_line();
   static const int kLeftLineFieldNumber = 1;
@@ -2951,6 +2966,7 @@ class Pairs_Pair_Diff : public ::google::protobuf::Message /* @@protoc_insertion
   ::google::protobuf::internal::ArenaStringPtr hash_;
   ::fast::Element* old_code_;
   ::fast::Element* new_code_;
+  ::fast::Slices* slices_;
   ::google::protobuf::int32 left_line_;
   ::google::protobuf::int32 left_column_;
   ::google::protobuf::int32 right_line_;
@@ -6421,6 +6437,45 @@ inline void Pairs_Pair_Diff::set_allocated_hash(::std::string* hash) {
   }
   hash_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), hash);
   // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.hash)
+}
+
+// .fast.Slices slices = 8;
+inline bool Pairs_Pair_Diff::has_slices() const {
+  return this != internal_default_instance() && slices_ != NULL;
+}
+inline void Pairs_Pair_Diff::clear_slices() {
+  if (GetArenaNoVirtual() == NULL && slices_ != NULL) delete slices_;
+  slices_ = NULL;
+}
+inline const ::fast::Slices& Pairs_Pair_Diff::slices() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.slices)
+  return slices_ != NULL ? *slices_
+                         : *::fast::Slices::internal_default_instance();
+}
+inline ::fast::Slices* Pairs_Pair_Diff::mutable_slices() {
+  
+  if (slices_ == NULL) {
+    slices_ = new ::fast::Slices;
+  }
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.Diff.slices)
+  return slices_;
+}
+inline ::fast::Slices* Pairs_Pair_Diff::release_slices() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.Diff.slices)
+  
+  ::fast::Slices* temp = slices_;
+  slices_ = NULL;
+  return temp;
+}
+inline void Pairs_Pair_Diff::set_allocated_slices(::fast::Slices* slices) {
+  delete slices_;
+  slices_ = slices;
+  if (slices) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.slices)
 }
 
 // -------------------------------------------------------------------

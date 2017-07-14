@@ -1,4 +1,5 @@
 enum LiteralType {
+dummy_type = __COUNTER__;
 number_type = __COUNTER__;
 char_type = __COUNTER__;
 string_type = __COUNTER__;
