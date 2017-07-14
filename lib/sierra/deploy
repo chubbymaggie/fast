@@ -1,5 +1,5 @@
 v=0.0.4
-git push && make -f Makefile.in release
+git push && make release
 ln -sf sierra osx
 if [ -f /usr/local/bin/fast ]; then brew uninstall fast; fi
 if [ -f fast-$v.sierra.bottle.1.tar.gz ]; then rm -f fast-$v.sierra.bottle.1.tar.gz; fi
