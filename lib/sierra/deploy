@@ -4,7 +4,7 @@ ln -sf sierra osx
 if [ -f /usr/local/bin/fast ]; then brew uninstall fast; fi
 if [ -f fast-$v.sierra.bottle.1.tar.gz ]; then rm -f fast-$v.sierra.bottle.1.tar.gz; fi
 if [ -f ~/Library/Caches/Homebrew/fast-$v.tar.gz ]; then rm -f ~/Library/Caches/Homebrew/fast-$v.tar.gz; fi
-wget https://github.com/yijunyu/fast/archive/v$v.tar.gz
+wget https://github.com/f-ast/fast/archive/v$v.tar.gz
 a=$(shasum -a 256 v$v.tar.gz | awk '{print $1}')
 rm -f v$v.tar.gz
 echo $a
@@ -13,7 +13,7 @@ sed -i -e 's/sha256 "[0-9a-f]*"$/sha256 "'$a'"/' fast.rb
 git commit -am "update fast's homebrew package"
 git push
 cd -
-brew tap yijunyu/fast
+brew tap f-ast/fast
 brew install --build-bottle --ignore-dependencies fast
 brew bottle fast
 b=$(shasum -a 256 fast-$v.sierra.bottle.1.tar.gz | awk '{print $1}')
@@ -24,4 +24,4 @@ git commit -am "update fast's homebrew package"
 git push
 cd -
 mv fast-$v.sierra.bottle.1.tar.gz fast-$v.sierra.bottle.tar.gz
-echo Now you can edit https://github.com/yijunyu/fast/releases/tag/v$v by uploading the file fast-$v.sierra.bottle.tar.gz
+echo Now you can edit https://github.com/f-ast/fast/releases/tag/v$v by uploading the file fast-$v.sierra.bottle.tar.gz
