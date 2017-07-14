@@ -9,7 +9,7 @@ flatc=/usr/local/bin/flatc
 
 #OPT=-g -O0 -coverage
 #OPT=-g
-OPT=-O3
+OPT=-O3 -Wno-unused-result
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
