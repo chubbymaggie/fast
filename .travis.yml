@@ -28,6 +28,8 @@ before_install:
     sudo apt-get install libxml2;
     sudo apt-get install mono;
     sudo apt-get install jq;
+    sudo apt-get install python-pip;
+    sudo pip install protobuf;
     wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -; rm -rf flatbuffers-1.6.0;
     wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -; rm -rf protobuf-3.3.0;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
