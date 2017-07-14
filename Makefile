@@ -16,6 +16,7 @@ ifeq ($(UNAME_S),Linux)
 gtime=/usr/bin/time
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --libs)
 ANTLR4=java -jar /usr/local/lib/antlr-4.7-complete.jar
+ANTLR4_INCLUDE=-I/usr/local/include/antlr4-runtime
 ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
 PB_LIB=/usr/local/lib/libprotobuf.a
 prefix=/usr/local
@@ -25,6 +26,7 @@ ifeq ($(UNAME_S),Darwin)
 gtime=gtime
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --libs)
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
+ANTLR4_INCLUDE=/usr/local/Cellar/antlr4-cpp-runtime/4.7/include
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
 PB_LIB=-L/usr/local/lib -lprotobuf
 prefix=$(HOMEBREW_FORMULA_PREFIX)
@@ -33,7 +35,6 @@ prefix=/usr/local
 endif
 endif
 
-ANTLR4_INCLUDE=-I/usr/local/include/antlr4-runtime
 FBS_LIB=-L/usr/local/lib -lflatbuffers
 
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
