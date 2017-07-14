@@ -26,7 +26,7 @@ ifeq ($(UNAME_S),Darwin)
 gtime=gtime
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --libs)
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
-ANTLR4_INCLUDE=-I/usr/local/Cellar/antlr4-cpp-runtime/4.7/include
+ANTLR4_INCLUDE=-I/usr/local/Cellar/antlr4-cpp-runtime/4.7/include/antlr4-runtime
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
 PB_LIB=-L/usr/local/lib -lprotobuf
 prefix=$(HOMEBREW_FORMULA_PREFIX)
