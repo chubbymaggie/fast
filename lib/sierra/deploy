@@ -14,7 +14,7 @@ git commit -am "update fast's homebrew package"
 git push
 cd -
 brew tap yijunyu/fast
-brew install --build-bottle fast
+brew install --build-bottle --ignore-dependencies fast
 brew bottle fast
 b=$(shasum -a 256 fast-$v.sierra.bottle.1.tar.gz | awk '{print $1}')
 echo $b
