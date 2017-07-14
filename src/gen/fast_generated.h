@@ -2851,14 +2851,10 @@ namespace _Pairs {
 
 struct Pair FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
-    VT_PROJECT = 4,
-    VT_LEFT = 6,
-    VT_RIGHT = 8,
-    VT_TYPE = 10
+    VT_LEFT = 4,
+    VT_RIGHT = 6,
+    VT_TYPE = 8
   };
-  const flatbuffers::String *project() const {
-    return GetPointer<const flatbuffers::String *>(VT_PROJECT);
-  }
   const _fast::_Pairs::_Pair::Diff *left() const {
     return GetPointer<const _fast::_Pairs::_Pair::Diff *>(VT_LEFT);
   }
@@ -2870,8 +2866,6 @@ struct Pair FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
-           VerifyOffset(verifier, VT_PROJECT) &&
-           verifier.Verify(project()) &&
            VerifyOffset(verifier, VT_LEFT) &&
            verifier.VerifyTable(left()) &&
            VerifyOffset(verifier, VT_RIGHT) &&
@@ -2884,9 +2878,6 @@ struct Pair FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct PairBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
-  void add_project(flatbuffers::Offset<flatbuffers::String> project) {
-    fbb_.AddOffset(Pair::VT_PROJECT, project);
-  }
   void add_left(flatbuffers::Offset<_fast::_Pairs::_Pair::Diff> left) {
     fbb_.AddOffset(Pair::VT_LEFT, left);
   }
@@ -2902,7 +2893,7 @@ struct PairBuilder {
   }
   PairBuilder &operator=(const PairBuilder &);
   flatbuffers::Offset<Pair> Finish() {
-    const auto end = fbb_.EndTable(start_, 4);
+    const auto end = fbb_.EndTable(start_, 3);
     auto o = flatbuffers::Offset<Pair>(end);
     return o;
   }
@@ -2910,7 +2901,6 @@ struct PairBuilder {
 
 inline flatbuffers::Offset<Pair> CreatePair(
     flatbuffers::FlatBufferBuilder &_fbb,
-    flatbuffers::Offset<flatbuffers::String> project = 0,
     flatbuffers::Offset<_fast::_Pairs::_Pair::Diff> left = 0,
     flatbuffers::Offset<_fast::_Pairs::_Pair::Diff> right = 0,
     int32_t type = 0) {
@@ -2918,37 +2908,26 @@ inline flatbuffers::Offset<Pair> CreatePair(
   builder_.add_type(type);
   builder_.add_right(right);
   builder_.add_left(left);
-  builder_.add_project(project);
   return builder_.Finish();
-}
-
-inline flatbuffers::Offset<Pair> CreatePairDirect(
-    flatbuffers::FlatBufferBuilder &_fbb,
-    const char *project = nullptr,
-    flatbuffers::Offset<_fast::_Pairs::_Pair::Diff> left = 0,
-    flatbuffers::Offset<_fast::_Pairs::_Pair::Diff> right = 0,
-    int32_t type = 0) {
-  return _fast::_Pairs::CreatePair(
-      _fbb,
-      project ? _fbb.CreateString(project) : 0,
-      left,
-      right,
-      type);
 }
 
 namespace _Pair {
 
 struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   enum {
-    VT_LEFT_LINE = 4,
-    VT_LEFT_COLUMN = 6,
-    VT_RIGHT_LINE = 8,
-    VT_RIGHT_COLUMN = 10,
-    VT_OLD_CODE = 12,
-    VT_NEW_CODE = 14,
-    VT_HASH = 16,
-    VT_SLICES = 18
+    VT_PROJECT = 4,
+    VT_LEFT_LINE = 6,
+    VT_LEFT_COLUMN = 8,
+    VT_RIGHT_LINE = 10,
+    VT_RIGHT_COLUMN = 12,
+    VT_OLD_CODE = 14,
+    VT_NEW_CODE = 16,
+    VT_HASH = 18,
+    VT_SLICES = 20
   };
+  const flatbuffers::String *project() const {
+    return GetPointer<const flatbuffers::String *>(VT_PROJECT);
+  }
   int32_t left_line() const {
     return GetField<int32_t>(VT_LEFT_LINE, 0);
   }
@@ -2975,6 +2954,8 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
   }
   bool Verify(flatbuffers::Verifier &verifier) const {
     return VerifyTableStart(verifier) &&
+           VerifyOffset(verifier, VT_PROJECT) &&
+           verifier.Verify(project()) &&
            VerifyField<int32_t>(verifier, VT_LEFT_LINE) &&
            VerifyField<int32_t>(verifier, VT_LEFT_COLUMN) &&
            VerifyField<int32_t>(verifier, VT_RIGHT_LINE) &&
@@ -2994,6 +2975,9 @@ struct Diff FLATBUFFERS_FINAL_CLASS : private flatbuffers::Table {
 struct DiffBuilder {
   flatbuffers::FlatBufferBuilder &fbb_;
   flatbuffers::uoffset_t start_;
+  void add_project(flatbuffers::Offset<flatbuffers::String> project) {
+    fbb_.AddOffset(Diff::VT_PROJECT, project);
+  }
   void add_left_line(int32_t left_line) {
     fbb_.AddElement<int32_t>(Diff::VT_LEFT_LINE, left_line, 0);
   }
@@ -3024,7 +3008,7 @@ struct DiffBuilder {
   }
   DiffBuilder &operator=(const DiffBuilder &);
   flatbuffers::Offset<Diff> Finish() {
-    const auto end = fbb_.EndTable(start_, 8);
+    const auto end = fbb_.EndTable(start_, 9);
     auto o = flatbuffers::Offset<Diff>(end);
     return o;
   }
@@ -3032,6 +3016,7 @@ struct DiffBuilder {
 
 inline flatbuffers::Offset<Diff> CreateDiff(
     flatbuffers::FlatBufferBuilder &_fbb,
+    flatbuffers::Offset<flatbuffers::String> project = 0,
     int32_t left_line = 0,
     int32_t left_column = 0,
     int32_t right_line = 0,
@@ -3049,11 +3034,13 @@ inline flatbuffers::Offset<Diff> CreateDiff(
   builder_.add_right_line(right_line);
   builder_.add_left_column(left_column);
   builder_.add_left_line(left_line);
+  builder_.add_project(project);
   return builder_.Finish();
 }
 
 inline flatbuffers::Offset<Diff> CreateDiffDirect(
     flatbuffers::FlatBufferBuilder &_fbb,
+    const char *project = nullptr,
     int32_t left_line = 0,
     int32_t left_column = 0,
     int32_t right_line = 0,
@@ -3064,6 +3051,7 @@ inline flatbuffers::Offset<Diff> CreateDiffDirect(
     flatbuffers::Offset<_fast::Slices> slices = 0) {
   return _fast::_Pairs::_Pair::CreateDiff(
       _fbb,
+      project ? _fbb.CreateString(project) : 0,
       left_line,
       left_column,
       right_line,

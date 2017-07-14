@@ -7,9 +7,9 @@ CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
-#OPT=-O3
+#OPT=-g -O0 -coverage
 #OPT=-g
-OPT=-g -O0 -coverage
+OPT=-O3
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -86,6 +86,7 @@ endif
 DESTDIR=
 
 fast_objects += fast.o 
+fast_objects += fast-option.o fast-srcml.o
 fast_objects += fast.pb.o 
 fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
 fast_objects += git.o 

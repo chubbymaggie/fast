@@ -47,9 +47,9 @@ bool srcML(fast::Data *data, std::string text, std::string ext) {
 			FILE * pb_file  = fopen(pb_filename.c_str(), "r");
 			if (pb_file != NULL) {
 				fclose(pb_file);
-				std::fstream input(pb_filename.c_str(), std::ios::in | std::ios::binary);
-				data->ParseFromIstream(&input);
-				input.close();
+				std::fstream pb_input(pb_filename.c_str(), std::ios::in | std::ios::binary);
+				data->ParseFromIstream(&pb_input);
+				pb_input.close();
 				fast::Element *unit = data->mutable_element();
 				unit->mutable_unit()->set_filename(ext + "." + ext);
 				remove(pb_filename.c_str());
@@ -104,7 +104,7 @@ bool process_hunk_xml(fast::Element **old_code, fast::Element **new_code, std::s
 		fast::Data *data = new fast::Data();
 		bool success = srcML(data, text_old, ext);
 		if (!success) {
-			std::cerr << "Error found in processing the new text" << std::endl;
+			std::cerr << "Error found in processing the old text" << std::endl;
 			return false;
 		}
 		// ignore the filename field
@@ -161,34 +161,52 @@ void replaceAll( std::string &s, const std::string &search, const std::string &r
     }
 }
 
+// assume that the project has been checked out from their git repositories
 void slice_diff(fast::Pairs_Pair *pair) {
 	char buf[2000];
-	// assume that the project has been checked out from their git repositories
-	sprintf(buf, "cd %s; fast -p -g %s^ . ../source-%s.pb; fast -S source-%s^.pb slice-%s^.pb; cd ..", 
-		pair->project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str(), 
-			pair->left().hash().c_str(), pair->left().hash().c_str());
+	sprintf(buf, "cd %s > /dev/null; fast -p -g %s^ . ../source-%s-prev.pb; fast -S source-%s-prev.pb slice-%s-prev.pb; cd .. > /dev/null", 
+		pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str(), 
+		pair->left().hash().c_str(), pair->left().hash().c_str());
+	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
-	sprintf(buf, "cd %s; fast -p -g %s . ../source-%s.pb; fast -S source-%s.pb slice-%s.pb; cd ..", 
-			pair->project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str(), 
-			pair->right().hash().c_str(), pair->right().hash().c_str());
+	sprintf(buf, "cd %s > /dev/null; fast -p -g %s . ../source-%s.pb; fast -S source-%s.pb slice-%s.pb; cd .. > /dev/null", 
+		pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str(), 
+		pair->left().hash().c_str(), pair->left().hash().c_str());
+	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
-	sprintf(buf, "fast -L %s/slice-%s^.pb %s/slice-%s.pb slicediff-%s-%s^..%s.pb; cd ..", 
-			pair->project().c_str(), pair->left().hash().c_str(),
-			pair->project().c_str(), pair->left().hash().c_str(),
-			pair->project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
+	sprintf(buf, "fast -L %s/slice-%s-prev.pb %s/slice-%s.pb slicediff-%s-%s-prev..%s.pb; cd .. > /dev/null", 
+		pair->left().project().c_str(), pair->left().hash().c_str(),
+		pair->left().project().c_str(), pair->left().hash().c_str(),
+		pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
+	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
-	sprintf(buf, "fast -L %s/slice-%s^.pb %s/slice-%s.pb slicediff-%s-%s^..%s.pb; cd ..", 
-			pair->project().c_str(), pair->right().hash().c_str(),
-			pair->project().c_str(), pair->right().hash().c_str(),
-			pair->project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
+
+	sprintf(buf, "cd %s > /dev/null; fast -p -g %s^ . ../source-%s-prev.pb; fast -S source-%s-prev.pb slice-%s-prev.pb; cd .. > /dev/null", 
+		pair->right().project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str(), 
+		pair->right().hash().c_str(), pair->right().hash().c_str());
+	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
-	sprintf(buf, "slicediff-%s-%s^..%s.pb", pair->project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
+	sprintf(buf, "cd %s > /dev/null; fast -p -g %s . ../source-%s.pb; fast -S source-%s.pb slice-%s.pb; cd .. > /dev/null", 
+		pair->right().project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str(), 
+		pair->right().hash().c_str(), pair->right().hash().c_str());
+	std::cout << buf << std::endl; std::cout.flush();
+	(void) system(buf);
+	sprintf(buf, "fast -L %s/slice-%s-prev.pb %s/slice-%s.pb slicediff-%s-%s-prev..%s.pb; cd .. > /dev/null", 
+		pair->right().project().c_str(), pair->right().hash().c_str(),
+		pair->right().project().c_str(), pair->right().hash().c_str(),
+		pair->right().project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
+	std::cout << buf << std::endl; std::cout.flush();
+	(void) system(buf);
+
+	std::cout << buf << std::endl; std::cout.flush();
+	(void) system(buf);
+	sprintf(buf, "slicediff-%s-%s-prev..%s.pb", pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
 	std::fstream left_input(buf);
 	fast::Data * data = new fast::Data(); 
 	data->ParseFromIstream(&left_input);
 	left_input.close();
 	pair->mutable_left()->mutable_slices()->CopyFrom(data->slices());
-	sprintf(buf, "slicediff-%s-%s^..%s.pb", pair->project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
+	sprintf(buf, "slicediff-%s-%s-prev..%s.pb", pair->left().project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
 	std::fstream right_input(buf);
 	data = new fast::Data(); 
 	data->ParseFromIstream(&right_input);
@@ -203,12 +221,20 @@ int processMainRoutine(int argc, char ** argv) {
 	fast::Pairs * pairs = new fast::Pairs(); 
 	while (!input.eof()) {
 		std::getline(input, line);
+		// std::cout << line << std::endl;
                 size_t linePos0 = line.find(",");
 		if (linePos0 != std::string::npos) {
 			fast::Pairs_Pair *pair = pairs->add_pair();
 			std::string project = line.substr(0,linePos0);
-			pair->set_project(project);
 			// std::cout << project <<  std::endl;
+			size_t hashPos1 = line.substr(linePos0+1).find(",");
+			std::string hash1 = "";
+			if (hashPos1 == 40) {
+				line = line.substr(linePos0+1);
+				hash1 = line.substr(0, hashPos1);
+				//std::cout << hash1 << std::endl;
+				linePos0 = hashPos1;
+			}
 			size_t linePos1 = line.substr(linePos0+1).find(SEPARATOR);
 			std::string line2 = line.substr(linePos0+1).substr(linePos1 + strlen(SEPARATOR) + 1);
 			size_t linePos2 = line2.find(SEPARATOR);
@@ -217,8 +243,17 @@ int processMainRoutine(int argc, char ** argv) {
 			size_t linePos3 = code.find(SEPARATOR);
 			std::string code1 = code.substr(0, linePos3-1);
 			replaceAll(code1, "$$", "\n");
+			size_t hashPos2 = code1.rfind(",");
+			std::string hash2 = code1.substr(hashPos2+1);
+			if (hash2.length() == 40) {
+				hash2 = code1.substr(hashPos2+1);
+				//std::cout << hash2 << std::endl;
+				code1 = code.substr(0, hashPos2);
+			}
 			// std::cout << code1 << std::endl;
 			fast::Pairs_Pair_Diff *diff1 = set_diff(index1, code1, "java");
+			diff1->set_project(project + "java");
+			diff1->set_hash(hash1);
 			pair->set_allocated_left(diff1);
 			// std::cout << "======" << std::endl;
 			std::string index = code.substr(linePos3 + strlen(SEPARATOR) + 1);
@@ -229,6 +264,8 @@ int processMainRoutine(int argc, char ** argv) {
 			size_t lastPos = code2.rfind(",");
 			// std::cout << code2 << std::endl;
 			fast::Pairs_Pair_Diff *diff2 = set_diff(index2, code2.substr(0, lastPos - 1), "cs");
+			diff2->set_project(project + "cs");
+			diff2->set_hash(hash2);
 			pair->set_allocated_right(diff2);
 			int type = std::atoi(code2.substr(lastPos+1).c_str());
 			if (type == 0) pair->set_type(fast::Pairs_Pair_CloneType_MAYBE);

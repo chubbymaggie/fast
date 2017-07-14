@@ -240,6 +240,7 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair_Diff, project_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair_Diff, left_line_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair_Diff, left_column_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair_Diff, right_line_),
@@ -253,7 +254,6 @@ const ::google::protobuf::uint32 TableStruct::offsets[] = {
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair, project_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair, left_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair, right_),
   GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Pairs_Pair, type_),
@@ -414,7 +414,7 @@ static const ::google::protobuf::internal::MigrationSchema schemas[] = {
   { 69, -1, sizeof(Delta_Diff)},
   { 81, -1, sizeof(Delta)},
   { 89, -1, sizeof(Pairs_Pair_Diff)},
-  { 102, -1, sizeof(Pairs_Pair)},
+  { 103, -1, sizeof(Pairs_Pair)},
   { 111, -1, sizeof(Pairs)},
   { 117, -1, sizeof(Log_Commit_Committer)},
   { 124, -1, sizeof(Log_Commit_Diff_Hunk_ModLine)},
@@ -826,14 +826,14 @@ void AddDescriptorsImpl() {
       "DeltaType\022\t\n\005MATCH\020\000\022\007\n\003ADD\020\001\022\007\n\003DEL\020\002\022\010"
       "\n\004MOVE\020\003\022\n\n\006UPDATE\020\004B\007\n\005delta\"\250\003\n\005Pairs\022"
       "\036\n\004pair\030\001 \003(\0132\020.fast.Pairs.Pair\032\376\002\n\004Pair"
-      "\022\017\n\007project\030\001 \001(\t\022#\n\004left\030\002 \001(\0132\025.fast.P"
-      "airs.Pair.Diff\022$\n\005right\030\003 \001(\0132\025.fast.Pai"
-      "rs.Pair.Diff\022(\n\004type\030\004 \001(\0162\032.fast.Pairs."
-      "Pair.CloneType\032\306\001\n\004Diff\022\021\n\tleft_line\030\001 \001"
-      "(\005\022\023\n\013left_column\030\002 \001(\005\022\022\n\nright_line\030\003 "
-      "\001(\005\022\024\n\014right_column\030\004 \001(\005\022\037\n\010old_code\030\005 "
-      "\001(\0132\r.fast.Element\022\037\n\010new_code\030\006 \001(\0132\r.f"
-      "ast.Element\022\014\n\004hash\030\007 \001(\t\022\034\n\006slices\030\010 \001("
+      "\022#\n\004left\030\001 \001(\0132\025.fast.Pairs.Pair.Diff\022$\n"
+      "\005right\030\002 \001(\0132\025.fast.Pairs.Pair.Diff\022(\n\004t"
+      "ype\030\003 \001(\0162\032.fast.Pairs.Pair.CloneType\032\327\001"
+      "\n\004Diff\022\017\n\007project\030\001 \001(\t\022\021\n\tleft_line\030\002 \001"
+      "(\005\022\023\n\013left_column\030\003 \001(\005\022\022\n\nright_line\030\004 "
+      "\001(\005\022\024\n\014right_column\030\005 \001(\005\022\037\n\010old_code\030\006 "
+      "\001(\0132\r.fast.Element\022\037\n\010new_code\030\007 \001(\0132\r.f"
+      "ast.Element\022\014\n\004hash\030\010 \001(\t\022\034\n\006slices\030\t \001("
       "\0132\014.fast.Slices\"\'\n\tCloneType\022\t\n\005MAYBE\020\000\022"
       "\007\n\003YES\020\001\022\006\n\002NO\020\002\"\254\006\n\003Log\022 \n\006commit\030\001 \003(\013"
       "2\020.fast.Log.Commit\022 \n\006author\030\002 \003(\0132\020.fas"
@@ -2226,6 +2226,7 @@ void Element_Unit::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Element_Unit::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Element.Unit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -2644,6 +2645,7 @@ void Element_Literal::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Element_Literal::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Element.Literal)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -3188,6 +3190,7 @@ void Element::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Element::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Element)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4002,6 +4005,7 @@ void Delta_Diff_Match::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta_Diff_Match::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Match)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4310,6 +4314,7 @@ void Delta_Diff_Add::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta_Diff_Add::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Add)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4604,6 +4609,7 @@ void Delta_Diff_Del::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta_Diff_Del::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Del)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4882,6 +4888,7 @@ void Delta_Diff_Move::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta_Diff_Move::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Move)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -5210,6 +5217,7 @@ void Delta_Diff_Update::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta_Diff_Update::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff.Update)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -5679,6 +5687,7 @@ void Delta_Diff::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta_Diff::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta.Diff)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -6330,6 +6339,7 @@ void Delta::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Delta::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Delta)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -6614,6 +6624,7 @@ Delta::diff() const {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int Pairs_Pair_Diff::kProjectFieldNumber;
 const int Pairs_Pair_Diff::kLeftLineFieldNumber;
 const int Pairs_Pair_Diff::kLeftColumnFieldNumber;
 const int Pairs_Pair_Diff::kRightLineFieldNumber;
@@ -6637,6 +6648,10 @@ Pairs_Pair_Diff::Pairs_Pair_Diff(const Pairs_Pair_Diff& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
+  project_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  if (from.project().size() > 0) {
+    project_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.project_);
+  }
   hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (from.hash().size() > 0) {
     hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
@@ -6663,6 +6678,7 @@ Pairs_Pair_Diff::Pairs_Pair_Diff(const Pairs_Pair_Diff& from)
 }
 
 void Pairs_Pair_Diff::SharedCtor() {
+  project_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hash_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&old_code_, 0, reinterpret_cast<char*>(&right_column_) -
     reinterpret_cast<char*>(&old_code_) + sizeof(right_column_));
@@ -6675,6 +6691,7 @@ Pairs_Pair_Diff::~Pairs_Pair_Diff() {
 }
 
 void Pairs_Pair_Diff::SharedDtor() {
+  project_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hash_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) {
     delete old_code_;
@@ -6712,6 +6729,7 @@ Pairs_Pair_Diff* Pairs_Pair_Diff::New(::google::protobuf::Arena* arena) const {
 
 void Pairs_Pair_Diff::Clear() {
 // @@protoc_insertion_point(message_clear_start:fast.Pairs.Pair.Diff)
+  project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && old_code_ != NULL) {
     delete old_code_;
@@ -6739,10 +6757,26 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // int32 left_line = 1;
+      // string project = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(8u)) {
+            static_cast< ::google::protobuf::uint8>(10u)) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_project()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->project().data(), this->project().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "fast.Pairs.Pair.Diff.project"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int32 left_line = 2;
+      case 2: {
+        if (static_cast< ::google::protobuf::uint8>(tag) ==
+            static_cast< ::google::protobuf::uint8>(16u)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -6753,10 +6787,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 left_column = 2;
-      case 2: {
+      // int32 left_column = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(16u)) {
+            static_cast< ::google::protobuf::uint8>(24u)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -6767,10 +6801,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 right_line = 3;
-      case 3: {
+      // int32 right_line = 4;
+      case 4: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(24u)) {
+            static_cast< ::google::protobuf::uint8>(32u)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -6781,10 +6815,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // int32 right_column = 4;
-      case 4: {
+      // int32 right_column = 5;
+      case 5: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u)) {
+            static_cast< ::google::protobuf::uint8>(40u)) {
 
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
@@ -6795,10 +6829,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Element old_code = 5;
-      case 5: {
+      // .fast.Element old_code = 6;
+      case 6: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(42u)) {
+            static_cast< ::google::protobuf::uint8>(50u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_old_code()));
         } else {
@@ -6807,10 +6841,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Element new_code = 6;
-      case 6: {
+      // .fast.Element new_code = 7;
+      case 7: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(50u)) {
+            static_cast< ::google::protobuf::uint8>(58u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_new_code()));
         } else {
@@ -6819,10 +6853,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // string hash = 7;
-      case 7: {
+      // string hash = 8;
+      case 8: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(58u)) {
+            static_cast< ::google::protobuf::uint8>(66u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_hash()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
@@ -6835,10 +6869,10 @@ bool Pairs_Pair_Diff::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Slices slices = 8;
-      case 8: {
+      // .fast.Slices slices = 9;
+      case 9: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(66u)) {
+            static_cast< ::google::protobuf::uint8>(74u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_slices()));
         } else {
@@ -6874,52 +6908,62 @@ void Pairs_Pair_Diff::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 left_line = 1;
+  // string project = 1;
+  if (this->project().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->project().data(), this->project().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Pairs.Pair.Diff.project");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->project(), output);
+  }
+
+  // int32 left_line = 2;
   if (this->left_line() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->left_line(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->left_line(), output);
   }
 
-  // int32 left_column = 2;
+  // int32 left_column = 3;
   if (this->left_column() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->left_column(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->left_column(), output);
   }
 
-  // int32 right_line = 3;
+  // int32 right_line = 4;
   if (this->right_line() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->right_line(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->right_line(), output);
   }
 
-  // int32 right_column = 4;
+  // int32 right_column = 5;
   if (this->right_column() != 0) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->right_column(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->right_column(), output);
   }
 
-  // .fast.Element old_code = 5;
+  // .fast.Element old_code = 6;
   if (this->has_old_code()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, *this->old_code_, output);
+      6, *this->old_code_, output);
   }
 
-  // .fast.Element new_code = 6;
+  // .fast.Element new_code = 7;
   if (this->has_new_code()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      6, *this->new_code_, output);
+      7, *this->new_code_, output);
   }
 
-  // string hash = 7;
+  // string hash = 8;
   if (this->hash().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hash().data(), this->hash().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
       "fast.Pairs.Pair.Diff.hash");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      7, this->hash(), output);
+      8, this->hash(), output);
   }
 
-  // .fast.Slices slices = 8;
+  // .fast.Slices slices = 9;
   if (this->has_slices()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      8, *this->slices_, output);
+      9, *this->slices_, output);
   }
 
   // @@protoc_insertion_point(serialize_end:fast.Pairs.Pair.Diff)
@@ -6927,45 +6971,57 @@ void Pairs_Pair_Diff::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Pairs_Pair_Diff::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Pairs.Pair.Diff)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 left_line = 1;
+  // string project = 1;
+  if (this->project().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->project().data(), this->project().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "fast.Pairs.Pair.Diff.project");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->project(), target);
+  }
+
+  // int32 left_line = 2;
   if (this->left_line() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->left_line(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->left_line(), target);
   }
 
-  // int32 left_column = 2;
+  // int32 left_column = 3;
   if (this->left_column() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->left_column(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->left_column(), target);
   }
 
-  // int32 right_line = 3;
+  // int32 right_line = 4;
   if (this->right_line() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->right_line(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->right_line(), target);
   }
 
-  // int32 right_column = 4;
+  // int32 right_column = 5;
   if (this->right_column() != 0) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->right_column(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->right_column(), target);
   }
 
-  // .fast.Element old_code = 5;
+  // .fast.Element old_code = 6;
   if (this->has_old_code()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        5, *this->old_code_, deterministic, target);
+        6, *this->old_code_, deterministic, target);
   }
 
-  // .fast.Element new_code = 6;
+  // .fast.Element new_code = 7;
   if (this->has_new_code()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        6, *this->new_code_, deterministic, target);
+        7, *this->new_code_, deterministic, target);
   }
 
-  // string hash = 7;
+  // string hash = 8;
   if (this->hash().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
       this->hash().data(), this->hash().length(),
@@ -6973,14 +7029,14 @@ void Pairs_Pair_Diff::SerializeWithCachedSizes(
       "fast.Pairs.Pair.Diff.hash");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->hash(), target);
+        8, this->hash(), target);
   }
 
-  // .fast.Slices slices = 8;
+  // .fast.Slices slices = 9;
   if (this->has_slices()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        8, *this->slices_, deterministic, target);
+        9, *this->slices_, deterministic, target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:fast.Pairs.Pair.Diff)
@@ -6991,56 +7047,63 @@ size_t Pairs_Pair_Diff::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:fast.Pairs.Pair.Diff)
   size_t total_size = 0;
 
-  // string hash = 7;
+  // string project = 1;
+  if (this->project().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->project());
+  }
+
+  // string hash = 8;
   if (this->hash().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
         this->hash());
   }
 
-  // .fast.Element old_code = 5;
+  // .fast.Element old_code = 6;
   if (this->has_old_code()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->old_code_);
   }
 
-  // .fast.Element new_code = 6;
+  // .fast.Element new_code = 7;
   if (this->has_new_code()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->new_code_);
   }
 
-  // .fast.Slices slices = 8;
+  // .fast.Slices slices = 9;
   if (this->has_slices()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->slices_);
   }
 
-  // int32 left_line = 1;
+  // int32 left_line = 2;
   if (this->left_line() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->left_line());
   }
 
-  // int32 left_column = 2;
+  // int32 left_column = 3;
   if (this->left_column() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->left_column());
   }
 
-  // int32 right_line = 3;
+  // int32 right_line = 4;
   if (this->right_line() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
         this->right_line());
   }
 
-  // int32 right_column = 4;
+  // int32 right_column = 5;
   if (this->right_column() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -7076,6 +7139,10 @@ void Pairs_Pair_Diff::MergeFrom(const Pairs_Pair_Diff& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.project().size() > 0) {
+
+    project_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.project_);
+  }
   if (from.hash().size() > 0) {
 
     hash_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.hash_);
@@ -7126,6 +7193,7 @@ void Pairs_Pair_Diff::Swap(Pairs_Pair_Diff* other) {
   InternalSwap(other);
 }
 void Pairs_Pair_Diff::InternalSwap(Pairs_Pair_Diff* other) {
+  project_.Swap(&other->project_);
   hash_.Swap(&other->hash_);
   std::swap(old_code_, other->old_code_);
   std::swap(new_code_, other->new_code_);
@@ -7145,7 +7213,60 @@ void Pairs_Pair_Diff::InternalSwap(Pairs_Pair_Diff* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Pairs_Pair_Diff
 
-// int32 left_line = 1;
+// string project = 1;
+void Pairs_Pair_Diff::clear_project() {
+  project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& Pairs_Pair_Diff::project() const {
+  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.Diff.project)
+  return project_.GetNoArena();
+}
+void Pairs_Pair_Diff::set_project(const ::std::string& value) {
+  
+  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.project)
+}
+#if LANG_CXX11
+void Pairs_Pair_Diff::set_project(::std::string&& value) {
+  
+  project_.SetNoArena(
+    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:fast.Pairs.Pair.Diff.project)
+}
+#endif
+void Pairs_Pair_Diff::set_project(const char* value) {
+  GOOGLE_DCHECK(value != NULL);
+  
+  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:fast.Pairs.Pair.Diff.project)
+}
+void Pairs_Pair_Diff::set_project(const char* value, size_t size) {
+  
+  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:fast.Pairs.Pair.Diff.project)
+}
+::std::string* Pairs_Pair_Diff::mutable_project() {
+  
+  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.Diff.project)
+  return project_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* Pairs_Pair_Diff::release_project() {
+  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.Diff.project)
+  
+  return project_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void Pairs_Pair_Diff::set_allocated_project(::std::string* project) {
+  if (project != NULL) {
+    
+  } else {
+    
+  }
+  project_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), project);
+  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.project)
+}
+
+// int32 left_line = 2;
 void Pairs_Pair_Diff::clear_left_line() {
   left_line_ = 0;
 }
@@ -7159,7 +7280,7 @@ void Pairs_Pair_Diff::set_left_line(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.left_line)
 }
 
-// int32 left_column = 2;
+// int32 left_column = 3;
 void Pairs_Pair_Diff::clear_left_column() {
   left_column_ = 0;
 }
@@ -7173,7 +7294,7 @@ void Pairs_Pair_Diff::set_left_column(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.left_column)
 }
 
-// int32 right_line = 3;
+// int32 right_line = 4;
 void Pairs_Pair_Diff::clear_right_line() {
   right_line_ = 0;
 }
@@ -7187,7 +7308,7 @@ void Pairs_Pair_Diff::set_right_line(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.right_line)
 }
 
-// int32 right_column = 4;
+// int32 right_column = 5;
 void Pairs_Pair_Diff::clear_right_column() {
   right_column_ = 0;
 }
@@ -7201,7 +7322,7 @@ void Pairs_Pair_Diff::set_right_column(::google::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:fast.Pairs.Pair.Diff.right_column)
 }
 
-// .fast.Element old_code = 5;
+// .fast.Element old_code = 6;
 bool Pairs_Pair_Diff::has_old_code() const {
   return this != internal_default_instance() && old_code_ != NULL;
 }
@@ -7240,7 +7361,7 @@ void Pairs_Pair_Diff::set_allocated_old_code(::fast::Element* old_code) {
   // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.old_code)
 }
 
-// .fast.Element new_code = 6;
+// .fast.Element new_code = 7;
 bool Pairs_Pair_Diff::has_new_code() const {
   return this != internal_default_instance() && new_code_ != NULL;
 }
@@ -7279,7 +7400,7 @@ void Pairs_Pair_Diff::set_allocated_new_code(::fast::Element* new_code) {
   // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.new_code)
 }
 
-// string hash = 7;
+// string hash = 8;
 void Pairs_Pair_Diff::clear_hash() {
   hash_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
@@ -7332,7 +7453,7 @@ void Pairs_Pair_Diff::set_allocated_hash(::std::string* hash) {
   // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.Diff.hash)
 }
 
-// .fast.Slices slices = 8;
+// .fast.Slices slices = 9;
 bool Pairs_Pair_Diff::has_slices() const {
   return this != internal_default_instance() && slices_ != NULL;
 }
@@ -7376,7 +7497,6 @@ void Pairs_Pair_Diff::set_allocated_slices(::fast::Slices* slices) {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int Pairs_Pair::kProjectFieldNumber;
 const int Pairs_Pair::kLeftFieldNumber;
 const int Pairs_Pair::kRightFieldNumber;
 const int Pairs_Pair::kTypeFieldNumber;
@@ -7395,10 +7515,6 @@ Pairs_Pair::Pairs_Pair(const Pairs_Pair& from)
       _internal_metadata_(NULL),
       _cached_size_(0) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  project_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-  if (from.project().size() > 0) {
-    project_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.project_);
-  }
   if (from.has_left()) {
     left_ = new ::fast::Pairs_Pair_Diff(*from.left_);
   } else {
@@ -7414,7 +7530,6 @@ Pairs_Pair::Pairs_Pair(const Pairs_Pair& from)
 }
 
 void Pairs_Pair::SharedCtor() {
-  project_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(&left_, 0, reinterpret_cast<char*>(&type_) -
     reinterpret_cast<char*>(&left_) + sizeof(type_));
   _cached_size_ = 0;
@@ -7426,7 +7541,6 @@ Pairs_Pair::~Pairs_Pair() {
 }
 
 void Pairs_Pair::SharedDtor() {
-  project_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (this != internal_default_instance()) {
     delete left_;
   }
@@ -7460,7 +7574,6 @@ Pairs_Pair* Pairs_Pair::New(::google::protobuf::Arena* arena) const {
 
 void Pairs_Pair::Clear() {
 // @@protoc_insertion_point(message_clear_start:fast.Pairs.Pair)
-  project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   if (GetArenaNoVirtual() == NULL && left_ != NULL) {
     delete left_;
   }
@@ -7482,26 +7595,10 @@ bool Pairs_Pair::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // string project = 1;
+      // .fast.Pairs.Pair.Diff left = 1;
       case 1: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
             static_cast< ::google::protobuf::uint8>(10u)) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_project()));
-          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->project().data(), this->project().length(),
-            ::google::protobuf::internal::WireFormatLite::PARSE,
-            "fast.Pairs.Pair.project"));
-        } else {
-          goto handle_unusual;
-        }
-        break;
-      }
-
-      // .fast.Pairs.Pair.Diff left = 2;
-      case 2: {
-        if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(18u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_left()));
         } else {
@@ -7510,10 +7607,10 @@ bool Pairs_Pair::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Pairs.Pair.Diff right = 3;
-      case 3: {
+      // .fast.Pairs.Pair.Diff right = 2;
+      case 2: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(26u)) {
+            static_cast< ::google::protobuf::uint8>(18u)) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
                input, mutable_right()));
         } else {
@@ -7522,10 +7619,10 @@ bool Pairs_Pair::MergePartialFromCodedStream(
         break;
       }
 
-      // .fast.Pairs.Pair.CloneType type = 4;
-      case 4: {
+      // .fast.Pairs.Pair.CloneType type = 3;
+      case 3: {
         if (static_cast< ::google::protobuf::uint8>(tag) ==
-            static_cast< ::google::protobuf::uint8>(32u)) {
+            static_cast< ::google::protobuf::uint8>(24u)) {
           int value;
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google::protobuf::internal::WireFormatLite::TYPE_ENUM>(
@@ -7564,32 +7661,22 @@ void Pairs_Pair::SerializeWithCachedSizes(
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string project = 1;
-  if (this->project().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->project().data(), this->project().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Pairs.Pair.project");
-    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->project(), output);
-  }
-
-  // .fast.Pairs.Pair.Diff left = 2;
+  // .fast.Pairs.Pair.Diff left = 1;
   if (this->has_left()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, *this->left_, output);
+      1, *this->left_, output);
   }
 
-  // .fast.Pairs.Pair.Diff right = 3;
+  // .fast.Pairs.Pair.Diff right = 2;
   if (this->has_right()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, *this->right_, output);
+      2, *this->right_, output);
   }
 
-  // .fast.Pairs.Pair.CloneType type = 4;
+  // .fast.Pairs.Pair.CloneType type = 3;
   if (this->type() != 0) {
     ::google::protobuf::internal::WireFormatLite::WriteEnum(
-      4, this->type(), output);
+      3, this->type(), output);
   }
 
   // @@protoc_insertion_point(serialize_end:fast.Pairs.Pair)
@@ -7597,39 +7684,29 @@ void Pairs_Pair::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Pairs_Pair::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Pairs.Pair)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string project = 1;
-  if (this->project().size() > 0) {
-    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->project().data(), this->project().length(),
-      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "fast.Pairs.Pair.project");
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->project(), target);
-  }
-
-  // .fast.Pairs.Pair.Diff left = 2;
+  // .fast.Pairs.Pair.Diff left = 1;
   if (this->has_left()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        2, *this->left_, deterministic, target);
+        1, *this->left_, deterministic, target);
   }
 
-  // .fast.Pairs.Pair.Diff right = 3;
+  // .fast.Pairs.Pair.Diff right = 2;
   if (this->has_right()) {
     target = ::google::protobuf::internal::WireFormatLite::
       InternalWriteMessageNoVirtualToArray(
-        3, *this->right_, deterministic, target);
+        2, *this->right_, deterministic, target);
   }
 
-  // .fast.Pairs.Pair.CloneType type = 4;
+  // .fast.Pairs.Pair.CloneType type = 3;
   if (this->type() != 0) {
     target = ::google::protobuf::internal::WireFormatLite::WriteEnumToArray(
-      4, this->type(), target);
+      3, this->type(), target);
   }
 
   // @@protoc_insertion_point(serialize_to_array_end:fast.Pairs.Pair)
@@ -7640,28 +7717,21 @@ size_t Pairs_Pair::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:fast.Pairs.Pair)
   size_t total_size = 0;
 
-  // string project = 1;
-  if (this->project().size() > 0) {
-    total_size += 1 +
-      ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->project());
-  }
-
-  // .fast.Pairs.Pair.Diff left = 2;
+  // .fast.Pairs.Pair.Diff left = 1;
   if (this->has_left()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->left_);
   }
 
-  // .fast.Pairs.Pair.Diff right = 3;
+  // .fast.Pairs.Pair.Diff right = 2;
   if (this->has_right()) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
         *this->right_);
   }
 
-  // .fast.Pairs.Pair.CloneType type = 4;
+  // .fast.Pairs.Pair.CloneType type = 3;
   if (this->type() != 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::EnumSize(this->type());
@@ -7696,10 +7766,6 @@ void Pairs_Pair::MergeFrom(const Pairs_Pair& from) {
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.project().size() > 0) {
-
-    project_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.project_);
-  }
   if (from.has_left()) {
     mutable_left()->::fast::Pairs_Pair_Diff::MergeFrom(from.left());
   }
@@ -7734,7 +7800,6 @@ void Pairs_Pair::Swap(Pairs_Pair* other) {
   InternalSwap(other);
 }
 void Pairs_Pair::InternalSwap(Pairs_Pair* other) {
-  project_.Swap(&other->project_);
   std::swap(left_, other->left_);
   std::swap(right_, other->right_);
   std::swap(type_, other->type_);
@@ -7749,60 +7814,7 @@ void Pairs_Pair::InternalSwap(Pairs_Pair* other) {
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
 // Pairs_Pair
 
-// string project = 1;
-void Pairs_Pair::clear_project() {
-  project_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-const ::std::string& Pairs_Pair::project() const {
-  // @@protoc_insertion_point(field_get:fast.Pairs.Pair.project)
-  return project_.GetNoArena();
-}
-void Pairs_Pair::set_project(const ::std::string& value) {
-  
-  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:fast.Pairs.Pair.project)
-}
-#if LANG_CXX11
-void Pairs_Pair::set_project(::std::string&& value) {
-  
-  project_.SetNoArena(
-    &::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:fast.Pairs.Pair.project)
-}
-#endif
-void Pairs_Pair::set_project(const char* value) {
-  GOOGLE_DCHECK(value != NULL);
-  
-  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:fast.Pairs.Pair.project)
-}
-void Pairs_Pair::set_project(const char* value, size_t size) {
-  
-  project_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:fast.Pairs.Pair.project)
-}
-::std::string* Pairs_Pair::mutable_project() {
-  
-  // @@protoc_insertion_point(field_mutable:fast.Pairs.Pair.project)
-  return project_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-::std::string* Pairs_Pair::release_project() {
-  // @@protoc_insertion_point(field_release:fast.Pairs.Pair.project)
-  
-  return project_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-void Pairs_Pair::set_allocated_project(::std::string* project) {
-  if (project != NULL) {
-    
-  } else {
-    
-  }
-  project_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), project);
-  // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.project)
-}
-
-// .fast.Pairs.Pair.Diff left = 2;
+// .fast.Pairs.Pair.Diff left = 1;
 bool Pairs_Pair::has_left() const {
   return this != internal_default_instance() && left_ != NULL;
 }
@@ -7841,7 +7853,7 @@ void Pairs_Pair::set_allocated_left(::fast::Pairs_Pair_Diff* left) {
   // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.left)
 }
 
-// .fast.Pairs.Pair.Diff right = 3;
+// .fast.Pairs.Pair.Diff right = 2;
 bool Pairs_Pair::has_right() const {
   return this != internal_default_instance() && right_ != NULL;
 }
@@ -7880,7 +7892,7 @@ void Pairs_Pair::set_allocated_right(::fast::Pairs_Pair_Diff* right) {
   // @@protoc_insertion_point(field_set_allocated:fast.Pairs.Pair.right)
 }
 
-// .fast.Pairs.Pair.CloneType type = 4;
+// .fast.Pairs.Pair.CloneType type = 3;
 void Pairs_Pair::clear_type() {
   type_ = 0;
 }
@@ -8019,6 +8031,7 @@ void Pairs::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Pairs::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Pairs)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -8307,6 +8320,7 @@ void Log_Commit_Committer::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log_Commit_Committer::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log.Commit.Committer)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -8667,6 +8681,7 @@ void Log_Commit_Diff_Hunk_ModLine::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log_Commit_Diff_Hunk_ModLine::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log.Commit.Diff.Hunk.ModLine)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -9170,6 +9185,7 @@ void Log_Commit_Diff_Hunk::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log_Commit_Diff_Hunk::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log.Commit.Diff.Hunk)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -9952,6 +9968,7 @@ void Log_Commit_Diff::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log_Commit_Diff::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log.Commit.Diff)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -10886,6 +10903,7 @@ void Log_Commit::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log_Commit::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log.Commit)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -11606,6 +11624,7 @@ void Log_Author::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log_Author::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log.Author)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -12011,6 +12030,7 @@ void Log::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Log::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Log)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -12361,6 +12381,7 @@ void Slices_Slice_SourceFile_Function_Variable_Position::SerializeWithCachedSize
 
 ::google::protobuf::uint8* Slices_Slice_SourceFile_Function_Variable_Position::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function.Variable.Position)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -12689,6 +12710,7 @@ void Slices_Slice_SourceFile_Function_Variable_FunctionDecl::SerializeWithCached
 
 ::google::protobuf::uint8* Slices_Slice_SourceFile_Function_Variable_FunctionDecl::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function.Variable.FunctionDecl)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -13190,6 +13212,7 @@ void Slices_Slice_SourceFile_Function_Variable::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Slices_Slice_SourceFile_Function_Variable::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function.Variable)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -13942,6 +13965,7 @@ void Slices_Slice_SourceFile_Function::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Slices_Slice_SourceFile_Function::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile.Function)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -14359,6 +14383,7 @@ void Slices_Slice_SourceFile::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Slices_Slice_SourceFile::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice.SourceFile)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -14751,6 +14776,7 @@ void Slices_Slice::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Slices_Slice::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices.Slice)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -15079,6 +15105,7 @@ void Slices::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Slices::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Slices)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
@@ -15467,6 +15494,7 @@ void Data::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* Data::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
   // @@protoc_insertion_point(serialize_to_array_start:fast.Data)
   ::google::protobuf::uint32 cached_has_bits = 0;
   (void) cached_has_bits;

@@ -1,7 +1,7 @@
 #!/bin/bash
 fast=${fast:=../fast}
 cd ..
-make
+make OPT="-g -O0 -coverage"
 sudo make install
 cd -
 
