@@ -164,6 +164,7 @@ void replaceAll( std::string &s, const std::string &search, const std::string &r
 // assume that the project has been checked out from their git repositories
 void slice_diff(fast::Pairs_Pair *pair) {
 	char buf[2000];
+/*
 	sprintf(buf, "cd %s > /dev/null; fast -p -g %s^ . ../source-%s-prev.pb; fast -S source-%s-prev.pb slice-%s-prev.pb; cd .. > /dev/null", 
 		pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str(), 
 		pair->left().hash().c_str(), pair->left().hash().c_str());
@@ -197,7 +198,7 @@ void slice_diff(fast::Pairs_Pair *pair) {
 		pair->right().project().c_str(), pair->right().hash().c_str(), pair->right().hash().c_str());
 	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
-
+*/
 	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
 	sprintf(buf, "slicediff-%s-%s-prev..%s.pb", pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());

@@ -174,23 +174,23 @@ _fast/Element.py: fast.fbs
 src/gen/fast_generated.h: fast.fbs
 	$(flatc) --cpp -o src/gen fast.fbs
 
-src/fast.proto.in: ElementType.proto Smali.proto \
+src/schema/fast.proto.in: ElementType.proto Smali.proto \
 	Unit.proto Literal.proto \
 	log.proto
 
-src/log.proto.in: author.proto commit.proto
+src/schema/log.proto.in: author.proto commit.proto
 
-src/commit.proto.in: diff.proto
+src/schema/commit.proto.in: diff.proto
 
-src/diff.proto.in: hunk.proto
+src/schema/diff.proto.in: hunk.proto
 
-src/hunk.proto.in: modline.proto
+src/schema/hunk.proto.in: modline.proto
 
-src/Unit.proto.in: LanguageType.proto
+src/schema/Unit.proto.in: LanguageType.proto
 
-src/Literal.proto.in: LiteralType.proto
+src/schema/Literal.proto.in: LiteralType.proto
 
-%: src/%.in
+%: src/schema/%.in
 	cpp -I. -E -P $^ | grep -v "^[ ]*$$" | grep -v "^0$$" > $@
 
 test%: benchmarks/Hello8192/Hello%.java
