@@ -199,8 +199,6 @@ void slice_diff(fast::Pairs_Pair *pair) {
 	std::cout << buf << std::endl; std::cout.flush();
 	(void) system(buf);
 */
-	std::cout << buf << std::endl; std::cout.flush();
-	(void) system(buf);
 	sprintf(buf, "slicediff-%s-%s-prev..%s.pb", pair->left().project().c_str(), pair->left().hash().c_str(), pair->left().hash().c_str());
 	std::fstream left_input(buf);
 	fast::Data * data = new fast::Data(); 

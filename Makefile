@@ -160,9 +160,11 @@ src/gen/ver.h: src/version.h.in
 	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
 
 src/gen/fast_pb2.py: fast.proto
+	mkdir -p src/gen
 	$(protoc) -I=. --python_out=src/gen fast.proto
 
 src/gen/fast.pb.h src/gen/fast.pb.cc: fast.proto
+	mkdir -p src/gen
 	$(protoc) -I=. --cpp_out=src/gen fast.proto
 
 fast.fbs: fast.proto
@@ -172,6 +174,7 @@ _fast/Element.py: fast.fbs
 	$(flatc) -p -o . fast.fbs
 
 src/gen/fast_generated.h: fast.fbs
+	mkdir -p src/gen
 	$(flatc) --cpp -o src/gen fast.fbs
 
 src/schema/fast.proto.in: ElementType.proto Smali.proto \
