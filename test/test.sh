@@ -1,9 +1,11 @@
 #!/bin/bash
 fast=${fast:=../fast}
-cd ..
-make OPT="-g -O0 -coverage"
-sudo make install
-cd -
+if [ ! -f $fast ]; then
+	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+	cd .. > /dev/null
+	make OPT="-g -O0 -coverage"
+	cd - > /dev/null
+fi
 
 stdout() {
 	hash=$1
