@@ -10,12 +10,12 @@ the code, which costs O(n) operations.
 But, can we think differently?
 
 Instead of [parsing code structures](doc/architecture.md), why cannot we load
-them into memory as an efficient binary structure before any further analysis? 
+them into memory as an efficient binary structure before any further analysis?
 This would only cost O(1) operations.
 
-This project adopts [flatbuffers](https://github.com/google/flatbuffers), a one-dimensional array to represent the ASTs
-as a binary file, and demonstates the improved efficiency and applicability to
-software development.
+This project adopts [flatbuffers](https://github.com/google/flatbuffers), a
+one-dimensional array to represent the ASTs as a binary file, and demonstates
+the improved efficiency and applicability to software development.
 
 [Once installed](doc/installation.md), [our tool](doc/options.md)
 [manipulates](doc/usage.md) [source code](doc/example.md) [10x
@@ -37,21 +37,6 @@ the following activities slow:
 * [biyacc](http://biyacc.yozora.moe)
 ### *Clone Detection* => more precise (to measure)
 * [deckard](https://github.com/skyhover/Deckard)
-
-## Contributors
-| Contributors | Expertise |
-| ---------------------- |:-------------:| 
-| Bram Adams 		         |program slicing|
-| Duy Quoc Nghi Bui 	   |clone detection|
-| Julian Harty 		       |mobile analytics|
-| Zhenjiang Hu 		|bidirectional programming|
-| Lingxiao Jiang 	|clone detection|
-| Chunmiao Li 		|bidirectional programming|
-| Qiuchi Li 		|information retrieval|
-| Angus Marshall 	|mobile forensics|
-| Mohammed Sayagh 	|program slicing|
-| Meng Wang		|bidirectional programming|
-| Yijun Yu		|compiler optimization|
 
 ### Version History
 
@@ -100,20 +85,6 @@ the following activities slow:
 
 * Initial public release: support round-trip translation between srcML and protobuf/flatbuffers binary ASTs, improving the parsing speed by 10x.
 
-## Acknowledgement
-Our tool cannot be made without standing on the shoulders of these great tools:
-
-* [antlr4](https://github.com/antlr/antlr4)
-* [biyacc](http://biyacc.yozora.moe)
-* [deckard](https://github.com/skyhover/Deckard)
-* [flatbuffers](https://github.com/google/flatbuffers)
-* [gumtreediff](https://github.com/GumTreeDiff/gumtree)
-* [mct](https://github.com/f-ast/meaningful-changes)
-* [protobuf](https://github.com/google/protobuf)
-* [rapidxml](https://github.com/dwd/rapidxml)
-* [smali](https://github.com/JesusFreke/smali)
-* [srcML](http://www.srcml.org/)
-* [txl](http://txl.ca)
-
+* [Contributors](doc/contributors.md)
 ---
 © 2017 F-AST team. FAST is released under GPL v3, see [license.txt](license.txt) for details.
