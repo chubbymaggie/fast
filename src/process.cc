@@ -38,7 +38,7 @@ bool srcML(fast::Data *data, std::string text, std::string ext) {
 	if (src_file != NULL) {
 		fclose(src_file);
 		//sprintf(cmd, "lsof -p %d", getpid()); system(cmd);
-		sprintf(cmd, "fast %s %s", src_filename.c_str(), pb_filename.c_str());
+		sprintf(cmd, "fast -w %s %s", src_filename.c_str(), pb_filename.c_str());
 		// std::cout << cmd << std::endl;
 		n_srcML_invoked++;
 		int ret_val = system(cmd);

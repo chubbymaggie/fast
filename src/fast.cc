@@ -78,6 +78,8 @@ void saveTxtFromPB(char *input_file, char *output_file);
 void saveMarkupFromPB(char *input_file);
 void saveMarkupFromPB(char *input_file, char *output_file);
 
+int max_width = 0;
+
 int loadXML(int load_only, int argc, char**argv) {
   if (!check_exists(argv[1])) return 1;
   char *input_filename = argv[1];
@@ -105,6 +107,9 @@ int loadXML(int load_only, int argc, char**argv) {
 		data->SerializeToOstream(&output);
   		google::protobuf::ShutdownProtobufLibrary();
 		output.close();
+		if (report_max_width) {
+			cout << "The maximum width of tree nodes is :" << max_width << endl;
+		}
 	}
 #endif
 #ifdef FBS_fast
@@ -578,15 +583,20 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		if (child != 0 && string(child->name()) == "") { // first text node
 			element->set_text(child->value());
 		}
+		int n = 0;
 		while (child != 0){
 			if (string(child->name()) != "") { // not text node
 				fast::Element *child_element = savePBfromXML(child);
 				element->add_child()->CopyFrom(*child_element);
 			}
 			child = child->next_sibling();
+			n++;
 		}
 		if (node->next_sibling() != 0 && string(node->next_sibling()->name()) == "") { // sibling text node
 			element->set_tail(node->next_sibling()->value());
+		}
+		if (report_max_width) {
+			max_width = max(max_width, n);
 		}
 	} 
 	return element;

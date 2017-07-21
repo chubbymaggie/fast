@@ -24,6 +24,7 @@ int slicediff = 0;
 bool delta = false; 
 string head = "HEAD";
 string jq_query = ".";
+int report_max_width = 0;
 
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
@@ -35,7 +36,7 @@ int loadXML(int load_only, int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hjJ:lLpsSvx] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdeDg:hjJ:lLpsSvwx] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
@@ -50,6 +51,7 @@ void usage() {
 	 << "-s\tSlice programs on the srcML format" << endl
 	 << "-S\tSlice programs on the binary format" << endl
 	 << "-v\tTell version number" << endl
+	 << "-w\tReport the maximum number of nodes (i.e. width) of the AST" << endl
 	 << "-x\tDump any protobuf text format to XML" << endl;
 }
 
@@ -100,7 +102,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hjJ:lLpsSvx")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hjJ:lLpsSvwx")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -155,6 +157,9 @@ int main(int argc, char* argv[]) {
 	    decode = 1;
 	    jq_query = optarg;
 	    break;
+      case 'w':
+            report_max_width = 1;
+            break;
       case '?':
 	if (isprint (optopt))
           fprintf (stderr, "Unknown option `-%c'.\n", optopt);

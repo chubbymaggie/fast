@@ -17,6 +17,7 @@ extern int slicediff;
 extern bool delta; 
 extern string head;
 extern string jq_query;
+extern int report_max_width;
 extern void usage(); 
 extern bool check_exists(const std::string& name);
 extern int mainRoutine(int argc, char* argv[]);
