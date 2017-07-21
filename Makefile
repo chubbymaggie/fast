@@ -77,6 +77,7 @@ srcSlice.o: src/gen/fast.pb.h
 srcslice_output.o: src/gen/fast.pb.h
 slice-diff.o: src/gen/fast.pb.h
 process.o: src/gen/fast.pb.h
+smali.o: src/gen/fast.pb.h
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
