@@ -72,8 +72,9 @@ PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer
 fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
-srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp
+srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h
 srcSlice.o: src/gen/fast.pb.h
+srcslice_output.o: src/gen/fast.pb.h
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
