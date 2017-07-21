@@ -149,10 +149,10 @@ srcML-src: srcML-src.tar.gz
 	python $^ $@
 
 %.o: src/%.cc
-	$(CXX) $(OPT) -c $(CFLAGS) $^ -o $@
+	$(CXX) $(OPT) -c $(CFLAGS) $^
 
 %.o: src/srcslice/%.cpp
-	$(CXX) $(OPT) -c $(CFLAGS) $^ -o $@
+	$(CXX) $(OPT) -c $(CFLAGS) $^
 
 __main__.py: fast_pb2.py
 
