@@ -69,10 +69,10 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBListener.cpp PB/src/antlr4/pb/PBBaseListener.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
-src/fast.cc: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
-src/antlr4/smali/smali.cpp: smali/src/antlr4/smali/smaliLexer.h
-src/antlr4/pb/PB.cpp: PB/src/antlr4/pb/PBLexer.h
-src/srcslice/srcSliceHandler.cpp: src/srcslice/srcSliceHandler.hpp
+fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
+smali.o: smali/src/antlr4/smali/smaliLexer.h
+PB.o: PB/src/antlr4/pb/PBLexer.h
+srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
