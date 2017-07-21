@@ -9,6 +9,7 @@
 #include <locale>
 #include <unistd.h>
 #include <map>
+#include <vector>
 #ifdef FBS_fast
 #include "flatbuffers/flatbuffers.h"
 #include "flatbuffers/idl.h"
@@ -516,6 +517,11 @@ void savePBfromTxt(char *input_file, char *output_file) {
 	(void) system(buf);
 }
 
+map<string,vector<string>> id_comment_names;
+string current_unit;
+bool is_function_name;
+bool is_not_function_name;
+
 #ifdef PB_fast
 fast::Element* savePBfromXML(xml_node<> *node)
 {
@@ -535,8 +541,12 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
 		{
 			if (is_unit) {
-				if (attr->name() == string("filename"))
+				if (attr->name() == string("filename")) {
 					unit->set_filename(attr->value());
+					if (report_id_comment) {
+						current_unit = attr->value();
+					}
+				}
 				if (attr->name() == string("revision"))
 					unit->set_revision(attr->value());
 				if (attr->name() == string("language")) {
@@ -579,9 +589,47 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		transform(str.begin(), str.end(),str.begin(), ::toupper);
 		fast::Element_Kind_Parse(str, &kind);
 		element->set_kind(kind);
+		if (report_id_comment) {
+		       	if(kind == fast::Element_Kind_FUNCTION) {
+				is_function_name = true;
+			}
+		       	if(kind == fast::Element_Kind_VARIABLE || 
+				kind == fast::Element_Kind_TYPE || 
+		       		kind == fast::Element_Kind_DECL) {
+				is_not_function_name = true;
+			}
+		}
 		xml_node<> *child = node->first_node();
 		if (child != 0 && string(child->name()) == "") { // first text node
 			element->set_text(child->value());
+			if (report_id_comment && ((kind == fast::Element_Kind_NAME 
+					&& is_function_name && !is_not_function_name)|| 
+				kind == fast::Element_Kind_COMMENT)) { // NAME or COMMENT
+				string text = child->value();
+				if (kind == fast::Element_Kind_NAME && is_function_name
+					&& !is_not_function_name) {
+					id_comment_names[current_unit].push_back("id:"+text);
+				} 
+				if (kind == fast::Element_Kind_COMMENT) {
+				    const char *str = text.c_str();
+				    do {
+					const char *begin = str;
+					while( (*str <= 'Z' && *str >= 'A') || 
+					       (*str <= 'z' && *str >= 'a') || 
+					       (*str <= '9' && *str >= '0') || 
+					       (*str == '_' || *str == '-'))
+					    str++;
+					if (begin < str)
+						id_comment_names[current_unit].push_back("comment:"+string(begin, str));
+				    } while (0 != *str++);
+				}
+			}
+			if (report_id_comment && kind == fast::Element_Kind_NAME) {
+				if (is_not_function_name) 
+					is_not_function_name = false;
+				else if (is_function_name) 
+					is_function_name = false;
+			}
 		}
 		int n = 0;
 		while (child != 0){
@@ -597,6 +645,15 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		}
 		if (report_max_width) {
 			max_width = max(max_width, n);
+		}
+		if (report_id_comment) {
+			if (is_unit) {
+				cout << current_unit << " ";
+				for (string name: id_comment_names[current_unit]) {
+					cout << name << " ";
+				}
+				cout << endl;
+			}
 		}
 	} 
 	return element;

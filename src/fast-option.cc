@@ -25,6 +25,7 @@ bool delta = false;
 string head = "HEAD";
 string jq_query = ".";
 int report_max_width = 0;
+int report_id_comment = 0;
 
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
@@ -36,13 +37,14 @@ int loadXML(int load_only, int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hjJ:lLpsSvwx] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdeDg:hijJ:lLpsSvwx] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
 	 << "-e\tEncode text format into protobuf" << endl
 	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
 	 << "-h\tPrint this help message" << endl
+	 << "-i\treport the identifier names and comment for bug localisation" << endl
 	 << "-j\tuse JSON instead of textual format to encode/decode" << endl
 	 << "-J <jq>\tuse jq query to process the decoded JSON content, turn on -d -j options" << endl
 	 << "-l\tProcess log pairs from cross-language repositories" << endl
@@ -102,7 +104,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hjJ:lLpsSvwx")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hijJ:lLpsSvwx")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -113,6 +115,9 @@ int main(int argc, char* argv[]) {
 	    return 0;
       case 'D':
 	    delta = true;
+	    break;
+      case 'i':
+	    report_id_comment = 1;
 	    break;
       case 'g':
 	    git = 1;
