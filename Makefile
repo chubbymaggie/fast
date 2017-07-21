@@ -73,6 +73,7 @@ fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
 srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp
+srcSlice.o: src/gen/fast.pb.h
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
