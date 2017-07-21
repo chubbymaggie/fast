@@ -55,7 +55,7 @@ the following activities slow:
 
 *0.0.5* (TBD)
 
-*0.0.4* (July 15, 2017)
+*0.0.4* (July 21, 2017)
 
 * Updated schema's Kinds as a union type, accommodating more ANTLR4 languages when needed
   (currently, Kind => srcml; SmaliKind => smali)
@@ -66,6 +66,8 @@ the following activities slow:
 * Formed the `f-ast' team to maintain the project // for Qiuchi Li
 * Complete slice-diff feature // for Qiuchi Li
 * Added JSON output for decoding FAST and pipe to jq for further querying
+* Added -w option to report the maximum width of the AST (i.e. number of children of the tree nodes)
+* Added -i option to report the identifiers appeared as function names or comment tokens
 
 *0.0.3* (July 6, 2017)
 
