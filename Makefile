@@ -46,13 +46,13 @@ LDFLAGS+=$(ANTLR4_LIB)
 all: $(target)
 
 fast.pb.o: src/gen/fast.pb.cc 
-	c++ $(OPT) $(CFLAGS) -c $^
+	$(CXX) $(OPT) $(CFLAGS) -c $^
 
 %.o: smali/src/antlr4/smali/%.cpp
-	c++ $(OPT) $(CFLAGS) -c $^
+	$(CXX) $(OPT) $(CFLAGS) -c $^
 
 %.o: src/antlr4/smali/%.cpp
-	c++ $(OPT) $(CFLAGS) -c $^
+	$(CXX) $(OPT) $(CFLAGS) -c $^
 
 smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliParserListener.cpp smali/src/antlr4/smali/smaliParserBaseListener.cpp: src/antlr4/smali/smaliParser.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
@@ -61,10 +61,10 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
 %.o: PB/src/antlr4/pb/%.cpp
-	c++ -c $(CFLAGS) $^
+	$(CXX) -c $(CFLAGS) $^
 
 %.o: src/antlr4/pb/%.cpp
-	c++ -c $(CFLAGS) $^
+	$(CXX) -c $(CFLAGS) $^
 
 PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBListener.cpp PB/src/antlr4/pb/PBBaseListener.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
@@ -149,14 +149,15 @@ srcML-src: srcML-src.tar.gz
 	python $^ $@
 
 %.o: src/%.cc
-	c++ $(OPT) -c $(CFLAGS) $^ -o $@
+	$(CXX) $(OPT) -c $(CFLAGS) $^ -o $@
 
 %.o: src/srcslice/%.cpp
-	c++ $(OPT) -c $(CFLAGS) $^ -o $@
+	$(CXX) $(OPT) -c $(CFLAGS) $^ -o $@
 
 __main__.py: fast_pb2.py
 
 src/gen/ver.h: src/version.h.in
+	mkdir -p src/gen
 	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
 
 src/gen/fast_pb2.py: fast.proto
