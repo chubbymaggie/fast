@@ -170,6 +170,7 @@ int main(int argc, char* argv[]) {
             break;
       case 'W':
             limit_width = 1;
+            report_max_width = 1;
 	    width_limit = atoi(optarg);
             break;
       case '?':

@@ -17,10 +17,14 @@ extern int slicediff;
 extern bool delta; 
 extern string head;
 extern string jq_query;
+
 extern int report_max_width;
-extern int report_id_comment;
+extern int max_width;
 extern int limit_width;
 extern int width_limit;
+
+extern int report_id_comment;
+
 extern void usage(); 
 extern bool check_exists(const std::string& name);
 extern int mainRoutine(int argc, char* argv[]);

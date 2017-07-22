@@ -8,8 +8,8 @@ protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
 #OPT=-g -O0 -coverage
-OPT=-O3 -Wno-unused-result
 OPT=-g
+OPT=-O3 -Wno-unused-result
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -70,6 +70,7 @@ PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
 fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
+fast-pb.o: src/gen/fast.pb.h 
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
 srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h
@@ -78,6 +79,7 @@ srcslice_output.o: src/gen/fast.pb.h
 slice-diff.o: src/gen/fast.pb.h
 process.o: src/gen/fast.pb.h
 smali.o: src/gen/fast.pb.h
+
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
@@ -92,6 +94,7 @@ DESTDIR=
 
 fast_objects += fast.o 
 fast_objects += fast-option.o fast-srcml.o
+fast_objects += fast-pb.o
 fast_objects += fast.pb.o 
 fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
 fast_objects += git.o 
@@ -154,7 +157,7 @@ srcML-src: srcML-src.tar.gz
 	python $^ $@
 
 %.o: src/%.cc
-	$(CXX) $(OPT) -c $(CFLAGS) $^
+	$(CXX) $(OPT) -c $(CFLAGS) src/$*.cc
 
 %.o: src/srcslice/%.cpp
 	$(CXX) $(OPT) -c $(CFLAGS) $^
