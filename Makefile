@@ -75,10 +75,10 @@ smali.o: smali/src/antlr4/smali/smaliLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
 srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h src/gen/fast_generated.h
 srcSlice.o: src/gen/fast.pb.h src/gen/fast_generated.h
-srcslice_output.o: src/gen/fast.pb.h
-slice-diff.o: src/gen/fast.pb.h
-process.o: src/gen/fast.pb.h
-smali.o: src/gen/fast.pb.h
+srcslice_output.o: src/gen/fast.pb.h src/gen/fast_generated.h
+slice-diff.o: src/gen/fast.pb.h src/gen/fast_generated.h
+process.o: src/gen/fast.pb.h src/gen/fast_generated.h
+smali.o: src/gen/fast.pb.h src/gen/fast_generated.h
 
 
 fast-$V.tar.gz:
