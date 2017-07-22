@@ -66,8 +66,8 @@ the following activities slow:
 * Formed the `f-ast' team to maintain the project // for Qiuchi Li
 * Complete slice-diff feature // for Qiuchi Li
 * Added JSON output for decoding FAST and pipe to jq for further querying
-* Added -w option to report the maximum width of the AST (i.e. number of children of the tree nodes)
-* Added -i option to report the identifiers appeared as function names or comment tokens
+* Added -w option to report the maximum width of the AST (i.e. number of children of the tree nodes), -W limit option to limit the width to the limit => Nghi, Lingxiao
+* Added -i option to report the identifiers appeared as function names or comment tokens => Tezcan, Michel
 
 *0.0.3* (July 6, 2017)
 
