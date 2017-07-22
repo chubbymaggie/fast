@@ -1718,7 +1718,7 @@ notestFastPairs564() {
 }
 
 ### The new format contains the hash number for the pair
-testFastPairs() {
+notestFastPairs() {
 	$fast -l codelabel_new_with_hash.csv codelabel_new_with_hash.pb
 	stdout 4e25d4ccd0dfaa46c91b8853c620c59e961035c07ee293052d800071e5b53c4a -d codelabel_new_with_hash.pb
 }
