@@ -55,7 +55,7 @@ the following activities slow:
 
 *0.0.5* (TBD)
 
-*0.0.4* (July 21, 2017)
+*0.0.4* (July 22, 2017)
 
 * Updated schema's Kinds as a union type, accommodating more ANTLR4 languages when needed
   (currently, Kind => srcml; SmaliKind => smali)
