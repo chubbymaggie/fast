@@ -73,8 +73,8 @@ fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src
 fast-pb.o: src/gen/fast.pb.h 
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
-srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h
-srcSlice.o: src/gen/fast.pb.h
+srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h src/gen/fast_generated.h
+srcSlice.o: src/gen/fast.pb.h src/gen/fast_generated.h
 srcslice_output.o: src/gen/fast.pb.h
 slice-diff.o: src/gen/fast.pb.h
 process.o: src/gen/fast.pb.h
