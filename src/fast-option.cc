@@ -26,6 +26,8 @@ string head = "HEAD";
 string jq_query = ".";
 int report_max_width = 0;
 int report_id_comment = 0;
+int limit_width = 0;
+int width_limit = 0;
 
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
@@ -37,7 +39,7 @@ int loadXML(int load_only, int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hijJ:lLpsSvwx] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdeDg:hijJ:lLpsSvwW:x] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
@@ -54,6 +56,7 @@ void usage() {
 	 << "-S\tSlice programs on the binary format" << endl
 	 << "-v\tTell version number" << endl
 	 << "-w\tReport the maximum number of nodes (i.e. width) of the AST" << endl
+	 << "-W <width>\tLimit the number of children to 'width' by a transformation" << endl
 	 << "-x\tDump any protobuf text format to XML" << endl;
 }
 
@@ -164,6 +167,10 @@ int main(int argc, char* argv[]) {
 	    break;
       case 'w':
             report_max_width = 1;
+            break;
+      case 'W':
+            limit_width = 1;
+	    width_limit = atoi(optarg);
             break;
       case '?':
 	if (isprint (optopt))
