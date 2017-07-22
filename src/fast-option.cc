@@ -107,7 +107,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hijJ:lLpsSvwx")) != -1)
+  while ((c = getopt (argc, argv, "cdDeg:hijJ:lLpsSvwW:x")) != -1)
     switch (c) {
       case 'h':
 	    usage();

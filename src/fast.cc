@@ -645,6 +645,8 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		}
 		if (report_max_width) {
 			max_width = max(max_width, n);
+			if (max_width > width_limit) {
+			}
 		}
 		if (report_id_comment) {
 			if (is_unit) {
