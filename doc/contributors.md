@@ -11,7 +11,9 @@
 | Qiuchi Li 		|information retrieval|
 | Angus Marshall 	|mobile forensics|
 | Mohammed Sayagh 	|program slicing|
+| Tezcan Dilshener |bug localisation|
 | Meng Wang		|bidirectional programming|
+| Michel Wermelinger		|bug localisation|
 | Yijun Yu		|compiler optimization|
 
 ## Acknowledgement
