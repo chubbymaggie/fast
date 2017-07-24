@@ -13,6 +13,7 @@
 #include "rapidxml_utils.hpp"
 #include "rapidxml_print.hpp"
 #include "fast-option.h"
+#include <stdlib.h>
 using namespace std;
 using namespace rapidxml;
 
@@ -125,11 +126,10 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		fast::Element_Kind_Parse(str, &kind);
 		element->set_kind(kind);
 		if (report_id_comment) {
-		       	if(kind == fast::Element_Kind_FUNCTION) {
+		       	if (kind == fast::Element_Kind_FUNCTION || kind == fast::Element_Kind_VARIABLE) {
 				is_function_name = true;
 			}
-		       	if(kind == fast::Element_Kind_VARIABLE || 
-				kind == fast::Element_Kind_TYPE || 
+		       	if (kind == fast::Element_Kind_TYPE || 
 		       		kind == fast::Element_Kind_DECL) {
 				is_not_function_name = true;
 			}
@@ -143,7 +143,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				string text = child->value();
 				if (kind == fast::Element_Kind_NAME && is_function_name
 					&& !is_not_function_name) {
-					id_comment_names[current_unit].push_back("id:"+text);
+					id_comment_names[current_unit].push_back(text);
 				} 
 				if (kind == fast::Element_Kind_COMMENT) {
 				    const char *str = text.c_str();
@@ -155,7 +155,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 					       (*str == '_' || *str == '-'))
 					    str++;
 					if (begin < str)
-						id_comment_names[current_unit].push_back("comment:"+string(begin, str));
+						id_comment_names[current_unit].push_back(string(begin, str));
 				    } while (0 != *str++);
 				}
 			}
@@ -187,11 +187,30 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		}
 		if (report_id_comment) {
 			if (is_unit) {
-				cout << current_unit << " ";
+				char buf[100], buf2[100];
+				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+				mkstemp(buf);
+				ofstream out(buf, ios::out | ios::trunc);
 				for (string name: id_comment_names[current_unit]) {
-					cout << name << " ";
+					out << name << endl;
 				}
+				out.close();
+				strcpy(buf2, "/tmp/temp.XXXXXXXX"); 
+				mkstemp(buf2);
+				string cmd = "java -cp /usr/local/lib:/usr/local/lib/intt.jar Example ";
+				cmd = cmd + buf + " > " + buf2;
+				system(cmd.c_str());
+				remove(buf);
+				cout << current_unit << " ";
+				ifstream input(buf2, ios::in);
+				std::string line;
+				while (input) {
+				      std::getline(input, line);
+				      cout << line << " ";
+				}
+				input.close();
 				cout << endl;
+				remove(buf2);
 			}
 		}
 	} 

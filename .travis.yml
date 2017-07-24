@@ -8,7 +8,7 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
     brew install pyenv; eval "$(pyenv init -)"; pyenv install 2.7.6; pyenv global 2.7.6; pyenv rehash; pip install cpp-coveralls; pyenv rehash;
-    brew tap yijunyu/fast; brew install srcml;
+    brew tap f-ast/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers; pip install protobuf;
     brew install jq;
     brew install antlr; brew install antlr4-cpp-runtime;

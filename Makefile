@@ -106,12 +106,14 @@ fast_objects += slice-diff.o
 fast: $(fast_objects) 
 	$(CXX) $(OPT) $(CFLAGS) $^ $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast fast.proto install-srcslice src/gen/fast_pb2.py
+install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Example.class
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
+	install -m 0644 src/intt-0.2.0/Example.class $(DESTDIR)$(prefix)/lib/Example.class
+	install -m 0644 src/intt-0.2.0/intt.jar $(DESTDIR)$(prefix)/lib/intt.jar
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 src/fast-json.py $(DESTDIR)$(prefix)/share/fast-json.py
 	install -m 0644 src/gen/fast_pb2.py $(DESTDIR)$(prefix)/share/fast_pb2.py
@@ -135,6 +137,9 @@ install-srcslice::
 endif
 .PHONY: install
 
+src/intt-0.2.0/Example.class: src/intt-0.2.0/Example.java
+	javac -cp src/intt-0.2.0/intt.jar src/intt-0.2.0/Example.java
+
 srcML-src.tar.gz: 
 	wget http://131.123.42.38/lmcrs/beta/srcML-src.tar.gz
 
@@ -143,6 +148,12 @@ srcML-src: srcML-src.tar.gz
 
 ./srcML-src/build/bin/srcml: srcML-src/
 	cd srcML-src; cmake .; make; sudo make install
+
+intt-0.2.0: intt-0.2.0.zip
+	unzip $^
+
+intt-0.2.0.zip: 
+	wget http://oro.open.ac.uk/28352/1/intt-0.2.0%5B1%5D.zip -O intt-0.2.0.zip
 
 %.json: __main__.py %.pb
 	python $^ $@
