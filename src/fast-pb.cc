@@ -1,3 +1,4 @@
+#include <string.h>
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -6,6 +7,7 @@
 #include <unistd.h>
 #include <map>
 #include <vector>
+#include <algorithm>
 #include "fast.pb.h" 
 #include "rapidxml.hpp"
 #include "rapidxml_utils.hpp"
@@ -85,7 +87,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				if (attr->name() == string("language")) {
 					fast::Element_Unit_LanguageType lang;
 					string lan = attr->value();
-					transform(lan.begin(), lan.end(),lan.begin(), ::toupper);
+					std::transform(lan.begin(), lan.end(),lan.begin(), ::toupper);
 					if (lan == string("C++"))
 						lan = "CXX";
 					if (lan == string("C#"))
@@ -119,7 +121,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		if (is_literal)	element->set_allocated_literal(literal);
 		fast::Element_Kind kind;
 		string str = tag;
-		transform(str.begin(), str.end(),str.begin(), ::toupper);
+		std::transform(str.begin(), str.end(),str.begin(), ::toupper);
 		fast::Element_Kind_Parse(str, &kind);
 		element->set_kind(kind);
 		if (report_id_comment) {
