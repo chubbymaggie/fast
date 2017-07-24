@@ -39,7 +39,6 @@ before_install:
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-  - make; sudo make install
   - cd test; ./test.sh
 after_success:
   - coveralls --exclude /Applications --exclude /usr --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'

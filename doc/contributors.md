@@ -4,6 +4,7 @@
 | ---------------------- |:-------------:| 
 | Bram Adams 		         |program slicing|
 | Duy Quoc Nghi Bui 	   |clone detection|
+| Tezcan Dilshener |bug localisation|
 | Julian Harty 		       |mobile analytics|
 | Zhenjiang Hu 		|bidirectional programming|
 | Lingxiao Jiang 	|clone detection|
@@ -11,7 +12,6 @@
 | Qiuchi Li 		|information retrieval|
 | Angus Marshall 	|mobile forensics|
 | Mohammed Sayagh 	|program slicing|
-| Tezcan Dilshener |bug localisation|
 | Meng Wang		|bidirectional programming|
 | Michel Wermelinger		|bug localisation|
 | Yijun Yu		|compiler optimization|
