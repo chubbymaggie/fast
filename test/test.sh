@@ -3,7 +3,7 @@ fast=${fast:=../fast}
 if [ ! -f $fast ]; then
 	export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 	cd .. > /dev/null
-	make OPT="-g -O0 -coverage"
+	make OPT="-g -O0 -coverage" install
 	cd - > /dev/null
 fi
 
