@@ -1,18 +1,21 @@
 ## Synopsis
 
 ```
-$ fast [-cdehjJ:lLpsStx] $input [$output]
+$ fast [-cdehijJ:lLpsStvwW:x] $input [$output]
 ```
 
 ## Options
 
-     -c      Load the file only, no output.
+     -c      Load the file only, no output if the input is binary AST. 
+	     Include comments when -i is used if the output is binary AST.
 
      -d      Decode the textual representation from protobuf AST input.
 
      -e      Encode the protobuf binary AST from the textual input.
 
      -h      Print this help message.
+
+     -i      Tokenizing the identifiers names, and also comments if -c is used.
 
      -j      Decode the JSON representation from protobuf AST input.
 
@@ -27,6 +30,12 @@ $ fast [-cdehjJ:lLpsStx] $input [$output]
      -s      Invoke srcSlice. This option turns on the -p option.
 
      -S      Invoke modified srcSlice to use the binary AST directly.
+
+     -v      Print the version of the build.
+
+     -w      Print the width of the AST.
+
+     -W <width> Transform the AST to tree with limited `width` by introducing intermedate NOP nodes.
 
      -x      Print the XML output from textual protobuf. This option turns on the -d option.
 
