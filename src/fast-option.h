@@ -24,6 +24,7 @@ extern int limit_width;
 extern int width_limit;
 
 extern int report_id_comment;
+extern int include_comment;
 
 extern void usage(); 
 extern bool check_exists(const std::string& name);

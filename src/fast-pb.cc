@@ -143,9 +143,9 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				string text = child->value();
 				if (kind == fast::Element_Kind_NAME && is_function_name
 					&& !is_not_function_name) {
-					id_comment_names[current_unit].push_back("IDENT:: " + text);
+					id_comment_names[current_unit].push_back(text);
 				} 
-				if (kind == fast::Element_Kind_COMMENT) {
+				if (kind == fast::Element_Kind_COMMENT && include_comment) {
 				    const char *str = text.c_str();
 				    do {
 					const char *begin = str;
@@ -155,7 +155,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 					       (*str == '_' || *str == '-'))
 					    str++;
 					if (begin < str)
-						id_comment_names[current_unit].push_back("COMMENT:: " + string(begin, str));
+						id_comment_names[current_unit].push_back(string(begin, str));
 				    } while (0 != *str++);
 				}
 			}
@@ -191,7 +191,15 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 				mkstemp(buf);
 				ofstream out(buf, ios::out | ios::trunc);
-				out << current_unit << endl;
+				string base_name;
+				if (current_unit.find("/")!=std::string::npos) {
+					base_name = current_unit.substr(current_unit.rfind("/")+1);
+				} else
+					base_name = current_unit;
+				if (base_name.find(".") != std::string::npos) {
+					base_name = base_name.substr(0, base_name.rfind("."));
+				}
+				out << base_name << endl;
 				for (string name: id_comment_names[current_unit]) {
 					out << name << endl;
 				}
@@ -202,12 +210,12 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				cmd = cmd + buf + " > " + buf2;
 				system(cmd.c_str());
 				remove(buf);
-				cout << current_unit << ":: ";
+				cout << base_name << ";";
 				ifstream input(buf2, ios::in);
 				std::string line;
 				while (input) {
 				      std::getline(input, line);
-				      cout << line << "||";
+				      cout << " " << line;
 				}
 				input.close();
 				cout << endl;

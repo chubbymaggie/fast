@@ -26,6 +26,7 @@ string head = "HEAD";
 string jq_query = ".";
 int report_max_width = 0;
 int report_id_comment = 0;
+int include_comment = 0;
 int limit_width = 0;
 int width_limit = 0;
 
@@ -145,6 +146,7 @@ int main(int argc, char* argv[]) {
 	    break;
       case 'c':
             load_only = 1;
+	    include_comment = 1;
             break;
       case 'x':
 	    pb2xml = 1;
