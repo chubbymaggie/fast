@@ -143,7 +143,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				string text = child->value();
 				if (kind == fast::Element_Kind_NAME && is_function_name
 					&& !is_not_function_name) {
-					id_comment_names[current_unit].push_back(text);
+					id_comment_names[current_unit].push_back("IDENT:: " + text);
 				} 
 				if (kind == fast::Element_Kind_COMMENT) {
 				    const char *str = text.c_str();
@@ -155,7 +155,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 					       (*str == '_' || *str == '-'))
 					    str++;
 					if (begin < str)
-						id_comment_names[current_unit].push_back(string(begin, str));
+						id_comment_names[current_unit].push_back("COMMENT:: " + string(begin, str));
 				    } while (0 != *str++);
 				}
 			}
@@ -191,6 +191,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 				mkstemp(buf);
 				ofstream out(buf, ios::out | ios::trunc);
+				out << current_unit << endl;
 				for (string name: id_comment_names[current_unit]) {
 					out << name << endl;
 				}
@@ -201,12 +202,12 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				cmd = cmd + buf + " > " + buf2;
 				system(cmd.c_str());
 				remove(buf);
-				cout << current_unit << " ";
+				cout << current_unit << ":: ";
 				ifstream input(buf2, ios::in);
 				std::string line;
 				while (input) {
 				      std::getline(input, line);
-				      cout << line << " ";
+				      cout << line << "||";
 				}
 				input.close();
 				cout << endl;
