@@ -89,4 +89,4 @@ the following activities slow:
 
 * [Contributors](doc/contributors.md)
 ---
-© 2017 F-AST team. FAST is released under GPL v3, see [license.txt](license.txt) for details.
+© 2017 F-AST team. FAST is released under BSD license, see [license.txt](license.txt) for details.
