@@ -1,7 +1,7 @@
 ## Synopsis
 
 ```
-$ fast [-cdehijJ:lLpsStvwW:x] $input [$output]
+$ fast [-cdef:hijJ:lLpsStvwW:x] $input [$output]
 ```
 
 ## Options
@@ -12,6 +12,8 @@ $ fast [-cdehijJ:lLpsStvwW:x] $input [$output]
      -d      Decode the textual representation from protobuf AST input.
 
      -e      Encode the protobuf binary AST from the textual input.
+
+     -f <ext> Select only the files with `ext` extension name.
 
      -h      Print this help message.
 

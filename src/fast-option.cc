@@ -48,7 +48,7 @@ void usage() {
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
 	 << "-e\tEncode text format into protobuf" << endl
-	 << "-f <pattern>\tFind certain files by the pattern to apply srcml" << endl
+	 << "-f <ext>\tFind certain files by the extension `ext` when saving protobuf" << endl
 	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
 	 << "-h\tPrint this help message" << endl
 	 << "-i\treport the identifier names and comment for bug localisation" << endl
