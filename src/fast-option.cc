@@ -30,6 +30,9 @@ int include_comment = 0;
 int limit_width = 0;
 int width_limit = 0;
 
+int find_pattern = 0;
+string find_filter;
+
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
 void savePBfromTxt(char *input_file);
@@ -40,11 +43,12 @@ int loadXML(int load_only, int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-cdeDg:hijJ:lLpsSvwW:x] input_file output_file"  << endl
+    cerr << "Usage: fast [-cdDef:g:hijJ:lLpsSvwW:x] input_file output_file"  << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
 	 << "-e\tEncode text format into protobuf" << endl
+	 << "-f <pattern>\tFind certain files by the pattern to apply srcml" << endl
 	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
 	 << "-h\tPrint this help message" << endl
 	 << "-i\treport the identifier names and comment for bug localisation" << endl
@@ -108,7 +112,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDeg:hijJ:lLpsSvwW:x")) != -1)
+  while ((c = getopt (argc, argv, "cdDef:g:hijJ:lLpsSvwW:x")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -119,6 +123,10 @@ int main(int argc, char* argv[]) {
 	    return 0;
       case 'D':
 	    delta = true;
+	    break;
+      case 'f':
+	    find_pattern = 1;
+	    find_filter = optarg;
 	    break;
       case 'i':
 	    report_id_comment = 1;

@@ -78,9 +78,16 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		{
 			if (is_unit) {
 				if (attr->name() == string("filename")) {
-					unit->set_filename(attr->value());
+					string filename = attr->value();
+					if (find_pattern && find_filter != "") {
+					   if (filename.find("." + find_filter)==std::string::npos) {
+						// cout << "ignoring " << filename << endl;
+						return NULL; // ignore the files that does not end with the find_filter
+					   }
+					}
+					unit->set_filename(filename);
 					if (report_id_comment) {
-						current_unit = attr->value();
+						current_unit = filename;
 					}
 				}
 				if (attr->name() == string("revision"))
@@ -141,8 +148,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 					&& is_function_name && !is_not_function_name)|| 
 				kind == fast::Element_Kind_COMMENT)) { // NAME or COMMENT
 				string text = child->value();
-				if (kind == fast::Element_Kind_NAME && is_function_name
-					&& !is_not_function_name) {
+				if (kind == fast::Element_Kind_NAME) { // && is_function_name && !is_not_function_name) {
 					id_comment_names[current_unit].push_back(text);
 				} 
 				if (kind == fast::Element_Kind_COMMENT && include_comment) {
@@ -170,7 +176,8 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		while (child != 0){
 			if (string(child->name()) != "") { // not text node
 				fast::Element *child_element = savePBfromXML(child);
-				element->add_child()->CopyFrom(*child_element);
+				if (child_element!=NULL)
+					element->add_child()->CopyFrom(*child_element);
 			}
 			child = child->next_sibling();
 			n++;
@@ -186,7 +193,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			max_width = max(max_width, n);
 		}
 		if (report_id_comment) {
-			if (is_unit) {
+			if (is_unit && element->unit().filename() == current_unit) {
 				char buf[100], buf2[100];
 				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 				mkstemp(buf);

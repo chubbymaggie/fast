@@ -17,6 +17,8 @@ extern int slicediff;
 extern bool delta; 
 extern string head;
 extern string jq_query;
+extern int find_pattern;
+extern string find_filter;
 
 extern int report_max_width;
 extern int max_width;
