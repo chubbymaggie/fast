@@ -132,10 +132,8 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		fast::Element_Kind_Parse(str, &kind);
 		element->set_kind(kind);
 		if (report_id_comment) {
-		       	if (kind == fast::Element_Kind_TYPE) {
-				ignore_name = true;
-			} else if (kind != fast::Element_Kind_NAME) {
-				ignore_name = false;
+		       	if (kind == fast::Element_Kind_TYPE || kind == fast::Element_Kind_PACKAGE || kind == fast::Element_Kind_IMPORT) {
+				ignore_name = true; // opening tag
 			}
 		}
 		xml_node<> *child = node->first_node();
@@ -183,6 +181,9 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			max_width = max(max_width, n);
 		}
 		if (report_id_comment) {
+		       	if (kind == fast::Element_Kind_TYPE || kind == fast::Element_Kind_PACKAGE || kind == fast::Element_Kind_IMPORT) {
+				ignore_name = false; // closing tag
+			}
 			if (is_unit && element->unit().filename() == current_unit) {
 				char buf[100], buf2[100];
 				strcpy(buf, "/tmp/temp.XXXXXXXX"); 
