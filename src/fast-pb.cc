@@ -55,8 +55,7 @@ fast::Element* limitPBbyWidth(fast::Element* element, int width) {
 
 map<string,vector<string>> id_comment_names;
 string current_unit;
-bool is_function_name;
-bool is_not_function_name;
+bool ignore_name = false;
 int max_width = 0;
 
 fast::Element* savePBfromXML(xml_node<> *node)
@@ -133,22 +132,19 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		fast::Element_Kind_Parse(str, &kind);
 		element->set_kind(kind);
 		if (report_id_comment) {
-		       	if (kind == fast::Element_Kind_FUNCTION || kind == fast::Element_Kind_VARIABLE) {
-				is_function_name = true;
-			}
-		       	if (kind == fast::Element_Kind_TYPE || 
-		       		kind == fast::Element_Kind_DECL) {
-				is_not_function_name = true;
+		       	if (kind == fast::Element_Kind_TYPE) {
+				ignore_name = true;
+			} else if (kind != fast::Element_Kind_NAME) {
+				ignore_name = false;
 			}
 		}
 		xml_node<> *child = node->first_node();
 		if (child != 0 && string(child->name()) == "") { // first text node
 			element->set_text(child->value());
-			if (report_id_comment && ((kind == fast::Element_Kind_NAME 
-					&& is_function_name && !is_not_function_name)|| 
+			if (report_id_comment && ((kind == fast::Element_Kind_NAME && !ignore_name)|| 
 				kind == fast::Element_Kind_COMMENT)) { // NAME or COMMENT
 				string text = child->value();
-				if (kind == fast::Element_Kind_NAME) { // && is_function_name && !is_not_function_name) {
+				if (kind == fast::Element_Kind_NAME) { // && is_function_name && !ignore_name) {
 					id_comment_names[current_unit].push_back(text);
 				} 
 				if (kind == fast::Element_Kind_COMMENT && include_comment) {
@@ -164,12 +160,6 @@ fast::Element* savePBfromXML(xml_node<> *node)
 						id_comment_names[current_unit].push_back(string(begin, str));
 				    } while (0 != *str++);
 				}
-			}
-			if (report_id_comment && kind == fast::Element_Kind_NAME) {
-				if (is_not_function_name) 
-					is_not_function_name = false;
-				else if (is_function_name) 
-					is_function_name = false;
 			}
 		}
 		int n = 0;
