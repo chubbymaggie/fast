@@ -47,7 +47,7 @@ int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
     cerr << "Usage: fast [-bcdDef:g:hijJ:lLpsSvwW:x] input_file output_file"  << endl
-	 << "-b\tBug input, in either XML or XLS format" << endl
+	 << "-b\tBug input, in either XML or CSV format" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
