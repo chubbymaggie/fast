@@ -1,10 +1,12 @@
 ## Synopsis
 
 ```
-$ fast [-cdef:hijJ:lLpsStvwW:x] $input [$output]
+$ fast [-bcdef:hijJ:lLpsStvwW:x] $input [$output]
 ```
 
 ## Options
+
+     -b      Convert bug reports into protobuf format.
 
      -c      Load the file only, no output if the input is binary AST. 
 	     Include comments when -i is used if the output is binary AST.

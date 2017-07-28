@@ -68,6 +68,7 @@ the following activities slow:
 * Added JSON output for decoding FAST and pipe to jq for further querying
 * Added -w option to report the maximum width of the AST (i.e. number of children of the tree nodes), -W limit option to limit the width to the limit => Nghi, Lingxiao
 * Added -i option to report the identifiers appeared as function/variable names or comment tokens and tokenize them using intt // for Tezcan and Michel
+* Added -b option to convert bug reports into protobuf format
 
 *0.0.3* (July 6, 2017)
 
