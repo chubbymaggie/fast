@@ -50,6 +50,9 @@ fast::Element* limitPBbyWidth(fast::Element* element, int width) {
 		fast::Element *c = new_element->add_child();
 		c->CopyFrom(*new_c);
 	}
+	if (element->has_unit()) {
+		new_element->mutable_unit()->CopyFrom(element->unit());
+	}
 	return new_element;
 }
 

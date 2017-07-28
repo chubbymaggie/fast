@@ -104,7 +104,7 @@ int mainRoutine(int argc, char* argv[]) {
 #endif
    if (strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0)
 	   return loadXML(load_only, argc, argv);
-   if (strcmp(argv[1]+strlen(argv[1])-4, ".csv")==0)
+   if (bug_analysis && strcmp(argv[1]+strlen(argv[1])-4, ".csv")==0)
 	   return loadCSV(argc, argv);
    return loadSrcML(load_only, argc, argv);
 }

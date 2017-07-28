@@ -51,7 +51,7 @@ bool srcML(fast::Data *data, std::string text, std::string ext) {
 				data->ParseFromIstream(&pb_input);
 				pb_input.close();
 				fast::Element *unit = data->mutable_element();
-				unit->mutable_unit()->set_filename(ext + "." + ext);
+				unit->mutable_unit()->set_filename(src_filename);
 				remove(pb_filename.c_str());
 			}
 		} else {
