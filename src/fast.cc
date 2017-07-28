@@ -44,6 +44,7 @@ using namespace _fast::_Element::_Unit;
 #ifdef PB_fast
 fast::Element* savePBfromXML(xml_node<> *node);
 fast::Bugs* savePBfromBugXML(xml_node<> *node);
+fast::Bugs* savePBfromBugCSV(const char *input);
 void saveXMLfromPB(fstream &out, fast::Element *node);
 #endif
 
@@ -79,6 +80,22 @@ void saveTxtFromPB(char *input_file, char *output_file);
 
 void saveMarkupFromPB(char *input_file);
 void saveMarkupFromPB(char *input_file, char *output_file);
+
+int loadCSV(int argc, char**argv) {
+	if (bug_analysis) {
+		fast::Bugs *bugs = savePBfromBugCSV((const char*) argv[1]);
+		if (bugs!=NULL) {
+			cout << argv[2] << endl;
+			fstream output(argv[2], ios::out | ios::trunc | ios::binary);
+			fast::Data *data = new fast::Data();
+			data->set_allocated_bugs(bugs);
+			data->SerializeToOstream(&output);
+			google::protobuf::ShutdownProtobufLibrary();
+			output.close();
+		}
+	}
+	return 0;
+}
 
 int loadXML(int load_only, int argc, char**argv) {
   if (!check_exists(argv[1])) return 1;

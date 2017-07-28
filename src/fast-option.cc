@@ -42,6 +42,7 @@ void savePBfromTxt(char *input_file, char *output_file);
 int loadPB(int load_only, int argc, char **argv);
 int loadFBS(int load_only, int argc, char **argv);
 int loadXML(int load_only, int argc, char**argv);
+int loadCSV(int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
@@ -103,6 +104,8 @@ int mainRoutine(int argc, char* argv[]) {
 #endif
    if (strcmp(argv[1]+strlen(argv[1])-4, ".xml")==0)
 	   return loadXML(load_only, argc, argv);
+   if (strcmp(argv[1]+strlen(argv[1])-4, ".csv")==0)
+	   return loadCSV(argc, argv);
    return loadSrcML(load_only, argc, argv);
 }
 

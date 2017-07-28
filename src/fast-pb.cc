@@ -262,3 +262,67 @@ fast::Bugs* savePBfromBugXML(xml_node<> *node)
 	}
 	return bugs;
 }
+
+std::vector<std::string> csv_split(std::string source, char delimeter) {
+    std::vector<std::string> ret;
+    std::string word = "";
+    int start = 0;
+
+    bool inQuote = false;
+    for(int i=0; i<source.size(); ++i){
+        if(inQuote == false && source[i] == '"'){
+            inQuote = true;
+            continue;
+        }
+        if(inQuote == true && source[i] == '"'){
+            if(source.size() > i && source[i+1] == '"'){
+                ++i;
+            } else {
+                inQuote = false;
+                continue;
+            }
+        }
+
+        if(inQuote == false && source[i] == delimeter){
+            ret.push_back(word);
+            word = "";
+        } else {
+            word += source[i];
+        }
+    }
+    ret.push_back(word);
+
+    return ret;
+}
+
+fast::Bugs* savePBfromBugCSV(const char *input_filename)
+{
+	fast::Bugs *bugs = new fast::Bugs();
+	ifstream input(input_filename, ios::in);
+	std::string line;
+        std::getline(input, line); // skip the first header line
+	int n = 0;
+	while (input) {
+	      std::getline(input, line);
+	      if (line != "") {
+		      vector<string> fields = csv_split(line, ',');
+		      fast::Bugs_Bug *bug = bugs->add_bug();
+		      bug->set_id(fields[1]); // cout << bug->id() << endl;
+		      bug->set_opendate(fields[4]);  // cout << bug->opendate() << endl;
+		      fast::Bugs_Bug_Info *info = bug->mutable_buginfo();  
+		      info->set_summary(fields[2]); // cout << info->summary() << endl;
+		      info->set_description(fields[3]); 
+		      for (int i=9; i<fields.size(); i++) {
+			bug->add_fixed_file(fields[i]); 
+		      }
+		      n++;
+	      }
+	}
+	input.close();
+	// cout << n << endl;
+	string input_file = input_filename;
+	string repository = input_file.substr(0, input_file.rfind(".csv"));
+	bugs->set_repository(repository);
+	return bugs;
+}
+

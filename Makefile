@@ -40,6 +40,7 @@ FBS_LIB=-L/usr/local/lib -lflatbuffers
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
 CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
 CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
+CFLAGS+=-I/usr/local/include/xlnt
 
 LDFLAGS+=$(ANTLR4_LIB)
 
