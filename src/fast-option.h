@@ -28,6 +28,8 @@ extern int width_limit;
 extern int report_id_comment;
 extern int include_comment;
 
+extern int bug_analysis;
+
 extern void usage(); 
 extern bool check_exists(const std::string& name);
 extern int mainRoutine(int argc, char* argv[]);

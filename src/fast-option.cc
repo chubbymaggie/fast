@@ -33,6 +33,8 @@ int width_limit = 0;
 int find_pattern = 0;
 string find_filter;
 
+int bug_analysis = 0;
+
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
 void savePBfromTxt(char *input_file);
@@ -43,7 +45,8 @@ int loadXML(int load_only, int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-cdDef:g:hijJ:lLpsSvwW:x] input_file output_file"  << endl
+    cerr << "Usage: fast [-bcdDef:g:hijJ:lLpsSvwW:x] input_file output_file"  << endl
+	 << "-b\tBug input, in either XML or XLS format" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
 	 << "-D \tDelta slicing" << endl
@@ -112,11 +115,14 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "cdDef:g:hijJ:lLpsSvwW:x")) != -1)
+  while ((c = getopt (argc, argv, "bcdDef:g:hijJ:lLpsSvwW:x")) != -1)
     switch (c) {
       case 'h':
 	    usage();
 	    return 0;
+      case 'b':
+	    bug_analysis = 1;
+	    break;
       case 'v':
 	    cerr << "fast " << __FAST_VERSION__ << " commit id: " << __FAST_HASH__ << " with local changes id: " << __FAST_WORK__ << endl
 		 << "built with " << __VERSION__ << " on " << __DATE__ << " at " << __TIME__ << endl;

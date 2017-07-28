@@ -43,6 +43,7 @@ using namespace _fast::_Element::_Unit;
 
 #ifdef PB_fast
 fast::Element* savePBfromXML(xml_node<> *node);
+fast::Bugs* savePBfromBugXML(xml_node<> *node);
 void saveXMLfromPB(fstream &out, fast::Element *node);
 #endif
 
@@ -101,14 +102,24 @@ int loadXML(int load_only, int argc, char**argv) {
 		fstream output(output_filename, ios::out | ios::trunc | ios::binary);
   		GOOGLE_PROTOBUF_VERIFY_VERSION;
 		fast::Data *data = new fast::Data();
-		fast::Element *element = savePBfromXML(doc.first_node());
-		if (element!=NULL) {
-			data->set_allocated_element(element);
-			data->SerializeToOstream(&output);
-			google::protobuf::ShutdownProtobufLibrary();
-			output.close();
-			if (report_max_width) {
-				cout << "The maximum width of tree nodes is :" << max_width << endl;
+		if (bug_analysis) {
+			fast::Bugs *bugs = savePBfromBugXML(doc.first_node());
+			if (bugs!=NULL) {
+				data->set_allocated_bugs(bugs);
+				data->SerializeToOstream(&output);
+				google::protobuf::ShutdownProtobufLibrary();
+				output.close();
+			}
+		} else {
+			fast::Element *element = savePBfromXML(doc.first_node());
+			if (element!=NULL) {
+				data->set_allocated_element(element);
+				data->SerializeToOstream(&output);
+				google::protobuf::ShutdownProtobufLibrary();
+				output.close();
+				if (report_max_width) {
+					cout << "The maximum width of tree nodes is :" << max_width << endl;
+				}
 			}
 		}
 	}

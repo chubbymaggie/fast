@@ -223,3 +223,42 @@ fast::Element* savePBfromXML(xml_node<> *node)
 	} 
 	return element;
 }
+
+/**
+ * read bug record
+ */
+fast::Bugs* savePBfromBugXML(xml_node<> *node)
+{
+	fast::Bugs *bugs = new fast::Bugs();
+	fast::Bugs::Bug *bug;
+	string tag = node->name();
+	for (xml_attribute<> *attr = node->first_attribute(); attr; attr = attr->next_attribute())
+	{
+		if (attr->name() == string("repository")) {
+			string repository = attr->value();
+			bugs->set_repository(repository);
+		}
+	}
+	int n = 0;
+	xml_node<> *child = node->first_node();
+	while (child != 0){
+		if (string(child->name()) != "") { // not text node
+			fast::Bugs_Bug *bug = bugs->add_bug();
+			bug->set_id(child->first_attribute("id")->value()); // cout << bug->id() << endl;
+			bug->set_opendate(child->first_attribute("opendate")->value()); // cout << bug->opendate() << endl;
+			xml_node<> *info_node = child->first_node()->next_sibling(); // buginformation
+			fast::Bugs_Bug_Info *info = bug->mutable_buginfo();  
+			info->set_summary(info_node->first_node()->next_sibling()->value()); 
+			info->set_description(info_node->first_node()->next_sibling()->next_sibling()->next_sibling()->value()); 
+			info_node = info_node->next_sibling()->next_sibling(); // fixed_files
+			xml_node<> *file = info_node->first_node()->next_sibling(); // file
+			while (file) {
+				bug->add_fixed_file(file->value());
+				file = file->next_sibling()->next_sibling();
+			}
+		}
+		child = child->next_sibling();
+		n++;
+	}
+	return bugs;
+}

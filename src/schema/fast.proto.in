@@ -142,6 +142,21 @@ message Slices {
       }
       repeated Slice slice = 1;
 }
+message Bugs {
+      message Bug {
+        message Info {
+		string summary = 1;
+		string description = 2;
+	}
+	string id = 1;
+	string opendate = 2;
+	string fixdate = 3;
+	Info buginfo = 4;
+	repeated string fixed_file = 5;
+      }
+      string repository = 1;
+      repeated Bug bug = 2;
+}
 
 message Data {
  oneof RecordType {
@@ -150,5 +165,6 @@ message Data {
 	Delta delta = 3;
 	Pairs pairs = 4;
 	Slices slices = 5;
+	Bugs bugs = 6;
  }
 }
