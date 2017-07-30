@@ -34,8 +34,13 @@ stdouterr() {
 export -f stdouterr
 
 testhello() {
+	stdouterr ee5397c0fd55f9ec049be604d0f597d12c9b511c1f80a1eccab912d181282c7d $fast
 	$fast -v
 	$fast -h
+}
+
+testnonexist() {
+	stdouterr 6d923feba278c5442f74be977a8282931fd9bc91b46ca5685756711f885c7907 fancy.fbs
 }
 
 testJava() 
@@ -82,6 +87,17 @@ EOF
 	$fast example.pb example.txt
 	catout 094f521830f664a85196b5968349d0c76a84a99f902ae391ec78caaf926591d7 example.txt
 }
+
+testduplicate() {
+	stdouterr 4e720cdf59ad75221122423634aedbe4d4dafc346cab54d7f82afdcf484c7244 Hello.java Hello.java
+}
+
+testObjectiveC() 
+{
+	$fast AFHTTPSessionManager.m AFHTTPSessionManager.pb
+	stdout a84f7fdc4604caadcdc1e5f1c2aff06fdfbb7900f927a287b3bdb512af63f815 -d AFHTTPSessionManager.pb
+}
+
 testSmali() 
 {
 	cat > DuplicateVirtualMethods.smali <<EOF
@@ -148,6 +164,8 @@ EOF
 	stdout 1bd495bdd84c7b7dfa789e4c3453af1d7ca682e9cf879a22bef2edb551db6d6a RunnerArgs.smali
 	stdout 22e7a484d797695bfc50da0f20abf3fcd132497d4af0d9a323f8b8fe99de5015 ColorUtils.smali
 	stdout 8c15ffd5ccfb57d645fd9d541e18658bb8199186a625170cb7c36e68fbda906e SparseArrayCompat.smali
+	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.xml
+	catout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.xml
 }
 
 testCS() {
@@ -1703,36 +1721,25 @@ EOF
 	stdout 46c0e43663a3a6b49faf6e7951efb9ef13662f3d6f8bdaf4425f89647f059716 -d test.pb
 }
 
-### rather lengthy test :-) 
-notestFastPairs() {
-	cat codelabel_new.csv > a.csv
-	$fast -l a.csv a.pb
-	stdout 523e8be558707d3ca2b58e4eb7e59d5545914bb9a9569279d03fd46d614b1019 -d a.pb
-}
-
-notestFastPairs564() {
-	head -564 codelabel_new.csv | tail -1 > a.csv
-	catout f94138acd03373ae2457dd29389f495224ebddf95181735f30f09419d3d87dc1 a.csv
-	$fast -l a.csv a.pb
-	stdout 1a87bcd1e9f8ce710022a99d68fbce48029189e20bce3a923a01fd184c6c9fe6 -d a.pb
-}
-
-### The new format contains the hash number for the pair
 notestFastPairs() {
 	$fast -l codelabel_new_with_hash.csv codelabel_new_with_hash.pb
 	stdout 4e25d4ccd0dfaa46c91b8853c620c59e961035c07ee293052d800071e5b53c4a -d codelabel_new_with_hash.pb
 }
 
-notestFastPairsWithHash564() {
+testFastPairsWithHash564() {
 	head -564 codelabel_new_with_hash.csv | tail -1 > a.csv
 	catout c751a683e045b36af5d58e103f79daab9cb42b0c23a260392f39828212fa8bad a.csv
 	$fast -l a.csv a.pb
-	stdout 8de6572b190007d9e23cbf9ef59e1f96c2d288d7c89e461ffaa59dffa77b6d29 -d a.pb
+	stdout 3203810cc6fb73eb59810cf3012d1d9e86acda95fdfdec53280160dc6b5c726a -d a.pb
+	$fast -l -W 5 a.csv a5.pb
+	stdout aeaabf7806746220defa155fb9e7fba301259dca5afe3147d406d0208bb17466 -d a5.pb
 }
 
 testFastSlice() {
 	$fast -p Hello.java Hello.position.pb
 	$fast -p Hello.java Hello.position.xml
+	$fast -s Hello.position.xml
+	$fast -s Hello.position.xml Hello.slice.csv
 	stdouterr 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec -S Hello.position.pb
 	$fast -S Hello.position.pb Hello.slice.pb
 	catout 3b89f50af2b9d6c1b1a9947324def412b718bc7bd857a9a5d0309fbb93dba67f Hello.slice.pb
@@ -1801,6 +1808,19 @@ cleanup_examples() {
 }
 export -f cleanup_examples
 
+testSliceDiff() {
+	cd a
+	../$fast -p example.cc example.positions.pb
+	cd -
+	$fast -S a/example.positions.pb a/example.slice.pb
+	cd b
+	../$fast -p example.cc example.positions.pb
+	cd -
+	$fast -S b/example.positions.pb b/example.slice.pb
+	$fast -L a/example.slice.pb b/example.slice.pb diff.pb > tmp.txt
+	stdout 11360a59f4f4a71b4921f501f9d06880a4120e1f110edccb1cb2d18dc27c67e7 -d diff.pb
+}
+
 notestSliceDiff() {
 	cd a
 	../$fast -p example.cc example.positions.pb
@@ -1814,8 +1834,16 @@ notestSliceDiff() {
 	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
 }
 
-notestJSON() {
+testJSON() {
 	stdout 4692fd4ea5c4513c89747657056e8f598bf4bb77fa6ad4101f858f373f7e5aeb -d -J '.slices.slice[].file[].function[].name' a/example.slice.pb
+}
+
+testPB2XML() {
+	stdout c3a14e8fb712cd85a6cb76c2166b442519924919dc5629a233c5a508cb40065d -x a/example.slice.pb
+}
+
+testId() {
+	stdout 134bf923f22e023ca53dd7c01cb12dc1e0ba387300c9056bc30e85d30a080fa5 -i a/example.cc t.pb 
 }
 
 notestGitSliceDiff() {

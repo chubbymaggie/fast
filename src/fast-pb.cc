@@ -118,6 +118,8 @@ fast::Element* savePBfromXML(xml_node<> *node)
 						lan = "CXX";
 					if (lan == string("C#"))
 						lan = "CSHARP";
+					if (lan == string("OBJECTIVE-C"))
+						lan = "OBJECTIVE_C";
 					bool success = fast::Element_Unit_LanguageType_Parse(lan, &lang);
 					// cout << lang << " = " << lang << success << endl;
 					unit->set_language(lang);
