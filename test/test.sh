@@ -95,7 +95,8 @@ testduplicate() {
 testObjectiveC() 
 {
 	$fast AFHTTPSessionManager.m AFHTTPSessionManager.pb
-	stdout a84f7fdc4604caadcdc1e5f1c2aff06fdfbb7900f927a287b3bdb512af63f815 -d AFHTTPSessionManager.pb
+	#stdout 90d2d536817466cfae7899c970af5ca77cf35939a96dc6b255942d1669e10625 -d AFHTTPSessionManager.pb
+	$fast -d AFHTTPSessionManager.pb > AFHTTPSessionManager.txt 
 }
 
 testSmali() 
