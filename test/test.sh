@@ -1807,7 +1807,7 @@ slice() {
 export -f position
 
 cleanup_examples() {
-	rm -f *.pb *.fbs Hello.* example.* DuplicateVirtualMethods.* *.xml *.cs *.txt a.csv *.slice smali.proto a/*.pb b/*.pb
+	rm -f *.pb *.fbs Hello.* example.* DuplicateVirtualMethods.* *.xml *.cs *.txt a.csv *.slice smali.proto a/*.pb b/*.pb tmp.txt 
 }
 export -f cleanup_examples
 
@@ -1847,6 +1847,14 @@ testPB2XML() {
 
 testId() {
 	stdout 134bf923f22e023ca53dd7c01cb12dc1e0ba387300c9056bc30e85d30a080fa5 -i a/example.cc t.pb 
+}
+
+testBug() {
+	$fast -b Tomcat12.csv bug.pb
+	stdout dc3a4c3936b21970a383f541ba86019de09d6895aa963414503dd5b6e6ea1fc5 -d bug.pb
+	cp bug-xml bug.xml
+	$fast -b bug.xml bug.pb
+	stdout 514b57e9b2071e9ede8120e2e1a348b7905b13d302045a31d3a22b55c19acc0a -d bug.pb
 }
 
 notestGitSliceDiff() {
