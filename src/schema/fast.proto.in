@@ -11,11 +11,11 @@ __COUNTER__
       Kind kind = __COUNTER__; 
       SmaliKind smali_kind = __COUNTER__;
    }
-   string text = __COUNTER__;
+   bytes text = __COUNTER__;
    int32 pos = __COUNTER__;
    int32 length = __COUNTER__;
    repeated Element child = __COUNTER__;
-   string tail = __COUNTER__;
+   bytes tail = __COUNTER__;
    oneof extra {
      Unit unit = __COUNTER__;
      Literal literal = __COUNTER__;

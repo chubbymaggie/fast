@@ -31,6 +31,21 @@ fast::Element* limitPBbyWidth(fast::Element* element, int width) {
 		return element;
 	// cout << n << endl;
 	// m is the number of children of the new element
+	/* if (n < width) { // padding n - width elements
+		int m = width;
+		for (int i=0; i<m; i++) {
+			if (i >= n) { // padding
+				fast::Element *child = new_element->add_child();
+				child->set_kind(fast::Element_Kind_NOP); 
+			} else {
+				fast::Element *new_child = limitPBbyWidth(element->mutable_child(i), width);
+				fast::Element *child = new_element->add_child();
+				child->CopyFrom(*new_child);
+			}
+		}
+		// now the number of child should be exactly `width`
+	} else { // splitting
+	*/
 	int m = min(width, (n + width - 1) /width);
 	for (int i=0; i<m; i++) {
 		fast::Element *candidate_child = new fast::Element();
@@ -50,6 +65,7 @@ fast::Element* limitPBbyWidth(fast::Element* element, int width) {
 		fast::Element *c = new_element->add_child();
 		c->CopyFrom(*new_c);
 	}
+	// }
 	if (element->has_unit()) {
 		new_element->mutable_unit()->CopyFrom(element->unit());
 	}

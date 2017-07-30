@@ -5,6 +5,7 @@
 #include "fast.pb.h"
 #include <stdlib.h>
 #include <unistd.h>
+#include "fast-option.h"
 
 int n_srcML_invoked = 0;
 /** 
@@ -38,7 +39,9 @@ bool srcML(fast::Data *data, std::string text, std::string ext) {
 	if (src_file != NULL) {
 		fclose(src_file);
 		//sprintf(cmd, "lsof -p %d", getpid()); system(cmd);
-		sprintf(cmd, "fast -W 10 %s %s", src_filename.c_str(), pb_filename.c_str());
+		if (width_limit == 0)
+			width_limit = 10;
+		sprintf(cmd, "fast -W %d %s %s", width_limit, src_filename.c_str(), pb_filename.c_str());
 		// std::cout << cmd << std::endl;
 		n_srcML_invoked++;
 		int ret_val = system(cmd);
@@ -231,25 +234,24 @@ int processMainRoutine(int argc, char ** argv) {
 			if (hashPos1 == 40) {
 				line = line.substr(linePos0+1);
 				hash1 = line.substr(0, hashPos1);
-				//std::cout << hash1 << std::endl;
+				// std::cout << hash1 << std::endl;
 				linePos0 = hashPos1;
 			}
 			size_t linePos1 = line.substr(linePos0+1).find(SEPARATOR);
 			std::string line2 = line.substr(linePos0+1).substr(linePos1 + strlen(SEPARATOR) + 1);
 			size_t linePos2 = line2.find(SEPARATOR);
 			std::string index1 = line2.substr(0, linePos2 - 1);
-			std::string code = line2.substr(linePos2 + strlen(SEPARATOR) + 1);
+			std::string code = line2.substr(linePos2 + strlen(SEPARATOR));
 			size_t linePos3 = code.find(SEPARATOR);
 			std::string code1 = code.substr(0, linePos3-1);
-			replaceAll(code1, "$$", "\n");
 			size_t hashPos2 = code1.rfind(",");
 			std::string hash2 = code1.substr(hashPos2+1);
 			if (hash2.length() == 40) {
 				hash2 = code1.substr(hashPos2+1);
-				//std::cout << hash2 << std::endl;
-				code1 = code.substr(0, hashPos2);
+				// std::cout << hash2 << std::endl;
+				code1 = code1.substr(0, hashPos2);
 			}
-			// std::cout << code1 << std::endl;
+			replaceAll(code1, "$$", "\n");
 			fast::Pairs_Pair_Diff *diff1 = set_diff(index1, code1, "java");
 			diff1->set_project(project + "java");
 			diff1->set_hash(hash1);
@@ -258,9 +260,10 @@ int processMainRoutine(int argc, char ** argv) {
 			std::string index = code.substr(linePos3 + strlen(SEPARATOR) + 1);
 			size_t linePos4 = index.find(SEPARATOR);
 			std::string index2 = index.substr(0, linePos4 - 1);
-			std::string code2 = index.substr(linePos4 + 1);
+			std::string code2 = index.substr(linePos4 + strlen(SEPARATOR));
 			replaceAll(code2, "$$", "\n");
 			size_t lastPos = code2.rfind(",");
+			// std::cout << code1 << std::endl;
 			// std::cout << code2 << std::endl;
 			fast::Pairs_Pair_Diff *diff2 = set_diff(index2, code2.substr(0, lastPos - 1), "cs");
 			diff2->set_project(project + "cs");

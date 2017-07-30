@@ -55,7 +55,7 @@ EOF
 	stdout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 -d Hello.pb
 	$fast -d Hello.pb Hello.txt
 	catout 5d6a5d0fe43892ebd0d89f721abae274d76982b2474b449fe795ed5fa5ce8478 Hello.txt
-	stdout 5880a0c45b7bb4bf441aacfd63e4471d972457f88e28596d3a611d972f3e3bf0 -d -j Hello.pb
+	stdout 9b6842ca561038c21edb0507e768c66cf2bf5dd25db879f616972d4b3c35fee4 -d -j Hello.pb
 }
 testCC() 
 {
