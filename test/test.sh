@@ -1859,7 +1859,7 @@ testBug() {
 	stdout 514b57e9b2071e9ede8120e2e1a348b7905b13d302045a31d3a22b55c19acc0a -d bug.pb
 }
 
-notestGitSliceDiff() {
+testGitSliceDiff() {
 	HEAD=fc55833f16eb9101fcc6cacc1b2b4b898275f7c6
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)
