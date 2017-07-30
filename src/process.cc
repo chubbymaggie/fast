@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <ostream>
-#define SEPARATOR "@@"
+#define SEPARATOR "@@ "
 #include "fast.pb.h"
 #include <stdlib.h>
 #include <unistd.h>
