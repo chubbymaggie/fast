@@ -50,9 +50,6 @@ the following activities slow:
 * Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy with Qiuchi Li
 * Support more ANTLR4 languages (long term)
 
-#### Known bugs to fix #### 
-* Generate efficient slices directly from merged srcML inputs (fast -S all.xml)
-
 *0.0.5* (TBD)
 
 *0.0.4* (July 22, 2017)
