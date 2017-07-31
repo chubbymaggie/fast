@@ -34,6 +34,8 @@ int find_pattern = 0;
 string find_filter;
 
 int bug_analysis = 0;
+int normalise = 0;
+string normalise_list;
 
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
@@ -46,7 +48,7 @@ int loadCSV(int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-bcdDef:g:hijJ:lLpsSvwW:x] input_file output_file"  << endl
+    cerr << "Usage: fast [-bcdDef:g:hijJ:lLn:psSvwW:x] input_file output_file"  << endl
 	 << "-b\tBug input, in either XML or CSV format" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
@@ -60,6 +62,7 @@ void usage() {
 	 << "-J <jq>\tuse jq query to process the decoded JSON content, turn on -d -j options" << endl
 	 << "-l\tProcess log pairs from cross-language repositories" << endl
 	 << "-L\tDifferentiate on the slices" << endl
+	 << "-n <list>\tNormalise the FAST structure as instructed by the list" << endl
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
 	 << "-S\tSlice programs on the binary format" << endl
@@ -118,13 +121,17 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "bcdDef:g:hijJ:lLpsSvwW:x")) != -1)
+  while ((c = getopt (argc, argv, "bcdDef:g:hijJ:lLn:psSvwW:x")) != -1)
     switch (c) {
       case 'h':
 	    usage();
 	    return 0;
       case 'b':
 	    bug_analysis = 1;
+	    break;
+      case 'n':
+	    normalise = 1;
+	    normalise_list = optarg;
 	    break;
       case 'v':
 	    cerr << "fast " << __FAST_VERSION__ << " commit id: " << __FAST_HASH__ << " with local changes id: " << __FAST_WORK__ << endl

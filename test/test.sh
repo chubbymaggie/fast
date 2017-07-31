@@ -1859,6 +1859,14 @@ testBug() {
 	stdout 514b57e9b2071e9ede8120e2e1a348b7905b13d302045a31d3a22b55c19acc0a -d bug.pb
 }
 
+testNormalise() {
+	$fast a/example2.cc a.pb
+	$fast -n function.list a.pb b.pb
+	$fast b.pb b.cc
+	catout 7f4eeabf993d31c683e5c55a8c20784c663a9ad5572c5530c2c9f916bbfed22b b.cc
+	rm -f b.cc
+}
+
 testGitSliceDiff() {
 	HEAD=fc55833f16eb9101fcc6cacc1b2b4b898275f7c6
 	r2=$(git rev-list $HEAD | head -1)

@@ -16,7 +16,6 @@
 #include <stdlib.h>
 using namespace std;
 using namespace rapidxml;
-
 /**
  * Limit the width of an AST by introducing intermediate tree nodes of NOP kind
  */
@@ -66,6 +65,93 @@ fast::Element* limitPBbyWidth(fast::Element* element, int width) {
 		c->CopyFrom(*new_c);
 	}
 	// }
+	if (element->has_unit()) {
+		new_element->mutable_unit()->CopyFrom(element->unit());
+	}
+	return new_element;
+}
+
+vector<string> normalise_instructions;
+
+string child_name;
+string key_name;
+int my_element(fast::Element *e1, fast::Element *e2) {
+	if (fast::Element_Kind_Name(e1->kind()) == child_name 
+		&& fast::Element_Kind_Name(e2->kind()) == child_name) {
+		string k1, k2;
+		for (int j=0; j<e1->child().size(); j++) {
+			const fast::Element *key = e1->mutable_child(j);
+			if (fast::Element_Kind_Name(key->kind()) == key_name) {
+				k1 = key->text();
+				break;
+			}
+		}
+		for (int j=0; j<e2->child().size(); j++) {
+			const fast::Element *key = e2->mutable_child(j);
+			if (fast::Element_Kind_Name(key->kind()) == key_name) {
+				k2 = key->text();
+				break;
+			}
+		}
+		// cout << "k1 = " << k1 << " k2 = " << k2 << endl;
+		if (k1 < k2) 
+			return 1;
+	}
+	return 0;
+}
+/**
+ * Normalise the AST according to `normalise_list`
+ */
+fast::Element* normaliseAST(fast::Element* element) {
+	fast::Element* new_element = new fast::Element();
+	new_element->set_kind(element->kind());
+	new_element->set_text(element->text());
+	new_element->set_tail(element->tail());
+	if (normalise_instructions.size() == 0) {
+		ifstream input(normalise_list, ios::in);
+		string line;
+		while (input) {
+		      std::getline(input, line);
+		      if (line!="") {
+			      normalise_instructions.push_back(line);
+		      }
+		} 
+		input.close();
+	}
+	for (string instruction: normalise_instructions) {
+		vector<string> args;
+	        const char *str = instruction.c_str();
+		do {
+			const char *begin = str;
+			while((*str != ' ') && *str != 0)
+			    str++;
+			if (begin < str)
+				args.push_back(string(begin, str));
+		} while (0 != *str++);
+		if (args.size()>4 && args[0] == "order" && args[3] == "by") {
+			string parent_name = args[1];
+			if (parent_name == "unit") 
+				parent_name = "unit_kind";
+			child_name = args[2];
+			key_name = args[4];
+			std::transform(parent_name.begin(), parent_name.end(),parent_name.begin(), ::toupper);
+			std::transform(child_name.begin(), child_name.end(),child_name.begin(), ::toupper);
+			std::transform(key_name.begin(), key_name.end(),key_name.begin(), ::toupper);
+			int n = element->child().size();
+			vector<fast::Element*> children;
+			for (int i=0; i<n; i++) {
+				fast::Element *child = element->mutable_child(i);
+				children.push_back(normaliseAST(child));
+			}
+			if (fast::Element_Kind_Name(element->kind()) == parent_name) {
+				std::sort(children.begin(), children.end(), my_element);
+			}
+			for (int i=0; i<n; i++) {
+				fast::Element *new_child = new_element->add_child();
+				new_child->CopyFrom(*children[i]);
+			}
+		}
+	}
 	if (element->has_unit()) {
 		new_element->mutable_unit()->CopyFrom(element->unit());
 	}
@@ -193,6 +279,9 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		}
 		if (node->next_sibling() != 0 && string(node->next_sibling()->name()) == "") { // sibling text node
 			element->set_tail(node->next_sibling()->value());
+		}
+		if (normalise) {
+			element = normaliseAST(element);
 		}
 		if (report_max_width) {
 			if (limit_width && n > width_limit) {

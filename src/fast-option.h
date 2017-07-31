@@ -29,6 +29,8 @@ extern int report_id_comment;
 extern int include_comment;
 
 extern int bug_analysis;
+extern int normalise;
+extern string normalise_list;
 
 extern void usage(); 
 extern bool check_exists(const std::string& name);
