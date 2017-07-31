@@ -43,16 +43,16 @@ the following activities slow:
 *TODOs* 
 
 #### Feature requests ####
-* Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
-  by migrating the [txl](http://txl.ca)-based implementation
 * Rewrite the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
-* Integrate with [biyacc](http://biyacc.yozora.moe) with Chunmiao Li
-* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy with Qiuchi Li
 * Support more ANTLR4 languages (long term)
 
 *0.0.5* (TBD)
+* Integrate with [biyacc](http://biyacc.yozora.moe) with Chunmiao Li
+* Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
+  by migrating the [txl](http://txl.ca)-based implementation, see `-n` option
+* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy with Qiuchi Li
 
-*0.0.4* (July 22, 2017)
+*0.0.4* (August 1, 2017)
 
 * Updated schema's Kinds as a union type, accommodating more ANTLR4 languages when needed
   (currently, Kind => srcml; SmaliKind => smali)

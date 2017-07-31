@@ -1,7 +1,7 @@
 ## Synopsis
 
 ```
-$ fast [-bcdef:hijJ:lLpsStvwW:x] $input [$output]
+$ fast [-bcdef:hijJ:lLn:psStvwW:x] $input [$output]
 ```
 
 ## Options
@@ -28,6 +28,8 @@ $ fast [-bcdef:hijJ:lLpsStvwW:x] $input [$output]
      -l      Process log pairs from cross-language repositories.
 
      -L      Differentiate on the slices.
+
+     -n <list> Normalise the protobuf representation according to the listed instructions;
 
      -p      Position (line, column) is added to source code elements.
 
