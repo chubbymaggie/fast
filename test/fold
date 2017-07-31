@@ -1,0 +1,18 @@
+function cpu_setup() {
+	sudo pip3 install https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.0.0-cp34-cp34m-linux_x86_64.whl
+	sudo pip3 install https://storage.googleapis.com/tensorflow_fold/tensorflow_fold-0.0.1-py3-none-linux_x86_64.whl
+	sudo pip3 install numpy
+	make fast_pb2.py
+	cp fast_pb2.py src
+}
+function gpu_setup() {
+	sudo pip3 install https://storage.googleapis.com/tensorflow/linux/gpu/tensorflow_gpu-1.0.0-cp34-cp34m-linux_x86_64.whl
+	sudo pip3 install https://storage.googleapis.com/tensorflow_fold/tensorflow_fold-0.0.1-py3-none-linux_x86_64.whl
+	sudo pip3 install numpy
+	make fast_pb2.py
+	cp fast_pb2.py src
+}
+#cpu_setup
+gpu_setup
+export LD_LIBRARY_PATH=/usr/lib:/usr/local/lib:/usr/local/cuda-8.0/lib64
+python3 fold.py $1
