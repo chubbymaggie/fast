@@ -1844,8 +1844,10 @@ testJSON() {
 }
 
 testPB2XML() {
-	stdout c3a14e8fb712cd85a6cb76c2166b442519924919dc5629a233c5a508cb40065d -x a/example.slice.pb
-	stdout 5397fe73cf208062df264e1bbb8d46b136f3df24aed3b68579f83126a3bebdfc -x a/example.slice.pb a/example.slice.txt
+	$fast -x a/example.slice.pb
+	$fast -x a/example.slice.pb a/example.slice.txt
+	#stdout c3a14e8fb712cd85a6cb76c2166b442519924919dc5629a233c5a508cb40065d -x a/example.slice.pb
+	#stdout 5397fe73cf208062df264e1bbb8d46b136f3df24aed3b68579f83126a3bebdfc -x a/example.slice.pb a/example.slice.txt
 }
 
 testId() {
