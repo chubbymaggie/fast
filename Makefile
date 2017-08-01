@@ -259,8 +259,8 @@ ifeq ($(UNAME_S),Darwin)
 endif
 
 v$V.tar.gz:
-	wget https://github.com/yijunyu/fast/archive/v$(V0).tar.gz
-	wget https://github.com/yijunyu/fast/archive/v$V.tar.gz
+	wget https://github.com/f-ast/fast/archive/v$(V0).tar.gz
+	wget https://github.com/f-ast/fast/archive/v$V.tar.gz
 
 debian: fast-$V/debian/source/format fast-$V/debian/rules fast-$V/debian/copyright fast-$V/debian/control fast-$V/debian/changelog fast-$V/debian/compat
 	cd fast-$V && dpkg-source --commit
