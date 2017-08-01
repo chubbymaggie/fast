@@ -100,7 +100,7 @@ fast_objects += fast.pb.o
 fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
 fast_objects += git.o 
 fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o 
-fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
+#fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 fast_objects += process.o
 fast_objects += slice-diff.o
 

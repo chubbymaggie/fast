@@ -58,7 +58,9 @@ int loadSrcML(int load_only, int argc, char **argv);
 
 int mainRoutine(int argc, char* argv[]);
 int smaliMainRoutine(int argc, char** argv);
+#if 0
 int pbMainRoutine(int argc, const char* argv[]);
+#endif
 int processMainRoutine(int argc, char**argv);
 int sliceDiffMainRoutine(int argc, char**argv);
 
@@ -524,12 +526,14 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 		}
 		(void) system(buf);
 	} 
+#if 0
 	if (pb2xml && output_file !=NULL ) {
 		const char *my_argv[] = {
 			"fast", output_file
 		};
 		(void) pbMainRoutine(2, my_argv);
 	}
+#endif
 }
 void saveTxtFromPB(char *input_file) {
 	saveTxtFromPB(input_file, NULL);
