@@ -1734,6 +1734,7 @@ testFastPairsWithHash564() {
 	stdout 3203810cc6fb73eb59810cf3012d1d9e86acda95fdfdec53280160dc6b5c726a -d a.pb
 	$fast -l -W 5 a.csv a5.pb
 	stdout aeaabf7806746220defa155fb9e7fba301259dca5afe3147d406d0208bb17466 -d a5.pb
+	$fast -w a5.pb
 }
 
 testFastSlice() {
@@ -1849,6 +1850,7 @@ testPB2XML() {
 
 testId() {
 	stdout 134bf923f22e023ca53dd7c01cb12dc1e0ba387300c9056bc30e85d30a080fa5 -i a/example.cc t.pb 
+	$fast -i -fcc . t.pb
 }
 
 testBug() {
