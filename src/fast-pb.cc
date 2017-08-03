@@ -106,10 +106,21 @@ fast::Element* normaliseASTonePass(fast::Element* element, string parent_name, s
 	std::transform(key_name.begin(), key_name.end(),key_name.begin(), ::toupper);
 	int n = element->child().size();
 	vector<fast::Element*> selected_children;
+	map<fast::Element*, fast::Element*> selected_comments;
 	for (int i=0; i<n; i++) {
 		fast::Element *child = element->mutable_child(i);
 		if (fast::Element_Kind_Name(child->kind()) == child_name) {
-			selected_children.push_back(normaliseASTonePass(child, parent_name, child_name, key_name));
+			bool has_comment = false;
+			if (i > 0) {
+				has_comment = fast::Element_Kind_Name(element->mutable_child(i-1)->kind()) == "COMMENT";
+			}
+			fast::Element *normalised_child = normaliseASTonePass(child, parent_name, child_name, key_name);
+			selected_children.push_back(normalised_child);
+			// if the previous element is a comment, it should be sorted together
+			if (i > 0 && has_comment) {
+				// cout << "selected comment " << endl;
+				selected_comments[normalised_child] = element->mutable_child(i-1);
+			}
 		}
 	}
 	if (fast::Element_Kind_Name(element->kind()) == parent_name) {
@@ -118,13 +129,25 @@ fast::Element* normaliseASTonePass(fast::Element* element, string parent_name, s
 	}
 	int m = 0;
 	for (int i=0; i<n; i++) {
-		fast::Element *new_child = new_element->add_child();
 		fast::Element *child = element->mutable_child(i);
 		if (fast::Element_Kind_Name(child->kind()) == child_name) {
-			new_child->CopyFrom(*selected_children[m]);
+			fast::Element *new_child = new_element->add_child();
+			fast::Element *sc = selected_children[m];
+			if (selected_comments[sc]!=NULL) {
+				// first insert the comment
+				// cout << "insert the comment " << endl;
+				new_child->CopyFrom(*selected_comments[sc]);
+				new_child = new_element->add_child();
+			}
+			new_child->CopyFrom(*sc);
 			m++;
-		} else
+		} else if (i < n-1 && fast::Element_Kind_Name(element->mutable_child(i+1)->kind()) == child_name
+				&& fast::Element_Kind_Name(child->kind()) == "COMMENT") {
+			; // skip the comment
+		} else {
+			fast::Element *new_child = new_element->add_child();
 			new_child->CopyFrom(*child);
+		}
 	}
 	if (element->has_unit()) {
 		new_element->mutable_unit()->CopyFrom(element->unit());
