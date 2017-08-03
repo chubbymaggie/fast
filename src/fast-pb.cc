@@ -73,21 +73,38 @@ fast::Element* limitPBbyWidth(fast::Element* element, int width) {
 
 vector<string> normalise_instructions;
 
+string toStringFromPBElement(fast::Element* element) {
+	string str = element->text();
+	int n = element->child().size();
+	for (int i=0; i<n; i++) {
+		string s = toStringFromPBElement(element->mutable_child(i));
+		str += s;
+	}
+	str += element->tail();
+	return str;
+}
+
 string key_name;
 int my_ordering(fast::Element *e1, fast::Element *e2) {
 	string k1, k2;
-	for (int j=0; j<e1->child().size(); j++) {
-		const fast::Element *key = e1->mutable_child(j);
-		if (fast::Element_Kind_Name(key->kind()) == key_name) {
-			k1 = key->text();
-			break;
+	if (key_name == "TEXT()") {
+		k1 = toStringFromPBElement(e1);
+		k2 = toStringFromPBElement(e2);
+		// cout << "k1 = " << k1 << " k2 = " << k2 << endl;
+	} else {
+		for (int j=0; j<e1->child().size(); j++) {
+			const fast::Element *key = e1->mutable_child(j);
+			if (fast::Element_Kind_Name(key->kind()) == key_name) {
+				k1 = key->text();
+				break;
+			}
 		}
-	}
-	for (int j=0; j<e2->child().size(); j++) {
-		const fast::Element *key = e2->mutable_child(j);
-		if (fast::Element_Kind_Name(key->kind()) == key_name) {
-			k2 = key->text();
-			break;
+		for (int j=0; j<e2->child().size(); j++) {
+			const fast::Element *key = e2->mutable_child(j);
+			if (fast::Element_Kind_Name(key->kind()) == key_name) {
+				k2 = key->text();
+				break;
+			}
 		}
 	}
 	// cout << "k1 = " << k1 << " k2 = " << k2 << endl;
@@ -125,12 +142,14 @@ fast::Element* normaliseASTonePass(fast::Element* element, string parent_name, s
 	}
 	if (fast::Element_Kind_Name(element->kind()) == parent_name) {
 		::key_name = key_name;
+		// cout << key_name << endl;
 		std::sort(selected_children.begin(), selected_children.end(), my_ordering);
 	}
 	int m = 0;
 	for (int i=0; i<n; i++) {
 		fast::Element *child = element->mutable_child(i);
 		if (fast::Element_Kind_Name(child->kind()) == child_name) {
+			// cout << child_name << endl;
 			fast::Element *new_child = new_element->add_child();
 			fast::Element *sc = selected_children[m];
 			if (selected_comments[sc]!=NULL) {
