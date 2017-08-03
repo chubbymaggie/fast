@@ -23,4 +23,4 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
   rm -rf /var/cache/oracle-jdk8-installer
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 #RUN pip install --user cpp-coveralls
-RUN git clone https://github.com/f-ast/fast && cd fast && make && make install && rm -rf fast
+RUN git clone https://github.com/f-ast/fast && cd fast && make && make install && cd .. && rm -rf fast
