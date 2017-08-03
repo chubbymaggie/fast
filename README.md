@@ -45,6 +45,7 @@ the following activities slow:
 #### Feature requests ####
 * Rewrite the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
 * Support more ANTLR4 languages (long term)
+* Create a Dockerfile to simplify the deployment
 
 *0.0.5* (TBD)
 * Integrate with [biyacc](http://biyacc.yozora.moe) with Chunmiao Li
