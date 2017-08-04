@@ -2,3 +2,4 @@ order block function by name
 order unit function by name
 order unit import by text()
 order function specifier by text()
+order class specifier by text()

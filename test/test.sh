@@ -1864,8 +1864,7 @@ testBug() {
 }
 
 testNormalise() {
-	$fast a/example2.cc a.pb
-	$fast -n function.list a.pb b.pb
+	$fast -n normalise.list a/example2.cc b.pb
 	$fast b.pb b.cc
 	catout 87974b33726e268a074effa1a8c7df62ebbb0dee67b7d39327edda0a6be7b200 b.cc
 	rm -f b.cc
