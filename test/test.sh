@@ -1867,8 +1867,11 @@ testNormalise() {
 	$fast a/example2.cc a.pb
 	$fast -n function.list a.pb b.pb
 	$fast b.pb b.cc
-	catout 7f4eeabf993d31c683e5c55a8c20784c663a9ad5572c5530c2c9f916bbfed22b b.cc
+	catout 87974b33726e268a074effa1a8c7df62ebbb0dee67b7d39327edda0a6be7b200 b.cc
 	rm -f b.cc
+	$fast -n normalise.list a/Example.java t.pb
+	$fast t.pb t.java
+	catout 1b5a650193227718185f5fe8d6fdea63799e2e865a2c4767253bf8d346b72f77 t.java
 }
 
 testGitSliceDiff() {
