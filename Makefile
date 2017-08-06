@@ -1,5 +1,5 @@
-V0=0.0.3
-V=0.0.4
+V0=0.0.4
+V=0.0.5
 
 target+=fast
 target+=src/gen.pb/src/main/java/fast/Fast.java

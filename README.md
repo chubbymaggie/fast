@@ -43,15 +43,15 @@ the following activities slow:
 *TODOs* 
 
 #### Feature requests ####
-* Rewrite the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
 * Support more ANTLR4 languages (long term)
-* Create a Dockerfile to simplify the deployment
+* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy for Qiuchi Li
 
 *0.0.5* (TBD)
-* Integrate with [biyacc](http://biyacc.yozora.moe) with Chunmiao Li
-* Reimplement normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
+* Integrated with [biyacc](http://biyacc.yozora.moe) by the help of Chunmiao Li
+* Reimplemented normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation, see `-n` option
-* Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy with Qiuchi Li
+* Rewritten the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
+* Created a Dockerfile to simplify the deployment
 
 *0.0.4* (August 1, 2017)
 
