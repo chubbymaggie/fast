@@ -31,8 +31,9 @@ the following activities slow:
 ### *Program slicing* => [2.5x faster](doc/performance.md)
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
 ### *Diff-Patching* => smaller and faster (to measure)
-* [gumtreediff](https://github.com/GumTreeDiff/gumtree)
-* [mct](https://github.com/f-ast/meaningful-changes)
+* [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
+* [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree)
+* [mct, ASE'11](https://github.com/f-ast/meaningful-changes)
 ### *Synchronisation* => smaller and faster (to measure)
 * [biyacc](http://biyacc.yozora.moe)
 ### *Clone Detection* => more precise (to measure)
@@ -50,7 +51,7 @@ the following activities slow:
 * Integrated with [biyacc](http://biyacc.yozora.moe) by the help of Chunmiao Li
 * Reimplemented normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation, see `-n` option
-* Rewritten the interface to [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) to make it faster
+* Rewritten the interface to speedup [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) and [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
 * Created a Dockerfile to simplify the deployment
 
 *0.0.4* (August 1, 2017)

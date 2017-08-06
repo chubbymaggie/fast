@@ -29,6 +29,7 @@ Our tool cannot be made without standing on the shoulders of these great tools:
 * [rapidxml](https://github.com/dwd/rapidxml)
 * [smali](https://github.com/JesusFreke/smali)
 * [srcML](http://www.srcml.org/)
+* [treedifferencing](https://github.com/FAU-Inf2/treedifferencing)
 * [txl](http://txl.ca)
 
 
