@@ -2,6 +2,7 @@ V0=0.0.3
 V=0.0.4
 
 target+=fast
+target+=src/gen/fast/Fast.java
 
 CXX=c++
 protoc=/usr/local/bin/protoc
@@ -187,6 +188,10 @@ src/gen/fast_pb2.py: fast.proto
 src/gen/fast.pb.h src/gen/fast.pb.cc: fast.proto
 	mkdir -p src/gen
 	$(protoc) -I=. --cpp_out=src/gen fast.proto
+
+src/gen/fast/Fast.java: fast.proto
+	mkdir -p src/gen
+	$(protoc) -I=. --java_out=src/gen fast.proto
 
 fast.fbs: fast.proto
 	$(flatc) --proto fast.proto

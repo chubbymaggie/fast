@@ -28,6 +28,7 @@ __COUNTER__
    }
    int32 line = __COUNTER__;
    int32 column = __COUNTER__;
+   float label = __COUNTER__;
 }
 
 message Delta {
