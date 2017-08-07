@@ -144,7 +144,7 @@ void displayPBElement(fast::Element *element) {
 	out << "my $dim_magenta=\"\\e[38;5;146m\";" << endl;
 	out << "my $red=\"\\e[0;31m\";" << endl;
 	out << "my $green=\"\\e[1;32m\";" << endl;
-	out << "my $yelow=\"\\e[1;33m\";" << endl;
+	out << "my $yellow=\"\\e[1;33m\";" << endl;
 	out << "my $blue=\"\\e[1;34m\";" << endl;
 	out << "my $pink=\"\\e[1;35m\";" << endl;
 	out << "my $reset=\"\\e[0m\";" << endl;
