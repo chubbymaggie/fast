@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.github.gumtreediff.test.TestGumtreeMatcher" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-08-07T03:13:26" hostname="MCL262830.local" time="0.032">
-  <properties/>
-  <testcase name="testMinHeightThreshold" classname="com.github.gumtreediff.test.TestGumtreeMatcher" time="0.024"/>
-  <testcase name="testSizeThreshold" classname="com.github.gumtreediff.test.TestGumtreeMatcher" time="0.008"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
