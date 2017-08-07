@@ -13,6 +13,9 @@ $ fast [-bcdef:hijJ:lLn:psStvwW:x] $input [$output]
 
      -d      Decode the textual representation from protobuf AST input.
 
+     -D      Mark the differences on two FASTs using GumTreeDiff (see ASE'14)/Treedifferencing (see ASE'16).
+	     Can be combined with -n option to compute differences after normalisation (see ASE'11).
+
      -e      Encode the protobuf binary AST from the textual input.
 
      -f <ext> Select only the files with `ext` extension name.

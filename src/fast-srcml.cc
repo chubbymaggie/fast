@@ -47,6 +47,20 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	if (position)
 		srcmlCommand = srcmlCommand + " --position";
 	bool is_tmp = false;
+
+	if (delta && argc == 3) {
+		string nn = "";
+		if (normalise)
+			nn = "-n " + normalise_list + " ";
+		string cmd = "fast "; cmd = cmd + nn + argv[1] + " " + argv[1] + ".pb";
+		system(cmd.c_str());
+		cmd = "fast "; cmd = cmd + nn + argv[2] + " " + argv[2] + ".pb";
+		system(cmd.c_str());
+		cmd = "fast -D "; cmd = cmd + argv[1] + ".pb " + argv[2] + ".pb";
+		system(cmd.c_str());
+		return 0;
+	}
+
 	if (!input_is_xml) { // input is not yet xml, first convert it into xml using srcml
 		output_is_xml = argc == 2 || strcmp(argv[argc-1]+strlen(argv[argc-1])-4, ".xml")==0;
 		output_is_pb = argc > 2 && strcmp(argv[argc-1]+strlen(argv[argc-1])-3, ".pb")==0;
@@ -75,7 +89,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			// cout << srcmlCommand << endl;
 			(void) system(srcmlCommand.c_str());
 		}
-	}
+	} 
 	if (slice) {
 		string sliceCommand = "srcSlice ";
 		sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";

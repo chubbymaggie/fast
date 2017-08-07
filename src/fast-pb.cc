@@ -375,7 +375,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				mkstemp(buf2);
 				string cmd = "java -cp /usr/local/lib:/usr/local/lib/intt.jar Example ";
 				cmd = cmd + buf + " > " + buf2;
-				system(cmd.c_str());
+				(void) system(cmd.c_str());
 				remove(buf);
 				cout << base_name << ";";
 				ifstream input(buf2, ios::in);
@@ -498,13 +498,14 @@ fast::Bugs* savePBfromBugCSV(const char *input_filename)
 void slicePB(srcSliceHandler& handler, fast::Element *element);
 
 fast::Data readData(const char *input_filename) {
+	assert(strcmp(input_filename, "")!=0);
 	// Verify that the version of the library that we linked against is
 	// compatible with the version of the headers we compiled against.
 	GOOGLE_PROTOBUF_VERIFY_VERSION;
 	fast::Data data;
 	ifstream input(input_filename, ios::in | ios::binary);
     	if (!data.ParseFromIstream(&input)) {
-	      cerr << "Failed to parse compilation unit." << endl;
+	      cerr << "Failed to parse compilation unit: " << input_filename<< endl;
 	}
 	input.close();
 	return data;
@@ -534,8 +535,9 @@ void createIdMap(fast::Element* element, map<int, fast::Element*> *map) {
 int loadPB(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
 	char *input_filename = argv[1];
+	assert(strcmp(input_filename, "")!=0);
 	fast::Data data = readData(input_filename);
-    if (data.has_element() && !load_only && !mySlice) {
+    if (data.has_element() && !load_only && !mySlice && !delta) {
 	// string xml_filename = tmpnam(NULL);
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -584,7 +586,7 @@ int loadPB(int load_only, int argc, char **argv) {
 		srcSliceToCsv(sslice, argv[argc-1]);
 	else
 		srcSliceToCsv(sslice, NULL);
-    } else if (data.has_delta() && delta) {
+    } else if (data.has_delta() && delta && argc == 2) {
 	string src_filename = data.delta().src();
 	string dst_filename = data.delta().dst();
 	fast::Data src_data = readData(src_filename.c_str());
@@ -599,25 +601,14 @@ int loadPB(int load_only, int argc, char **argv) {
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_DEL) {
 			fast::Delta_Diff_Del *diff = data.mutable_delta()->mutable_diff(i)->mutable_del();
-			// cout << "DEL " << diff->src() << endl;
 			fast::Element *to_delete = src_map[diff->src()];
 			if (to_delete!=NULL)
 				to_delete->set_change(fast::Element_DiffType_DELETED);
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_ADD) {
 			fast::Delta_Diff_Add *diff = data.mutable_delta()->mutable_diff(i)->mutable_add();
-			// int dst = mappings[diff->src()];
-			int dst = diff->src();
-			int src_parent = mappings[diff->dst()];
-			// cout << "==== " << diff->src() << endl;
-			fast::Element *parent = src_map[src_parent];
-			if (parent!=NULL) {
-				fast::Element *new_child = parent->add_child();
-				if (dst_map[dst]!=NULL) {
-					new_child->CopyFrom(*dst_map[dst]);
-					new_child->set_change(fast::Element_DiffType_ADDED);
-				}
-			}
+			int src = diff->src();
+			dst_map[src]->set_change(fast::Element_DiffType_ADDED);
 			// cout << "ADD " << diff->src() << " " << diff->dst() << " " << diff->position() << endl;
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_UPDATE) {
@@ -626,39 +617,55 @@ int loadPB(int load_only, int argc, char **argv) {
 			int dst = diff->dst();
 			fast::Element *src_element = src_map[src];
 			fast::Element *dst_element = dst_map[dst];
-			src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
-			dst_element->set_change(fast::Element_DiffType_CHANGED_TO);
-			if (src_element!=NULL && dst_element!=NULL) {
-				fast::Element *new_child = src_element->add_child();
-				new_child->CopyFrom(*dst_element);
-			}
+			if (src_element!=NULL) 
+				src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
+			if (dst_element!=NULL) 
+				dst_element->set_change(fast::Element_DiffType_CHANGED_TO);
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MOVE) {
 			fast::Delta_Diff_Move *diff = data.mutable_delta()->mutable_diff(i)->mutable_move();
 			int src = diff->src();
-			int dst = diff->dst();
-			int src_parent = mappings[dst];
+			int dst_parent = diff->dst();
 			int pos = diff->position();
 			fast::Element *src_element = src_map[src];
-			fast::Element *src_parent_element = src_map[src_parent]->mutable_child(pos);
+			fast::Element *dst_element = dst_map[dst_parent]->mutable_child(pos);
 			src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
-			if (src_element!=NULL && src_parent_element!=NULL) {
-				fast::Element *new_child = src_parent_element->add_child();
-				new_child->CopyFrom(*src_element);
-				new_child->set_change(fast::Element_DiffType_CHANGED_TO);
-			}
+			dst_element->set_change(fast::Element_DiffType_CHANGED_TO);
 		}
 	}
-	if (argc == 2) {
-		cout << toStringFromPBElement(src_data.mutable_element()) << endl;
-	} else if (argc > 2) {
-		fstream output(argv[2], ios::out | ios::trunc | ios::binary);
-		fast::Data *data = new fast::Data();
-		data->set_allocated_element(src_data.mutable_element());
-		data->SerializeToOstream(&output);
-		google::protobuf::ShutdownProtobufLibrary();
-		output.close();
-	}
+	fstream output(src_filename, ios::out | ios::trunc | ios::binary);
+	fast::Data *data = new fast::Data();
+	data->set_allocated_element(src_data.mutable_element());
+	data->SerializeToOstream(&output);
+	output.close();
+	fstream output2(dst_filename, ios::out | ios::trunc | ios::binary);
+	data = new fast::Data();
+	data->set_allocated_element(dst_data.mutable_element());
+	data->SerializeToOstream(&output2);
+	google::protobuf::ShutdownProtobufLibrary();
+	output2.close();
+    } else if (data.has_element() && delta && argc == 3) {
+	    string src_filename = argv[1];
+	    string dst_filename = argv[2];
+	    string cmd = "gumtree diff ";
+	    cmd += src_filename + " " + dst_filename;
+	    (void) system(cmd.c_str());
+	    // cout << cmd << endl;
+	    argc = 2;
+	    if (src_filename.find("/") != string::npos) {
+		    src_filename = src_filename.substr(src_filename.rfind("/")+1);
+	    }
+	    if (src_filename.find(".pb") != string::npos) {
+		    src_filename = src_filename.substr(0, src_filename.rfind(".pb"));
+	    }
+	    if (dst_filename.find("/") != string::npos) {
+		    dst_filename = dst_filename.substr(dst_filename.rfind("/")+1);
+	    }
+	    if (dst_filename.find(".pb") != string::npos) {
+		    dst_filename = dst_filename.substr(0, dst_filename.rfind(".pb"));
+	    }
+	    argv[1] = strdup((src_filename + dst_filename + "-diff.pb").c_str());
+	    loadPB(load_only, argc, argv);
     }
   // Optional:  Delete all global objects allocated by libprotobuf.
   google::protobuf::ShutdownProtobufLibrary();

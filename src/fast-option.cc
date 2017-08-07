@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <map>
 #include "ver.h"
+#include <assert.h>
 using namespace std;
 
 int decode = 0; 
@@ -52,7 +53,7 @@ void usage() {
 	 << "-b\tBug input, in either XML or CSV format" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl
-	 << "-D \tDelta slicing" << endl
+	 << "-D \tComputing GumTreeDiff after normalisation if -n is enabled, or compute delta slicing if -S is enabled" << endl
 	 << "-e\tEncode text format into protobuf" << endl
 	 << "-f <ext>\tFind certain files by the extension `ext` when saving protobuf" << endl
 	 << "-g <hash>\tCheckout Git <hash> for slicing" << endl
@@ -90,6 +91,7 @@ int mainRoutine(int argc, char* argv[]) {
 	    saveTxtFromPB(argv[1], argv[2]);
 	    return 0;
 	  }
+	  assert(strcmp(argv[1], "")!=0);
 	  return loadPB(load_only, argc, argv);
    }
    if (strcmp(argv[1]+strlen(argv[1])-4, ".txt")==0) {
