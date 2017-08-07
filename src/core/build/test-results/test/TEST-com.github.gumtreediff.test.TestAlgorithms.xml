@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.github.gumtreediff.test.TestAlgorithms" tests="3" skipped="0" failures="0" errors="0" timestamp="2017-08-07T03:13:26" hostname="MCL262830.local" time="0.035">
+  <properties/>
+  <testcase name="testLcs" classname="com.github.gumtreediff.test.TestAlgorithms" time="0.02"/>
+  <testcase name="testLcss" classname="com.github.gumtreediff.test.TestAlgorithms" time="0.008"/>
+  <testcase name="testHungarianAlgorithm" classname="com.github.gumtreediff.test.TestAlgorithms" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

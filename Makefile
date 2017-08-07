@@ -82,7 +82,6 @@ slice-diff.o: src/gen/fast.pb.h src/gen/fast_generated.h
 process.o: src/gen/fast.pb.h src/gen/fast_generated.h
 smali.o: src/gen/fast.pb.h src/gen/fast_generated.h
 
-
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
 	sudo pip install git-archive-all
@@ -108,7 +107,7 @@ fast_objects += slice-diff.o
 fast: $(fast_objects) 
 	$(CXX) $(OPT) $(CFLAGS) $^ $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Example.class
+install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Example.class lib/gumtree-20170806-2.1.0-SNAPSHOT.zip
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
@@ -120,6 +119,7 @@ install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Exa
 	install -m 0644 src/fast-json.py $(DESTDIR)$(prefix)/share/fast-json.py
 	install -m 0644 src/gen/fast_pb2.py $(DESTDIR)$(prefix)/share/fast_pb2.py
 	install -m 0644 src/protobuf/json_format.py /usr/local/share/json_format.py
+	unzip -o lib/gumtree-20170806-2.1.0-SNAPSHOT.zip -d /usr/local/
 
 ifeq ($(UNAME_S),Linux)
 install-srcslice::

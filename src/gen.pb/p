@@ -1,12 +1,17 @@
 #!/bin/bash
-p=/Users/yijunyu/mirror/github.com/yijunyu/gumtree
 function compile() {
-	gradle build
+	gradle build -x checkstyleMain
 }
 compile
-cp build/libs/gen.pb-2.1.0-SNAPSHOT.jar $p/gumtree-20170805-2.1.0-SNAPSHOT/lib/
-cd $p
+cd .. > /dev/null
+gumtree=gumtree-$(date '+%Y%m%d')-2.1.0-SNAPSHOT
+gumtree=gumtree-20170806-2.1.0-SNAPSHOT
+if [ ! -d $gumtree/lib/ ]; then
+	gradle build -x checkstyleMain
+	unzip dist/build/distributions/$gumtree.zip
+fi
+cp gen.pb/build/libs/gen.pb-2.1.0-SNAPSHOT.jar $gumtree/lib/
 fast Hello1.java Hello1.pb
 fast Hello2.java Hello2.pb
-gumtree-20170805-2.1.0-SNAPSHOT/bin/gumtree webdiff Hello1.pb Hello2.pb
-cd -
+$gumtree/bin/gumtree webdiff Hello1.pb Hello2.pb
+cd - > /dev/null
