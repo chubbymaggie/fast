@@ -87,6 +87,77 @@ string toStringFromPBElement(fast::Element* element) {
 	return str;
 }
 
+inline void replace_all(string* str, const char* oldValue, const char* newValue)  
+{  
+    string::size_type pos(0);  
+  
+    while(true){  
+        pos=str->find(oldValue,pos);  
+        if (pos!=(string::npos))  
+        {  
+            str->replace(pos,strlen(oldValue),newValue);  
+            pos+=2;
+        }  
+        else  
+            break;  
+    }  
+}  
+void displayPBElementOne(ofstream &out, fast::Element *element) {
+	if (element->change() == fast::Element_DiffType_DELETED) {
+		out << "${red}";
+	}
+	if (element->change() == fast::Element_DiffType_ADDED) {
+		out << "${green}";
+	}
+	if (element->change() == fast::Element_DiffType_CHANGED_FROM) {
+		out << "${yellow}";
+	}
+	if (element->change() == fast::Element_DiffType_CHANGED_TO) {
+		out << "${blue}";
+	}
+	string text = element->text();
+	replace_all(&text, "\n", "\\n");
+	replace_all(&text, "\"", "\\\"");
+	out << text;
+	for (int i=0; i<element->child().size(); i++) {
+		fast::Element *child = element->mutable_child(i);
+		displayPBElementOne(out, child);
+	}
+	if (element->change() != fast::Element_DiffType_MATCHED) {
+		out << "${reset}";
+	}
+	string tail = element->tail();
+	replace_all(&tail, "\n", "\\n");
+	replace_all(&tail, "\"", "\\\"");
+	out << tail;
+}
+
+
+void displayPBElement(fast::Element *element) {
+	char buf[100];
+	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+	mkstemp(buf);
+	remove(buf);
+	strcat(buf, ".pl");
+	ofstream out(buf, ios::out | ios::trunc);
+	out << "#!/usr/local/bin/perl" << endl;
+	out << "my $dim_magenta=\"\\e[38;5;146m\";" << endl;
+	out << "my $red=\"\\e[0;31m\";" << endl;
+	out << "my $green=\"\\e[1;32m\";" << endl;
+	out << "my $yelow=\"\\e[1;33m\";" << endl;
+	out << "my $blue=\"\\e[1;34m\";" << endl;
+	out << "my $pink=\"\\e[1;35m\";" << endl;
+	out << "my $reset=\"\\e[0m\";" << endl;
+	out << "my $bold=\"\\e[1m\";" << endl;
+	out << "print \"" << endl;
+	displayPBElementOne(out, element);
+	out << "\";" << endl;
+	out.close();
+	string cmd = "/usr/local/bin/perl ";
+	cmd = cmd + buf;
+	(void) system(cmd.c_str());
+}
+
 string key_name;
 int my_ordering(fast::Element *e1, fast::Element *e2) {
 	string k1, k2;
@@ -638,17 +709,19 @@ int loadPB(int load_only, int argc, char **argv) {
 	data->set_allocated_element(src_data.mutable_element());
 	data->SerializeToOstream(&output);
 	output.close();
+	displayPBElement(src_data.mutable_element());
 	fstream output2(dst_filename, ios::out | ios::trunc | ios::binary);
 	data = new fast::Data();
 	data->set_allocated_element(dst_data.mutable_element());
 	data->SerializeToOstream(&output2);
 	google::protobuf::ShutdownProtobufLibrary();
 	output2.close();
+	displayPBElement(dst_data.mutable_element());
     } else if (data.has_element() && delta && argc == 3) {
 	    string src_filename = argv[1];
 	    string dst_filename = argv[2];
 	    string cmd = "gumtree diff ";
-	    cmd += src_filename + " " + dst_filename;
+	    cmd += src_filename + " " + dst_filename + "> /dev/null";
 	    (void) system(cmd.c_str());
 	    // cout << cmd << endl;
 	    argc = 2;

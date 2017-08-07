@@ -1874,6 +1874,10 @@ testNormalise() {
 	catout 1b5a650193227718185f5fe8d6fdea63799e2e865a2c4767253bf8d346b72f77 t.java
 }
 
+testDiff() {
+	stdout 42c3141f3eb579a64d1c6ca42605d07fa73233cf07b50825208f9ae9b95384e5 -D Hello1.java Hello2.java
+}
+
 testGitSliceDiff() {
 	HEAD=HEAD
 	r2=$(git rev-list $HEAD | head -1)
