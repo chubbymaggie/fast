@@ -44,15 +44,16 @@ the following activities slow:
 *TODOs* 
 
 #### Feature requests ####
-* Support more ANTLR4 languages (long term)
+* Integrate with [biyacc](http://biyacc.yozora.moe) by the help of Chunmiao Li
 * Concatenate compilation units' FAST into a single archive in FAST, retaining folder hierarchy for Qiuchi Li
+* Support more ANTLR4 languages (long term)
 
 *0.0.5* (TBD)
-* Integrated with [biyacc](http://biyacc.yozora.moe) by the help of Chunmiao Li
+* Created a Dockerfile to simplify the deployment
 * Reimplemented normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation, see `-n` option
 * Rewritten the interface to speedup [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) and [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
-* Created a Dockerfile to simplify the deployment
+* Added colors to the output of diff results so that it is possible to integrate with git on the command line interface
 
 *0.0.4* (August 1, 2017)
 
