@@ -29,6 +29,16 @@ __COUNTER__
    int32 line = __COUNTER__;
    int32 column = __COUNTER__;
    float label = __COUNTER__;
+   /* If CHG_FROM and CHG_TO are two consequent elements, they are considered as "UPDATE"; 
+      otherwise, they are considered as "MOVE". */
+   enum DiffType {
+	    MATCHED = 0; // matched, denoted by empty
+	    ADDED = 1; // added, denoted by +
+	    DELETED = 2; // deleted, denoted by -
+	    CHANGED_FROM = 3; // changed from, denoted by -+
+	    CHANGED_TO = 4; // changed to, denoted by +-
+   }
+   DiffType change = __COUNTER__;
 }
 
 message Delta {
@@ -70,7 +80,7 @@ message Delta {
 	}
 	message Update {
 		int32 src = 1;
-		string label = 2;
+		int32 dst = 2;
 	}
    }
 }

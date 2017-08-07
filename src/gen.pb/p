@@ -1,12 +1,12 @@
 #!/bin/bash
-p=$(pwd -P)
+p=/Users/yijunyu/mirror/github.com/yijunyu/gumtree
 function compile() {
-	cp ~/mirror/github.com/f-ast/fast/src/gen/fast/Fast.java src/main/java/fast
-	gradle build -x checkstyleMain
+	gradle build
 }
 compile
-cp build/libs/gen.pb-2.1.0-SNAPSHOT.jar ../gumtree-20170805-2.1.0-SNAPSHOT/lib/
-cd ..
-#gumtree-20170805-2.1.0-SNAPSHOT/bin/gumtree diff Hello1.pb Hello2.pb
+cp build/libs/gen.pb-2.1.0-SNAPSHOT.jar $p/gumtree-20170805-2.1.0-SNAPSHOT/lib/
+cd $p
+fast Hello1.java Hello1.pb
+fast Hello2.java Hello2.pb
 gumtree-20170805-2.1.0-SNAPSHOT/bin/gumtree webdiff Hello1.pb Hello2.pb
 cd -

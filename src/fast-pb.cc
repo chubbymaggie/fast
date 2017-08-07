@@ -14,6 +14,9 @@
 #include "rapidxml_print.hpp"
 #include "fast-option.h"
 #include <stdlib.h>
+#include <srcSliceHandler.hpp>
+#include <srcSlice.hpp>
+
 using namespace std;
 using namespace rapidxml;
 /**
@@ -492,3 +495,310 @@ fast::Bugs* savePBfromBugCSV(const char *input_filename)
 	return bugs;
 }
 
+void slicePB(srcSliceHandler& handler, fast::Element *element);
+
+fast::Data readData(const char *input_filename) {
+	// Verify that the version of the library that we linked against is
+	// compatible with the version of the headers we compiled against.
+	GOOGLE_PROTOBUF_VERIFY_VERSION;
+	fast::Data data;
+	ifstream input(input_filename, ios::in | ios::binary);
+    	if (!data.ParseFromIstream(&input)) {
+	      cerr << "Failed to parse compilation unit." << endl;
+	}
+	input.close();
+	return data;
+}
+
+void saveXMLfromPB(fstream & out, fast::Element *element);
+void srcSliceToCsv(const srcSlice& handler, const char* output_file);
+
+map<int, fast::Element*> src_map;
+map<int, fast::Element*> dst_map;
+
+static int id = 1;
+void createIdMapOne(fast::Element* element, map<int, fast::Element*> *map) {
+	for (int i=0; i<element->child().size(); i++) {
+		fast::Element* child = element->mutable_child(i);
+		createIdMapOne(child, map);
+	}
+	(*map)[id] = element;
+	id++;
+}
+void createIdMap(fast::Element* element, map<int, fast::Element*> *map) {
+	id = 1;
+	map->clear();
+	createIdMapOne(element, map);
+}
+
+int loadPB(int load_only, int argc, char **argv) {
+	if (!check_exists(argv[1])) return 1;
+	char *input_filename = argv[1];
+	fast::Data data = readData(input_filename);
+    if (data.has_element() && !load_only && !mySlice) {
+	// string xml_filename = tmpnam(NULL);
+	char buf[100];
+	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+	mkstemp(buf);
+	remove(buf);
+	string xml_filename = buf;
+	xml_filename +=	".xml";
+#if !defined(FBS_fast)
+	fstream out(xml_filename.c_str(), ios::out | ios::trunc);
+#else
+	fstream out(xml_filename, ios::out | ios::trunc);
+#endif
+	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	fast::Element unit = data.element();
+	saveXMLfromPB(out, &unit);
+	out << endl;
+	if (argc == 2) {
+		if (slice) {
+			string sliceCommand = "srcSlice ";
+			sliceCommand = sliceCommand + xml_filename + " > " + xml_filename + ".slice";
+			(void) system(sliceCommand.c_str());
+			string catCommand = "cat ";
+			catCommand = catCommand + xml_filename + ".slice";
+			(void) system(catCommand.c_str());
+			remove((xml_filename + ".slice").c_str());
+		} else {
+			string catCommand = "cat ";
+			catCommand = catCommand + xml_filename;
+			(void) system(catCommand.c_str());
+		}
+		return remove(xml_filename.c_str());
+	}
+	argv[1] = (char*) xml_filename.c_str();
+	mainRoutine(argc, argv);
+	return remove(xml_filename.c_str());
+    } else if (data.has_element() && !load_only && mySlice) {
+	srcSlice sslice;
+	srcSliceHandler handler(&sslice.dictionary);
+	handler.startRoot(NULL, NULL, NULL, 0, NULL, 0, NULL);
+	fast::Element unit = data.element();
+	slicePB(handler, &unit);
+	handler.endRoot(NULL, NULL, NULL);
+	DoComputation(handler, handler.sysDict->ffvMap);
+	// cout << "argc = " << argc << " last arg = " << argv[argc-1] << endl;
+	if (argc > 2)
+		srcSliceToCsv(sslice, argv[argc-1]);
+	else
+		srcSliceToCsv(sslice, NULL);
+    } else if (data.has_delta() && delta) {
+	string src_filename = data.delta().src();
+	string dst_filename = data.delta().dst();
+	fast::Data src_data = readData(src_filename.c_str());
+	fast::Data dst_data = readData(dst_filename.c_str());
+	createIdMap(src_data.mutable_element(), &src_map);
+	createIdMap(dst_data.mutable_element(), &dst_map);
+	map<int, int> mappings;
+	for (int i=0; i<data.mutable_delta()->diff().size(); i++) {
+		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MATCH) {
+			fast::Delta_Diff_Match *diff = data.mutable_delta()->mutable_diff(i)->mutable_match();
+			mappings[diff->src()] = diff->dst();
+		}
+		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_DEL) {
+			fast::Delta_Diff_Del *diff = data.mutable_delta()->mutable_diff(i)->mutable_del();
+			// cout << "DEL " << diff->src() << endl;
+			fast::Element *to_delete = src_map[diff->src()];
+			if (to_delete!=NULL)
+				to_delete->set_change(fast::Element_DiffType_DELETED);
+		}
+		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_ADD) {
+			fast::Delta_Diff_Add *diff = data.mutable_delta()->mutable_diff(i)->mutable_add();
+			// int dst = mappings[diff->src()];
+			int dst = diff->src();
+			int src_parent = mappings[diff->dst()];
+			// cout << "==== " << diff->src() << endl;
+			fast::Element *parent = src_map[src_parent];
+			if (parent!=NULL) {
+				fast::Element *new_child = parent->add_child();
+				if (dst_map[dst]!=NULL) {
+					new_child->CopyFrom(*dst_map[dst]);
+					new_child->set_change(fast::Element_DiffType_ADDED);
+				}
+			}
+			// cout << "ADD " << diff->src() << " " << diff->dst() << " " << diff->position() << endl;
+		}
+		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_UPDATE) {
+			fast::Delta_Diff_Update *diff = data.mutable_delta()->mutable_diff(i)->mutable_update();
+			int src = diff->src();
+			int dst = diff->dst();
+			fast::Element *src_element = src_map[src];
+			fast::Element *dst_element = dst_map[dst];
+			src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
+			dst_element->set_change(fast::Element_DiffType_CHANGED_TO);
+			if (src_element!=NULL && dst_element!=NULL) {
+				fast::Element *new_child = src_element->add_child();
+				new_child->CopyFrom(*dst_element);
+			}
+		}
+		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MOVE) {
+			fast::Delta_Diff_Move *diff = data.mutable_delta()->mutable_diff(i)->mutable_move();
+			int src = diff->src();
+			int dst = diff->dst();
+			int src_parent = mappings[dst];
+			int pos = diff->position();
+			fast::Element *src_element = src_map[src];
+			fast::Element *src_parent_element = src_map[src_parent]->mutable_child(pos);
+			src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
+			if (src_element!=NULL && src_parent_element!=NULL) {
+				fast::Element *new_child = src_parent_element->add_child();
+				new_child->CopyFrom(*src_element);
+				new_child->set_change(fast::Element_DiffType_CHANGED_TO);
+			}
+		}
+	}
+	if (argc == 2) {
+		cout << toStringFromPBElement(src_data.mutable_element()) << endl;
+	} else if (argc > 2) {
+		fstream output(argv[2], ios::out | ios::trunc | ios::binary);
+		fast::Data *data = new fast::Data();
+		data->set_allocated_element(src_data.mutable_element());
+		data->SerializeToOstream(&output);
+		google::protobuf::ShutdownProtobufLibrary();
+		output.close();
+	}
+    }
+  // Optional:  Delete all global objects allocated by libprotobuf.
+  google::protobuf::ShutdownProtobufLibrary();
+  return 0;
+}
+
+void slicePB(srcSliceHandler& handler, fast::Element *element) {
+	string text = "";
+	string tail = "";
+	int k = element->kind();
+	// cout << "k = " << k << endl;
+	if (k == fast::Element_Kind_UNIT_KIND) {
+		struct srcsax_attribute attrs[3];
+		attrs[2].value = element->unit().filename().c_str();
+		handler.startUnit(NULL, NULL, NULL, 0, NULL, 3, attrs);
+	} else {
+		struct srcsax_attribute attrs[1];
+		attrs[0].value = std::to_string(element->line()).c_str();
+		handler.startElement(k, NULL, NULL, 0, NULL, 1, attrs);
+	}
+	text = element->text();
+	if (text!="") {
+		handler.charactersUnit(text.c_str(), strlen(text.c_str()));
+	}
+	for (int i=0; i<element->child().size(); i++)
+		slicePB(handler, element->mutable_child(i));
+	if (k == fast::Element_Kind_UNIT_KIND) 
+		handler.endUnit(NULL, NULL, NULL);
+	else 
+		handler.endElement(k, NULL, NULL);
+	tail = element->tail();
+	if (tail!="") {
+		handler.charactersUnit(tail.c_str(), strlen(tail.c_str()));
+	}
+}
+void saveTxtFromPB(char *input_file, char *output_file) {
+	char buf[1000];
+	fast::Data data = readData(input_file);
+	if (data.has_element()) {
+		fast::Element unit = data.element();
+		const char *filename = unit.unit().filename().c_str();
+		if (json && jq && output_file==NULL) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s | jq \"%s\"", 
+				input_file, jq_query.c_str());
+		} else if (json) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		} else {
+			sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		}
+		(void) system(buf);
+	} else {
+		if (json && jq && output_file==NULL) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s | jq \"%s\"", 
+				input_file, jq_query.c_str());
+		} else if (json) {
+			sprintf(buf, "python /usr/local/share/fast-json.py %s %s %s", 
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		} else {
+			sprintf(buf, "cat %s | protoc -I/usr/local/share --decode=fast.Data /usr/local/share/fast.proto%s%s",
+				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
+		}
+		(void) system(buf);
+	} 
+#if 0
+	if (pb2xml && output_file !=NULL ) {
+		const char *my_argv[] = {
+			"fast", output_file
+		};
+		(void) pbMainRoutine(2, my_argv);
+	}
+#endif
+}
+void saveTxtFromPB(char *input_file) {
+	saveTxtFromPB(input_file, NULL);
+}
+void savePBfromTxt(char *input_file) {
+	char buf[100];
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto", input_file);
+	(void) system(buf);
+}
+void savePBfromTxt(char *input_file, char *output_file) {
+	char buf[1000];
+	sprintf(buf, "cat %s | protoc -I/usr/local/share --encode=fast.Data /usr/local/share/fast.proto > %s", input_file, output_file);
+	(void) system(buf);
+}
+
+void saveXMLfromPB(fstream & out, fast::Element *element) {
+	string tag;
+	string attr;
+	string text = "";
+	string tail = "";
+	if (element->kind() == fast::Element_Kind_UNIT_KIND) {
+		tag = "unit";
+		string str = fast::Element_Unit_LanguageType_Name(element->unit().language());
+		string lang = str;
+		transform(str.begin(), str.end(),str.begin(), ::tolower);
+		if (str == "cxx") {
+			str = "cpp";
+			lang = "C++";
+		}
+		if (str == "csharp") {
+			str = "cpp";
+			lang = "C#";
+		}
+		attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\"";
+		if (position)
+			attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
+	        attr = attr + " xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
+		attr = attr + " revision=\"" + element->unit().revision().c_str() + "\"";
+		attr = attr + " language=\"" + lang + "\"";
+		attr = attr + " filename=\"" + element->unit().filename().c_str() + "\"";
+	} else if (element->kind() == fast::Element_Kind_LITERAL) {
+		tag = "literal";
+		string type = fast::Element_Literal_LiteralType_Name(element->literal().type());
+		type = type.substr(0, type.length() - 5);
+		attr = attr + " type=\"" + type + "\"";
+		if (position && (element->line()!=0 || element->column()!=0))
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
+	} else {
+		tag = fast::Element_Kind_Name(element->kind());
+		if (position && (element->line()!=0 || element->column()!=0))
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
+	}
+	if (element->change() == fast::Element_DiffType_ADDED) {
+		attr = attr + " change=\"+\""; 
+	} else if (element->change() == fast::Element_DiffType_DELETED) { 
+		attr = attr + " change=\"-\""; 
+	} else if (element->change() == fast::Element_DiffType_CHANGED_FROM) { 
+		attr = attr + " change=\"-+\"";
+	} else if (element->change() == fast::Element_DiffType_CHANGED_TO) { 
+		attr = attr + " change=\"+-\"";
+	}
+	text = element->text();
+	transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
+	out << "<" <<  tag <<  attr << ">" << text;
+	for (int i=0; i<element->child().size(); i++) {
+		saveXMLfromPB(out, element->mutable_child(i));
+	}
+	tail = element->tail();
+	out << "</" << tag << ">" << tail;
+}

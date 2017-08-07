@@ -5,7 +5,7 @@
 #include "fast.pb.h"
 using namespace std;
 
-fast::Data readData(char *input_filename);
+fast::Data readData(const char *input_filename);
 
 set<int> get_defns(const fast::Slices_Slice_SourceFile_Function_Variable *variable, string name) {
 	set<int> defns;

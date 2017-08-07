@@ -1128,6 +1128,15 @@ public final class Fast {
      */
     float getLabel();
 
+    /**
+     * <code>.fast.Element.DiffType change = 13;</code>
+     */
+    int getChangeValue();
+    /**
+     * <code>.fast.Element.DiffType change = 13;</code>
+     */
+    fast.Fast.Element.DiffType getChange();
+
     public fast.Fast.Element.TypeCase getTypeCase();
 
     public fast.Fast.Element.ExtraCase getExtraCase();
@@ -1156,6 +1165,7 @@ public final class Fast {
       line_ = 0;
       column_ = 0;
       label_ = 0F;
+      change_ = 0;
     }
 
     @java.lang.Override
@@ -1265,6 +1275,12 @@ public final class Fast {
             case 101: {
 
               label_ = input.readFloat();
+              break;
+            }
+            case 104: {
+              int rawValue = input.readEnum();
+
+              change_ = rawValue;
               break;
             }
           }
@@ -5545,6 +5561,171 @@ public final class Fast {
       // @@protoc_insertion_point(enum_scope:fast.Element.Kind)
     }
 
+    /**
+     * Protobuf enum {@code fast.Element.DiffType}
+     */
+    public enum DiffType
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <pre>
+       * matched, denoted by empty
+       * </pre>
+       *
+       * <code>MATCHED = 0;</code>
+       */
+      MATCHED(0),
+      /**
+       * <pre>
+       * added, denoted by +
+       * </pre>
+       *
+       * <code>ADDED = 1;</code>
+       */
+      ADDED(1),
+      /**
+       * <pre>
+       * deleted, denoted by -
+       * </pre>
+       *
+       * <code>DELETED = 2;</code>
+       */
+      DELETED(2),
+      /**
+       * <pre>
+       * changed from, denoted by -+
+       * </pre>
+       *
+       * <code>CHANGED_FROM = 3;</code>
+       */
+      CHANGED_FROM(3),
+      /**
+       * <pre>
+       * changed to, denoted by +-
+       * </pre>
+       *
+       * <code>CHANGED_TO = 4;</code>
+       */
+      CHANGED_TO(4),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <pre>
+       * matched, denoted by empty
+       * </pre>
+       *
+       * <code>MATCHED = 0;</code>
+       */
+      public static final int MATCHED_VALUE = 0;
+      /**
+       * <pre>
+       * added, denoted by +
+       * </pre>
+       *
+       * <code>ADDED = 1;</code>
+       */
+      public static final int ADDED_VALUE = 1;
+      /**
+       * <pre>
+       * deleted, denoted by -
+       * </pre>
+       *
+       * <code>DELETED = 2;</code>
+       */
+      public static final int DELETED_VALUE = 2;
+      /**
+       * <pre>
+       * changed from, denoted by -+
+       * </pre>
+       *
+       * <code>CHANGED_FROM = 3;</code>
+       */
+      public static final int CHANGED_FROM_VALUE = 3;
+      /**
+       * <pre>
+       * changed to, denoted by +-
+       * </pre>
+       *
+       * <code>CHANGED_TO = 4;</code>
+       */
+      public static final int CHANGED_TO_VALUE = 4;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static DiffType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static DiffType forNumber(int value) {
+        switch (value) {
+          case 0: return MATCHED;
+          case 1: return ADDED;
+          case 2: return DELETED;
+          case 3: return CHANGED_FROM;
+          case 4: return CHANGED_TO;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<DiffType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          DiffType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<DiffType>() {
+              public DiffType findValueByNumber(int number) {
+                return DiffType.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return fast.Fast.Element.getDescriptor().getEnumTypes().get(1);
+      }
+
+      private static final DiffType[] VALUES = values();
+
+      public static DiffType valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private DiffType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:fast.Element.DiffType)
+    }
+
     public interface UnitOrBuilder extends
         // @@protoc_insertion_point(interface_extends:fast.Element.Unit)
         com.google.protobuf.MessageOrBuilder {
@@ -7382,6 +7563,22 @@ public final class Fast {
       return label_;
     }
 
+    public static final int CHANGE_FIELD_NUMBER = 13;
+    private int change_;
+    /**
+     * <code>.fast.Element.DiffType change = 13;</code>
+     */
+    public int getChangeValue() {
+      return change_;
+    }
+    /**
+     * <code>.fast.Element.DiffType change = 13;</code>
+     */
+    public fast.Fast.Element.DiffType getChange() {
+      fast.Fast.Element.DiffType result = fast.Fast.Element.DiffType.valueOf(change_);
+      return result == null ? fast.Fast.Element.DiffType.UNRECOGNIZED : result;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7429,6 +7626,9 @@ public final class Fast {
       }
       if (label_ != 0F) {
         output.writeFloat(12, label_);
+      }
+      if (change_ != fast.Fast.Element.DiffType.MATCHED.getNumber()) {
+        output.writeEnum(13, change_);
       }
     }
 
@@ -7485,6 +7685,10 @@ public final class Fast {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(12, label_);
       }
+      if (change_ != fast.Fast.Element.DiffType.MATCHED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(13, change_);
+      }
       memoizedSize = size;
       return size;
     }
@@ -7519,6 +7723,7 @@ public final class Fast {
           java.lang.Float.floatToIntBits(getLabel())
           == java.lang.Float.floatToIntBits(
               other.getLabel()));
+      result = result && change_ == other.change_;
       result = result && getTypeCase().equals(
           other.getTypeCase());
       if (!result) return false;
@@ -7578,6 +7783,8 @@ public final class Fast {
       hash = (37 * hash) + LABEL_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getLabel());
+      hash = (37 * hash) + CHANGE_FIELD_NUMBER;
+      hash = (53 * hash) + change_;
       switch (typeCase_) {
         case 1:
           hash = (37 * hash) + KIND_FIELD_NUMBER;
@@ -7756,6 +7963,8 @@ public final class Fast {
 
         label_ = 0F;
 
+        change_ = 0;
+
         typeCase_ = 0;
         type_ = null;
         extraCase_ = 0;
@@ -7820,6 +8029,7 @@ public final class Fast {
         result.line_ = line_;
         result.column_ = column_;
         result.label_ = label_;
+        result.change_ = change_;
         result.bitField0_ = to_bitField0_;
         result.typeCase_ = typeCase_;
         result.extraCase_ = extraCase_;
@@ -7910,6 +8120,9 @@ public final class Fast {
         }
         if (other.getLabel() != 0F) {
           setLabel(other.getLabel());
+        }
+        if (other.change_ != 0) {
+          setChangeValue(other.getChangeValue());
         }
         switch (other.getTypeCase()) {
           case KIND: {
@@ -8804,6 +9017,50 @@ public final class Fast {
       public Builder clearLabel() {
         
         label_ = 0F;
+        onChanged();
+        return this;
+      }
+
+      private int change_ = 0;
+      /**
+       * <code>.fast.Element.DiffType change = 13;</code>
+       */
+      public int getChangeValue() {
+        return change_;
+      }
+      /**
+       * <code>.fast.Element.DiffType change = 13;</code>
+       */
+      public Builder setChangeValue(int value) {
+        change_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.fast.Element.DiffType change = 13;</code>
+       */
+      public fast.Fast.Element.DiffType getChange() {
+        fast.Fast.Element.DiffType result = fast.Fast.Element.DiffType.valueOf(change_);
+        return result == null ? fast.Fast.Element.DiffType.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.fast.Element.DiffType change = 13;</code>
+       */
+      public Builder setChange(fast.Fast.Element.DiffType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        change_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.fast.Element.DiffType change = 13;</code>
+       */
+      public Builder clearChange() {
+        
+        change_ = 0;
         onChanged();
         return this;
       }
@@ -11402,14 +11659,9 @@ public final class Fast {
         int getSrc();
 
         /**
-         * <code>string label = 2;</code>
+         * <code>int32 dst = 2;</code>
          */
-        java.lang.String getLabel();
-        /**
-         * <code>string label = 2;</code>
-         */
-        com.google.protobuf.ByteString
-            getLabelBytes();
+        int getDst();
       }
       /**
        * Protobuf type {@code fast.Delta.Diff.Update}
@@ -11424,7 +11676,7 @@ public final class Fast {
         }
         private Update() {
           src_ = 0;
-          label_ = "";
+          dst_ = 0;
         }
 
         @java.lang.Override
@@ -11457,10 +11709,9 @@ public final class Fast {
                   src_ = input.readInt32();
                   break;
                 }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
+                case 16: {
 
-                  label_ = s;
+                  dst_ = input.readInt32();
                   break;
                 }
               }
@@ -11495,38 +11746,13 @@ public final class Fast {
           return src_;
         }
 
-        public static final int LABEL_FIELD_NUMBER = 2;
-        private volatile java.lang.Object label_;
+        public static final int DST_FIELD_NUMBER = 2;
+        private int dst_;
         /**
-         * <code>string label = 2;</code>
+         * <code>int32 dst = 2;</code>
          */
-        public java.lang.String getLabel() {
-          java.lang.Object ref = label_;
-          if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-          } else {
-            com.google.protobuf.ByteString bs = 
-                (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            label_ = s;
-            return s;
-          }
-        }
-        /**
-         * <code>string label = 2;</code>
-         */
-        public com.google.protobuf.ByteString
-            getLabelBytes() {
-          java.lang.Object ref = label_;
-          if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b = 
-                com.google.protobuf.ByteString.copyFromUtf8(
-                    (java.lang.String) ref);
-            label_ = b;
-            return b;
-          } else {
-            return (com.google.protobuf.ByteString) ref;
-          }
+        public int getDst() {
+          return dst_;
         }
 
         private byte memoizedIsInitialized = -1;
@@ -11544,8 +11770,8 @@ public final class Fast {
           if (src_ != 0) {
             output.writeInt32(1, src_);
           }
-          if (!getLabelBytes().isEmpty()) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 2, label_);
+          if (dst_ != 0) {
+            output.writeInt32(2, dst_);
           }
         }
 
@@ -11558,8 +11784,9 @@ public final class Fast {
             size += com.google.protobuf.CodedOutputStream
               .computeInt32Size(1, src_);
           }
-          if (!getLabelBytes().isEmpty()) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, label_);
+          if (dst_ != 0) {
+            size += com.google.protobuf.CodedOutputStream
+              .computeInt32Size(2, dst_);
           }
           memoizedSize = size;
           return size;
@@ -11579,8 +11806,8 @@ public final class Fast {
           boolean result = true;
           result = result && (getSrc()
               == other.getSrc());
-          result = result && getLabel()
-              .equals(other.getLabel());
+          result = result && (getDst()
+              == other.getDst());
           return result;
         }
 
@@ -11593,8 +11820,8 @@ public final class Fast {
           hash = (19 * hash) + getDescriptor().hashCode();
           hash = (37 * hash) + SRC_FIELD_NUMBER;
           hash = (53 * hash) + getSrc();
-          hash = (37 * hash) + LABEL_FIELD_NUMBER;
-          hash = (53 * hash) + getLabel().hashCode();
+          hash = (37 * hash) + DST_FIELD_NUMBER;
+          hash = (53 * hash) + getDst();
           hash = (29 * hash) + unknownFields.hashCode();
           memoizedHashCode = hash;
           return hash;
@@ -11726,7 +11953,7 @@ public final class Fast {
             super.clear();
             src_ = 0;
 
-            label_ = "";
+            dst_ = 0;
 
             return this;
           }
@@ -11751,7 +11978,7 @@ public final class Fast {
           public fast.Fast.Delta.Diff.Update buildPartial() {
             fast.Fast.Delta.Diff.Update result = new fast.Fast.Delta.Diff.Update(this);
             result.src_ = src_;
-            result.label_ = label_;
+            result.dst_ = dst_;
             onBuilt();
             return result;
           }
@@ -11796,9 +12023,8 @@ public final class Fast {
             if (other.getSrc() != 0) {
               setSrc(other.getSrc());
             }
-            if (!other.getLabel().isEmpty()) {
-              label_ = other.label_;
-              onChanged();
+            if (other.getDst() != 0) {
+              setDst(other.getDst());
             }
             onChanged();
             return this;
@@ -11852,71 +12078,28 @@ public final class Fast {
             return this;
           }
 
-          private java.lang.Object label_ = "";
+          private int dst_ ;
           /**
-           * <code>string label = 2;</code>
+           * <code>int32 dst = 2;</code>
            */
-          public java.lang.String getLabel() {
-            java.lang.Object ref = label_;
-            if (!(ref instanceof java.lang.String)) {
-              com.google.protobuf.ByteString bs =
-                  (com.google.protobuf.ByteString) ref;
-              java.lang.String s = bs.toStringUtf8();
-              label_ = s;
-              return s;
-            } else {
-              return (java.lang.String) ref;
-            }
+          public int getDst() {
+            return dst_;
           }
           /**
-           * <code>string label = 2;</code>
+           * <code>int32 dst = 2;</code>
            */
-          public com.google.protobuf.ByteString
-              getLabelBytes() {
-            java.lang.Object ref = label_;
-            if (ref instanceof String) {
-              com.google.protobuf.ByteString b = 
-                  com.google.protobuf.ByteString.copyFromUtf8(
-                      (java.lang.String) ref);
-              label_ = b;
-              return b;
-            } else {
-              return (com.google.protobuf.ByteString) ref;
-            }
-          }
-          /**
-           * <code>string label = 2;</code>
-           */
-          public Builder setLabel(
-              java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
-            label_ = value;
+          public Builder setDst(int value) {
+            
+            dst_ = value;
             onChanged();
             return this;
           }
           /**
-           * <code>string label = 2;</code>
+           * <code>int32 dst = 2;</code>
            */
-          public Builder clearLabel() {
+          public Builder clearDst() {
             
-            label_ = getDefaultInstance().getLabel();
-            onChanged();
-            return this;
-          }
-          /**
-           * <code>string label = 2;</code>
-           */
-          public Builder setLabelBytes(
-              com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
-            label_ = value;
+            dst_ = 0;
             onChanged();
             return this;
           }
@@ -36612,16 +36795,17 @@ public final class Fast {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\nfast.proto\022\004fast\"\3667\n\007Element\022\"\n\004kind\030\001" +
+      "\n\nfast.proto\022\004fast\"\3618\n\007Element\022\"\n\004kind\030\001" +
       " \001(\0162\022.fast.Element.KindH\000\022%\n\nsmali_kind" +
       "\030\002 \001(\0162\017.fast.SmaliKindH\000\022\014\n\004text\030\003 \001(\014\022" +
       "\013\n\003pos\030\004 \001(\005\022\016\n\006length\030\005 \001(\005\022\034\n\005child\030\006 " +
       "\003(\0132\r.fast.Element\022\014\n\004tail\030\007 \001(\014\022\"\n\004unit" +
       "\030\010 \001(\0132\022.fast.Element.UnitH\001\022(\n\007literal\030" +
       "\t \001(\0132\025.fast.Element.LiteralH\001\022\014\n\004line\030\n" +
-      " \001(\005\022\016\n\006column\030\013 \001(\005\022\r\n\005label\030\014 \001(\002\032\334\001\n\004" +
-      "Unit\022\020\n\010filename\030\001 \001(\t\022\020\n\010revision\030\002 \001(\t" +
-      "\0221\n\010language\030\003 \001(\0162\037.fast.Element.Unit.L",
+      " \001(\005\022\016\n\006column\030\013 \001(\005\022\r\n\005label\030\014 \001(\002\022&\n\006c" +
+      "hange\030\r \001(\0162\026.fast.Element.DiffType\032\334\001\n\004" +
+      "Unit\022\020\n\010filename\030\001 \001(\t\022\020\n\010revision\030\002 \001(\t",
+      "\0221\n\010language\030\003 \001(\0162\037.fast.Element.Unit.L" +
       "anguageType\022\014\n\004item\030\004 \001(\005\"o\n\014LanguageTyp" +
       "e\022\t\n\005DUMMY\020\000\022\007\n\003ALL\020\001\022\006\n\002OO\020\002\022\007\n\003CXX\020\003\022\005" +
       "\n\001C\020\004\022\014\n\010C_FAMILY\020\005\022\010\n\004JAVA\020\006\022\n\n\006CSHARP\020" +
@@ -36630,8 +36814,8 @@ public final class Fast {
       "o\n\013LiteralType\022\016\n\ndummy_type\020\000\022\017\n\013number" +
       "_type\020\001\022\r\n\tchar_type\020\002\022\017\n\013string_type\020\003\022" +
       "\020\n\014boolean_type\020\004\022\r\n\tnull_type\020\005\"\2572\n\004Kin" +
-      "d\022\r\n\tUNIT_KIND\020\000\022\010\n\004DECL\020\001\022\r\n\tDECL_STMT\020" +
-      "\002\022\010\n\004INIT\020\003\022\010\n\004EXPR\020\004\022\r\n\tEXPR_STMT\020\005\022\013\n\007",
+      "d\022\r\n\tUNIT_KIND\020\000\022\010\n\004DECL\020\001\022\r\n\tDECL_STMT\020",
+      "\002\022\010\n\004INIT\020\003\022\010\n\004EXPR\020\004\022\r\n\tEXPR_STMT\020\005\022\013\n\007" +
       "COMMENT\020\006\022\010\n\004CALL\020\007\022\013\n\007CONTROL\020\010\022\010\n\004INCR" +
       "\020\t\022\010\n\004NONE\020\n\022\014\n\010VARIABLE\020\013\022\014\n\010FUNCTION\020\014" +
       "\022\021\n\rFUNCTION_DECL\020\r\022\017\n\013CONSTRUCTOR\020\016\022\024\n\020" +
@@ -36640,8 +36824,8 @@ public final class Fast {
       "RO\020\023\022\020\n\014NULLOPERATOR\020\024\022\r\n\tENUM_DEFN\020\025\022\r\n" +
       "\tENUM_DECL\020\026\022\024\n\020GLOBAL_ATTRIBUTE\020\027\022\025\n\021PR" +
       "OPERTY_ACCESSOR\020\030\022\032\n\026PROPERTY_ACCESSOR_D" +
-      "ECL\020\031\022\016\n\nEXPRESSION\020\032\022\016\n\nCLASS_DEFN\020\033\022\016\n" +
-      "\nCLASS_DECL\020\034\022\016\n\nUNION_DEFN\020\035\022\016\n\nUNION_D",
+      "ECL\020\031\022\016\n\nEXPRESSION\020\032\022\016\n\nCLASS_DEFN\020\033\022\016\n",
+      "\nCLASS_DECL\020\034\022\016\n\nUNION_DEFN\020\035\022\016\n\nUNION_D" +
       "ECL\020\036\022\017\n\013STRUCT_DEFN\020\037\022\017\n\013STRUCT_DECL\020 \022" +
       "\022\n\016INTERFACE_DEFN\020!\022\022\n\016INTERFACE_DECL\020\"\022" +
       "\021\n\rACCESS_REGION\020#\022\t\n\005USING\020$\022\025\n\021OPERATO" +
@@ -36650,8 +36834,8 @@ public final class Fast {
       "DEFN\020)\022\023\n\017GLOBAL_TEMPLATE\020*\022\010\n\004UNIT\020+\022\026\n" +
       "\022TART_ELEMENT_TOKEN\020,\022\007\n\003NOP\020-\022\n\n\006STRING" +
       "\020.\022\010\n\004CHAR\020/\022\013\n\007LITERAL\0200\022\013\n\007BOOLEAN\0201\022\010" +
-      "\n\004NULL\0202\022\013\n\007COMPLEX\0203\022\014\n\010OPERATOR\0204\022\014\n\010M" +
-      "ODIFIER\0205\022\010\n\004NAME\0206\022\t\n\005ONAME\0207\022\t\n\005CNAME\020",
+      "\n\004NULL\0202\022\013\n\007COMPLEX\0203\022\014\n\010OPERATOR\0204\022\014\n\010M",
+      "ODIFIER\0205\022\010\n\004NAME\0206\022\t\n\005ONAME\0207\022\t\n\005CNAME\020" +
       "8\022\010\n\004TYPE\0209\022\014\n\010TYPEPREV\020:\022\r\n\tCONDITION\020;" +
       "\022\t\n\005BLOCK\020<\022\020\n\014PSEUDO_BLOCK\020=\022\t\n\005INDEX\020>" +
       "\022\010\n\004ENUM\020?\022\024\n\020ENUM_DECLARATION\020@\022\020\n\014IF_S" +
@@ -36660,8 +36844,8 @@ public final class Fast {
       "DO_STATEMENT\020G\022\021\n\rFOR_STATEMENT\020H\022\025\n\021FOR" +
       "EACH_STATEMENT\020I\022\017\n\013FOR_CONTROL\020J\022\026\n\022FOR" +
       "_INITIALIZATION\020K\022\021\n\rFOR_CONDITION\020L\022\021\n\r" +
-      "FOR_INCREMENT\020M\022\024\n\020FOR_LIKE_CONTROL\020N\022\030\n" +
-      "\024EXPRESSION_STATEMENT\020O\022\021\n\rFUNCTION_CALL",
+      "FOR_INCREMENT\020M\022\024\n\020FOR_LIKE_CONTROL\020N\022\030\n",
+      "\024EXPRESSION_STATEMENT\020O\022\021\n\rFUNCTION_CALL" +
       "\020Q\022\031\n\025DECLARATION_STATEMENT\020R\022\017\n\013DECLARA" +
       "TION\020S\022\036\n\032DECLARATION_INITIALIZATION\020T\022\025" +
       "\n\021DECLARATION_RANGE\020U\022\t\n\005RANGE\020V\022\022\n\016GOTO" +
@@ -36670,8 +36854,8 @@ public final class Fast {
       "\n\005LABEL\020[\022\n\n\006SWITCH\020\\\022\010\n\004CASE\020]\022\013\n\007DEFAU" +
       "LT\020^\022\027\n\023FUNCTION_DEFINITION\020_\022\030\n\024FUNCTIO" +
       "N_DECLARATION\020`\022\n\n\006LAMBDA\020a\022\023\n\017FUNCTION_" +
-      "LAMBDA\020b\022\026\n\022FUNCTION_SPECIFIER\020c\022\024\n\020RETU" +
-      "RN_STATEMENT\020d\022\022\n\016PARAMETER_LIST\020e\022\r\n\tPA",
+      "LAMBDA\020b\022\026\n\022FUNCTION_SPECIFIER\020c\022\024\n\020RETU",
+      "RN_STATEMENT\020d\022\022\n\016PARAMETER_LIST\020e\022\r\n\tPA" +
       "RAMETER\020f\022\024\n\020KRPARAMETER_LIST\020g\022\017\n\013KRPAR" +
       "AMETER\020h\022\021\n\rARGUMENT_LIST\020i\022\014\n\010ARGUMENT\020" +
       "j\022\031\n\025PSEUDO_PARAMETER_LIST\020k\022\032\n\026INDEXER_" +
@@ -36680,8 +36864,8 @@ public final class Fast {
       "TION\020p\022\t\n\005UNION\020q\022\025\n\021UNION_DECLARATION\020r" +
       "\022\023\n\017DERIVATION_LIST\020s\022\021\n\rPUBLIC_ACCESS\020t" +
       "\022\031\n\025PUBLIC_ACCESS_DEFAULT\020u\022\022\n\016PRIVATE_A" +
-      "CCESS\020v\022\032\n\026PRIVATE_ACCESS_DEFAULT\020w\022\024\n\020P" +
-      "ROTECTED_ACCESS\020x\022\034\n\030PROTECTED_ACCESS_DE",
+      "CCESS\020v\022\032\n\026PRIVATE_ACCESS_DEFAULT\020w\022\024\n\020P",
+      "ROTECTED_ACCESS\020x\022\034\n\030PROTECTED_ACCESS_DE" +
       "FAULT\020y\022\024\n\020MEMBER_INIT_LIST\020z\022\036\n\032MEMBER_" +
       "INITIALIZATION_LIST\020{\022\031\n\025MEMBER_INITIALI" +
       "ZATION\020|\022\032\n\026CONSTRUCTOR_DEFINITION\020}\022\033\n\027" +
@@ -36690,8 +36874,8 @@ public final class Fast {
       "\001\022\013\n\006FRIEND\020\201\001\022\024\n\017CLASS_SPECIFIER\020\202\001\022\016\n\t" +
       "TRY_BLOCK\020\203\001\022\020\n\013CATCH_BLOCK\020\204\001\022\022\n\rFINALL" +
       "Y_BLOCK\020\205\001\022\024\n\017THROW_STATEMENT\020\206\001\022\024\n\017THRO" +
-      "W_SPECIFIER\020\207\001\022\031\n\024THROW_SPECIFIER_JAVA\020\210" +
-      "\001\022\r\n\010TEMPLATE\020\211\001\022\025\n\020GENERIC_ARGUMENT\020\212\001\022",
+      "W_SPECIFIER\020\207\001\022\031\n\024THROW_SPECIFIER_JAVA\020\210",
+      "\001\022\r\n\010TEMPLATE\020\211\001\022\025\n\020GENERIC_ARGUMENT\020\212\001\022" +
       "\032\n\025GENERIC_ARGUMENT_LIST\020\213\001\022\027\n\022TEMPLATE_" +
       "PARAMETER\020\214\001\022\034\n\027TEMPLATE_PARAMETER_LIST\020" +
       "\215\001\022\026\n\021GENERIC_PARAMETER\020\216\001\022\033\n\026GENERIC_PA" +
@@ -36700,8 +36884,8 @@ public final class Fast {
       "TERN\020\224\001\022\016\n\tNAMESPACE\020\225\001\022\024\n\017USING_DIRECTI" +
       "VE\020\226\001\022\016\n\tDIRECTIVE\020\227\001\022\013\n\006ATOMIC\020\230\001\022\034\n\027ST" +
       "ATIC_ASSERT_STATEMENT\020\231\001\022\026\n\021GENERIC_SELE" +
-      "CTION\020\232\001\022\025\n\020GENERIC_SELECTOR\020\233\001\022\035\n\030GENER" +
-      "IC_ASSOCIATION_LIST\020\234\001\022\030\n\023GENERIC_ASSOCI",
+      "CTION\020\232\001\022\025\n\020GENERIC_SELECTOR\020\233\001\022\035\n\030GENER",
+      "IC_ASSOCIATION_LIST\020\234\001\022\030\n\023GENERIC_ASSOCI" +
       "ATION\020\235\001\022\014\n\007ALIGNAS\020\236\001\022\r\n\010DECLTYPE\020\237\001\022\014\n" +
       "\007CAPTURE\020\240\001\022\023\n\016LAMBDA_CAPTURE\020\241\001\022\r\n\010NOEX" +
       "CEPT\020\242\001\022\r\n\010TYPENAME\020\243\001\022\014\n\007ALIGNOF\020\244\001\022\013\n\006" +
@@ -36710,8 +36894,8 @@ public final class Fast {
       "_QUALIFIER\020\253\001\022\022\n\rSIGNAL_ACCESS\020\254\001\022\026\n\021FOR" +
       "EVER_STATEMENT\020\255\001\022\023\n\016EMIT_STATEMENT\020\256\001\022\022" +
       "\n\rCPP_DIRECTIVE\020\257\001\022\021\n\014CPP_FILENAME\020\260\001\022\t\n" +
-      "\004FILE\020\261\001\022\013\n\006NUMBER\020\262\001\022\017\n\nCPP_NUMBER\020\263\001\022\020" +
-      "\n\013CPP_LITERAL\020\264\001\022\023\n\016CPP_MACRO_DEFN\020\265\001\022\024\n",
+      "\004FILE\020\261\001\022\013\n\006NUMBER\020\262\001\022\017\n\nCPP_NUMBER\020\263\001\022\020",
+      "\n\013CPP_LITERAL\020\264\001\022\023\n\016CPP_MACRO_DEFN\020\265\001\022\024\n" +
       "\017CPP_MACRO_VALUE\020\266\001\022\n\n\005ERROR\020\267\001\022\016\n\tCPP_E" +
       "RROR\020\270\001\022\020\n\013CPP_WARNING\020\271\001\022\017\n\nCPP_PRAGMA\020" +
       "\272\001\022\020\n\013CPP_INCLUDE\020\273\001\022\017\n\nCPP_DEFINE\020\274\001\022\016\n" +
@@ -36720,8 +36904,8 @@ public final class Fast {
       "P_THEN\020\302\001\022\r\n\010CPP_ELSE\020\303\001\022\r\n\010CPP_ELIF\020\304\001\022" +
       "\016\n\tCPP_EMPTY\020\305\001\022\017\n\nCPP_REGION\020\306\001\022\022\n\rCPP_" +
       "ENDREGION\020\307\001\022\017\n\nUSING_STMT\020\310\001\022\013\n\006ESCAPE\020" +
-      "\311\001\022\n\n\005VALUE\020\312\001\022\017\n\nCPP_IMPORT\020\313\001\022\016\n\tCPP_E" +
-      "NDIF\020\314\001\022\013\n\006MARKER\020\315\001\022\020\n\013ERROR_PARSE\020\316\001\022\017",
+      "\311\001\022\n\n\005VALUE\020\312\001\022\017\n\nCPP_IMPORT\020\313\001\022\016\n\tCPP_E",
+      "NDIF\020\314\001\022\013\n\006MARKER\020\315\001\022\020\n\013ERROR_PARSE\020\316\001\022\017" +
       "\n\nERROR_MODE\020\317\001\022\017\n\nIMPLEMENTS\020\320\001\022\014\n\007EXTE" +
       "NDS\020\321\001\022\013\n\006IMPORT\020\322\001\022\014\n\007PACKAGE\020\323\001\022\025\n\020ASS" +
       "ERT_STATEMENT\020\324\001\022\016\n\tINTERFACE\020\325\001\022\032\n\025INTE" +
@@ -36730,8 +36914,8 @@ public final class Fast {
       "CK\020\332\001\022\026\n\021CHECKED_STATEMENT\020\333\001\022\030\n\023UNCHECK" +
       "ED_STATEMENT\020\334\001\022\016\n\tATTRIBUTE\020\335\001\022\013\n\006TARGE" +
       "T\020\336\001\022\025\n\020UNSAFE_STATEMENT\020\337\001\022\023\n\016LOCK_STAT" +
-      "EMENT\020\340\001\022\024\n\017FIXED_STATEMENT\020\341\001\022\013\n\006TYPEOF" +
-      "\020\342\001\022\024\n\017USING_STATEMENT\020\343\001\022\026\n\021FUNCTION_DE",
+      "EMENT\020\340\001\022\024\n\017FIXED_STATEMENT\020\341\001\022\013\n\006TYPEOF",
+      "\020\342\001\022\024\n\017USING_STATEMENT\020\343\001\022\026\n\021FUNCTION_DE" +
       "LEGATE\020\344\001\022\017\n\nCONSTRAINT\020\346\001\022\t\n\004LINQ\020\347\001\022\t\n" +
       "\004FROM\020\350\001\022\n\n\005WHERE\020\351\001\022\013\n\006SELECT\020\352\001\022\010\n\003LET" +
       "\020\353\001\022\014\n\007ORDERBY\020\354\001\022\t\n\004JOIN\020\355\001\022\n\n\005GROUP\020\356\001" +
@@ -36740,8 +36924,8 @@ public final class Fast {
       "\022\r\n\010RECEIVER\020\366\001\022\014\n\007MESSAGE\020\367\001\022\r\n\010SELECTO" +
       "R\020\370\001\022\022\n\rPROTOCOL_LIST\020\371\001\022\r\n\010CATEGORY\020\372\001\022" +
       "\r\n\010PROTOCOL\020\373\001\022\025\n\020REQUIRED_DEFAULT\020\374\001\022\r\n" +
-      "\010REQUIRED\020\375\001\022\r\n\010OPTIONAL\020\376\001\022\023\n\016ATTRIBUTE" +
-      "_LIST\020\200\002\022\017\n\nSYNTHESIZE\020\201\002\022\014\n\007DYNAMIC\020\202\002\022",
+      "\010REQUIRED\020\375\001\022\r\n\010OPTIONAL\020\376\001\022\023\n\016ATTRIBUTE",
+      "_LIST\020\200\002\022\017\n\nSYNTHESIZE\020\201\002\022\014\n\007DYNAMIC\020\202\002\022" +
       "\013\n\006ENCODE\020\203\002\022\024\n\017AUTORELEASEPOOL\020\204\002\022\030\n\023CO" +
       "MPATIBILITY_ALIAS\020\205\002\022\010\n\003NIL\020\206\002\022\024\n\017CLASS_" +
       "INTERFACE\020\207\002\022\031\n\024CLASS_IMPLEMENTATION\020\210\002\022" +
@@ -36750,8 +36934,8 @@ public final class Fast {
       "NTERPRET_CAST\020\215\002\022\020\n\013STATIC_CAST\020\216\002\022\r\n\010PO" +
       "SITION\020\217\002\022\027\n\022CUDA_ARGUMENT_LIST\020\220\002\022\022\n\rOM" +
       "P_DIRECTIVE\020\221\002\022\r\n\010OMP_NAME\020\222\002\022\017\n\nOMP_CLA" +
-      "USE\020\223\002\022\026\n\021OMP_ARGUMENT_LIST\020\224\002\022\021\n\014OMP_AR" +
-      "GUMENT\020\225\002\022\023\n\016OMP_EXPRESSION\020\226\002\022\026\n\021END_EL",
+      "USE\020\223\002\022\026\n\021OMP_ARGUMENT_LIST\020\224\002\022\021\n\014OMP_AR",
+      "GUMENT\020\225\002\022\023\n\016OMP_EXPRESSION\020\226\002\022\026\n\021END_EL" +
       "EMENT_TOKEN\020\227\002\022\t\n\004MAIN\020\230\002\022\n\n\005BREAK\020\231\002\022\r\n" +
       "\010CONTINUE\020\232\002\022\n\n\005WHILE\020\233\002\022\007\n\002DO\020\234\002\022\010\n\003FOR" +
       "\020\235\002\022\007\n\002IF\020\236\002\022\t\n\004GOTO\020\245\002\022\023\n\016VISUAL_CXX_AS" +
@@ -36760,8 +36944,8 @@ public final class Fast {
       "RETURN\020\261\002\022\022\n\rSTATIC_ASSERT\020\262\002\022\016\n\tCRESTRI" +
       "CT\020\263\002\022\014\n\007CXX_TRY\020\264\002\022\016\n\tCXX_CATCH\020\265\002\022\016\n\tC" +
       "XX_CLASS\020\266\002\022\016\n\tCONSTEXPR\020\267\002\022\021\n\014THREAD_LO" +
-      "CAL\020\271\002\022\014\n\007NULLPTR\020\272\002\022\t\n\004VOID\020\306\002\022\013\n\006RETUR" +
-      "N\020\307\002\022\014\n\007INCLUDE\020\310\002\022\013\n\006DEFINE\020\311\002\022\t\n\004ELIF\020",
+      "CAL\020\271\002\022\014\n\007NULLPTR\020\272\002\022\t\n\004VOID\020\306\002\022\013\n\006RETUR",
+      "N\020\307\002\022\014\n\007INCLUDE\020\310\002\022\013\n\006DEFINE\020\311\002\022\t\n\004ELIF\020" +
       "\312\002\022\n\n\005ENDIF\020\313\002\022\016\n\tERRORPREC\020\314\002\022\014\n\007WARNIN" +
       "G\020\315\002\022\n\n\005IFDEF\020\316\002\022\013\n\006IFNDEF\020\317\002\022\t\n\004LINE\020\320\002" +
       "\022\013\n\006PRAGMA\020\321\002\022\n\n\005UNDEF\020\322\002\022\013\n\006INLINE\020\323\002\022\024" +
@@ -36770,8 +36954,8 @@ public final class Fast {
       "\002\022\n\n\005CATCH\020\332\002\022\n\n\005THROW\020\333\002\022\013\n\006THROWS\020\334\002\022\013" +
       "\n\006PUBLIC\020\336\002\022\014\n\007PRIVATE\020\337\002\022\016\n\tPROTECTED\020\340" +
       "\002\022\014\n\007VIRTUAL\020\341\002\022\r\n\010EXPLICIT\020\344\002\022\014\n\007FOREVE" +
-      "R\020\345\002\022\013\n\006SIGNAL\020\346\002\022\t\n\004EMIT\020\347\002\022\010\n\003NEW\020\353\002\022\013" +
-      "\n\006DELETE\020\354\002\022\013\n\006STATIC\020\355\002\022\n\n\005CONST\020\356\002\022\014\n\007",
+      "R\020\345\002\022\013\n\006SIGNAL\020\346\002\022\t\n\004EMIT\020\347\002\022\010\n\003NEW\020\353\002\022\013",
+      "\n\006DELETE\020\354\002\022\013\n\006STATIC\020\355\002\022\n\n\005CONST\020\356\002\022\014\n\007" +
       "MUTABLE\020\357\002\022\r\n\010VOLATILE\020\360\002\022\016\n\tTRANSIENT\020\361" +
       "\002\022\014\n\007FINALLY\020\364\002\022\n\n\005FINAL\020\370\002\022\r\n\010ABSTRACT\020" +
       "\371\002\022\n\n\005SUPER\020\372\002\022\021\n\014SYNCHRONIZED\020\373\002\022\013\n\006NAT" +
@@ -36780,8 +36964,8 @@ public final class Fast {
       "OUT\020\202\003\022\t\n\004LOCK\020\204\003\022\007\n\002IS\020\205\003\022\r\n\010INTERNAL\020\206" +
       "\003\022\013\n\006SEALED\020\207\003\022\r\n\010OVERRIDE\020\210\003\022\r\n\010IMPLICI" +
       "T\020\211\003\022\017\n\nSTACKALLOC\020\212\003\022\007\n\002AS\020\213\003\022\r\n\010DELEGA" +
-      "TE\020\214\003\022\n\n\005FIXED\020\215\003\022\014\n\007CHECKED\020\216\003\022\016\n\tUNCHE" +
-      "CKED\020\217\003\022\013\n\006REGION\020\220\003\022\016\n\tENDREGION\020\221\003\022\013\n\006",
+      "TE\020\214\003\022\n\n\005FIXED\020\215\003\022\014\n\007CHECKED\020\216\003\022\016\n\tUNCHE",
+      "CKED\020\217\003\022\013\n\006REGION\020\220\003\022\016\n\tENDREGION\020\221\003\022\013\n\006" +
       "UNSAFE\020\222\003\022\r\n\010READONLY\020\223\003\022\010\n\003GET\020\224\003\022\010\n\003SE" +
       "T\020\225\003\022\010\n\003ADD\020\226\003\022\013\n\006REMOVE\020\227\003\022\n\n\005YIELD\020\230\003\022" +
       "\014\n\007PARTIAL\020\231\003\022\n\n\005AWAIT\020\232\003\022\n\n\005ASYNC\020\234\003\022\t\n" +
@@ -36790,148 +36974,150 @@ public final class Fast {
       "E\020\256\003\022\025\n\020ATIMPLEMENTATION\020\257\003\022\n\n\005ATEND\020\260\003\022" +
       "\017\n\nATPROTOCOL\020\261\003\022\017\n\nATREQUIRED\020\262\003\022\017\n\nATO" +
       "PTIONAL\020\263\003\022\014\n\007ATCLASS\020\271\003\022\t\n\004WEAK\020\273\003\022\013\n\006S" +
-      "TRONG\020\274\003\022\014\n\007OMP_OMP\020\300\003\022\022\n\rSPECIAL_CHARS\020" +
-      "\301\003B\006\n\004typeB\007\n\005extra\"\306\004\n\005Delta\022\013\n\003src\030\001 \001",
-      "(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003 \003(\0132\020.fast.Del" +
-      "ta.Diff\032\202\004\n\004Diff\022(\n\004type\030\001 \001(\0162\032.fast.De" +
-      "lta.Diff.DeltaType\022\'\n\005match\030\002 \001(\0132\026.fast" +
-      ".Delta.Diff.MatchH\000\022#\n\003add\030\003 \001(\0132\024.fast." +
-      "Delta.Diff.AddH\000\022#\n\003del\030\004 \001(\0132\024.fast.Del" +
-      "ta.Diff.DelH\000\022%\n\004move\030\005 \001(\0132\025.fast.Delta" +
-      ".Diff.MoveH\000\022)\n\006update\030\006 \001(\0132\027.fast.Delt" +
-      "a.Diff.UpdateH\000\032!\n\005Match\022\013\n\003src\030\001 \001(\005\022\013\n" +
-      "\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 " +
-      "\001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003Del\022\013\n\003src\030\001 \001(",
-      "\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022\020\n\010p" +
-      "osition\030\003 \001(\005\032$\n\006Update\022\013\n\003src\030\001 \001(\005\022\r\n\005" +
-      "label\030\002 \001(\t\">\n\tDeltaType\022\t\n\005MATCH\020\000\022\007\n\003A" +
-      "DD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n\n\006UPDATE\020\004B\007\n\005d" +
-      "elta\"\250\003\n\005Pairs\022\036\n\004pair\030\001 \003(\0132\020.fast.Pair" +
-      "s.Pair\032\376\002\n\004Pair\022#\n\004left\030\001 \001(\0132\025.fast.Pai" +
-      "rs.Pair.Diff\022$\n\005right\030\002 \001(\0132\025.fast.Pairs" +
-      ".Pair.Diff\022(\n\004type\030\003 \001(\0162\032.fast.Pairs.Pa" +
-      "ir.CloneType\032\327\001\n\004Diff\022\017\n\007project\030\001 \001(\t\022\021" +
-      "\n\tleft_line\030\002 \001(\005\022\023\n\013left_column\030\003 \001(\005\022\022",
-      "\n\nright_line\030\004 \001(\005\022\024\n\014right_column\030\005 \001(\005" +
-      "\022\037\n\010old_code\030\006 \001(\0132\r.fast.Element\022\037\n\010new" +
-      "_code\030\007 \001(\0132\r.fast.Element\022\014\n\004hash\030\010 \001(\t" +
-      "\022\034\n\006slices\030\t \001(\0132\014.fast.Slices\"\'\n\tCloneT" +
-      "ype\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020\002\"\254\006\n\003Log\022" +
-      " \n\006commit\030\001 \003(\0132\020.fast.Log.Commit\022 \n\006aut" +
-      "hor\030\002 \003(\0132\020.fast.Log.Author\032\255\005\n\006Commit\022\n" +
-      "\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\tauthor_id\030\003 " +
-      "\001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tcommitter\030\005 " +
-      "\001(\0132\032.fast.Log.Commit.CommitterH\000\022#\n\004dif",
-      "f\030\006 \003(\0132\025.fast.Log.Commit.Diff\022\033\n\005slice\030" +
-      "\007 \001(\0132\014.fast.Slices\0326\n\tCommitter\022\024\n\014comm" +
-      "itter_id\030\001 \001(\005\022\023\n\013commit_date\030\002 \001(\t\032\254\003\n\004" +
-      "Diff\022\t\n\001a\030\001 \001(\t\022\t\n\001b\030\002 \001(\t\022\016\n\006is_new\030\003 \001" +
-      "(\010\022\017\n\007is_code\030\004 \001(\t\022\022\n\nindex_from\030\005 \001(\t\022" +
-      "\020\n\010index_to\030\006 \001(\t\022\014\n\004mode\030\007 \001(\t\022(\n\004hunk\030" +
-      "\010 \003(\0132\032.fast.Log.Commit.Diff.Hunk\032\216\002\n\004Hu" +
-      "nk\022\023\n\013from_lineno\030\001 \001(\005\022\023\n\013from_column\030\002" +
-      " \001(\005\022\021\n\tto_lineno\030\003 \001(\005\022\021\n\tto_column\030\004 \001" +
-      "(\005\022\017\n\007context\030\005 \001(\t\022\036\n\007element\030\006 \003(\0132\r.f",
-      "ast.Element\022/\n\003mod\030\007 \003(\0132\".fast.Log.Comm" +
-      "it.Diff.Hunk.ModLine\022\033\n\005slice\030\010 \001(\0132\014.fa" +
-      "st.Slices\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006is" +
-      "_add\030\002 \001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006A" +
-      "uthor\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005email" +
-      "\030\003 \001(\t\"\303\007\n\006Slices\022!\n\005slice\030\001 \003(\0132\022.fast." +
-      "Slices.Slice\032\225\007\n\005Slice\022+\n\004file\030\001 \003(\0132\035.f" +
-      "ast.Slices.Slice.SourceFile\022\014\n\004hash\030\002 \001(" +
-      "\t\032\241\006\n\nSourceFile\0228\n\010function\030\001 \003(\0132&.fas" +
-      "t.Slices.Slice.SourceFile.Function\022\014\n\004na",
-      "me\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Sli" +
-      "ce.ChangeType\032\235\005\n\010Function\022A\n\010variable\030\001" +
-      " \003(\0132/.fast.Slices.Slice.SourceFile.Func" +
-      "tion.Variable\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003 \001(" +
-      "\0162\035.fast.Slices.Slice.ChangeType\032\222\004\n\010Var" +
-      "iable\022\014\n\004name\030\001 \001(\t\022E\n\003pos\030\002 \001(\01328.fast." +
-      "Slices.Slice.SourceFile.Function.Variabl" +
-      "e.Position\022+\n\004type\030\003 \001(\0162\035.fast.Slices.S" +
-      "lice.ChangeType\022F\n\004defn\030\004 \003(\01328.fast.Sli" +
-      "ces.Slice.SourceFile.Function.Variable.P",
-      "osition\022E\n\003use\030\005 \003(\01328.fast.Slices.Slice" +
-      ".SourceFile.Function.Variable.Position\022\014" +
-      "\n\004dvar\030\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022K\n\005cfunc\030\010 \003" +
-      "(\0132<.fast.Slices.Slice.SourceFile.Functi" +
-      "on.Variable.FunctionDecl\032]\n\010Position\022\016\n\006" +
-      "lineno\030\001 \001(\005\022+\n\004type\030\002 \001(\0162\035.fast.Slices" +
-      ".Slice.ChangeType\022\024\n\014delta_lineno\030\005 \001(\005\032" +
-      ",\n\014FunctionDecl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno\030" +
-      "\002 \001(\005\"-\n\nChangeType\022\r\n\tUNCHANGED\020\000\022\007\n\003AD" +
-      "D\020\001\022\007\n\003DEL\020\002\"\326\001\n\004Bugs\022\022\n\nrepository\030\001 \001(",
-      "\t\022\033\n\003bug\030\002 \003(\0132\016.fast.Bugs.Bug\032\234\001\n\003Bug\022\n" +
-      "\n\002id\030\001 \001(\014\022\020\n\010opendate\030\002 \001(\014\022\017\n\007fixdate\030" +
-      "\003 \001(\014\022$\n\007buginfo\030\004 \001(\0132\023.fast.Bugs.Bug.I" +
-      "nfo\022\022\n\nfixed_file\030\005 \003(\014\032,\n\004Info\022\017\n\007summa" +
-      "ry\030\001 \001(\014\022\023\n\013description\030\002 \001(\014\"\310\001\n\004Data\022 " +
-      "\n\007element\030\001 \001(\0132\r.fast.ElementH\000\022\030\n\003log\030" +
-      "\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030\003 \001(\0132\013.fast" +
-      ".DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fast.PairsH\000\022\036" +
-      "\n\006slices\030\005 \001(\0132\014.fast.SlicesH\000\022\032\n\004bugs\030\006" +
-      " \001(\0132\n.fast.BugsH\000B\014\n\nRecordType*\273\022\n\tSma",
-      "liKind\022\016\n\nsmali_file\020\000\022\016\n\nclass_spec\020\001\022\016" +
-      "\n\nsuper_spec\020\002\022\023\n\017implements_spec\020\003\022\017\n\013s" +
-      "ource_spec\020\004\022\017\n\013access_list\020\005\022\t\n\005field\020\006" +
-      "\022\n\n\006method\020\007\022\035\n\031statements_and_directive" +
-      "s\020\010\022\027\n\023ordered_method_item\020\t\022\027\n\023register" +
-      "s_directive\020\n\022\024\n\020param_list_or_id\020\013\022\017\n\013s" +
-      "imple_name\020\014\022\017\n\013member_name\020\r\022\024\n\020method_" +
-      "prototype\020\016\022#\n\037param_list_or_id_primitiv" +
-      "e_type\020\017\022\016\n\nparam_list\020\020\022\024\n\020array_descri" +
-      "ptor\020\021\022\023\n\017type_descriptor\020\022\022\033\n\027nonvoid_t",
-      "ype_descriptor\020\023\022\035\n\031reference_type_descr" +
-      "iptor\020\024\022\023\n\017integer_literal\020\025\022\021\n\rfloat_li" +
-      "teral\020\026\022\022\n\016double_literal\020\027\022\013\n\007literal\020\030" +
-      "\022\032\n\026parsed_integer_literal\020\031\022\024\n\020integral" +
-      "_literal\020\032\022\027\n\023fixed_32bit_literal\020\033\022\021\n\rf" +
-      "ixed_literal\020\034\022\021\n\rarray_literal\020\035\022\026\n\022ann" +
-      "otation_element\020\036\022\016\n\nannotation\020\037\022\021\n\rsub" +
-      "annotation\020 \022\020\n\014enum_literal\020!\022\035\n\031type_f" +
-      "ield_method_literal\020\"\022\024\n\020method_referenc" +
-      "e\020#\022\023\n\017field_reference\020$\022\t\n\005label\020%\022\r\n\tl",
-      "abel_ref\020&\022\021\n\rregister_list\020\'\022\022\n\016registe" +
-      "r_range\020(\022 \n\034verification_error_referenc" +
-      "e\020)\022\023\n\017catch_directive\020*\022\026\n\022catchall_dir" +
-      "ective\020+\022\027\n\023parameter_directive\020,\022\023\n\017deb" +
-      "ug_directive\020-\022\022\n\016line_directive\020.\022\023\n\017lo" +
-      "cal_directive\020/\022\027\n\023end_local_directive\0200" +
-      "\022\033\n\027restart_local_directive\0201\022\026\n\022prologu" +
-      "e_directive\0202\022\026\n\022epilogue_directive\0203\022\024\n" +
-      "\020source_directive\0204\022\031\n\025instruction_forma" +
-      "t12x\0205\022\031\n\025instruction_format22s\0206\022\031\n\025ins",
-      "truction_format31i\0207\022\017\n\013instruction\0208\022\022\n" +
-      "\016insn_format10t\0209\022\022\n\016insn_format10x\020:\022\027\n" +
-      "\023insn_format10x_odex\020;\022\022\n\016insn_format11n" +
-      "\020<\022\022\n\016insn_format11x\020=\022\022\n\016insn_format12x" +
-      "\020>\022\023\n\017insn_format20bc\020?\022\022\n\016insn_format20" +
-      "t\020@\022\030\n\024insn_format21c_field\020A\022\035\n\031insn_fo" +
-      "rmat21c_field_odex\020B\022\031\n\025insn_format21c_s" +
-      "tring\020C\022\027\n\023insn_format21c_type\020D\022\023\n\017insn" +
-      "_format21ih\020E\022\023\n\017insn_format21lh\020F\022\022\n\016in" +
-      "sn_format21s\020G\022\022\n\016insn_format21t\020H\022\022\n\016in",
-      "sn_format22b\020I\022\030\n\024insn_format22c_field\020J" +
-      "\022\035\n\031insn_format22c_field_odex\020K\022\027\n\023insn_" +
-      "format22c_type\020L\022\031\n\025insn_format22cs_fiel" +
-      "d\020M\022\022\n\016insn_format22s\020N\022\022\n\016insn_format22" +
-      "t\020O\022\022\n\016insn_format22x\020P\022\022\n\016insn_format23" +
-      "x\020Q\022\022\n\016insn_format30t\020R\022\022\n\016insn_format31" +
-      "c\020S\022\022\n\016insn_format31i\020T\022\022\n\016insn_format31" +
-      "t\020U\022\022\n\016insn_format32x\020V\022\031\n\025insn_format35" +
-      "c_method\020W\022\027\n\023insn_format35c_type\020X\022\036\n\032i" +
-      "nsn_format35c_method_odex\020Y\022\032\n\026insn_form",
-      "at35mi_method\020Z\022\032\n\026insn_format35ms_metho" +
-      "d\020[\022\031\n\025insn_format3rc_method\020\\\022\036\n\032insn_f" +
-      "ormat3rc_method_odex\020]\022\027\n\023insn_format3rc" +
-      "_type\020^\022\032\n\026insn_format3rmi_method\020_\022\032\n\026i" +
-      "nsn_format3rms_method\020`\022\032\n\026insn_format45" +
-      "cc_method\020a\022\032\n\026insn_format4rcc_method\020b\022" +
-      "\022\n\016insn_format51l\020c\022\035\n\031insn_array_data_d" +
-      "irective\020d\022 \n\034insn_packed_switch_directi" +
-      "ve\020e\022 \n\034insn_sparse_switch_directive\020fb\006" +
-      "proto3"
+      "TRONG\020\274\003\022\014\n\007OMP_OMP\020\300\003\022\022\n\rSPECIAL_CHARS\020",
+      "\301\003\"Q\n\010DiffType\022\013\n\007MATCHED\020\000\022\t\n\005ADDED\020\001\022\013" +
+      "\n\007DELETED\020\002\022\020\n\014CHANGED_FROM\020\003\022\016\n\nCHANGED" +
+      "_TO\020\004B\006\n\004typeB\007\n\005extra\"\304\004\n\005Delta\022\013\n\003src\030" +
+      "\001 \001(\t\022\013\n\003dst\030\002 \001(\t\022\036\n\004diff\030\003 \003(\0132\020.fast." +
+      "Delta.Diff\032\200\004\n\004Diff\022(\n\004type\030\001 \001(\0162\032.fast" +
+      ".Delta.Diff.DeltaType\022\'\n\005match\030\002 \001(\0132\026.f" +
+      "ast.Delta.Diff.MatchH\000\022#\n\003add\030\003 \001(\0132\024.fa" +
+      "st.Delta.Diff.AddH\000\022#\n\003del\030\004 \001(\0132\024.fast." +
+      "Delta.Diff.DelH\000\022%\n\004move\030\005 \001(\0132\025.fast.De" +
+      "lta.Diff.MoveH\000\022)\n\006update\030\006 \001(\0132\027.fast.D",
+      "elta.Diff.UpdateH\000\032!\n\005Match\022\013\n\003src\030\001 \001(\005" +
+      "\022\013\n\003dst\030\002 \001(\005\0321\n\003Add\022\013\n\003src\030\001 \001(\005\022\013\n\003dst" +
+      "\030\002 \001(\005\022\020\n\010position\030\003 \001(\005\032\022\n\003Del\022\013\n\003src\030\001" +
+      " \001(\005\0322\n\004Move\022\013\n\003src\030\001 \001(\005\022\013\n\003dst\030\002 \001(\005\022\020" +
+      "\n\010position\030\003 \001(\005\032\"\n\006Update\022\013\n\003src\030\001 \001(\005\022" +
+      "\013\n\003dst\030\002 \001(\005\">\n\tDeltaType\022\t\n\005MATCH\020\000\022\007\n\003" +
+      "ADD\020\001\022\007\n\003DEL\020\002\022\010\n\004MOVE\020\003\022\n\n\006UPDATE\020\004B\007\n\005" +
+      "delta\"\250\003\n\005Pairs\022\036\n\004pair\030\001 \003(\0132\020.fast.Pai" +
+      "rs.Pair\032\376\002\n\004Pair\022#\n\004left\030\001 \001(\0132\025.fast.Pa" +
+      "irs.Pair.Diff\022$\n\005right\030\002 \001(\0132\025.fast.Pair",
+      "s.Pair.Diff\022(\n\004type\030\003 \001(\0162\032.fast.Pairs.P" +
+      "air.CloneType\032\327\001\n\004Diff\022\017\n\007project\030\001 \001(\t\022" +
+      "\021\n\tleft_line\030\002 \001(\005\022\023\n\013left_column\030\003 \001(\005\022" +
+      "\022\n\nright_line\030\004 \001(\005\022\024\n\014right_column\030\005 \001(" +
+      "\005\022\037\n\010old_code\030\006 \001(\0132\r.fast.Element\022\037\n\010ne" +
+      "w_code\030\007 \001(\0132\r.fast.Element\022\014\n\004hash\030\010 \001(" +
+      "\t\022\034\n\006slices\030\t \001(\0132\014.fast.Slices\"\'\n\tClone" +
+      "Type\022\t\n\005MAYBE\020\000\022\007\n\003YES\020\001\022\006\n\002NO\020\002\"\254\006\n\003Log" +
+      "\022 \n\006commit\030\001 \003(\0132\020.fast.Log.Commit\022 \n\006au" +
+      "thor\030\002 \003(\0132\020.fast.Log.Author\032\255\005\n\006Commit\022",
+      "\n\n\002id\030\001 \001(\t\022\014\n\004text\030\002 \001(\014\022\021\n\tauthor_id\030\003" +
+      " \001(\005\022\023\n\013author_date\030\004 \001(\t\022/\n\tcommitter\030\005" +
+      " \001(\0132\032.fast.Log.Commit.CommitterH\000\022#\n\004di" +
+      "ff\030\006 \003(\0132\025.fast.Log.Commit.Diff\022\033\n\005slice" +
+      "\030\007 \001(\0132\014.fast.Slices\0326\n\tCommitter\022\024\n\014com" +
+      "mitter_id\030\001 \001(\005\022\023\n\013commit_date\030\002 \001(\t\032\254\003\n" +
+      "\004Diff\022\t\n\001a\030\001 \001(\t\022\t\n\001b\030\002 \001(\t\022\016\n\006is_new\030\003 " +
+      "\001(\010\022\017\n\007is_code\030\004 \001(\t\022\022\n\nindex_from\030\005 \001(\t" +
+      "\022\020\n\010index_to\030\006 \001(\t\022\014\n\004mode\030\007 \001(\t\022(\n\004hunk" +
+      "\030\010 \003(\0132\032.fast.Log.Commit.Diff.Hunk\032\216\002\n\004H",
+      "unk\022\023\n\013from_lineno\030\001 \001(\005\022\023\n\013from_column\030" +
+      "\002 \001(\005\022\021\n\tto_lineno\030\003 \001(\005\022\021\n\tto_column\030\004 " +
+      "\001(\005\022\017\n\007context\030\005 \001(\t\022\036\n\007element\030\006 \003(\0132\r." +
+      "fast.Element\022/\n\003mod\030\007 \003(\0132\".fast.Log.Com" +
+      "mit.Diff.Hunk.ModLine\022\033\n\005slice\030\010 \001(\0132\014.f" +
+      "ast.Slices\0327\n\007ModLine\022\014\n\004line\030\001 \001(\014\022\016\n\006i" +
+      "s_add\030\002 \001(\010\022\016\n\006is_del\030\003 \001(\010B\007\n\005extra\0321\n\006" +
+      "Author\022\n\n\002id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\022\r\n\005emai" +
+      "l\030\003 \001(\t\"\303\007\n\006Slices\022!\n\005slice\030\001 \003(\0132\022.fast" +
+      ".Slices.Slice\032\225\007\n\005Slice\022+\n\004file\030\001 \003(\0132\035.",
+      "fast.Slices.Slice.SourceFile\022\014\n\004hash\030\002 \001" +
+      "(\t\032\241\006\n\nSourceFile\0228\n\010function\030\001 \003(\0132&.fa" +
+      "st.Slices.Slice.SourceFile.Function\022\014\n\004n" +
+      "ame\030\002 \001(\t\022+\n\004type\030\003 \001(\0162\035.fast.Slices.Sl" +
+      "ice.ChangeType\032\235\005\n\010Function\022A\n\010variable\030" +
+      "\001 \003(\0132/.fast.Slices.Slice.SourceFile.Fun" +
+      "ction.Variable\022\014\n\004name\030\002 \001(\t\022+\n\004type\030\003 \001" +
+      "(\0162\035.fast.Slices.Slice.ChangeType\032\222\004\n\010Va" +
+      "riable\022\014\n\004name\030\001 \001(\t\022E\n\003pos\030\002 \001(\01328.fast" +
+      ".Slices.Slice.SourceFile.Function.Variab",
+      "le.Position\022+\n\004type\030\003 \001(\0162\035.fast.Slices." +
+      "Slice.ChangeType\022F\n\004defn\030\004 \003(\01328.fast.Sl" +
+      "ices.Slice.SourceFile.Function.Variable." +
+      "Position\022E\n\003use\030\005 \003(\01328.fast.Slices.Slic" +
+      "e.SourceFile.Function.Variable.Position\022" +
+      "\014\n\004dvar\030\006 \003(\t\022\r\n\005alias\030\007 \003(\t\022K\n\005cfunc\030\010 " +
+      "\003(\0132<.fast.Slices.Slice.SourceFile.Funct" +
+      "ion.Variable.FunctionDecl\032]\n\010Position\022\016\n" +
+      "\006lineno\030\001 \001(\005\022+\n\004type\030\002 \001(\0162\035.fast.Slice" +
+      "s.Slice.ChangeType\022\024\n\014delta_lineno\030\005 \001(\005",
+      "\032,\n\014FunctionDecl\022\014\n\004name\030\001 \001(\t\022\016\n\006lineno" +
+      "\030\002 \001(\005\"-\n\nChangeType\022\r\n\tUNCHANGED\020\000\022\007\n\003A" +
+      "DD\020\001\022\007\n\003DEL\020\002\"\326\001\n\004Bugs\022\022\n\nrepository\030\001 \001" +
+      "(\t\022\033\n\003bug\030\002 \003(\0132\016.fast.Bugs.Bug\032\234\001\n\003Bug\022" +
+      "\n\n\002id\030\001 \001(\014\022\020\n\010opendate\030\002 \001(\014\022\017\n\007fixdate" +
+      "\030\003 \001(\014\022$\n\007buginfo\030\004 \001(\0132\023.fast.Bugs.Bug." +
+      "Info\022\022\n\nfixed_file\030\005 \003(\014\032,\n\004Info\022\017\n\007summ" +
+      "ary\030\001 \001(\014\022\023\n\013description\030\002 \001(\014\"\310\001\n\004Data\022" +
+      " \n\007element\030\001 \001(\0132\r.fast.ElementH\000\022\030\n\003log" +
+      "\030\002 \001(\0132\t.fast.LogH\000\022\034\n\005delta\030\003 \001(\0132\013.fas",
+      "t.DeltaH\000\022\034\n\005pairs\030\004 \001(\0132\013.fast.PairsH\000\022" +
+      "\036\n\006slices\030\005 \001(\0132\014.fast.SlicesH\000\022\032\n\004bugs\030" +
+      "\006 \001(\0132\n.fast.BugsH\000B\014\n\nRecordType*\273\022\n\tSm" +
+      "aliKind\022\016\n\nsmali_file\020\000\022\016\n\nclass_spec\020\001\022" +
+      "\016\n\nsuper_spec\020\002\022\023\n\017implements_spec\020\003\022\017\n\013" +
+      "source_spec\020\004\022\017\n\013access_list\020\005\022\t\n\005field\020" +
+      "\006\022\n\n\006method\020\007\022\035\n\031statements_and_directiv" +
+      "es\020\010\022\027\n\023ordered_method_item\020\t\022\027\n\023registe" +
+      "rs_directive\020\n\022\024\n\020param_list_or_id\020\013\022\017\n\013" +
+      "simple_name\020\014\022\017\n\013member_name\020\r\022\024\n\020method",
+      "_prototype\020\016\022#\n\037param_list_or_id_primiti" +
+      "ve_type\020\017\022\016\n\nparam_list\020\020\022\024\n\020array_descr" +
+      "iptor\020\021\022\023\n\017type_descriptor\020\022\022\033\n\027nonvoid_" +
+      "type_descriptor\020\023\022\035\n\031reference_type_desc" +
+      "riptor\020\024\022\023\n\017integer_literal\020\025\022\021\n\rfloat_l" +
+      "iteral\020\026\022\022\n\016double_literal\020\027\022\013\n\007literal\020" +
+      "\030\022\032\n\026parsed_integer_literal\020\031\022\024\n\020integra" +
+      "l_literal\020\032\022\027\n\023fixed_32bit_literal\020\033\022\021\n\r" +
+      "fixed_literal\020\034\022\021\n\rarray_literal\020\035\022\026\n\022an" +
+      "notation_element\020\036\022\016\n\nannotation\020\037\022\021\n\rsu",
+      "bannotation\020 \022\020\n\014enum_literal\020!\022\035\n\031type_" +
+      "field_method_literal\020\"\022\024\n\020method_referen" +
+      "ce\020#\022\023\n\017field_reference\020$\022\t\n\005label\020%\022\r\n\t" +
+      "label_ref\020&\022\021\n\rregister_list\020\'\022\022\n\016regist" +
+      "er_range\020(\022 \n\034verification_error_referen" +
+      "ce\020)\022\023\n\017catch_directive\020*\022\026\n\022catchall_di" +
+      "rective\020+\022\027\n\023parameter_directive\020,\022\023\n\017de" +
+      "bug_directive\020-\022\022\n\016line_directive\020.\022\023\n\017l" +
+      "ocal_directive\020/\022\027\n\023end_local_directive\020" +
+      "0\022\033\n\027restart_local_directive\0201\022\026\n\022prolog",
+      "ue_directive\0202\022\026\n\022epilogue_directive\0203\022\024" +
+      "\n\020source_directive\0204\022\031\n\025instruction_form" +
+      "at12x\0205\022\031\n\025instruction_format22s\0206\022\031\n\025in" +
+      "struction_format31i\0207\022\017\n\013instruction\0208\022\022" +
+      "\n\016insn_format10t\0209\022\022\n\016insn_format10x\020:\022\027" +
+      "\n\023insn_format10x_odex\020;\022\022\n\016insn_format11" +
+      "n\020<\022\022\n\016insn_format11x\020=\022\022\n\016insn_format12" +
+      "x\020>\022\023\n\017insn_format20bc\020?\022\022\n\016insn_format2" +
+      "0t\020@\022\030\n\024insn_format21c_field\020A\022\035\n\031insn_f" +
+      "ormat21c_field_odex\020B\022\031\n\025insn_format21c_",
+      "string\020C\022\027\n\023insn_format21c_type\020D\022\023\n\017ins" +
+      "n_format21ih\020E\022\023\n\017insn_format21lh\020F\022\022\n\016i" +
+      "nsn_format21s\020G\022\022\n\016insn_format21t\020H\022\022\n\016i" +
+      "nsn_format22b\020I\022\030\n\024insn_format22c_field\020" +
+      "J\022\035\n\031insn_format22c_field_odex\020K\022\027\n\023insn" +
+      "_format22c_type\020L\022\031\n\025insn_format22cs_fie" +
+      "ld\020M\022\022\n\016insn_format22s\020N\022\022\n\016insn_format2" +
+      "2t\020O\022\022\n\016insn_format22x\020P\022\022\n\016insn_format2" +
+      "3x\020Q\022\022\n\016insn_format30t\020R\022\022\n\016insn_format3" +
+      "1c\020S\022\022\n\016insn_format31i\020T\022\022\n\016insn_format3",
+      "1t\020U\022\022\n\016insn_format32x\020V\022\031\n\025insn_format3" +
+      "5c_method\020W\022\027\n\023insn_format35c_type\020X\022\036\n\032" +
+      "insn_format35c_method_odex\020Y\022\032\n\026insn_for" +
+      "mat35mi_method\020Z\022\032\n\026insn_format35ms_meth" +
+      "od\020[\022\031\n\025insn_format3rc_method\020\\\022\036\n\032insn_" +
+      "format3rc_method_odex\020]\022\027\n\023insn_format3r" +
+      "c_type\020^\022\032\n\026insn_format3rmi_method\020_\022\032\n\026" +
+      "insn_format3rms_method\020`\022\032\n\026insn_format4" +
+      "5cc_method\020a\022\032\n\026insn_format4rcc_method\020b" +
+      "\022\022\n\016insn_format51l\020c\022\035\n\031insn_array_data_",
+      "directive\020d\022 \n\034insn_packed_switch_direct" +
+      "ive\020e\022 \n\034insn_sparse_switch_directive\020fb" +
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -36950,7 +37136,7 @@ public final class Fast {
     internal_static_fast_Element_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Element_descriptor,
-        new java.lang.String[] { "Kind", "SmaliKind", "Text", "Pos", "Length", "Child", "Tail", "Unit", "Literal", "Line", "Column", "Label", "Type", "Extra", });
+        new java.lang.String[] { "Kind", "SmaliKind", "Text", "Pos", "Length", "Child", "Tail", "Unit", "Literal", "Line", "Column", "Label", "Change", "Type", "Extra", });
     internal_static_fast_Element_Unit_descriptor =
       internal_static_fast_Element_descriptor.getNestedTypes().get(0);
     internal_static_fast_Element_Unit_fieldAccessorTable = new
@@ -37004,7 +37190,7 @@ public final class Fast {
     internal_static_fast_Delta_Diff_Update_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_fast_Delta_Diff_Update_descriptor,
-        new java.lang.String[] { "Src", "Label", });
+        new java.lang.String[] { "Src", "Dst", });
     internal_static_fast_Pairs_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_fast_Pairs_fieldAccessorTable = new
