@@ -1723,28 +1723,28 @@ EOF
 }
 
 notestFastPairs() {
-	$fast -l codelabel_new_with_hash.csv codelabel_new_with_hash.pb
+	$fast -l codelabel_new_with_hash.csv codelabel_new_with_hash.pb > /dev/null
 	stdout 4e25d4ccd0dfaa46c91b8853c620c59e961035c07ee293052d800071e5b53c4a -d codelabel_new_with_hash.pb
 }
 
 testFastPairsWithHash564() {
 	head -564 codelabel_new_with_hash.csv | tail -1 > a.csv
 	catout c751a683e045b36af5d58e103f79daab9cb42b0c23a260392f39828212fa8bad a.csv
-	$fast -l a.csv a.pb
+	$fast -l a.csv a.pb > /dev/null
 	stdout 3203810cc6fb73eb59810cf3012d1d9e86acda95fdfdec53280160dc6b5c726a -d a.pb
-	$fast -l -W 5 a.csv a5.pb
+	$fast -l -W 5 a.csv a5.pb > /dev/null
 	stdout aeaabf7806746220defa155fb9e7fba301259dca5afe3147d406d0208bb17466 -d a5.pb
-	$fast -w a5.pb
+	$fast -w a5.pb > /dev/null
 }
 
 testFastSlice() {
 	$fast -p Hello.java Hello.position.pb
 	$fast -p Hello.java Hello.position.xml
-	$fast -s Hello.position.xml
-	$fast -s Hello.position.pb
-	$fast -s Hello.position.xml Hello.slice.csv
+	$fast -s Hello.position.xml > /dev/null
+	$fast -s Hello.position.pb > /dev/null
+	$fast -s Hello.position.xml Hello.slice.csv > /dev/null
 	stdouterr 999560795c016bb2cccb1224c7208a9604e5f100701a808ab185d34f914700ec -S Hello.position.pb
-	$fast -S Hello.position.pb Hello.slice.pb
+	$fast -S Hello.position.pb Hello.slice.pb > /dev/null
 	catout 3b89f50af2b9d6c1b1a9947324def412b718bc7bd857a9a5d0309fbb93dba67f Hello.slice.pb
 	$fast -p example.cc example.position.fbs
 	$fast -S example.position.pb > example-s.slice
@@ -1753,7 +1753,7 @@ testFastSlice() {
 	#$fast -S example.position.pb example.slice.pb
 	#catout 1a5f26bf8f2be74082736ad14beb2b14c8ef5797a4c33832500a4a6dd72f8d08 example.slice.pb
 	$fast -p . s.pb
-	$fast -S s.pb s.slice.txt
+	$fast -S s.pb s.slice.txt > /dev/null
 }
 
 testNoneExistingFile() {
@@ -1814,14 +1814,14 @@ cleanup_examples() {
 export -f cleanup_examples
 
 testSliceDiff() {
-	cd a
+	cd a > /dev/null
 	../$fast -p example.cc example.positions.pb
-	cd -
-	$fast -S a/example.positions.pb a/example.slice.pb
-	cd b
+	cd - > /dev/null
+	$fast -S a/example.positions.pb a/example.slice.pb > /dev/null
+	cd b > /dev/null
 	../$fast -p example.cc example.positions.pb
-	cd -
-	$fast -S b/example.positions.pb b/example.slice.pb
+	cd - > /dev/null
+	$fast -S b/example.positions.pb b/example.slice.pb > /dev/null
 	$fast -L a/example.slice.pb b/example.slice.pb diff.pb > tmp.txt
 	stdout 11360a59f4f4a71b4921f501f9d06880a4120e1f110edccb1cb2d18dc27c67e7 -d diff.pb
 }
@@ -1844,8 +1844,8 @@ testJSON() {
 }
 
 testPB2XML() {
-	$fast -x a/example.slice.pb
-	$fast -x a/example.slice.pb a/example.slice.txt
+	$fast -x a/example.slice.pb > /dev/null
+	$fast -x a/example.slice.pb a/example.slice.txt > /dev/null
 	#stdout c3a14e8fb712cd85a6cb76c2166b442519924919dc5629a233c5a508cb40065d -x a/example.slice.pb
 	#stdout 5397fe73cf208062df264e1bbb8d46b136f3df24aed3b68579f83126a3bebdfc -x a/example.slice.pb a/example.slice.txt
 	rm -f a/example.slice.txt
@@ -1853,7 +1853,7 @@ testPB2XML() {
 
 testId() {
 	stdout 134bf923f22e023ca53dd7c01cb12dc1e0ba387300c9056bc30e85d30a080fa5 -i a/example.cc t.pb 
-	$fast -i -fcc . t.pb
+	$fast -i -fcc . t.pb > /dev/null
 }
 
 testBug() {
@@ -1875,18 +1875,18 @@ testNormalise() {
 }
 
 testDiff() {
-	stdout 42c3141f3eb579a64d1c6ca42605d07fa73233cf07b50825208f9ae9b95384e5 -D Hello1.java Hello2.java
+	stdout b7719783d848015d16cff2e492ed68a69277dd210fe8bd3bff6877eddbc72112 -D Hello1.java Hello2.java
 }
 
 testGitSliceDiff() {
 	HEAD=HEAD
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)
-	position $r1
-	position $r2 
-	slice $r1
-	slice $r2 
-	$fast -L $r1/slice.pb $r2/slice.pb diff.pb
+	position $r1 > /dev/null
+	position $r2  > /dev/null
+	slice $r1 > /dev/null
+	slice $r2  > /dev/null
+	$fast -L $r1/slice.pb $r2/slice.pb diff.pb > /dev/null
 	$fast -d diff.pb > diff.txt
 	diff $r1/slice.pb.xml $r2/slice.pb.xml > diff.xml
 	rm -rf $r1 $r2
