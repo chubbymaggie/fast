@@ -10,6 +10,7 @@ before_install:
     brew tap f-ast/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers; pip install protobuf;
     brew install jq;
+    brew install perl;
     brew install antlr; brew install antlr4-cpp-runtime;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make -j4; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -rf srcSlice;
     fi
@@ -25,6 +26,7 @@ before_install:
     sudo apt-get install -y --force-yes srcml;
     sudo apt-get install libarchive13;
     sudo apt-get install libxml2;
+    sudo apt-get install perl;
     wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -; rm -rf flatbuffers-1.6.0;
     wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -; rm -rf protobuf-3.3.0;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
