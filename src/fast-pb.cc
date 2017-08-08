@@ -103,6 +103,9 @@ inline void replace_all(string* str, const char* oldValue, const char* newValue)
     }  
 }  
 void displayPBElementOne(ofstream &out, fast::Element *element) {
+	if (element->change() != fast::Element_DiffType_MATCHED) {
+		out << "${bold}";
+	}
 	if (element->change() == fast::Element_DiffType_DELETED) {
 		out << "${red}";
 	}

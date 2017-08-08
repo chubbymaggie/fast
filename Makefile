@@ -120,6 +120,8 @@ install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Exa
 	install -m 0644 src/gen/fast_pb2.py $(DESTDIR)$(prefix)/share/fast_pb2.py
 	install -m 0644 src/protobuf/json_format.py /usr/local/share/json_format.py
 	unzip -o lib/gumtree-20170806-2.1.0-SNAPSHOT.zip -d /usr/local/
+	cp -r /usr/local/gumtree-20170806-2.1.0-SNAPSHOT/* /usr/local/
+	rm -rf /usr/local/gumtree-20170806-2.1.0-SNAPSHOT
 
 ifeq ($(UNAME_S),Linux)
 install-srcslice::
