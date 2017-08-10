@@ -121,76 +121,79 @@ public final class ActionsIoUtils {
             fmt.startOutput();
 
 	    fast.Fast.Delta.Builder delta = fast.Fast.Delta.newBuilder();
-	    delta.setSrc(src_path);
-	    delta.setDst(dst_path);
+	    if (src_path != null && dst_path!=null) {
+		    delta.setSrc(src_path);
+		    delta.setDst(dst_path);
 
-            // Write the matches
-            fmt.startMatches();
-            for (Mapping m: mappings) {
-		fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-		dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MATCH);
-		fast.Fast.Delta.Diff.Match.Builder mbuilder = dbuilder.getMatchBuilder();
-		mbuilder.setSrc(m.getFirst().getId());
-		mbuilder.setDst(m.getSecond().getId());
-                fmt.match(m.getFirst(), m.getSecond());
-            }
-            fmt.endMatches();
+		    // Write the matches
+		    fmt.startMatches();
+		    for (Mapping m: mappings) {
+			fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
+			dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MATCH);
+			fast.Fast.Delta.Diff.Match.Builder mbuilder = dbuilder.getMatchBuilder();
+			mbuilder.setSrc(m.getFirst().getId());
+			mbuilder.setDst(m.getSecond().getId());
+			fmt.match(m.getFirst(), m.getSecond());
+		    }
+		    fmt.endMatches();
+		    if (true) return;
 
-            // Write the actions
-            fmt.startActions();
-            for (Action a : actions) {
-                ITree src = a.getNode();
-                if (a instanceof Move) {
-                    ITree dst = mappings.getDst(src);
-		    fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-		    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MOVE);
-		    fast.Fast.Delta.Diff.Move.Builder mbuilder = dbuilder.getMoveBuilder();
-		    mbuilder.setSrc(src.getId());
-		    mbuilder.setDst(dst.getParent().getId());
-		    mbuilder.setPosition(((Move) a).getPosition());
-		    fmt.moveAction(src, dst.getParent(), ((Move) a).getPosition());
-                } else if (a instanceof Update) {
-                    ITree dst = mappings.getDst(src);
-       		    fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-		    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.UPDATE);
-		    fast.Fast.Delta.Diff.Update.Builder mbuilder = dbuilder.getUpdateBuilder();
-		    mbuilder.setSrc(src.getId());
-		    if (dst!=null) {
-			    mbuilder.setDst(dst.getId());
-			    fmt.updateAction(src, dst);
+		    // Write the actions
+		    fmt.startActions();
+		    for (Action a : actions) {
+			ITree src = a.getNode();
+			if (a instanceof Move) {
+			    ITree dst = mappings.getDst(src);
+			    fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
+			    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MOVE);
+			    fast.Fast.Delta.Diff.Move.Builder mbuilder = dbuilder.getMoveBuilder();
+			    mbuilder.setSrc(src.getId());
+			    mbuilder.setDst(dst.getParent().getId());
+			    mbuilder.setPosition(((Move) a).getPosition());
+			    fmt.moveAction(src, dst.getParent(), ((Move) a).getPosition());
+			} else if (a instanceof Update) {
+			    ITree dst = mappings.getDst(src);
+			    fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
+			    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.UPDATE);
+			    fast.Fast.Delta.Diff.Update.Builder mbuilder = dbuilder.getUpdateBuilder();
+			    mbuilder.setSrc(src.getId());
+			    if (dst!=null) {
+				    mbuilder.setDst(dst.getId());
+				    fmt.updateAction(src, dst);
+			    }
+			} else if (a instanceof Insert) {
+			    ITree dst = a.getNode();
+			    if (dst.isRoot()) {
+				fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
+				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
+				fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
+				mbuilder.setSrc(src.getId());
+				fmt.insertRoot(src);
+			    } else {
+				fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
+				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
+				fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
+				mbuilder.setSrc(src.getId());
+				mbuilder.setDst(dst.getParent().getId());
+				mbuilder.setPosition(dst.getParent().getChildPosition(dst));
+				fmt.insertAction(src, dst.getParent(), dst.getParent().getChildPosition(dst));
+			    }
+			} else if (a instanceof Delete) {
+				fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
+				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.DEL);
+				fast.Fast.Delta.Diff.Del.Builder mbuilder = dbuilder.getDelBuilder();
+				mbuilder.setSrc(src.getId());
+				fmt.deleteAction(src);
+			}
 		    }
-                } else if (a instanceof Insert) {
-                    ITree dst = a.getNode();
-                    if (dst.isRoot()) {
-			fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-			dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
-			fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
-			mbuilder.setSrc(src.getId());
-                        fmt.insertRoot(src);
-		    } else {
-			fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-			dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
-			fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
-			mbuilder.setSrc(src.getId());
-			mbuilder.setDst(dst.getParent().getId());
-			mbuilder.setPosition(dst.getParent().getChildPosition(dst));
-                        fmt.insertAction(src, dst.getParent(), dst.getParent().getChildPosition(dst));
-		    }
-                } else if (a instanceof Delete) {
-			fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-			dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.DEL);
-			fast.Fast.Delta.Diff.Del.Builder mbuilder = dbuilder.getDelBuilder();
-			mbuilder.setSrc(src.getId());
-	                fmt.deleteAction(src);
-                }
-            }
-            fmt.endActions();
+		    fmt.endActions();
+	    }
 
             // Finish up
             fmt.endOutput();
-	    if (update_pb) {
+	    if (update_pb && delta!=null) {
 		fast.Fast.Data.Builder data_element = fast.Fast.Data.newBuilder();
-		if (delta!=null) data_element.setDelta(delta);
+		data_element.setDelta(delta);
 		FileOutputStream output = new FileOutputStream(delta_filename);
 		data_element.build().writeTo(output);
 		output.close();

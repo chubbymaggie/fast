@@ -140,7 +140,6 @@ public abstract class Registry<K, C, A> {
             Constructor<? extends C> ctor = clazz.getConstructor(signature);
             return (args) -> ctor.newInstance(args);
         } catch (NoSuchMethodException e) {
-            System.out.println(Arrays.toString(clazz.getConstructors()));
             throw new RuntimeException(String.format("This is a static bug. Constructor %s(%s) not found",
                     clazz.getName(), Arrays.toString(signature)), e);
         }

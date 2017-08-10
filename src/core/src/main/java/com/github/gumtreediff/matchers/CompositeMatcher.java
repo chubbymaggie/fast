@@ -21,6 +21,7 @@
 package com.github.gumtreediff.matchers;
 
 import com.github.gumtreediff.tree.ITree;
+import com.github.gumtreediff.tree.TreeUtils;
 
 public class CompositeMatcher extends Matcher {
 
@@ -28,7 +29,9 @@ public class CompositeMatcher extends Matcher {
 
     public CompositeMatcher(ITree src, ITree dst, MappingStore store, Matcher[] matchers) {
         super(src, dst, store);
-	    // System.out.println("instantiating ... " + getClass().getName() );
+	// Yijun Yu: The following two computations are required, otherwise they may get -1 height
+	TreeUtils.computeHeight(src);
+	TreeUtils.computeHeight(dst);
         this.matchers = matchers;
     }
 

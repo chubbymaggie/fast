@@ -13,7 +13,8 @@ fi
 cp core/build/libs/core-2.1.0-SNAPSHOT.jar $gumtree/lib/
 fast Hello1.java Hello1.pb
 fast Hello2.java Hello2.pb
-$gumtree/bin/gumtree diff Hello1.pb Hello2.pb
+$gumtree/bin/gumtree diff D2.pb D2.pb
+#$gumtree/bin/gumtree diff Hello1.pb Hello2.pb
 #$gumtree/bin/gumtree webdiff Hello1.pb Hello2.pb
 cp -r $gumtree/* /usr/local/
 cd - > /dev/null
