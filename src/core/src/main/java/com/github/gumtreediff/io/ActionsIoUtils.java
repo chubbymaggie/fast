@@ -136,7 +136,6 @@ public final class ActionsIoUtils {
 			fmt.match(m.getFirst(), m.getSecond());
 		    }
 		    fmt.endMatches();
-		    if (true) return;
 
 		    // Write the actions
 		    fmt.startActions();
