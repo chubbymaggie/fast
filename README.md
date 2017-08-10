@@ -54,6 +54,7 @@ the following activities slow:
   by migrating the [txl](http://txl.ca)-based implementation, see `-n` option
 * Rewritten the interface to speedup [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) and [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
 * Added colors to the output of diff results so that it is possible to integrate with git on the command line interface
+* Added -u option for the YUML extraction (see srcYUML) for Xiaohong Chen
 
 *0.0.4* (August 1, 2017)
 

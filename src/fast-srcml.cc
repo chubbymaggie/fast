@@ -7,8 +7,10 @@
 #include <unistd.h>
 #include <map>
 #include "fast-option.h"
-using namespace std;
+#include <srcYUMLHandler.hpp>
+#include <srcSAXController.hpp>
 
+using namespace std;
 
 int loadSrcML(int load_only, int argc, char **argv) {
 	if (load_only && argc != 2 && argc != 3 && argc != 4) 
@@ -112,6 +114,18 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		my_argv[2] = argv[2];
 		my_argv[3] = argv[3];
 		(void) sliceDiffMainRoutine(4, my_argv);
+	} else if (extract_uml) {
+		if (argc == 3 && input_is_xml) {
+		  srcSAXController control(argv[1]);
+		  std::ostream * output = &std::cout;
+		  output = new std::ofstream(argv[2]);
+
+		  srcYUMLHandler handler(*output);
+		  control.parse(&handler);
+		  handler.processClassesInSource();
+
+		  delete output;
+		}
 	} else {
 		if (argc == 3 && input_is_xml) {
 			srcmlCommand = srcmlCommand + " -o " + argv[2];

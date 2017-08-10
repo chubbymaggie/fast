@@ -38,6 +38,8 @@ int bug_analysis = 0;
 int normalise = 0;
 string normalise_list;
 
+int extract_uml = 0;
+
 void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
 void savePBfromTxt(char *input_file);
@@ -67,6 +69,7 @@ void usage() {
 	 << "-p\tPreserve the position (line, column) numbers" << endl
 	 << "-s\tSlice programs on the srcML format" << endl
 	 << "-S\tSlice programs on the binary format" << endl
+	 << "-u\tExtract UML from sources" << endl
 	 << "-v\tTell version number" << endl
 	 << "-w\tReport the maximum number of nodes (i.e. width) of the AST" << endl
 	 << "-W <width>\tLimit the number of children to 'width' by a transformation" << endl
@@ -123,7 +126,7 @@ int main(int argc, char* argv[]) {
   slice = 0;
   mySlice = 0;
   encode = 0;
-  while ((c = getopt (argc, argv, "bcdDef:g:hijJ:lLn:psSvwW:x")) != -1)
+  while ((c = getopt (argc, argv, "bcdDef:g:hijJ:lLn:psSuvwW:x")) != -1)
     switch (c) {
       case 'h':
 	    usage();
@@ -134,6 +137,9 @@ int main(int argc, char* argv[]) {
       case 'n':
 	    normalise = 1;
 	    normalise_list = optarg;
+	    break;
+      case 'u':
+	    extract_uml = 1;
 	    break;
       case 'v':
 	    cerr << "fast " << __FAST_VERSION__ << " commit id: " << __FAST_HASH__ << " with local changes id: " << __FAST_WORK__ << endl

@@ -1,7 +1,7 @@
 ## Synopsis
 
 ```
-$ fast [-bcdef:hijJ:lLn:psStvwW:x] $input [$output]
+$ fast [-bcdef:hijJ:lLn:psStuvwW:x] $input [$output]
 ```
 
 ## Options
@@ -39,6 +39,8 @@ $ fast [-bcdef:hijJ:lLn:psStvwW:x] $input [$output]
      -s      Invoke srcSlice. This option turns on the -p option.
 
      -S      Invoke modified srcSlice to use the binary AST directly.
+
+     -u      Extract UML models from the source code (inherit from srcYUML).
 
      -v      Print the version of the build.
 

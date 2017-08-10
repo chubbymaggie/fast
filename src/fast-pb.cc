@@ -351,6 +351,8 @@ fast::Element* savePBfromXML(xml_node<> *node)
 				if (attr->name() == string("type")) {
 					fast::Element_Literal_LiteralType type;
 					std::string value = attr->value();
+					if (value == string("nil")) // for objective-c
+						value = "null";
 				        value = value + "_type";
 					bool success = fast::Element_Literal_LiteralType_Parse(value, &type);
 					literal->set_type(type);

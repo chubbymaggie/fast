@@ -1878,6 +1878,11 @@ testDiff() {
 	stdout b7719783d848015d16cff2e492ed68a69277dd210fe8bd3bff6877eddbc72112 -D Hello1.java Hello2.java
 }
 
+testUML() {
+	$fast -u Hello1.java Hello1.yuml
+	catout e2dbb22b38b78c25c09cb5b101036e69e55985c66a824388d71ece6636d349f3 Hello1.yuml
+}
+
 testGitSliceDiff() {
 	HEAD=HEAD
 	r2=$(git rev-list $HEAD | head -1)

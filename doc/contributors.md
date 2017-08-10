@@ -4,6 +4,7 @@
 | ---------------------- |:-------------:| 
 | Bram Adams 		         |program slicing|
 | Duy Quoc Nghi Bui 	   |clone detection|
+| Xiaohong Chen 	|OO Analysis and Design|
 | Tezcan Dilshener |bug localisation|
 | Julian Harty 		       |mobile analytics|
 | Zhenjiang Hu 		|bidirectional programming|
@@ -28,8 +29,7 @@ Our tool cannot be made without standing on the shoulders of these great tools:
 * [protobuf](https://github.com/google/protobuf)
 * [rapidxml](https://github.com/dwd/rapidxml)
 * [smali](https://github.com/JesusFreke/smali)
-* [srcML](http://www.srcml.org/)
+* [srcML, srcSlice, srcYUML](http://www.srcml.org/)
 * [treedifferencing](https://github.com/FAU-Inf2/treedifferencing)
 * [txl](http://txl.ca)
-
 
