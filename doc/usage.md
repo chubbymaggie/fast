@@ -129,3 +129,13 @@ project, the hash of the changeset of the target project, diff positions of the
 target project, textual differences of the target project, and the judgement
 whether the pair of differences are clones.  The output of the command is a
 protobuf representation of the above pairs.
+
+### Compute the difference between two artefacts
+
+  $fast -D Hello1.java Hello2.java
+
+THe command will print the compared files on the terminal, with colors
+indicating the changes.  By default, something in yellow color on the 1st file
+will be changed to something in blue color on the 2nd file; and something in
+red color on the 1st file will be deleted, while something in green color on
+the 2nd file will be added.
