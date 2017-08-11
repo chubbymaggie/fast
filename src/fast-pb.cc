@@ -103,19 +103,20 @@ inline void replace_all(string* str, const char* oldValue, const char* newValue)
     }  
 }  
 void displayPBElementOne(ofstream &out, fast::Element *element) {
-	if (element->change() != fast::Element_DiffType_MATCHED) {
-		out << "${bold}";
-	}
 	if (element->change() == fast::Element_DiffType_DELETED) {
+		out << "${strikethrough}";
 		out << "${red}";
 	}
 	if (element->change() == fast::Element_DiffType_ADDED) {
+		out << "${underline}";
 		out << "${green}";
 	}
 	if (element->change() == fast::Element_DiffType_CHANGED_FROM) {
+		out << "${italic}";
 		out << "${yellow}";
 	}
 	if (element->change() == fast::Element_DiffType_CHANGED_TO) {
+		out << "${bold}";
 		out << "${blue}";
 	}
 	string text = element->text();
@@ -143,20 +144,23 @@ void displayPBElement(fast::Element *element) {
 	remove(buf);
 	strcat(buf, ".pl");
 	ofstream out(buf, ios::out | ios::trunc);
-	out << "#!/usr/local/bin/perl" << endl;
+	out << "#!perl" << endl;
 	out << "my $dim_magenta=\"\\e[38;5;146m\";" << endl;
-	out << "my $red=\"\\e[0;31m\";" << endl;
-	out << "my $green=\"\\e[1;32m\";" << endl;
-	out << "my $yellow=\"\\e[1;33m\";" << endl;
-	out << "my $blue=\"\\e[1;34m\";" << endl;
-	out << "my $pink=\"\\e[1;35m\";" << endl;
 	out << "my $reset=\"\\e[0m\";" << endl;
 	out << "my $bold=\"\\e[1m\";" << endl;
+	out << "my $italic=\"\\e[3m\";" << endl;
+	out << "my $underline=\"\\e[4m\";" << endl;
+	out << "my $strikethrough=\"\\e[9m\";" << endl;
+	out << "my $red=\"\\e[31m\";" << endl;
+	out << "my $green=\"\\e[32m\";" << endl;
+	out << "my $yellow=\"\\e[33m\";" << endl;
+	out << "my $blue=\"\\e[34m\";" << endl;
+	out << "my $pink=\"\\e[35m\";" << endl;
 	out << "print \"" << endl;
 	displayPBElementOne(out, element);
 	out << "\";" << endl;
 	out.close();
-	string cmd = "/usr/local/bin/perl ";
+	string cmd = "perl ";
 	cmd = cmd + buf;
 	(void) system(cmd.c_str());
 }
