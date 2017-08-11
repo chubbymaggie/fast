@@ -194,65 +194,205 @@ int my_ordering(fast::Element *e1, fast::Element *e2) {
 	return 0;
 }
 
-fast::Element* normaliseASTonePass(fast::Element* element, string parent_name, string child_name, string key_name) {
+std::vector<std::string> csv_split(std::string source, char delimeter) {
+    std::vector<std::string> ret;
+    std::string word = "";
+    int start = 0;
+
+    bool inQuote = false;
+    for(int i=0; i<source.size(); ++i){
+        if(inQuote == false && source[i] == '"'){
+            inQuote = true;
+            continue;
+        }
+        if(inQuote == true && source[i] == '"'){
+            if(source.size() > i && source[i+1] == '"'){
+                ++i;
+            } else {
+                inQuote = false;
+                continue;
+            }
+        }
+
+        if(inQuote == false && source[i] == delimeter){
+            ret.push_back(word);
+            word = "";
+        } else {
+            word += source[i];
+        }
+    }
+    ret.push_back(word);
+
+    return ret;
+}
+bool skip_element(fast::Element *element, string condition) {
+      vector<string> tests = csv_split(condition, '|');
+      bool found = false;
+      for (string t: tests) {
+      	      vector<string> key_value = csv_split(t, '=');
+	      string key=key_value[0];
+	      string value=key_value[1];
+	      std::transform(key.begin(), key.end(),key.begin(), ::toupper);
+	      // cout << key << "=" << value << endl;
+	      int n = element->child().size();
+ 	      for (int i=0; i<n; i++) {
+		fast::Element *child = element->mutable_child(i);
+		if (fast::Element_Kind_Name(child->kind()) == key) {
+			if (child->text() == value) {
+				found = true;
+				break;
+			}
+		}
+	      }
+      }
+      if (found) {
+	cout << element->text() << endl;
+      } 
+      return ! found;
+}
+
+fast::Element* normaliseASTonePass(fast::Element* element, string op, string parent_name, string child_name, string key_name) {
 	fast::Element* new_element = new fast::Element();
 	new_element->set_kind(element->kind());
 	new_element->set_text(element->text());
 	new_element->set_tail(element->tail());
 	std::transform(parent_name.begin(), parent_name.end(),parent_name.begin(), ::toupper);
 	std::transform(child_name.begin(), child_name.end(),child_name.begin(), ::toupper);
-	std::transform(key_name.begin(), key_name.end(),key_name.begin(), ::toupper);
-	int n = element->child().size();
-	vector<fast::Element*> selected_children;
-	map<fast::Element*, fast::Element*> selected_comments;
-	for (int i=0; i<n; i++) {
-		fast::Element *child = element->mutable_child(i);
-		if (fast::Element_Kind_Name(child->kind()) == child_name) {
-			bool has_comment = false;
-			if (i > 0) {
-				has_comment = fast::Element_Kind_Name(element->mutable_child(i-1)->kind()) == "COMMENT";
-			}
-			fast::Element *normalised_child = normaliseASTonePass(child, parent_name, child_name, key_name);
-			selected_children.push_back(normalised_child);
-			// if the previous element is a comment, it should be sorted together
-			if (i > 0 && has_comment) {
-				// cout << "selected comment " << endl;
-				selected_comments[normalised_child] = element->mutable_child(i-1);
+	if (op == "order") {
+		std::transform(key_name.begin(), key_name.end(),key_name.begin(), ::toupper);
+		int n = element->child().size();
+		vector<fast::Element*> selected_children;
+		map<fast::Element*, fast::Element*> selected_comments;
+		for (int i=0; i<n; i++) {
+			fast::Element *child = element->mutable_child(i);
+			if (fast::Element_Kind_Name(child->kind()) == child_name) {
+				bool has_comment = false;
+				if (i > 0) {
+					has_comment = fast::Element_Kind_Name(element->mutable_child(i-1)->kind()) == "COMMENT";
+				}
+				fast::Element *normalised_child = normaliseASTonePass(child, op, parent_name, child_name, key_name);
+				selected_children.push_back(normalised_child);
+				// if the previous element is a comment, it should be sorted together
+				if (i > 0 && has_comment) {
+					// cout << "selected comment " << endl;
+					selected_comments[normalised_child] = element->mutable_child(i-1);
+				}
 			}
 		}
-	}
-	if (fast::Element_Kind_Name(element->kind()) == parent_name) {
-		::key_name = key_name;
-		// cout << key_name << endl;
-		std::sort(selected_children.begin(), selected_children.end(), my_ordering);
-	}
-	int m = 0;
-	for (int i=0; i<n; i++) {
-		fast::Element *child = element->mutable_child(i);
-		if (fast::Element_Kind_Name(child->kind()) == child_name) {
-			// cout << child_name << endl;
-			fast::Element *new_child = new_element->add_child();
-			fast::Element *sc = selected_children[m];
-			if (selected_comments[sc]!=NULL) {
-				// first insert the comment
-				// cout << "insert the comment " << endl;
-				new_child->CopyFrom(*selected_comments[sc]);
-				new_child = new_element->add_child();
+		if (fast::Element_Kind_Name(element->kind()) == parent_name) {
+			::key_name = key_name;
+			// cout << key_name << endl;
+			std::sort(selected_children.begin(), selected_children.end(), my_ordering);
+		}
+		int m = 0;
+		for (int i=0; i<n; i++) {
+			fast::Element *child = element->mutable_child(i);
+			if (fast::Element_Kind_Name(child->kind()) == child_name) {
+				// cout << child_name << endl;
+				fast::Element *new_child = new_element->add_child();
+				fast::Element *sc = selected_children[m];
+				if (selected_comments[sc]!=NULL) {
+					// first insert the comment
+					// cout << "insert the comment " << endl;
+					new_child->CopyFrom(*selected_comments[sc]);
+					new_child = new_element->add_child();
+				}
+				new_child->CopyFrom(*sc);
+				m++;
+			} else if (i < n-1 && fast::Element_Kind_Name(element->mutable_child(i+1)->kind()) == child_name
+					&& fast::Element_Kind_Name(child->kind()) == "COMMENT") {
+				; // skip the comment
+			} else {
+				fast::Element *new_child = new_element->add_child();
+				new_child->CopyFrom(*child);
 			}
-			new_child->CopyFrom(*sc);
-			m++;
-		} else if (i < n-1 && fast::Element_Kind_Name(element->mutable_child(i+1)->kind()) == child_name
-				&& fast::Element_Kind_Name(child->kind()) == "COMMENT") {
-			; // skip the comment
+		}
+		if (element->has_unit()) {
+			new_element->mutable_unit()->CopyFrom(element->unit());
+		}
+		new_element->CopyFrom(*new_element);
+	} else if (op == "skip") {
+		int n = element->child().size();
+		vector<fast::Element*> selected_children;
+		map<fast::Element*, fast::Element*> selected_comments;
+		for (int i=0; i<n; i++) {
+			fast::Element *child = element->mutable_child(i);
+			if (fast::Element_Kind_Name(child->kind()) == child_name) {
+				bool has_comment = false;
+				if (i > 0) {
+					has_comment = fast::Element_Kind_Name(element->mutable_child(i-1)->kind()) == "COMMENT";
+				}
+				fast::Element *normalised_child = normaliseASTonePass(child, op, parent_name, child_name, key_name);
+				selected_children.push_back(normalised_child);
+				// if the previous element is a comment, it should be sorted together
+				if (i > 0 && has_comment) {
+					// cout << "selected comment " << endl;
+					selected_comments[normalised_child] = element->mutable_child(i-1);
+				}
+			}
+		}
+		int m = 0;
+		for (int i=0; i<n; i++) {
+			fast::Element *child = element->mutable_child(i);
+			if (fast::Element_Kind_Name(child->kind()) == child_name) {
+				// cout << child_name << endl;
+				fast::Element *new_child = new_element->add_child();
+				fast::Element *sc = selected_children[m];
+				if (!skip_element(sc, key_name)) {
+					if (selected_comments[sc]!=NULL) { 
+						new_child->CopyFrom(*selected_comments[sc]);
+						new_child = new_element->add_child();
+					}
+					new_child->CopyFrom(*sc);
+				}
+				m++;
+			} else if (i < n-1 && fast::Element_Kind_Name(element->mutable_child(i+1)->kind()) == child_name
+					&& !skip_element(element->mutable_child(i+1), key_name)
+					&& fast::Element_Kind_Name(child->kind()) == "COMMENT") {
+				; // skip the comment
+			} else {
+				fast::Element *new_child = new_element->add_child();
+				new_child->CopyFrom(*child);
+			}
+		}
+		if (element->has_unit()) {
+			new_element->mutable_unit()->CopyFrom(element->unit());
+		}
+		new_element->CopyFrom(*new_element);
+	} else if (op == "replace") {
+		if (fast::Element_Kind_Name(element->kind()) == parent_name) {
+			int n = element->child().size();
+			vector<fast::Element*> selected_children;
+			for (int i=0; i<n; i++) {
+				fast::Element *child = element->mutable_child(i);
+				if (fast::Element_Kind_Name(child->kind()) == child_name) {
+					fast::Element *normalised_child = normaliseASTonePass(child, op, parent_name, child_name, key_name);
+					selected_children.push_back(normalised_child);
+				}
+			}
+			int m = 0;
+			for (int i=0; i<n; i++) {
+				fast::Element *child = element->mutable_child(i);
+				if (fast::Element_Kind_Name(child->kind()) == child_name) {
+					fast::Element *new_child = new_element->add_child();
+					fast::Element *sc = new fast::Element();
+					sc->set_kind(fast::Element_Kind_NOP); 
+					sc->set_text(key_name);
+					new_child->CopyFrom(*sc);
+					m++;
+				} else {
+					fast::Element *new_child = new_element->add_child();
+					new_child->CopyFrom(*child);
+				}
+			}
+			if (element->has_unit()) {
+				new_element->mutable_unit()->CopyFrom(element->unit());
+			}
+			new_element->CopyFrom(*new_element);
 		} else {
-			fast::Element *new_child = new_element->add_child();
-			new_child->CopyFrom(*child);
+			new_element->CopyFrom(*element);
 		}
 	}
-	if (element->has_unit()) {
-		new_element->mutable_unit()->CopyFrom(element->unit());
-	}
-	new_element->CopyFrom(*new_element);
 	return new_element;
 }
 /**
@@ -284,12 +424,14 @@ fast::Element* normaliseAST(fast::Element* element) {
 				str = "";
 			args.push_back(token);
 		} while (str!="");
-		if (args.size()>4 && args[0] == "order" && args[3] == "by") 
+		if (args.size()>4 && ((args[0] == "order" && args[3] == "by")
+				 || (args[0] == "replace" && args[3] == "by") 
+				 || (args[0] == "skip" && args[3] == "unless")))
 		{
 			string parent_name = args[1];
 			if (parent_name == "unit") 
 				parent_name = "unit_kind";
-			element->CopyFrom(*normaliseASTonePass(element, parent_name, args[2], args[4]));
+			element->CopyFrom(*normaliseASTonePass(element, args[0], parent_name, args[2], args[4]));
 		}
 	}
 	return element;
@@ -512,37 +654,7 @@ fast::Bugs* savePBfromBugXML(xml_node<> *node)
 	return bugs;
 }
 
-std::vector<std::string> csv_split(std::string source, char delimeter) {
-    std::vector<std::string> ret;
-    std::string word = "";
-    int start = 0;
 
-    bool inQuote = false;
-    for(int i=0; i<source.size(); ++i){
-        if(inQuote == false && source[i] == '"'){
-            inQuote = true;
-            continue;
-        }
-        if(inQuote == true && source[i] == '"'){
-            if(source.size() > i && source[i+1] == '"'){
-                ++i;
-            } else {
-                inQuote = false;
-                continue;
-            }
-        }
-
-        if(inQuote == false && source[i] == delimeter){
-            ret.push_back(word);
-            word = "";
-        } else {
-            word += source[i];
-        }
-    }
-    ret.push_back(word);
-
-    return ret;
-}
 
 fast::Bugs* savePBfromBugCSV(const char *input_filename)
 {
