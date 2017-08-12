@@ -1826,7 +1826,7 @@ testSliceDiff() {
 	stdout 11360a59f4f4a71b4921f501f9d06880a4120e1f110edccb1cb2d18dc27c67e7 -d diff.pb
 }
 
-notestSliceDiff() {
+testSliceDiff() {
 	cd a
 	../$fast -p example.cc example.positions.pb
 	cd -
@@ -1836,7 +1836,7 @@ notestSliceDiff() {
 	cd -
 	$fast -S b/example.positions.pb b/example.slice.pb
 	$fast -L a/example.slice.pb b/example.slice.pb diff.pb > tmp.txt
-	stdout 010519ce78e153384841c95d5d0a33b6155cd5f3b2f96d0b80ae3fe4ec23b9a4 -d diff.pb
+	stdout 11360a59f4f4a71b4921f501f9d06880a4120e1f110edccb1cb2d18dc27c67e7 -d diff.pb
 }
 
 testJSON() {
@@ -1865,10 +1865,9 @@ testBug() {
 }
 
 testNormalise() {
-	$fast -n normalise1.list a/example2.cc b.pb
-	$fast b.pb b.cc
-	catout 2cb6f9a4c45222800eb7a047a44cf378ff1b08ba03be3b33e304f5e411f08697 b.cc
-	rm -f b.cc
+	stdout 87974b33726e268a074effa1a8c7df62ebbb0dee67b7d39327edda0a6be7b200 -n normalise.list a/example2.cc
+	stdout a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e -n normalise.list Hello1.java
+	stdout 93f4581c15d9e6f6c458aa0eb07bc17388e20ce961179d889075f5527e79d58a -n api.list Hello1.java
 }
 
 testDiff() {
@@ -1883,7 +1882,7 @@ testUML() {
 	fi
 }
 
-notestGitSliceDiff() {
+testGitSliceDiff() {
 	HEAD=HEAD
 	r2=$(git rev-list $HEAD | head -1)
 	r1=$(git rev-list $HEAD | head -2 | tail -1)

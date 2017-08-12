@@ -246,7 +246,7 @@ bool skip_element(fast::Element *element, string condition) {
 	      }
       }
       if (found) {
-	cout << element->text() << endl;
+	cout << element->text();
       } 
       return ! found;
 }

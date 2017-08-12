@@ -25,7 +25,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	bool output_is_pb = false;
 	string xml_filename;
 	bool is_smali = false;
-	char *my_argv[4];
+	char *my_argv[6];
 	for (int i = 1; i < (argc == 2? 2 : argc - 1); i++) { // process the inputs, and reserve the last argument as output
 		if (!check_exists(argv[i])) {
 			cerr << "file or folder " << argv[i] << "does not exist!" << endl;
@@ -66,9 +66,9 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	if (!input_is_xml) { // input is not yet xml, first convert it into xml using srcml
 		output_is_xml = argc == 2 || strcmp(argv[argc-1]+strlen(argv[argc-1])-4, ".xml")==0;
 		output_is_pb = argc > 2 && strcmp(argv[argc-1]+strlen(argv[argc-1])-3, ".pb")==0;
-		if (!slice && output_is_xml) {
+		if (!slice && output_is_xml && !normalise) {
 			if (argc == 2)
-				xml_filename = "stdout://-";
+				xml_filename = (char*) "stdout://-";
 			else
 				xml_filename = argv[argc - 1];
 		} else {
@@ -100,8 +100,12 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		catCommand = catCommand + xml_filename + ".slice";
 		(void) system(catCommand.c_str());
 		remove((xml_filename + ".slice").c_str());
-	} else if (!input_is_xml && !output_is_xml && !process && !slicediff) { // target is not xml
+	} else if ((!input_is_xml && !output_is_xml && !process && !slicediff)
+			|| (output_is_xml && normalise)) { // target is not xml
 		argv[argc-2] = strdup(xml_filename.c_str());
+		if (output_is_xml && normalise) {
+			argv[argc-1] = (char*) "stdout://-";
+		}
 		loadXML(load_only, 3, argv + argc-3);
 	} else if (argc == 3 && process && output_is_pb) {
 		my_argv[0] = argv[0];
@@ -129,6 +133,8 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	} else {
 		if (argc == 3 && input_is_xml) {
 			srcmlCommand = srcmlCommand + " -o " + argv[2];
+		} else if (argc == 2 && input_is_xml) {
+			srcmlCommand = srcmlCommand + " -o " + "stdout://-";
 		}
 		(void) system(srcmlCommand.c_str());
 	}

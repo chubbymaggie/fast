@@ -162,7 +162,39 @@ int loadXML(int load_only, int argc, char**argv) {
         std::cout << "Validation error: " << e.what() << std::endl;
     }
   } else { // invoke srcml
-    loadSrcML(load_only, argc, argv);
+    if (normalise) {
+	char *my_argv[6];
+	// create a pipeline to introduce a temporary protobuf file as intermediary
+	char buf[200];
+	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+	mkstemp(buf);
+	remove(buf);
+	strcat(buf, ".pb");
+	my_argv[0] = argv[0];
+	my_argv[1] = (char *) "-n";
+	my_argv[2] = (char *) normalise_list.c_str();
+	my_argv[3] = argv[1];
+	my_argv[4] = buf;
+	(void) main(5, my_argv);
+	if (argc == 3) {
+		string fastCommand = "fast ";
+		fastCommand = fastCommand + buf + " " + argv[2];
+		(void) system(fastCommand.c_str());
+	} else if (argc == 2) {
+		string fastCommand = "fast ";
+		fastCommand = fastCommand + buf + " " + buf + ".java";
+		(void) system(fastCommand.c_str());
+		string catCommand = "cat ";
+	        catCommand = catCommand	+ buf + ".java";
+ 		(void) system(catCommand.c_str());
+		remove(buf);
+		strcat(buf, ".java");
+		remove(buf);
+	}
+	remove(buf);
+    } else {
+	    loadSrcML(load_only, argc, argv);
+    }
   }
   return 0;
 }

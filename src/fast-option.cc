@@ -120,6 +120,8 @@ int mainRoutine(int argc, char* argv[]) {
 int main(int argc, char* argv[]) {
   int c;
 
+  optind = 1;
+  optarg = "";
   opterr = 0;
   decode = 0;
   position = 0;
