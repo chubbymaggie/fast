@@ -1867,7 +1867,7 @@ testBug() {
 testNormalise() {
 	stdout 87974b33726e268a074effa1a8c7df62ebbb0dee67b7d39327edda0a6be7b200 -n normalise.list a/example2.cc
 	stdout a8e15f72dd2a6f880587f388abfd84d34dea74632566fcea8754b4ceca017a1e -n normalise.list Hello1.java
-	stdout 93f4581c15d9e6f6c458aa0eb07bc17388e20ce961179d889075f5527e79d58a -n api.list Hello1.java
+	stdout 22e306ee864db6eef29499f913eb7b491246f949ec64eb4eee864d8617776627 -n api.list Hello1.java
 }
 
 testDiff() {

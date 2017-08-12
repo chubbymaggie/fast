@@ -251,6 +251,16 @@ bool skip_element(fast::Element *element, string condition) {
       return ! found;
 }
 
+std::string rtrim(const std::string &s)   
+{  
+    if (s.empty()) return s;
+    string s1 = s;
+    // s.erase(0,s.find_first_not_of(" "));  
+    // cout << s << endl;
+    s1.erase(s1.find_last_not_of(" ") + 1);  
+    return s1;  
+} 
+
 fast::Element* normaliseASTonePass(fast::Element* element, string op, string parent_name, string child_name, string key_name) {
 	fast::Element* new_element = new fast::Element();
 	new_element->set_kind(element->kind());
@@ -380,6 +390,10 @@ fast::Element* normaliseASTonePass(fast::Element* element, string op, string par
 					sc->set_text(key_name);
 					new_child->CopyFrom(*sc);
 					m++;
+				} else if (i < n-1 && fast::Element_Kind_Name(element->mutable_child(i+1)->kind()) == child_name) {
+					fast::Element *new_child = new_element->add_child();
+					new_child->CopyFrom(*child);
+					new_child->set_tail(rtrim(new_child->tail())); // remove the trailing spaces in the tail of the previous element
 				} else {
 					fast::Element *new_child = new_element->add_child();
 					new_child->CopyFrom(*child);
