@@ -31,12 +31,8 @@
 #include <algorithm>
 #include <sstream>
 #include <stack>
-#ifdef PB_fast
 #include <fast.pb.h>
-#endif
-#ifdef FBS_fast
 #include <fast_generated.h>
-#endif
 
 class srcSliceHandler : public srcSAXHandler {
 private:
