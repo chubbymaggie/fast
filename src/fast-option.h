@@ -42,5 +42,6 @@ extern int pbMainRoutine(int argc, const char* argv[]);
 extern int processMainRoutine(int argc, char**argv);
 extern int sliceDiffMainRoutine(int argc, char**argv);
 extern int loadXML(int load_only, int argc, char**argv);
+extern int loadFBS(int load_only, int argc, char**argv);
 extern string preprocess_git(string head, bool delta);
 #endif

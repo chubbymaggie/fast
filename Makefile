@@ -71,8 +71,9 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer.tokens PB/src/antlr4/pb/PBParser.cpp PB/src/antlr4/pb/PBListener.cpp PB/src/antlr4/pb/PBBaseListener.cpp PB/src/antlr4/pb/PBParser.h: src/antlr4/pb/PB.g4
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
-fast.o: src/rapidxml/rapidxml.hpp src/gen/fast_generated.h src/gen/fast.pb.h src/gen/ver.h
+fast.o: src/rapidxml/rapidxml.hpp src/gen/fast.pb.h src/gen/fast_generated.h src/gen/ver.h
 fast-pb.o: src/gen/fast.pb.h 
+fast-fbs.o: src/gen/fast_generated.h 
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
 srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h src/gen/fast_generated.h
@@ -96,6 +97,7 @@ DESTDIR=
 fast_objects += fast.o 
 fast_objects += fast-option.o fast-srcml.o
 fast_objects += fast-pb.o
+fast_objects += fast-fbs.o
 fast_objects += fast.pb.o 
 fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
 fast_objects += git.o 
