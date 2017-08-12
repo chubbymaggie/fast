@@ -3,5 +3,3 @@ order unit function by name
 order unit import by text()
 order function specifier by text()
 order class specifier by text()
-replace function block by ;
-skip unit function unless specifier=public|specifier=protected
