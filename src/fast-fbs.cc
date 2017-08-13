@@ -52,19 +52,23 @@ const struct _fast::Data *readFBS(const char *filename) {
 
 map<int, const struct Element*> src_fbs_map;
 map<int, const struct Element*> dst_fbs_map;
+map<const struct Element*, int> src_fbs_imap;
+map<const struct Element*, int> dst_fbs_imap;
 static int id = 1;
-void createIdFBSMapOne(const struct Element *element, map<int, const struct Element*> *map) {
+void createIdFBSMapOne(const struct Element *element, ::map<int, const struct Element*> *map, ::map<const struct Element*, int> *imap) {
 	for (int i=0; i<element->child()->size(); i++) {
 		const struct Element *child = element->child()->Get(i);
-		createIdFBSMapOne(child, map);
+		createIdFBSMapOne(child, map, imap);
 	}
 	(*map)[id] = element;
+	(*imap)[element] = id;
 	id++;
 }
-void createIdFBSMap(const struct Element *element, map<int, const struct Element*> *map) {
+void createIdFBSMap(const struct Element *element, ::map<int, const struct Element*> *map, ::map<const struct Element*, int> *imap) {
 	id = 1;
 	map->clear();
-	createIdFBSMapOne(element, map);
+	imap->clear();
+	createIdFBSMapOne(element, map, imap);
 }
 inline void replace_all(string* str, const char* oldValue, const char* newValue)  
 {  
@@ -82,22 +86,29 @@ inline void replace_all(string* str, const char* oldValue, const char* newValue)
     }  
 }  
 
+map<int, enum _fast::_Element::DiffType> src_changes;
+map<int, enum _fast::_Element::DiffType> dst_changes;
 void displayFBSElementOne(ofstream &out, const struct _fast::Element *element) {
-	if (element->change() == _fast::_Element::DiffType_DELETED) {
+	bool changed = false;
+	if (src_changes[src_fbs_imap[element]] == _fast::_Element::DiffType_DELETED) {
 		out << "${strikethrough}";
 		out << "${red}";
+		changed = true;
 	}
-	if (element->change() == _fast::_Element::DiffType_ADDED) {
+	if (dst_changes[dst_fbs_imap[element]] == _fast::_Element::DiffType_ADDED) {
 		out << "${underline}";
 		out << "${green}";
+		changed = true;
 	}
-	if (element->change() == _fast::_Element::DiffType_CHANGED_FROM) {
+	if (src_changes[src_fbs_imap[element]] == _fast::_Element::DiffType_CHANGED_FROM) {
 		out << "${italic}";
 		out << "${yellow}";
+		changed = true;
 	}
-	if (element->change() == _fast::_Element::DiffType_CHANGED_TO) {
+	if (dst_changes[dst_fbs_imap[element]] == _fast::_Element::DiffType_CHANGED_TO) {
 		out << "${bold}";
 		out << "${blue}";
+		changed = true;
 	}
 	if (element->text()!=NULL) {
 		string text = element->text()->c_str();
@@ -109,7 +120,7 @@ void displayFBSElementOne(ofstream &out, const struct _fast::Element *element) {
 		const struct _fast::Element *child = element->child()->Get(i);
 		displayFBSElementOne(out, child);
 	}
-	if (element->change() != _fast::_Element::DiffType_MATCHED) {
+	if (changed) {
 		out << "${reset}";
 	}
 	if (element->tail()!=NULL) {
@@ -201,17 +212,17 @@ int loadFBS(int load_only, int argc, char **argv) {
 		else
 			srcSliceToCsv(sslice, NULL);
         } else if ( d != NULL && delta && argc == 2) {
-		map<int, enum _fast::_Element::DiffType> src_changes;
-		map<int, enum _fast::_Element::DiffType> dst_changes;
 		const struct _fast::Delta *delta = d->RecordType()->delta();
 		if (delta != NULL) {
 			string src_filename = delta->src()->c_str();
 			string dst_filename = delta->dst()->c_str();
 			const struct _fast::Data *src_data = readFBS(src_filename.c_str());
 			const struct _fast::Data *dst_data = readFBS(dst_filename.c_str());
-			createIdFBSMap(src_data->RecordType()->element(), &src_fbs_map);
-			createIdFBSMap(dst_data->RecordType()->element(), &dst_fbs_map);
+			createIdFBSMap(src_data->RecordType()->element(), &src_fbs_map, &src_fbs_imap);
+			createIdFBSMap(dst_data->RecordType()->element(), &dst_fbs_map, &dst_fbs_imap);
 			map<int, int> mappings;
+			src_changes.clear();
+			dst_changes.clear();
 			for (int i=0; i<delta->diff()->size(); i++) {
 				if (delta->diff()->Get(i)->type() == _fast::_Delta::_Diff::DeltaType_MATCH) {
 						const struct _fast::_Delta::_Diff::Match *diff = delta->diff()->Get(i)->delta()->match();

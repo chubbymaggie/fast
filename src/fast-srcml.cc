@@ -54,11 +54,11 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		string nn = "";
 		if (normalise)
 			nn = "-n " + normalise_list + " ";
-		string cmd = "fast "; cmd = cmd + nn + argv[1] + " " + argv[1] + ".pb";
+		string cmd = "fast "; cmd = cmd + nn + argv[1] + " " + argv[1] + ".fbs";
 		system(cmd.c_str());
-		cmd = "fast "; cmd = cmd + nn + argv[2] + " " + argv[2] + ".pb";
+		cmd = "fast "; cmd = cmd + nn + argv[2] + " " + argv[2] + ".fbs";
 		system(cmd.c_str());
-		cmd = "fast -D "; cmd = cmd + argv[1] + ".pb " + argv[2] + ".pb";
+		cmd = "fast -D "; cmd = cmd + argv[1] + ".fbs " + argv[2] + ".fbs";
 		system(cmd.c_str());
 		return 0;
 	}
