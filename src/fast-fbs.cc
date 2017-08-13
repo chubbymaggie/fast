@@ -34,9 +34,7 @@ int mainRoutine(int argc, char* argv[]);
 void sliceFBS(srcSliceHandler& handler, const struct Element *element);
 void srcSliceToCsv(const srcSlice& handler, const char* output_file);
 
-int loadFBS(int load_only, int argc, char **argv) {
-	if (!check_exists(argv[1])) return 1;
-	char *filename = argv[1]; // the input file, which is assumed to be a binary flatbuffers
+const struct _fast::Data *readFBS(char *filename) {
 	FILE* file = fopen(filename, "rb");
 	if (file == NULL) {
 		cerr << "Warning: check the existence of " << filename << endl;
@@ -49,8 +47,31 @@ int loadFBS(int load_only, int argc, char **argv) {
 	fread(data, sizeof(char), length, file);
 	fclose(file);
 	const struct _fast::Data *d = flatbuffers::GetRoot<Data>(data);
-	if (d != NULL && !load_only && !mySlice) {
-		//string xml_filename = tmpnam(NULL);
+	return d;
+}
+
+map<int, _fast::Element*> src_fbs_map;
+map<int, _fast::Element*> dst_fbs_map;
+static int id = 1;
+void createIdFBSMapOne(_fast::Element* element, map<int, _fast::Element*> *map) {
+	for (int i=0; i<element->child().size(); i++) {
+		_fast::Element* child = element->child(i);
+		createIdFBSMapOne(child, map);
+	}
+	(*map)[id] = element;
+	id++;
+}
+void createIdFBSMap(_fast::Element* element, map<int, _fast::Element*> *map) {
+	id = 1;
+	map->clear();
+	createIdFBSMapOne(element, map);
+}
+
+
+int loadFBS(int load_only, int argc, char **argv) {
+	if (!check_exists(argv[1])) return 1;
+	const struct _fast::Data *d = readFBS(argv[1]);
+	if (d != NULL && !load_only && !mySlice && !delta) {
 		char buf[100];
 		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 		mkstemp(buf);
@@ -98,7 +119,81 @@ int loadFBS(int load_only, int argc, char **argv) {
 			srcSliceToCsv(sslice, argv[argc-1]);
 		else
 			srcSliceToCsv(sslice, NULL);
+        } else if ( d != NULL && delta && argc == 2) {
+		const struct _fast::Delta *delta = d->RecordType()->delta();
+		if (delta != NULL) {
+			string src_filename = delta->src();
+			string dst_filename = delta->dst();
+			_fast::Data *src_data = readFBS(src_filename.c_str());
+			_fast::Data *dst_data = readFBS(dst_filename.c_str());
+			createIdFBSMap(src_data->element(), &src_fbs_map);
+			createIdFBSMap(dst_data->element(), &dst_fbs_map);
+			map<int, int> mappings;
+			for (int i=0; i<delta->diff().size(); i++) {
+				if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_MATCH) {
+						_fast::Delta_Diff_Match *diff = delta->diff(i)->match();
+						mappings[diff->src()] = diff->dst();
+					}
+					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_DEL) {
+						_fast::Delta_Diff_Del *diff = delta->diff(i)->del();
+						_fast::Element *to_delete = src_map[diff->src()];
+						if (to_delete!=NULL)
+							to_delete->set_change(_fast::Element_DiffType_DELETED);
+					}
+					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_ADD) {
+						_fast::Delta_Diff_Add *diff = delta->diff(i)->add();
+						int src = diff->src();
+						dst_map[src]->set_change(_fast::Element_DiffType_ADDED);
+					}
+					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_UPDATE) {
+						_fast::Delta_Diff_Update *diff = delta->diff(i)->update();
+						int src = diff->src();
+						int dst = diff->dst();
+						_fast::Element *src_element = src_map[src];
+						_fast::Element *dst_element = dst_map[dst];
+						if (src_element!=NULL) 
+							src_element->set_change(_fast::Element_DiffType_CHANGED_FROM);
+						if (dst_element!=NULL) 
+							dst_element->set_change(_fast::Element_DiffType_CHANGED_TO);
+					}
+					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_MOVE) {
+						_fast::Delta_Diff_Move *diff = delta->diff(i)->move();
+						int src = diff->src();
+						int dst_parent = diff->dst();
+						int pos = diff->position();
+						_fast::Element *src_element = src_map[src];
+						_fast::Element *dst_element = dst_map[dst_parent]->child(pos);
+						src_element->set_change(_fast::Element_DiffType_CHANGED_FROM);
+						dst_element->set_change(_fast::Element_DiffType_CHANGED_TO);
+					}
+				}
+				displayFBSElement(src_fbs_data->element());
+				displayFBSElement(dst_fbs_data->element());
+			}
 	}
+    } else if (d != NULL && d->element() != NULL && delta && argc == 3) {
+	    string src_filename = argv[1];
+	    string dst_filename = argv[2];
+	    string cmd = "gumtree diff ";
+	    cmd += src_filename + " " + dst_filename + "> /dev/null";
+	    (void) system(cmd.c_str());
+	    // cout << cmd << endl;
+	    argc = 2;
+	    if (src_filename.find("/") != string::npos) {
+		    src_filename = src_filename.substr(src_filename.rfind("/")+1);
+	    }
+	    if (src_filename.find(".fbs") != string::npos) {
+		    src_filename = src_filename.substr(0, src_filename.rfind(".fbs"));
+	    }
+	    if (dst_filename.find("/") != string::npos) {
+		    dst_filename = dst_filename.substr(dst_filename.rfind("/")+1);
+	    }
+	    if (dst_filename.find(".fbs") != string::npos) {
+		    dst_filename = dst_filename.substr(0, dst_filename.rfind(".fbs"));
+	    }
+	    argv[1] = strdup((src_filename + dst_filename + "-diff.fbs").c_str());
+	    loadPB(load_only, argc, argv);
+        }
  	return 0;
 }
 

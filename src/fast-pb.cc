@@ -744,7 +744,6 @@ int loadPB(int load_only, int argc, char **argv) {
 	assert(strcmp(input_filename, "")!=0);
 	fast::Data data = readData(input_filename);
     if (data.has_element() && !load_only && !mySlice && !delta) {
-	// string xml_filename = tmpnam(NULL);
 	char buf[100];
 	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
 	mkstemp(buf);
