@@ -3,6 +3,7 @@ V=0.0.5
 
 target+=fast
 target+=src/gen.pb/src/main/java/fast/Fast.java
+target+=src/gen.pb/src/main/java/_fast/Data.java
 
 CXX=c++
 protoc=/usr/local/bin/protoc
@@ -194,7 +195,7 @@ src/gen/fast.pb.h src/gen/fast.pb.cc: fast.proto
 	$(protoc) -I=. --cpp_out=src/gen fast.proto
 
 src/gen.pb/src/main/java/fast/Fast.java: fast.proto
-	mkdir -p src/gen
+	mkdir -p src/gen.pb/src/main/java/fast
 	$(protoc) -I=. --java_out=src/gen.pb/src/main/java fast.proto
 
 fast.fbs: fast.proto
@@ -206,6 +207,10 @@ _fast/Element.py: fast.fbs
 src/gen/fast_generated.h: fast.fbs
 	mkdir -p src/gen
 	$(flatc) --cpp -o src/gen fast.fbs
+
+src/gen.pb/src/main/java/_fast/Data.java: fast.fbs
+	mkdir -p src/gen.pb/src/main/java
+	$(flatc) --java -o src/gen.pb/src/main/java fast.fbs
 
 src/schema/fast.proto.in: ElementType.proto Smali.proto \
 	Unit.proto Literal.proto \
