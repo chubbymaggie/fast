@@ -200,7 +200,7 @@ public final class ActionsIoUtils {
 			    }
 			    if (update_fbs) {
 					int type = _fast._Delta._Diff.DeltaType.MOVE;
-					int move = _fast._Delta._Diff.Move.createMove(fbb, src.getId(), dst.getParent().getId(),
+					int move = _fast._Delta._Diff.Move.createMove(fbb, src.getId(), dst.getId(),
 							((Move) a).getPosition());
 					int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, 0, 0, move, 0);
 					int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);

@@ -34,11 +34,11 @@ int mainRoutine(int argc, char* argv[]);
 void sliceFBS(srcSliceHandler& handler, const struct Element *element);
 void srcSliceToCsv(const srcSlice& handler, const char* output_file);
 
-const struct _fast::Data *readFBS(char *filename) {
+const struct _fast::Data *readFBS(const char *filename) {
 	FILE* file = fopen(filename, "rb");
 	if (file == NULL) {
 		cerr << "Warning: check the existence of " << filename << endl;
-		return 1;
+		return NULL;
 	}
 	fseek(file, 0L, SEEK_END);
 	int length = ftell(file);
@@ -50,23 +50,104 @@ const struct _fast::Data *readFBS(char *filename) {
 	return d;
 }
 
-map<int, _fast::Element*> src_fbs_map;
-map<int, _fast::Element*> dst_fbs_map;
+map<int, const struct Element*> src_fbs_map;
+map<int, const struct Element*> dst_fbs_map;
 static int id = 1;
-void createIdFBSMapOne(_fast::Element* element, map<int, _fast::Element*> *map) {
-	for (int i=0; i<element->child().size(); i++) {
-		_fast::Element* child = element->child(i);
+void createIdFBSMapOne(const struct Element *element, map<int, const struct Element*> *map) {
+	for (int i=0; i<element->child()->size(); i++) {
+		const struct Element *child = element->child()->Get(i);
 		createIdFBSMapOne(child, map);
 	}
 	(*map)[id] = element;
 	id++;
 }
-void createIdFBSMap(_fast::Element* element, map<int, _fast::Element*> *map) {
+void createIdFBSMap(const struct Element *element, map<int, const struct Element*> *map) {
 	id = 1;
 	map->clear();
 	createIdFBSMapOne(element, map);
 }
+inline void replace_all(string* str, const char* oldValue, const char* newValue)  
+{  
+    string::size_type pos(0);  
+  
+    while(true){  
+        pos=str->find(oldValue,pos);  
+        if (pos!=(string::npos))  
+        {  
+            str->replace(pos,strlen(oldValue),newValue);  
+            pos+=2;
+        }  
+        else  
+            break;  
+    }  
+}  
 
+void displayFBSElementOne(ofstream &out, const struct _fast::Element *element) {
+	if (element->change() == _fast::_Element::DiffType_DELETED) {
+		out << "${strikethrough}";
+		out << "${red}";
+	}
+	if (element->change() == _fast::_Element::DiffType_ADDED) {
+		out << "${underline}";
+		out << "${green}";
+	}
+	if (element->change() == _fast::_Element::DiffType_CHANGED_FROM) {
+		out << "${italic}";
+		out << "${yellow}";
+	}
+	if (element->change() == _fast::_Element::DiffType_CHANGED_TO) {
+		out << "${bold}";
+		out << "${blue}";
+	}
+	if (element->text()!=NULL) {
+		string text = element->text()->c_str();
+		replace_all(&text, "\n", "\\n");
+		replace_all(&text, "\"", "\\\"");
+		out << text;
+	}
+	for (int i=0; i<element->child()->size(); i++) {
+		const struct _fast::Element *child = element->child()->Get(i);
+		displayFBSElementOne(out, child);
+	}
+	if (element->change() != _fast::_Element::DiffType_MATCHED) {
+		out << "${reset}";
+	}
+	if (element->tail()!=NULL) {
+		string tail = element->tail()->c_str();
+		replace_all(&tail, "\n", "\\n");
+		replace_all(&tail, "\"", "\\\"");
+		out << tail;
+	}
+}
+
+
+void displayFBSElement(const struct _fast::Element *element) {
+	char buf[100];
+	strcpy(buf, "/tmp/temp.XXXXXXXX"); 
+	mkstemp(buf);
+	remove(buf);
+	strcat(buf, ".pl");
+	ofstream out(buf, ios::out | ios::trunc);
+	out << "#!perl" << endl;
+	out << "my $dim_magenta=\"\\e[38;5;146m\";" << endl;
+	out << "my $reset=\"\\e[0m\";" << endl;
+	out << "my $bold=\"\\e[1m\";" << endl;
+	out << "my $italic=\"\\e[3m\";" << endl;
+	out << "my $underline=\"\\e[4m\";" << endl;
+	out << "my $strikethrough=\"\\e[9m\";" << endl;
+	out << "my $red=\"\\e[31m\";" << endl;
+	out << "my $green=\"\\e[32m\";" << endl;
+	out << "my $yellow=\"\\e[33m\";" << endl;
+	out << "my $blue=\"\\e[34m\";" << endl;
+	out << "my $pink=\"\\e[35m\";" << endl;
+	out << "print \"" << endl;
+	displayFBSElementOne(out, element);
+	out << "\";" << endl;
+	out.close();
+	string cmd = "perl ";
+	cmd = cmd + buf;
+	(void) system(cmd.c_str());
+}
 
 int loadFBS(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
@@ -120,58 +201,56 @@ int loadFBS(int load_only, int argc, char **argv) {
 		else
 			srcSliceToCsv(sslice, NULL);
         } else if ( d != NULL && delta && argc == 2) {
+		map<int, enum _fast::_Element::DiffType> src_changes;
+		map<int, enum _fast::_Element::DiffType> dst_changes;
 		const struct _fast::Delta *delta = d->RecordType()->delta();
 		if (delta != NULL) {
-			string src_filename = delta->src();
-			string dst_filename = delta->dst();
-			_fast::Data *src_data = readFBS(src_filename.c_str());
-			_fast::Data *dst_data = readFBS(dst_filename.c_str());
-			createIdFBSMap(src_data->element(), &src_fbs_map);
-			createIdFBSMap(dst_data->element(), &dst_fbs_map);
+			string src_filename = delta->src()->c_str();
+			string dst_filename = delta->dst()->c_str();
+			const struct _fast::Data *src_data = readFBS(src_filename.c_str());
+			const struct _fast::Data *dst_data = readFBS(dst_filename.c_str());
+			createIdFBSMap(src_data->RecordType()->element(), &src_fbs_map);
+			createIdFBSMap(dst_data->RecordType()->element(), &dst_fbs_map);
 			map<int, int> mappings;
-			for (int i=0; i<delta->diff().size(); i++) {
-				if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_MATCH) {
-						_fast::Delta_Diff_Match *diff = delta->diff(i)->match();
-						mappings[diff->src()] = diff->dst();
+			for (int i=0; i<delta->diff()->size(); i++) {
+				if (delta->diff()->Get(i)->type() == _fast::_Delta::_Diff::DeltaType_MATCH) {
+						const struct _fast::_Delta::_Diff::Match *diff = delta->diff()->Get(i)->delta()->match();
+						if (diff != NULL)
+							mappings[diff->src()] = diff->dst();
 					}
-					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_DEL) {
-						_fast::Delta_Diff_Del *diff = delta->diff(i)->del();
-						_fast::Element *to_delete = src_map[diff->src()];
-						if (to_delete!=NULL)
-							to_delete->set_change(_fast::Element_DiffType_DELETED);
+					if (delta->diff()->Get(i)->type() == _fast::_Delta::_Diff::DeltaType_DEL) {
+						const struct _fast::_Delta::_Diff::Del *diff = delta->diff()->Get(i)->delta()->del();
+						if (diff != NULL)
+							src_changes[diff->src()] = _fast::_Element::DiffType_DELETED;
 					}
-					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_ADD) {
-						_fast::Delta_Diff_Add *diff = delta->diff(i)->add();
-						int src = diff->src();
-						dst_map[src]->set_change(_fast::Element_DiffType_ADDED);
+					if (delta->diff()->Get(i)->type() == _fast::_Delta::_Diff::DeltaType_ADD) {
+						const struct _fast::_Delta::_Diff::Add *diff = delta->diff()->Get(i)->delta()->add();
+						if (diff != NULL)
+							dst_changes[diff->src()] = _fast::_Element::DiffType_ADDED;
 					}
-					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_UPDATE) {
-						_fast::Delta_Diff_Update *diff = delta->diff(i)->update();
-						int src = diff->src();
-						int dst = diff->dst();
-						_fast::Element *src_element = src_map[src];
-						_fast::Element *dst_element = dst_map[dst];
-						if (src_element!=NULL) 
-							src_element->set_change(_fast::Element_DiffType_CHANGED_FROM);
-						if (dst_element!=NULL) 
-							dst_element->set_change(_fast::Element_DiffType_CHANGED_TO);
+					if (delta->diff()->Get(i)->type() == _fast::_Delta::_Diff::DeltaType_UPDATE) {
+						const struct _fast::_Delta::_Diff::Update *diff = delta->diff()->Get(i)->delta()->update();
+						if (diff != NULL) {
+							int src = diff->src();
+							int dst = diff->dst();
+							src_changes[src] = _fast::_Element::DiffType_CHANGED_FROM;
+							dst_changes[dst] = _fast::_Element::DiffType_CHANGED_TO;
+						}
 					}
-					if (delta->diff(i)->type() == _fast::Delta_Diff_DeltaType_MOVE) {
-						_fast::Delta_Diff_Move *diff = delta->diff(i)->move();
-						int src = diff->src();
-						int dst_parent = diff->dst();
-						int pos = diff->position();
-						_fast::Element *src_element = src_map[src];
-						_fast::Element *dst_element = dst_map[dst_parent]->child(pos);
-						src_element->set_change(_fast::Element_DiffType_CHANGED_FROM);
-						dst_element->set_change(_fast::Element_DiffType_CHANGED_TO);
+					if (delta->diff()->Get(i)->type() == _fast::_Delta::_Diff::DeltaType_MOVE) {
+						const struct _fast::_Delta::_Diff::Move *diff = delta->diff()->Get(i)->delta()->move();
+						if (diff != NULL) {
+							int src = diff->src();
+							int dst = diff->dst(); // simplified from looking up from parent
+							src_changes[src] = _fast::_Element::DiffType_CHANGED_FROM;
+							dst_changes[dst] = _fast::_Element::DiffType_CHANGED_TO;
+						}
 					}
 				}
-				displayFBSElement(src_fbs_data->element());
-				displayFBSElement(dst_fbs_data->element());
+				displayFBSElement(src_data->RecordType()->element());
+				displayFBSElement(dst_data->RecordType()->element());
 			}
-	}
-    } else if (d != NULL && d->element() != NULL && delta && argc == 3) {
+    } else if (d != NULL && d->RecordType()->element() != NULL && delta && argc == 3) {
 	    string src_filename = argv[1];
 	    string dst_filename = argv[2];
 	    string cmd = "gumtree diff ";
@@ -192,7 +271,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 		    dst_filename = dst_filename.substr(0, dst_filename.rfind(".fbs"));
 	    }
 	    argv[1] = strdup((src_filename + dst_filename + "-diff.fbs").c_str());
-	    loadPB(load_only, argc, argv);
+	    loadFBS(load_only, argc, argv);
         }
  	return 0;
 }
