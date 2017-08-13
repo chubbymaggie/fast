@@ -35,10 +35,14 @@ import javax.xml.stream.XMLStreamWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.io.FileOutputStream;
+import java.io.DataOutputStream;
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 import fast.Fast;
+import _fast.Data;
+import com.google.flatbuffers.FlatBufferBuilder;
+import java.util.ArrayList;
 
 public final class ActionsIoUtils {
 
@@ -97,8 +101,12 @@ public final class ActionsIoUtils {
         @Override
         public void writeTo(Writer writer) throws Exception {
 	    boolean update_pb = false;
+	    boolean update_fbs = false;
 	    if (context != null && context.root!=null && src_path != null) {
-		    update_pb = true;
+		    if (src_path.lastIndexOf(".pb") >= 0)
+			    update_pb = true;
+		    if (src_path.lastIndexOf(".fbs") >= 0)
+			    update_fbs = true;
 	    }
 	    String src_filename = null;
 	    String dst_filename = null;
@@ -116,23 +124,62 @@ public final class ActionsIoUtils {
 				dst_filename.substring(0, dst_filename.lastIndexOf(".pb")) + 
 				"-diff.pb";
 	    }
+	    if (update_fbs) {
+			if (src_path.indexOf("/")>=0)
+				src_filename = src_path.substring(src_path.lastIndexOf("/")+1);
+			else
+				src_filename = src_path;
+			if (dst_path.indexOf("/")>=0)
+				dst_filename = dst_path.substring(dst_path.lastIndexOf("/")+1);
+			else
+				dst_filename = dst_path;
+			delta_filename = src_filename.substring(0, src_filename.lastIndexOf(".fbs")) + 
+				dst_filename.substring(0, dst_filename.lastIndexOf(".fbs")) + 
+				"-diff.fbs";
+	    }
             ActionFormatter fmt = newFormatter(context, writer);
             // Start the output
             fmt.startOutput();
 
-	    fast.Fast.Delta.Builder delta = fast.Fast.Delta.newBuilder();
+	    fast.Fast.Delta.Builder delta_pb = null; 
+	    if (update_pb) {
+		    delta_pb = fast.Fast.Delta.newBuilder();
+	    }
+	    FlatBufferBuilder fbb = null;
+	    int srcId = 0;
+	    int dstId = 0;
+	    ArrayList<Integer> vec = new ArrayList<Integer>();
+	    if (update_fbs) {
+		    // fbb.clear();
+		    fbb = new FlatBufferBuilder(1);
+	    }
 	    if (src_path != null && dst_path!=null) {
-		    delta.setSrc(src_path);
-		    delta.setDst(dst_path);
-
+		    if (update_pb) {
+			    delta_pb.setSrc(src_path);
+			    delta_pb.setDst(dst_path);
+		    }
+		    if (update_fbs) {
+			srcId = fbb.createString(src_path);
+			dstId = fbb.createString(dst_path);
+			vec.clear();
+		    }
 		    // Write the matches
 		    fmt.startMatches();
 		    for (Mapping m: mappings) {
-			fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-			dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MATCH);
-			fast.Fast.Delta.Diff.Match.Builder mbuilder = dbuilder.getMatchBuilder();
-			mbuilder.setSrc(m.getFirst().getId());
-			mbuilder.setDst(m.getSecond().getId());
+			if (update_pb) {
+				fast.Fast.Delta.Diff.Builder dbuilder = delta_pb.addDiffBuilder();
+				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MATCH);
+				fast.Fast.Delta.Diff.Match.Builder mbuilder = dbuilder.getMatchBuilder();
+				mbuilder.setSrc(m.getFirst().getId());
+				mbuilder.setDst(m.getSecond().getId());
+			}
+			if (update_fbs) {
+				int type = _fast._Delta._Diff.DeltaType.MATCH;
+				int match = _fast._Delta._Diff.Match.createMatch(fbb, m.getFirst().getId(), m.getSecond().getId());
+				int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, 0, 0, match, 0);
+				int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);
+				vec.add(diff);
+			}
 			fmt.match(m.getFirst(), m.getSecond());
 		    }
 		    fmt.endMatches();
@@ -143,45 +190,92 @@ public final class ActionsIoUtils {
 			ITree src = a.getNode();
 			if (a instanceof Move) {
 			    ITree dst = mappings.getDst(src);
-			    fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-			    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MOVE);
-			    fast.Fast.Delta.Diff.Move.Builder mbuilder = dbuilder.getMoveBuilder();
-			    mbuilder.setSrc(src.getId());
-			    mbuilder.setDst(dst.getParent().getId());
-			    mbuilder.setPosition(((Move) a).getPosition());
+			    if (update_pb) {
+				    fast.Fast.Delta.Diff.Builder dbuilder = delta_pb.addDiffBuilder();
+				    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.MOVE);
+				    fast.Fast.Delta.Diff.Move.Builder mbuilder = dbuilder.getMoveBuilder();
+				    mbuilder.setSrc(src.getId());
+				    mbuilder.setDst(dst.getParent().getId());
+				    mbuilder.setPosition(((Move) a).getPosition());
+			    }
+			    if (update_fbs) {
+					int type = _fast._Delta._Diff.DeltaType.MOVE;
+					int move = _fast._Delta._Diff.Move.createMove(fbb, src.getId(), dst.getParent().getId(),
+							((Move) a).getPosition());
+					int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, 0, 0, move, 0);
+					int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);
+					vec.add(diff);
+			    }
 			    fmt.moveAction(src, dst.getParent(), ((Move) a).getPosition());
 			} else if (a instanceof Update) {
 			    ITree dst = mappings.getDst(src);
-			    fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-			    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.UPDATE);
-			    fast.Fast.Delta.Diff.Update.Builder mbuilder = dbuilder.getUpdateBuilder();
-			    mbuilder.setSrc(src.getId());
-			    if (dst!=null) {
-				    mbuilder.setDst(dst.getId());
-				    fmt.updateAction(src, dst);
+			    if (update_pb) {
+				    fast.Fast.Delta.Diff.Builder dbuilder = delta_pb.addDiffBuilder();
+				    dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.UPDATE);
+				    fast.Fast.Delta.Diff.Update.Builder mbuilder = dbuilder.getUpdateBuilder();
+				    mbuilder.setSrc(src.getId());
+				    if (dst!=null) {
+					    mbuilder.setDst(dst.getId());
+				    }
 			    }
+			    if (update_fbs) {
+					int type = _fast._Delta._Diff.DeltaType.UPDATE;
+					int update = _fast._Delta._Diff.Update.createUpdate(fbb, src.getId(), dst!=null? dst.getId(): 0);
+					int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, 0, 0, 0, update);
+					int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);
+					vec.add(diff);
+			    }
+			    fmt.updateAction(src, dst);
 			} else if (a instanceof Insert) {
 			    ITree dst = a.getNode();
 			    if (dst.isRoot()) {
-				fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
-				fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
-				mbuilder.setSrc(src.getId());
+				if (update_pb) {
+					fast.Fast.Delta.Diff.Builder dbuilder = delta_pb.addDiffBuilder();
+					dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
+					fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
+					mbuilder.setSrc(src.getId());
+				}
+			        if (update_fbs) {
+					int type = _fast._Delta._Diff.DeltaType.ADD;
+					int add = _fast._Delta._Diff.Add.createAdd(fbb, src.getId(), 0, 0);
+					int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, add, 0, 0, 0);
+					int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);
+					vec.add(diff);
+			        }
 				fmt.insertRoot(src);
 			    } else {
-				fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
-				fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
-				mbuilder.setSrc(src.getId());
-				mbuilder.setDst(dst.getParent().getId());
-				mbuilder.setPosition(dst.getParent().getChildPosition(dst));
+			        if (update_pb) {
+					fast.Fast.Delta.Diff.Builder dbuilder = delta_pb.addDiffBuilder();
+					dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.ADD);
+					fast.Fast.Delta.Diff.Add.Builder mbuilder = dbuilder.getAddBuilder();
+					mbuilder.setSrc(src.getId());
+					mbuilder.setDst(dst.getParent().getId());
+					mbuilder.setPosition(dst.getParent().getChildPosition(dst));
+				}
+			        if (update_fbs) {
+					int type = _fast._Delta._Diff.DeltaType.ADD;
+					int add = _fast._Delta._Diff.Add.createAdd(fbb, src.getId(), 
+							dst.getParent().getId(), dst.getParent().getChildPosition(dst));
+					int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, add, 0, 0, 0);
+					int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);
+					vec.add(diff);
+			        }
 				fmt.insertAction(src, dst.getParent(), dst.getParent().getChildPosition(dst));
 			    }
 			} else if (a instanceof Delete) {
-				fast.Fast.Delta.Diff.Builder dbuilder = delta.addDiffBuilder();
-				dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.DEL);
-				fast.Fast.Delta.Diff.Del.Builder mbuilder = dbuilder.getDelBuilder();
-				mbuilder.setSrc(src.getId());
+				if (update_pb) {
+					fast.Fast.Delta.Diff.Builder dbuilder = delta_pb.addDiffBuilder();
+					dbuilder.setType(fast.Fast.Delta.Diff.DeltaType.DEL);
+					fast.Fast.Delta.Diff.Del.Builder mbuilder = dbuilder.getDelBuilder();
+					mbuilder.setSrc(src.getId());
+				}
+				if (update_fbs) {
+					int type = _fast._Delta._Diff.DeltaType.DEL;
+					int del = _fast._Delta._Diff.Del.createDel(fbb, src.getId());
+					int delta = _fast._Delta._Diff.Anonymous2.createAnonymous2(fbb, 0, 0, del, 0, 0);
+					int diff = _fast._Delta.Diff.createDiff(fbb, type, delta);
+					vec.add(diff);
+				}
 				fmt.deleteAction(src);
 			}
 		    }
@@ -190,12 +284,31 @@ public final class ActionsIoUtils {
 
             // Finish up
             fmt.endOutput();
-	    if (update_pb && delta!=null) {
+	    if (update_pb && delta_pb!=null) {
 		fast.Fast.Data.Builder data_element = fast.Fast.Data.newBuilder();
-		data_element.setDelta(delta);
+		data_element.setDelta(delta_pb);
 		FileOutputStream output = new FileOutputStream(delta_filename);
 		data_element.build().writeTo(output);
 		output.close();
+	    }
+	    if (update_fbs && fbb!=null) {
+		    int [] rec = new int[vec.size()];
+		    for (int i=0; i<vec.size(); i++) {
+			    rec[i] = vec.get(i);
+		    }
+		    int diff = _fast.Delta.createDiffVector(fbb, rec);
+		    int delta_Id = _fast.Delta.createDelta(fbb, srcId, dstId, diff);
+		    int anonymous = _fast._Data.Anonymous4.createAnonymous4(fbb, 0, 0, delta_Id, 0, 0, 0);
+		    int data = Data.createData(fbb, anonymous);
+		    try {
+		       DataOutputStream os = new DataOutputStream(new FileOutputStream(delta_filename));
+		       fbb.finish(data);
+		       os.write(fbb.dataBuffer().array(), fbb.dataBuffer().position(), fbb.offset());
+		       os.close();
+		    } catch(java.io.IOException e) {
+		       System.out.println("FlatBuffers test: couldn't write file");
+		       return;
+		    }
 	    }
 	}
     }
