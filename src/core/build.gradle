@@ -6,6 +6,8 @@ dependencies {
 	compile 'com.google.code.gson:gson:2.4'
 	compile files('lib/protobuf-java-3.3.1.jar')
         runtime files('lib/protobuf-java-3.3.1.jar')
+        compile files('lib/flatbuffers-java-1.6.0-SNAPSHOT.jar')
+        runtime files('lib/flatbuffers-java-1.6.0-SNAPSHOT.jar')
 }
 allprojects {
 	gradle.projectsEvaluated {
