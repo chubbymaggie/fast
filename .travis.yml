@@ -9,6 +9,7 @@ before_install:
     brew install libffi;
     brew install openssl;
     env CRYPTOGRAPHY_OSX_NO_LINK_FLAGS=1 LDFLAGS="$(brew --prefix openssl)/lib/libssl.a $(brew --prefix openssl)/lib/libcrypto.a" CFLAGS="-I$(brew --prefix openssl)/include" brew install pyenv; eval "$(pyenv init -)"; pyenv install 2.7.6; pyenv global 2.7.6; pyenv rehash; pip install cpp-coveralls; pyenv rehash;
+    pip install coveralls;
     brew tap f-ast/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers; pip install protobuf;
     brew install jq;
@@ -38,6 +39,7 @@ before_install:
     sudo pip install protobuf;
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
     pip install --user cpp-coveralls;
+    pip install coveralls;
     wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; sed -i -e '/CMP0059/d' CMakeLists.txt; cmake .; make; sudo make install; cd ..; rm -rf antlr4-cpp-runtime;
     wget http://www.antlr.org/download/antlr-4.7-complete.jar; sudo mv antlr-4.7-complete.jar /usr/local/lib;
     fi

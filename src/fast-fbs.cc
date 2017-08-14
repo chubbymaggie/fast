@@ -70,16 +70,17 @@ void createIdFBSMap(const struct Element *element, ::map<int, const struct Eleme
 	imap->clear();
 	createIdFBSMapOne(element, map, imap);
 }
-inline void replace_all(string* str, const char* oldValue, const char* newValue)  
+
+void replace_all(string* str, const char* oldValue, const char* newValue)  
 {  
     string::size_type pos(0);  
   
     while(true){  
-        pos=str->find(oldValue,pos);  
+        pos=str->find(oldValue, pos);  
         if (pos!=(string::npos))  
         {  
             str->replace(pos,strlen(oldValue),newValue);  
-            pos+=2;
+	    pos += strlen(newValue);
         }  
         else  
             break;  
@@ -90,43 +91,59 @@ map<int, enum _fast::_Element::DiffType> src_changes;
 map<int, enum _fast::_Element::DiffType> dst_changes;
 void displayFBSElementOne(ofstream &out, const struct _fast::Element *element) {
 	bool changed = false;
-	if (src_changes[src_fbs_imap[element]] == _fast::_Element::DiffType_DELETED) {
-		out << "${strikethrough}";
-		out << "${red}";
-		changed = true;
-	}
-	if (dst_changes[dst_fbs_imap[element]] == _fast::_Element::DiffType_ADDED) {
-		out << "${underline}";
-		out << "${green}";
-		changed = true;
-	}
-	if (src_changes[src_fbs_imap[element]] == _fast::_Element::DiffType_CHANGED_FROM) {
-		out << "${italic}";
-		out << "${yellow}";
-		changed = true;
-	}
-	if (dst_changes[dst_fbs_imap[element]] == _fast::_Element::DiffType_CHANGED_TO) {
-		out << "${bold}";
-		out << "${blue}";
-		changed = true;
-	}
 	if (element->text()!=NULL) {
+		if (src_changes[src_fbs_imap[element]] == _fast::_Element::DiffType_DELETED) {
+			out << "${strikethrough}";
+			out << "${red}";
+			changed = true;
+		}
+		if (dst_changes[dst_fbs_imap[element]] == _fast::_Element::DiffType_ADDED) {
+			out << "${underline}";
+			out << "${green}";
+			changed = true;
+		}
+		if (src_changes[src_fbs_imap[element]] == _fast::_Element::DiffType_CHANGED_FROM) {
+			out << "${italic}";
+			out << "${yellow}";
+			changed = true;
+		}
+		if (dst_changes[dst_fbs_imap[element]] == _fast::_Element::DiffType_CHANGED_TO) {
+			out << "${bold}";
+			out << "${blue}";
+			changed = true;
+		}
 		string text = element->text()->c_str();
 		replace_all(&text, "\n", "\\n");
 		replace_all(&text, "\"", "\\\"");
+		replace_all(&text, "?", "\\?");
+		replace_all(&text, "*", "\\*");
+		replace_all(&text, "[", "\\[");
+		replace_all(&text, "]", "\\]");
+		replace_all(&text, ".", "\\.");
+		replace_all(&text, "&lt;", "<");
+		replace_all(&text, "&gt;", ">");
+		replace_all(&text, "&amp;", "&");
 		out << text;
+		if (changed) {
+			out << "${reset}";
+		}
 	}
 	for (int i=0; i<element->child()->size(); i++) {
 		const struct _fast::Element *child = element->child()->Get(i);
 		displayFBSElementOne(out, child);
 	}
-	if (changed) {
-		out << "${reset}";
-	}
 	if (element->tail()!=NULL) {
 		string tail = element->tail()->c_str();
 		replace_all(&tail, "\n", "\\n");
 		replace_all(&tail, "\"", "\\\"");
+		replace_all(&tail, "?", "\\?");
+		replace_all(&tail, "*", "\\*");
+		replace_all(&tail, "[", "\\[");
+		replace_all(&tail, "]", "\\]");
+		replace_all(&tail, ".", "\\.");
+		replace_all(&tail, "&lt;", "<");
+		replace_all(&tail, "&gt;", ">");
+		replace_all(&tail, "&amp;", "&");
 		out << tail;
 	}
 }
@@ -158,6 +175,8 @@ void displayFBSElement(const struct _fast::Element *element) {
 	string cmd = "perl ";
 	cmd = cmd + buf;
 	(void) system(cmd.c_str());
+
+	// string text = "&lt;&lt;"; replace_all(&text, "&lt;", "<"); cout << "===== " << text << endl;
 }
 
 int loadFBS(int load_only, int argc, char **argv) {
