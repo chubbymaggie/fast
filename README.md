@@ -30,7 +30,7 @@ the following activities slow:
 * or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
 ### *Program slicing* => [2.5x faster](doc/performance.md)
 * [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
-### *Diff-Patching* => smaller and faster (to measure)
+### *Diff-Patching* => 11~25x faster
 * [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
 * [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree)
 * [mct, ASE'11](https://github.com/f-ast/meaningful-changes)

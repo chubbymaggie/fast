@@ -4,13 +4,17 @@
 `fast` speeds up parsing by at least 10x for Protobuf implementation and 20x for FlatBuffers implementation, 
 according the following significant benchmarks. 
 
-![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/yijunyu/fast/raw/master/doc/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.") 
-![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/yijunyu/fast/raw/master/doc/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
+![Benchmarks 1. Most popular projects in 5 programming languages](https://github.com/f-ast/fast/raw/master/doc/benchmarks/benchmarks1.png "The projects are selected from those with the most stars on GitHub.") 
+![Benchmarks 2. Bug related commits in evolving artefacts in Java](https://github.com/f-ast/fast/raw/master/doc/benchmarks/benchmarks2.png "The projects are selected from academic studies on the bug localization problems.")
 
 ## Slicing
 `fast` speeds up forward slicing by at least 2x according the benchmarks of srcSlice. 
-![Benchmarks 3. Program slicing](https://github.com/yijunyu/fast/raw/master/doc/benchmarks/slicing.png "The projects are selected from previous performance evaluation
+![Benchmarks 3. Program slicing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/slicing.png "The projects are selected from previous performance evaluation
 of the scalable srcSlice tool.")
+
+## Diffing
+`fast` speeds up diffing by 11~25x according a benchmarks of two code pairs taken respectively from Hello and Antlr4 repositories. 
+![Benchmarks 4. Diffing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/diffing.png "Grammar is a source file from the Antlr4 project")
 
 ## Benchmarks
 
