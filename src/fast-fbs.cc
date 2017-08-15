@@ -113,7 +113,8 @@ void displayFBSElementOne(ofstream &out, const struct _fast::Element *element) {
 			changed = true;
 		}
 		string text = element->text()->c_str();
-		replace_all(&text, "\n", "\\n");
+		// replace_all(&text, "\n", "\\n");
+		replace_all(&text, "\\", "\\\\");
 		replace_all(&text, "\"", "\\\"");
 		replace_all(&text, "?", "\\?");
 		replace_all(&text, "*", "\\*");
