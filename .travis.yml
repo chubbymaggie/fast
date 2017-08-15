@@ -7,8 +7,8 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
     brew install libffi;
-    brew install openssl;
-    env CRYPTOGRAPHY_OSX_NO_LINK_FLAGS=1 LDFLAGS="$(brew --prefix openssl)/lib/libssl.a $(brew --prefix openssl)/lib/libcrypto.a" CFLAGS="-I$(brew --prefix openssl)/include" brew install pyenv; eval "$(pyenv init -)"; pyenv install 2.7.6; pyenv global 2.7.6; pyenv rehash; pip install cpp-coveralls; pyenv rehash;
+    brew upgrade openssl;
+    brew install pyenv; eval "$(pyenv init -)"; pyenv install 2.7.6; pyenv global 2.7.6; pyenv rehash; pip install cpp-coveralls; pyenv rehash;
     pip install coveralls;
     brew tap f-ast/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers; pip install protobuf;
