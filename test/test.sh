@@ -1872,6 +1872,7 @@ testNormalise() {
 
 testDiff() {
 	stdout 6005faec7abf6e1061030b461ea2f7b3384f5ae38363fb4892650ace8ee27dc1 -D Hello1.java Hello2.java
+	stdout b8242b7b3eeedd3cb965ff1b8620e58e15b49880195ff4504bb0c6c3fdfe5dad -n normalise.list -D Hello1.java Hello2.java
 }
 
 testUML() {
