@@ -70,6 +70,32 @@ int loadCSV(int argc, char**argv) {
 	return 0;
 }
 
+void savePB(xml_document<> *doc, string output_filename) {
+	fstream output(output_filename.c_str(), ios::out | ios::trunc | ios::binary);
+	GOOGLE_PROTOBUF_VERIFY_VERSION;
+	fast::Data *data = new fast::Data();
+	if (bug_analysis) {
+		fast::Bugs *bugs = savePBfromBugXML(doc->first_node());
+		if (bugs!=NULL) {
+			data->set_allocated_bugs(bugs);
+			data->SerializeToOstream(&output);
+			google::protobuf::ShutdownProtobufLibrary();
+			output.close();
+		}
+	} else {
+		fast::Element *element = savePBfromXML(doc->first_node());
+		if (element!=NULL) {
+			data->set_allocated_element(element);
+			data->SerializeToOstream(&output);
+			google::protobuf::ShutdownProtobufLibrary();
+			output.close();
+			if (report_max_width) {
+				cout << "The maximum width of tree nodes is :" << max_width << endl;
+			}
+		}
+	}
+}
+
 int loadXML(int load_only, int argc, char**argv) {
   if (!check_exists(argv[1])) return 1;
   char *input_filename = argv[1];
@@ -88,31 +114,23 @@ int loadXML(int load_only, int argc, char**argv) {
 	file<> xmlFile(input_filename);
         doc.parse<rapidxml::parse_no_entity_translation>(xmlFile.data());
 	if (is_protobuf) {
-		fstream output(output_filename, ios::out | ios::trunc | ios::binary);
-  		GOOGLE_PROTOBUF_VERIFY_VERSION;
-		fast::Data *data = new fast::Data();
-		if (bug_analysis) {
-			fast::Bugs *bugs = savePBfromBugXML(doc.first_node());
-			if (bugs!=NULL) {
-				data->set_allocated_bugs(bugs);
-				data->SerializeToOstream(&output);
-				google::protobuf::ShutdownProtobufLibrary();
-				output.close();
-			}
-		} else {
-			fast::Element *element = savePBfromXML(doc.first_node());
-			if (element!=NULL) {
-				data->set_allocated_element(element);
-				data->SerializeToOstream(&output);
-				google::protobuf::ShutdownProtobufLibrary();
-				output.close();
-				if (report_max_width) {
-					cout << "The maximum width of tree nodes is :" << max_width << endl;
-				}
-			}
-		}
+		savePB(& doc, output_filename);
 	}
 	if (is_flatbuffers) {
+		if (normalise) {
+			savePB(& doc, string(output_filename) + ".pb"); 
+			string fbsCommand = "fast ";
+			fbsCommand = fbsCommand + output_filename + ".pb " + 
+				output_filename + ".xml";
+			(void) system(fbsCommand.c_str());
+			remove((string(output_filename) + ".pb").c_str());
+			fbsCommand = "fast ";
+			fbsCommand = fbsCommand + output_filename + ".xml " + 
+				output_filename;
+			(void) system(fbsCommand.c_str());
+			remove((string(output_filename) + ".xml").c_str());
+			return 0;
+		}
 		flatbuffers::FlatBufferBuilder builder;
 		auto element = saveFBSfromXML(builder, doc.first_node());
 		auto anonymous = _fast::_Data::CreateAnonymous4(builder, element, 0, 0, 0);

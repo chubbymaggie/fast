@@ -182,6 +182,8 @@ void displayFBSElement(const struct _fast::Element *element) {
 
 int loadFBS(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
+	char *input_filename = argv[1];
+	assert(strcmp(input_filename, "")!=0);
 	const struct _fast::Data *d = readFBS(argv[1]);
 	if (d != NULL && !load_only && !mySlice && !delta) {
 		char buf[100];
