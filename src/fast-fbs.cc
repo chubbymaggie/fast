@@ -176,8 +176,6 @@ void displayFBSElement(const struct _fast::Element *element) {
 	string cmd = "perl ";
 	cmd = cmd + buf;
 	(void) system(cmd.c_str());
-
-	// string text = "&lt;&lt;"; replace_all(&text, "&lt;", "<"); cout << "===== " << text << endl;
 }
 
 int loadFBS(int load_only, int argc, char **argv) {

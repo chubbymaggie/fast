@@ -102,37 +102,68 @@ inline void replace_all(string* str, const char* oldValue, const char* newValue)
             break;  
     }  
 }  
+
+map<int, fast::Element*> src_map;
+map<int, fast::Element*> dst_map;
+map<fast::Element*, int> src_imap;
+map<fast::Element*, int> dst_imap;
+map<int, enum fast::Element_DiffType> src_pb_changes;
+map<int, enum fast::Element_DiffType> dst_pb_changes;
+
 void displayPBElementOne(ofstream &out, fast::Element *element) {
-	if (element->change() == fast::Element_DiffType_DELETED) {
-		out << "${strikethrough}";
-		out << "${red}";
+	bool changed = false;
+	if (element->text() !="") {
+		if (src_pb_changes[src_imap[element]] == fast::Element_DiffType_DELETED) {
+			out << "${strikethrough}";
+			out << "${red}";
+			changed = true;
+		}
+		if (dst_pb_changes[dst_imap[element]] == fast::Element_DiffType_ADDED) {
+			out << "${underline}";
+			out << "${green}";
+			changed = true;
+		}
+		if (src_pb_changes[src_imap[element]] == fast::Element_DiffType_CHANGED_FROM) {
+			out << "${italic}";
+			out << "${yellow}";
+			changed = true;
+		}
+		if (dst_pb_changes[dst_imap[element]] == fast::Element_DiffType_CHANGED_TO) {
+			out << "${bold}";
+			out << "${blue}";
+			changed = true;
+		}
+		string text = element->text();
+		replace_all(&text, "\\", "\\\\");
+		replace_all(&text, "\"", "\\\"");
+		replace_all(&text, "?", "\\?");
+		replace_all(&text, "*", "\\*");
+		replace_all(&text, "[", "\\[");
+		replace_all(&text, "]", "\\]");
+		replace_all(&text, ".", "\\.");
+		replace_all(&text, "&lt;", "<");
+		replace_all(&text, "&gt;", ">");
+		replace_all(&text, "&amp;", "&");
+		out << text;
+		if (changed) {
+			out << "${reset}";
+		}
 	}
-	if (element->change() == fast::Element_DiffType_ADDED) {
-		out << "${underline}";
-		out << "${green}";
-	}
-	if (element->change() == fast::Element_DiffType_CHANGED_FROM) {
-		out << "${italic}";
-		out << "${yellow}";
-	}
-	if (element->change() == fast::Element_DiffType_CHANGED_TO) {
-		out << "${bold}";
-		out << "${blue}";
-	}
-	string text = element->text();
-	replace_all(&text, "\n", "\\n");
-	replace_all(&text, "\"", "\\\"");
-	out << text;
 	for (int i=0; i<element->child().size(); i++) {
 		fast::Element *child = element->mutable_child(i);
 		displayPBElementOne(out, child);
 	}
-	if (element->change() != fast::Element_DiffType_MATCHED) {
-		out << "${reset}";
-	}
 	string tail = element->tail();
-	replace_all(&tail, "\n", "\\n");
+	replace_all(&tail, "\\", "\\\\");
 	replace_all(&tail, "\"", "\\\"");
+	replace_all(&tail, "?", "\\?");
+	replace_all(&tail, "*", "\\*");
+	replace_all(&tail, "[", "\\[");
+	replace_all(&tail, "]", "\\]");
+	replace_all(&tail, ".", "\\.");
+	replace_all(&tail, "&lt;", "<");
+	replace_all(&tail, "&gt;", ">");
+	replace_all(&tail, "&amp;", "&");
 	out << tail;
 }
 
@@ -720,23 +751,27 @@ fast::Data readData(const char *input_filename) {
 void saveXMLfromPB(fstream & out, fast::Element *element);
 void srcSliceToCsv(const srcSlice& handler, const char* output_file);
 
-map<int, fast::Element*> src_map;
-map<int, fast::Element*> dst_map;
 
 static int id = 1;
-void createIdMapOne(fast::Element* element, map<int, fast::Element*> *map) {
+void createIdMapOne(fast::Element* element, map<int, fast::Element*> * amap,
+		map<fast::Element*, int> *imap) {
 	for (int i=0; i<element->child().size(); i++) {
 		fast::Element* child = element->mutable_child(i);
-		createIdMapOne(child, map);
+		createIdMapOne(child, amap, imap);
 	}
-	(*map)[id] = element;
+	(*amap)[id] = element;
+	(*imap)[element] = id;
 	id++;
 }
-void createIdMap(fast::Element* element, map<int, fast::Element*> *map) {
+void createIdMap(fast::Element* element, map<int, fast::Element*> * amap,
+	map<fast::Element*, int> *imap) {
 	id = 1;
-	map->clear();
-	createIdMapOne(element, map);
+	amap->clear();
+	imap->clear();
+	createIdMapOne(element, amap, imap);
 }
+
+
 
 int loadPB(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
@@ -796,60 +831,45 @@ int loadPB(int load_only, int argc, char **argv) {
 	string dst_filename = data.delta().dst();
 	fast::Data src_data = readData(src_filename.c_str());
 	fast::Data dst_data = readData(dst_filename.c_str());
-	createIdMap(src_data.mutable_element(), &src_map);
-	createIdMap(dst_data.mutable_element(), &dst_map);
+	createIdMap(src_data.mutable_element(), &src_map, &src_imap);
+	createIdMap(dst_data.mutable_element(), &dst_map, &dst_imap);
 	map<int, int> mappings;
 	for (int i=0; i<data.mutable_delta()->diff().size(); i++) {
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MATCH) {
 			fast::Delta_Diff_Match *diff = data.mutable_delta()->mutable_diff(i)->mutable_match();
-			mappings[diff->src()] = diff->dst();
+			if (diff!=NULL)
+				mappings[diff->src()] = diff->dst();
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_DEL) {
 			fast::Delta_Diff_Del *diff = data.mutable_delta()->mutable_diff(i)->mutable_del();
-			fast::Element *to_delete = src_map[diff->src()];
-			if (to_delete!=NULL)
-				to_delete->set_change(fast::Element_DiffType_DELETED);
+			if (diff != NULL)
+				src_pb_changes[diff->src()] = fast::Element_DiffType_DELETED;
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_ADD) {
 			fast::Delta_Diff_Add *diff = data.mutable_delta()->mutable_diff(i)->mutable_add();
-			int src = diff->src();
-			dst_map[src]->set_change(fast::Element_DiffType_ADDED);
-			// cout << "ADD " << diff->src() << " " << diff->dst() << " " << diff->position() << endl;
+			if (diff!=NULL)
+				dst_pb_changes[diff->src()] = fast::Element_DiffType_ADDED;
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_UPDATE) {
 			fast::Delta_Diff_Update *diff = data.mutable_delta()->mutable_diff(i)->mutable_update();
-			int src = diff->src();
-			int dst = diff->dst();
-			fast::Element *src_element = src_map[src];
-			fast::Element *dst_element = dst_map[dst];
-			if (src_element!=NULL) 
-				src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
-			if (dst_element!=NULL) 
-				dst_element->set_change(fast::Element_DiffType_CHANGED_TO);
+			if (diff!=NULL) {
+				int src = diff->src();
+				int dst = diff->dst();
+				src_pb_changes[src] = fast::Element_DiffType_CHANGED_FROM;
+				dst_pb_changes[dst] = fast::Element_DiffType_CHANGED_TO;
+			}
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MOVE) {
 			fast::Delta_Diff_Move *diff = data.mutable_delta()->mutable_diff(i)->mutable_move();
-			int src = diff->src();
-			int dst_parent = diff->dst();
-			int pos = diff->position();
-			fast::Element *src_element = src_map[src];
-			fast::Element *dst_element = dst_map[dst_parent]->mutable_child(pos);
-			src_element->set_change(fast::Element_DiffType_CHANGED_FROM);
-			dst_element->set_change(fast::Element_DiffType_CHANGED_TO);
+			if (diff!=NULL) {
+				int src = diff->src();
+				int dst = diff->dst();
+				src_pb_changes[src] = fast::Element_DiffType_CHANGED_FROM;
+				dst_pb_changes[dst] = fast::Element_DiffType_CHANGED_TO;
+			}
 		}
 	}
-	fstream output(src_filename, ios::out | ios::trunc | ios::binary);
-	fast::Data *data = new fast::Data();
-	data->set_allocated_element(src_data.mutable_element());
-	data->SerializeToOstream(&output);
-	output.close();
 	displayPBElement(src_data.mutable_element());
-	fstream output2(dst_filename, ios::out | ios::trunc | ios::binary);
-	data = new fast::Data();
-	data->set_allocated_element(dst_data.mutable_element());
-	data->SerializeToOstream(&output2);
-	google::protobuf::ShutdownProtobufLibrary();
-	output2.close();
 	displayPBElement(dst_data.mutable_element());
     } else if (data.has_element() && delta && argc == 3) {
 	    string src_filename = argv[1];
