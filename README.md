@@ -55,6 +55,7 @@ the following activities slow:
 * Rewritten the interface to speedup [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree) and [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
 * Added colors to the output of diff results so that it is possible to integrate with git on the command line interface
 * Added -u option for the YUML extraction (see srcYUML) for Xiaohong Chen
+* Generated the patch from the diff records of GumTreeDiff for Chunmiao's integration with BiYacc
 
 *0.0.4* (August 1, 2017)
 

@@ -109,6 +109,8 @@ map<fast::Element*, int> src_imap;
 map<fast::Element*, int> dst_imap;
 map<int, enum fast::Element_DiffType> src_pb_changes;
 map<int, enum fast::Element_DiffType> dst_pb_changes;
+map<int, int> pos_pb_changes;
+map<int, int> from_to_pb_changes;
 
 void displayPBElementOne(ofstream &out, fast::Element *element) {
 	bool changed = false;
@@ -771,7 +773,101 @@ void createIdMap(fast::Element* element, map<int, fast::Element*> * amap,
 	createIdMapOne(element, amap, imap);
 }
 
+void mark_empty(fast::Element *e) {
+	e->set_text("");
+	for (int i=0; i< e->child().size(); i++) {
+		mark_empty(e->mutable_child(i));
+	}
+	e->set_tail("");
+}
 
+map<int, int> mappings;
+
+fast::Element *insertChildAt(fast::Element *e, int pos) {
+	fast::Element *child = e->add_child();
+	if (pos >= e->child().size())
+		return child;
+	fast::Element *tmp = e->mutable_child(pos);
+	for (int i= e->child().size() - 1; i > pos; i++) {
+		fast::Element *c = e->mutable_child(i);
+		c->CopyFrom(*e->mutable_child(i-1));
+	}
+	tmp->CopyFrom(*child); // now tmp should be an empty node
+	return tmp;
+}
+
+void mergePBpatchOne(fast::Element *a) {
+	// cout << "merging  " << src_imap[a] << endl;
+	bool changed = false;
+	if (src_pb_changes[src_imap[a]] == fast::Element_DiffType_DELETED) {
+		// cout << "deleted " << src_imap[a] << endl;
+		mark_empty(a);
+		a->set_change(fast::Element_DiffType_DELETED);
+	}
+	if (src_pb_changes[src_imap[a]] == fast::Element_DiffType_CHANGED_FROM) {
+		// cout << "changed from " << src_imap[a] << endl;
+		mark_empty(a);
+		a->set_change(fast::Element_DiffType_CHANGED_FROM);
+		int dst = from_to_pb_changes[src_imap[a]]; // src_parent
+		int pos = pos_pb_changes[src_imap[a]];
+		if (pos == -1) {
+		    fast::Element *b = dst_map[dst];
+		    a->set_text(b->text()); // update
+		} else {
+		    fast::Element *b = dst_map[dst];
+		    if (b!=NULL)
+			if (pos < b->child().size()) {
+				int src = mappings[dst];
+				if (src > 0) {
+					cout << src << endl;
+					fast::Element * src_element = src_map[src];
+					if (src_element != NULL) {
+						fast::Element *pos_element = insertChildAt(src_element, pos);
+						pos_element->CopyFrom(*(b->mutable_child(pos)));
+						pos_element->set_change(fast::Element_DiffType_CHANGED_TO);
+					}
+				}
+			}
+		}
+	}
+	for (int i=0; i<a->child().size(); i++) {
+		fast::Element *child = a->mutable_child(i);
+		mergePBpatchOne(child);
+	}
+}
+
+void mergePBpatch(fast::Element *a) {
+	mergePBpatchOne(a);
+}
+
+void mergePBaddedOne(fast::Element *to_add, fast::Element *b) {
+	for (int i=0; i<b->child().size(); i++) {
+		fast::Element *child = b->mutable_child(i);
+		mergePBaddedOne(to_add, child);
+		if (dst_pb_changes[dst_imap[child]] == fast::Element_DiffType_ADDED) {
+			int src = mappings[dst_imap[b]]; // src_parent
+			if (src>0) {
+				fast::Element *added_element = src_map[src]->add_child();
+				added_element->CopyFrom(*child);	
+				added_element->set_change(fast::Element_DiffType_ADDED);
+			}
+		}
+	}
+}
+
+void mergePBadded(fast::Element *to_add, fast::Element *b) {
+	mergePBaddedOne(to_add, b);
+}
+
+void savePBelement(const char *filename, fast::Element* element) {
+	fstream output(filename, ios::out | ios::trunc | ios::binary);
+	GOOGLE_PROTOBUF_VERIFY_VERSION;
+	fast::Data *data = new fast::Data();
+	data->set_allocated_element(element);
+	data->SerializeToOstream(&output);
+	google::protobuf::ShutdownProtobufLibrary();
+	output.close();
+}
 
 int loadPB(int load_only, int argc, char **argv) {
 	if (!check_exists(argv[1])) return 1;
@@ -833,12 +929,11 @@ int loadPB(int load_only, int argc, char **argv) {
 	fast::Data dst_data = readData(dst_filename.c_str());
 	createIdMap(src_data.mutable_element(), &src_map, &src_imap);
 	createIdMap(dst_data.mutable_element(), &dst_map, &dst_imap);
-	map<int, int> mappings;
 	for (int i=0; i<data.mutable_delta()->diff().size(); i++) {
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MATCH) {
 			fast::Delta_Diff_Match *diff = data.mutable_delta()->mutable_diff(i)->mutable_match();
 			if (diff!=NULL)
-				mappings[diff->src()] = diff->dst();
+				mappings[diff->dst()] = diff->src();
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_DEL) {
 			fast::Delta_Diff_Del *diff = data.mutable_delta()->mutable_diff(i)->mutable_del();
@@ -857,6 +952,8 @@ int loadPB(int load_only, int argc, char **argv) {
 				int dst = diff->dst();
 				src_pb_changes[src] = fast::Element_DiffType_CHANGED_FROM;
 				dst_pb_changes[dst] = fast::Element_DiffType_CHANGED_TO;
+				from_to_pb_changes[src] = dst;
+				pos_pb_changes[src] = -1; // no need to move
 			}
 		}
 		if (data.mutable_delta()->mutable_diff(i)->type() == fast::Delta_Diff_DeltaType_MOVE) {
@@ -866,11 +963,23 @@ int loadPB(int load_only, int argc, char **argv) {
 				int dst = diff->dst();
 				src_pb_changes[src] = fast::Element_DiffType_CHANGED_FROM;
 				dst_pb_changes[dst] = fast::Element_DiffType_CHANGED_TO;
+				from_to_pb_changes[src] = dst;
+				pos_pb_changes[src] = diff->position();
 			}
 		}
 	}
 	displayPBElement(src_data.mutable_element());
 	displayPBElement(dst_data.mutable_element());
+	fast::Element* merged = new fast::Element();
+	merged->CopyFrom(*src_data.mutable_element());
+	createIdMap(merged, &src_map, &src_imap);
+	mergePBpatch(merged);
+	mergePBadded(merged, dst_data.mutable_element());
+	if (merged!=NULL) {
+		string output_filename = argv[1];
+		output_filename = output_filename + "-" + argv[2] + ".pb";
+		savePBelement(output_filename.c_str(), merged);
+	}
     } else if (data.has_element() && delta && argc == 3) {
 	    string src_filename = argv[1];
 	    string dst_filename = argv[2];

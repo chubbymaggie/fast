@@ -7,7 +7,9 @@ before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
     brew install libffi;
+    brew install openssl;
     brew upgrade openssl;
+    env LDFLAGS="-L$(brew --prefix openssl)/lib" CFLAGS="-I$(brew --prefix openssl)/include" pip install cryptography;
     brew install pyenv; eval "$(pyenv init -)"; pyenv install 2.7.6; pyenv global 2.7.6; pyenv rehash; pip install cpp-coveralls; pyenv rehash;
     brew tap f-ast/fast; brew install srcml;
     brew install protobuf;version=3.3.0 && brew install flatbuffers; pip install protobuf;
@@ -15,7 +17,7 @@ before_install:
     brew install perl;
     brew install antlr; brew install antlr4-cpp-runtime;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make -j4; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -rf srcSlice;
-    git clone https://github.com/eddyxu/cpp-coveralls eddyxu/cpp-coveralls; cd eddyxu/cpp-coveralls; python setup.py install;
+    git clone https://github.com/eddyxu/cpp-coveralls eddyxu/cpp-coveralls; cd eddyxu/cpp-coveralls; env LDFLAGS="-L$(brew --prefix openssl)/lib" CFLAGS="-I$(brew --prefix openssl)/include" python setup.py install;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
     sudo apt-get install apt-transport-https;

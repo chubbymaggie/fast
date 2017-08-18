@@ -134,8 +134,22 @@ protobuf representation of the above pairs.
 
   $fast -D Hello1.java Hello2.java
 
-THe command will print the compared files on the terminal, with colors
+The command will print the compared files on the terminal, with colors
 indicating the changes.  By default, something in yellow color on the 1st file
 will be changed to something in blue color on the 2nd file; and something in
 red color on the 1st file will be deleted, while something in green color on
 the 2nd file will be added.
+
+  $fast Hello1.java Hello1.pb
+  $fast Hello2.java Hello2.pb
+  $fast -D Hello1.pb Hello2.pb
+  $fast Hello1Hello2-diff.pb-Hello2.pb.pb Hello-patch.xml
+
+The command will generate the patch that merged the diff records on Hello1.pb and
+Hello2.pb so that one can see all the four types of tree-based changes into 
+one single structure. The XML representation of this patch structure would indicate
+them as:
+   -  DELETED
+   +  ADDED
+  -+  UPDATED or MOVED
+
