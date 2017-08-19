@@ -315,7 +315,7 @@ test:: install
 	cd test && ./test.sh
 
 coverage::
-	COVERALLS_REPO_TOKEN=dSF4VnbZH7qKlWVxj8HrMrDvN9XIrAUBp coveralls --exclude lib --exclude test --gcov-options '\-lp'
+	coveralls --exclude /Applications --exclude /usr --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/srcyuml --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'
 
 clean::
 	rm -f fast_pb2.py fast.fbs

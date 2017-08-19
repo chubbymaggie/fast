@@ -779,6 +779,7 @@ void mark_empty(fast::Element *e) {
 		mark_empty(e->mutable_child(i));
 	}
 	e->set_tail("");
+	e->set_change(fast::Element_DiffType_DELETED);
 }
 
 map<int, int> mappings;
@@ -788,7 +789,7 @@ fast::Element *insertChildAt(fast::Element *e, int pos) {
 	if (pos >= e->child().size())
 		return child;
 	fast::Element *tmp = e->mutable_child(pos);
-	for (int i= e->child().size() - 1; i > pos; i++) {
+	for (int i= e->child().size() - 1; i > pos; i--) {
 		fast::Element *c = e->mutable_child(i);
 		c->CopyFrom(*e->mutable_child(i-1));
 	}
@@ -819,7 +820,7 @@ void mergePBpatchOne(fast::Element *a) {
 			if (pos < b->child().size()) {
 				int src = mappings[dst];
 				if (src > 0) {
-					cout << src << endl;
+					// cout << src << endl;
 					fast::Element * src_element = src_map[src];
 					if (src_element != NULL) {
 						fast::Element *pos_element = insertChildAt(src_element, pos);
