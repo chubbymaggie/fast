@@ -25,9 +25,8 @@ chmod +x /tmp/t3.sh
 
 slice() {
 echo == $1 == >> timing.txt
-gtime -f %E -o timing.txt -a /tmp/t1.sh $1
-#gtime -f %E -o timing.txt -a /tmp/t2.sh $1
-gtime -f %E -o timing.txt -a /tmp/t3.sh $1
+/usr/bin/time -f %E -o timing.txt -a /tmp/t1.sh $1
+/usr/bin/time -f %E -o timing.txt -a /tmp/t3.sh $1
 }
 export -f slice
 
