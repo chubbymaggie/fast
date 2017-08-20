@@ -25,8 +25,13 @@ chmod +x /tmp/t3.sh
 
 slice() {
 echo == $1 == >> timing.txt
-/usr/bin/time -f %E -o timing.txt -a /tmp/t1.sh $1
-/usr/bin/time -f %E -o timing.txt -a /tmp/t3.sh $1
+if [ "$(uname -s)" == "Darwin" ]; then
+	gtime=gtime
+else
+	gtime=/usr/bin/time
+fi
+$gtime -f %E -o timing.txt -a /tmp/t1.sh $1
+$gtime -f %E -o timing.txt -a /tmp/t3.sh $1
 }
 export -f slice
 

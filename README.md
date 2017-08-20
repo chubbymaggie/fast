@@ -43,8 +43,9 @@ the following activities slow:
 
 #### Feature requests ####
 * Integrate with [biyacc](http://biyacc.yozora.moe)
+*0.0.6* TBD
 
-*0.0.5* (TBD)
+*0.0.5* (August 25, 2017)
 * Created a Dockerfile to simplify the deployment
 * Implemented normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation, see `-n` option
@@ -52,6 +53,7 @@ the following activities slow:
 * Added colors to the output of diff results so that it is possible to integrate with git on the command line interface
 * Added -u option for the YUML extraction (see srcYUML)
 * Generated the patch from the diff records of GumTreeDiff integration with BiYacc
+* Reduced the size of FAST for slicing
 
 *0.0.4* (August 1, 2017)
 
