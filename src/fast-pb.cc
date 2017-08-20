@@ -774,7 +774,7 @@ void createIdMap(fast::Element* element, map<int, fast::Element*> * amap,
 }
 
 void mark_empty(fast::Element *e) {
-	e->set_text("");
+	e->set_text("DELETED");
 	for (int i=0; i< e->child().size(); i++) {
 		mark_empty(e->mutable_child(i));
 	}
@@ -866,7 +866,7 @@ void savePBelement(const char *filename, fast::Element* element) {
 	fast::Data *data = new fast::Data();
 	data->set_allocated_element(element);
 	data->SerializeToOstream(&output);
-	google::protobuf::ShutdownProtobufLibrary();
+	// google::protobuf::ShutdownProtobufLibrary();
 	output.close();
 }
 
@@ -890,7 +890,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
 	fast::Element unit = data.element();
 	saveXMLfromPB(out, &unit);
-	out << endl;
+	out.close();
 	if (argc == 2) {
 		if (slice) {
 			string sliceCommand = "srcSlice ";
@@ -923,6 +923,15 @@ int loadPB(int load_only, int argc, char **argv) {
 		srcSliceToCsv(sslice, argv[argc-1]);
 	else
 		srcSliceToCsv(sslice, NULL);
+	const char *output_name = (string(argv[argc - 1]) + ".xml").c_str();
+	fstream out(output_name, ios::out | ios::trunc);
+	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
+	saveXMLfromPB(out, &unit);
+	out.close();
+	argv[2] = strdup((string(argv[argc - 1]) + ".pb").c_str());
+	argv[1] = strdup(output_name);
+	argc = 3;
+	(void) mainRoutine(argc, argv);
     } else if (data.has_delta() && delta && argc == 2) {
 	string src_filename = data.delta().src();
 	string dst_filename = data.delta().dst();
@@ -1005,23 +1014,29 @@ int loadPB(int load_only, int argc, char **argv) {
 	    loadPB(load_only, argc, argv);
     }
   // Optional:  Delete all global objects allocated by libprotobuf.
-  google::protobuf::ShutdownProtobufLibrary();
+  // google::protobuf::ShutdownProtobufLibrary();
   return 0;
 }
 
+bool keep_element; 
 void slicePB(srcSliceHandler& handler, fast::Element *element) {
 	string text = "";
 	string tail = "";
 	int k = element->kind();
 	// cout << "k = " << k << endl;
+	bool keep_start = true;
 	if (k == fast::Element_Kind_UNIT_KIND) {
 		struct srcsax_attribute attrs[3];
 		attrs[2].value = element->unit().filename().c_str();
+		keep_element = true;
 		handler.startUnit(NULL, NULL, NULL, 0, NULL, 3, attrs);
+		keep_start = keep_element;
 	} else {
 		struct srcsax_attribute attrs[1];
 		attrs[0].value = std::to_string(element->line()).c_str();
+		keep_element = true;
 		handler.startElement(k, NULL, NULL, 0, NULL, 1, attrs);
+		keep_start = keep_element;
 	}
 	text = element->text();
 	if (text!="") {
@@ -1029,10 +1044,16 @@ void slicePB(srcSliceHandler& handler, fast::Element *element) {
 	}
 	for (int i=0; i<element->child().size(); i++)
 		slicePB(handler, element->mutable_child(i));
-	if (k == fast::Element_Kind_UNIT_KIND) 
+	bool keep_end = true;
+	if (k == fast::Element_Kind_UNIT_KIND) {
 		handler.endUnit(NULL, NULL, NULL);
-	else 
+	} else {
 		handler.endElement(k, NULL, NULL);
+		keep_end = keep_element;
+	}
+	if (keep_start || keep_end) {
+		element->set_keep(true);
+	}
 	tail = element->tail();
 	if (tail!="") {
 		handler.charactersUnit(tail.c_str(), strlen(tail.c_str()));
@@ -1137,12 +1158,17 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 	} else if (element->change() == fast::Element_DiffType_CHANGED_TO) { 
 		attr = attr + " change=\"+-\"";
 	}
-	text = element->text();
-	transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
-	out << "<" <<  tag <<  attr << ">" << text;
+	// cout << (!slice && !mySlice) << endl;
+	if ((!slice && !mySlice) || element->keep()) {
+		text = element->text();
+		transform(tag.begin(), tag.end(), tag.begin(), ::tolower);
+		out << "<" <<  tag <<  attr << ">" << text;
+	} 
 	for (int i=0; i<element->child().size(); i++) {
 		saveXMLfromPB(out, element->mutable_child(i));
 	}
-	tail = element->tail();
-	out << "</" << tag << ">" << tail;
+	if ((!slice && !mySlice) || element->keep()) {
+		tail = element->tail();
+		out << "</" << tag << ">" << tail;
+	}
 }

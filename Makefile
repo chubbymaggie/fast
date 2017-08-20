@@ -316,6 +316,7 @@ test:: install
 
 coverage::
 	coveralls --exclude /Applications --exclude /usr --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/srcyuml --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'
+	rm -f *.gcov
 
 clean::
 	rm -f fast_pb2.py fast.fbs

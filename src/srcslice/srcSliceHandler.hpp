@@ -34,6 +34,8 @@
 #include <fast.pb.h>
 #include <fast_generated.h>
 
+extern bool keep_element;
+
 class srcSliceHandler : public srcSAXHandler {
 private:
     /*ParserState is a set of enums corresponding to srcML tags. Primarily, they're for addressing into the 
@@ -805,6 +807,7 @@ public:
         //classIt = sysDict->classTable.insert(std::make_pair("GLOBAL", ClassProfile())).first;
         FunctionIt = FileIt->second.insert(std::make_pair("GLOBAL", VarMap())).first; //for globals. Makes a bad assumption about where globals are. Fix.
     }
+
     /**
      * startElementNs
      * @param localname the name of the element tag
@@ -839,8 +842,11 @@ public:
         }
 	// std::cerr << "name = " << name << " kind = " << kind << std::endl;
 	std::function<void()> func = process_map[kind];
-	if (func)
+	keep_element = true;
+	if (func) {
 		func();
+	} else
+		keep_element = false;
     }
     /**
      * charactersUnit
@@ -978,8 +984,12 @@ public:
             --triggerField[preproc];
         }
 	std::function<void()> func = process_map3[kind];
-	if (func)
+	if (func) {
 		func();
+		keep_element = true;
+	} else {
+		keep_element = false;
+	}
 #pragma GCC diagnostic pop
     }
 };

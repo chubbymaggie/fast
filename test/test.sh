@@ -1776,8 +1776,8 @@ testLoadPB() {
 	$fast Hello.java Hello.pb
 	stdout e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 -c Hello.pb
 	$fast Hello.pb Hello.pb.xml
-	catout c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 Hello.pb.xml
-	stdout c87941ccbb4c4ae5253ebfa3feb8b407979326e4251abb4a66f0f7d9264de683 Hello.pb
+	catout ebafc0cbb2f91ca46b43d44887e7e1a3635ac41936efaf337488d6e721e132cd Hello.pb.xml
+	stdout ebafc0cbb2f91ca46b43d44887e7e1a3635ac41936efaf337488d6e721e132cd Hello.pb
 	$fast test.cs test.pb
 	$fast test.pb test.pb.cs
 	catout 0d5e6c5133712faa85ce81b77ad37b386ea742346ce1b06d3e83831ebd990b28 test.pb.cs
@@ -1877,7 +1877,7 @@ testDiff() {
 	$fast Hello2.java Hello2.pb
 	stdout 6005faec7abf6e1061030b461ea2f7b3384f5ae38363fb4892650ace8ee27dc1 -D Hello1.pb Hello2.pb
 	$fast Hello1Hello2-diff.pb-Hello2.pb.pb Hello.patch.xml
-	catout 332a766d3601aaeeb4f13578a833690b09497bc6308fae1415af9139a26fd95c Hello.patch.xml
+	catout e66ff54ab8760aa51c5d5c4a76fa2db35d7297f03bc72eb08ec5ce8922d11b5c Hello.patch.xml
 }
 
 testUML() {

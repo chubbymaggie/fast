@@ -122,7 +122,7 @@ void srcSliceToCsv(const srcSlice& handler, const char *output_file){
 		ofstream output(output_file, ios::out | ios::trunc | ios::binary);
 		data->set_allocated_slices(slices);
 		data->SerializeToOstream(&output);
-  		google::protobuf::ShutdownProtobufLibrary();
+  		// google::protobuf::ShutdownProtobufLibrary();
 		output.close();
 	}
 }

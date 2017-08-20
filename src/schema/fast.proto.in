@@ -39,6 +39,7 @@ __COUNTER__
 	    CHANGED_TO = 4; // changed to, denoted by +-
    }
    DiffType change = __COUNTER__;
+   bool keep = __COUNTER__;
 }
 
 message Delta {

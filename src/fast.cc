@@ -63,7 +63,7 @@ int loadCSV(int argc, char**argv) {
 			fast::Data *data = new fast::Data();
 			data->set_allocated_bugs(bugs);
 			data->SerializeToOstream(&output);
-			google::protobuf::ShutdownProtobufLibrary();
+			//google::protobuf::ShutdownProtobufLibrary();
 			output.close();
 		}
 	}
@@ -79,7 +79,7 @@ void savePB(xml_document<> *doc, string output_filename) {
 		if (bugs!=NULL) {
 			data->set_allocated_bugs(bugs);
 			data->SerializeToOstream(&output);
-			google::protobuf::ShutdownProtobufLibrary();
+			//google::protobuf::ShutdownProtobufLibrary();
 			output.close();
 		}
 	} else {
@@ -87,7 +87,7 @@ void savePB(xml_document<> *doc, string output_filename) {
 		if (element!=NULL) {
 			data->set_allocated_element(element);
 			data->SerializeToOstream(&output);
-			google::protobuf::ShutdownProtobufLibrary();
+			//google::protobuf::ShutdownProtobufLibrary();
 			output.close();
 			if (report_max_width) {
 				cout << "The maximum width of tree nodes is :" << max_width << endl;

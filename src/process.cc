@@ -281,6 +281,6 @@ int processMainRoutine(int argc, char ** argv) {
 	std::fstream output(argv[2], std::ios::out | std::ios::trunc | std::ios::binary);
 	data->SerializeToOstream(&output);
 	output.close();
-	google::protobuf::ShutdownProtobufLibrary();
+	// google::protobuf::ShutdownProtobufLibrary();
 	return 0;
 }
