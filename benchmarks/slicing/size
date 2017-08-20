@@ -1,0 +1,13 @@
+#!/bin/bash
+ls *.fbs | while read f; do
+   if [ ! -f ${f/.fbs/.pb} ]; then
+	   fast ${f/.fbs/.xml} ${f/.fbs/.pb}
+   fi
+   if [ ! -f ${f/.fbs/.pb.pb} ]; then
+	   fast -S ${f/.fbs/.pb} ${f/.fbs/.slice.pb}
+	   fast ${f/.fbs/.slice.pb.xml} ${f/.fbs/.pb.pb}
+   fi
+   size1=$(wc -c ${f/.fbs/.pb} | awk '{print $1}')
+   size2=$(wc -c ${f/.fbs/.pb.pb} | awk '{print $1}')
+   echo ${f/.fbs} $size1 $size2
+done
