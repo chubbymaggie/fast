@@ -146,14 +146,16 @@ load() {
   fi
 }
 export -f measure
-#V=1.0.4 P=dotnet/corefx measure "*.cs"
-#V=3.1.0 P=AFNetworking/AFNetworking measure "*.[hm]"
+V=1.0.4 P=dotnet/corefx measure "*.cs"
+V=3.1.0 P=AFNetworking/AFNetworking measure "*.[hm]"
 V=1.2.9 P=ReactiveX/RxJava measure "*.java"
 V=1.0.1 P=tensorflow/tensorflow measure "*.h" "*.cc"
 V=4.11-rc3 P=torvalds/linux measure "*.h" "*.c"
+V=1.0.gf P=openssl/openssl measure "*.h" "*.c"
 export -f load
 #load https://github.com/AFNetworking/AFNetworking
 #load https://github.com/ReactiveX/RxJava
 #load https://github.com/tensorflow/tensorflow
 #load https://github.com/dotnet/corefx
 #load https://github.com/torvalds/linux
+#load https://github.com/openssl/openssl
