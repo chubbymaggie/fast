@@ -1,0 +1,159 @@
+#!/bin/bash
+
+### Dependencies ###
+# sudo apt-get install -y parallel
+####################
+
+aa() {
+fast=`which fast`
+if [ "$fast" == "" ]; then
+	if [ -f /usr/local/bin/fast ]; then
+		fast=/usr/local/bin/fast
+	fi
+fi
+if [ "$fast" == "" ]; then
+	echo Please find the executable of fast
+	exit 1
+fi
+if [ "$@" == "" ]; then
+	# choose a default file
+	if [ -f Hello.java ]; then
+		$0 Hello.java
+	fi
+	echo Please provide a source file name as the argument
+	exit 1
+else
+	t="$@"
+fi
+
+#### testing performance of $fast.cc
+INPUT_TMPFILE1=`mktemp -t a.XXXXXXXXXX` || exit 1
+INPUT_TMPFILE2=`mktemp -t a.XXXXXXXXXX` || exit 1
+TIME_TMPFILE=`mktemp -t a.XXXXXXXXXX` || exit 1
+XML_TMPFILE1=`mktemp -t a.XXXXXXXXXX` || exit 1
+XML_TMPFILE3=`mktemp -t a.XXXXXXXXXX` || exit 1
+XML_TMPFILE4=`mktemp -t a.XXXXXXXXXX` || exit 1
+PB_TMPFILE=`mktemp -t a.XXXXXXXXXX` || exit 1
+FBS_TMPFILE=`mktemp -t a.XXXXXXXXXX` || exit 1
+gzip="gzip -n --best"
+gtime=/usr/bin/time
+#gtime=gtime
+x="${t##*.}"
+cp "$t" $INPUT_TMPFILE1.$x
+name="$t"
+t="$INPUT_TMPFILE1.$x"
+#echo "code => xml":
+loc=$(wc -l "$t" | awk '{print $1}')
+s0=$(wc -c "$t" | awk '{print $1}')
+t1=$($gtime -f%e -o $TIME_TMPFILE $fast "$t" $XML_TMPFILE1.xml && cat $TIME_TMPFILE)
+s1=$(wc -c $XML_TMPFILE1.xml | awk '{print $1}')
+#echo "xml => code":
+t2=$($gtime -f%e -o $TIME_TMPFILE $fast $XML_TMPFILE1.xml > $INPUT_TMPFILE2.$x && cat $TIME_TMPFILE)
+#echo "xml => pb":
+t3=$($gtime -f%e -o $TIME_TMPFILE $fast $XML_TMPFILE1.xml $PB_TMPFILE.pb && cat $TIME_TMPFILE)
+s2=$(wc -c $PB_TMPFILE.pb | awk '{print $1}')
+#echo "pb =>":
+t4=$($gtime -f%e -o $TIME_TMPFILE $fast -c $PB_TMPFILE.pb && cat $TIME_TMPFILE)
+#echo "pb => xml":
+t5=$($gtime -f%e -o $TIME_TMPFILE $fast $PB_TMPFILE.pb $XML_TMPFILE3.xml && cat $TIME_TMPFILE)
+#echo "xml => fbs":
+t6=$($gtime -f%e -o $TIME_TMPFILE $fast $XML_TMPFILE1.xml $FBS_TMPFILE.fbs && cat $TIME_TMPFILE)
+s3=$(wc -c $FBS_TMPFILE.fbs | awk '{print $1}')
+if [ 0 ]; then
+	z0=$(cat "$t" | $gzip - | wc -c | awk '{print $1}')
+	z1=$(cat $XML_TMPFILE1.xml | $gzip -c --best -n - | wc -c | awk '{print $1}')
+	z2=$(cat $PB_TMPFILE.pb | $gzip - | wc -c | awk '{print $1}')
+	z3=$(cat $FBS_TMPFILE.fbs | $gzip - | wc -c | awk '{print $1}')
+fi
+#echo "fbs =>":
+t7=$($gtime -f%e -o $TIME_TMPFILE $fast -c $FBS_TMPFILE.fbs && cat $TIME_TMPFILE)
+#echo "fbs => xml":
+t8=$($gtime -f%e -o $TIME_TMPFILE $fast $FBS_TMPFILE.fbs $XML_TMPFILE4.xml && cat $TIME_TMPFILE)
+#echo $t1 $t2 $t3 $t5 $t6 $t8 $loc $s0 $s1 $s2 $s3 : "$name"
+echo $t1 $t2 $t3 $t4 $t5 $t6 $t7 $t8 $loc $s0 $s1 $s2 $s3 : "$name"
+rm -f $INPUT_TMPFILE1.$x
+rm -f $INPUT_TMPFILE2.$x
+rm -f $TIME_TMPFILE
+rm -f $XML_TMPFILE1.xml
+rm -f $XML_TMPFILE3.xml
+rm -f $XML_TMPFILE4.xml
+rm -f $PB_TMPFILE.pb
+rm -f $FBS_TMPFILE.pb
+rm -f $INPUT_TMPFILE1
+rm -f $INPUT_TMPFILE2
+rm -f $XML_TMPFILE1
+rm -f $XML_TMPFILE3
+rm -f $XML_TMPFILE4
+rm -f $PB_TMPFILE
+rm -f $FBS_TMPFILE
+}
+export -f aa
+
+measure() {
+if [ "$P" != "" ]; then
+F=$(basename $P)
+if [ ! -f $F-timing.txt ]; then
+if [ ! -f v$V.tar.gz -a ! -f $V.tar.gz ]; then
+	wget https://github.com/$P/archive/v$V.tar.gz
+	if [ ! -f v$V.tar.gz ]; then
+		wget https://github.com/$P/archive/$V.tar.gz
+	fi
+fi
+if [ ! -d $F-$V ]; then
+	if [ -f v$V.tar.gz ]; then
+		tar xvfz v$V.tar.gz
+	fi
+	if [ -f $V.tar.gz ]; then
+		tar xvfz $V.tar.gz
+	fi
+fi
+fi
+TMPFILE1=`mktemp -t a.XXXXXXXXXX` || exit 1
+echo -n > $TMPFILE1
+for pat in "$@"; do
+	find . -name "$pat" -type f >> $TMPFILE1
+done
+if [ ! -f timing.txt ]; then
+	echo -n > timing.txt
+fi
+cat $TMPFILE1 | awk -v timing=timing.txt '
+BEGIN {
+	while ((getline line < timing)) {
+		split(line, a, /:/)
+		files[a[2]] = 1
+	}
+}
+{
+	if (!files[" " $1]) {
+		print $1
+	}
+}
+' | parallel -j3 --eta aa {} > timing2.txt
+rm -f $TMPFILE1
+cat timing2.txt >> timing.txt
+rm -f timing2.txt
+awk -f add.awk timing.txt
+mv timing.txt $F-timing.txt
+fi
+}
+
+load() {
+  url=$1
+  folder=$(basename $1)
+  echo $folder
+  if [ ! -d $folder ]; then
+    git clone $url
+  fi
+}
+export -f measure
+#V=1.0.4 P=dotnet/corefx measure "*.cs"
+#V=3.1.0 P=AFNetworking/AFNetworking measure "*.[hm]"
+V=1.2.9 P=ReactiveX/RxJava measure "*.java"
+V=1.0.1 P=tensorflow/tensorflow measure "*.h" "*.cc"
+V=4.11-rc3 P=torvalds/linux measure "*.h" "*.c"
+export -f load
+#load https://github.com/AFNetworking/AFNetworking
+#load https://github.com/ReactiveX/RxJava
+#load https://github.com/tensorflow/tensorflow
+#load https://github.com/dotnet/corefx
+#load https://github.com/torvalds/linux
