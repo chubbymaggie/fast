@@ -301,7 +301,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 	    if (dst_filename.find(".fbs") != string::npos) {
 		    dst_filename = dst_filename.substr(0, dst_filename.rfind(".fbs"));
 	    }
-	    argv[1] = strdup((src_filename + dst_filename + "-diff.fbs").c_str());
+	    argv[1] = strdup((src_filename + "=" + dst_filename + "-diff.fbs").c_str());
 	    loadFBS(load_only, argc, argv);
         }
  	return 0;

@@ -1,7 +1,21 @@
-gtime -f %E fast -D Hello/Hello1.java Hello/Hello2.java 
-gtime -f %E fast -D Hello/Hello1.java.fbs Hello/Hello2.java.fbs 
-gtime -f %E fast -D Hello1.javaHello2.java-diff.fbs 
+#!/bin/bash
 
-gtime -f %E fast -D Grammar/Grammar-v1.java Grammar/Grammar-v2.java 
-gtime -f %E fast -D Grammar/Grammar-v1.java.fbs Grammar/Grammar-v2.java.fbs 
-gtime -f %E fast -D Grammar-v1.javaGrammar-v2.java-diff.fbs 
+gitdiff() {
+echo $1
+if [ ! -d $HOME/mirror/github.com/$1 ]; then
+   git clone https://github.com/$1 $HOME/mirror/github.com/$1 
+fi
+cd $HOME/mirror/github.com/$1 > /dev/null
+git dl pb a 4
+ls *.fbs | while read f; do
+g=${f/-diff.fbs/}
+h=${g/=*/}
+i=${g/*=/}
+gtime -f %e --append -o gumtree-timing.txt gumtree diff /tmp/$h /tmp/$i 
+gtime -f %e --append -o fast-timing.txt fast -D $f
+done
+cd - > /dev/null
+}
+export -f gitdiff
+#gitdiff needdle/git-dl
+gitdiff openssl/openssl

@@ -12,6 +12,10 @@ according the following significant benchmarks.
 ![Benchmarks 3. Program slicing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/slicing.png "The projects are selected from previous performance evaluation
 of the scalable srcSlice tool.")
 
+By select the abstract syntax trees for program slicing, `fast` also saves 1.5x space than the original concrete syntax trees.
+![Benchmarks 3. Program slicing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/slicing-size.png "The projects are selected from previous performance evaluation
+of the scalable srcSlice tool.")
+
 ## Diffing
 `fast` speeds up diffing by 11~25x according a benchmarks of two code pairs taken respectively from Hello and Antlr4 repositories. 
 ![Benchmarks 4. Diffing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/diffing.png "Grammar is a source file from the Antlr4 project")
@@ -19,6 +23,7 @@ of the scalable srcSlice tool.")
 ## Benchmarks
 
 ### C
+* [OpenSSL](https://github.com/openssl/openssl)
 * [Linux Kernel](https://github.com/torvalds/linux)
 * [ed-1.2](http://ftp.vim.org/ftp/gnu/ed/ed-1.2.tar.gz) [ed-1.6](https://ftp.osuosl.org/pub/blfs/conglomeration/ed/ed-1.6.tar.gz)
 * [which-2.20](https://ftp.gnu.org/gnu/which/which-2.20.tar.gz)
@@ -54,3 +59,6 @@ of the scalable srcSlice tool.")
 
 ### Objective C
 * [AFNetworking](https://github.com/AFNetworking/AFNetworking)
+
+### Smali
+* [Instagram](https://www.instagram.com)
