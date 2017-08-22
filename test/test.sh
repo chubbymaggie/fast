@@ -1876,7 +1876,7 @@ testDiff() {
 	$fast Hello1.java Hello1.pb
 	$fast Hello2.java Hello2.pb
 	stdout 6005faec7abf6e1061030b461ea2f7b3384f5ae38363fb4892650ace8ee27dc1 -D Hello1.pb Hello2.pb
-	$fast Hello1Hello2-diff.pb-Hello2.pb.pb Hello.patch.xml
+	$fast Hello1=Hello2-diff.pb-Hello2.pb.pb Hello.patch.xml
 	catout e66ff54ab8760aa51c5d5c4a76fa2db35d7297f03bc72eb08ec5ce8922d11b5c Hello.patch.xml
 }
 

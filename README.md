@@ -34,7 +34,7 @@ the following activities slow:
 * [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
 * [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree)
 * [mct, ASE'11](https://github.com/f-ast/meaningful-changes)
-### *Synchronisation* => smaller
+### *Synchronisation* => [1.5x smaller for slicing](doc/performance.md)
 * [biyacc](http://biyacc.yozora.moe)
 
 ### Version History

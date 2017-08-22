@@ -1010,7 +1010,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	    if (dst_filename.find(".pb") != string::npos) {
 		    dst_filename = dst_filename.substr(0, dst_filename.rfind(".pb"));
 	    }
-	    argv[1] = strdup((src_filename + dst_filename + "-diff.pb").c_str());
+	    argv[1] = strdup((src_filename + "=" + dst_filename + "-diff.pb").c_str());
 	    loadPB(load_only, argc, argv);
     }
   // Optional:  Delete all global objects allocated by libprotobuf.

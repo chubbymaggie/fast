@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\usepgfplotslibrary{statistics}
+\pgfplotsset{compat=1.13}
+\usepackage{tikz}
+
+\begin{document}
+\makeatletter
+\pgfplotsset{
+    boxplot/hide outliers/.code={
+        \def\pgfplotsplothandlerboxplot@outlier{}%
+    }
+}
+
+\makeatother
+\begin{figure}
+\begin{tikzpicture}
+\begin{axis}[boxplot/draw direction=y, boxplot/hide outliers]
+   \addplot+[boxplot] 
+   table[x expr=\coordindex,y=GumTreeDiff]
+   {gumtree-timing.txt};
+   \addplot+[boxplot] 
+   table[x expr=\coordindex,y=FastDiff]
+   {fast-timing.txt};
+\end{axis}
+\end{tikzpicture}
+\end{figure}
+\end{document}

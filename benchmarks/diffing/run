@@ -5,17 +5,27 @@ echo $1
 if [ ! -d $HOME/mirror/github.com/$1 ]; then
    git clone https://github.com/$1 $HOME/mirror/github.com/$1 
 fi
-cd $HOME/mirror/github.com/$1 > /dev/null
-git dl pb a 4
-ls *.fbs | while read f; do
-g=${f/-diff.fbs/}
-h=${g/=*/}
-i=${g/*=/}
-gtime -f %e --append -o gumtree-timing.txt gumtree diff /tmp/$h /tmp/$i 
-gtime -f %e --append -o fast-timing.txt fast -D $f
-done
-cd - > /dev/null
+#cd $HOME/mirror/github.com/$1 > /dev/null
+#git dl pb a 4
+#echo GumTreeDiff > gumtree-timing.txt
+#echo FastDiff > gumtree-timing.txt
+#find . -name "*.fbs" | while read f; do
+#g=${f/-diff.fbs/}
+#h=${g/=*/}
+#i=${g/*=/}
+#gtime -f %e --append -o gumtree-timing.txt gumtree diff /tmp/$h /tmp/$i 
+#gtime -f %e --append -o fast-timing.txt fast -D $f
+#done
+#cd - > /dev/null
+cp $HOME/mirror/github.com/$1/gumtree-timing.txt .
+cp $HOME/mirror/github.com/$1/fast-timing.txt .
+awk -f sum.awk gumtree-timing.txt
+awk -f sum.awk fast-timing.txt
+pdflatex t.tex
+mv gumtree-timing.txt $(basename $1)-gumtree.txt
+mv fast-timing.txt $(basename $1)-fast.txt
+mv t.pdf $(basename $1).pdf
 }
 export -f gitdiff
-#gitdiff needdle/git-dl
-gitdiff openssl/openssl
+gitdiff needdle/git-dl
+#gitdiff openssl/openssl
