@@ -101,7 +101,14 @@ void printMarkups(FILE *file, ofstream &out) {
 			out << tag_map[pos]; 
 			n_end --;
 		}
-		out << (unsigned char) c;
+		if (c == '<') {
+			out << "&lt;";
+		} else if (c == '>') {
+			out << "&gt;";
+		} else if (c == '&') {
+			out << "&amp;";
+		} else 
+			out << (unsigned char) c;
 	}
 	while (n_end > 0) {
 		pos++;
@@ -164,7 +171,14 @@ void printMarkups(FILE *file, const char *output_file) {
 			}
 			n_end --;
 		}
-		text += c;
+		if (c == '<') {
+			text += "&lt;";
+		} else if (c == '>') {
+			text += "&gt;";
+		} else if (c == '&') {
+			text += "&amp;";
+		} else
+			text += c;
 	}
 	while (n_end > 0) {
 		pos++;
