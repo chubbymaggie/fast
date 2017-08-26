@@ -10,11 +10,17 @@
 #undef NOEXCEPT
 #include "fast.pb.h"
 #include <sys/stat.h>
+#include "rapidxml.hpp"
+#include "rapidxml_utils.hpp"
+#include "rapidxml_print.hpp"
+#include "fast_generated.h"
 
 using namespace std;
+using namespace rapidxml;
 using namespace antlr4;
 
 static vector<std::string> ruleNames;
+extern bool parse_only;
 
 string ctxName(ParserRuleContext *ctx) 
 {
@@ -62,7 +68,7 @@ public:
 			string close_tag = "</" + name + ">"; 
 			int open_pos = ctx->getStart()->getStartIndex();
 			int close_pos = ctx->getStop()->getStopIndex() + 1;
-			if (close_pos == open_pos) {
+			if (close_pos <= open_pos) {
 				tag_map[open_pos] = tag_map[open_pos] + open_tag + close_tag;
 			} else {
 				if (tag_map[open_pos] == "") 
@@ -120,6 +126,7 @@ void printMarkups(FILE *file, ofstream &out) {
 	out << "</unit>";
 }
 
+flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilder & builder, xml_node<> *node);
 /**
  * Generate the parsing tree into a protobuf representation
  */
@@ -130,89 +137,108 @@ void printMarkups(FILE *file, const char *output_file) {
 		out.close();
 		return;
 	}
-	GOOGLE_PROTOBUF_VERIFY_VERSION;
-	fast::Data *data = new fast::Data();
-	fast::Element *element = data->mutable_element();
-	fast::Element::Unit *unit = new fast::Element_Unit();
-	element->set_allocated_unit(unit);
-	unsigned int c;
-	int pos = -1;
-	int n_end = tag_map.size();
-	vector<fast::Element*> path;
-	path.push_back(element);
-	string text = "";
-	string tail = "";
-	fast::Element *prev_element = NULL;
-	while ((c = fgetc(file))!= -1) {
-		pos++;
-		if (type_map.find(pos) != type_map.end()) {
-			vector<int> v = type_map[pos];
-			for (int i = 0; i < v.size(); i++) {
-				if (v[i] < 0) { // closing tag
-					if (i == 0 && prev_element!=NULL) {
-						prev_element->set_text(text);	
-						prev_element = NULL;
+	bool output_is_fbs = strcmp(output_file+strlen(output_file)-4, ".fbs")==0;
+	if (output_is_fbs) {
+		ofstream output(string(output_file) + ".xml", ios::out | ios::trunc | ios::binary);
+		printMarkups(file, output);
+		output.close();
+		flatbuffers::FlatBufferBuilder builder;
+		xml_document<> doc;
+		rapidxml::file<> xmlFile((string(output_file) + ".xml").c_str());
+		doc.parse<rapidxml::parse_no_entity_translation>(xmlFile.data());
+		auto element = saveFBSfromXML(builder, doc.first_node());
+		auto anonymous = _fast::_Data::CreateAnonymous4(builder, element, 0, 0, 0);
+		auto data = _fast::CreateData(builder, anonymous);
+		builder.Finish(data);
+		ofstream out(output_file, ios::out | ios::trunc | ios::binary);
+		long size = builder.GetSize();
+		out.write((const char*) builder.GetBufferPointer(), size);
+		out.close();
+	} else {
+		GOOGLE_PROTOBUF_VERIFY_VERSION;
+		fast::Data *data = new fast::Data();
+		fast::Element *element = data->mutable_element();
+		fast::Element::Unit *unit = new fast::Element_Unit();
+		element->set_allocated_unit(unit);
+		unsigned int c;
+		int pos = -1;
+		int n_end = tag_map.size();
+		vector<fast::Element*> path;
+		path.push_back(element);
+		string text = "";
+		string tail = "";
+		fast::Element *prev_element = NULL;
+		while ((c = fgetc(file))!= -1) {
+			pos++;
+			if (type_map.find(pos) != type_map.end()) {
+				vector<int> v = type_map[pos];
+				for (int i = 0; i < v.size(); i++) {
+					if (v[i] < 0) { // closing tag
+						if (i == 0 && prev_element!=NULL) {
+							prev_element->set_text(text);	
+							prev_element = NULL;
+						}
+						if (i == v.size()-1 && prev_element == NULL) {
+							prev_element = path.back();
+						}
+						path.pop_back();
+					} else { // openning tag
+						if (prev_element!=NULL) 
+							prev_element->set_tail(text);
+						fast::Element *child = path.back()->add_child();
+						child->set_smali_kind((fast::SmaliKind)v[i]);
+						path.push_back(child);
+						if (i == v.size()-1) {
+							prev_element = child;
+						}
 					}
-					if (i == v.size()-1 && prev_element == NULL) {
-						prev_element = path.back();
-					}
-					path.pop_back();
-				} else { // openning tag
-					if (prev_element!=NULL) 
-						prev_element->set_tail(text);
-					fast::Element *child = path.back()->add_child();
-					child->set_smali_kind((fast::SmaliKind)v[i]);
-					path.push_back(child);
-					if (i == v.size()-1) {
-						prev_element = child;
-					}
+					text = "";
 				}
-				text = "";
+				n_end --;
 			}
-			n_end --;
+			if (c == '<') {
+				text += "&lt;";
+			} else if (c == '>') {
+				text += "&gt;";
+			} else if (c == '&') {
+				text += "&amp;";
+			} else
+				text += c;
 		}
-		if (c == '<') {
-			text += "&lt;";
-		} else if (c == '>') {
-			text += "&gt;";
-		} else if (c == '&') {
-			text += "&amp;";
-		} else
-			text += c;
-	}
-	while (n_end > 0) {
-		pos++;
-		if (type_map.find(pos) != type_map.end()) {
-			vector<int> v = type_map[pos];
-			for (int i = 0; i < v.size(); i++) {
-				if (v[i] < 0) { // closing tag
-					if (i == 0 && prev_element!=NULL) {
-						prev_element->set_text(text);	
-						prev_element = NULL;
+		while (n_end > 0) {
+			pos++;
+			if (type_map.find(pos) != type_map.end()) {
+				vector<int> v = type_map[pos];
+				for (int i = 0; i < v.size(); i++) {
+					if (v[i] < 0) { // closing tag
+						if (i == 0 && prev_element!=NULL) {
+							prev_element->set_text(text);	
+							prev_element = NULL;
+						}
+						if (i == v.size()-1 && prev_element == NULL) {
+							prev_element = path.back();
+						}
+						path.pop_back();
+					} else { // openning tag
+						if (prev_element!=NULL) 
+							prev_element->set_tail(text);
+						fast::Element *child = path.back()->add_child();
+						child->set_kind((fast::Element_Kind) v[i]);
+						path.push_back(child);
+						if (i == v.size()-1) {
+							prev_element = child;
+						}
 					}
-					if (i == v.size()-1 && prev_element == NULL) {
-						prev_element = path.back();
-					}
-					path.pop_back();
-				} else { // openning tag
-					if (prev_element!=NULL) 
-						prev_element->set_tail(text);
-					fast::Element *child = path.back()->add_child();
-					child->set_kind((fast::Element_Kind) v[i]);
-					path.push_back(child);
-					if (i == v.size()-1) {
-						prev_element = child;
-					}
+					text = "";
 				}
-				text = "";
-			}
-			n_end--;
-		} 
+				n_end--;
+			} 
+		}
+		fstream output(output_file, ios::out | ios::trunc | ios::binary);
+		data->SerializeToOstream(&output);
+		google::protobuf::ShutdownProtobufLibrary();
+		output.close();
 	}
-	fstream output(output_file, ios::out | ios::trunc | ios::binary);
-	data->SerializeToOstream(&output);
-  	google::protobuf::ShutdownProtobufLibrary();
-	output.close();
 }
 
 int smaliMainRoutine(int argc, char**argv) {
@@ -221,7 +247,8 @@ int smaliMainRoutine(int argc, char**argv) {
   bool is_smali = strcmp(argv[1]+strlen(argv[1])-6, ".smali")==0;
   bool input_is_pb = strcmp(argv[1]+strlen(argv[1])-3, ".pb")==0;
   bool output_is_pb = argc > 2 && strcmp(argv[2]+strlen(argv[2])-3, ".pb")==0;
-  if (!output_is_pb)
+  bool output_is_fbs = argc > 2 && strcmp(argv[2]+strlen(argv[2])-4, ".fbs")==0;
+  if (!output_is_pb && !output_is_fbs)
 	  xml_output = true;
   stream.open(argv[1]);
   ANTLRInputStream input(stream);
@@ -248,7 +275,8 @@ int smaliMainRoutine(int argc, char**argv) {
   tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
   FILE *file = fopen(argv[1], "r");
   if (argc == 2) {
-	  printMarkups(file, (ofstream&) cout);
+	  if (!parse_only)
+		  printMarkups(file, (ofstream&) cout);
   } else { // assume that the second argument for FAST representation
 	  printMarkups(file, argv[2]);
   }

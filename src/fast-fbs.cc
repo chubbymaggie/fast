@@ -183,6 +183,7 @@ int loadFBS(int load_only, int argc, char **argv) {
 	char *input_filename = argv[1];
 	assert(strcmp(input_filename, "")!=0);
 	const struct _fast::Data *d = readFBS(argv[1]);
+	if (load_only) return 0;
 	if (d != NULL && !load_only && !mySlice && !delta) {
 		char buf[100];
 		strcpy(buf, "/tmp/temp.XXXXXXXX"); 
@@ -307,8 +308,6 @@ int loadFBS(int load_only, int argc, char **argv) {
  	return 0;
 }
 
-bool is_srcml = true;
-bool is_smali_cpp = false;
 void sliceFBS(srcSliceHandler& handler, const struct Element *element) {
 	string text = "";
 	string tail = "";
@@ -355,7 +354,8 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 	string text = "";
 	string tail = "";
 	if (element->extra()) {
-		if (is_srcml && element->type()->kind() == 0) {
+		if (element->type() && element->type()->kind() == 0) {
+
 			tag = "unit";
 			string str = string(EnumNamesLanguageType()[element->extra()->unit()->language()]);
 			string lang = str;
@@ -371,24 +371,28 @@ void saveXMLfromFBS(ofstream &out, const struct Element *element) {
 			attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\" xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
 			if (position)
 				attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
-			attr = attr + " revision=\"" + element->extra()->unit()->revision()->c_str() + "\"";
+			if (element->extra()->unit()->revision()!=NULL)
+				attr = attr + " revision=\"" + element->extra()->unit()->revision()->c_str() + "\"";
 			attr = attr + " language=\"" + lang + "\"";
 			if (element->extra()->unit()->filename()!=NULL)
 				attr = attr + " filename=\"" + element->extra()->unit()->filename()->c_str() + "\"";
-		} else if (is_srcml && element->type()->kind() == 47) {
+		} else if (element->type() && element->type()->kind() == 47) {
 			tag = "literal";
 			string type = EnumNamesLiteralType()[element->extra()->literal()->type()];
 			type = type.substr(0, type.length() - 5);
 			attr = attr + " type=\"" + type + "\"";
 			if (position && (element->line()!=0 || element->column()!=0))
 				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
-		} else {
+		} else if (element->type()) {
 			tag = EnumNamesKind()[element->type()->kind()];
 			if (position && (element->line()!=0 || element->column()!=0))
 				attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 		}
 	} else {
-		tag = EnumNamesKind()[element->type()->kind()];
+		if (element->type() && element->type()->smali_kind()!=-1)
+			tag = EnumNamesSmaliKind()[element->type()->smali_kind()];
+		else if (element->type() && element->type()->kind()!=-1)
+			tag = EnumNamesKind()[element->type()->kind()];
 		if (position && (element->line()!=0 || element->column()!=0))
 			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	}
@@ -415,6 +419,7 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 		tag = tag + "_KIND";
 	}
 	bool is_literal = tag == string("literal");
+	bool is_smali_cpp = tag == string("smali_file");
 	flatbuffers::Offset<flatbuffers::String> text;
 	flatbuffers::Offset<flatbuffers::String> tail;
 	flatbuffers::Offset<flatbuffers::String> filename;
@@ -464,21 +469,19 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 		}
 		string str = tag;
 		int32_t kind = -1;
-		if (is_srcml) {
-			transform(str.begin(), str.end(),str.begin(), ::toupper);
-			kind = flatbuffers::LookupEnum(EnumNamesKind(), str.c_str());
-		} else if (is_smali_cpp) {
-			kind = flatbuffers::LookupEnum(EnumNamesSmaliKind(), str.c_str());
-		}
-		if (kind == -1)
-			cerr << "Warning: the following kind is not found " << str << endl;
+		int32_t smali_kind = -1;
+		// cout << str << endl;
+		smali_kind = flatbuffers::LookupEnum(EnumNamesSmaliKind(), str.c_str());
+		// if (smali_kind == -1) cerr << "Warning: the following kind is not found " << str << endl;
+		transform(str.begin(), str.end(),str.begin(), ::toupper);
+		kind = flatbuffers::LookupEnum(EnumNamesKind(), str.c_str());
 		flatbuffers::Offset<_fast::_Element::Anonymous1> extra = 0;
 		if (is_unit || is_literal) {
 			extra = CreateAnonymous1(builder, 
 				CreateUnit(builder, filename, revision, language, item), 
 				CreateLiteral(builder, type));
 		}
-		auto type = CreateAnonymous0(builder, is_srcml?kind:(int32_t)0, is_smali_cpp?kind:(int32_t)0);
+		auto type = CreateAnonymous0(builder, kind, smali_kind);
 		xml_node<> *child_node = node->first_node();
 		if (child_node != 0 && string(child_node->name()) == "") { // first text node
 			string str = string(child_node->value());

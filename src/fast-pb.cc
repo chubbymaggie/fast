@@ -561,21 +561,27 @@ fast::Element* savePBfromXML(xml_node<> *node)
 		}
 		if (is_unit) element->set_allocated_unit(unit);
 		if (is_literal)	element->set_allocated_literal(literal);
-		fast::Element_Kind kind;
 		string str = tag;
+		fast::Element_Kind kind = fast::Element_Kind_UNIT_KIND;
 		std::transform(str.begin(), str.end(),str.begin(), ::toupper);
 		fast::Element_Kind_Parse(str, &kind);
-		element->set_kind(kind);
-		if (report_id_comment) {
-		       	if (kind == fast::Element_Kind_TYPE || kind == fast::Element_Kind_PACKAGE || kind == fast::Element_Kind_IMPORT) {
-				ignore_name = true; // opening tag
+		if (kind != -1) {
+			element->set_kind(kind);
+			if (report_id_comment) {
+				if (kind == fast::Element_Kind_TYPE || kind == fast::Element_Kind_PACKAGE || kind == fast::Element_Kind_IMPORT) {
+					ignore_name = true; // opening tag
+				}
 			}
+		} else {
+			fast::SmaliKind smali_kind;
+			fast::SmaliKind_Parse(str, &smali_kind);
+			element->set_smali_kind(smali_kind);
 		}
 		xml_node<> *child = node->first_node();
 		if (child != 0 && string(child->name()) == "") { // first text node
 			element->set_text(child->value());
-			if (report_id_comment && ((kind == fast::Element_Kind_NAME && !ignore_name)|| 
-				kind == fast::Element_Kind_COMMENT)) { // NAME or COMMENT
+			if (element->type_case()==fast::Element::kKind && (report_id_comment && ((kind == fast::Element_Kind_NAME && !ignore_name)|| 
+				kind == fast::Element_Kind_COMMENT))) { // NAME or COMMENT
 				string text = child->value();
 				if (kind == fast::Element_Kind_NAME) { // && is_function_name && !ignore_name) {
 					id_comment_names[current_unit].push_back(text);
@@ -618,7 +624,7 @@ fast::Element* savePBfromXML(xml_node<> *node)
 			}
 			max_width = max(max_width, n);
 		}
-		if (report_id_comment) {
+		if (element->type_case()==fast::Element::kKind && report_id_comment) {
 		       	if (kind == fast::Element_Kind_TYPE || kind == fast::Element_Kind_PACKAGE || kind == fast::Element_Kind_IMPORT) {
 				ignore_name = false; // closing tag
 			}
@@ -1117,10 +1123,10 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 	string attr;
 	string text = "";
 	string tail = "";
-	if (element->kind() == fast::Element_Kind_UNIT_KIND) {
-		tag = "unit";
+	if (element->type_case() == fast::Element::kKind && element->kind()== fast::Element_Kind_UNIT_KIND) {
 		string str = fast::Element_Unit_LanguageType_Name(element->unit().language());
 		string lang = str;
+		tag = "unit";
 		transform(str.begin(), str.end(),str.begin(), ::tolower);
 		if (str == "cxx") {
 			str = "cpp";
@@ -1133,19 +1139,23 @@ void saveXMLfromPB(fstream & out, fast::Element *element) {
 		attr = attr + " xmlns=\"http://www.srcML.org/srcML/src\"";
 		if (position)
 			attr = attr + " xmlns:pos=\"http://www.srcML.org/srcML/position\"";
-	        attr = attr + " xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
+		attr = attr + " xmlns:" + str + "=\"http://www.srcML.org/srcML/" + str + "\"";
 		attr = attr + " revision=\"" + element->unit().revision().c_str() + "\"";
 		attr = attr + " language=\"" + lang + "\"";
 		attr = attr + " filename=\"" + element->unit().filename().c_str() + "\"";
-	} else if (element->kind() == fast::Element_Kind_LITERAL) {
+	} else if (element->type_case() == fast::Element::kKind && element->kind() == fast::Element_Kind_LITERAL) {
 		tag = "literal";
 		string type = fast::Element_Literal_LiteralType_Name(element->literal().type());
 		type = type.substr(0, type.length() - 5);
 		attr = attr + " type=\"" + type + "\"";
 		if (position && (element->line()!=0 || element->column()!=0))
 			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
-	} else {
+	} else if (element->type_case() == fast::Element::kKind) {
 		tag = fast::Element_Kind_Name(element->kind());
+		if (position && (element->line()!=0 || element->column()!=0))
+			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
+	} else if (element->type_case() == fast::Element::kSmaliKind) {
+		tag = fast::SmaliKind_Name(element->smali_kind());
 		if (position && (element->line()!=0 || element->column()!=0))
 			attr = attr + " pos:line=\"" + std::to_string(element->line()) + "\"" + " pos:column=\"" + std::to_string(element->column()) + "\"";
 	}

@@ -12,6 +12,8 @@
 
 using namespace std;
 
+bool parse_only = false;
+
 int loadSrcML(int load_only, int argc, char **argv) {
 	if (load_only && argc != 2 && argc != 3 && argc != 4) 
 		// we only accept maximally three command line arguments
@@ -80,6 +82,9 @@ int loadSrcML(int load_only, int argc, char **argv) {
 			xml_filename +=	".xml";
 			is_tmp = true;
 		}
+		parse_only = false;
+		if (load_only) 
+			parse_only = true;
 		if (is_smali && argc == 2) {
 			return smaliMainRoutine(2, my_argv);
 		} else if (is_smali) {
