@@ -51,7 +51,7 @@ int loadCSV(int argc, char**argv);
 int loadSrcML(int load_only, int argc, char **argv);
 
 void usage() {
-    cerr << "Usage: fast [-bcdDef:g:hijJ:lLn:psSvwW:x] input_file output_file"  << endl
+    cerr << "Usage: fast [-bcdDef:g:hijJ:lLn:psSuvwW:x] input_file output_file"  << endl
 	 << "-b\tBug input, in either XML or CSV format" << endl
 	 << "-c\tLoad only" << endl
 	 << "-d\tDecode protobuf into text format" << endl

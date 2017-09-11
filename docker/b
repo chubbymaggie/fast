@@ -1,1 +1,2 @@
-docker build -t fast .
+docker-machine scp Dockerfile default:
+docker-machine ssh default docker build -t fast .

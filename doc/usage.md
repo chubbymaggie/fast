@@ -153,3 +153,10 @@ them as:
    +  ADDED
   -+  UPDATED or MOVED
 
+### Extract yUML from source code (a convenient interface to the srcYUML tool)
+
+  $fast -u . t.yuml
+
+The command will extract a [yUML](https://yuml.me) specification from source code in the current folder. 
+Under the hood it invokes the functionality of [srcYUML](https://github.com/srcML/srcUML).
+
