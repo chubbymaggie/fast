@@ -1,0 +1,5 @@
+*.cc linguist-language=C++
+benchmarks/* linguist-vendored
+test/* linguist-vendored
+src/gen*/* linguist-vendored
+docs/* linguist-documentation
