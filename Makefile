@@ -42,6 +42,7 @@ FBS_LIB=-L/usr/local/lib -lflatbuffers
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
 CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcyuml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
 CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
+CFLAGS+=-IPython3/src/antlr4/Python3 -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
 CFLAGS+=-I/usr/local/include/xlnt
 
 LDFLAGS+=$(ANTLR4_LIB)
@@ -57,11 +58,21 @@ fast.pb.o: src/gen/fast.pb.cc
 %.o: src/antlr4/smali/%.cpp
 	$(CXX) $(OPT) $(CFLAGS) -c $^
 
+
 smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliParserListener.cpp smali/src/antlr4/smali/smaliParserBaseListener.cpp: src/antlr4/smali/smaliParser.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
 smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
+
+%.o: Python3/src/antlr4/Python3/%.cpp
+	$(CXX) $(OPT) $(CFLAGS) -c $^
+
+%.o: src/antlr4/python3/%.cpp
+	$(CXX) $(OPT) $(CFLAGS) -c $^
+
+Python3/src/antlr4/Python3/Python3Parser.cpp Python3/src/antlr4/Python3/Python3Parser.h: src/antlr4/python3/Python3.g4
+	$(ANTLR4) -o Python3 -Dlanguage=Cpp $^
 
 %.o: PB/src/antlr4/pb/%.cpp
 	$(CXX) -c $(CFLAGS) $^
@@ -76,6 +87,7 @@ fast.o: src/rapidxml/rapidxml.hpp src/gen/fast.pb.h src/gen/fast_generated.h src
 fast-pb.o: src/gen/fast.pb.h 
 fast-fbs.o: src/gen/fast_generated.h 
 smali.o: smali/src/antlr4/smali/smaliLexer.h
+python.o: Python3/src/antlr4/python3/Python3Lexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
 srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h src/gen/fast_generated.h
 srcSlice.o: src/gen/fast.pb.h src/gen/fast_generated.h
@@ -83,6 +95,7 @@ srcslice_output.o: src/gen/fast.pb.h src/gen/fast_generated.h
 slice-diff.o: src/gen/fast.pb.h src/gen/fast_generated.h
 process.o: src/gen/fast.pb.h src/gen/fast_generated.h
 smali.o: src/gen/fast.pb.h src/gen/fast_generated.h
+python.o: src/gen/fast.pb.h src/gen/fast_generated.h
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
@@ -103,6 +116,7 @@ fast_objects += fast.pb.o
 fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
 fast_objects += git.o 
 fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o 
+fast_objects += Python3Parser.o python.o 
 #fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 fast_objects += process.o
 fast_objects += slice-diff.o
@@ -315,7 +329,7 @@ test:: install
 	cd test && ./test.sh
 
 coverage::
-	coveralls --exclude /Applications --exclude /usr --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/srcyuml --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'
+	coveralls --exclude /Applications --exclude /usr --exclude Python3 --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/srcyuml --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'
 	rm -f *.gcov
 
 clean::
@@ -326,4 +340,4 @@ clean::
 	rm -rf fast_*-1* fast-*
 	rm -f *.gcno *.gcov *.gcda
 	rm -rf fast.info index*.html *.png v1/ gcov.css Users usr
-	rm -rf PB smali src/gen
+	rm -rf PB smali Python3 src/gen
