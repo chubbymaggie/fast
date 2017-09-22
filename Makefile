@@ -9,9 +9,9 @@ CXX=c++
 protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
+OPT=-g
 OPT=-g -O0 -coverage
 OPT=-O3 -Wno-unused-result
-OPT=-g
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
