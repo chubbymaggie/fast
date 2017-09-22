@@ -127,6 +127,7 @@ int Python3MainRoutine(int argc, char**argv) {
 	  cout << token << "=" << idx ++ << endl;
   } */
   Python3TreeShapeListener listener;
+  parser.removeErrorListeners();
   tree::ParseTree *tree = parser.file_input();
   tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
   /*

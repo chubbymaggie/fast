@@ -47,65 +47,11 @@ tokens { INDENT, DEDENT }
     return antlr4::Lexer::getCharPositionInLine() == 0 && antlr4::Lexer::getLine() == 1;
   }
 
-  // A queue where extra tokens are pushed on (see the NEWLINE lexer rule).
-  std::vector<antlr4::Token*> list_of_tokens;
   // The stack that keeps track of the indentation level.
   std::stack<int> indents;
-  // The most recently produced token.
-  antlr4::Token *lastToken = NULL;
-
-/*
-  std::unique_ptr<antlr4::Token> nextToken() override {
-    // Check if the end-of-file is ahead and there are still some DEDENTS expected.
-    std::cout << indents.empty() << std::endl;
-    if (_input->LA(1) == EOF && !indents.empty()) {
-      std::cout << "EOF " << std::endl;
-      // Remove any trailing EOF tokens from our buffer.
-      for (int i=list_of_tokens.size()-1; i>=0; i--) {
-        if (list_of_tokens[i]->getType() == EOF) {
-	  std::cout << "DELETE " << std::endl;
-          list_of_tokens.erase(list_of_tokens.begin()+i, list_of_tokens.begin()+i+1);
-        }
-      }
-      // First emit an extra line break that serves as the end of the statement.
-      emit(commonToken(Python3Lexer::NEWLINE, "\n")); list_of_tokens.push_back(antlr4::Lexer::getToken().get());
-
-      // Now emit as much DEDENT tokens as needed.
-      while (!indents.empty()) {
-        emit(createDedent()); list_of_tokens.push_back(antlr4::Lexer::getToken().get());
-        indents.pop();
-      }
-
-      // Put the EOF back on the token stream.
-      antlr4::Token *eof = antlr4::Lexer::emitEOF();
-      list_of_tokens.push_back(eof);
-    }
-    std::unique_ptr<antlr4::Token> next = antlr4::Lexer::nextToken();
-    if (_input->LA(1) == EOF) {
-      antlr4::Token *eof = antlr4::Lexer::emitEOF();
-      std::cout << eof->getText() << std::endl;
-      list_of_tokens.push_back(eof);
-    } 
-
-    if (next->getChannel() == antlr4::Token::DEFAULT_CHANNEL) {
-      // Keep track of the last token on the default channel.
-      lastToken = next.get();
-    }
-    if (list_of_tokens.empty()) 
-	return next; 
-    antlr4::Token *front = list_of_tokens[0];
-    std::cout << "NEXT " << std::endl;
-    list_of_tokens.erase(list_of_tokens.begin(), list_of_tokens.begin()+1);
-    return next;
-  }
-*/
 
   std::unique_ptr<antlr4::Token> createDedent() {
-    std::unique_ptr<antlr4::Token> dedent = commonToken(Python3Parser::DEDENT, "");
-    std::cout << "DEDENT " << std::endl;
-    if (lastToken!=NULL)
-	    ((antlr4::CommonToken*)dedent.get())->setLine(lastToken->getLine());
-    return dedent;
+    return commonToken(Python3Parser::DEDENT, "");
   }
 
   std::unique_ptr<antlr4::Token> commonToken(int type, std::string text) {
@@ -197,7 +143,7 @@ import_stmt: import_name | import_from;
 import_name: 'import' dotted_as_names;
 // note below: the ('.' | '...') is necessary because '...' is tokenized as ELLIPSIS
 import_from: ('from' (('.' | '...')* dotted_name | ('.' | '...')+)
-              'import' ('*' | '(' import_as_names ')' | import_as_names));
+               'import' ('*' | '(' import_as_names ')' | import_as_names));
 import_as_name: NAME ('as' NAME)?;
 dotted_as_name: dotted_name ('as' NAME)?;
 import_as_names: import_as_name (',' import_as_name)* (',')?;
@@ -351,8 +297,8 @@ NEWLINE
    | ( '\r'? '\n' | '\r' | '\f' ) SPACES?
    )
    {
-    std::cout << "NEWLINE " << std::endl;
-    if (false) {
+    // std::cout << "NEWLINE " << std::endl;
+    if (true) {
      std::string newLine = std::regex_replace(getText(),std::regex("[^\r\n\f]+"),"");
      std::string spaces = std::regex_replace(getText(),std::regex("[\r\n\f]+"),"");
      int next = _input->LA(1);
@@ -363,7 +309,6 @@ NEWLINE
      }
      else {
        emit(commonToken(NEWLINE, newLine)); 
-       // list_of_tokens.push_back(antlr4::Lexer::getToken().get());
        int indent = getIndentationCount(spaces);
        int previous = indents.empty() ? 0 : indents.top();
        if (indent == previous) {
@@ -372,16 +317,14 @@ NEWLINE
        }
        else if (indent > previous) {
          indents.push(indent);
-	 std::cout << "INDENT " << std::endl;
+	 // std::cout << "INDENT " << std::endl;
          emit(commonToken(Python3Parser::INDENT, spaces)); 
-	 // list_of_tokens.push_back(antlr4::Lexer::getToken().get());
        }
        else {
          // Possibly emit more than 1 DEDENT token.
          while(!indents.empty() && indents.top() > indent) {
-	   std::cout << "DEDENT " << std::endl;
+	   // std::cout << "DEDENT " << std::endl;
            emit(createDedent()); 
-	   // list_of_tokens.push_back(antlr4::Lexer::getToken().get());
            indents.pop();
          }
        }
