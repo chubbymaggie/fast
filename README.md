@@ -42,10 +42,13 @@ the following activities slow:
 *TODOs* 
 
 #### Feature requests ####
-* Integrate with [biyacc](http://biyacc.yozora.moe)
 *0.0.6* TBD
+* Created an Python3 parser in C++ based on the [official ANTLR4 grammar in Java](https://github.com/antlr/grammars-v4/blob/master/python3/Python3.g4)
+  and extended the FAST schema accordingly, merging the branch `python3';
+  Currenly error handling feature is turned off.
 
 *0.0.5* (August 25, 2017)
+* Integrated with [biyacc](http://biyacc.yozora.moe)
 * Created a Dockerfile to simplify the deployment
 * Implemented normalisation concept from [meaningful changes tool, ASE'11](https://github.com/f-ast/meaningful-changes)
   by migrating the [txl](http://txl.ca)-based implementation, see `-n` option

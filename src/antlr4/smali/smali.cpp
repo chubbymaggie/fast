@@ -275,6 +275,7 @@ int smaliMainRoutine(int argc, char**argv) {
 	  proto_output.close();
   }
   SmaliTreeShapeListener listener;
+  parser.removeErrorListeners();
   tree::ParseTree *tree = parser.smali_file();
   tree::ParseTreeWalker::DEFAULT.walk(&listener, tree);
   FILE *file = fopen(argv[1], "r");

@@ -151,22 +151,31 @@ EOF
 EOF
 	catout 14807015fc8bc8506ca3d02e40a71b5e7f7aa6d57f8c3b6c5db880d51af35c27 DuplicateVirtualMethods.smali
 	catout 313fb700c0d562f562209a523e597d8bc6f70688e7fb176ed9da3faf5b8b221a DuplicateVirtualMethods-v2.smali
-	stdout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.smali
+	stdout 35adb65dd260ddf145a449bd4112a1c7744d4bdedae53e4cbf4896683ddce060 DuplicateVirtualMethods.smali
 	rm -f smali.proto
 	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
 	catout 6ed7e11200def362490c5d8f35743798a646f7bc48ddff7a1304940b0d6f8956 smali.proto
 	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.smali.pb
-	stdout 9ab34981b8cd72e1746b32decc0a571f0d0895157f4f60ed2cb105cf18be4474 -d DuplicateVirtualMethods.smali.pb
-	stdout 707d2f45d34b14a44887b84ee3422346aa692999cb6ca0426637d322c997d6e1 IntDef.smali
-	stdout 39e9227df88e67c34bb764d8d446d6d6a61c5baefbd4544dd46423ff63252bbe ForegroundLinearLayout.smali
-	stdout c6769584b6ef5d8641f75749742a9c63692a2e09ae446ff81ac1e152d8ed3944 NavigationMenuPresenter\$1.smali
-	stdout aeec5f59504be6d25cec18af44d848445773403a5a9ef38472e9ce3ecd10f54d BottomSheetBehavior.smali
-	stdout e7a6922ecb6943fc37b97ea09910917898dc76d589aae06bd8246b945a1467bf CoordinatorLayout.smali
-	stdout 42c87d6161d9e675f02f995ca95e018ea31642ba8ac866166feb4e1e7c2e06a1 RunnerArgs.smali
-	stdout 38a8e48ecdaadbb44004ff337343d7e81ba3e01089c52ad6ad8b0ac6cc02aa05 ColorUtils.smali
-	stdout 29e38a51473c87f75b33f202c4da720ca0b7ba8167c866de5767d6290b712a4b SparseArrayCompat.smali
+	stdout 3d93d9a505833f0b0861610c83c2b116b657c0366e02b911b6215895bd77aa6c -d DuplicateVirtualMethods.smali.pb
+	stdout f3dd4327d8590791490fafbc5f58afcef3f390b765e3d9a3c7bf0ad8a7c66a79 IntDef.smali
+	stdout 0b11e2a9808f984672326b9c69b410a91bd1520b51acf631e7409d632dfed628 ForegroundLinearLayout.smali
+	stdout 1661938631ca4256541ec9622c2137126072257dce36540cddf37b9c16bd6b35 NavigationMenuPresenter\$1.smali
+	stdout 72f0338334318b7ecc9cbfbaed2ccf910d83d324ac3719f4770e4bbf8ca3fd59 BottomSheetBehavior.smali
+	stdout a55d2aba8ea3851e9fb9a84301517b62e1da5043f71308824f1bfc5a8d8463f5 CoordinatorLayout.smali
+	stdout d36283d6e60c5be9d60e83b32a570aa67b10233928e67b5ad52bc935e7ed03f5 RunnerArgs.smali
+	stdout 0ce0502d9c5397eff909a1950d7f3f552c6bdd5f2fe625836838f771732584e9 ColorUtils.smali
+	stdout 01481aa992e9d23ca2c5792b309ae73817f39b5c1d5fa7c3f1f1f70591064333 SparseArrayCompat.smali
 	$fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.xml
-	catout c127eb3d6322b3f9d38eaead37e56faf6939fe776587924d361a3e1b280c1ee7 DuplicateVirtualMethods.xml
+	catout 35adb65dd260ddf145a449bd4112a1c7744d4bdedae53e4cbf4896683ddce060 DuplicateVirtualMethods.xml
+}
+
+testPython() 
+{
+	rm -f Python3.proto
+	$fast compat.py compat.pb
+	catout 26203c5f0ab45adf225eb0b53f6d8acafe045dac9a61e18c82c18acf073e1312 Python3.proto
+	$fast -d compat.pb > compat.txt
+	catout eee1109d5b1b5cb82272a5bd5233309d93afaec91f26a2b4072aa1c72f9814b9 compat.txt
 }
 
 testCS() {
@@ -1875,9 +1884,9 @@ testDiff() {
 	stdout b8242b7b3eeedd3cb965ff1b8620e58e15b49880195ff4504bb0c6c3fdfe5dad -n normalise.list -D Hello1.java Hello2.java
 	$fast Hello1.java Hello1.pb
 	$fast Hello2.java Hello2.pb
-	stdout 6005faec7abf6e1061030b461ea2f7b3384f5ae38363fb4892650ace8ee27dc1 -D Hello1.pb Hello2.pb
+	stdout 7ecd45a15093f7be371d14d84ebc978771c1f4a65251287d5e61f75bc4d8213d -D Hello1.pb Hello2.pb
 	$fast Hello1=Hello2-diff.pb-Hello2.pb.pb Hello.patch.xml
-	catout e66ff54ab8760aa51c5d5c4a76fa2db35d7297f03bc72eb08ec5ce8922d11b5c Hello.patch.xml
+	catout 0d36fb68207ad53959bf72e4e04410d4950e1406bf9b658a735efe800e8c8923 Hello.patch.xml
 }
 
 testUML() {

@@ -94,15 +94,21 @@ These commands perform forward program slicing on the source code using the
 srcSlice tool.  The modified srcSlice tool can replace parsing the srcML with
 loading the binary AST, which is much more efficient.
 
-### Convert ANTLR4-based language to binary AST
+### Convert program whose parser is written in ANTLR4 into binary ASTs
+
   $ fast DuplicateVirtualMethods.smali DuplicateVirtualMethods.pb
-  
+
+  $ fast compat.py compat.pb
+
   $ fast -d DuplicateVirtualMethods.pb > DuplicateVirtualMethods.txt
+
+  $ fast -d compat.pb > compat.txt
   
-These commands convert between Android's smali representation and our protobuf
-representations. The first command converts SMALI code into a binary AST of the
-structural information; the second command decodes the binary AST into textual
-form. 
+These commands convert between ANTLR4 parsing trees and our protobuf
+representations. The first command converts Android App's SMALI code into a
+binary AST of the structural information; the second command converts Python 3
+code into a binary AST; and the third / fourth command decodes the binary ASTs
+into textual form. 
 
 ### Convert Protobuf files into textual format and further turning into a generic XML format
   $ fast -d DuplicateVirtualMethods.smali.pb > DuplicateVirtualMethods.smali.pb.txt
