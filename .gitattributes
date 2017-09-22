@@ -5,4 +5,5 @@ src/gen*/* linguist-vendored
 src/core/* linguist-vendored
 src/BXforFAST/* linguist-vendored
 src/intt-0.2.0/* linguist-vendored
+src/rapixml/* linguist-vendored
 doc/* linguist-documentation
