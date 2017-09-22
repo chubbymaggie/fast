@@ -37,7 +37,6 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 int loadSrcML(int load_only, int argc, char **argv);
 
 int mainRoutine(int argc, char* argv[]);
-int smaliMainRoutine(int argc, char** argv);
 int processMainRoutine(int argc, char**argv);
 int sliceDiffMainRoutine(int argc, char**argv);
 

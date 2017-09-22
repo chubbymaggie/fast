@@ -19,7 +19,7 @@ using namespace std;
 using namespace rapidxml;
 using namespace antlr4;
 
-static vector<std::string> ruleNames;
+vector<std::string> ruleNames;
 extern bool parse_only;
 
 string ctxName(ParserRuleContext *ctx) 
@@ -29,9 +29,9 @@ string ctxName(ParserRuleContext *ctx)
 	return name;
 }
 
-static map<int, string> tag_map;
-static map<int, vector<int>> type_map;
-static bool xml_output = false;
+map<int, string> tag_map;
+map<int, vector<int>> type_map;
+bool xml_output = false;
 
 class SmaliTreeShapeListener : public smaliParserBaseListener {
 public:
@@ -95,7 +95,7 @@ public:
 	}
 };
 
-void printMarkups(FILE *file, ofstream &out) {
+void printMarkups(FILE *file, ofstream &out, bool is_smali) {
 	unsigned int c;
 	int pos = -1;
 	out << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>" << endl;
@@ -130,17 +130,17 @@ flatbuffers::Offset<_fast::Element> saveFBSfromXML(flatbuffers::FlatBufferBuilde
 /**
  * Generate the parsing tree into a protobuf representation
  */
-void printMarkups(FILE *file, const char *output_file) {
+void printMarkups(FILE *file, const char *output_file, bool is_smali) {
 	if (xml_output) { // output is xml
 		ofstream out(output_file, ios::out | ios::trunc);
-		printMarkups(file, out);
+		printMarkups(file, out, is_smali);
 		out.close();
 		return;
 	}
 	bool output_is_fbs = strcmp(output_file+strlen(output_file)-4, ".fbs")==0;
 	if (output_is_fbs) {
 		ofstream output(string(output_file) + ".xml", ios::out | ios::trunc | ios::binary);
-		printMarkups(file, output);
+		printMarkups(file, output, is_smali);
 		output.close();
 		flatbuffers::FlatBufferBuilder builder;
 		xml_document<> doc;
@@ -186,7 +186,11 @@ void printMarkups(FILE *file, const char *output_file) {
 						if (prev_element!=NULL) 
 							prev_element->set_tail(text);
 						fast::Element *child = path.back()->add_child();
-						child->set_smali_kind((fast::SmaliKind)v[i]);
+						if (is_smali) {
+							child->set_smali_kind((fast::SmaliKind)v[i]);
+						} else {
+							child->set_python3_kind((fast::Python3Kind)v[i]);
+						}
 						path.push_back(child);
 						if (i == v.size()-1) {
 							prev_element = child;
@@ -276,9 +280,9 @@ int smaliMainRoutine(int argc, char**argv) {
   FILE *file = fopen(argv[1], "r");
   if (argc == 2) {
 	  if (!parse_only)
-		  printMarkups(file, (ofstream&) cout);
+		  printMarkups(file, (ofstream&) cout, is_smali);
   } else { // assume that the second argument for FAST representation
-	  printMarkups(file, argv[2]);
+	  printMarkups(file, argv[2], is_smali);
   }
   fclose(file);
   return 0;

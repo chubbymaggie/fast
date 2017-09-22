@@ -10,8 +10,8 @@ protoc=/usr/local/bin/protoc
 flatc=/usr/local/bin/flatc
 
 OPT=-g -O0 -coverage
-OPT=-g
 OPT=-O3 -Wno-unused-result
+OPT=-g
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -71,7 +71,7 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 %.o: src/antlr4/python3/%.cpp
 	$(CXX) $(OPT) $(CFLAGS) -c $^
 
-Python3/src/antlr4/Python3/Python3Parser.cpp Python3/src/antlr4/Python3/Python3Parser.h: src/antlr4/python3/Python3.g4
+Python3/src/antlr4/Python3/Python3Parser.cpp Python3/src/antlr4/Python3/Python3Lexer.cpp Python3/src/antlr4/Python3/Python3Parser.h: src/antlr4/python3/Python3.g4
 	$(ANTLR4) -o Python3 -Dlanguage=Cpp $^
 
 %.o: PB/src/antlr4/pb/%.cpp
@@ -116,7 +116,7 @@ fast_objects += fast.pb.o
 fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o 
 fast_objects += git.o 
 fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o 
-fast_objects += Python3Parser.o python.o 
+fast_objects += Python3Parser.o Python3Lexer.o python.o 
 #fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 fast_objects += process.o
 fast_objects += slice-diff.o
@@ -226,7 +226,7 @@ src/gen.pb/src/main/java/_fast/Data.java: fast.fbs
 	mkdir -p src/gen.pb/src/main/java
 	$(flatc) --java -o src/gen.pb/src/main/java fast.fbs
 
-src/schema/fast.proto.in: ElementType.proto Smali.proto \
+src/schema/fast.proto.in: ElementType.proto Smali.proto Python3.proto \
 	Unit.proto Literal.proto \
 	log.proto
 
