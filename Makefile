@@ -44,7 +44,7 @@ endif
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
 CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcyuml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
 CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
-CFLAGS+=-IPython3/src/antlr4/Python3 -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
+CFLAGS+=-IPython3/src/antlr4/python3 -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
 CFLAGS+=-I/usr/local/include/xlnt
 
 LDFLAGS+=$(ANTLR4_LIB)
@@ -67,13 +67,13 @@ smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smal
 smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/src/antlr4/smali/smaliLexer.tokens: src/antlr4/smali/smaliLexer.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
 
-%.o: Python3/src/antlr4/Python3/%.cpp
+%.o: Python3/src/antlr4/python3/%.cpp
 	$(CXX) $(OPT) $(CFLAGS) -c $^
 
 %.o: src/antlr4/python3/%.cpp
 	$(CXX) $(OPT) $(CFLAGS) -c $^
 
-Python3/src/antlr4/Python3/Python3Parser.cpp Python3/src/antlr4/Python3/Python3Lexer.cpp Python3/src/antlr4/Python3/Python3Parser.h: src/antlr4/python3/Python3.g4
+Python3/src/antlr4/python3/Python3Parser.cpp Python3/src/antlr4/python3/Python3Lexer.cpp Python3/src/antlr4/python3/Python3Parser.h: src/antlr4/python3/Python3.g4
 	$(ANTLR4) -o Python3 -Dlanguage=Cpp $^
 
 %.o: PB/src/antlr4/pb/%.cpp
