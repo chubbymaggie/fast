@@ -6,8 +6,6 @@ target+=src/gen.pb/src/main/java/fast/Fast.java
 target+=src/gen.pb/src/main/java/_fast/Data.java
 
 CXX=c++
-protoc=/usr/local/bin/protoc
-flatc=/usr/local/bin/flatc
 
 OPT=-g
 OPT=-g -O0 -coverage
@@ -15,16 +13,21 @@ OPT=-O3 -Wno-unused-result
 
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
+protoc=/usr/bin/protoc
+flatc=/usr/bin/flatc
 gtime=/usr/bin/time
-SRCSAX_LIB=/usr/local/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --libs)
-ANTLR4=java -jar /usr/local/lib/antlr-4.7-complete.jar
-ANTLR4_INCLUDE=-I/usr/local/include/antlr4-runtime
-ANTLR4_LIB=/usr/local/lib/libantlr4-runtime.a 
-PB_LIB=/usr/local/lib/libprotobuf.a
-prefix=/usr/local
+SRCSAX_LIB=/usr/lib/libsrcsax.a -L/usr/lib/x86_64-linux-gnu $(shell xml2-config --libs)
+ANTLR4=java -jar /usr/lib/antlr-4.7-complete.jar
+ANTLR4_INCLUDE=-I/usr/include/antlr4-runtime
+ANTLR4_LIB=/usr/lib/libantlr4-runtime.a 
+PB_LIB=/usr/lib/libprotobuf.a
+prefix=/usr
+FBS_LIB=-L/usr/lib -lflatbuffers
 endif
 
 ifeq ($(UNAME_S),Darwin)
+protoc=/usr/local/bin/protoc
+flatc=/usr/local/bin/flatc
 gtime=gtime
 SRCSAX_LIB=/usr/local/lib/libsrcsax.a $(shell xml2-config --libs)
 ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
@@ -35,9 +38,8 @@ prefix=$(HOMEBREW_FORMULA_PREFIX)
 ifeq ($(prefix),)
 prefix=/usr/local
 endif
-endif
-
 FBS_LIB=-L/usr/local/lib -lflatbuffers
+endif
 
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
 CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcyuml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
