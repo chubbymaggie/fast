@@ -86,8 +86,8 @@ PB/src/antlr4/pb/PBLexer.cpp PB/src/antlr4/pb/PBLexer.h PB/src/antlr4/pb/PBLexer
 	$(ANTLR4) -o PB -Dlanguage=Cpp $^
 
 fast.o: src/rapidxml/rapidxml.hpp src/gen/fast.pb.h src/gen/fast_generated.h src/gen/ver.h
-fast-pb.o: src/gen/fast.pb.h 
-fast-fbs.o: src/gen/fast_generated.h 
+fast-pb.o: src/gen/fast.pb.h src/gen/fast_generated.h
+fast-fbs.o: src/gen/fast_generated.h
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 python.o: Python3/src/antlr4/python3/Python3Lexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h

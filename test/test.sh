@@ -1914,10 +1914,10 @@ testGitSliceDiff() {
 	fi
 }
 
-if [ ! -f ~/mirror/github.com/kward/shunit2/2.1/src/shunit2 ]; then
+if [ ! -f ~/mirror/github.com/kward/shunit2/shunit2 ]; then
 	git clone https://github.com/kward/shunit2 ~/mirror/github.com/kward/shunit2
 fi
 
 rm -f ../*.gcda
 rm -rf ../fast.info index*.html *.png v1/ gcov.css Users usr
-. ~/mirror/github.com/kward/shunit2/2.1/src/shunit2
+. ~/mirror/github.com/kward/shunit2/shunit2
