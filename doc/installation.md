@@ -25,7 +25,7 @@ fast v3.6.2 commit id: edfdd292bac88862accdf0501d09635cfc9ff67c with local chang
 built with 6.4.0 on Sep 25 2017 at 06:32:42
 ```
 
-More [command options can be found here](doc/options.md).
+More [command options can be found here](options.md).
 
-Now you are ready to check more example usages [here](doc/usage.md).
+Now you are ready to check more example usages [here](usage.md).
 
