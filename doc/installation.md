@@ -1,5 +1,5 @@
 Table of Contents
-  * [Installation](#installation)
+* [Installation](#installation)
   * [Specific hint on running fast with Docker on Windows](#specific-hint-on-running-fast-with-docker-on-windows)
 * [For development](#for-development)
   * [MacOSX using <a href="https://brew\.sh/">Homebrew</a>](#macosx-using-homebrew)
@@ -9,11 +9,10 @@ Table of Contents
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
-### Installation
+## Installation
 
-It is recommended to use [docker](https://www.docker.com)
-
-First [install docker](https://docs.docker.com/engine/installation/), then simply run
+It is recommended to use [docker](https://www.docker.com). First [install docker](https://docs.docker.com/engine/installation/), then simply enter
+the following command:
 ```
 	$ docker run -w /examples -v$(pwd)/test:/examples -it yijun/fast
 ```
