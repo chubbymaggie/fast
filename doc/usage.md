@@ -1,10 +1,5 @@
 ## Input source code, output efficient structures, and vice versa. 
 
-All the examples can be obtained when you run the testing script 
-with any argument, e.g.:
-
-  $ cd test && keep=1 ./test.sh
-
 ### Convert from source code to SrcML
 
   $ fast Hello.java Hello.xml
