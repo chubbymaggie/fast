@@ -26,13 +26,31 @@ faster](doc/performance.md).
 * [fast \-\- Flat Abstract Syntax Trees](#fast----flat-abstract-syntax-trees)
   * [Table of Contents](#table-of-contents)
   * [When to use fast?](#when-to-use-fast)
+    * [<em>Parsing</em> =&gt; <a href="doc/performance\.md">10\-100x faster</a>](#parsing--10-100x-faster)
+    * [<em>Program slicing</em> =&gt; <a href="doc/performance\.md">2\.5x faster</a> and <a href="doc/performance\.md">1\.5x smaller</a>](#program-slicing--25x-faster-and-15x-smaller)
+    * [<em>Diff\-Patching</em> =&gt; <a href="doc/performance\.md">35x faster</a>](#diff-patching--35x-faster)
+    * [<em>Synchronisation</em> =&gt; <a href="doc/performance\.md">1\.5x smaller for slicing</a>](#synchronisation--15x-smaller-for-slicing)
     * [Version History](#version-history)
+      * [Feature requests](#feature-requests)
 
 Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## When to use `fast`?
 Your software development projects may benefit directly from `fast` if you find
 the following activities slow:
+
+### *Parsing* => [10-100x faster](doc/performance.md)
+* Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
+* Smali/Android -- supported by [smali](https://github.com/JesusFreke/smali) in [apktool](https://ibotpeaches.github.io/Apktool)
+* or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
+### *Program slicing* => [2.5x faster](doc/performance.md) and [1.5x smaller](doc/performance.md)
+* [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
+### *Diff-Patching* => [35x faster](doc/performance.md)
+* [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
+* [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree)
+* [mct, ASE'11](https://github.com/f-ast/meaningful-changes)
+### *Synchronisation* => [1.5x smaller for slicing](doc/performance.md)
+* [biyacc](http://biyacc.yozora.moe)
 
 ### Version History
 
