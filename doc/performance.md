@@ -17,8 +17,9 @@ By select the abstract syntax trees for program slicing, `fast` also saves 1.5x 
 of the scalable srcSlice tool.")
 
 ## Diffing
-`fast` speeds up diffing by 11~25x according a benchmarks of two code pairs taken respectively from Hello and Antlr4 repositories. 
-![Benchmarks 4. Diffing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/diffing.png "Grammar is a source file from the Antlr4 project")
+`fast` speeds up diffing by 35x according code pairs taken from the repositories of two open-source projects: [git-dl](https://github.com/needdle/git-dl) 
+and [OpenSSL](https://github.com/openssl/openssl). 
+![Benchmarks 4. Diffing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/diffing.png "Tree-based differencing gets faster using FAST IRs.")
 
 ## Benchmarks
 
