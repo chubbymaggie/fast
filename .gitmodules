@@ -1,0 +1,3 @@
+[submodule "docker-apk-build"]
+	path = docker-apk-build
+	url = https://github.com/f-ast/docker-apk-build
