@@ -73,7 +73,7 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 %.o: src/antlr4/python3/%.cpp
 	$(CXX) $(OPT) $(CFLAGS) -c $^
 
-Python3/src/antlr4/python3/Python3Parser.cpp Python3/src/antlr4/python3/Python3Lexer.cpp Python3/src/antlr4/python3/Python3Parser.h: src/antlr4/python3/Python3.g4
+Python3/src/antlr4/python3/Python3Parser.cpp Python3/src/antlr4/python3/Python3Lexer.cpp Python3/src/antlr4/python3/Python3Parser.h Python3/src/antlr4/python3/Python3Lexer.h: src/antlr4/python3/Python3.g4
 	$(ANTLR4) -o Python3 -Dlanguage=Cpp $^
 
 %.o: PB/src/antlr4/pb/%.cpp
