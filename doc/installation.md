@@ -29,6 +29,17 @@ More [command options can be found here](options.md).
 
 Now you are ready to check more example usages [here](usage.md).
 
+### Specific hint on running `fast` with Docker on Windows
+
+Make sure you turn on the "Hyper-V" option on BIOS menu, to enable virtualisation. Then you need to enable "Shared Drive" on the Docker menu so that the local folder can be mounted to the container. By default, the docker is bound to Linux containers, so you don't need to anything else. Note that the Linux container does not work if you switched to Windows container on the menu, in such a case you should let Docker switch back to using Linux containers.
+
+The Windows path name should contain a drive letter too. 
+E.g., suppose you have got the Git repository checked out under your `Documents` folder,
+you can run the following command to start using `fast`. 
+```
+	$ docker run -w /examples -v c:/Users/<user>/Documents/f-ast/fast/test:/examples -it yijun/fast
+```
+
 ## For development
 
 ### MacOSX using [Homebrew](https://brew.sh/) 
