@@ -21,21 +21,18 @@ the improved efficiency and applicability to software development.
 [manipulates](doc/usage.md) [source code](doc/example.md) [10x
 faster](doc/performance.md). 
 
+## Table of Contents
+
+* [fast \-\- Flat Abstract Syntax Trees](#fast----flat-abstract-syntax-trees)
+  * [Table of Contents](#table-of-contents)
+  * [When to use fast?](#when-to-use-fast)
+    * [Version History](#version-history)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
+
+## When to use `fast`?
 Your software development projects may benefit directly from `fast` if you find
 the following activities slow:
-
-### *Parsing* => [10-100x faster](doc/performance.md)
-* Java, C, C++, C#, Objective C -- supported by [srcML](http://www.srcml.org/)
-* Smali/Android -- supported by [smali](https://github.com/JesusFreke/smali) in [apktool](https://ibotpeaches.github.io/Apktool)
-* or one of [175 programming languages](https://github.com/antlr/grammars-v4) supported by [antlr4](https://github.com/antlr/antlr4)
-### *Program slicing* => [2.5x faster](doc/performance.md) and [1.5x smaller](doc/performance.md)
-* [srcslice](https://github.com/srcML/srcSlice) for [efficient and scalable forward slicing](http://www.cs.kent.edu/~jmaletic/papers/JSEP14.pdf)
-### *Diff-Patching* => [35x faster](doc/performance.md)
-* [treedifferencing, ASE'16](https://github.com/FAU-Inf2/treedifferencing)
-* [gumtreediff, ASE'14](https://github.com/GumTreeDiff/gumtree)
-* [mct, ASE'11](https://github.com/f-ast/meaningful-changes)
-### *Synchronisation* => [1.5x smaller for slicing](doc/performance.md)
-* [biyacc](http://biyacc.yozora.moe)
 
 ### Version History
 

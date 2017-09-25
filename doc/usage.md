@@ -1,3 +1,25 @@
+# Table of Contents
+
+* [Input source code, output efficient structures, and vice versa\.](#input-source-code-output-efficient-structures-and-vice-versa)
+  * [Convert from source code to SrcML](#convert-from-source-code-to-srcml)
+  * [Convert SrcML back to source code](#convert-srcml-back-to-source-code)
+  * [Convert SrcML to binary AST](#convert-srcml-to-binary-ast)
+  * [Convert binary AST back to SrcML](#convert-binary-ast-back-to-srcml)
+  * [Convert binary AST back to source code](#convert-binary-ast-back-to-source-code)
+  * [Print the textual representation of the protocol buffer using the generated fAST schema\.](#print-the-textual-representation-of-the-protocol-buffer-using-the-generated-fast-schema)
+  * [Print the JSON representation of the protocol buffer using the generated fAST schema\.](#print-the-json-representation-of-the-protocol-buffer-using-the-generated-fast-schema)
+  * [Translate the textual representations into the corresponding protobuf file\.](#translate-the-textual-representations-into-the-corresponding-protobuf-file)
+  * [Keep element positions in binary AST](#keep-element-positions-in-binary-ast)
+  * [Forward slice source code](#forward-slice-source-code)
+  * [Convert program whose parser is written in ANTLR4 into binary ASTs](#convert-program-whose-parser-is-written-in-antlr4-into-binary-asts)
+  * [Convert Protobuf files into textual format and further turning into a generic XML format](#convert-protobuf-files-into-textual-format-and-further-turning-into-a-generic-xml-format)
+  * [Differentiate on the slices](#differentiate-on-the-slices)
+  * [Process log pairs from cross\-language repositories](#process-log-pairs-from-cross-language-repositories)
+  * [Compute the difference between two artefacts](#compute-the-difference-between-two-artefacts)
+  * [Extract yUML from source code (a convenient interface to the srcYUML tool)](#extract-yuml-from-source-code-a-convenient-interface-to-the-srcyuml-tool)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
+
 ## Input source code, output efficient structures, and vice versa. 
 
 All the examples can be obtained when you run the testing script 
