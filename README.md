@@ -46,6 +46,7 @@ the following activities slow:
 * Created an Python3 parser in C++ based on the [official ANTLR4 grammar in Java](https://github.com/antlr/grammars-v4/blob/master/python3/Python3.g4)
   and extended the FAST schema accordingly, merging the branch `python3';
   Currenly error handling feature is turned off.
+* Implemented docker image based on the alpine:edge image, which is much smaller than the ubuntu image
 
 *0.0.5* (August 25, 2017)
 * Integrated with [biyacc](http://biyacc.yozora.moe)
