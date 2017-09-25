@@ -23,6 +23,7 @@ ANTLR4_LIB=/usr/lib/libantlr4-runtime.a
 PB_LIB=/usr/lib/libprotobuf.a
 prefix=/usr
 FBS_LIB=-L/usr/lib -lflatbuffers
+sha256sum=/usr/bin/sha256sum
 endif
 
 ifeq ($(UNAME_S),Darwin)
@@ -34,6 +35,7 @@ ANTLR4=/usr/local/Cellar/antlr/4.7/bin/antlr4
 ANTLR4_INCLUDE=-I/usr/local/Cellar/antlr4-cpp-runtime/4.7/include/antlr4-runtime
 ANTLR4_LIB=/usr/local/Cellar/antlr4-cpp-runtime/4.7/lib/libantlr4-runtime.a
 PB_LIB=-L/usr/local/lib -lprotobuf
+sha256sum=shasum -a 256
 prefix=$(HOMEBREW_FORMULA_PREFIX)
 ifeq ($(prefix),)
 prefix=/usr/local
@@ -197,7 +199,7 @@ __main__.py: fast_pb2.py
 
 src/gen/ver.h: src/version.h.in
 	mkdir -p src/gen
-	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | shasum -a 256 | cut -d " " -f1)/' > $@
+	sed -e 's/GIT_TAG_VERSION/$(shell git tag | tail -1)/' $^ | sed -e 's/GIT_CURRENT/$(shell git rev-parse HEAD)/' | sed -e 's/GIT_WORK_COPY/$(shell git diff HEAD | $(sha256sum) -a 256 | cut -d " " -f1)/' > $@
 
 src/gen/fast_pb2.py: fast.proto
 	mkdir -p src/gen
