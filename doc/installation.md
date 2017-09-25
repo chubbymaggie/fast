@@ -1,4 +1,16 @@
+Table of Contents
+  * [Installation](#installation)
+  * [Specific hint on running fast with Docker on Windows](#specific-hint-on-running-fast-with-docker-on-windows)
+* [For development](#for-development)
+  * [MacOSX using <a href="https://brew\.sh/">Homebrew</a>](#macosx-using-homebrew)
+    * [Caveat, reported and fixed by Bram Adams](#caveat-reported-and-fixed-by-bram-adams)
+    * [Caveat, reported and fixed by Chunmiao Li](#caveat-reported-and-fixed-by-chunmiao-li)
+  * [Ubuntu Linux using Debian packages:](#ubuntu-linux-using-debian-packages)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
+
 ### Installation
+
 It is recommended to use [docker](https://www.docker.com)
 
 First [install docker](https://docs.docker.com/engine/installation/), then simply run

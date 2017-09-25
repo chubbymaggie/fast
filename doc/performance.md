@@ -45,6 +45,7 @@ and [OpenSSL](https://github.com/openssl/openssl). <br/>
 
 ### C++
 * [Tensorflow](https://github.com/tensorflow/tensorflow)
+* [git-dl](https://github.com/needdle/git-dl)
 
 ### Java
 * [Apache Tomcat](https://github.com/apache/tomcat)
