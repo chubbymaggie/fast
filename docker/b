@@ -1,2 +1,0 @@
-docker build -t fast-dev .
-docker build -t fast .
