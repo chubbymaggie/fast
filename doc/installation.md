@@ -48,7 +48,7 @@ The Windows path name should contain a drive letter too.
 E.g., suppose you have got the Git repository checked out under your `Documents` folder,
 you can run the following command to start using `fast`. 
 ```
-	$ docker run -w /examples -v c:/Users/<user>/Documents/f-ast/fast/test:/examples -it yijun/fast
+	$ docker run -w /examples -v c:/Users/<user>/Documents/fast/test:/examples -it yijun/fast
 ```
 
 ## For development
