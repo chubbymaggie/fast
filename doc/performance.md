@@ -18,7 +18,7 @@ of the scalable srcSlice tool.")
 
 ## Diffing
 `fast` speeds up diffing by 35x according code pairs taken from the repositories of two open-source projects: [git-dl](https://github.com/needdle/git-dl) 
-and [OpenSSL](https://github.com/openssl/openssl). 
+and [OpenSSL](https://github.com/openssl/openssl). <br/>
 ![Benchmarks 4. Diffing](https://github.com/f-ast/fast/raw/master/doc/benchmarks/diffing.png "Tree-based differencing gets faster using FAST IRs.")
 
 ## Benchmarks
