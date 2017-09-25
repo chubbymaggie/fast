@@ -144,10 +144,7 @@ install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Exa
 
 ifeq ($(UNAME_S),Linux)
 install-srcslice::
-	mkdir -p $(DESTDIR)$(prefix)/bin
-	if [ ! -f srcslice ]; then wget https://yijunyu.github.io/ubuntu/srcslice; fi
-	install -m 0755 srcslice $(DESTDIR)$(prefix)/bin/srcSlice
-	rm -f srcslice
+	echo srcSlice already installed
 endif
 
 ifeq ($(UNAME_S),Darwin)
