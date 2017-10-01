@@ -13,6 +13,7 @@
 | Qiuchi Li 		|information retrieval|
 | Angus Marshall 	|mobile forensics|
 | Mohammed Sayagh 	|program slicing|
+| Thein Than Tun		|meaningful change detection|
 | Meng Wang		|bidirectional programming|
 | Michel Wermelinger		|bug localisation|
 | Yijun Yu		|compiler optimization|
