@@ -46,7 +46,6 @@ public class AbstractPBTreeGenerator extends TreeGenerator {
     static int id = 1;
     @Override
     public TreeContext generateFromFile(String input) throws IOException {
-	    // System.out.println("generating from file " + input);
 	    fast.Fast.Data data = fast.Fast.Data.parseFrom(new FileInputStream(input));
 	    fast.Fast.Element element = data.getElement();
             TreeContext context = new TreeContext();
@@ -71,7 +70,7 @@ public class AbstractPBTreeGenerator extends TreeGenerator {
             String tokenName = element.getKind().toString();
 	    String text = element.getText().toStringUtf8();
 	    String tail = element.getTail().toStringUtf8();
-	    int length = text.length();
+	    int length = text!=null? text.length() : 0;
 	    int start = pos;
 	    // System.out.println(tokenName);
             ITree t = context.createTree(type, text, tokenName);
@@ -86,12 +85,9 @@ public class AbstractPBTreeGenerator extends TreeGenerator {
                     buildTree(context, child);
                 trees.pop();
             }
-	    pos += tail.length();
+	    pos += tail!=null? tail.length() : 0;
             t.setPos(start);
-            t.setLength(pos - start); // FIXME check if this + 1 make sense ?
-	    // System.out.println("pos = "  + start + " length = " + (pos - start + 1));
+            t.setLength(pos - start);
 	    t.setId(id++);
-	    // System.out.println("id = "  + t.getId());
-	    // ActionsIoUtils.pb_mappings.put(t, element);
     }
 }
