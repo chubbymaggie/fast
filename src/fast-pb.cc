@@ -993,7 +993,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	mergePBadded(merged, dst_data.mutable_element());
 	if (merged!=NULL) {
 		string output_filename = argv[1];
-		output_filename = output_filename + "-" + argv[2] + ".pb";
+		output_filename = output_filename + "-patched" + ".pb";
 		savePBelement(output_filename.c_str(), merged);
 	}
     } else if (data.has_element() && delta && argc == 3) {

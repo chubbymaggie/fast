@@ -284,7 +284,9 @@ release::
 	git push -f origin v$V
 ifeq ($(UNAME_S),Darwin)
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.tar.gz
+	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.el_capitan.bottle.tar.gz
 	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.sierra.bottle.tar.gz
+	rm -f ${HOME}/Library/Caches/Homebrew/fast-$V.high_sierra.bottle.tar.gz
 endif
 
 v$V.tar.gz:
