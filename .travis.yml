@@ -1,11 +1,8 @@
 language: cpp
 os:
   - osx
-  - linux
 dist: trusty
 sudo: required
-services:
-  - docker
 before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
@@ -15,16 +12,6 @@ before_install:
     brew install perl;
     brew install antlr; brew install antlr4-cpp-runtime;
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make -j4; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -rf srcSlice;
-    fi
-  - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
-    cd docker-apk-build;
-    make build;
-    make fast;
-    fi
-after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push yijun/fast;
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
