@@ -858,6 +858,24 @@ void mergePBpatch(fast::Element *a) {
 	mergePBpatchOne(a);
 }
 
+void mergePBNewLineOne(fast::Element *added_element) {
+	if (HIGHLIGHT_CHANGE) return;
+	if (added_element->text() == "\n") {
+		added_element->set_text("$\n$");
+	}
+	if (added_element->tail() == "\n") {
+		added_element->set_tail("$\n$");
+	}
+	for (int i=0; i<added_element->child().size(); i++) {
+		fast::Element *child = added_element->mutable_child(i);
+		mergePBNewLineOne(child);
+	}
+}
+
+void mergePBNewLine(fast::Element *added) {
+	mergePBNewLineOne(added);
+}
+
 void mergePBaddedOne(fast::Element *to_add, fast::Element *b) {
 	for (int i=0; i<b->child().size(); i++) {
 		fast::Element *child = b->mutable_child(i);
@@ -871,6 +889,7 @@ void mergePBaddedOne(fast::Element *to_add, fast::Element *b) {
 					added_element->set_change(fast::Element_DiffType_ADDED);
 				else
 					added_element->set_change(fast::Element_DiffType_CHANGED_FROM);
+				mergePBNewLine(added_element);
 			}
 		}
 	}
