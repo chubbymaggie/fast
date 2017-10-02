@@ -1,8 +1,11 @@
 language: cpp
 os:
   - osx
+  - linux
 dist: trusty
 sudo: required
+services:
+  - docker
 before_install:
   - if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
     brew update;
@@ -14,31 +17,15 @@ before_install:
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make -j4; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -rf srcSlice;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
-    sudo apt-get install apt-transport-https;
-    sudo su -c "echo deb https://yijunyu.github.io/ubuntu ./ >> /etc/apt/sources.list";
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y;
-    sudo apt-get update;
-    sudo apt-get install gcc-5 g++-5;
-    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1;
-    sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 1;
-    sudo apt-get install uuid-dev;
-    sudo apt-get install -y --force-yes srcml;
-    sudo apt-get install libarchive13;
-    sudo apt-get install libxml2;
-    sudo apt-get install perl;
-    wget https://github.com/google/flatbuffers/archive/v1.6.0.tar.gz; tar xvfz v1.6.0.tar.gz; cd flatbuffers-1.6.0; cmake .; make; sudo make install; cd -; rm -rf flatbuffers-1.6.0;
-    wget https://github.com/google/protobuf/releases/download/v3.3.0/protobuf-cpp-3.3.0.tar.gz; tar xvfz protobuf-cpp-3.3.0.tar.gz; cd protobuf-3.3.0; ./configure; make; sudo make install; cd -; rm -rf protobuf-3.3.0;
-    git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..;
-    sudo apt-get install mono;
-    sudo apt-get install jq;
-    sudo apt-get install python-pip;
-    sudo pip install protobuf;
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib;
-    pip install --user cpp-coveralls;
-    pip install coveralls;
-    wget http://www.antlr.org/download/antlr4-cpp-runtime-4.7-source.zip; mkdir antlr4-cpp-runtime; cd antlr4-cpp-runtime; unzip ../antlr4-cpp-runtime-4.7-source.zip; sed -i -e '/CMP0059/d' CMakeLists.txt; cmake .; make; sudo make install; cd ..; rm -rf antlr4-cpp-runtime;
-    wget http://www.antlr.org/download/antlr-4.7-complete.jar; sudo mv antlr-4.7-complete.jar /usr/local/lib;
-    git clone https://github.com/eddyxu/cpp-coveralls eddyxu/cpp-coveralls; cd eddyxu/cpp-coveralls; python setup.py install;
+    git submodule update --init
+    cd docker-apk-build
+    make build
+    make fast
+    fi
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push yijun/fast;
     fi
 script:
   - export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
