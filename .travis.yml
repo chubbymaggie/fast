@@ -17,10 +17,9 @@ before_install:
     git clone --recursive https://github.com/srcml/srcSlice; cd srcSlice/srcSAX; mkdir build; cd build; cmake ..; make -j4; sudo cp bin/libsrcsax.* /usr/local/lib/; cd ../../..; rm -rf srcSlice;
     fi
   - if [[ $TRAVIS_OS_NAME == 'linux' ]]; then
-    git submodule update --init
-    cd docker-apk-build
-    make build
-    make fast
+    cd docker-apk-build;
+    make build;
+    make fast;
     fi
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
