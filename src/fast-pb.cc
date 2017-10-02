@@ -779,13 +779,18 @@ void createIdMap(fast::Element* element, map<int, fast::Element*> * amap,
 	createIdMapOne(element, amap, imap);
 }
 
+bool HIGHLIGHT_CHANGE = false;
+
 void mark_empty(fast::Element *e) {
-	e->set_text("DELETED");
+	e->set_text("#DELETED#");
 	for (int i=0; i< e->child().size(); i++) {
 		mark_empty(e->mutable_child(i));
 	}
 	e->set_tail("");
-	e->set_change(fast::Element_DiffType_DELETED);
+	if (HIGHLIGHT_CHANGE)
+		e->set_change(fast::Element_DiffType_DELETED);
+	else
+		e->set_change(fast::Element_DiffType_MATCHED);
 }
 
 map<int, int> mappings;
@@ -809,12 +814,18 @@ void mergePBpatchOne(fast::Element *a) {
 	if (src_pb_changes[src_imap[a]] == fast::Element_DiffType_DELETED) {
 		// cout << "deleted " << src_imap[a] << endl;
 		mark_empty(a);
-		a->set_change(fast::Element_DiffType_DELETED);
+		if (HIGHLIGHT_CHANGE)
+			a->set_change(fast::Element_DiffType_DELETED);
+		else
+			a->set_change(fast::Element_DiffType_MATCHED);
 	}
 	if (src_pb_changes[src_imap[a]] == fast::Element_DiffType_CHANGED_FROM) {
 		// cout << "changed from " << src_imap[a] << endl;
 		mark_empty(a);
-		a->set_change(fast::Element_DiffType_CHANGED_FROM);
+		if (HIGHLIGHT_CHANGE)
+			a->set_change(fast::Element_DiffType_CHANGED_FROM);
+		else
+			a->set_change(fast::Element_DiffType_MATCHED);
 		int dst = from_to_pb_changes[src_imap[a]]; // src_parent
 		int pos = pos_pb_changes[src_imap[a]];
 		if (pos == -1) {
@@ -856,7 +867,10 @@ void mergePBaddedOne(fast::Element *to_add, fast::Element *b) {
 			if (src>0) {
 				fast::Element *added_element = src_map[src]->add_child();
 				added_element->CopyFrom(*child);	
-				added_element->set_change(fast::Element_DiffType_ADDED);
+				if (HIGHLIGHT_CHANGE)
+					added_element->set_change(fast::Element_DiffType_ADDED);
+				else
+					added_element->set_change(fast::Element_DiffType_CHANGED_FROM);
 			}
 		}
 	}
