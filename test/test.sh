@@ -1884,9 +1884,9 @@ testDiff() {
 	stdout b8242b7b3eeedd3cb965ff1b8620e58e15b49880195ff4504bb0c6c3fdfe5dad -n normalise.list -D Hello1.java Hello2.java
 	$fast Hello1.java Hello1.pb
 	$fast Hello2.java Hello2.pb
-	stdout 7ecd45a15093f7be371d14d84ebc978771c1f4a65251287d5e61f75bc4d8213d -D Hello1.pb Hello2.pb
-	$fast Hello1=Hello2-diff.pb-Hello2.pb.pb Hello.patch.xml
-	catout 0d36fb68207ad53959bf72e4e04410d4950e1406bf9b658a735efe800e8c8923 Hello.patch.xml
+	stdout 6005faec7abf6e1061030b461ea2f7b3384f5ae38363fb4892650ace8ee27dc1 -D Hello1.pb Hello2.pb
+	$fast Hello1=Hello2-diff.pb-patched.pb Hello.patch.xml
+	catout 3db59b9aee2ee8e06f7bfdac2d1f03f28d94630954a5817cf31a823762d6090f Hello.patch.xml
 }
 
 testUML() {
