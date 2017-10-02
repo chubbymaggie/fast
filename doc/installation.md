@@ -64,6 +64,15 @@ The 1st line is optional, it will install Homebrew if you hadn't got it. The 2nd
 The 3rd line installs all the dependencies that is the prerequisite to use fast. Note that we need to do this separately from the 4th
 line, because there is a dependency conflict between antlr@2 and the default antlr4 required by some commands in fast.
 
+#### Caveat, networking
+
+If you are behind the firewalls and cannot install the command from `brew`, you can still download the tarball from the 
+URL below and finish the installation as follows:
+```
+	wget https://github.com/f-ast/fast/releases/download/v0.0.5/fast-0.0.5.high_sierra.bottle.tar.gz
+	brew install fast-0.0.5.high_sierra.bottle.tar.gz
+```
+
 #### Caveat, reported and fixed by Bram Adams
 If you are installing the tool on Yosemite, are the system complains about 
 ```
