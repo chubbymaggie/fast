@@ -57,6 +57,7 @@ the following activities slow:
 #### Feature requests ####
 *TODOs* 
 * Create a Java wrapper for the tool (requested by @Chris2011)
+* Generating Pickle AST from FAST representation (requested by [@bdqnghi](https://github.com/bdqnghi) )
 
 *0.0.6* TBD
 * Created an Python3 parser in C++ based on the [official ANTLR4 grammar in Java](https://github.com/antlr/grammars-v4/blob/master/python3/Python3.g4)
