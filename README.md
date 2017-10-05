@@ -55,6 +55,7 @@ the following activities slow:
 ### Version History
 
 *TODOs* 
+* Create a Java wrapper for the tool (requested by @Chris2011)
 
 #### Feature requests ####
 *0.0.6* TBD
