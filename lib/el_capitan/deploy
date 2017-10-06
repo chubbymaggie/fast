@@ -1,4 +1,4 @@
-v=0.0.2
+v=0.0.6
 git push && make -f Makefile.in release
 ln -sf el_capitan osx
 if [ -f /usr/local/bin/fast ]; then brew uninstall fast; fi
