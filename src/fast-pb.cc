@@ -1130,25 +1130,25 @@ void saveTxtFromPB(char *input_file, char *output_file) {
 		fast::Element unit = data.element();
 		const char *filename = unit.unit().filename().c_str();
 		if (json && jq && output_file==NULL) {
-			sprintf(buf, "python " + prefix() + "/share/fast-json.py %s | jq \"%s\"", 
+			sprintf(buf, (string("python ") + prefix() + "/share/fast-json.py %s | jq \"%s\"").c_str(), 
 				input_file, jq_query.c_str());
 		} else if (json) {
-			sprintf(buf, "python " + prefix() + "/share/fast-json.py %s %s %s", 
+			sprintf(buf, (string("python ") + prefix() + "/share/fast-json.py %s %s %s").c_str(), 
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
 		} else {
-			sprintf(buf, "cat %s | protoc -I" + prefix() + "/share --decode=fast.Data " + prefix() + "/share/fast.proto %s %s", 
+			sprintf(buf, (string("cat %s | protoc -I") + prefix() + "/share --decode=fast.Data " + prefix() + "/share/fast.proto %s %s").c_str(), 
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
 		}
 		(void) system(buf);
 	} else {
 		if (json && jq && output_file==NULL) {
-			sprintf(buf, "python " + prefix() + "/share/fast-json.py %s | jq \"%s\"", 
+			sprintf(buf, (string("python ") + prefix() + "/share/fast-json.py %s | jq \"%s\"").c_str(), 
 				input_file, jq_query.c_str());
 		} else if (json) {
-			sprintf(buf, "python " + prefix() + "/share/fast-json.py %s %s %s", 
+			sprintf(buf, (string("python ") + prefix() + "/share/fast-json.py %s %s %s").c_str(), 
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
 		} else {
-			sprintf(buf, "cat %s | protoc -I" + prefix() + "/share --decode=fast.Data " + prefix() + "/share/fast.proto%s%s",
+			sprintf(buf, (string("cat %s | protoc -I") + prefix() + "/share --decode=fast.Data " + prefix() + "/share/fast.proto%s%s").c_str(),
 				input_file, (output_file==NULL? "" : ">"), (output_file==NULL? "": output_file));
 		}
 		(void) system(buf);
@@ -1167,24 +1167,24 @@ void saveTxtFromPB(char *input_file) {
 }
 void savePBfromTxt(char *input_file) {
 	char buf[100];
-	sprintf(buf, "cat %s | protoc -I" + prefix() + "/share --encode=fast.Data " + prefix() + "/share/fast.proto", input_file);
+	sprintf(buf, (string("cat %s | protoc -I") + prefix() + "/share --encode=fast.Data " + prefix() + "/share/fast.proto").c_str(), input_file);
 	(void) system(buf);
 }
 void savePBfromTxt(char *input_file, char *output_file) {
 	char buf[1000];
-	sprintf(buf, "cat %s | protoc -I" + prefix() + "/share --encode=fast.Data " + prefix() + "/share/fast.proto > %s", input_file, output_file);
+	sprintf(buf, (string("cat %s | protoc -I") + prefix() + "/share --encode=fast.Data " + prefix() + "/share/fast.proto > %s").c_str(), input_file, output_file);
 	(void) system(buf);
 }
 
 void savePBfromPickle(char *input_file, char *output_file) {
 	char buf[1000];
-	sprintf(buf, "python " + prefix() + "/lib/python2.7/site-packages/fast-pickle.py %s %s", input_file, output_file);
+	sprintf(buf, (string("python ") + prefix() + "/lib/python2.7/site-packages/fast-pickle.py %s %s").c_str(), input_file, output_file);
 	(void) system(buf);
 }
 
 void savePickleFromPB(char *input_file, char *output_file) {
 	char buf[1000];
-	sprintf(buf, "python " + prefix() + "/lib/python2.7/site-packages/fast-pickle.py %s %s", input_file, output_file);
+	sprintf(buf, (string("python ") + prefix() + "/lib/python2.7/site-packages/fast-pickle.py %s %s").c_str(), input_file, output_file);
 	(void) system(buf);
 }
 
