@@ -44,6 +44,8 @@ void saveTxtFromPB(char *input_file);
 void saveTxtFromPB(char *input_file, char *output_file);
 void savePBfromTxt(char *input_file);
 void savePBfromTxt(char *input_file, char *output_file);
+void savePickleFromPB(char *input_file, char *output_file);
+void savePBfromPickle(char *input_file, char *output_file);
 int loadPB(int load_only, int argc, char **argv);
 int loadFBS(int load_only, int argc, char **argv);
 int loadXML(int load_only, int argc, char**argv);
@@ -90,8 +92,12 @@ int mainRoutine(int argc, char* argv[]) {
 	  if (decode && argc == 2) {
 	    saveTxtFromPB(argv[1]);
 	    return 0;
-	  } else if (decode && argc == 3) {
-	    saveTxtFromPB(argv[1], argv[2]);
+	  } else if (argc == 3) {
+	    if (strcmp(argv[2]+strlen(argv[2])-4, ".pkl")==0 || strcmp(argv[2]+strlen(argv[2])-7, ".pickle")==0) {
+		    savePickleFromPB(argv[1], argv[2]);
+	    } else if (decode && argc == 3) {
+		    saveTxtFromPB(argv[1], argv[2]);
+	    }
 	    return 0;
 	  }
 	  assert(strcmp(argv[1], "")!=0);
@@ -104,7 +110,12 @@ int mainRoutine(int argc, char* argv[]) {
 	    savePBfromTxt(argv[1]);
 	  }
 	  return 0;
-   }
+   } else if (strcmp(argv[1]+strlen(argv[1])-4, ".pkl")==0 || strcmp(argv[1]+strlen(argv[1])-7, ".pickle")==0) {
+	  if (argc == 3) {
+	    savePBfromPickle(argv[1], argv[2]);
+	  }
+	  return 0;
+   }  
 #endif
 #ifdef FBS_fast
    if (strcmp(argv[1]+strlen(argv[1])-4, ".fbs")==0)
@@ -121,7 +132,7 @@ int main(int argc, char* argv[]) {
   int c;
 
   optind = 1;
-  optarg = "";
+  optarg = (char *) "";
   opterr = 0;
   decode = 0;
   position = 0;

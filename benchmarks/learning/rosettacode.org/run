@@ -1,0 +1,19 @@
+#!/bin/bash
+function ext() {
+ case $1 in
+C) echo .c ;;
+C++) echo .cpp ;;
+Python) echo .py ;;
+ esac
+}
+export -f ext
+
+for a in Quicksort; do
+  for l in C C++ Python; do
+	f=$l/$a$(ext $l)
+	if [ ! -f $f.pickle ]; then
+		fast $f $f.pb
+		fast $f.pb $f.pickle
+	fi
+  done
+done
