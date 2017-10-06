@@ -57,8 +57,12 @@ the following activities slow:
 #### Feature requests ####
 *TODOs* 
 * Create a Java wrapper for the tool (requested by @Chris2011)
+* Merge Python grammar with SrcML grammar to allow slicing python
 
-*0.0.6* TBD
+*0.0.7* TBD
+
+
+*0.0.6* (October 5, 2017)
 * Created an Python3 parser in C++ based on the [official ANTLR4 grammar in Java](https://github.com/antlr/grammars-v4/blob/master/python3/Python3.g4)
   and extended the FAST schema accordingly, merging the branch `python3';
   Currenly error handling feature is turned off.
