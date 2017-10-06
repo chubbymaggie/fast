@@ -3,7 +3,7 @@
 | Contributors | Expertise |
 | ---------------------- |:-------------:| 
 | Bram Adams 		         |program slicing|
-| Duy Quoc Nghi Bui 	   |clone detection|
+| [Duy Quoc Nghi Bui](https://bdqnghi.github.io) 	   |clone detection|
 | Xiaohong Chen 	|OO Analysis and Design|
 | Tezcan Dilshener |bug localisation|
 | Julian Harty 		       |mobile analytics|
@@ -16,7 +16,7 @@
 | Thein Than Tun		|meaningful change detection|
 | Meng Wang		|bidirectional programming|
 | Michel Wermelinger		|bug localisation|
-| Yijun Yu		|compiler optimization|
+| [Yijun Yu](http://mcs.open.ac.uk/yy66)		|compiler optimization|
 
 ## Acknowledgement
 Our tool cannot be made without standing on the shoulders of these great tools:

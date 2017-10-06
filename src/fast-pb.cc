@@ -1151,6 +1151,18 @@ void savePBfromTxt(char *input_file, char *output_file) {
 	(void) system(buf);
 }
 
+void savePBfromPickle(char *input_file, char *output_file) {
+	char buf[1000];
+	sprintf(buf, "python /usr/local/lib/python2.7/site-packages/fast-pickle.py %s %s", input_file, output_file);
+	(void) system(buf);
+}
+
+void savePickleFromPB(char *input_file, char *output_file) {
+	char buf[1000];
+	sprintf(buf, "python /usr/local/lib/python2.7/site-packages/fast-pickle.py %s %s", input_file, output_file);
+	(void) system(buf);
+}
+
 void saveXMLfromPB(fstream & out, fast::Element *element) {
 	string tag;
 	string attr;

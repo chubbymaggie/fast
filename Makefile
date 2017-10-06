@@ -1,5 +1,5 @@
-V0=0.0.4
-V=0.0.5
+V0=0.0.5
+V=0.0.6
 
 target+=fast
 target+=src/gen.pb/src/main/java/fast/Fast.java
@@ -128,7 +128,7 @@ fast_objects += slice-diff.o
 fast: $(fast_objects) 
 	$(CXX) $(OPT) $(CFLAGS) $^ $(PB_LIB) $(FBS_LIB) $(SRCSAX_LIB) $(LDFLAGS) -o $@
 
-install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Example.class lib/gumtree-2.1.0-SNAPSHOT.zip
+install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/fast-pickle.py src/intt-0.2.0/Example.class lib/gumtree-2.1.0-SNAPSHOT.zip
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
@@ -138,7 +138,8 @@ install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/intt-0.2.0/Exa
 	install -m 0644 src/intt-0.2.0/intt.jar $(DESTDIR)$(prefix)/lib/intt.jar
 	install -m 0644 fast.proto $(DESTDIR)$(prefix)/share/fast.proto
 	install -m 0644 src/fast-json.py $(DESTDIR)$(prefix)/share/fast-json.py
-	install -m 0644 src/gen/fast_pb2.py $(DESTDIR)$(prefix)/share/fast_pb2.py
+	install -m 0644 src/gen/fast_pb2.py $(DESTDIR)$(prefix)/lib/python2.7/site-packages/fast_pb2.py
+	install -m 0644 src/fast-pickle.py $(DESTDIR)$(prefix)/lib/python2.7/site-packages/fast-pickle.py
 	install -m 0644 src/protobuf/json_format.py $(DESTDIR)$(prefix)/share/json_format.py
 	unzip -o lib/gumtree-2.1.0-SNAPSHOT.zip -d $(DESTDIR)$(prefix)/
 	cp -r $(DESTDIR)$(prefix)/gumtree-*-2.1.0-SNAPSHOT/* $(DESTDIR)$(prefix)/
