@@ -95,10 +95,11 @@ int mainRoutine(int argc, char* argv[]) {
 	  } else if (argc == 3) {
 	    if (strcmp(argv[2]+strlen(argv[2])-4, ".pkl")==0 || strcmp(argv[2]+strlen(argv[2])-7, ".pickle")==0) {
 		    savePickleFromPB(argv[1], argv[2]);
+		    return 0;
 	    } else if (decode && argc == 3) {
 		    saveTxtFromPB(argv[1], argv[2]);
+		    return 0;
 	    }
-	    return 0;
 	  }
 	  assert(strcmp(argv[1], "")!=0);
 	  return loadPB(load_only, argc, argv);

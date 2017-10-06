@@ -132,6 +132,7 @@ install: fast fast.proto install-srcslice src/gen/fast_pb2.py src/fast-pickle.py
 	mkdir -p $(DESTDIR)$(prefix)/bin
 	mkdir -p $(DESTDIR)$(prefix)/lib
 	mkdir -p $(DESTDIR)$(prefix)/share
+	mkdir -p $(DESTDIR)$(prefix)/lib/python2.7/site-packages
 	install -m 0755 fast $(DESTDIR)$(prefix)/bin/fast
 	install -m 0755 bin/apk2pb $(DESTDIR)$(prefix)/bin/apk2pb
 	install -m 0644 src/intt-0.2.0/Example.class $(DESTDIR)$(prefix)/lib/Example.class
