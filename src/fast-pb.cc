@@ -885,12 +885,6 @@ void mergePBpatch(fast::Element *a) {
 
 void mergePBNewLineOne(fast::Element *added_element) {
 	if (HIGHLIGHT_CHANGE) return;
-	if (added_element->text() == "\n") {
-		added_element->set_text("$\n$");
-	}
-	if (added_element->tail() == "\n") {
-		added_element->set_tail("$\n$");
-	}
 	for (int i=0; i<added_element->child().size(); i++) {
 		fast::Element *child = added_element->mutable_child(i);
 		mergePBNewLineOne(child);
@@ -922,6 +916,29 @@ void mergePBaddedOne(fast::Element *to_add, fast::Element *b) {
 
 void mergePBadded(fast::Element *to_add, fast::Element *b) {
 	mergePBaddedOne(to_add, b);
+}
+
+void fixPBwrapEOLone(fast::Element *e) {
+	if (e->text() == "\n") {
+		e->set_text("$\n$");
+	}
+	if (e->tail() == "\n") {
+		e->set_tail("$\n$");
+	}
+	if (e->text() == "\t") {
+		e->set_text("$\t$");
+	}
+	if (e->tail() == "\t") {
+		e->set_tail("$\t$");
+	}
+	for (int i=0; i<e->child().size(); i++) {
+		fast::Element *child = e->mutable_child(i);
+		fixPBwrapEOLone(child);
+	}
+}
+
+void fixPBwrapEOL(fast::Element *e) {
+	fixPBwrapEOLone(e);
 }
 
 void savePBelement(const char *filename, fast::Element* element) {
@@ -1049,6 +1066,7 @@ int loadPB(int load_only, int argc, char **argv) {
 	createIdMap(merged, &src_map, &src_imap);
 	mergePBpatch(merged);
 	mergePBadded(merged, dst_data.mutable_element());
+	fixPBwrapEOL(merged);
 	if (merged!=NULL) {
 		string output_filename = argv[1];
 		output_filename = output_filename + "-patched" + ".pb";
