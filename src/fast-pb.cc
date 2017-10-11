@@ -919,17 +919,25 @@ void mergePBadded(fast::Element *to_add, fast::Element *b) {
 }
 
 void fixPBwrapEOLone(fast::Element *e) {
-	if (e->text() == "\n") {
-		e->set_text("$\n$");
+	if (e->text().find("\n")!=string::npos) {
+		string text = e->text();
+		replace_all(&text, "\n", "$\n$");
+		e->set_text(text);
 	}
-	if (e->tail() == "\n") {
-		e->set_tail("$\n$");
+	if (e->tail().find("\n")!=string::npos) {
+		string text = e->tail();
+		replace_all(&text, "\n", "$\n$");
+		e->set_tail(text);
 	}
-	if (e->text() == "\t") {
-		e->set_text("$\t$");
+	if (e->text().find("\t")!=string::npos) {
+		string text = e->text();
+		replace_all(&text, "\t", "$\t$");
+		e->set_text(text);
 	}
-	if (e->tail() == "\t") {
-		e->set_tail("$\t$");
+	if (e->tail().find("\t")!=string::npos) {
+		string text = e->tail();
+		replace_all(&text, "\t", "$\t$");
+		e->set_tail(text);
 	}
 	for (int i=0; i<e->child().size(); i++) {
 		fast::Element *child = e->mutable_child(i);

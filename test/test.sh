@@ -1886,7 +1886,7 @@ testDiff() {
 	$fast Hello2.java Hello2.pb
 	stdout 6005faec7abf6e1061030b461ea2f7b3384f5ae38363fb4892650ace8ee27dc1 -D Hello1.pb Hello2.pb
 	$fast Hello1=Hello2-diff.pb-patched.pb Hello.patch.xml
-	catout 3db59b9aee2ee8e06f7bfdac2d1f03f28d94630954a5817cf31a823762d6090f Hello.patch.xml
+	catout ccac878975fc8b99b8d818725cd706fabfe36328f44afc838bf6db33c0d92c22 Hello.patch.xml
 }
 
 testUML() {
