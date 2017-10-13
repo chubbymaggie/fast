@@ -61,6 +61,7 @@ the following activities slow:
 
 *0.0.7* TBD
 
+* Generate Pickle AST from FAST representation using flatbuffers
 
 *0.0.6* (October 5, 2017)
 * Created an Python3 parser in C++ based on the [official ANTLR4 grammar in Java](https://github.com/antlr/grammars-v4/blob/master/python3/Python3.g4)
