@@ -59,8 +59,10 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 ### Convert binary AST back and forth to Pickle (the binary AST specific to Python)
 
   $ fast Hello.pb Hello.pickle
+  $ fast Hello.pb Hello.pkl
 
   $ fast Hello.pickle Hello.pb
+  $ fast Hello.pkl Hello.pb
 
 ### Print the textual representation of the protocol buffer using the generated fAST schema.
 
