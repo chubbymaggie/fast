@@ -28,6 +28,7 @@ int loadSrcML(int load_only, int argc, char **argv) {
 	string xml_filename;
 	bool is_smali = false;
 	bool is_python = false;
+	bool is_solidity = false;
 	char *my_argv[6];
 	for (int i = 1; i < (argc == 2? 2 : argc - 1); i++) { // process the inputs, and reserve the last argument as output
 		if (!check_exists(argv[i])) {
@@ -40,7 +41,8 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		}
 		is_smali = strcmp(argv[i]+strlen(argv[i])-6, ".smali")==0;
 		is_python = strcmp(argv[i]+strlen(argv[i])-3, ".py")==0;
-		if (is_smali || is_python) {
+		is_solidity = strcmp(argv[i]+strlen(argv[i])-4, ".sol")==0;
+		if (is_smali || is_python || is_solidity) {
 			my_argv[0] = argv[0];
 			my_argv[1] = argv[i];
 		}
@@ -97,6 +99,11 @@ int loadSrcML(int load_only, int argc, char **argv) {
 		} else if (is_python) {
 			my_argv[2] = argv[argc-1];
 			return Python3MainRoutine(3, my_argv);
+		} else if (is_solidity && argc == 2) {
+			return SolidityMainRoutine(2, my_argv);
+		} else if (is_solidity) {
+			my_argv[2] = argv[argc-1];
+			return SolidityMainRoutine(3, my_argv);
 		}
 		if (!process && !slicediff) {
 			srcmlCommand = srcmlCommand + " -o " + xml_filename;
