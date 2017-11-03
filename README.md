@@ -60,7 +60,9 @@ the following activities slow:
 * Merge Python grammar with SrcML grammar to allow slicing python
 * Generate Pickle AST from FAST representation using flatbuffers
 
-*0.0.7* TBD
+*0.0.8* TBD
+
+*0.0.7* (November 3, 2017)
 * Integrated with bi-tbcnn
 * Supported [Solidity](https://github.com/solidityj/solidity-antlr4) grammar
 
