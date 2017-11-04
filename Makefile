@@ -1,5 +1,5 @@
-V0=0.0.5
-V=0.0.6
+V0=0.0.6
+V=0.0.7
 
 target+=fast
 target+=src/gen.pb/src/main/java/fast/Fast.java
@@ -45,8 +45,7 @@ endif
 
 CFLAGS+=-std=c++11 -DPB_fast -DFBS_fast -Isrc/gen
 CFLAGS+=-Isrc -Isrc/rapidxml -Isrc/srcyuml -Isrc/srcslice -I/usr/include -I/usr/local/include $(shell xml2-config --cflags)
-CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
-CFLAGS+=-IPython3/src/antlr4/python3 -IPB/src/antlr4/pb $(ANTLR4_INCLUDE)
+CFLAGS+=-Ismali/src/antlr4/smali -IPB/src/antlr4/pb -IPython3/src/antlr4/python3 -ISolidity/src/antlr4/solidity $(ANTLR4_INCLUDE)
 CFLAGS+=-I/usr/local/include/xlnt
 
 LDFLAGS+=$(ANTLR4_LIB)
@@ -61,7 +60,6 @@ fast.pb.o: src/gen/fast.pb.cc
 
 %.o: src/antlr4/smali/%.cpp
 	$(CXX) $(OPT) $(CFLAGS) -c $^
-
 
 smali/src/antlr4/smali/smaliParser.cpp smali/src/antlr4/smali/smaliParser.h smali/src/antlr4/smali/smaliParserListener.cpp smali/src/antlr4/smali/smaliParserBaseListener.cpp: src/antlr4/smali/smaliParser.g4
 	$(ANTLR4) -o smali -Dlanguage=Cpp $^
@@ -78,6 +76,15 @@ smali/src/antlr4/smali/smaliLexer.cpp smali/src/antlr4/smali/smaliLexer.h smali/
 Python3/src/antlr4/python3/Python3Parser.cpp Python3/src/antlr4/python3/Python3Lexer.cpp Python3/src/antlr4/python3/Python3Parser.h Python3/src/antlr4/python3/Python3Lexer.h: src/antlr4/python3/Python3.g4
 	$(ANTLR4) -o Python3 -Dlanguage=Cpp $^
 
+%.o: Solidity/src/antlr4/solidity/%.cpp
+	$(CXX) $(OPT) $(CFLAGS) -c $^
+
+%.o: src/antlr4/solidity/%.cpp
+	$(CXX) $(OPT) $(CFLAGS) -c $^
+
+Solidity/src/antlr4/solidity/SolidityParser.cpp Solidity/src/antlr4/solidity/SolidityLexer.cpp Solidity/src/antlr4/solidity/SolidityParser.h Solidity/src/antlr4/solidity/SolidityLexer.h: src/antlr4/solidity/Solidity.g4
+	$(ANTLR4) -o Solidity -Dlanguage=Cpp $^
+
 %.o: PB/src/antlr4/pb/%.cpp
 	$(CXX) -c $(CFLAGS) $^
 
@@ -92,6 +99,7 @@ fast-pb.o: src/gen/fast.pb.h src/gen/fast_generated.h
 fast-fbs.o: src/gen/fast_generated.h
 smali.o: smali/src/antlr4/smali/smaliLexer.h
 python.o: Python3/src/antlr4/python3/Python3Lexer.h
+solidity.o: Solidity/src/antlr4/solidity/SolidityLexer.h
 PB.o: PB/src/antlr4/pb/PBLexer.h
 srcSliceHandler.o: src/srcslice/srcSliceHandler.hpp src/gen/fast.pb.h src/gen/fast_generated.h
 srcSlice.o: src/gen/fast.pb.h src/gen/fast_generated.h
@@ -100,6 +108,7 @@ slice-diff.o: src/gen/fast.pb.h src/gen/fast_generated.h
 process.o: src/gen/fast.pb.h src/gen/fast_generated.h
 smali.o: src/gen/fast.pb.h src/gen/fast_generated.h
 python.o: src/gen/fast.pb.h src/gen/fast_generated.h
+solidity.o: src/gen/fast.pb.h src/gen/fast_generated.h
 
 fast-$V.tar.gz:
 ifeq ($(UNAME_S),Linux)
@@ -121,6 +130,7 @@ fast_objects += srcSlice.o srcSliceHandler.o srcslice_output.o
 fast_objects += git.o 
 fast_objects += smaliLexer.o smaliParser.o smaliParserListener.o smaliParserBaseListener.o smali.o 
 fast_objects += Python3Parser.o Python3Lexer.o python.o 
+fast_objects += SolidityParser.o SolidityLexer.o solidity.o 
 #fast_objects += PB.o PBLexer.o PBParser.o PBListener.o PBBaseListener.o
 fast_objects += process.o
 fast_objects += slice-diff.o
@@ -229,7 +239,7 @@ src/gen.pb/src/main/java/_fast/Data.java: fast.fbs
 	mkdir -p src/gen.pb/src/main/java
 	$(flatc) --java -o src/gen.pb/src/main/java fast.fbs
 
-src/schema/fast.proto.in: ElementType.proto Smali.proto Python3.proto \
+src/schema/fast.proto.in: ElementType.proto Smali.proto Python3.proto Solidity.proto \
 	Unit.proto Literal.proto \
 	log.proto
 
@@ -334,7 +344,7 @@ test:: install
 	cd test && ./test.sh
 
 coverage::
-	coveralls --exclude /Applications --exclude /usr --exclude Python3 --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/srcyuml --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'
+	coveralls --exclude /Applications --exclude /usr --exclude Solidity --exclude Python3 --exclude smali --exclude PB --exclude src/rapidxml --exclude antlr4-cpp-runtime --exclude benchmarks --exclude test --exclude lib --exclude src/antlr4-runtime --exclude src/srcslice --exclude src/srcyuml --exclude src/gen --exclude srcSlice --gcov-options '\-lp fast'
 	rm -f *.gcov
 
 clean::
@@ -345,4 +355,4 @@ clean::
 	rm -rf fast_*-1* fast-*
 	rm -f *.gcno *.gcov *.gcda
 	rm -rf fast.info index*.html *.png v1/ gcov.css Users usr
-	rm -rf PB smali Python3 src/gen
+	rm -rf PB smali Python3 Solidity src/gen

@@ -919,22 +919,22 @@ void mergePBadded(fast::Element *to_add, fast::Element *b) {
 }
 
 void fixPBwrapEOLone(fast::Element *e) {
-	if (e->text().find("\n")!=string::npos) {
+	if (e->text()!="" && e->text().find("\n")!=string::npos) {
 		string text = e->text();
 		replace_all(&text, "\n", "$\n$");
 		e->set_text(text);
 	}
-	if (e->tail().find("\n")!=string::npos) {
+	if (e->tail()!="" && e->tail().find("\n")!=string::npos) {
 		string text = e->tail();
 		replace_all(&text, "\n", "$\n$");
 		e->set_tail(text);
 	}
-	if (e->text().find("\t")!=string::npos) {
+	if (e->text()!="" && e->text().find("\t")!=string::npos) {
 		string text = e->text();
 		replace_all(&text, "\t", "$\t$");
 		e->set_text(text);
 	}
-	if (e->tail().find("\t")!=string::npos) {
+	if (e->tail()!="" && e->tail().find("\t")!=string::npos) {
 		string text = e->tail();
 		replace_all(&text, "\t", "$\t$");
 		e->set_tail(text);

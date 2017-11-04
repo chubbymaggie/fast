@@ -58,10 +58,13 @@ the following activities slow:
 *TODOs* 
 * Create a Java wrapper for the tool (requested by @Chris2011)
 * Merge Python grammar with SrcML grammar to allow slicing python
-
-*0.0.7* TBD
-
 * Generate Pickle AST from FAST representation using flatbuffers
+
+*0.0.8* TBD
+
+*0.0.7* (November 3, 2017)
+* Integrated with bi-tbcnn
+* Supported [Solidity](https://github.com/solidityj/solidity-antlr4) grammar
 
 *0.0.6* (October 5, 2017)
 * Created an Python3 parser in C++ based on the [official ANTLR4 grammar in Java](https://github.com/antlr/grammars-v4/blob/master/python3/Python3.g4)

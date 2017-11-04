@@ -38,6 +38,7 @@ extern bool check_exists(const std::string& name);
 extern int mainRoutine(int argc, char* argv[]);
 extern int smaliMainRoutine(int argc, char** argv);
 extern int Python3MainRoutine(int argc, char** argv);
+extern int SolidityMainRoutine(int argc, char** argv);
 extern int main(int argc, char** argv);
 extern int pbMainRoutine(int argc, const char* argv[]);
 extern int processMainRoutine(int argc, char**argv);

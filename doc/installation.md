@@ -11,10 +11,12 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 ## Installation
 
-It is recommended to use [docker](https://www.docker.com). First [install docker](https://docs.docker.com/engine/installation/), then simply enter
-the following command:
+It is recommended to use [docker](https://www.docker.com). First [install docker](https://docs.docker.com/engine/installation/), then 
+enter the following commands:
 ```
-	$ docker run -w /examples -v$(pwd)/test:/examples -it yijun/fast
+	$ docker pull yijun/fast
+	$ docker tag yijun/fast fast
+	$ docker run -w /examples -v$(pwd)/test:/examples -it fast fast -v
 ```
 If this is the first time running the above command, you will see some downloading processes.  
 After the installation is done, you will be prompted to enter `fast` commands. 
